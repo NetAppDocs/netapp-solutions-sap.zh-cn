@@ -1,0 +1,10 @@
+---
+section: briefs
+title: 解决方案简介
+entries:
+- title: SAP HANA 生命周期管理
+  url: https://www.netapp.com/us/media/sb-3978.pdf
+- title: SAP HANA 备份恢复
+  url: https://www.netapp.com/us/media/sb-3965.pdf
+- title: SAP HANA 灾难恢复
+  url: https://www.netapp.com/us/media/sb-3968.pdf

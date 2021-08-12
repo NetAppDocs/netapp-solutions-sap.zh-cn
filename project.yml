@@ -1,0 +1,11 @@
+---
+sidebar:
+  entries:
+  - title: SAP 解决方案
+    url: "/index.html"
+  - section: bp
+  - section: backup
+  - section: lifecycle
+  - section: briefs
+  - title: NetApp 解决方案
+    url: https://docs.netapp.com/us-en/netapp-solutions/
