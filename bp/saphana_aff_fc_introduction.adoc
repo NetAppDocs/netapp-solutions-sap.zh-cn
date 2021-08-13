@@ -33,9 +33,9 @@ NOTE: 要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采�
 
 有关使用 NFS 和 NetApp FAS 系统的 AFF 系统的配置指南，请访问以下链接：
 
-* https://docs.netapp.com/us-en/netapp-solutions_main/ent-apps-db/saphana_fas_fc_introduction.html["基于采用 FCP 的 NetApp FAS 系统的 SAP HANA"^]
-* https://docs.netapp.com/us-en/netapp-solutions_main/ent-apps-db/saphana-fas-nfs_introduction.html["基于采用 NFS 的 NetApp FAS 系统的 SAP HANA"^]
-* https://docs.netapp.com/us-en/netapp-solutions_main/ent-apps-db/saphana_aff_nfs_introduction.html["基于采用 NFS 的 NetApp AFF 系统的 SAP HANA"^]
+* https://docs.netapp.com/us-en/netapp-solutions-sap_main/bp/saphana_fas_fc_introduction.html["基于采用 FCP 的 NetApp FAS 系统的 SAP HANA"^]
+* https://docs.netapp.com/us-en/netapp-solutions-sap_main/bp/saphana-fas-nfs_introduction.html["基于采用 NFS 的 NetApp FAS 系统的 SAP HANA"^]
+* https://docs.netapp.com/us-en/netapp-solutions-sap_main/bp/saphana_aff_nfs_introduction.html["基于采用 NFS 的 NetApp AFF 系统的 SAP HANA"^]
 
 
 在 SAP HANA 多主机环境中，标准 SAP HANA 存储连接器用于在发生 SAP HANA 主机故障转移时提供隔离。有关操作系统配置准则和 HANA 专用 Linux 内核依赖关系，请始终参考相关 SAP 注释。有关详细信息，请参见 https://launchpad.support.sap.com/["SAP 注释 2235581 — SAP HANA 支持的操作系统"^]。
@@ -58,7 +58,7 @@ image:saphana_aff_fc_image1.png["错误：缺少图形映像"]
 
 = 使用 VMware vSphere 的 SAP HANA
 
-可以通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。中介绍了此选项 link:https://review.docs.netapp.com/us-en/netapp-solutions_main/ent-apps-db/saphana_aff_nfs_introduction.html["基于采用 NFS 的 NetApp AFF 系统的 SAP HANA"]。
+可以通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。中介绍了此选项 link:https://review.docs.netapp.com/us-en/netapp-solutions-sap_main/bp/saphana_aff_nfs_introduction.html["基于采用 NFS 的 NetApp AFF 系统的 SAP HANA"]。
 
 此外，还支持原始设备映射（ RDM ）， FCP 数据存储库或具有 FCP 的 VVol 数据存储库。对于这两个数据存储库选项，数据存储库中只能存储一个 SAP HANA 数据或日志卷，以便在高效使用情形下使用。此外，无法实施由 SnapCenter 和基于此的解决方案协调的基于 Snapshot 的备份和恢复，例如 SAP 系统克隆。
 

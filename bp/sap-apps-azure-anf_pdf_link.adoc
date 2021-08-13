@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: bp/sap-apps-azure-anf_pdf_link.html 
+keywords: tr-4746, pdf, sap, applications, apps, hana, azure netapp files 
+summary: TR-4746 提供了使用适用于 SAP 应用程序的 Azure NetApp Files 和 SAP HANA 部署的最佳实践。此外，还详细介绍了从 SAP 共享文件系统到完整 SAP HANA 部署的不同使用情形，以及基于 Azure NetApp Files 的 SAP HANA 的特定性能，数据保护和迁移注意事项。 
+---
+= TR-4746 ：《 Microsoft Azure 上的 SAP 应用程序》
+:firstname: : hardbreaks:
+:author: : hardbreaks:
+:authorinitials: :
+:authors: : hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+Nils Bauser ， Tobias Brandl ， Bernd Herth ， Kevin Morris ， Geert Van Teylingen NetApp 将于 Bratton ， Ralf Klahrh ， Amish Patel ， Jugeren Thomas Microsoft 等人担任此类人员
+
+TR-4746 提供了使用适用于 SAP 应用程序的 Azure NetApp Files 和 SAP HANA 部署的最佳实践。此外，还详细介绍了从 SAP 共享文件系统到完整 SAP HANA 部署的不同使用情形，以及基于 Azure NetApp Files 的 SAP HANA 的特定性能，数据保护和迁移注意事项。
+
+link:https://www.netapp.com/pdf.html?item=/media/17152-tr4746.pdf["https://www.netapp.com/pdf.html?item=/media/17152-tr4746.pdf"]

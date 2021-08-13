@@ -1042,9 +1042,7 @@
   <block id="a08e3f55ac1bf243274ee454a477749b" category="admonition">要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采用本文所述的配置。更改此处未列出的任何设置或使用的功能可能会导致发生原因性能下降或出现意外行为，只有在 NetApp 支持人员建议的情况下，才应执行此操作。</block>
   <block id="9ba59bf1b64e9d129b41dbb49f3c385f" category="paragraph">有关使用 NFS 和 NetApp FAS 系统的 AFF 系统的配置指南，请访问以下链接：</block>
   <block id="6e309be8793679276c5f6a7bdd2bfdfa" category="inline-link">基于采用 FCP 的 NetApp FAS 系统的 SAP HANA</block>
-  <block id="a97b81af827cac8f6fc96ff5fd050cef" category="list-text"><block ref="a97b81af827cac8f6fc96ff5fd050cef" category="inline-link-rx"></block></block>
   <block id="794aa68d1e6abb7bdd6b9ecf4a1125fd" category="inline-link">基于采用 NFS 的 NetApp FAS 系统的 SAP HANA</block>
-  <block id="67e6170d592e035f22adeaeafd8e5bf0" category="list-text"><block ref="67e6170d592e035f22adeaeafd8e5bf0" category="inline-link-rx"></block></block>
   <block id="4300aba024439d53329726e8ecb7f77b" category="list-text"><block ref="4300aba024439d53329726e8ecb7f77b" category="inline-link-rx"></block></block>
   <block id="5f6e041a9634120ceb1ee084f6acde8a" category="inline-link">SAP 注释 2235581 — SAP HANA 支持的操作系统</block>
   <block id="10fba2fd8d2b0860517a92eefbfce26b" category="paragraph">在 SAP HANA 多主机环境中，标准 SAP HANA 存储连接器用于在发生 SAP HANA 主机故障转移时提供隔离。有关操作系统配置准则和 HANA 专用 Linux 内核依赖关系，请始终参考相关 SAP 注释。有关详细信息，请参见<block ref="362348e4aadbc3b1dc4fa3ddcce8fb65" category="inline-link-rx"></block>。</block>
@@ -1055,7 +1053,6 @@
   <block id="14a31d6554fa48b10cc86d1aaf656a07" category="inline-link">SAP HANA 定制数据中心集成常见问题解答</block>
   <block id="9282f2106e2ecc166cf241e78c58163e" category="list-text"><block ref="9282f2106e2ecc166cf241e78c58163e" category="inline-link-rx"></block></block>
   <block id="44cbaf598c2b8895a3d3a875dd63203f" category="list-text"><block ref="44cbaf598c2b8895a3d3a875dd63203f" category="inline-link-rx"></block></block>
-  <block id="81a6e6e2054e1487904d95d256858b04" category="paragraph">可以通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。中介绍了此选项 <block ref="846cdc8efe03205214c60d3335302f99" category="inline-link-macro-rx"></block>。</block>
   <block id="677ab22de36ea7a11313727ef07c5d64" category="inline-link-macro">先前版本：为 SAP HANA 单主机系统添加其他数据卷分区。</block>
   <block id="8743d46cf40e9841fd4d7a036d38956c" category="paragraph"><block ref="8743d46cf40e9841fd4d7a036d38956c" category="inline-link-macro-rx"></block></block>
   <block id="156ab83547a69207813015793bfe2332" category="paragraph"><block ref="156ab83547a69207813015793bfe2332" category="inline-link-rx"></block></block>
@@ -1911,10 +1908,7 @@
   <block id="c8ff9dc5c718603eec8564e06ee7b058" category="sidebar">《采用 FCP 的 FAS 系统上的 SAP HANA 配置指南》</block>
   <block id="f2d541ac92b4dd83f2be5b932a057952" category="sidebar">基于 VMware vSphere 和 NetApp FAS 以及全闪存 FAS 系统的 SAP HANA</block>
   <block id="00495563450af6bcde40cb96d650076e" category="sidebar">基于 IBM Power Systems 的 SAP HANA 和采用 NFS 的 NetApp AFF 系统</block>
-  <block id="0a2866cc3e2ba203c7e2e3ebeca395be" category="sidebar">SAP 与基于 UNIX 的 Oracle 以及 NFS 与 NetApp 集群模式 Data ONTAP</block>
-  <block id="89447eb7454239e11376250fa04a88f7" category="sidebar">SAP 与使用集群模式 Data ONTAP 的 Windows 上的 Microsoft SQL Server</block>
   <block id="d5d6ed7727f0e542e6846a58af1d02ba" category="sidebar">SAP HANA 生命周期管理</block>
-  <block id="860f557086688c7e6d76bea17bc3f84b" category="sidebar">SAP HANA 备份恢复</block>
   <block id="68cc439f4e585883d2aaa26a4e3bcef2" category="sidebar">SAP HANA 灾难恢复</block>
   <block id="fa532045e834ec2fac1200964a189516" category="sidebar">生命周期管理</block>
   <block id="1e83c49aed775d711f6d1a9a0a6a7060" category="sidebar">使用 SnapCenter SAP HANA 插件自动化 SAP 系统副本</block>
@@ -1926,8 +1920,89 @@
   <block id="6db8771af1e20f8b4493135fb9b2465f" category="sidebar">灾难恢复故障转移概述</block>
   <block id="f41a551d63cd5cff04cf3c09ee2c3dea" category="sidebar">使用 SnapCenter 实现 SAP HANA 备份和恢复</block>
   <block id="dd0dec62b557e33c38d24dc3cbaed4bc" category="sidebar">使用存储复制实现 SAP HANA 灾难恢复</block>
-  <block id="d3d2800b62efdcf08b498a4f144f186d" category="sidebar">使用 SnapCenter 进行 SAP HANA 系统复制，备份和恢复</block>
   <block id="fceb9e9a7a8e75da09a45b74960f3ce3" category="sidebar">使用 Snap Creator 备份和恢复 SAP HANA</block>
   <block id="0f1df2d5d1f6e9db4283f9e9814fa12a" category="sidebar">使用 NetApp 存储和 Commvault 软件进行 SAP HANA 备份和恢复</block>
-  <block id="ea5de62271a19413e72ed12bacc30e65" category="sidebar">基于 NetApp 全 SAN 阵列的 SAP HANA —现代 SAN ，数据保护和灾难恢复</block>
+  <block id="3993b517d983222c5b766976180367f0" category="inline-link-macro">上一步：从何处查找追加信息。</block>
+  <block id="e20ed0e735d698ee86acdf1151e6e451" category="paragraph"><block ref="e20ed0e735d698ee86acdf1151e6e451" category="inline-link-macro-rx"></block></block>
+  <block id="53b99ad408aca79aba1e0bcc607cde85" category="paragraph"><block ref="53b99ad408aca79aba1e0bcc607cde85" category="inline-link-macro-rx"></block></block>
+  <block id="c1fd2d028e3fff9cae781db6954eb52b" category="summary">本文档为客户和合作伙伴提供了部署 NetApp ONTAP 以支持在 Windows 环境中的 Microsoft SQL Server 中运行 SAP 业务套件解决方案的最佳实践。</block>
+  <block id="c5dacd8b175c8c2367525c37eea1dc59" category="doc">TR-4467 ： SAP 与 Windows 上的 Microsoft SQL Server —使用 NetApp ONTAP 和 SnapCenter 的最佳实践</block>
+  <block id="611a4a6b98272a717f8e1f6bf5ba787b" category="paragraph">NetApp 公司 Marco Schoen</block>
+  <block id="3be0224caa6f122d821c38b09efdbac7" category="inline-link-macro"><block ref="3be0224caa6f122d821c38b09efdbac7" category="inline-link-rx"></block></block>
+  <block id="386b4fc148c87ad6a824fb6645fff9ca" category="paragraph"><block ref="386b4fc148c87ad6a824fb6645fff9ca" category="inline-link-macro-rx"></block></block>
+  <block id="3b85cb8f62d84ee8a4e0891315a3af26" category="paragraph"><block ref="3b85cb8f62d84ee8a4e0891315a3af26" category="inline-link-macro-rx"></block></block>
+  <block id="77856469e4786d81c487dfc174833e29" category="summary">TR-4757 提供了使用适用于 SAP 应用程序的 Azure NetApp Files 和 SAP HANA 部署的最佳实践。此外，本文档还详细介绍了 SAP 共享文件系统的不同使用情形。本文档介绍了利用 NetApp Cloud Volumes ONTAP for SAP Applications 和 SAP HANA 部署的最佳实践。它包括与 SAP 共享文件系统不同的使用情形，以及基于 Cloud Volumes ONTAP 的 SAP HANA 的特定性能注意事项。</block>
+  <block id="0e03d1132f9763756b2e5e8f46c33610" category="doc">TR-4757 ：《 Microsoft Azure 上的 SAP 应用程序—使用 NetApp Cloud Volumes ONTAP 》</block>
+  <block id="b6dd7e76887eb00cfd6d1dfadf3e9af4" category="paragraph">Bernd Herth ， Tobias Brandl ， Nil Bauser ， NetApp Will Bratton ， Geert Van Teylingen ， Microsoft</block>
+  <block id="bc2f77b802672aed5e74bfb91aa5eee4" category="inline-link-macro"><block ref="bc2f77b802672aed5e74bfb91aa5eee4" category="inline-link-rx"></block></block>
+  <block id="8e3940acd5b42b2156bc15a3fdf1827d" category="paragraph"><block ref="8e3940acd5b42b2156bc15a3fdf1827d" category="inline-link-macro-rx"></block></block>
+  <block id="05b3eeeac64d4f0f9123deacdf9c3fcf" category="paragraph"><block ref="05b3eeeac64d4f0f9123deacdf9c3fcf" category="inline-link-macro-rx"></block></block>
+  <block id="5176c066b53609fe56eb537ca7fcac89" category="summary">IBM Power Systems 专为 SAP HANA 等数据密集型和任务关键型工作负载而设计。IBM Power Systems 通过提供四项关键功能来简化和加速 SAP HANA 部署—卓越的虚拟化和灵活性，更快的配置速度，经济实惠的可扩展性以及最大限度地延长正常运行时间。NetApp AFF 产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用，并与 IBM Power Systems 完美地相辅相成。本文档介绍将 NetApp ONTAP 与 AFF 产品系列和 IBM Power Systems 结合使用的 NAS （ NFS ）存储设置的最佳实践。</block>
+  <block id="f20a40b88879c634d62a1183049bd409" category="doc">TR-4821 ：基于 IBM Power Systems 和采用 NFS 的 NetApp AFF 系统的 SAP HANA</block>
+  <block id="1645b6f0a7adb1dc7df46dc7fec9625a" category="paragraph">IBM 公司 NetApp Carsten Dieterle 的托比亚斯 · 布兰特</block>
+  <block id="68708a2f0db2622048ef976e3d1ceb61" category="paragraph">IBM Power Systems 专为 SAP HANA 等数据密集型和任务关键型工作负载而设计。IBM Power Systems 通过提供四项关键功能来简化和加速 SAP HANA 部署：卓越的虚拟化和灵活性，更快的配置速度，经济实惠的可扩展性以及最大限度地延长正常运行时间。NetApp AFF 产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用，并与 IBM Power Systems 完美地相辅相成。本文档介绍将 NetApp ONTAP 与 AFF 产品系列和 IBM Power Systems 结合使用的 NAS （ NFS ）存储设置的最佳实践。</block>
+  <block id="25c8459cf1533ecc02d4453baf422ef2" category="inline-link-macro"><block ref="25c8459cf1533ecc02d4453baf422ef2" category="inline-link-rx"></block></block>
+  <block id="5223a61d48ab537c433cb2cd2b7238ff" category="paragraph"><block ref="5223a61d48ab537c433cb2cd2b7238ff" category="inline-link-macro-rx"></block></block>
+  <block id="6382b55c5f4c721a7046327b2675c2a6" category="summary">本文档介绍了在设计存储解决方案以使用 Oracle 数据库支持 SAP 业务套件产品时所面临的挑战。本文档的主要重点是使用最新一代 SAP 解决方案的业务和 IT 主管面临的常见存储基础架构设计，部署，操作和管理挑战。本文档中的建议是通用的；它们并不特定于 SAP 应用程序或 SAP 实施的规模和范围。</block>
+  <block id="205c68d6779218d7af7da356dc6a9da2" category="doc">TR-4250 ： SAP 与基于 UNIX 的 Oracle 和 NFS 以及适用于 SAP 3.4 的 NetApp ONTAP 和 SnapManager</block>
+  <block id="bb8cd3f7aec777de29cee988f4ade068" category="paragraph">NetApp 公司 Nil Bauser</block>
+  <block id="4a889ac1eab815e3cc9e7d0066d4360d" category="paragraph">本文档介绍了在设计存储解决方案以使用 Oracle 数据库支持 SAP 业务套件产品时所面临的挑战。本文档的主要重点是使用最新一代 SAP 解决方案的业务和 IT 主管面临的常见存储基础架构设计，部署，操作和管理挑战。本文档中的建议是通用的；它们并不特定于 SAP 应用程序或 SAP 实施的规模和范围。本文档假定读者已基本了解 NetApp 和 SAP 产品的技术和操作。本文档是在 NetApp ， SAP ， Oracle 和我们的客户技术人员的互动基础上编写的。</block>
+  <block id="72b1d38d81a57d1482ce5708d98653f1" category="inline-link-macro"><block ref="72b1d38d81a57d1482ce5708d98653f1" category="inline-link-rx"></block></block>
+  <block id="d30f42b2a88310780291191529d76b18" category="paragraph"><block ref="d30f42b2a88310780291191529d76b18" category="inline-link-macro-rx"></block></block>
+  <block id="c9d1db03ff9188655c6df6826c9cec88" category="list-text"><block ref="c9d1db03ff9188655c6df6826c9cec88" category="inline-link-rx"></block></block>
+  <block id="172a4f6be2e5258ba785f0fbe99140f7" category="list-text"><block ref="172a4f6be2e5258ba785f0fbe99140f7" category="inline-link-rx"></block></block>
+  <block id="d76e7542f28a5b74ef246f360a1518d6" category="list-text"><block ref="d76e7542f28a5b74ef246f360a1518d6" category="inline-link-rx"></block></block>
+  <block id="1c00cdc071680932dbe093eee9f348e7" category="paragraph">可以通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。中介绍了此选项 <block ref="0f1147a043e687692dc16c07b278ec3b" category="inline-link-macro-rx"></block>。</block>
+  <block id="6578ba8f8050606717eb26d6e9c36396" category="list-text"><block ref="6578ba8f8050606717eb26d6e9c36396" category="inline-link-rx"></block></block>
+  <block id="9e2f7b0947eed9e36a3d84200631ce7d" category="list-text"><block ref="9e2f7b0947eed9e36a3d84200631ce7d" category="inline-link-rx"></block></block>
+  <block id="34e60068300e9e3f871d48a33ffba1f1" category="summary">TR-4746 提供了使用适用于 SAP 应用程序的 Azure NetApp Files 和 SAP HANA 部署的最佳实践。此外，还详细介绍了从 SAP 共享文件系统到完整 SAP HANA 部署的不同使用情形，以及基于 Azure NetApp Files 的 SAP HANA 的特定性能，数据保护和迁移注意事项。</block>
+  <block id="6c6f4f0cd3ae1860ad7019d5cd6b2796" category="doc">TR-4746 ：《 Microsoft Azure 上的 SAP 应用程序》</block>
+  <block id="56f60b697a28b5549f7fe646776153ad" category="paragraph">Nils Bauser ， Tobias Brandl ， Bernd Herth ， Kevin Morris ， Geert Van Teylingen NetApp 将于 Bratton ， Ralf Klahrh ， Amish Patel ， Jugeren Thomas Microsoft 等人担任此类人员</block>
+  <block id="30e3a0469c18bb800da3893853205ac6" category="inline-link-macro"><block ref="30e3a0469c18bb800da3893853205ac6" category="inline-link-rx"></block></block>
+  <block id="23d3d60e0f75128aa4f637d0049d0f60" category="paragraph"><block ref="23d3d60e0f75128aa4f637d0049d0f60" category="inline-link-macro-rx"></block></block>
+  <block id="81c2f60fe1cd3484018d62f2addc343a" category="summary">本参考架构文档可帮助客户在 VMware vSphere 虚拟机（ VM ）以及 NetApp FAS 和全闪存 FAS （ AFF ）存储系统上设计和部署 SAP HANA 单主机和多主机解决方案。</block>
+  <block id="fc21beda63f542908cf6ffb86e8a9b91" category="doc">TR-4338 ：《采用 NetApp 技术的 VMware vSphere 上的 SAP HANA — FAS 和全闪存 FAS 系统》</block>
+  <block id="b3ed4b37e21fee2e164f97668ea1afae" category="paragraph">NetApp Erik Rieger ， Bhumik Patel ， VMware</block>
+  <block id="492dbdbda06cf15ce343cbe404369a3d" category="paragraph">本参考架构文档可帮助客户在 VMware vSphere 虚拟机（ VM ）以及 NetApp FAS 和全闪存 FAS （ AFF ）存储系统上设计和部署 SAP HANA 单主机和多主机解决方案。此参考架构是根据现有 VMware 和 NetApp 客户的经验，真实模拟以及 NetApp 工程实验室验证而部署并记录的解决方案。本文档可帮助客户完成整个项目生命周期，包括需求评估，解决方案设计，安装和管理。</block>
+  <block id="07d3b62fe245f06a68daa5268016da79" category="inline-link-macro"><block ref="07d3b62fe245f06a68daa5268016da79" category="inline-link-rx"></block></block>
+  <block id="234856f07739c90d237a9a99b3d9e24c" category="paragraph"><block ref="234856f07739c90d237a9a99b3d9e24c" category="inline-link-macro-rx"></block></block>
+  <block id="1b957531101399d0f744aec724e69fa1" category="summary">NetApp 通过提供一个生命周期管理解决方案来应对功能实施缓慢，缺乏自动化以及工作效率下降带来的挑战，该 已完全集成到 SAP 管理员用于日常运营的工具中，例如 SAP Landscape Management （ SAP LaMa ）。目标是简化从预处理到后处理的配置工作流，包括创建生产系统副本所需的所有软件和存储层任务。借助此解决方案，管理员只需单击几下鼠标即可创建开发和测试环境，从而改善生命周期管理。</block>
+  <block id="643fa590028dacc026f165afdf4fb795" category="doc">SB-3978 ：《 SAP HANA 生命周期管理》</block>
+  <block id="2302484597c5b4089c4a24a850b7f489" category="inline-link-macro"><block ref="2302484597c5b4089c4a24a850b7f489" category="inline-link-rx"></block></block>
+  <block id="33876e03541db5898b573e9322b655e7" category="paragraph"><block ref="33876e03541db5898b573e9322b655e7" category="inline-link-macro-rx"></block></block>
+  <block id="3616b54049026f3c3013256a38ff9c91" category="summary">本文档介绍了适用于 SAP HANA 的 NetApp 备份和恢复解决方案的安装和配置。解决方案基于 NetApp Snap Creator 框架和适用于 SAP HANA 的 Snap Creator 插件。经认证的 Cisco SAP HANA 多节点设备与 NetApp 存储相结合，可支持此解决方案。在定制数据中心集成（ TDI ）项目中，单节点和多节点 SAP HANA 系统也支持此解决方案。</block>
+  <block id="b20847dfaf8bda0f5d26c73527a7a402" category="doc">TR-4313 ：《使用 Snap Creator 备份和恢复 SAP HANA 》</block>
+  <block id="a696566e7ab3f2276919a2f7c509c31b" category="paragraph">TR-4313 介绍了适用于 SAP HANA 的 NetApp 备份和恢复解决方案的安装和配置。解决方案基于 NetApp Snap Creator 框架和适用于 SAP HANA 的 Snap Creator 插件。经认证的 Cisco SAP HANA 多节点设备与 NetApp 存储相结合，可支持此解决方案。在定制数据中心集成（ TDI ）项目中，单节点和多节点 SAP HANA 系统也支持此解决方案。</block>
+  <block id="2447c9d3e154873d9458d9f21f9d9e82" category="inline-link-macro"><block ref="2447c9d3e154873d9458d9f21f9d9e82" category="inline-link-rx"></block></block>
+  <block id="c48a0c69bdeb4ba64f1a756390dd148d" category="paragraph"><block ref="c48a0c69bdeb4ba64f1a756390dd148d" category="inline-link-macro-rx"></block></block>
+  <block id="7b84e8d1abd1ca9b58ab3e77d620c832" category="summary">TR-4711 介绍了适用于 SAP HANA 的 NetApp 和 Commvault 解决方案的设计，其中包括 Commvault IntelliSnap 快照管理技术和 NetApp Snapshot 技术。解决方案基于 NetApp 存储和 Commvault 数据保护套件。</block>
+  <block id="8fb21969b8486293a6e9aad64bfdce52" category="doc">TR-4711 ：《使用 NetApp 存储系统和 Commvault 软件的 SAP HANA 备份和恢复》</block>
+  <block id="f3d4ee1709d5425d89d8314836e60519" category="paragraph">NetApp 公司 Marco Schoen 博士Tristan Daude ， Commvault Systems</block>
+  <block id="6b6da8403e50e999c81fff1b93ddd075" category="inline-link-macro"><block ref="6b6da8403e50e999c81fff1b93ddd075" category="inline-link-rx"></block></block>
+  <block id="974fc1d6f48a5236cf23f9d95df8992c" category="paragraph"><block ref="974fc1d6f48a5236cf23f9d95df8992c" category="inline-link-macro-rx"></block></block>
+  <block id="39655610b54fc1717a4bc2a8dc4ca1ac" category="paragraph"><block ref="39655610b54fc1717a4bc2a8dc4ca1ac" category="inline-link-macro-rx"></block></block>
+  <block id="1991f9bd90d7f79579e13fb5b25da162" category="summary">这一经过 NetApp 验证的架构涵盖了在采用 Brocade FC SAN Fabric 的 NetApp 全 SAN 阵列（ ASA ）存储系统上为 SAP HANA 打造现代化 SAP 系统和运营。它包括备份和恢复，灾难恢复和数据保护。</block>
+  <block id="6f0f948f8224ca6abd264e8990372af6" category="doc">NVA-1147-design ：基于 NetApp 全 SAN 阵列的 SAP HANA —现代 SAN ，数据保护和灾难恢复</block>
+  <block id="cc396fc030ef4980e68d8d063e3bcd5a" category="paragraph">Nil Bauser ， Roland Wartenberg ， Darryl Clinkscales ， Daniel Hohman ， Marco Schöen Steve Botkin ， Michael Peppers ， Vidula Ayer ， Steve Collins ， Pavan JHamnani ， Lee Dorrier ， NetApp Jim Zucchero ， Naem Saafein 博士， Broadcom Brocade</block>
+  <block id="bd3a2bd89a649bf3f808ac6c8cc752ef" category="paragraph">这一经过 NetApp 验证的架构涵盖了在采用 Brocade FC SAN Fabric 的 NetApp 全 SAN 阵列（ ASA ）存储系统上为 SAP HANA 打造现代化 SAP 系统和运营。它包括备份和恢复，灾难恢复和数据保护。解决方案利用 NetApp SnapCenter 自动执行 SAP HANA 备份，还原和恢复以及克隆工作流。本节将使用同步 NetApp SnapMirror 数据复制软件介绍灾难恢复配置，测试和故障转移场景。此外，还概述了使用 Commvault 进行 SAP 数据保护。</block>
+  <block id="731764091ffe7cacd12c33c9048bfd8f" category="inline-link-macro"><block ref="731764091ffe7cacd12c33c9048bfd8f" category="inline-link-rx"></block></block>
+  <block id="a064ef72c49c2eebe828ed0cd3a38305" category="paragraph"><block ref="a064ef72c49c2eebe828ed0cd3a38305" category="inline-link-macro-rx"></block></block>
+  <block id="1d5e541dc8524e30bb2781003f0d8400" category="paragraph"><block ref="1d5e541dc8524e30bb2781003f0d8400" category="inline-link-macro-rx"></block></block>
+  <block id="cf609e4fa30936be5f8dfd92fb076afe" category="summary">技术报告 TR-4614 提供了使用 NetApp SnapCenter 保护 SAP HANA 数据的最佳实践。本文档介绍 SnapCenter 概念，配置建议和操作工作流，包括配置，备份操作， 以及还原和恢复操作。</block>
+  <block id="47f5c5f7b80224cb7832ed3973296f38" category="doc">TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》</block>
+  <block id="fcd16ddc69c35eca3711f2163e64ac8c" category="paragraph">TR-4616 概述了 SAP HANA 灾难恢复保护的选项。其中包括基于同步和异步 NetApp SnapMirror 存储复制的三站点灾难恢复解决方案的详细设置信息和用例问题描述。所述的解决方案将 NetApp SnapCenter 与 SAP HANA 插件结合使用来管理数据库一致性。</block>
+  <block id="432caa999eec7b9c7ddcabb7fe098139" category="inline-link-macro"><block ref="432caa999eec7b9c7ddcabb7fe098139" category="inline-link-rx"></block></block>
+  <block id="f122cfeb37e2d3200cb4806af587b661" category="paragraph"><block ref="f122cfeb37e2d3200cb4806af587b661" category="inline-link-macro-rx"></block></block>
+  <block id="8132c1d54d27cf7a67ac0e563e82c329" category="summary">TR-4646 概述了 SAP HANA 灾难恢复保护的选项。其中包括基于同步和异步 NetApp SnapMirror 存储复制的三站点灾难恢复解决方案的详细设置信息和用例问题描述。所述的解决方案将 NetApp SnapCenter 与 SAP HANA 插件结合使用来管理数据库一致性。</block>
+  <block id="c79cdf002876c8be8a196f93f344a33f" category="inline-link-macro"><block ref="c79cdf002876c8be8a196f93f344a33f" category="inline-link-rx"></block></block>
+  <block id="d925ae253e076ec94fce589bf0750a31" category="paragraph"><block ref="d925ae253e076ec94fce589bf0750a31" category="inline-link-macro-rx"></block></block>
+  <block id="e12451ca8917b29faae9e966a7ef40f6" category="summary">TR-4719 介绍了如何在 SAP HANA 系统复制环境中使用 NetApp SnapCenter 技术和 SAP HANA 插件进行备份和恢复。</block>
+  <block id="ef5cc7c8780ee87a124c0fd66dd44867" category="doc">TR-4719 ： SAP HANA 系统复制—使用 SnapCenter 进行备份和恢复</block>
+  <block id="1a7acb5247a596ecf14f6381a5824bd7" category="inline-link-macro"><block ref="1a7acb5247a596ecf14f6381a5824bd7" category="inline-link-rx"></block></block>
+  <block id="d5dfc6464276a185ca9edd33cbc78835" category="paragraph"><block ref="d5dfc6464276a185ca9edd33cbc78835" category="inline-link-macro-rx"></block></block>
+  <block id="aabf604423d1b54f70e80a6e69d7cc9b" category="sidebar">SAP 与基于 UNIX 的 Oracle 以及 NFS 与 NetApp ONTAP</block>
+  <block id="41af34746c13d49348031a1fca6a2938" category="sidebar">SAP 与使用 ONTAP 的 Windows 上的 Microsoft SQL Server</block>
+  <block id="9feb66d55a80dea870deeb88fab704c9" category="sidebar">SAP HANA 备份和恢复</block>
+  <block id="556e7469391c18d85f90a695dc28f80e" category="sidebar">使用 SnapCenter 进行 SAP HANA 系统复制，备份和恢复</block>
+  <block id="eeb338bfcd3ad35ad6983ecfa31efba2" category="sidebar">基于 NetApp 全 SAN 阵列的 SAP HANA —现代 SAN ，数据保护和灾难恢复</block>
 </blocks>

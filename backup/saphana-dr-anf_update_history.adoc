@@ -12,6 +12,8 @@ summary:
 :imagesdir: ./../media/
 
 
+link:saphana-dr-anf_hana_database_recovery_01.html["先前版本： HANA 数据库恢复。"]
+
 自此解决方案最初发布以来，已对其进行了以下技术更改。
 
 [cols="25,25,50"]

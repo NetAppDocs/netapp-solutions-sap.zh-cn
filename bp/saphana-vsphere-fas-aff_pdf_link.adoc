@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: bp/saphana-vsphere-fas-aff_pdf_link.html 
+keywords: tr-4338, pdf, sap, hana, vmware, vsphere, aff, fas, all flash, fabric attached 
+summary: 本参考架构文档可帮助客户在 VMware vSphere 虚拟机（ VM ）以及 NetApp FAS 和全闪存 FAS （ AFF ）存储系统上设计和部署 SAP HANA 单主机和多主机解决方案。 
+---
+= TR-4338 ：《采用 NetApp 技术的 VMware vSphere 上的 SAP HANA — FAS 和全闪存 FAS 系统》
+:firstname: : hardbreaks:
+:author: : hardbreaks:
+:authorinitials: :
+:authors: : hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+NetApp Erik Rieger ， Bhumik Patel ， VMware
+
+本参考架构文档可帮助客户在 VMware vSphere 虚拟机（ VM ）以及 NetApp FAS 和全闪存 FAS （ AFF ）存储系统上设计和部署 SAP HANA 单主机和多主机解决方案。此参考架构是根据现有 VMware 和 NetApp 客户的经验，真实模拟以及 NetApp 工程实验室验证而部署并记录的解决方案。本文档可帮助客户完成整个项目生命周期，包括需求评估，解决方案设计，安装和管理。
+
+link:https://www.netapp.com/pdf.html?item=/media/17192-tr4338pdf.pdf["https://www.netapp.com/pdf.html?item=/media/17192-tr4338pdf.pdf"]

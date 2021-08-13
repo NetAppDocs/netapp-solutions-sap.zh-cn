@@ -32,9 +32,9 @@ NOTE: 要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采�
 
 有关使用 FCP 的 NetApp AFF 系统以及使用 NFS 或 FCP 的 FAS 系统的配置指南，请访问以下链接：
 
-* https://docs.netapp.com/us-en/netapp-solutions_main/ent-apps-db/saphana_fas_fc_introduction.html["基于采用光纤通道协议的 NetApp FAS 系统的 SAP HANA"^]
-* https://docs.netapp.com/us-en/netapp-solutions_main/ent-apps-db/saphana-fas-nfs_introduction.html["基于采用 NFS 的 NetApp FAS 系统的 SAP HANA"^]
-* https://docs.netapp.com/us-en/netapp-solutions_main/ent-apps-db/saphana_aff_fc_introduction.html["基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA"^]
+* https://docs.netapp.com/us-en/netapp-solutions-sap_main/bp/saphana_fas_fc_introduction.html["基于采用光纤通道协议的 NetApp FAS 系统的 SAP HANA"^]
+* https://docs.netapp.com/us-en/netapp-solutions-sap_main/bp/saphana-fas-nfs_introduction.html["基于采用 NFS 的 NetApp FAS 系统的 SAP HANA"^]
+* https://docs.netapp.com/us-en/netapp-solutions-sap_main/bp/saphana_aff_fc_introduction.html["基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA"^]
 
 
 下表显示了 NFS 版本， NFS 锁定和所需隔离实施的受支持组合，具体取决于 SAP HANA 数据库配置。

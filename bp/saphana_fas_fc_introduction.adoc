@@ -25,9 +25,9 @@ NOTE: 要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采�
 
 有关使用 NFS 和 NetApp AFF 系统的 FAS 系统的配置指南，请访问以下链接：
 
-* https://docs.netapp.com/us-en/netapp-solutions_main/ent-apps-db/saphana_aff_fc_introduction.html["基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA"^]
-* https://docs.netapp.com/us-en/netapp-solutions_main/ent-apps-db/saphana-fas-nfs_introduction.html["基于采用 NFS 的 NetApp FAS 系统的 SAP HANA"^]
-* https://docs.netapp.com/us-en/netapp-solutions_main/ent-apps-db/saphana_aff_nfs_introduction.html["基于采用 NFS 的 NetApp AFF 系统的 SAP HANA"^]
+* https://docs.netapp.com/us-en/netapp-solutions-sap_main/bp/saphana_aff_fc_introduction.html["基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA"^]
+* https://docs.netapp.com/us-en/netapp-solutions-sap_main/bp/saphana-fas-nfs_introduction.html["基于采用 NFS 的 NetApp FAS 系统的 SAP HANA"^]
+* https://docs.netapp.com/us-en/netapp-solutions-sap_main/bp/saphana_aff_nfs_introduction.html["基于采用 NFS 的 NetApp AFF 系统的 SAP HANA"^]
 
 
 在 SAP HANA 多主机环境中，标准 SAP HANA 存储连接器用于在发生 SAP HANA 主机故障转移时提供隔离。有关操作系统配置准则和 HANA 专用 Linux 内核依赖关系的信息，请参见相关 SAP 注释。有关详细信息，请参见 https://launchpad.support.sap.com/["SAP 注释 2235581 — SAP HANA 支持的操作系统"^]。

@@ -12,7 +12,7 @@ summary: 下面显示了 HANA 数据库恢复的步骤
 :imagesdir: ./../media/
 
 
-link:saphana-dr-anf_mount_the_volumes_at_the_target_host.html["上一步：在目标主机上挂载卷。"]
+link:saphana-dr-anf_mount_the_new_volumes_at_the_target_host.html["上一步：在目标主机上挂载卷。"]
 
 启动所需的 SAP 服务。
 

@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+permalink: briefs/saphana-lm-sb_pdf_link.html 
+keywords: sb-3978, pdf, sap, hana, provisioning, lifecycle, management, automation, LaMa, landscape 
+summary: NetApp 通过提供一个生命周期管理解决方案来应对功能实施缓慢，缺乏自动化以及工作效率下降带来的挑战，该 已完全集成到 SAP 管理员用于日常运营的工具中，例如 SAP Landscape Management （ SAP LaMa ）。目标是简化从预处理到后处理的配置工作流，包括创建生产系统副本所需的所有软件和存储层任务。借助此解决方案，管理员只需单击几下鼠标即可创建开发和测试环境，从而改善生命周期管理。 
+---
+= SB-3978 ：《 SAP HANA 生命周期管理》
+
+
+NetApp 通过提供一个生命周期管理解决方案来应对功能实施缓慢，缺乏自动化以及工作效率下降带来的挑战，该 已完全集成到 SAP 管理员用于日常运营的工具中，例如 SAP Landscape Management （ SAP LaMa ）。目标是简化从预处理到后处理的配置工作流，包括创建生产系统副本所需的所有软件和存储层任务。借助此解决方案，管理员只需单击几下鼠标即可创建开发和测试环境，从而改善生命周期管理。
+
+link:https://www.netapp.com/pdf.html?item=/media/6996-sb-3978pdf.pdf["https://www.netapp.com/pdf.html?item=/media/6996-sb-3978pdf.pdf"]
