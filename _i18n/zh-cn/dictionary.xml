@@ -1933,13 +1933,11 @@
   <block id="3b85cb8f62d84ee8a4e0891315a3af26" category="paragraph"><block ref="3b85cb8f62d84ee8a4e0891315a3af26" category="inline-link-macro-rx"></block></block>
   <block id="77856469e4786d81c487dfc174833e29" category="summary">TR-4757 提供了使用适用于 SAP 应用程序的 Azure NetApp Files 和 SAP HANA 部署的最佳实践。此外，本文档还详细介绍了 SAP 共享文件系统的不同使用情形。本文档介绍了利用 NetApp Cloud Volumes ONTAP for SAP Applications 和 SAP HANA 部署的最佳实践。它包括与 SAP 共享文件系统不同的使用情形，以及基于 Cloud Volumes ONTAP 的 SAP HANA 的特定性能注意事项。</block>
   <block id="0e03d1132f9763756b2e5e8f46c33610" category="doc">TR-4757 ：《 Microsoft Azure 上的 SAP 应用程序—使用 NetApp Cloud Volumes ONTAP 》</block>
-  <block id="b6dd7e76887eb00cfd6d1dfadf3e9af4" category="paragraph">Bernd Herth ， Tobias Brandl ， Nil Bauser ， NetApp Will Bratton ， Geert Van Teylingen ， Microsoft</block>
   <block id="bc2f77b802672aed5e74bfb91aa5eee4" category="inline-link-macro"><block ref="bc2f77b802672aed5e74bfb91aa5eee4" category="inline-link-rx"></block></block>
   <block id="8e3940acd5b42b2156bc15a3fdf1827d" category="paragraph"><block ref="8e3940acd5b42b2156bc15a3fdf1827d" category="inline-link-macro-rx"></block></block>
   <block id="05b3eeeac64d4f0f9123deacdf9c3fcf" category="paragraph"><block ref="05b3eeeac64d4f0f9123deacdf9c3fcf" category="inline-link-macro-rx"></block></block>
   <block id="5176c066b53609fe56eb537ca7fcac89" category="summary">IBM Power Systems 专为 SAP HANA 等数据密集型和任务关键型工作负载而设计。IBM Power Systems 通过提供四项关键功能来简化和加速 SAP HANA 部署—卓越的虚拟化和灵活性，更快的配置速度，经济实惠的可扩展性以及最大限度地延长正常运行时间。NetApp AFF 产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用，并与 IBM Power Systems 完美地相辅相成。本文档介绍将 NetApp ONTAP 与 AFF 产品系列和 IBM Power Systems 结合使用的 NAS （ NFS ）存储设置的最佳实践。</block>
   <block id="f20a40b88879c634d62a1183049bd409" category="doc">TR-4821 ：基于 IBM Power Systems 和采用 NFS 的 NetApp AFF 系统的 SAP HANA</block>
-  <block id="1645b6f0a7adb1dc7df46dc7fec9625a" category="paragraph">IBM 公司 NetApp Carsten Dieterle 的托比亚斯 · 布兰特</block>
   <block id="68708a2f0db2622048ef976e3d1ceb61" category="paragraph">IBM Power Systems 专为 SAP HANA 等数据密集型和任务关键型工作负载而设计。IBM Power Systems 通过提供四项关键功能来简化和加速 SAP HANA 部署：卓越的虚拟化和灵活性，更快的配置速度，经济实惠的可扩展性以及最大限度地延长正常运行时间。NetApp AFF 产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用，并与 IBM Power Systems 完美地相辅相成。本文档介绍将 NetApp ONTAP 与 AFF 产品系列和 IBM Power Systems 结合使用的 NAS （ NFS ）存储设置的最佳实践。</block>
   <block id="25c8459cf1533ecc02d4453baf422ef2" category="inline-link-macro"><block ref="25c8459cf1533ecc02d4453baf422ef2" category="inline-link-rx"></block></block>
   <block id="5223a61d48ab537c433cb2cd2b7238ff" category="paragraph"><block ref="5223a61d48ab537c433cb2cd2b7238ff" category="inline-link-macro-rx"></block></block>
@@ -1957,12 +1955,10 @@
   <block id="9e2f7b0947eed9e36a3d84200631ce7d" category="list-text"><block ref="9e2f7b0947eed9e36a3d84200631ce7d" category="inline-link-rx"></block></block>
   <block id="34e60068300e9e3f871d48a33ffba1f1" category="summary">TR-4746 提供了使用适用于 SAP 应用程序的 Azure NetApp Files 和 SAP HANA 部署的最佳实践。此外，还详细介绍了从 SAP 共享文件系统到完整 SAP HANA 部署的不同使用情形，以及基于 Azure NetApp Files 的 SAP HANA 的特定性能，数据保护和迁移注意事项。</block>
   <block id="6c6f4f0cd3ae1860ad7019d5cd6b2796" category="doc">TR-4746 ：《 Microsoft Azure 上的 SAP 应用程序》</block>
-  <block id="56f60b697a28b5549f7fe646776153ad" category="paragraph">Nils Bauser ， Tobias Brandl ， Bernd Herth ， Kevin Morris ， Geert Van Teylingen NetApp 将于 Bratton ， Ralf Klahrh ， Amish Patel ， Jugeren Thomas Microsoft 等人担任此类人员</block>
   <block id="30e3a0469c18bb800da3893853205ac6" category="inline-link-macro"><block ref="30e3a0469c18bb800da3893853205ac6" category="inline-link-rx"></block></block>
   <block id="23d3d60e0f75128aa4f637d0049d0f60" category="paragraph"><block ref="23d3d60e0f75128aa4f637d0049d0f60" category="inline-link-macro-rx"></block></block>
   <block id="81c2f60fe1cd3484018d62f2addc343a" category="summary">本参考架构文档可帮助客户在 VMware vSphere 虚拟机（ VM ）以及 NetApp FAS 和全闪存 FAS （ AFF ）存储系统上设计和部署 SAP HANA 单主机和多主机解决方案。</block>
   <block id="fc21beda63f542908cf6ffb86e8a9b91" category="doc">TR-4338 ：《采用 NetApp 技术的 VMware vSphere 上的 SAP HANA — FAS 和全闪存 FAS 系统》</block>
-  <block id="b3ed4b37e21fee2e164f97668ea1afae" category="paragraph">NetApp Erik Rieger ， Bhumik Patel ， VMware</block>
   <block id="492dbdbda06cf15ce343cbe404369a3d" category="paragraph">本参考架构文档可帮助客户在 VMware vSphere 虚拟机（ VM ）以及 NetApp FAS 和全闪存 FAS （ AFF ）存储系统上设计和部署 SAP HANA 单主机和多主机解决方案。此参考架构是根据现有 VMware 和 NetApp 客户的经验，真实模拟以及 NetApp 工程实验室验证而部署并记录的解决方案。本文档可帮助客户完成整个项目生命周期，包括需求评估，解决方案设计，安装和管理。</block>
   <block id="07d3b62fe245f06a68daa5268016da79" category="inline-link-macro"><block ref="07d3b62fe245f06a68daa5268016da79" category="inline-link-rx"></block></block>
   <block id="234856f07739c90d237a9a99b3d9e24c" category="paragraph"><block ref="234856f07739c90d237a9a99b3d9e24c" category="inline-link-macro-rx"></block></block>
@@ -1977,13 +1973,11 @@
   <block id="c48a0c69bdeb4ba64f1a756390dd148d" category="paragraph"><block ref="c48a0c69bdeb4ba64f1a756390dd148d" category="inline-link-macro-rx"></block></block>
   <block id="7b84e8d1abd1ca9b58ab3e77d620c832" category="summary">TR-4711 介绍了适用于 SAP HANA 的 NetApp 和 Commvault 解决方案的设计，其中包括 Commvault IntelliSnap 快照管理技术和 NetApp Snapshot 技术。解决方案基于 NetApp 存储和 Commvault 数据保护套件。</block>
   <block id="8fb21969b8486293a6e9aad64bfdce52" category="doc">TR-4711 ：《使用 NetApp 存储系统和 Commvault 软件的 SAP HANA 备份和恢复》</block>
-  <block id="f3d4ee1709d5425d89d8314836e60519" category="paragraph">NetApp 公司 Marco Schoen 博士Tristan Daude ， Commvault Systems</block>
   <block id="6b6da8403e50e999c81fff1b93ddd075" category="inline-link-macro"><block ref="6b6da8403e50e999c81fff1b93ddd075" category="inline-link-rx"></block></block>
   <block id="974fc1d6f48a5236cf23f9d95df8992c" category="paragraph"><block ref="974fc1d6f48a5236cf23f9d95df8992c" category="inline-link-macro-rx"></block></block>
   <block id="39655610b54fc1717a4bc2a8dc4ca1ac" category="paragraph"><block ref="39655610b54fc1717a4bc2a8dc4ca1ac" category="inline-link-macro-rx"></block></block>
   <block id="1991f9bd90d7f79579e13fb5b25da162" category="summary">这一经过 NetApp 验证的架构涵盖了在采用 Brocade FC SAN Fabric 的 NetApp 全 SAN 阵列（ ASA ）存储系统上为 SAP HANA 打造现代化 SAP 系统和运营。它包括备份和恢复，灾难恢复和数据保护。</block>
   <block id="6f0f948f8224ca6abd264e8990372af6" category="doc">NVA-1147-design ：基于 NetApp 全 SAN 阵列的 SAP HANA —现代 SAN ，数据保护和灾难恢复</block>
-  <block id="cc396fc030ef4980e68d8d063e3bcd5a" category="paragraph">Nil Bauser ， Roland Wartenberg ， Darryl Clinkscales ， Daniel Hohman ， Marco Schöen Steve Botkin ， Michael Peppers ， Vidula Ayer ， Steve Collins ， Pavan JHamnani ， Lee Dorrier ， NetApp Jim Zucchero ， Naem Saafein 博士， Broadcom Brocade</block>
   <block id="bd3a2bd89a649bf3f808ac6c8cc752ef" category="paragraph">这一经过 NetApp 验证的架构涵盖了在采用 Brocade FC SAN Fabric 的 NetApp 全 SAN 阵列（ ASA ）存储系统上为 SAP HANA 打造现代化 SAP 系统和运营。它包括备份和恢复，灾难恢复和数据保护。解决方案利用 NetApp SnapCenter 自动执行 SAP HANA 备份，还原和恢复以及克隆工作流。本节将使用同步 NetApp SnapMirror 数据复制软件介绍灾难恢复配置，测试和故障转移场景。此外，还概述了使用 Commvault 进行 SAP 数据保护。</block>
   <block id="731764091ffe7cacd12c33c9048bfd8f" category="inline-link-macro"><block ref="731764091ffe7cacd12c33c9048bfd8f" category="inline-link-rx"></block></block>
   <block id="a064ef72c49c2eebe828ed0cd3a38305" category="paragraph"><block ref="a064ef72c49c2eebe828ed0cd3a38305" category="inline-link-macro-rx"></block></block>
@@ -2005,4 +1999,14 @@
   <block id="9feb66d55a80dea870deeb88fab704c9" category="sidebar">SAP HANA 备份和恢复</block>
   <block id="556e7469391c18d85f90a695dc28f80e" category="sidebar">使用 SnapCenter 进行 SAP HANA 系统复制，备份和恢复</block>
   <block id="eeb338bfcd3ad35ad6983ecfa31efba2" category="sidebar">基于 NetApp 全 SAN 阵列的 SAP HANA —现代 SAN ，数据保护和灾难恢复</block>
+  <block id="001370df532b74c5a8a530d47e7b991c" category="paragraph">Bernd Herth ， Tobias Bandl ， Nil Bauser ， NetApp</block>
+  <block id="0fe8d96b1dd92fcd41aeaaf94ec6c574" category="paragraph">Will Bratton ， Geert Van Teylingen ， Microsoft</block>
+  <block id="d6633c3fd7420c2f783b59852cc68ab9" category="paragraph">NetApp 公司的托比亚斯 · 布兰特</block>
+  <block id="67c23a99113cb53a26c871037cc3aecb" category="paragraph">Carsten Dieterle ， IBM</block>
+  <block id="65657a38c0375ec66c6c2c0eaa74c664" category="paragraph">Nil Bauser ， TOBIAS BRANDL ， Bernd Herth ， Kevin Morris ， Geert VAN Teylingen NetApp</block>
+  <block id="c8adee742d446b58fda58dad45eec4ed" category="paragraph">Will Bratton ， Ralf Klahr ， Amish Patel ， Jugeren Thomas Microsoft</block>
+  <block id="6df44a680ca61b7eccab052d48393798" category="paragraph">VMware 公司 Bhumik Patel 的 Erik Rieger</block>
+  <block id="d5e52e7c60516c9c717f30e59670240a" category="paragraph">博士Tristan Daude ， Commvault Systems</block>
+  <block id="2e124ed9e2276f17c5884e19b5087b92" category="paragraph">Nil Bauser ， Roland Wartenberg ， Darryl Clinkscales ， Daniel Hohman ， Marco Schöen Steve Botkin ， Michael Peppers ， Vidula Ayer ， Steve Collins ， Pavan JHamnani ， NetApp 公司 Lee Dorrier</block>
+  <block id="c36853bb8801f01d0166955b0b39c8b1" category="paragraph">Jim Zucchero ， Naem Saafein 博士， Broadcom Brocade</block>
 </blocks>

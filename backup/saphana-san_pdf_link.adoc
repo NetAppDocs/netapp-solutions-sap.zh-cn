@@ -7,7 +7,9 @@ summary: 这一经过 NetApp 验证的架构涵盖了在采用 Brocade FC SAN Fa
 = NVA-1147-design ：基于 NetApp 全 SAN 阵列的 SAP HANA —现代 SAN ，数据保护和灾难恢复
 
 
-Nil Bauser ， Roland Wartenberg ， Darryl Clinkscales ， Daniel Hohman ， Marco Schöen Steve Botkin ， Michael Peppers ， Vidula Ayer ， Steve Collins ， Pavan JHamnani ， Lee Dorrier ， NetApp Jim Zucchero ， Naem Saafein 博士， Broadcom Brocade
+Nil Bauser ， Roland Wartenberg ， Darryl Clinkscales ， Daniel Hohman ， Marco Schöen Steve Botkin ， Michael Peppers ， Vidula Ayer ， Steve Collins ， Pavan JHamnani ， NetApp 公司 Lee Dorrier
+
+Jim Zucchero ， Naem Saafein 博士， Broadcom Brocade
 
 这一经过 NetApp 验证的架构涵盖了在采用 Brocade FC SAN Fabric 的 NetApp 全 SAN 阵列（ ASA ）存储系统上为 SAP HANA 打造现代化 SAP 系统和运营。它包括备份和恢复，灾难恢复和数据保护。解决方案利用 NetApp SnapCenter 自动执行 SAP HANA 备份，还原和恢复以及克隆工作流。本节将使用同步 NetApp SnapMirror 数据复制软件介绍灾难恢复配置，测试和故障转移场景。此外，还概述了使用 Commvault 进行 SAP 数据保护。
 

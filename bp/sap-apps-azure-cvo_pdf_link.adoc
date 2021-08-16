@@ -15,7 +15,9 @@ summary: TR-4757 提供了使用适用于 SAP 应用程序的 Azure NetApp Files
 :imagesdir: ./../media/
 
 
-Bernd Herth ， Tobias Brandl ， Nil Bauser ， NetApp Will Bratton ， Geert Van Teylingen ， Microsoft
+Bernd Herth ， Tobias Bandl ， Nil Bauser ， NetApp
+
+Will Bratton ， Geert Van Teylingen ， Microsoft
 
 TR-4757 提供了使用适用于 SAP 应用程序的 Azure NetApp Files 和 SAP HANA 部署的最佳实践。此外，本文档还详细介绍了 SAP 共享文件系统的不同使用情形。本文档介绍了利用 NetApp Cloud Volumes ONTAP for SAP Applications 和 SAP HANA 部署的最佳实践。它包括与 SAP 共享文件系统不同的使用情形，以及基于 Cloud Volumes ONTAP 的 SAP HANA 的特定性能注意事项。
 

@@ -15,7 +15,9 @@ summary: TR-4746 提供了使用适用于 SAP 应用程序的 Azure NetApp Files
 :imagesdir: ./../media/
 
 
-Nils Bauser ， Tobias Brandl ， Bernd Herth ， Kevin Morris ， Geert Van Teylingen NetApp 将于 Bratton ， Ralf Klahrh ， Amish Patel ， Jugeren Thomas Microsoft 等人担任此类人员
+Nil Bauser ， TOBIAS BRANDL ， Bernd Herth ， Kevin Morris ， Geert VAN Teylingen NetApp
+
+Will Bratton ， Ralf Klahr ， Amish Patel ， Jugeren Thomas Microsoft
 
 TR-4746 提供了使用适用于 SAP 应用程序的 Azure NetApp Files 和 SAP HANA 部署的最佳实践。此外，还详细介绍了从 SAP 共享文件系统到完整 SAP HANA 部署的不同使用情形，以及基于 Azure NetApp Files 的 SAP HANA 的特定性能，数据保护和迁移注意事项。
 
