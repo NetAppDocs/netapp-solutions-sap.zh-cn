@@ -9,3 +9,5 @@ sidebar:
   - section: briefs
   - title: NetApp 解决方案
     url: https://docs.netapp.com/us-en/netapp-solutions/
+  - title: 法律声明
+    url: "/reference_legal_notices.html"
