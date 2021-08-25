@@ -49,8 +49,6 @@ NOTE: 可以使用适用于 SAP 操作系统的 SLES 版本中的 Saptune 设置
 ....
 options sunrpc tcp_max_slot_table_entries=128
 ....
-如果使用 nconnect 挂载选项，则此值可以从 256 增加到 512 。
-
 
 
 == 适用于 Red Hat Enterprise Linux 7.2 或更高版本的配置参数
@@ -62,8 +60,6 @@ options sunrpc tcp_max_slot_table_entries=128
 ....
 options sunrpc tcp_max_slot_table_entries=128
 ....
-如果使用 nconnect 挂载选项，则此值可以从 256 增加到 512 。
-
 从 Red Hat Enterprise Linux 7.2 开始，您必须在 ` /etc/sysctl.d` 目录的配置文件中设置内核参数。例如，您必须创建一个名为 `91-netapp-hana` 的配置文件。
 
 ....
@@ -132,6 +128,7 @@ sapcc-hana-tst-06:/ # mkdir -p /hana/data/NF2/mnt00001
 sapcc-hana-tst-06:/ # mkdir -p /hana/log/NF2/mnt00001
 sapcc-hana-tst-06:/ # mkdir -p /hana/shared
 sapcc-hana-tst-06:/ # mkdir -p /usr/sap/NF2
+
 sapcc-hana-tst-06:/ # chmod –R 777 /hana/log/NF2
 sapcc-hana-tst-06:/ # chmod –R 777 /hana/data/NF2
 sapcc-hana-tst-06:/ # chmod -R 777 /hana/shared
@@ -151,6 +148,7 @@ sapcc-hana-tst-06:~ # mkdir -p /hana/log/NF2/mnt00001
 sapcc-hana-tst-06:~ # mkdir -p /hana/log/NF2/mnt00002
 sapcc-hana-tst-06:~ # mkdir -p /hana/shared
 sapcc-hana-tst-06:~ # mkdir -p /usr/sap/NF2
+
 sapcc-hana-tst-06:~ # chmod -R 777 /hana/log/NF2
 sapcc-hana-tst-06:~ # chmod -R 777 /hana/data/NF2
 sapcc-hana-tst-06:~ # chmod -R 777 /hana/shared
@@ -166,6 +164,7 @@ sapcc-hana-tst-07:~ # mkdir -p /hana/log/NF2/mnt00001
 sapcc-hana-tst-07:~ # mkdir -p /hana/log/NF2/mnt00002
 sapcc-hana-tst-07:~ # mkdir -p /hana/shared
 sapcc-hana-tst-07:~ # mkdir -p /usr/sap/NF2
+
 sapcc-hana-tst-07:~ # chmod -R 777 /hana/log/NF2
 sapcc-hana-tst-07:~ # chmod -R 777 /hana/data/NF2
 sapcc-hana-tst-07:~ # chmod -R 777 /hana/shared
@@ -181,6 +180,7 @@ sapcc-hana-tst-08:~ # mkdir -p /hana/log/NF2/mnt00001
 sapcc-hana-tst-08:~ # mkdir -p /hana/log/NF2/mnt00002
 sapcc-hana-tst-08:~ # mkdir -p /hana/shared
 sapcc-hana-tst-08:~ # mkdir -p /usr/sap/NF2
+
 sapcc-hana-tst-08:~ # chmod -R 777 /hana/log/NF2
 sapcc-hana-tst-08:~ # chmod -R 777 /hana/data/NF2
 sapcc-hana-tst-08:~ # chmod -R 777 /hana/shared
@@ -247,7 +247,7 @@ NOTE: 对于 NFSv4 ，从 ONTAP 9.8 开始， NetApp 支持 NFSv4.1 的 nconnect
 sapcc-hana-tst-06:/ # cat /etc/fstab
 <storage-vif-data01>:/NF2_data_mnt00001 /hana/data/NF2/mnt00001 nfs rw,vers=3,hard,timeo=600,rsize=1048576,wsize=1048576,bg,noatime,nolock 0 0
 <storage-vif-log01>:/NF2_log_mnt00001 /hana/log/NF2/mnt00001 nfs rw,vers=3,hard,timeo=600,rsize=1048576,wsize=1048576,bg,noatime,nolock 0 0
-<storage-vif-data01>:/NF2_shared/usr- sap /usr/sap/NF2 nfs rw,vers=3,hard,timeo=600,rsize=1048576,wsize=1048576,bg,noatime,nolock 0 0
+<storage-vif-data01>:/NF2_shared/usr-sap /usr/sap/NF2 nfs rw,vers=3,hard,timeo=600,rsize=1048576,wsize=1048576,bg,noatime,nolock 0 0
 <storage-vif-data01>:/NF2_shared/shared /hana/shared nfs rw,vers=3,hard,timeo=600,rsize=1048576,wsize=1048576,bg,noatime,nolock 0 0
 ....
 . 运行 `mount – a` 在所有主机上挂载文件系统。

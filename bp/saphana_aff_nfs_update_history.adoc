@@ -49,4 +49,13 @@ link:saphana_aff_nfs_where_to_find_additional_information.html["上一步：从�
 
 
 | 版本 3.5 | 2020 年 6 月 | 有关可选功能的追加信息次要更新 
+
+
+| 版本 3.6 | 2020年12月 | 从 ONTAP 9.8 新操作系统版本新 SAP HANA 版本开始，支持 NFSv4.1 的 nconnect 功能 
+
+
+| 版本 3.7 | 2021年2月 | 新的 NetApp 存储系统会更改主机网络设置 
+
+
+| 版本 4.0 | 2021年4月 | 添加了 VMware vSphere 专用信息 
 |===

@@ -43,4 +43,10 @@ link:saphana_aff_fc_where_to_find_additional_information.html["上一步：从�
 
 
 | 版本 3.3 | 2020 年 6 月 | 有关可选功能的追加信息次要更新 
+
+
+| 版本 4.0 | 2021年2月 | Linux LVM 支持新的 NetApp 存储系统新的操作系统版本（ SLES15SP2 ， RHEL 8 ） 
+
+
+| 版本 4.1 | 2021年4月 | 添加了 VMware vSphere 专用信息 
 |===

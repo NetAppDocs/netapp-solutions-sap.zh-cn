@@ -136,19 +136,19 @@ stlrx300s8-6:/ # cat /etc/multipath.conf
 multipaths {
         multipath {
                 wwid    3600a098038304436392b4d442d6f534f
-                alias   hana- SS3_data_mnt00001
+                alias   hana-SS3_data_mnt00001
         }
         multipath {
                 wwid    3600a098038304436375d4d442d753879
-                alias   hana- SS3_data_mnt00002
+                alias   hana-SS3_data_mnt00002
         }
         multipath {
                 wwid    3600a098038304436375d4d442d753878
-                alias   hana- SS3_log_mnt00001
+                alias   hana-SS3_log_mnt00001
         }
         multipath {
                 wwid    3600a098038304436392b4d442d6f5350
-                alias   hana- SS3_log_mnt00002
+                alias   hana-SS3_log_mnt00002
         }
 
 }
@@ -226,10 +226,12 @@ NOTE: 对于基于 LVM 的设置，也必须完成上一节所述的多路径配
 +
 ....
 pvcreate /dev/mapper/hana-FC5_data_mnt00001
-pvcreate /dev/mapper/hana-FC5_data2_mnt00001pvcreate /dev/mapper/hana-FC5_data_mnt00002
+pvcreate /dev/mapper/hana-FC5_data2_mnt00001
+pvcreate /dev/mapper/hana-FC5_data_mnt00002
 pvcreate /dev/mapper/hana-FC5_data2_mnt00002
 pvcreate /dev/mapper/hana-FC5_log_mnt00001
-pvcreate /dev/mapper/hana-FC5_log2_mnt00001pvcreate /dev/mapper/hana-FC5_log_mnt00002
+pvcreate /dev/mapper/hana-FC5_log2_mnt00001
+pvcreate /dev/mapper/hana-FC5_log_mnt00002
 pvcreate /dev/mapper/hana-FC5_log2_mnt00002
 ....
 . 为每个数据和日志分区创建卷组。
@@ -310,11 +312,11 @@ NOTE: 多主机示例命令显示 2+1 多主机 HANA 系统。
 
 
 ....
-stlrx300s8- 6:/ # mkdir -p /hana/data/SS3/mnt00001
-stlrx300s8- 6:/ # mkdir -p /hana/log/SS3/mnt00001
-stlrx300s8- 6:/ # mkdir -p /hana/shared
-stlrx300s8- 6:/ # chmod –R 777 /hana/log/SS3
-stlrx300s8- 6:/ # chmod –R 777 /hana/data/SS3
+stlrx300s8-6:/ # mkdir -p /hana/data/SS3/mnt00001
+stlrx300s8-6:/ # mkdir -p /hana/log/SS3/mnt00001
+stlrx300s8-6:/ # mkdir -p /hana/shared
+stlrx300s8-6:/ # chmod –R 777 /hana/log/SS3
+stlrx300s8-6:/ # chmod –R 777 /hana/data/SS3
 stlrx300s8-6:/ # chmod 777 /hana/shared
 ....
 * 对于多主机系统，请在所有辅助主机和备用主机上设置权限并创建挂载点。
@@ -324,13 +326,13 @@ stlrx300s8-6:/ # chmod 777 /hana/shared
 NOTE: 示例命令显示 2+1 多主机 HANA 系统。
 
 ....
-stlrx300s8- 6:/ # mkdir -p /hana/data/SS3/mnt00001
-stlrx300s8- 6:/ # mkdir -p /hana/log/SS3/mnt00001
-stlrx300s8- 6:/ # mkdir -p /hana/data/SS3/mnt00002
-stlrx300s8- 6:/ # mkdir -p /hana/log/SS3/mnt00002
-stlrx300s8- 6:/ # mkdir -p /hana/shared
-stlrx300s8- 6:/ # chmod –R 777 /hana/log/SS3
-stlrx300s8- 6:/ # chmod –R 777 /hana/data/SS3
+stlrx300s8-6:/ # mkdir -p /hana/data/SS3/mnt00001
+stlrx300s8-6:/ # mkdir -p /hana/log/SS3/mnt00001
+stlrx300s8-6:/ # mkdir -p /hana/data/SS3/mnt00002
+stlrx300s8-6:/ # mkdir -p /hana/log/SS3/mnt00002
+stlrx300s8-6:/ # mkdir -p /hana/shared
+stlrx300s8-6:/ # chmod –R 777 /hana/log/SS3
+stlrx300s8-6:/ # chmod –R 777 /hana/data/SS3
 stlrx300s8-6:/ # chmod 777 /hana/shared
 ....
 

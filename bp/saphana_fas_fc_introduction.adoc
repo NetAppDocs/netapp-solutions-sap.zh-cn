@@ -50,7 +50,7 @@ image:saphana_fas_fc_image1.png["错误：缺少图形映像"]
 
 == 使用 VMware vSphere 的 SAP HANA
 
-可通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。中介绍了此选项 https://review.docs.netapp.com/us-en/netapp-solutions_main/ent-apps-db/saphana_aff_nfs_introduction.html["基于采用 NFS 的 NetApp AFF 系统的 SAP HANA"^]。
+可通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。中介绍了此选项 https://docs.netapp.com/us-en/netapp-solutions_main/ent-apps-db/saphana_aff_nfs_introduction.html["基于采用 NFS 的 NetApp AFF 系统的 SAP HANA"^]。
 
 此外，还支持原始设备映射（ RDM ）， FCP 数据存储库或具有 FCP 的 VVol 数据存储库。对于这两个数据存储库选项，数据存储库中只能存储一个 SAP HANA 数据或日志卷，以便在高效使用情形下使用。此外，无法实施由 SnapCenter 和基于此的解决方案协调的基于 Snapshot 的备份和恢复，例如 SAP 系统克隆。
 

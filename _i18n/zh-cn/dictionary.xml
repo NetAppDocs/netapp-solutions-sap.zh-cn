@@ -921,7 +921,6 @@
   <block id="95df6f6c376792473a459235195a79dd" category="paragraph">从 SUSE Linux Enterprise Server 12 SP1 开始，必须在 ` /etc/sysctl.d` 目录的配置文件中设置内核参数。例如，您必须创建一个名为 `91-netapp-hana` 的配置文件。</block>
   <block id="ec0668f7ae6dba074f0862485b7b15f8" category="admonition">可以使用适用于 SAP 操作系统的 SLES 版本中的 Saptune 设置这些值。有关详细信息，请参见<block ref="d34bfa3c287edf039e3a5c4e365c2a83" category="inline-link-rx"></block> （需要 SAP 登录）。</block>
   <block id="c60051ea586d490f1e69166ac39409e5" category="paragraph">如果使用 NFSv3 连接存储，则必须在 ` /etc/modprobe.d/sunrpc.conf` 中设置 `sunrpc.tcp_max_slot_table_entries` 。如果此文件不存在，则必须先通过添加以下行来创建它：</block>
-  <block id="f0ded98122b7aeb2413673f23e0cf2d9" category="paragraph">如果使用 nconnect 挂载选项，则此值可以从 256 增加到 512 。</block>
   <block id="179a425489e8da15ef704b42e37645c8" category="section-title">适用于 Red Hat Enterprise Linux 7.2 或更高版本的配置参数</block>
   <block id="e19cf298e039e5acff1dbe7e98090d84" category="paragraph">您必须在每个 SAP HANA 主机上为 SAP HANA 生成的工作负载调整其他内核和配置参数。</block>
   <block id="7a093f47a350c0e9b97c0070054a7d01" category="paragraph">如果使用 NFSv3 连接存储，则必须在 ` /etc/modprobe.d/sunrpc.conf` 中设置参数 `sunrpc.tcp_max_slot_table_entries 参数` 。如果此文件不存在，则必须先通过添加以下行来创建它：</block>
@@ -1155,7 +1154,6 @@
   <block id="1800d8919a8de7dbf0bdd4d4ef0a94f4" category="paragraph">在 SAP HANA 多主机环境中，标准 SAP HANA 存储连接器用于在发生 SAP HANA 主机故障转移时提供隔离。有关操作系统配置准则和 HANA 专用 Linux 内核依赖关系的信息，请参见相关 SAP 注释。有关详细信息，请参见<block ref="362348e4aadbc3b1dc4fa3ddcce8fb65" category="inline-link-rx"></block>。</block>
   <block id="324c1541e14a4687bde362da7f340662" category="paragraph">NetApp FAS 存储控制器已通过使用 NFS （ NAS ）和光纤通道（ SAN ）协议的 SAP HANA 定制数据中心集成（ TDI ）计划的认证。它们可以部署在任何 SAP HANA 方案中，例如采用单主机或多主机配置的基于 HANA 的 SAP Business Suite ， S/4HANA ， BB/4HANA 或基于 HANA 的 SAP Business Warehouse 。任何经认证可与 SAP HANA 结合使用的服务器均可与经过认证的存储解决方案结合使用。有关架构概述，请参见下图。</block>
   <block id="edf706df3a1da44f680d9aeb650d6f07" category="paragraph"><block ref="edf706df3a1da44f680d9aeb650d6f07" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="77d248262c4913bdbb243f5ab783f804" category="paragraph">可通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。中介绍了此选项<block ref="9ea324ddb9f7511fb783cc61e9aee7e8" category="inline-link-rx"></block>。</block>
   <block id="2119e51f96366de40a69723f79096b89" category="paragraph">此外，还支持原始设备映射（ RDM ）， FCP 数据存储库或具有 FCP 的 VVol 数据存储库。对于这两个数据存储库选项，数据存储库中只能存储一个 SAP HANA 数据或日志卷，以便在高效使用情形下使用。此外，无法实施由 SnapCenter 和基于此的解决方案协调的基于 Snapshot 的备份和恢复，例如 SAP 系统克隆。</block>
   <block id="b8d262c1ae7b810ad38a6e608b89ffa6" category="paragraph"><block ref="b8d262c1ae7b810ad38a6e608b89ffa6" category="inline-link-macro-rx"></block></block>
   <block id="3823dde38e881edb5563cdd3b64099ba" category="summary">以下是 SAP HANA 软件安装的要求。</block>
@@ -2024,4 +2022,11 @@
   <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">开放源代码</block>
   <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">通知文件提供有关 NetApp 软件中使用的第三方版权和许可证的信息。</block>
   <block id="d648f2a68a54fd1b3329efc3cf24d29c" category="sidebar">法律声明</block>
+  <block id="716757e4f3fb9dcb1e2980b92d42e652" category="cell">版本 5.8</block>
+  <block id="03b575c94f6241e48ac06a45c8ae1da0" category="cell">版本 3.6</block>
+  <block id="bca5b2fa001874580bf261991fd79806" category="cell">从 ONTAP 9.8 新操作系统版本新 SAP HANA 版本开始，支持 NFSv4.1 的 nconnect 功能</block>
+  <block id="2f1608c7920dcb5d09df4373ee6cef94" category="cell">版本 3.7</block>
+  <block id="896435116179bed2dde76b00414b4fa5" category="cell">新的 NetApp 存储系统会更改主机网络设置</block>
+  <block id="7e0efdf8314ae57608296d0f91d73af0" category="list-text">对于单主机系统，请挂载 ` /ha/shared` 卷并创建 `shared` 和 `usr-sp` 子目录。</block>
+  <block id="8d4c28e332eb5d0e100502eb8922957f" category="paragraph">可通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。中介绍了此选项<block ref="5860d5b399407cf49d81a6277de3a895" category="inline-link-rx"></block>。</block>
 </blocks>
