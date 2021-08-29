@@ -1036,7 +1036,6 @@
   <block id="e4509a748ae3ce7cb528662f2f9f7e10" category="paragraph">此认证适用于以下型号：</block>
   <block id="47230a2a4e3598c31d12840cfd054ac9" category="list-text">AFF A220 ， AFF A250 ， AFF A300 ， AFF A320 ， AFF A400 ， AFF A700s ， AFF A700 ， AFF A800</block>
   <block id="130c9ce9d2909449cb229a98c66f9d29" category="inline-link">经过认证并受支持的 SAP HANA 硬件目录</block>
-  <block id="47a36a94edc53cd5187c3a1d7d414368" category="list-text">ASA AFF A220 ， ASA AFF A250 ， ASA AFF A400 ， ASA AFF A700 ， ASA AFF A800 有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见<block ref="4863cb1d1ac806ba02e335dda429f580" category="inline-link-rx"></block>。</block>
   <block id="171ad4663cdfb492651e0357292fbe82" category="paragraph">本文档介绍了使用光纤通道协议（ FCP ）的 AFF 配置。</block>
   <block id="a08e3f55ac1bf243274ee454a477749b" category="admonition">要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采用本文所述的配置。更改此处未列出的任何设置或使用的功能可能会导致发生原因性能下降或出现意外行为，只有在 NetApp 支持人员建议的情况下，才应执行此操作。</block>
   <block id="9ba59bf1b64e9d129b41dbb49f3c385f" category="paragraph">有关使用 NFS 和 NetApp FAS 系统的 AFF 系统的配置指南，请访问以下链接：</block>
@@ -2029,4 +2028,6 @@
   <block id="896435116179bed2dde76b00414b4fa5" category="cell">新的 NetApp 存储系统会更改主机网络设置</block>
   <block id="7e0efdf8314ae57608296d0f91d73af0" category="list-text">对于单主机系统，请挂载 ` /ha/shared` 卷并创建 `shared` 和 `usr-sp` 子目录。</block>
   <block id="8d4c28e332eb5d0e100502eb8922957f" category="paragraph">可通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。中介绍了此选项<block ref="5860d5b399407cf49d81a6277de3a895" category="inline-link-rx"></block>。</block>
+  <block id="e77c85b25faef8527c1bed07eff03a8d" category="list-text">ASA AFF A220 ， ASA AFF A250 ， ASA AFF A400 ， ASA AFF A700 ， ASA AFF A800</block>
+  <block id="e8c22b9c2b65a7fdd51c6f6fa0a68202" category="paragraph">有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见<block ref="4863cb1d1ac806ba02e335dda429f580" category="inline-link-rx"></block>。</block>
 </blocks>
