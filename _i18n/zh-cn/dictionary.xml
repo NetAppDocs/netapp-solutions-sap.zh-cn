@@ -2529,4 +2529,7 @@
   <block id="c8935e1beb0848eefbbd5cda10297089" category="inline-link-macro">接下来： SnapCenter 服务架构。</block>
   <block id="60443fe21455bdcdcd0c21760abd95cd" category="paragraph"><block ref="60443fe21455bdcdcd0c21760abd95cd" category="inline-link-macro-rx"></block></block>
   <block id="6abf73ac39531a37ff136074cc08335d" category="sidebar">使用 SnapCenter 服务在 Azure NetApp Files 上执行 SAP HANA 备份和恢复</block>
+  <block id="a06fe30236099001fb8865692c8ec7e3" category="paragraph">SnapCenter 服务会根据 SnapCenter 服务备份策略中定义的保留期限删除存储和 SnapCenter 服务存储库中的 Snapshot 副本，从而处理 SAP HANA 数据库备份和非数据卷备份的后台管理。</block>
+  <block id="9146086648c59ec16c636f6376bdfd2e" category="paragraph">保留管理逻辑会对 SnapCenter 中的每个备份工作流执行。</block>
+  <block id="dbe479d1c7a378f616224ba6a3d956b0" category="paragraph"><block ref="dbe479d1c7a378f616224ba6a3d956b0" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>

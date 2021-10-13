@@ -174,6 +174,10 @@ image:saphana-backup-anf-image12.png["错误：缺少图形映像"]
 
 === Snapshot 备份的保留管理
 
+SnapCenter 服务会根据 SnapCenter 服务备份策略中定义的保留期限删除存储和 SnapCenter 服务存储库中的 Snapshot 副本，从而处理 SAP HANA 数据库备份和非数据卷备份的后台管理。
+
+保留管理逻辑会对 SnapCenter 中的每个备份工作流执行。
+
 您也可以在 SnapCenter 中手动删除 Snapshot 备份。
 
 
@@ -181,6 +185,8 @@ image:saphana-backup-anf-image12.png["错误：缺少图形映像"]
 === 基于文件的备份的保留管理
 
 SnapCenter 服务通过根据 SnapCenter 服务备份策略中定义的保留删除文件系统上的备份来处理基于文件的备份的管理。
+
+保留管理逻辑会对 SnapCenter 中的每个备份工作流执行。
 
 
 

@@ -34,6 +34,9 @@ image:saphana-backup-anf-image32.png["错误：缺少图形映像"]
 +
 image:saphana-backup-anf-image33.png["错误：缺少图形映像"]
 
++
+image:saphana-backup-anf-image34.png["错误：缺少图形映像"]
+
 . 要添加非数据卷，请单击添加。
 +
 image:saphana-backup-anf-image35.png["错误：缺少图形映像"]
