@@ -1,0 +1,217 @@
+---
+sidebar: sidebar 
+permalink: backup/saphana-backup-anf-snapcenter-service-concepts-and-best-practices.html 
+keywords:  
+summary:  
+---
+= SnapCenter 服务概念和最佳实践
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:saphana-backup-anf-snapcenter-service-sap-hana-backup-solution.html["先前版本： SnapCenter 服务 SAP HANA 备份解决方案。"]
+
+
+
+== 数据保护策略
+
+在配置 SnapCenter 服务之前，您必须根据各种 SAP 系统的 RTO 和 RPO 要求定义数据保护策略。
+
+一种常见方法是定义系统类型，例如生产，开发，测试或沙盒系统。所有系统类型相同的 SAP 系统通常具有相同的数据保护参数。
+
+您必须定义以下参数：
+
+* 执行 Snapshot 备份的频率
+* Snapshot 备份的保留时间
+* 执行块完整性检查（基于文件的备份）的频率
+* 块完整性检查备份（基于文件的备份）保留多长时间？
+
+
+下表显示了系统类型的生产，开发和测试的数据保护参数示例。对于生产系统，已定义高备份频率，并执行每周基于文件的备份。测试和开发系统的要求较低， Snapshot 备份的计划频率较低。
+
+|===
+| Parameters | 生产系统 | 开发系统 | 测试系统 
+
+
+| Snapshot 备份频率 | 每 4 小时 | 每 6 小时 | 每 12 小时 
+
+
+| Snapshot 备份保留 | 3 天 | 3 天 | 3 天 
+
+
+| 块完整性检查频率 | 每周一次 | 每周一次 | 每周一次 
+
+
+| 块完整性检查保留 | 4 周 | 2 周 | 1 周 
+|===
+下表显示了必须为 Snapshot 备份操作的数据保护参数配置的策略。
+
+|===
+| Parameters | 策略 SnapshotEvery4h | 策略 SnapshotEvery6h | 策略 SnapshotEvery12h 
+
+
+| 备份类型 | 基于 Snapshot 副本 | 基于 Snapshot 副本 | 基于 Snapshot 副本 
+
+
+| 计划类型 | 每小时 | 每小时 | 每小时 
+
+
+| Retention | 计数 = 18 | 计数 = 12 | 计数 = 3 
+
+
+| 备份计划 | 每 4 小时 | 每 6 小时 | 每 12 小时 
+|===
+下表显示了在基于文件的备份操作中必须为数据保护参数配置的策略。
+
+|===
+| Parameters | 策略文件 Based4Week | 策略文件 Based2Weeks | 策略文件已确定 1Week 
+
+
+| 备份类型 | 基于文件 | 基于文件 | 基于文件 
+
+
+| 计划类型 | 每周 | 每周 | 每周 
+
+
+| Retention | 计数 = 4 | 计数 = 2 | 计数 = 1 
+
+
+| 备份计划 | 每星期日 | 每星期日 | 每星期日 
+|===
+
+
+=== SnapCenter 服务策略
+
+在 SnapCenter 服务中，单个保护策略包括以下参数：
+
+* 备份类型
++
+** 基于 Snapshot
+** 基于文件
+
+
+* 计划和保留
++
+** 计划：每小时，每天，每周，每月。一个策略可以包含多个计划。
+** 对于每个计划，系统会配置开始或结束时间以及频率。
+** 对于每个计划，都会配置一个保留。保留可以基于时间，也可以基于计数器。
+
+
+
+
+下图显示了策略配置的屏幕截图。
+
+image:saphana-backup-anf-image10.png["错误：缺少图形映像"]
+
+
+
+== 备份操作
+
+SAP 引入了对采用 HANA 2.0 SPS4 的 MDC 多租户系统的 Snapshot 备份的支持。在 SAP HANA MDC 系统中，租户配置不一定是静态的。您可以添加或删除租户。SnapCenter 服务不能依赖在将 HANA 数据库添加到 SnapCenter 时发现的配置。SnapCenter 服务必须知道在执行备份操作时哪些租户可用。
+
+因此，对于每个备份操作，工作流的第一步是获取租户信息。下一步是执行 Snapshot 备份操作本身。此步骤包括用于触发 HANA 备份保存点的 SQL 命令，用于 Azure NetApp Files Snapshot 备份的 SQL 命令以及用于关闭 HANA 备份保存点的 SQL 命令。通过使用 close 命令， HANA 数据库将更新系统数据库和每个租户的备份目录。
+
+
+NOTE: 当一个或多个租户停止时， SAP 不支持对 MDC 系统执行 Snapshot 备份操作。
+
+要对数据备份进行保留管理和 HANA 备份目录管理， SnapCenter 服务必须对系统数据库以及第一步中确定的所有租户数据库执行目录删除操作。与日志备份相同， SnapCenter 服务工作流必须在备份操作中的每个租户上运行。
+
+下图显示了备份工作流的概述。
+
+image:saphana-backup-anf-image11.jpg["错误：缺少图形映像"]
+
+
+
+=== HANA 数据库的 Snapshot 备份的备份工作流
+
+SnapCenter 服务按以下顺序执行 SAP HANA 数据库的备份：
+
+. 从 HANA 数据库读取租户列表。
+. 将租户信息存储在备份操作的 SnapCenter 服务元数据中。
+. 触发 SAP HANA 全局同步备份保存点，以便在永久性层上创建一致的数据库映像。
++
+对于一个 SAP HANA MDC 单租户或多租户系统，系统会为系统数据库和每个租户数据库创建一个同步的全局备份保存点。
+
+. 为为 HANA 系统配置的所有数据卷创建 Azure NetApp Files Snapshot 副本。在我们的单主机 HANA 数据库示例中，只有一个数据卷。使用 SAP HANA 多主机数据库时，有多个数据卷。
+. 在 SAP HANA 备份目录中注册 Azure NetApp Files Snapshot 备份。
+. 删除 SAP HANA 备份保存点。
+. 根据为备份定义的保留策略，删除 Azure NetApp Files Snapshot 副本及其数据库以及 SAP HANA 备份目录中的备份条目。系统数据库和所有租户均执行 HANA 备份目录操作。
+. 删除文件系统和 SAP HANA 备份目录中早于 SAP HANA 备份目录中标识的最旧数据备份的所有日志备份。这些操作是针对系统数据库和所有租户执行的。
+
+
+
+
+=== 用于块完整性检查操作的备份工作流
+
+SnapCenter 服务按以下顺序执行块完整性检查：
+
+. 从 HANA 数据库读取租户列表。
+. 为系统数据库和每个租户触发基于文件的备份操作。
+. 根据为块完整性检查操作定义的保留策略，删除其数据库，文件系统和 SAP HANA 备份目录中基于文件的备份。文件系统上的备份删除以及系统数据库和所有租户的 HANA 备份目录操作均已完成。
+. 删除文件系统和 SAP HANA 备份目录中早于 SAP HANA 备份目录中标识的最旧数据备份的所有日志备份。这些操作是针对系统数据库和所有租户执行的。
+
+
+
+
+== 数据和日志备份的备份保留管理和管理
+
+数据备份保留管理和日志备份管理可分为四个主要方面，包括以下保留管理：
+
+* Snapshot 备份
+* 基于文件的备份
+* SAP HANA 备份目录中的数据备份
+* 在 SAP HANA 备份目录和文件系统中记录备份
+
+
+下图概述了不同的工作流以及每个操作的依赖关系。以下各节将详细介绍不同的操作。
+
+image:saphana-backup-anf-image12.png["错误：缺少图形映像"]
+
+
+
+=== Snapshot 备份的保留管理
+
+您也可以在 SnapCenter 中手动删除 Snapshot 备份。
+
+
+
+=== 基于文件的备份的保留管理
+
+SnapCenter 服务通过根据 SnapCenter 服务备份策略中定义的保留删除文件系统上的备份来处理基于文件的备份的管理。
+
+
+
+=== SAP HANA 备份目录中的数据备份保留管理
+
+当 SnapCenter 服务删除任何备份（ Snapshot 或基于文件）时，此数据备份也会在 SAP HANA 备份目录中删除。
+
+
+
+=== 日志备份的保留管理
+
+SAP HANA 数据库会自动创建日志备份。这些日志备份会在 SAP HANA 中配置的备份目录中为每个 SAP HANA 服务创建备份文件。
+
+要进行正向恢复，不再需要早于最新数据备份的日志备份，可以将其删除。
+
+SnapCenter 服务通过执行以下任务，在文件系统级别以及 SAP HANA 备份目录中对日志文件备份进行管理：
+
+. 读取 SAP HANA 备份目录以获取最旧的成功文件备份或 Snapshot 备份的备份 ID 。
+. 删除 SAP HANA 目录和文件系统中早于此备份 ID 的所有日志备份。
++
+SnapCenter 服务仅处理由 SnapCenter 创建的备份的管理工作。如果在 SnapCenter 之外创建了其他基于文件的备份，则必须确保从备份目录中删除基于文件的备份。如果不从备份目录中手动删除此类数据备份，则它可能会成为最旧的数据备份，而较早的日志备份则不会删除，直到删除此基于文件的备份为止。
+
+
+
+
+NOTE: 您不能使用当前版本的 SnapCenter 服务关闭日志备份保留管理。
+
+
+
+== Snapshot 备份的容量要求
+
+您必须考虑存储层上的块更改率高于传统数据库的更改率。由于列存储的 HANA 表合并过程，整个表将写入磁盘，而不仅仅是已更改的块。如果在一天内执行多个 Snapshot 备份，我们客户群的数据显示，每天的变更率介于 20% 到 50% 之间。
+
+link:saphana-backup-anf-lab-setup-used-for-this-report.html["下一步：用于此报告的实验室设置。"]

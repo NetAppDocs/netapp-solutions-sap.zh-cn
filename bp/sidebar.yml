@@ -4,8 +4,6 @@ title: 最佳实践
 entries:
 - title: 使用 Azure NetApp Files 在 Microsoft Azure 上运行 SAP 应用程序
   url: "/bp/sap-apps-azure-anf_pdf_link.html"
-- title: 使用 Cloud Volumes ONTAP 在 Microsoft Azure 上运行 SAP 应用程序
-  url: "/bp/sap-apps-azure-cvo_pdf_link.html"
 - title: "《采用 FCP 的 NetApp AFF 系统上的 SAP HANA 配置指南》"
   type: solutions
   entries:
@@ -142,8 +140,6 @@ entries:
     url: "/bp/saphana_fas_fc_where_to_find_additional_information.html"
   - title: 更新历史记录
     url: "/bp/saphana_fas_fc_update_history.html"
-- title: 基于 VMware vSphere 和 NetApp FAS 以及全闪存 FAS 系统的 SAP HANA
-  url: "/bp/saphana-vsphere-fas-aff_pdf_link.html"
 - title: 基于 IBM Power Systems 的 SAP HANA 和采用 NFS 的 NetApp AFF 系统
   url: "/bp/saphana-ibm-aff-nfs_pdf_link.html"
 - title: SAP 与基于 UNIX 的 Oracle 以及 NFS 与 NetApp ONTAP

@@ -1,0 +1,111 @@
+---
+sidebar: sidebar 
+permalink: backup/saphana-backup-anf-snapcenter-service-sap-hana-backup-solution.html 
+keywords: solution components, scheduling, retention, 
+summary: 本节介绍 SnapCenter 服务备份解决方案涵盖的领域。 
+---
+= SnapCenter 服务 SAP HANA 备份解决方案
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:saphana-backup-anf-snapcenter-service-architecture.html["先前版本： SnapCenter 服务架构。"]
+
+
+
+== 解决方案组件
+
+适用于 SAP HANA 的 SnapCenter 服务备份解决方案涵盖以下方面：
+
+* 使用基于存储的 Snapshot 副本进行 SAP HANA 数据备份：
++
+** 备份计划
+** 按需备份
+** 保留管理
+** 维护 SAP HANA 备份目录
+** 还原操作
+
+
+* 使用基于存储的 Snapshot 副本进行非数据卷备份
++
+** SnapCenter 区分属于特定 HANA 系统的非数据卷（例如 HANA 共享卷）和不属于特定 HANA 系统的全局非数据卷（例如 SAP 传输目录）。
+** 备份计划
+** 按需备份
+** 保留管理
+** 还原操作
+
+
+* 用于检查数据库块完整性的基于文件的备份或备份到第二个位置：
++
+** 备份计划
+** 按需备份
+** 保留管理
+** 维护 SAP HANA 备份目录
+
+
+* HANA 数据库日志备份的保留管理：
++
+** 基于数据备份保留进行保留管理
+** 维护 SAP HANA 备份目录
+
+
+
+
+SnapCenter 服务可通过触发 SAP HANA 数据库备份保存点来执行 Snapshot 数据备份，以便在存储层上创建的 Snapshot 副本基于 SAP HANA 数据库的一致映像。
+
+为了对所有 SAP HANA 相关资源进行完整备份，您还可以使用 SnapCenter 服务使用基于存储的 Snapshot 副本备份所有非数据卷。您可以独立于数据库数据备份计划非数据卷，以启用单个保留和保护策略。
+
+SAP 建议将基于存储的 Snapshot 备份与每周基于文件的备份相结合，以执行块完整性检查。您可以从 SnapCenter 中执行块完整性检查。块完整性检查（基于文件）备份也用于将备份卸载到另一个存储位置。
+
+SnapCenter 服务会根据您可配置的保留策略管理数据备份，日志备份和 SAP HANA 备份目录的管理工作。
+
+下图总结了备份解决方案。
+
+image:saphana-backup-anf-image9.png["错误：缺少图形映像"]
+
+在对非数据卷执行基于存储的 Snapshot 备份时， SnapCenter 服务将执行以下任务：
+
+. 创建非数据卷的存储 Snapshot 副本。
+. 根据定义的保留策略删除存储 Snapshot 副本。
+
+
+在对 SAP HANA 数据库执行基于存储的 Snapshot 备份时， SnapCenter 服务将执行以下任务：
+
+. 创建 SAP HANA 备份保存点，以便在持久性层上创建一致的映像。
+. 创建数据卷的存储 Snapshot 副本。
+. 在 SAP HANA 备份目录中注册存储 Snapshot 备份。
+. 发布 SAP HANA 备份保存点。
+. 根据定义的保留策略删除存储 Snapshot 副本。
+. 根据定义的保留策略删除 SAP HANA 备份目录条目。
+. 手动删除数据备份或根据保留策略删除数据备份后， SnapCenter 服务将删除早于最旧数据备份的所有日志备份。日志备份会在文件系统和 SAP HANA 备份目录中删除。
+
+
+
+
+== 支持的 SAP HANA 版本和配置
+
+SnapCenter 服务支持连接到 Azure NetApp Files 卷的 SAP HANA 单主机和多主机配置。
+
+SnapCenter 服务支持以下 SAP HANA 架构和版本：
+
+* SAP HANA 单个容器：
++
+** SAP HANA 1.0 SPS12
+
+
+* 具有单个或多个租户的 SAP HANA 多租户数据库容器（ MDG ）：
++
+** SAP HANA 2.0 SPS4 及更高版本
+
+
+
+
+
+NOTE: SAP 引入了对 MDC 系统的 Snapshot 备份支持，其中 HANA 2.0 SP1 适用于单租户系统， HANA 2.0 SPS4 适用于多租户系统。
+
+不支持将数据 Snapshot 备份与 SnapCenter 服务和日志备份与后置解决方案结合使用。必须将日志备份配置为写入文件系统。
+
+link:saphana-backup-anf-snapcenter-service-concepts-and-best-practices.html["接下来： SnapCenter 服务概念和最佳实践。"]

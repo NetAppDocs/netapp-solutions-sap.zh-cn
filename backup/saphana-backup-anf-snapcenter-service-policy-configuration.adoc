@@ -1,0 +1,80 @@
+---
+sidebar: sidebar 
+permalink: backup/saphana-backup-anf-snapcenter-service-policy-configuration.html 
+keywords: minimum configuration, policy, service 
+summary:  
+---
+= SnapCenter 服务策略配置
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:saphana-backup-anf-lab-setup-used-for-this-report.html["Previous ：用于此报告的实验室设置。"]
+
+如本节所述 link:saphana-backup-anf-snapcenter-service-concepts-and-best-practices.html#data-protection-strategy["" 数据保护策略 " ，"] 策略通常独立于资源进行配置，可供多个 SAP HANA 数据库使用。
+
+典型的最低配置包含以下策略：
+
+* 每小时 Snapshot 备份策略。
++
+例如， `SnapshotEvery4h`
+
+* 使用基于文件的备份执行每周块完整性检查的策略。
++
+例如， `BlockIntegrityCheckEverySunday`
+
+
+
+以下各节将介绍这两个策略的配置。
+
+
+
+== 每小时 Snapshot 备份策略
+
+要为每小时 Snapshot 备份创建策略，请执行以下步骤：
+
+. 转至 Policies ，然后单击 Add Policy 。
++
+image:saphana-backup-anf-image14.png["错误：缺少图形映像"]
+
+. 在创建策略屏幕中，提供策略名称，备份类型，备份命名约定以及计划和保留详细信息。
++
+image:saphana-backup-anf-image10.png["错误：缺少图形映像"]
+
++
+例如，在下图中，对于 Snapshot 备份，会配置一个每 4 小时的计划，并将开始时间配置为上午 10 点。保留时间配置为 18 ，即 3 天。
+
++
+image:saphana-backup-anf-image15.png["错误：缺少图形映像"]
+
+. 在自定义备份名称窗口中，您可以更改备份命名约定并添加自定义前缀。
++
+image:saphana-backup-anf-image16.png["错误：缺少图形映像"]
+
+. 要创建新策略，请单击添加。
+
+
+
+
+== 每周块完整性检查策略
+
+要创建用于每周块完整性检查的策略，请执行以下步骤：
+
+. 转至 Policies ，然后单击 Add Policy 。
+. 在创建策略屏幕中，提供策略名称，备份类型，备份命名约定以及计划和保留详细信息。
++
+image:saphana-backup-anf-image17.png["错误：缺少图形映像"]
+
+. 要创建新策略，请单击添加。
++
+下图显示了已配置策略的摘要。
+
++
+image:saphana-backup-anf-image18.png["错误：缺少图形映像"]
+
+
+
+link:saphana-backup-anf-snapcenter-service-snapshot-backup-configuration-overview.html["接下来： SnapCenter 服务快照备份配置概述。"]

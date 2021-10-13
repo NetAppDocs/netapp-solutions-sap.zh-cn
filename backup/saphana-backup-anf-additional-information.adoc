@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: backup/saphana-backup-anf-additional-information.html 
+keywords: references 
+summary:  
+---
+= 追加信息
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:saphana-backup-anf-restore-and-recovery.html["上一步：还原和恢复。"]
+
+要了解有关本文档中所述信息的更多信息，请查看以下文档和 / 或网站：
+
+* TR-4746 ：《使用 Azure NetApp Files 在 Microsoft Azure 上运行 SAP 应用程序》
++
+https://www.netapp.com/us/media/tr-4746.pdf[]
+
+* link:https://review.docs.netapp.com/us-en/netapp-solutions-sap_main/backup/saphana-dr-anf_data_protection_overview_overview.html["TR-4891 ：《使用 Azure NetApp Files 实现 SAP HANA 灾难恢复》"]
+
+
+link:saphana-backup-anf-version-history.html["下一步：版本历史记录。"]

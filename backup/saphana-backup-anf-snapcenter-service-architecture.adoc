@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: backup/saphana-backup-anf-snapcenter-service-architecture.html 
+keywords: snapcenter service, data protection, cloud manager, kubernetes 
+summary: SnapCenter 服务是一个统一的可扩展平台，可实现应用程序一致的数据保护。SnapCenter 服务可提供集中控制和监管，同时将管理应用程序专用备份和还原操作的功能委派给用户。 
+---
+= SnapCenter 服务架构
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:saphana-backup-anf-the-netapp-solution.html["先前版本： NetApp 解决方案。"]
+
+SnapCenter 服务是一个统一的可扩展平台，可实现应用程序一致的数据保护。SnapCenter 服务可提供集中控制和监管，同时将管理应用程序专用备份和还原操作的功能委派给用户。
+
+SnapCenter 服务利用 NetApp Cloud Manager 软件作为 UI 并管理 Azure NetApp Files 的凭据。SnapCenter 服务在 Kubernetes 集群中运行，并通过 Cloud Manager Connector 与 NetApp Cloud Manager 进行通信。SnapCenter 服务使用 HANA hdbsql" 客户端触发 HANA 数据库操作，并使用 Azure NetApp Files 管理 API 触发 Azure NetApp Files 存储操作。
+
+您可以将 SnapCenter 服务 Kubernetes 集群和 Cloud Manager Connector 部署在单独的服务 vNet 中，也可以将其部署在与 SAP HANA 系统相同的 vNet 中，如以下两个图所示。
+
+image:saphana-backup-anf-image6.jpg["错误：缺少图形映像"]
+
+image:saphana-backup-anf-image7.jpg["错误：缺少图形映像"]
+
+SnapCenter 服务安装至少需要两个虚拟机（ VM ），一个虚拟机用于 Cloud Manager Connector ，另一个虚拟机在非 HA 配置中运行 Kubernetes 集群。如果在高可用性（ HA ）配置中设置 SnapCenter 服务，则还需要两个 VM 。
+
+image:saphana-backup-anf-image8.jpg["错误：缺少图形映像"]
+
+link:saphana-backup-anf-snapcenter-service-sap-hana-backup-solution.html["接下来： SnapCenter 服务 SAP HANA 备份解决方案。"]

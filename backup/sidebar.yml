@@ -49,6 +49,43 @@ entries:
       url: "/backup/saphana-dr-anf_hana_database_recovery_01.html"
   - title: 更新历史记录
     url: "/backup/saphana-dr-anf_update_history.html"
+- title: 使用 SnapCenter 服务在 Azure NetApp Files 上执行 SAP HANA 备份和恢复
+  type: solutions
+  entries:
+  - title: 概述
+    url: "/backup/saphana-backup-anf-overview.html"
+  - title: NetApp 解决方案
+    url: "/backup/saphana-backup-anf-the-netapp-solution.html"
+  - title: SnapCenter 服务架构
+    url: "/backup/saphana-backup-anf-snapcenter-service-architecture.html"
+  - title: SnapCenter 服务 SAP HANA 备份解决方案
+    url: "/backup/saphana-backup-anf-snapcenter-service-sap-hana-backup-solution.html"
+  - title: SnapCenter 服务概念和最佳实践
+    url: "/backup/saphana-backup-anf-snapcenter-service-concepts-and-best-practices.html"
+  - title: 用于此报告的实验室设置
+    url: "/backup/saphana-backup-anf-lab-setup-used-for-this-report.html"
+  - title: SnapCenter 服务策略配置
+    url: "/backup/saphana-backup-anf-snapcenter-service-policy-configuration.html"
+  - title: SnapCenter 服务快照备份配置
+    entries:
+    - title: 概述
+      url: "/backup/saphana-backup-anf-snapcenter-service-snapshot-backup-configuration-overview.html"
+    - title: SAP HANA 数据库备份的备份配置
+      url: "/backup/saphana-backup-anf-backup-configuration-of-sap-hana-database-backups.html"
+    - title: SAP HANA 非数据卷的备份配置
+      url: "/backup/saphana-backup-anf-backup-configuration-of-sap-hana-non-data-volumes.html"
+    - title: 全局非数据卷的备份配置
+      url: "/backup/saphana-backup-anf-backup-configuration-of-global-non-data-volumes.html"
+  - title: SAP HANA 数据库 Snapshot 备份
+    url: "/backup/saphana-backup-anf-sap-hana-database-snapshot-backups.html"
+  - title: 基于文件的备份和块完整性检查
+    url: "/backup/saphana-backup-anf-file-based-backups-and-block-integrity-check.html"
+  - title: 还原和恢复
+    url: "/backup/saphana-backup-anf-restore-and-recovery.html"
+  - title: 追加信息
+    url: "/backup/saphana-backup-anf-additional-information.html"
+  - title: 版本历史记录
+    url: "/backup/saphana-backup-anf-version-history.html"
 - title: 使用 SnapCenter 实现 SAP HANA 备份和恢复
   url: "/backup/saphana-br-sc_pdf_link.html"
 - title: 使用存储复制实现 SAP HANA 灾难恢复
