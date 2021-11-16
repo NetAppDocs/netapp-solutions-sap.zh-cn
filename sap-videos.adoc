@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: sap-videos.html 
+summary: 重点介绍 SAP 解决方案的一系列视频和演示 
+keywords: netapp, solutions, SAP, videos, demos 
+---
+= SAP 解决方案视频和演示
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:table-stripes: odd
+:imagesdir: ./media/
+
+
+[role="lead"]
+重点介绍 SAP 解决方案的视频和演示概述。
+
+
+
+=== SAP 配置最佳实践视频和演示
+
+* link:https://www.netapp.tv/details/28149["SAP HANA 在 NetApp 基础架构上运行最佳"]
+* link:https://www.netapp.tv/details/28189["SAP on Azure NetApp Files ：概述和更新"]
+* link:https://www.netapp.tv/details/28402["使用 NetApp 块和对象存储实现 SAP 数据智能"]
+
+
+
+
+=== SAP 备份，还原和灾难恢复视频和演示
+
+* link:https://www.netapp.tv/details/25592["确保 SAP 应用程序可用性并最大限度地减少停机时间"]
+* link:https://www.netapp.tv/details/28399["优化基于 Azure NetApp Files 的 SAP HANA 的数据保护"]
+* link:https://www.netapp.tv/details/28398["适用于 SAP HANA 的灾难恢复选项"]
+* link:https://www.netapp.tv/details/28406["使用 ANF 和跨区域复制实现 SAP HANA 灾难恢复"]
+
+
+
+
+=== SAP 生命周期管理视频和演示
+
+* link:https://www.netapp.tv/details/25588["降低 SAP 项目的风险并提高项目质量"]
+* link:https://www.netapp.tv/details/25595["在发生意外事件时确保业务部门的连续性"]
+* link:https://www.netapp.tv/details/28400["SnapCenter 用例"]
+* link:https://www.netapp.tv/details/28401["采用 Libelle 和 SnapCenter 的 SAP 系统副本"]
+

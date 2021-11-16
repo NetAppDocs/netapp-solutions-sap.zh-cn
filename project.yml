@@ -15,7 +15,43 @@ sidebar:
   - section: backup
   - section: lifecycle
   - section: briefs
+  - title: FlexPod SAP 解决方案
+    url: https://docs.netapp.com/us-en/flexpod/ent-db/index.html
   - title: NetApp 解决方案
     url: https://docs.netapp.com/us-en/netapp-solutions/
   - title: 法律声明
     url: "/reference_legal_notices.html"
+homepage:
+  tiles:
+  - title: 配置最佳实践
+    links:
+    - title: 视频演示
+      url: sap-bp-videos.html
+    - title: 博客
+      url: sap-bp-blogs.html
+    - title: 工具
+      url: sap-bp-tools.html
+  - title: 备份，还原和灾难恢复
+    links:
+    - title: 视频演示
+      url: sap-dr-videos.html
+    - title: 博客
+      url: sap-dr-blogs.html
+    - title: 工具
+      url: sap-dr-tools.html
+  - title: 生命周期管理
+    links:
+    - title: 视频演示
+      url: sap-lcm-videos.html
+    - title: 博客
+      url: sap-lcm-blogs.html
+    - title: 工具
+      url: sap-lcm-tools.html
+  - title: 所有 SAP 解决方案
+    links:
+    - title: 新增功能
+      url: sap-whatsnew.html
+    - title: 视频演示
+      url: sap-videos.html
+    - title: 博客
+      url: sap-blogs.html

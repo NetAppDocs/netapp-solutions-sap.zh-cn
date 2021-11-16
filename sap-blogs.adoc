@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: sap-blogs.html 
+summary: 讨论 SAP 解决方案的系列博客 
+keywords: netapp, solutions, SAP, blogs 
+---
+= SAP 解决方案博客
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:table-stripes: odd
+:imagesdir: ./media/
+
+
+[role="lead"]
+重点介绍基于 NetApp 的 SAP 的博客概述。
+
+
+
+== SAP 解决方案博客
+
+
+
+=== SAP 配置最佳实践博客
+
+
+
+=== SAP 备份，还原和灾难恢复博客
+
+
+
+=== SAP 生命周期管理博客
+
+* link:https://blogs.sap.com/2021/10/27/whitepaper-sap-landscape-management-with-netapp/["NetApp 的 SAP Landscape Management"]
+

@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: sap-dr-videos.html 
+summary: 有关 SAP 备份，还原和灾难恢复的系列视频和演示 
+keywords: netapp, solutions, SAP, backup, restore, disaster recover, dr, videos, demos 
+---
+= SAP 备份，还原和灾难恢复视频和演示
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:table-stripes: odd
+:imagesdir: ./media/
+
+
+[role="lead"]
+重点介绍 SAP 备份，还原和灾难恢复的视频和演示概述。
+
+
+
+=== SAP 备份，还原和灾难恢复视频和演示
+
+* link:https://www.netapp.tv/details/25592["确保 SAP 应用程序可用性并最大限度地减少停机时间"]
+* link:https://www.netapp.tv/details/28399["优化基于 Azure NetApp Files 的 SAP HANA 的数据保护"]
+* link:https://www.netapp.tv/details/28398["适用于 SAP HANA 的灾难恢复选项"]
+* link:https://www.netapp.tv/details/28406["使用 ANF 和跨区域复制实现 SAP HANA 灾难恢复"]
+

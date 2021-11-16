@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: sap-bp-videos.html 
+summary: 讨论 SAP 配置最佳实践的一系列视频和演示 
+keywords: netapp, solutions, SAP, best practices, videos, demos 
+---
+= SAP 配置最佳实践视频和演示
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:table-stripes: odd
+:imagesdir: ./media/
+
+
+[role="lead"]
+重点介绍 SAP 配置最佳实践的视频和演示概述。
+
+
+
+=== SAP 配置最佳实践视频和演示
+
+* link:https://www.netapp.tv/details/28149["SAP HANA 在 NetApp 基础架构上运行最佳"]
+* link:https://www.netapp.tv/details/28189["SAP on Azure NetApp Files ：概述和更新"]
+* link:https://www.netapp.tv/details/28402["使用 NetApp 块和对象存储实现 SAP 数据智能"]
+

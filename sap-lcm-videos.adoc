@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: sap-lcm-videos.html 
+summary: 讨论 SAP 生命周期管理的一系列视频和演示 
+keywords: netapp, solutions, SAP, lifecycle, management, lcm, videos, demos 
+---
+= SAP 生命周期管理视频和演示
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:table-stripes: odd
+:imagesdir: ./media/
+
+
+[role="lead"]
+重点介绍 SAP 生命周期管理的视频和演示概述。
+
+
+
+=== SAP 生命周期管理视频和演示
+
+* link:https://www.netapp.tv/details/25588["降低 SAP 项目的风险并提高项目质量"]
+* link:https://www.netapp.tv/details/25595["在发生意外事件时确保业务部门的连续性"]
+* link:https://www.netapp.tv/details/28400["SnapCenter 用例"]
+* link:https://www.netapp.tv/details/28401["采用 Libelle 和 SnapCenter 的 SAP 系统副本"]
+
