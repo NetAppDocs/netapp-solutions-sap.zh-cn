@@ -2536,7 +2536,6 @@
   <block id="4de557ac24bd2fc25bd82bba339024b6" category="inline-link-macro">适用于 MaxDB ， DB2 和 ASE 的 SnapCenter 自定义插件</block>
   <block id="0a01ff5d4ad68f1f814d0d67480b3b30" category="list-text"><block ref="0a01ff5d4ad68f1f814d0d67480b3b30" category="inline-link-macro-rx"></block></block>
   <block id="23083712546bfb74d3153dd83b152769" category="summary">SAP 解决方案产品组合的最新新增功能</block>
-  <block id="72952abb65a66e0035e77464a5e64669" category="doc">SAP 的新增功能</block>
   <block id="ff0018dfdf641d75e04d581743c81f22" category="paragraph">最新 SAP 解决方案和解决方案宣传材料概述。</block>
   <block id="da322257c020829271a011f2bf2ef3af" category="list-text"><block ref="da322257c020829271a011f2bf2ef3af" category="inline-link-macro-rx"></block></block>
   <block id="7aa50c591cbe872ef050a10a3796443e" category="list-text"><block ref="7aa50c591cbe872ef050a10a3796443e" category="inline-link-macro-rx"></block></block>
@@ -2607,4 +2606,5 @@
   <block id="1f934c6200615c74e6839ca55ae1e6cf" category="sidebar">备份，还原和灾难恢复</block>
   <block id="d57e0763c47c99218375572fbdd307a1" category="sidebar">所有 SAP 解决方案</block>
   <block id="91770f038cd944a1d3b9b347edeb2b10" category="sidebar">新增功能</block>
+  <block id="cd0aa799857a204938b1d6cabb99618f" category="doc">SAP 的新增功能</block>
 </blocks>
