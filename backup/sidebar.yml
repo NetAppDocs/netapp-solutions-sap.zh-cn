@@ -2,6 +2,25 @@
 section: backup
 title: 备份，还原和灾难恢复
 entries:
+- title: 使用 SnapCenter 备份和恢复 SAP HANA 系统复制
+  type: solutions
+  entries:
+  - title: SAP HANA 系统复制概述
+    url: "/backup/saphana-sr-scs-sap-hana-system-replication-overview.html"
+  - title: Storage Snapshot 备份和 SAP 系统复制
+    url: "/backup/saphana-sr-scs-storage-snapshot-backups-and-sap-system-replication.html"
+  - title: 适用于 SAP 系统复制的 SnapCenter 配置选项
+    url: "/backup/saphana-sr-scs-snapcenter-configuration-options-for-sap-system-replication.html"
+  - title: 使用资源组的 SnapCenter 4.6 配置
+    url: "/backup/saphana-sr-scs-snapcenter-4.6-configuration-using-a-resource-group.html"
+  - title: 使用单个资源的 SnapCenter 配置
+    url: "/backup/saphana-sr-scs-snapcenter-configuration-with-a-single-resource.html"
+  - title: 从在另一主机上创建的备份进行还原和恢复
+    url: "/backup/saphana-sr-scs-restore-and-recovery-from-a-backup-created-at-the-other-host.html"
+  - title: 从何处查找追加信息
+    url: "/backup/saphana-sr-scs-where-to-find-additional-information_overview.html"
+  - title: 版本历史记录
+    url: "/backup/saphana-sr-scs-version-history.html"
 - title: 使用 Azure NetApp Files 实现 SAP HANA 灾难恢复
   type: solutions
   entries:

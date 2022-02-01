@@ -2607,4 +2607,255 @@
   <block id="d57e0763c47c99218375572fbdd307a1" category="sidebar">所有 SAP 解决方案</block>
   <block id="91770f038cd944a1d3b9b347edeb2b10" category="sidebar">新增功能</block>
   <block id="cd0aa799857a204938b1d6cabb99618f" category="doc">SAP 的新增功能</block>
+  <block id="093a45d87b6b8692e6c9a73c1a04c137" category="doc">从何处查找追加信息和版本历史记录</block>
+  <block id="0a0c1759064aa4f9f09c1efae7e5497c" category="inline-link-macro">先前：从在另一主机上创建的备份还原和恢复。</block>
+  <block id="9336d28943665078fed40ddbea21b0c3" category="paragraph"><block ref="9336d28943665078fed40ddbea21b0c3" category="inline-link-macro-rx"></block></block>
+  <block id="243e854b0d7da6e16a4a87f0f9ea87ba" category="paragraph">要了解有关本文档中所述信息的更多信息，请参见以下文档：</block>
+  <block id="b1cd4632a9cd8998e7a0017f528fcc5b" category="list-text">利用 SnapCenter 自动执行 SAP HANA 系统复制和克隆操作</block>
+  <block id="210b71749fc2f7d24034c09eef132638" category="paragraph"><block ref="210b71749fc2f7d24034c09eef132638" category="inline-link-macro-rx"></block></block>
+  <block id="36352fdf713e8c1508666c9640668e0a" category="summary">SnapCenter 4.6 支持对配置有 HANA 系统复制的 HANA 系统进行自动发现。SnapCenter 4.6 包含一个逻辑，用于在备份操作期间识别主和二级 HANA 主机，并处理两个 HANA 主机之间的保留管理。</block>
+  <block id="8b1c808eafbee9527d4e168ef1f16c09" category="doc">使用资源组的 SnapCenter 4.6 配置</block>
+  <block id="d1dc4a7aad3c7160c6649b5e3c9591f0" category="inline-link-macro">先前版本：适用于 SAP 系统复制的 SnapCenter 配置选项。</block>
+  <block id="a1d763646bbddba03e82d23f2d098717" category="paragraph"><block ref="a1d763646bbddba03e82d23f2d098717" category="inline-link-macro-rx"></block></block>
+  <block id="b39fd9047d2089b24c418d3512b8c903" category="paragraph">SnapCenter 4.6 支持对配置有 HANA 系统复制的 HANA 系统进行自动发现。SnapCenter 4.6 包含一个逻辑，用于在备份操作期间识别主和二级 HANA 主机，并处理两个 HANA 主机之间的保留管理。此外，自动还原和恢复现在也可用于 HANA 系统复制环境。</block>
+  <block id="6a24c6a18054ecbcf8919b90f4ff5eb8" category="section-title">HANA 系统复制环境的 SnapCenter 4.6 配置</block>
+  <block id="ef7979296ea2465331699c64e5450ad0" category="paragraph">下图显示了本章使用的实验室设置。两个 HANA 主机 HANA 3 和 HANA 4 配置了 HANA 系统复制。</block>
+  <block id="3ca4a9c5f67351b7924bb2876dc1e870" category="paragraph">为 HANA 系统数据库创建了一个数据库用户 SnapCenter ，该用户具有执行备份和恢复操作所需的权限（请参见<block ref="ec9daba0660d1e2512cb8193f8c16297" category="inline-link-rx"></block>）。必须使用上述数据库用户在两台主机上配置 HANA 用户存储密钥。</block>
+  <block id="3719dabf545d56e27391b4c1bb73b944" category="paragraph">从较高的角度来看，您必须执行以下步骤在 SnapCenter 中设置 HANA 系统复制。</block>
+  <block id="bc1873525b8d9ae5c49626cd6b47592c" category="list-text">在主主机和二级主机上安装 HANA 插件。系统将对每个主主机或二级主机执行自动发现并检测到 HANA 系统复制状态。</block>
+  <block id="3b7407b92790f4d78d820c6ebd3e159d" category="list-text">执行 SnapCenter `configure database` 并提供 `hdbuserstore` 密钥。将执行更多自动发现操作。</block>
+  <block id="93564a49cedf2137deead20877f792cd" category="list-text">创建一个资源组，包括两个主机并配置保护。</block>
+  <block id="59d72e64253c8467af99838d40400078" category="paragraph"><block ref="59d72e64253c8467af99838d40400078" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b9e7f8ca0dd679eb7244d3b0c456f58e" category="paragraph">在两台 HANA 主机上安装 SnapCenter HANA 插件后， HANA 系统将以与其他自动发现的资源相同的方式显示在 SnapCenter 资源视图中。从 SnapCenter 4.6 开始，将显示一个附加列，其中显示 HANA 系统复制的状态（已启用 / 已禁用，主 / 二级）。</block>
+  <block id="6510b37e0aa52b9177b46d7048e004b0" category="paragraph"><block ref="6510b37e0aa52b9177b46d7048e004b0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d6fc9c8644818503f282251021723ef4" category="paragraph">通过单击资源， SnapCenter 请求 HANA 系统的 HANA 用户存储密钥。</block>
+  <block id="2d44da370270eab693da74c47ec83061" category="paragraph"><block ref="2d44da370270eab693da74c47ec83061" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8b0bc5e36095bf09eb695be9b8de1862" category="paragraph">此时将执行其他自动发现步骤， SnapCenter 将显示资源详细信息。在 SnapCenter 4.6 中，系统复制状态和二级服务器将在此视图中列出。</block>
+  <block id="d19657916dcd1afc21e008c24fe75407" category="paragraph"><block ref="d19657916dcd1afc21e008c24fe75407" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="28fd5edae03b34a5e3181325d18aaf9b" category="paragraph">对第二个 HANA 资源执行相同步骤后，自动发现过程完成，两个 HANA 资源均在 SnapCenter 中配置。</block>
+  <block id="2683deb5c42609367ecfaad1b5fef47f" category="paragraph"><block ref="2683deb5c42609367ecfaad1b5fef47f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3a6aa9f1c27d2d807b9c4b5cc15c0c66" category="paragraph">对于启用了 HANA 系统复制的系统，您必须配置 SnapCenter 资源组，包括两个 HANA 资源。</block>
+  <block id="b0fcf7bdbcef70574c2315aee4c7bd44" category="paragraph"><block ref="b0fcf7bdbcef70574c2315aee4c7bd44" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="78110de010c4ee1945de37cc79b3b7cf" category="paragraph">NetApp 建议对 Snapshot 名称使用自定义名称格式，其中应包括主机名，策略和计划。</block>
+  <block id="ab5827f336cb4c48fe8b5bd0f31a12be" category="paragraph"><block ref="ab5827f336cb4c48fe8b5bd0f31a12be" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7ca4e5c2fcfa31585e0bf441458f2cfc" category="paragraph">您必须将这两个 HANA 主机添加到资源组中。</block>
+  <block id="0137252606945b276a3e75410b8c8cdc" category="paragraph"><block ref="0137252606945b276a3e75410b8c8cdc" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ed775f1c4384259d73349821be6c2694" category="paragraph">已为资源组配置策略和计划。</block>
+  <block id="91804b09f65a1f54267e7fa96cbfd6f1" category="admonition">策略中定义的保留将在两个 HANA 主机上使用。例如，如果在策略中定义了保留 10 ，则会将两个主机的备份总数用作备份删除的标准。如果最旧的备份是在当前主主机或二级主机上创建的，则 SnapCenter 会单独删除该备份。</block>
+  <block id="b7d5f7a64153eda186c820a5953bdc24" category="paragraph"><block ref="b7d5f7a64153eda186c820a5953bdc24" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d963f6f8f451d72b26442e3c2c35bcf1" category="paragraph">现在，资源组配置已完成，可以执行备份。</block>
+  <block id="557673722dfb11ceac9abea3c56b3f0c" category="paragraph"><block ref="557673722dfb11ceac9abea3c56b3f0c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fd9995518117cdb8133215d354a99249" category="paragraph"><block ref="fd9995518117cdb8133215d354a99249" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fb04e74862dcc89c849934898ae20df8" category="section-title">Snapshot 备份操作</block>
+  <block id="c14b7fc8184ded19e7d1d53f9e7ab803" category="paragraph">执行资源组的备份操作时， SnapCenter 会确定哪个主机为主主机，并且仅会在主主机上触发备份。这意味着，只会对主主机的数据卷进行快照。在我们的示例中， HANA 3 是当前主主机，并在此主机上执行备份。</block>
+  <block id="7f8aba1af0cb84f6ad2df2c0fe1b0d13" category="paragraph"><block ref="7f8aba1af0cb84f6ad2df2c0fe1b0d13" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="779618797296fde495820a84f779ecab" category="paragraph">SnapCenter 作业日志显示了当前主主机 HANA — 3 上的标识操作和备份执行情况。</block>
+  <block id="49a1ffdf6282e694b7744f45751cfdee" category="paragraph"><block ref="49a1ffdf6282e694b7744f45751cfdee" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c652f5e24fbe7fb888911613189b45da" category="paragraph">现在，已在主 HANA 资源上创建 Snapshot 备份。备份名称中包含的主机名显示 HANA — 3 。</block>
+  <block id="ac88926a1485953a491829ab4b5850cb" category="paragraph"><block ref="ac88926a1485953a491829ab4b5850cb" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="bcb05d93e0f8deb7992f97c99b67a704" category="paragraph">同一 Snapshot 备份也会显示在 HANA 备份目录中。</block>
+  <block id="b9ff4f01a529d6b564f0f7bc11b15cd3" category="paragraph"><block ref="b9ff4f01a529d6b564f0f7bc11b15cd3" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="227417a294975cfdd600c953a7227e0a" category="paragraph">如果执行接管操作，则现在，进一步的 SnapCenter 备份会将以前的二级主机（ HANA 4 ）标识为主主机，并在 HANA 4 上执行备份操作。同样，只有新主主机（ HANA 4 ）的数据卷才会进行快照。</block>
+  <block id="126fd58f4273ad597cbcab66140a53bf" category="admonition">SnapCenter 标识逻辑仅涵盖 HANA 主机处于主 - 二级关系或其中一个 HANA 主机脱机的情形。</block>
+  <block id="7d59e4b6f8bc59ccfda2c21ab1f5d4a5" category="paragraph"><block ref="7d59e4b6f8bc59ccfda2c21ab1f5d4a5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="146a3e54d7baf77bf5f24736862b2e87" category="paragraph">SnapCenter 作业日志显示了当前主主机 HANA — 4 上的标识操作和备份执行情况。</block>
+  <block id="cdce16c69115cd1993e3774f2d45f042" category="paragraph"><block ref="cdce16c69115cd1993e3774f2d45f042" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="bbd4f4df2e21b1ce421727b7362f417b" category="paragraph">现在，已在主 HANA 资源上创建 Snapshot 备份。备份名称中包含的主机名显示 HANA 。</block>
+  <block id="295e7a62ef846e05b78001f65287d3b9" category="paragraph"><block ref="295e7a62ef846e05b78001f65287d3b9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="386b96f6053bd85647b9d68016068eb5" category="paragraph"><block ref="386b96f6053bd85647b9d68016068eb5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4964ef2f01ba430e3456e779528b2769" category="section-title">使用基于文件的备份执行块完整性检查操作</block>
+  <block id="b69253be3260fc04bd3bfddc522b4fc4" category="paragraph">SnapCenter 4.6 使用的逻辑与基于文件的备份对块完整性检查操作执行 Snapshot 备份操作时所述的逻辑相同。SnapCenter 可识别当前的主 HANA 主机，并为此主机执行基于文件的备份。保留管理也会在这两个主机上执行，因此，无论哪个主机当前是主主机，都将删除最旧的备份。</block>
+  <block id="6856414db85233a8e045263f695b175e" category="section-title">SnapVault 复制</block>
+  <block id="061d3cb22e674e47881a1e516fec08eb" category="paragraph">要在发生接管时无需手动交互即可执行透明备份操作，并且与当前主主机是哪个 HANA 主机无关，您必须为这两个主机的数据卷配置 SnapVault 关系。每次运行备份时， SnapCenter 都会对当前主主机执行 SnapVault 更新操作。</block>
+  <block id="6d2237ec4d6cf324b50a6aa67d5813d6" category="admonition">如果接管到二级主机的时间较长，则二级主机上首次 SnapVault 更新所更改的块数将较高。</block>
+  <block id="8bcfb1be8ac0f60d97f95518b3e7f466" category="paragraph">由于 SnapVault 目标上的保留管理由 ONTAP 在 SnapCenter 外部进行管理，因此无法在两个 HANA 主机上处理保留。因此，在接管之前创建的备份不会随前一个二级系统上的备份操作一起删除。这些备份会一直保留，直到以前的主备份重新成为主备份为止。为了使这些备份不会阻止日志备份的保留管理，必须在 SnapVault 目标或 HANA 备份目录中手动删除它们。</block>
+  <block id="e16ff6e568f8eb35263ae87e0b2fb4c7" category="admonition">无法清理所有 SnapVault Snapshot 副本，因为一个 Snapshot 副本会被阻止作为同步点。如果也需要删除最新的 Snapshot 副本，则必须删除 SnapVault 复制关系。在这种情况下， NetApp 建议删除 HANA 备份目录中的备份，以解除日志备份保留管理的阻止。</block>
+  <block id="0e048ce853fa09ec76d5dacb494e68c4" category="paragraph"><block ref="0e048ce853fa09ec76d5dacb494e68c4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="dc89ca90a524118bdb23dfe95009d16c" category="paragraph">SnapCenter 4.6 可管理两个 HANA 主机中 Snapshot 备份，块完整性检查操作， HANA 备份目录条目和日志备份（如果未禁用）的保留，因此，无论当前是主主机还是二级主机，都无关紧要。无论当前主主机还是二级主机上是否需要执行删除操作， HANA 目录中的备份（数据和日志）和条目都会根据定义的保留时间进行删除。换言之，如果执行接管操作和 / 或在另一方向配置复制，则无需手动交互。</block>
+  <block id="b622880d7effd20d409afc8f9d337338" category="paragraph">如果 SnapVault 复制是数据保护策略的一部分，则在特定情形下需要手动交互，如一节所述 <block ref="d418ccf14dbb0e729818939bd00e84be" category="inline-xref-macro-rx"></block>。</block>
+  <block id="6db8f8c174516b1dc5a1f3305fe43190" category="paragraph">下图显示了在两个站点上执行了多个接管并创建了 Snapshot 备份的情形。在当前状态下，主机 HANA 为主主机，最新备份为 T4 ，该备份已在主机 HANA 3 上创建。如果需要执行还原和恢复操作，可以在 SnapCenter 中使用备份 T1 和 T4 进行还原和恢复。在主机 HANA 4 （ t2 ， t3 ）上创建的备份无法使用 SnapCenter 进行还原。必须手动将这些备份复制到 HANA 3 的数据卷以进行恢复。</block>
+  <block id="320176f9e489dcceb76831b66fbd7f35" category="paragraph"><block ref="320176f9e489dcceb76831b66fbd7f35" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="801b7a55bf3ed44abb2d821602e1c449" category="paragraph">SnapCenter 4.6 资源组配置的还原和恢复操作与自动发现的非系统复制设置相同。所有还原和自动恢复选项均可用。有关更多详细信息，请参见技术报告<block ref="f91ad5f72ca89ecac47641fa01cbfa5f" category="inline-link-rx"></block>。</block>
+  <block id="50ff1d24fad3646f6fdf9aea77002929" category="inline-link-macro">从在另一主机上创建的备份还原和恢复</block>
+  <block id="6f14e8618cb532fa598b498e9c3fc455" category="paragraph">一节介绍了从另一主机上创建的备份执行的还原操作 <block ref="383e6e7e7573de7f2a0f06e6daaee412" category="inline-link-macro-rx"></block>。</block>
+  <block id="bba05b1a991c5925ab68cab0b8987cbc" category="inline-link-macro">接下来：使用单个资源配置 SnapCenter 。</block>
+  <block id="9b599e23e279b030519f6f24e213957a" category="paragraph"><block ref="9b599e23e279b030519f6f24e213957a" category="inline-link-macro-rx"></block></block>
+  <block id="1fd25d525832cdf3655a067856ae6010" category="summary">SnapCenter 资源使用 HANA 系统复制环境的虚拟 IP 地址（主机名）进行配置。通过这种方法，无论主机 1 还是主机 2 是主主机， SnapCenter 始终与主主机进行通信。</block>
+  <block id="260f08a78b9b41762b41f2772c1cda65" category="doc">使用单个资源的 SnapCenter 配置</block>
+  <block id="6f9a98f7009a1ee5777f92bba3d3ca80" category="inline-link-macro">先前版本：使用资源组的 SnapCenter 4.6 配置。</block>
+  <block id="04dcd1081c91e99bae759a46231ea277" category="paragraph"><block ref="04dcd1081c91e99bae759a46231ea277" category="inline-link-macro-rx"></block></block>
+  <block id="5411f416854228c6901553a528a29ad7" category="paragraph">SnapCenter 资源使用 HANA 系统复制环境的虚拟 IP 地址（主机名）进行配置。通过这种方法，无论主机 1 还是主机 2 是主主机， SnapCenter 始终与主主机进行通信。两个 SAP HANA 主机的数据卷均包含在 SnapCenter 资源中。</block>
+  <block id="d223d6e73fef21ec370c1a5c0e109630" category="admonition">我们假定虚拟 IP 地址始终绑定到主 SAP HANA 主机。在 HANA 系统复制故障转移工作流中，虚拟 IP 地址的故障转移会在 SnapCenter 外部执行。</block>
+  <block id="6f723c4c9a56249ef6ad0fc5205452b8" category="paragraph">在主机 1 作为主主机执行备份时，系统会在主机 1 的数据卷上创建数据库一致的 Snapshot 备份。由于主机 2 的数据卷是 SnapCenter 资源的一部分，因此会为此卷创建另一个 Snapshot 副本。此 Snapshot 副本不是数据库一致的，而是只是二级主机的崩溃映像。</block>
+  <block id="748f9383138a6d21a5f9dc95cf69b88c" category="paragraph">SAP HANA 备份目录和 SnapCenter 资源包括在主机 1 上创建的备份。</block>
+  <block id="97a1bf3e5cbe14f9b60224db75b4418c" category="paragraph"><block ref="97a1bf3e5cbe14f9b60224db75b4418c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="9b9c7d8b5c0d0fafbea9ea847faf4e80" category="paragraph">下图显示了故障转移到主机 2 以及从主机 2 复制到主机 1 后的备份操作。SnapCenter 会使用 SnapCenter 资源中配置的虚拟 IP 地址自动与主机 2 通信。现在，备份会在主机 2 上创建。SnapCenter 会创建两个 Snapshot 副本：主机 2 的数据卷上的数据库一致备份和主机 1 的数据卷上的崩溃映像 Snapshot 副本。SAP HANA 备份目录和 SnapCenter 资源现在包括在主机 1 上创建的备份以及在主机 2 上创建的备份。</block>
+  <block id="2b26158b4aff092cc0728d277d344a5a" category="paragraph">数据和日志备份的管理是根据定义的 SnapCenter 保留策略进行的，无论主主机还是二级主机，备份都将被删除。</block>
+  <block id="8f051c9b2bafb13696b25fd6f436a556" category="paragraph"><block ref="8f051c9b2bafb13696b25fd6f436a556" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b3c7f675aa9e386d0aaa73f2de847188" category="inline-link-macro">存储 Snapshot 备份和 SAP 系统复制</block>
+  <block id="102f334e96097bebfae58a079388d7f2" category="paragraph">如本节所述 <block ref="570e066d63188ae45a45b07d6865440b" category="inline-link-macro-rx"></block>，使用基于存储的 Snapshot 备份执行的还原操作有所不同，具体取决于必须还原的备份。请务必确定在哪个主机上创建备份，以确定是否可以在本地存储卷上执行还原，或者是否必须在另一主机的存储卷上执行还原。</block>
+  <block id="76668f896551ee021941705402feda3b" category="paragraph">使用单资源 SnapCenter 配置时， SnapCenter 无法识别备份的创建位置。因此， NetApp 建议您在 SnapCenter 备份工作流中添加备份前脚本，以确定哪个主机当前是主 SAP HANA 主机。</block>
+  <block id="bb9f6626d16fda2d847f88dabedc7961" category="paragraph">下图显示了备份主机的标识。</block>
+  <block id="70e6889eeb72975a0660142211d133ac" category="paragraph"><block ref="70e6889eeb72975a0660142211d133ac" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4b152f4bba0a5ca6345daa47736e4622" category="section-title">SnapCenter 配置</block>
+  <block id="32423786e97f4f83fdc90f030727503b" category="paragraph">下图显示了实验室设置以及所需 SnapCenter 配置的概述。</block>
+  <block id="3cfc873aaec262d66172e9ff275d4389" category="paragraph"><block ref="3cfc873aaec262d66172e9ff275d4389" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c1968668fc5cbc2c5e8b49c18c362b55" category="paragraph">要执行备份操作，而无论哪个 SAP HANA 主机是主主机，甚至在一个主机关闭时也是如此，必须在中央插件主机上部署 SnapCenter SAP HANA 插件。在实验室设置中，我们使用 SnapCenter 服务器作为中央插件主机，并在 SnapCenter 服务器上部署 SAP HANA 插件。</block>
+  <block id="bd5c6333eef324e59a3de18aa6e29173" category="paragraph">在 HANA 数据库中创建了一个用户来执行备份操作。在安装了 SAP HANA 插件的 SnapCenter 服务器上配置了用户存储密钥。用户存储密钥包括 SAP HANA 系统复制主机的虚拟 IP 地址（ `sSR-VIP` ）。</block>
+  <block id="5a2cdf3fb46c8f521d96d7e7bc4c9b2f" category="paragraph">有关 SAP HANA 插件部署选项和用户存储配置的详细信息，请参见技术报告 TR-4614 ：<block ref="ec9daba0660d1e2512cb8193f8c16297" category="inline-link-rx"></block>。</block>
+  <block id="d7e2061a39f4790783431f1963349b9b" category="paragraph">在 SnapCenter 中，使用之前配置的用户存储密钥和 SnapCenter 服务器作为 `hdbsql` 通信主机来配置资源，如下图所示。</block>
+  <block id="6fa9e53701a1c7daddbc7f621164665e" category="paragraph"><block ref="6fa9e53701a1c7daddbc7f621164665e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2a64b18e126555fa2ca4e7fb0bf3bc37" category="paragraph">两个 SAP HANA 主机的数据卷都包含在存储占用空间配置中，如下图所示。</block>
+  <block id="f349bc5106429125b1ece6199df508c3" category="paragraph"><block ref="f349bc5106429125b1ece6199df508c3" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="90323af735fbe3861cb8bc49a36914b1" category="paragraph">如前文所述， SnapCenter 不知道备份的创建位置。因此， NetApp 建议您在 SnapCenter 备份工作流中添加备份前脚本，以确定哪个主机当前是主 SAP HANA 主机。您可以使用添加到备份工作流中的 SQL 语句执行此标识，如下图所示。</block>
+  <block id="a8b9f97ba8782fd76582d42b533aa232" category="paragraph"><block ref="a8b9f97ba8782fd76582d42b533aa232" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0b345bf9ce49cf6e06f2ca4c412deff5" category="section-title">SnapCenter 备份操作</block>
+  <block id="82e7650ccab95a6d3386e10752618019" category="paragraph">现在，备份操作将照常执行。数据和日志备份的管理独立于主或二级 SAP HANA 主机。</block>
+  <block id="d0c6300a20b1a2c2c3b854a631ac2e32" category="paragraph">备份作业日志包含 SQL 语句的输出，通过该语句，您可以确定创建备份的 SAP HANA 主机。</block>
+  <block id="6354370842f86dd420800ec685504912" category="paragraph">下图显示了将主机 1 作为主主机的备份作业日志。</block>
+  <block id="bcb58afb89609d906c95964f746f4de7" category="paragraph"><block ref="bcb58afb89609d906c95964f746f4de7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="21707873392b599f402b6c2e8519e23a" category="paragraph">此图显示了将主机 2 作为主主机的备份作业日志。</block>
+  <block id="5fe0de453194cc3da32e5f1e04d39d67" category="paragraph"><block ref="5fe0de453194cc3da32e5f1e04d39d67" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="13dea575ccfa5ca9cd3d63c2e68f6d10" category="paragraph">下图显示了 SAP HANA Studio 中的 SAP HANA 备份目录。当 SAP HANA 数据库处于联机状态时，创建备份的 SAP HANA 主机将显示在 SAP HANA Studio 中。</block>
+  <block id="193b24cf7c478d099c4fbbe19f8ad124" category="admonition">还原和恢复操作期间使用的文件系统上的 SAP HANA 备份目录不包含创建备份的主机名。在数据库关闭时识别主机的唯一方法是，将备份目录条目与两个 SAP HANA 主机的 `backup.log` 文件结合使用。</block>
+  <block id="373d32b62b1d826732c4a18f8312353b" category="paragraph"><block ref="373d32b62b1d826732c4a18f8312353b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2e0e4fbbcdc158520c486ebd1cb95f4e" category="paragraph">如前所述，您必须能够确定所选备份的创建位置，以定义所需的还原操作。如果 SAP HANA 数据库仍处于联机状态，您可以使用 SAP HANA Studio 确定创建备份的主机。如果数据库处于脱机状态，则只有 SnapCenter 备份作业日志中才会提供此信息。</block>
+  <block id="ec3a3d8d3490fe3ecd7daa9a92d23e25" category="paragraph">下图显示了根据选定备份的不同还原操作。</block>
+  <block id="f3f8ad38930fbe26474c020c9937d5e0" category="paragraph">如果必须在时间戳 T3 且主机 1 为主主机之后执行还原操作，则可以使用 SnapCenter 还原在 T1 或 T3 创建的备份。这些 Snapshot 备份可在连接到主机 1 的存储卷上使用。</block>
+  <block id="a039a31368090cbccac747771d4314fe" category="paragraph">如果您需要使用在主机 2 （ t2 ）上创建的备份进行还原，该备份是主机 2 存储卷上的 Snapshot 副本，则需要使该备份可供主机 1 使用。您可以通过从备份创建 NetApp FlexClone 副本，将 FlexClone 副本挂载到主机 1 以及将数据复制到原始位置来使此备份可用。</block>
+  <block id="110682bcbc84e2b26e25965736a6ce46" category="paragraph"><block ref="110682bcbc84e2b26e25965736a6ce46" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="cc77c2d84c4d0532580c7648fb527068" category="paragraph">使用单个 SnapCenter 资源配置时，会在两个 SAP HANA 系统复制主机的两个存储卷上创建 Snapshot 副本。只有在主 SAP HANA 主机的存储卷上创建的 Snapshot 备份才可用于正向恢复。在二级 SAP HANA 主机的存储卷上创建的 Snapshot 副本是一个崩溃映像，不能用于正向恢复。</block>
+  <block id="914fe0e173ea134cf6a261a23bb9be7c" category="paragraph">使用 SnapCenter 执行还原操作的方法有两种：</block>
+  <block id="da47f45ee3786a65f83ac527b48e3368" category="list-text">仅还原有效的备份</block>
+  <block id="efa0a43a073fecc57325043414b7410e" category="list-text">还原整个资源，包括有效的备份和崩溃映像以下各节将更详细地讨论这两种不同的还原操作。</block>
+  <block id="cae4c5e22b0e817592c5813faad601cf" category="paragraph">下图显示了使用单个 SnapCenter 资源配置执行的还原操作。</block>
+  <block id="e5e18ed760ed51854f8cf556564f1d8a" category="paragraph"><block ref="e5e18ed760ed51854f8cf556564f1d8a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="999b37dc80676993381a9707924e29c3" category="section-title">仅对有效备份执行 SnapCenter 还原</block>
+  <block id="f17433ab3965bf2e142fb4e1dff405e2" category="paragraph">下图显示了本节所述的还原和恢复方案概览。</block>
+  <block id="36859b36c1aed5070a33950066055b92" category="paragraph">已在主机 1 的 T1 创建备份。已对主机 2 执行故障转移。经过一段时间后，再次故障转移到主机 1 。在当前时间点，主机 1 为主主机。</block>
+  <block id="880f2e960b16f01349f2ca3486d1bd6a" category="list-text">发生故障，您必须还原到主机 1 的 T1 上创建的备份。</block>
+  <block id="4af51d00fac3b893eeec6663c152d51a" category="list-text">二级主机（主机 2 ）已关闭，但不执行任何还原操作。</block>
+  <block id="7ded02ea0206a70a9c98edbe7828dcdb" category="list-text">主机 1 的存储卷将还原到在 T1 创建的备份。</block>
+  <block id="dd764570723e348d81f59c7841180784" category="list-text">使用主机 1 和主机 2 中的日志执行正向恢复。</block>
+  <block id="209c12c254cf841cccc9a950309a933e" category="list-text">主机 2 已启动，主机 2 的系统复制重新同步将自动启动。</block>
+  <block id="10f06444eb9ad361b94842dcd1d07f91" category="paragraph"><block ref="10f06444eb9ad361b94842dcd1d07f91" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c37725f2a48f8baeb00c03c364ea3a90" category="paragraph">下图显示了 SAP HANA Studio 中的 SAP HANA 备份目录。突出显示的备份显示了在主机 1 的 T1 上创建的备份。</block>
+  <block id="20e08948845c7f57b4f19b8c6d62dedf" category="paragraph"><block ref="20e08948845c7f57b4f19b8c6d62dedf" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5b426b49c093dba7596721df7ef7ef47" category="paragraph">在 SAP HANA Studio 中启动还原和恢复操作。如下图所示，在还原和恢复工作流中看不到创建备份的主机的名称。</block>
+  <block id="f608de875db67dd46fec88060326d0b1" category="admonition">在我们的测试场景中，我们能够在数据库仍处于联机状态时在 SAP HANA Studio 中确定正确的备份（在主机 1 上创建的备份）。如果数据库不可用，则必须检查 SnapCenter 备份作业日志以确定正确的备份。</block>
+  <block id="9e47f487ab6c5d1b77d41f104eb57710" category="paragraph"><block ref="9e47f487ab6c5d1b77d41f104eb57710" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="53b821249032276c494242cb38256d19" category="paragraph">在 SnapCenter 中，选择备份并执行文件级还原操作。在文件级还原屏幕上，仅选择主机 1 卷，以便仅还原有效的备份。</block>
+  <block id="59d1491be762fd48a25b2420384f08b4" category="paragraph"><block ref="59d1491be762fd48a25b2420384f08b4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b01c5d1bb46aad41f5286805bebfd4f0" category="paragraph">还原操作完成后，备份将在 SAP HANA Studio 中以绿色突出显示。您无需输入其他日志备份位置，因为主机 1 和主机 2 的日志备份的文件路径包含在备份目录中。</block>
+  <block id="c856693eb2fac53b282a7876fc383731" category="paragraph"><block ref="c856693eb2fac53b282a7876fc383731" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f286578015316aaefdf2a9d71504270e" category="paragraph">完成正向恢复后，将启动二级主机（主机 2 ），并启动 SAP HANA 系统复制重新同步。</block>
+  <block id="4fb7470490997c95ffa1c5600ec5ecd3" category="admonition">即使二级主机是最新的（未对主机 2 执行还原操作）， SAP HANA 也会对所有数据执行完全复制。在使用 SAP HANA 系统复制执行还原和恢复操作后，此行为是标准行为。</block>
+  <block id="30951caa04f9b919b2494a0f6f8be109" category="paragraph"><block ref="30951caa04f9b919b2494a0f6f8be109" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="79dc576ddf59dc20fca6834461f7ac09" category="section-title">对有效备份和崩溃映像进行 SnapCenter 还原</block>
+  <block id="da1933d80ef83cf1ec0c167fcc7d7f1e" category="list-text">二级主机（主机 2 ）将关闭，并还原 T1 崩溃映像。</block>
+  <block id="184f8e362eb69a36b78d905cfdd2bf4e" category="list-text">主机 2 已启动，主机 2 的系统复制重新同步将自动启动。</block>
+  <block id="8a993f24e02842ba2d1d5f79c4856c17" category="paragraph"><block ref="8a993f24e02842ba2d1d5f79c4856c17" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="95069540deba789e6c51a01cc226e5b2" category="paragraph">SAP HANA Studio 的还原和恢复操作与一节中所述的步骤相同 <block ref="873b82be62d7406e4e13ae8683307096" category="inline-link-macro-rx"></block>。</block>
+  <block id="ce7fc220814189df737dd5a85d9ec6fe" category="paragraph">要执行还原操作，请在 SnapCenter 中选择 Complete Resource 。两台主机的卷均已还原。</block>
+  <block id="056b602d58a8966b7b63ac3a6ebc5ba8" category="paragraph"><block ref="056b602d58a8966b7b63ac3a6ebc5ba8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a2d30341e8760144a82505e4f2584b74" category="paragraph">完成正向恢复后，将启动二级主机（主机 2 ），并启动 SAP HANA 系统复制重新同步。执行所有数据的完全复制。</block>
+  <block id="583e9ba0a822a77e1226f1eb7ab4c414" category="paragraph"><block ref="583e9ba0a822a77e1226f1eb7ab4c414" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1f2e2708a4cb2228c40c0919e9fc4deb" category="inline-link-macro">下一步：从在另一主机上创建的备份还原和恢复。</block>
+  <block id="99c19b4112a8eb56423d73b25136b497" category="paragraph"><block ref="99c19b4112a8eb56423d73b25136b497" category="inline-link-macro-rx"></block></block>
+  <block id="8b882a288d6cd3bd9c486a64d890100d" category="summary">对于这两种 SnapCenter 配置选项，从在另一个 SAP HANA 主机上创建的备份执行还原操作都是有效的。</block>
+  <block id="9256b11afc32bceb372c74dfeeb3433a" category="doc">从在另一主机上创建的备份进行还原和恢复</block>
+  <block id="730ab62aba9f1e37ab14624e5e1d85c4" category="inline-link-macro">先前版本：使用单个资源的 SnapCenter 配置。</block>
+  <block id="db9fb51585abfdfc58e046a57e5e016c" category="paragraph"><block ref="db9fb51585abfdfc58e046a57e5e016c" category="inline-link-macro-rx"></block></block>
+  <block id="a45630ea5c1a78685a85cc9991055838" category="paragraph">已在主机 1 的 T1 创建备份。已对主机 2 执行故障转移。在当前时间点，主机 2 是主主机。</block>
+  <block id="7f7f6d932a287ba353121a42032e859c" category="list-text">主主机（主机 1 ）已关闭。</block>
+  <block id="08ab08de2b84a1abeec853852fbb270b" category="list-text">主机 1 的备份数据 T1 会还原到主机 2 。</block>
+  <block id="54a006a73eb9494b19b57e09390aac49" category="list-text">使用主机 1 和主机 2 中的日志执行正向恢复。</block>
+  <block id="61eb913111b23af6c5cbbc8dbc814cc4" category="list-text">主机 1 已启动，主机 1 的系统复制重新同步将自动启动。</block>
+  <block id="b81038ea00f0038ea05ad622788d5612" category="paragraph"><block ref="b81038ea00f0038ea05ad622788d5612" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="420b1e4ee829dd3eb714e9041891238b" category="paragraph">下图显示了 SAP HANA 备份目录，并突出显示了在主机 1 上创建的用于还原和恢复操作的备份。</block>
+  <block id="5551467de000a8b6e4643a76c3372938" category="paragraph"><block ref="5551467de000a8b6e4643a76c3372938" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="cd5d505ca2373cdc7d18efb2869033ed" category="paragraph">还原操作包括以下步骤：</block>
+  <block id="2d08d5136ddc4086894bda34d14b24d0" category="list-text">使用在主机 1 上创建的备份创建克隆。</block>
+  <block id="6043974c0cea7ef12e2b91ac16162035" category="list-text">在主机 2 上挂载克隆的卷。</block>
+  <block id="451bde33fa7b247f83d7b14fd93c467a" category="list-text">将数据从克隆的卷复制到原始位置。</block>
+  <block id="9fcc4360269dfed6a58662eaaff3f7a4" category="paragraph">在 SnapCenter 中，选择备份并启动克隆操作。</block>
+  <block id="453eaeaa8c790bd63f7a4520d7e9ecd6" category="paragraph"><block ref="453eaeaa8c790bd63f7a4520d7e9ecd6" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3b8d6cba3e9f1c4ec4c62eaa46003ff0" category="paragraph">您必须提供克隆服务器和 NFS 导出 IP 地址。</block>
+  <block id="50d76361ddca8e22e3d17e0f39e45c9c" category="admonition">在 SnapCenter 单资源配置中， SAP HANA 插件不会安装在数据库主机上。要执行 SnapCenter 克隆工作流，可以使用安装了 HANA 插件的任何主机作为克隆服务器。</block>
+  <block id="59edb5bba2c252f423a3013c5a80ed7a" category="paragraph">+ 在具有单独资源的 SnapCenter 配置中， HANA 数据库主机将被选择为克隆服务器，并使用挂载脚本将克隆挂载到目标主机。</block>
+  <block id="d80c5ce20d24da7129e1f053b85b14a9" category="paragraph"><block ref="d80c5ce20d24da7129e1f053b85b14a9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fe739341f732db5aff63cb28381d9cdc" category="paragraph">要确定挂载克隆卷所需的接合路径，请检查克隆作业的作业日志，如下图所示。</block>
+  <block id="e5dec5069f1f7102326e78e2fc5f4222" category="paragraph"><block ref="e5dec5069f1f7102326e78e2fc5f4222" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a5f909bb980ebce8c8c504b2b21da69a" category="paragraph">现在可以挂载克隆的卷。</block>
+  <block id="c5dcd428c947792bd217fd89ee812f51" category="paragraph">克隆的卷包含 HANA 数据库的数据。</block>
+  <block id="1f20a3a37744f93109db368fed3d4d72" category="paragraph">数据将复制到原始位置。</block>
+  <block id="691b6e8cda25aff0ec57af52318e1685" category="paragraph">使用 SAP HANA Studio 进行恢复的过程如一节所述 <block ref="873b82be62d7406e4e13ae8683307096" category="inline-link-macro-rx"></block>。</block>
+  <block id="6f687960a3c4d1594e6b79f66918e95a" category="paragraph"><block ref="6f687960a3c4d1594e6b79f66918e95a" category="inline-link-macro-rx"></block></block>
+  <block id="cb014ba864354c430b0d6d7e306d1c0c" category="summary">此页面介绍 SAP 系统复制的配置选项。</block>
+  <block id="76c0a8113c74eb76e36c8c87f7095211" category="doc">适用于 SAP 系统复制的 SnapCenter 配置选项</block>
+  <block id="dd0e039d4e26c48a6dd3f7b3d4414a25" category="inline-link-macro">先前版本： Storage Snapshot 备份和 SAP 系统复制。</block>
+  <block id="61f99bf9b57fd4bab17beadc9b01e359" category="paragraph"><block ref="61f99bf9b57fd4bab17beadc9b01e359" category="inline-link-macro-rx"></block></block>
+  <block id="b65fb91c7466f471e73d7a165cddad8f" category="paragraph">在 SAP HANA 系统复制环境中，使用 NetApp SnapCenter 软件配置数据保护有两种选择：</block>
+  <block id="a6161fc735dff46e0f1e300b07198882" category="list-text">SnapCenter 资源组，包括 SAP HANA 主机和 SnapCenter 4.6 或更高版本的自动发现。</block>
+  <block id="27cd07c42b7b1163d4ec30ce77a50ba7" category="list-text">使用虚拟 IP 地址为两个 SAP HANA 主机提供一个 SnapCenter 资源。</block>
+  <block id="26f65af2f58b8f28da27697016899223" category="paragraph"><block ref="26f65af2f58b8f28da27697016899223" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8cf962f6ac56a026f883cf2e827b0423" category="paragraph">从 SnapCenter 4.6 开始， SnapCenter 支持自动发现在 HANA 系统复制关系中配置的 HANA 系统。每个主机都使用其物理 IP 地址（主机名）及其存储层上的单个数据卷进行配置。这两个 SnapCenter 资源将组合在一个资源组中， SnapCenter 会自动确定主主机或二级主机，并相应地执行所需的备份操作。对 SnapCenter 创建的 Snapshot 备份和基于文件的备份执行保留管理，以确保旧备份也会在当前二级主机上被删除。</block>
+  <block id="cbcfd6defd0fc62b33d3178fca9312bf" category="paragraph">对于两个 SAP HANA 主机的单资源配置，使用 SAP HANA 系统复制主机的虚拟 IP 地址配置单个 SnapCenter 资源。SAP HANA 主机的两个数据卷都包含在 SnapCenter 资源中。由于它是一个 SnapCenter 资源，因此 SnapCenter 创建的 Snapshot 和基于文件的备份的保留管理与当前的主主机或二级主机无关。所有 SnapCenter 版本均可使用此选项。</block>
+  <block id="56360ee768eb6691b2c48a27f2d5295a" category="paragraph">下表总结了这两个配置选项的主要区别。</block>
+  <block id="624d27e661ea476c564f0a0e3d4759da" category="cell">使用 SnapCenter 4.6 的资源组</block>
+  <block id="26fa56c884b002243efdac83893ee4ce" category="cell">单个 SnapCenter 资源和虚拟 IP 地址</block>
+  <block id="99f1744d8b70ed4b0920b180edf0fcaf" category="cell">备份操作（ Snapshot 和基于文件）</block>
+  <block id="b683f173eb3a957cb9fcf3dee8b98d20" category="cell">自动标识资源组中的主主机</block>
+  <block id="d0a2e35f97d84456638a2e94141fefe0" category="cell">自动使用虚拟 IP 地址</block>
+  <block id="cba3252df7023060b9d2ea4794c05c95" category="cell">保留管理（基于 Snapshot 和文件）</block>
+  <block id="d7689d65ad93f6364ea756a32efbf386" category="cell">在两个主机上自动执行</block>
+  <block id="8d7c7381c71c46d6b299eed1ea14ad55" category="cell">自动使用单个资源</block>
+  <block id="c8fa3fe6d9be52e4e17b9869fed3de64" category="cell">备份容量要求</block>
+  <block id="5bb47a2dec0018ff60254946131850c6" category="cell">备份仅在主主机卷上创建</block>
+  <block id="0bd97517cd8fd61a12818f7ae5a32550" category="cell">备份始终在两个主机卷上创建。第二台主机的备份仅保持崩溃状态一致，不能用于前滚。</block>
+  <block id="9ab07fad125b53ff193b9837f7d654bb" category="cell">当前活动主机的备份可用于还原操作</block>
+  <block id="85afbaa0de4ef1ff6c48b160c1b340ff" category="cell">需要使用备份前脚本来确定哪些备份有效且可用于还原</block>
+  <block id="8d5e0cfc83e98d36864aa5b7f1ba6186" category="cell">恢复操作</block>
+  <block id="a92469fe3f104489efc5db9c40bbbea5" category="cell">所有恢复选项均可用，与任何自动发现的资源相同</block>
+  <block id="54bdadbafa35816a3af014e9c09e968a" category="cell">需要手动恢复</block>
+  <block id="bae3dca5f2cc89808cfbe3a06c9cb114" category="admonition">通常， NetApp 建议在 SnapCenter 4.6 中使用资源组配置选项来保护启用了 HANA 系统复制的 HANA 系统。只有在 SnapCenter 操作方法基于中央插件主机且 HANA 插件未部署在 HANA 数据库主机上时，才需要使用单个 SnapCenter 资源配置。</block>
+  <block id="075a31e8a9e4995876239319585370dc" category="paragraph">以下各节将详细讨论这两个选项。</block>
+  <block id="fd379de989694996f5de797e5014f4ba" category="inline-link-macro">接下来：使用资源组的 SnapCenter 4.6 配置。</block>
+  <block id="0764f827a402f9e923a503628fba8701" category="paragraph"><block ref="0764f827a402f9e923a503628fba8701" category="inline-link-macro-rx"></block></block>
+  <block id="02d0cc60ddfcc9dc29916a6b5d3b6cf2" category="summary">备份操作始终在主 SAP HANA 主机上执行。无法在二级 SAP HANA 主机上执行备份操作所需的 SQL 命令。</block>
+  <block id="8acd7da6dce942a7c8148e0a6e5875e2" category="doc">Storage Snapshot 备份和 SAP 系统复制</block>
+  <block id="72a310aab90ac8db8720965336308077" category="inline-link-macro">先前版本： SAP HANA 系统复制概述。</block>
+  <block id="af1d1bf542c91a5272a15cd218689ee6" category="paragraph"><block ref="af1d1bf542c91a5272a15cd218689ee6" category="inline-link-macro-rx"></block></block>
+  <block id="1d3a0cbc6231799f2858090710d6f945" category="paragraph">对于 SAP HANA 备份操作，主 SAP HANA 主机和二级 SAP HANA 主机是一个实体。它们共享同一个 SAP HANA 备份目录，并使用备份进行还原和恢复，而不管备份是在主 SAP HANA 主机还是在二级 SAP HANA 主机上创建的。</block>
+  <block id="c492ffff6ae308c1f530d6498d7ecfe5" category="paragraph">要使用任何备份进行还原并使用日志备份从两个主机执行正向恢复，需要一个可从两个主机访问的共享日志备份位置。NetApp 建议您使用共享存储卷。但是，您还应将日志备份目标分隔为共享卷中的子目录。</block>
+  <block id="0dc8552d7c114c04ba4721d2bfce22a8" category="paragraph">每个 SAP HANA 主机都有自己的存储卷。使用基于存储的 Snapshot 执行备份时，系统会在主 SAP HANA 主机的存储卷上创建数据库一致的 Snapshot 。</block>
+  <block id="d60e21c67d65d3194c204fa9a2e5277b" category="paragraph"><block ref="d60e21c67d65d3194c204fa9a2e5277b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="20298f12913ee9159d89657f340f41d0" category="paragraph">执行到主机 2 的故障转移时，主机 2 将成为主主机，备份在主机 2 上执行， Snapshot 备份在主机 2 的存储卷上创建。</block>
+  <block id="ec9f7dc4c9415267c560fe9756643a87" category="paragraph">在主机 2 上创建的备份可以直接在存储层进行还原。如果必须使用在主机 1 上创建的备份，则必须将备份从主机 1 存储卷复制到主机 2 存储卷。正向恢复使用两个主机的日志备份。</block>
+  <block id="87b45a585e45776e4cb007923331c4e5" category="paragraph"><block ref="87b45a585e45776e4cb007923331c4e5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d4e624f6176a09b7b1fb6ef3ea9d8b34" category="inline-link-macro">接下来： SAP 系统复制的 SnapCenter 配置选项。</block>
+  <block id="247dc46544c919fa59a6baedb439288d" category="paragraph"><block ref="247dc46544c919fa59a6baedb439288d" category="inline-link-macro-rx"></block></block>
+  <block id="d53230f85b50903f17f7e6099737f107" category="summary">SAP HANA 系统复制通常用作 SAP HANA 数据库的高可用性或灾难恢复解决方案。SAP HANA 系统复制提供了不同的操作模式，您可以根据使用情形或可用性要求使用这些模式。</block>
+  <block id="ac95c867fdf2157d0248719b002ae0f0" category="paragraph">可以将两种主要用例结合使用：</block>
+  <block id="c34a01f37570a68dbcba0f7ef58b79c6" category="list-text">使用专用二级 SAP HANA 主机实现高可用性，恢复点目标（ RPO ）为零，恢复时间目标（ RTO ）为最短。</block>
+  <block id="d824f0f483d8766968c3873c43c7e813" category="list-text">远距离灾难恢复。在正常运行期间，还可以使用二级 SAP HANA 主机进行开发或测试。</block>
+  <block id="f5c1fbf48c6494a4f2e5ddc50e73ce6e" category="section-title">高可用性， RPO 为零， RTO 最小</block>
+  <block id="af656bf36a5e2d1cdf132f7992f06b9e" category="paragraph">系统复制使用预加载到二级 SAP HANA 主机内存中的表来配置同步复制。此高可用性解决方案可用于解决硬件或软件故障，并在 SAP HANA 软件升级期间减少计划内停机时间（几乎为零停机操作）。</block>
+  <block id="1634b98ad5173e165735c803c11fe9d5" category="paragraph">故障转移操作通常通过使用第三方集群软件或使用 SAP Landscape Management 软件的一键式工作流实现自动化。</block>
+  <block id="3d3f4f563a8744c58df8ea6e38510f02" category="paragraph">从备份要求角度来看，您必须能够创建备份，而不受主或二级 SAP HANA 主机的影响。共享备份基础架构用于还原任何备份，而不管在哪个主机上创建了备份。</block>
+  <block id="511a3a3dfd265b06ef79626d79c520e7" category="paragraph">本文档其余部分将重点介绍将 SAP 系统复制配置为高可用性解决方案时的备份操作。</block>
+  <block id="f58f587cb199854e0bd3b18a53d5c804" category="paragraph"><block ref="f58f587cb199854e0bd3b18a53d5c804" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="24d82a388e886346237cd51fe934aa03" category="section-title">远距离灾难恢复</block>
+  <block id="118abb1eac5a98e2067a4403636320af" category="paragraph">系统复制可以配置为使用异步复制，而不会在二级主机的内存中预加载任何表。此解决方案用于解决数据中心故障，故障转移操作通常是手动执行的。</block>
+  <block id="6daa00da4eeb35d26853e03f23ef0546" category="paragraph">关于备份要求，您必须能够在数据中心 1 的正常运行期间以及数据中心 2 的灾难恢复期间创建备份。数据中心 1 和 2 中提供了一个单独的备份基础架构，备份操作会在灾难故障转移过程中激活。备份基础架构通常不会共享，无法对在另一数据中心创建的备份执行还原操作。</block>
+  <block id="ff732da203a83da376d0205d280f1894" category="paragraph"><block ref="ff732da203a83da376d0205d280f1894" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="733df4de2f76b685d2b28b68f07516a4" category="inline-link-macro">接下来： Storage Snapshot 备份和 SAP 系统复制。</block>
+  <block id="09b8937df74fc30b4d98cda19a606cf2" category="paragraph"><block ref="09b8937df74fc30b4d98cda19a606cf2" category="inline-link-macro-rx"></block></block>
+  <block id="0d29acf224f492a80bc68566c1ad4948" category="paragraph"><block ref="0d29acf224f492a80bc68566c1ad4948" category="inline-link-macro-rx"></block></block>
+  <block id="0844bd2427e754de1d07ca91d15284a5" category="cell">文档版本历史记录</block>
+  <block id="77fce67ff1ced73f063cdd19c439b627" category="cell">2018 年 10 月</block>
+  <block id="b9365bb9132d1eb8770275a763fc5d69" category="cell">2022 年 1 月</block>
+  <block id="bc86535b64f45ec20770222ebaa5ca21" category="cell">更新以涵盖 SnapCenter 4.6 HANA 系统复制支持</block>
+  <block id="02fa3d38f575ae1d4c7d0f5663a0d3ed" category="sidebar">使用 SnapCenter 备份和恢复 SAP HANA 系统复制</block>
+  <block id="4bb12dc6461f1d5fa4e11ed67fdeef9e" category="sidebar">SAP HANA 系统复制概述</block>
 </blocks>

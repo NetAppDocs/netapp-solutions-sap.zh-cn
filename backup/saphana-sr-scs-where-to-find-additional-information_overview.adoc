@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: backup/saphana-sr-scs-where-to-find-additional-information_overview.html 
+keywords: additional information, version history 
+summary:  
+---
+= 从何处查找追加信息和版本历史记录
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:saphana-sr-scs-restore-and-recovery-from-a-backup-created-at-the-other-host.html["先前：从在另一主机上创建的备份还原和恢复。"]
+
+要了解有关本文档中所述信息的更多信息，请参见以下文档：
+
+* 使用 SnapCenter 实现 SAP HANA 备份和恢复
++
+https://www.netapp.com/us/media/tr-4614.pdf["https://www.netapp.com/us/media/tr-4614.pdf"^]
+
+* 利用 SnapCenter 自动执行 SAP HANA 系统复制和克隆操作
++
+https://www.netapp.com/us/media/tr-4667.pdf["https://www.netapp.com/us/media/tr-4667.pdf"^]
+
+* 使用存储复制实现 SAP HANA 灾难恢复
++
+https://www.netapp.com/us/media/tr-4646.pdf["https://www.netapp.com/us/media/tr-4646.pdf"^]
+
+
+
+link:saphana-sr-scs-version-history.html["下一步：版本历史记录。"]

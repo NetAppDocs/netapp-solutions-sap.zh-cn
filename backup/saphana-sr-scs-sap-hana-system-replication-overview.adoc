@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: backup/saphana-sr-scs-sap-hana-system-replication-overview.html 
+keywords: tr4719, 4719, introduction, system replication, dr, snapcenter, high availability, RPO, RTO 
+summary: SAP HANA 系统复制通常用作 SAP HANA 数据库的高可用性或灾难恢复解决方案。SAP HANA 系统复制提供了不同的操作模式，您可以根据使用情形或可用性要求使用这些模式。 
+---
+= TR-4719 ： SAP HANA 系统复制—使用 SnapCenter 进行备份和恢复
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+NetApp 公司 Nil Bauser
+
+SAP HANA 系统复制通常用作 SAP HANA 数据库的高可用性或灾难恢复解决方案。SAP HANA 系统复制提供了不同的操作模式，您可以根据使用情形或可用性要求使用这些模式。
+
+可以将两种主要用例结合使用：
+
+* 使用专用二级 SAP HANA 主机实现高可用性，恢复点目标（ RPO ）为零，恢复时间目标（ RTO ）为最短。
+* 远距离灾难恢复。在正常运行期间，还可以使用二级 SAP HANA 主机进行开发或测试。
+
+
+
+
+== 高可用性， RPO 为零， RTO 最小
+
+系统复制使用预加载到二级 SAP HANA 主机内存中的表来配置同步复制。此高可用性解决方案可用于解决硬件或软件故障，并在 SAP HANA 软件升级期间减少计划内停机时间（几乎为零停机操作）。
+
+故障转移操作通常通过使用第三方集群软件或使用 SAP Landscape Management 软件的一键式工作流实现自动化。
+
+从备份要求角度来看，您必须能够创建备份，而不受主或二级 SAP HANA 主机的影响。共享备份基础架构用于还原任何备份，而不管在哪个主机上创建了备份。
+
+本文档其余部分将重点介绍将 SAP 系统复制配置为高可用性解决方案时的备份操作。
+
+image:saphana-sr-scs-image1.png["错误：缺少图形映像"]
+
+
+
+== 远距离灾难恢复
+
+系统复制可以配置为使用异步复制，而不会在二级主机的内存中预加载任何表。此解决方案用于解决数据中心故障，故障转移操作通常是手动执行的。
+
+关于备份要求，您必须能够在数据中心 1 的正常运行期间以及数据中心 2 的灾难恢复期间创建备份。数据中心 1 和 2 中提供了一个单独的备份基础架构，备份操作会在灾难故障转移过程中激活。备份基础架构通常不会共享，无法对在另一数据中心创建的备份执行还原操作。
+
+image:saphana-sr-scs-image2.png["错误：缺少图形映像"]
+
+link:saphana-sr-scs-storage-snapshot-backups-and-sap-system-replication.html["接下来： Storage Snapshot 备份和 SAP 系统复制。"]

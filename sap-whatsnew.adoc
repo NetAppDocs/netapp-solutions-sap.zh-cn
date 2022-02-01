@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: sap-whatsnew.html 
 summary: SAP 解决方案产品组合的最新新增功能 
-keywords: netapp, solutions, SAP, what's new 
+keywords: 'netapp, solutions, SAP, what"s new' 
 ---
 = SAP 的新增功能
 :hardbreaks:
