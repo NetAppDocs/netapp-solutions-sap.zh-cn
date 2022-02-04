@@ -64,7 +64,7 @@ NOTE: 此计算与所使用的存储控制器无关。添加更多磁盘架不�
 
 === NS224 NVMe 磁盘架
 
-第一个磁盘架至少需要 12 个 NVMe SSD ，最多支持 16 个 SAP HANA 主机。一个完全填充的磁盘架（ 24 个 SSD ）最多支持 34 个 SAP HANA 主机。相同的适用场景 AFF A800 系统的内部磁盘。
+第一个磁盘架至少需要 12 个 NVMe SSD ，最多支持 16 个 SAP HANA 主机。一个完全填充的磁盘架（ 24 个 SSD ）最多支持 48 个 SAP HANA 主机。相同的适用场景 AFF A800 系统的内部磁盘。
 
 
 NOTE: 添加更多磁盘架不会增加存储控制器可以支持的 SAP HANA 主机的最大数量。
@@ -83,7 +83,7 @@ NOTE: 添加更多磁盘架不会增加存储控制器可以支持的 SAP HANA �
 
 === 容量注意事项
 
-有关 SAP HANA 容量要求的详细问题描述，请参见 http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html["SAP HANA 存储要求"^] 白皮书。
+有关 SAP HANA 容量要求的详细问题描述，请参见 https://launchpad.support.sap.com/#/notes/1900823["SAP 备注： 1900823"^] 白皮书。
 
 
 NOTE: 必须使用 NetApp 的 SAP HANA 存储规模估算工具来确定使用多个 SAP HANA 系统的整体 SAP 环境的容量规模估算。请联系 NetApp 或您的 NetApp 合作伙伴销售代表，以验证适当规模的存储环境的存储规模估算流程。

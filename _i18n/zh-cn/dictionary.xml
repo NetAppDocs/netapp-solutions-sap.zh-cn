@@ -850,7 +850,6 @@
   <block id="b78ad1fd79e9fc7773f87edda4742199" category="cell">NFS modify -vserver &lt;vserver-name&gt; -v4.1 已启用</block>
   <block id="4e11d437a84608405c1cba53cb335989" category="cell">设置 advanced nfs modify -vserver &lt;vserver_name&gt; -tcp-max-xfer-size 1048576 set admin</block>
   <block id="9d4c39bb98c40111c9c2cda962a5051a" category="cell">设置 advanced nfs modify -vserver &lt;vserver_name&gt; -tcp-max-xfer-size 65536 set admin</block>
-  <block id="d36a06d4ce7ff3f416af683fa8c69c48" category="admonition">对于 NFS 版本 4 。0 ，在前面的命令中将 `4.1` 替换为 `4.0` 。虽然支持 NFSv4.0 ，但首选 NFSv4.1 。</block>
   <block id="c480c17814d28d6a9b00fd06a87dee2a" category="inline-link-macro">《 NFSv4 的 SAP HANA 安装准备工作》。</block>
   <block id="9fa840f16cd7cf7f80145507faa2a523" category="admonition">在所有 Linux 服务器（` /etc/idmapd.conf` ）和 SVM 上，必须将 NFSv4 域 ID 设置为相同的值，如一节所述 <block ref="19618adae76246007b68ca646cc14e2b" category="inline-link-macro-rx"></block></block>
   <block id="cd2bd9dcb9cd374f1c6be216bae1bdf6" category="paragraph">如果使用 SAP HANA 多主机系统，请在 SVM 上设置 NFSv4 租赁时间（如下表所示）。</block>
@@ -894,7 +893,6 @@
   <block id="16761c2a0fb024c597b40911ae9db317" category="paragraph">以下示例命令适用于 2 加 1 多主机 HANA 系统。</block>
   <block id="83ae0722b3e48679da7a55d190be5e44" category="list-text">将其他文件系统添加到所有主机上的 ` /etc/fstab` 配置文件中。</block>
   <block id="474fcd58a82b43abb0995925c1918bb9" category="paragraph">对于使用 NFSv4.1 的单主机系统，请参见以下示例：</block>
-  <block id="f1a09f6792682f701db17bcfb7a8d318" category="admonition">使用不同的存储虚拟接口连接每个数据卷，以确保每个卷使用不同的 TCP 会话</block>
   <block id="d3bc1dd8c6c3cc7ddb77b7e695a19878" category="list-text">运行 `mount – a` 命令挂载文件系统。</block>
   <block id="356dd722b5b14363393c40db43145fba" category="paragraph">对租户数据库执行以下 SQL 语句，以便向租户数据库添加额外的数据卷分区。使用指向其他卷的路径：</block>
   <block id="7618130faa3e9d9686fa90b4bd797ac0" category="paragraph"><block ref="7618130faa3e9d9686fa90b4bd797ac0" category="inline-image-macro-rx" type="image"></block></block>
@@ -907,7 +905,6 @@
   <block id="27cd945eb6d2a58787f658282dc8c114" category="admonition">这两种配置都使用高级磁盘分区（ Advanced Disk Partitioning ， ADPv2 ）。半负载磁盘架最多可支持九个 SAP HANA 主机，而满载磁盘架最多可在一个磁盘架中支持 14 个主机。SAP HANA 主机必须在两个存储控制器之间平均分布。相同的适用场景 AFF A700s 系统的内部磁盘。必须使用 12 Gb SAS 连接 DS224C 磁盘架，以支持 SAP HANA 主机的数量。</block>
   <block id="7168b6fab3d1fdb1f905b5d9064d3a24" category="paragraph">6 Gb SAS 磁盘架（ DS2246 ）最多支持四个 SAP HANA 主机。SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。</block>
   <block id="f1ae15f6fd143c9e1276af68c06658c7" category="cell">12 GB SAS 磁盘架（ DS224C ），半个装有 12 个 SSD 和 ADPv2</block>
-  <block id="de1ff9288ed7f638a8b7369cd4297ed8" category="paragraph">第一个磁盘架至少需要 12 个 NVMe SSD ，最多支持 16 个 SAP HANA 主机。一个完全填充的磁盘架（ 24 个 SSD ）最多支持 34 个 SAP HANA 主机。相同的适用场景 AFF A800 系统的内部磁盘。</block>
   <block id="336d2fc2904f8210c02f37eb24f92eca" category="admonition">添加更多磁盘架不会增加存储控制器可以支持的 SAP HANA 主机的最大数量。</block>
   <block id="fac3c55a3cdc98c6d08b96c048885f29" category="section-title">配置性能测试工具</block>
   <block id="918724fe4fec0578cd9e798f8152194e" category="paragraph">从 SAP HANA 1.0 SPS10 开始， SAP 引入了一些参数来调整 I/O 行为并针对所用文件和存储系统优化数据库。使用 SAP 性能测试工具测试存储性能时，还必须为 SAP 的性能测试工具设置这些参数。</block>
@@ -931,11 +928,9 @@
   <block id="2d10c7ea8ceb7d4d67cf331de62acb84" category="paragraph">对于 NFSv3 ，您必须关闭 NFS 锁定，以避免在软件或服务器出现故障时执行 NFS 锁定清理操作。</block>
   <block id="d8ad267f2c46ff97a15a2d97678f0e5d" category="cell">rw ， bg ， hard ， timeo=600 ， noatime</block>
   <block id="d52686ae129e1d4bbe8cb75712e98f22" category="cell">vers=3 ， nolock</block>
-  <block id="5c2fca07471576b78522310793904392" category="cell">rsize=1048576 ， wsize=1048576</block>
   <block id="9fdcbaccc733453d8e7687d8e14a4e06" category="cell">rsize=65536 ， wsize=65536</block>
   <block id="a6b3bab4792cb8cb5eda6f38e11a69e7" category="admonition">要提高 NFSv3 的读取性能， NetApp 建议您使用 `nconnect=n` mount 选项，该选项可在 SUSE Linux Enterprise Server 12 SP4 或更高版本以及 RedHat Enterprise Linux （ RHEL ） 8.3 或更高版本中使用。</block>
   <block id="c252bc09fef14c3fb2a8d711bae9e7ed" category="admonition">性能测试表明， `nconnect=8` 可提供良好的读取结果。日志写入可能会因会话数较少而受益，例如 `nconnect=2` 。请注意，从 NFS 服务器进行的首次挂载（ IP 地址）会定义所使用的会话量。即使 nconnect 使用不同的值，后续挂载也不会更改此设置。</block>
-  <block id="dacabe1f6964cddac20654972bf735ae" category="admonition">对于 NFSv4 ，从 ONTAP 9.8 开始， NetApp 支持 NFSv4.1 的 nconnect 选项。SLES15SP2 和 RHEL 8.3 提供了第一个支持 NFSv4.1 nconnect 的 NFS 客户端。有关追加信息，请查看 Linux 供应商文档。</block>
   <block id="d3413923f038d5ccbb48c2ba31d26f55" category="paragraph">以下示例显示了使用 NFSv3 且 NFS 传输大小为 1 MB 的单个主机 SAP HANA 数据库，其中 SID=NF2 。要在系统启动期间使用 ` /etc/fstab` 配置文件挂载文件系统，请完成以下步骤：</block>
   <block id="03c18c34eb30051a996a6e6304e449da" category="paragraph"><block ref="03c18c34eb30051a996a6e6304e449da" category="inline-link-macro-rx"></block></block>
   <block id="af4ba9ef9ab9bd07d7c649c6d51dfa19" category="summary">从 SAP HANA 1.0 SPS10 开始， SAP 引入了一些参数来调整 I/O 行为并针对所用文件和存储系统优化数据库。</block>
@@ -1100,9 +1095,6 @@
   <block id="8290e539e87b39f4743f2a941a37d00d" category="doc">TR-4435 ：《采用 NFS 的 NetApp AFF 系统上的 SAP HANA —配置指南》</block>
   <block id="ccc35786789b66e9752e6f8cde933754" category="paragraph">NetApp 公司 Nil Bauser 和 Marco schön</block>
   <block id="af01ac16ca42b9b924b834a3199131e9" category="paragraph">此认证适用于以下型号：</block>
-  <block id="79fc4220549a4c2c93c30a0983ee4447" category="paragraph">有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见<block ref="4863cb1d1ac806ba02e335dda429f580" category="inline-link-rx"></block>。</block>
-  <block id="e6f3c771b97ae513ec4c1db0f4a875ce" category="paragraph">本文档介绍了 NFS 协议版本 3 （ NFSv3 ）或 NFS 协议版本 4 （ NFSv4.0 和 NFSv4.1 ）的 ONTAP 配置要求。</block>
-  <block id="f40ff8772938c5d60689bb69269c8692" category="paragraph">在本文档的其余部分中， NFSv4 既指 NFSv4.0 ，也指 NFSv4.1 。</block>
   <block id="793f62e70c31f71a93161db091bea2c0" category="paragraph">有关使用 FCP 的 NetApp AFF 系统以及使用 NFS 或 FCP 的 FAS 系统的配置指南，请访问以下链接：</block>
   <block id="fd645c3ffaeed1c3efb140082b037a69" category="inline-link">基于采用光纤通道协议的 NetApp FAS 系统的 SAP HANA</block>
   <block id="8c286ade008f7d794b82d8e4bc981424" category="list-text"><block ref="8c286ade008f7d794b82d8e4bc981424" category="inline-link-rx"></block></block>
@@ -1987,7 +1979,6 @@
   <block id="aabf604423d1b54f70e80a6e69d7cc9b" category="sidebar">SAP 与基于 UNIX 的 Oracle 以及 NFS 与 NetApp ONTAP</block>
   <block id="41af34746c13d49348031a1fca6a2938" category="sidebar">SAP 与使用 ONTAP 的 Windows 上的 Microsoft SQL Server</block>
   <block id="9feb66d55a80dea870deeb88fab704c9" category="sidebar">SAP HANA 备份和恢复</block>
-  <block id="556e7469391c18d85f90a695dc28f80e" category="sidebar">使用 SnapCenter 进行 SAP HANA 系统复制，备份和恢复</block>
   <block id="eeb338bfcd3ad35ad6983ecfa31efba2" category="sidebar">基于 NetApp 全 SAN 阵列的 SAP HANA —现代 SAN ，数据保护和灾难恢复</block>
   <block id="001370df532b74c5a8a530d47e7b991c" category="paragraph">Bernd Herth ， Tobias Bandl ， Nil Bauser ， NetApp</block>
   <block id="0fe8d96b1dd92fcd41aeaaf94ec6c574" category="paragraph">Will Bratton ， Geert Van Teylingen ， Microsoft</block>
@@ -2858,4 +2849,14 @@
   <block id="bc86535b64f45ec20770222ebaa5ca21" category="cell">更新以涵盖 SnapCenter 4.6 HANA 系统复制支持</block>
   <block id="02fa3d38f575ae1d4c7d0f5663a0d3ed" category="sidebar">使用 SnapCenter 备份和恢复 SAP HANA 系统复制</block>
   <block id="4bb12dc6461f1d5fa4e11ed67fdeef9e" category="sidebar">SAP HANA 系统复制概述</block>
+  <block id="c35a0cd0a7282bf70f4933947c018788" category="list-text">AFF A220 ， AFF A250 ， AFF A300 ， AFF A320 ， AFF A400 ， AFF A700s ， AFF A700 ， AFF A800 ， AFF A900</block>
+  <block id="152277675a8ef46c12f1dc91f2f53ede" category="paragraph">有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见<block ref="a3976abaebe3520fd66c465c4d7747d7" category="inline-link-rx"></block>。</block>
+  <block id="18cab9085e2115741cf08f1964299a5a" category="paragraph">本文档介绍了 NFS 协议版本 3 （ NFSv3 ）或 NFS 协议版本 4 （ NFSv4.1 ）的 ONTAP 配置要求。</block>
+  <block id="e678bbdfe53ad933277605d32601cebe" category="admonition">如果使用的是 NFSv4.1 ，则可以启用和使用 pNFS 。</block>
+  <block id="c16b7b6c06ec01825313e31feb82c6d2" category="cell">rsize=1048576 ， wsize=262144</block>
+  <block id="c16896dd475dc23d3a84eb0def7cee50" category="admonition">从 ONTAP 9.8 开始， NetApp 支持 NFSv4.1 的 nconnect 选项。SLES15SP2 和 RHEL 8.4 提供了第一个支持 NFSv4.1 nconnect 的 NFS 客户端。有关追加信息，请查看 Linux 供应商文档。</block>
+  <block id="d15827908daa628f6154e0a4e3d8a3da" category="paragraph">第一个磁盘架至少需要 12 个 NVMe SSD ，最多支持 16 个 SAP HANA 主机。一个完全填充的磁盘架（ 24 个 SSD ）最多支持 48 个 SAP HANA 主机。相同的适用场景 AFF A800 系统的内部磁盘。</block>
+  <block id="5f99a6ad54bfd8d0c68c8cc9f709365b" category="inline-link">SAP 备注： 1900823</block>
+  <block id="8e473bb8179de06c9675fded85db8531" category="paragraph">有关 SAP HANA 容量要求的详细问题描述，请参见<block ref="7c7e574e6ad6c7603298dd899482269f" category="inline-link-rx"></block> 白皮书。</block>
+  <block id="0b65064648e048922c198e4d6e2cafc1" category="admonition">使用不同的存储虚拟接口连接每个数据卷，以确保每个卷使用不同的 TCP 会话，或者使用 nconnect 挂载选项（如果适用于您的操作系统）。</block>
 </blocks>
