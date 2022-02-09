@@ -164,7 +164,6 @@
   <block id="1d8d1934499ced39732f5c5099083c6b" category="paragraph">必须使用 SAP 性能测试工具检查是否可以在已用于其他工作负载的现有存储控制器上运行其他 SAP HANA 主机。SAP 应用程序服务器可以安全地放置在与 SAP HANA 数据库相同的存储控制器和 / 或聚合上。</block>
   <block id="8025837196ec3641307b0ebcb276143c" category="section-title">容量注意事项</block>
   <block id="244d98fed97800c3bc8073163dc1e3b2" category="inline-link">SAP HANA 存储要求</block>
-  <block id="30babbb47792d5801024c3a51ce97d61" category="paragraph">有关 SAP HANA 容量要求的详细问题描述，请参见<block ref="ae8b2f435e0615ecc6234e8baafe37d2" category="inline-link-rx"></block> 白皮书。</block>
   <block id="bbce32f30700e8b905762b8cfd022bc5" category="admonition">必须使用 NetApp 的 SAP HANA 存储规模估算工具来确定使用多个 SAP HANA 系统的整体 SAP 环境的容量规模估算。请联系 NetApp 或您的 NetApp 合作伙伴销售代表，以验证适当规模的存储环境的存储规模估算流程。</block>
   <block id="46fcaad64094e886321a215ecd47a4b6" category="section-title">配置性能测试工具</block>
   <block id="e69e9d3f5ed6c444c36582f4128ffd41" category="paragraph">从 SAP HANA 1.0 SPS10 开始， SAP 引入了一些参数来调整 I/O 行为并针对所用文件和存储系统优化数据库。使用 SAP 性能测试工具测试存储性能时，还必须设置这些参数。</block>
@@ -371,7 +370,6 @@
   <block id="45c48cce2e2d7fbdea1afc51c7c6ad26" category="cell">9</block>
   <block id="2b496b69f4c7aea7a8d59474a9bf6c8a" category="admonition">此计算与所使用的存储控制器无关。添加更多磁盘架不会增加存储控制器可以支持的 SAP HANA 主机的最大数量。</block>
   <block id="58913e61815b0d5b4ebf09a2dbba07e5" category="section-title">NS224 NVMe 磁盘架</block>
-  <block id="fb7b6fa1858a95ebd1dfe3c33b7d43fa" category="paragraph">第一个磁盘架至少需要 12 个 NVMe SSD ，最多支持 16 个 SAP HANA 主机。一个完全填充的磁盘架最多可支持 34 个 SAP HANA 主机。</block>
   <block id="8bcf6b78575503f1caaf3d70970f3855" category="admonition">添加更多磁盘架不会增加存储控制器可以支持的 SAP HANA 主机的最大数量。</block>
   <block id="e2725d07d4b4cbeaff651e403b9ed0c2" category="paragraph">您可能会决定在同一存储控制器或同一聚合上部署 SAP HANA 工作负载和其他应用程序工作负载。如果是，您必须确保在混合工作负载环境中为 SAP HANA 提供足够的性能。NetApp 还建议您使用服务质量（ QoS ）参数来控制这些其他应用程序对 SAP HANA 应用程序可能产生的影响，并保证 SAP HANA 应用程序的吞吐量。</block>
   <block id="39d8b74e0095310309063c02410f6a20" category="paragraph">必须使用 SAP HCMT 测试工具检查是否可以在已用于其他工作负载的现有存储控制器上运行其他 SAP HANA 主机。SAP 应用程序服务器可以安全地放置在与 SAP HANA 数据库相同的存储控制器和 / 或聚合上。</block>
@@ -1022,7 +1020,6 @@
   <block id="3582e9217fbd3de24b2e5ecfb0fc97b4" category="paragraph">NetApp 公司 Nil Bauser 和 Marco Schoen</block>
   <block id="0b79795d3efc95b9976c7c5b933afce2" category="section-title">简介</block>
   <block id="e4509a748ae3ce7cb528662f2f9f7e10" category="paragraph">此认证适用于以下型号：</block>
-  <block id="47230a2a4e3598c31d12840cfd054ac9" category="list-text">AFF A220 ， AFF A250 ， AFF A300 ， AFF A320 ， AFF A400 ， AFF A700s ， AFF A700 ， AFF A800</block>
   <block id="130c9ce9d2909449cb229a98c66f9d29" category="inline-link">经过认证并受支持的 SAP HANA 硬件目录</block>
   <block id="171ad4663cdfb492651e0357292fbe82" category="paragraph">本文档介绍了使用光纤通道协议（ FCP ）的 AFF 配置。</block>
   <block id="a08e3f55ac1bf243274ee454a477749b" category="admonition">要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采用本文所述的配置。更改此处未列出的任何设置或使用的功能可能会导致发生原因性能下降或出现意外行为，只有在 NetApp 支持人员建议的情况下，才应执行此操作。</block>
@@ -1131,7 +1128,6 @@
   <block id="088c8c258db90c09658a39d2839f52b0" category="doc">TR-4384 ：《采用光纤通道协议的 NetApp FAS 系统上的 SAP HANA 配置指南》</block>
   <block id="d505ac9d8d6e21d17ef8d33d547be191" category="list-text">FAS2720 ， FAS2750 ， FAS8200 ， FAS8300 ， FAS8700 ， FAS9000</block>
   <block id="42eb56ae1e83db3afce70f056a668205" category="inline-link">经过认证并受支持的 SAP HANA 硬件目录</block>
-  <block id="e722e7b3a802520d055b584591aecb34" category="paragraph">有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见<block ref="4ad366ef77d40c13190de08fae8e4fc8" category="inline-link-rx"></block>。</block>
   <block id="b448d121930edfc4a956027d7533c403" category="paragraph">本文档介绍了使用光纤通道协议（ FCP ）的 FAS 配置。</block>
   <block id="bd06b22fab5b6b92f9bf2b53d26f4805" category="admonition">要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采用本文所述的配置。更改此处未列出的任何设置或使用的功能可能会导致性能下降或出现意外行为，只有在 NetApp 支持人员建议的情况下，才应执行此操作。</block>
   <block id="b33f6954e7bec0569d3be6ef5cea4d1d" category="paragraph">有关使用 NFS 和 NetApp AFF 系统的 FAS 系统的配置指南，请访问以下链接：</block>
@@ -2003,8 +1999,6 @@
   <block id="896435116179bed2dde76b00414b4fa5" category="cell">新的 NetApp 存储系统会更改主机网络设置</block>
   <block id="7e0efdf8314ae57608296d0f91d73af0" category="list-text">对于单主机系统，请挂载 ` /ha/shared` 卷并创建 `shared` 和 `usr-sp` 子目录。</block>
   <block id="8d4c28e332eb5d0e100502eb8922957f" category="paragraph">可通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。中介绍了此选项<block ref="5860d5b399407cf49d81a6277de3a895" category="inline-link-rx"></block>。</block>
-  <block id="e77c85b25faef8527c1bed07eff03a8d" category="list-text">ASA AFF A220 ， ASA AFF A250 ， ASA AFF A400 ， ASA AFF A700 ， ASA AFF A800</block>
-  <block id="e8c22b9c2b65a7fdd51c6f6fa0a68202" category="paragraph">有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见<block ref="4863cb1d1ac806ba02e335dda429f580" category="inline-link-rx"></block>。</block>
   <block id="657da3820ae1c5b9809d428c8a98c5dc" category="doc">SnapCenter 服务策略配置</block>
   <block id="c8bd1be803a63781351772f4b3214600" category="inline-link-macro">Previous ：用于此报告的实验室设置。</block>
   <block id="b380171206568b54cc93ead5c4bb837b" category="paragraph"><block ref="b380171206568b54cc93ead5c4bb837b" category="inline-link-macro-rx"></block></block>
@@ -2857,4 +2851,8 @@
   <block id="4ba3e1c058ef7fff97064b76f2483b24" category="paragraph">有关 SAP HANA 容量要求的详细问题描述，请参见<block ref="7c7e574e6ad6c7603298dd899482269f" category="inline-link-rx"></block> 随附白皮书。</block>
   <block id="257f17de4aa60411125a8899104c5927" category="list-text">FAS2720 ， FAS2750 ， FAS8300 ， FAS8700 和 FAS9000A 有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见<block ref="b94cf00a6e18ec3712e81f808581c042" category="inline-link-rx"></block>。</block>
   <block id="45bb1f13b573370e5659e113eaa6e2a7" category="paragraph">本文档介绍了 NFS 版本 3 （ NFSv3 ）协议或 NFS 版本 4 （ NFSv4.1 ）协议的 ONTAP 配置要求。</block>
+  <block id="bc3bbc9b5df10cfc4c9d9747e9b15e4f" category="paragraph">有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见<block ref="2585df8f0f74fb3d91dc9a930fa3213b" category="inline-link-rx"></block>。</block>
+  <block id="fa880fcc81edcdb201d07b92940b6c2c" category="paragraph">第一个磁盘架至少需要 12 个 NVMe SSD ，最多支持 16 个 SAP HANA 主机。一个完全填充的磁盘架最多可支持 48 个 SAP HANA 主机。</block>
+  <block id="eb08d46fa92fc78a1fd6730ec46042b6" category="list-text">ASA AFF A220 ， ASA AFF A250 ， ASA AFF A400 ， ASA AFF A700 ， ASA AFF A800 ， ASA AFF A900</block>
+  <block id="97bfb54320c9268725cfbb374a5168fb" category="paragraph">有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见<block ref="a3976abaebe3520fd66c465c4d7747d7" category="inline-link-rx"></block>。</block>
 </blocks>
