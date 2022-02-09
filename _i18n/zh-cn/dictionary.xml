@@ -628,10 +628,8 @@
   <block id="a1577ab4439c333a27d3a1daf67efe55" category="cell">设置高级 NFS 修改 -vserver &lt;vserver_name&gt; -v4-lease-seconds 10 set admin</block>
   <block id="ffea0284d7bfb3aad7e0d7a07765b424" category="cell">禁用 NFSv4 数字 ID</block>
   <block id="96adb5308418a0e6a16e78f391a5725d" category="cell">nfs modify -vserver &lt;vserver_name&gt; -v4-numeric-id 已禁用</block>
-  <block id="c153016d304829102496ce3ee4c66867" category="admonition">对于 NFS 版本 4 。0 ，替换 `4 。1` 和 `4.0` 。虽然支持 NFSv4.0 ，但最好使用 NFSv4.1 。</block>
   <block id="4a762e476d9eda379d2de2de4266fb64" category="inline-link-macro">NFSv4 的 SAP HANA 安装准备。</block>
   <block id="ad357b093f7cd3e6d382bfe20cd1f2bd" category="admonition">在所有 Linux 服务器（ /`etc/idmapd.conf` ）和 SVM 上，必须将 NFSv4 域 ID 设置为相同的值，如中所述 <block ref="7cbf1992917906c8f8c329ad679d4886" category="inline-link-macro-rx"></block></block>
-  <block id="7fe6e3db98dfe3477134c69fb6a1a8e6" category="admonition">如果使用的是 NFSv4.1 ，则默认情况下会启用并使用 pNFS （建议）。</block>
   <block id="8a497c5d71c93d9fb0f969b97af6bf05" category="paragraph">如果使用 SAP HANA 多主机系统，请按下表所示设置 SVM 的 NFSv4 租赁时间。</block>
   <block id="3228e5563c749aee2e3aacd329eadf42" category="cell">设置 NFSv4 租用时间。</block>
   <block id="0a1cdfe3de7f309f6c0b04a185658b15" category="paragraph">从 HANA 2.0 SPS4 开始， HANA 提供了用于控制故障转移行为的参数。NetApp 建议使用这些 HANA 参数，而不是在 SVM 级别设置租用时间。这些参数位于 `nameserver.ini` 中，如下表所示。请在这些部分中保留默认重试间隔 10 秒。</block>
@@ -699,20 +697,15 @@
   <block id="93827363c57822e58dfbd5f05b9beac8" category="paragraph">使用 ONTAP 9 ， NFS 传输大小最多可配置为 1 MB 。具体而言，如果与存储系统建立 40GbE 或更快的连接，则必须将传输大小设置为 1 MB ，才能达到预期吞吐量值。</block>
   <block id="6f5e55da455474f8c585cb463a2d639e" category="cell">通用参数</block>
   <block id="5b12ee0369243579651edca43ff65c85" category="cell">NFSv3</block>
-  <block id="de841868c2911da76b8ae2da9fa3166d" category="cell">NFSv4.1</block>
   <block id="0614a261ce2e53d5987e97a60496a434" category="cell">ONTAP 9 中的 NFS 传输大小</block>
   <block id="54b941646e65c3622af659cd9d965169" category="cell">使用 ONTAP 8 时的 NFS 传输大小</block>
   <block id="1017e4c4798ba77b88c85f3b8c6fdf03" category="cell">rw ， bg ， hard ， timeo=600 ， noatime ，</block>
   <block id="7f4fbd9239422e6cbff6a5c40524adb3" category="cell">vers=3 ， nolock ，</block>
-  <block id="16523b39871af16af52009bc15a2673c" category="cell">vers=4 ， minorVersion=0 ，锁定</block>
   <block id="5ce2764cf9f6ed7aadfe7ba01b6b29a4" category="cell">vers=4 ， minorVersion=1 ， lock</block>
-  <block id="4d883abf7f72dbd8b8458ae706f6b358" category="cell">rsize=1048576 ， wsize=1048576 ，</block>
   <block id="7d7894f31c9b83146d2bc22185ed5db0" category="cell">rsize=65536 ， wsize=65536 ，</block>
   <block id="15ae6c88c5781cc59702ffce23dbc9c4" category="admonition">要提高 NFSv3 的读取性能，建议使用 `nconnect=n` mount 选项，该选项可用于 SUSE Linux Enterprise Server 12 SP4 或更高版本以及 RedHat Enterprise Linux （ RHEL ） 8.3 或更高版本。</block>
   <block id="5af44f409fcf1d822ee94e4abf92a132" category="admonition">性能测试表明， `nconnect=8` 可提供良好的读取结果。日志写入可能会因会话数较少而受益，例如 `nconnect=2.` 请注意，从 NFS 服务器进行的首次挂载（ IP 地址）会定义所使用的会话量。即使 `nconnect` 使用不同的值，后续挂载也不会更改此设置。</block>
-  <block id="be650784c43282affe1d47ff0ef4386a" category="admonition">从 ONTAP 9.8 和 SUSE SLES15SP2 或 RedHat RHEL 8.3 或更高版本开始， NetApp 支持 NFSv4.1 的 nconnect 选项。对于追加信息，请查看 Linux 供应商文档。</block>
   <block id="ae2c578e6abfee06e6c468fd4e7cb392" category="paragraph">要在系统启动期间使用 ` /etc/fstab` 配置文件挂载文件系统，请完成以下步骤：</block>
-  <block id="c86f68d88b3987101672c79c058d3f8f" category="paragraph">以下示例显示了使用 NFSv3 且 NFS 传输大小为 1 MB 的单个主机 SAP HANA 数据库，其中 SID=NF2 。</block>
   <block id="f731bd3074578aba0a3c1b5ab0ca78ee" category="list-text">将所需的文件系统添加到 ` /etc/fstab` 配置文件中。</block>
   <block id="aff8bbab4f16423ec5907aed644aead6" category="list-text">运行 `mount – a` 在所有主机上挂载文件系统。</block>
   <block id="8ffd511efff2f95144ac621432b751cd" category="paragraph">下一个示例显示了一个多主机 SAP HANA 数据库，其中 SID=NF2 对数据和日志文件系统使用 NFSv4.1 ，而对 ` ， HA/Shared` 和 ` ， USR/SAP/NF2` 文件系统使用 NFSv3 。使用的 NFS 传输大小为 1 MB 。</block>
@@ -1231,8 +1224,6 @@
   <block id="ea2a5017e6cdb7eff470cc58152d6c96" category="doc">TR-4290 ：《采用 NFS 配置的 NetApp FAS 系统上的 SAP HANA 》指南</block>
   <block id="3ba2c0f2dd07fd36730e20b6bcba3d0a" category="paragraph">此认证目前仅适用于以下型号：</block>
   <block id="ae9c01e101eba86b0e6ff092df062fae" category="inline-link">经过认证并受支持的 SAP HANA 硬件目录</block>
-  <block id="319205843b22e5ac2d3a538e9da3a938" category="list-text">FAS2720 ， FAS2750 ， FAS8300 ， FAS8700 和 FAS9000A 有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见<block ref="1f1391b4a4e3510e52fedc44ebc619dc" category="inline-link-rx"></block>。</block>
-  <block id="b4c89f05de6c3fe24965b0e343289e75" category="paragraph">本文档介绍了 NFS 版本 3 （ NFSv3 ）协议或 NFS 版本 4 （ NFSv4.0 和 NFSv4.1 ）协议的 ONTAP 配置要求。在本文档的其余部分中， NFSv4 既指 NFSv4.0 ，也指 NFSv4.1 。</block>
   <block id="134a6ecca2c7d98e325ad00ee461d25a" category="admonition">要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采用本文所述的配置。更改任何设置或使用本文未列出的功能可能会导致发生原因性能下降或出现意外行为，只有在 NetApp 支持人员建议的情况下，才应执行此操作。</block>
   <block id="c79fca4f33a4c23e62509e315c7a3415" category="paragraph">有关使用 FCP 的 NetApp FAS 系统以及使用 NFS 或 FC 的 AFF 系统的配置指南，请访问以下链接：</block>
   <block id="90a239e164a24bfe58142290491d6a2c" category="paragraph">对于不具有主机自动故障转移功能的 SAP HANA 单主机系统或多个主机，支持 NFSv3 和 NFSv4 。</block>
@@ -2859,4 +2850,11 @@
   <block id="5f99a6ad54bfd8d0c68c8cc9f709365b" category="inline-link">SAP 备注： 1900823</block>
   <block id="8e473bb8179de06c9675fded85db8531" category="paragraph">有关 SAP HANA 容量要求的详细问题描述，请参见<block ref="7c7e574e6ad6c7603298dd899482269f" category="inline-link-rx"></block> 白皮书。</block>
   <block id="0b65064648e048922c198e4d6e2cafc1" category="admonition">使用不同的存储虚拟接口连接每个数据卷，以确保每个卷使用不同的 TCP 会话，或者使用 nconnect 挂载选项（如果适用于您的操作系统）。</block>
+  <block id="4a09ae73b23148acb0508b47589e3623" category="cell">rsize=1048576 ， wsize=262144 ，</block>
+  <block id="1aee368bcb2be0cdb87c1fb6bbdfe17d" category="admonition">从 ONTAP 9.8 和 SUSE SLES15SP2 或 RedHat RHEL 8.4 或更高版本开始， NetApp 支持 NFSv4.1 的 nconnect 选项。对于追加信息，请查看 Linux 供应商文档。</block>
+  <block id="f9d7623ba6cc83509340e737618f63c2" category="paragraph">以下示例显示了一个主机 SAP HANA 数据库，其中 SID=NF2 使用 NFSv3 ， NFS 传输大小为 1 MB 用于读取， 256 k 用于写入。</block>
+  <block id="b6002aa673859c29cc8fc6915c01cf54" category="paragraph">下一个示例显示了一个多主机 SAP HANA 数据库，其中 SID=NF2 对数据和日志文件系统使用 NFSv4.1 ，而对 ` ， HA/Shared` 和 ` ， USR/SAP/NF2` 文件系统使用 NFSv3 。使用 1 MB 的 NFS 传输大小进行读取，使用 256 k 的 NFS 传输大小进行写入。</block>
+  <block id="4ba3e1c058ef7fff97064b76f2483b24" category="paragraph">有关 SAP HANA 容量要求的详细问题描述，请参见<block ref="7c7e574e6ad6c7603298dd899482269f" category="inline-link-rx"></block> 随附白皮书。</block>
+  <block id="257f17de4aa60411125a8899104c5927" category="list-text">FAS2720 ， FAS2750 ， FAS8300 ， FAS8700 和 FAS9000A 有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见<block ref="b94cf00a6e18ec3712e81f808581c042" category="inline-link-rx"></block>。</block>
+  <block id="45bb1f13b573370e5659e113eaa6e2a7" category="paragraph">本文档介绍了 NFS 版本 3 （ NFSv3 ）协议或 NFS 版本 4 （ NFSv4.1 ）协议的 ONTAP 配置要求。</block>
 </blocks>

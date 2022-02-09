@@ -350,13 +350,10 @@ image:saphana-fas-nfs_image18.jpg["错误：缺少图形映像"]
 | 禁用 NFSv4 数字 ID | nfs modify -vserver <vserver_name> -v4-numeric-id 已禁用 
 |===
 
-NOTE: 对于 NFS 版本 4 。0 ，替换 `4 。1` 和 `4.0` 。虽然支持 NFSv4.0 ，但最好使用 NFSv4.1 。
-
-
 NOTE: 在所有 Linux 服务器（ /`etc/idmapd.conf` ）和 SVM 上，必须将 NFSv4 域 ID 设置为相同的值，如中所述 link:saphana-fas-nfs_sap_hana_installation_preparations_for_nfsv4.html["NFSv4 的 SAP HANA 安装准备。"]
 
 
-NOTE: 如果使用的是 NFSv4.1 ，则默认情况下会启用并使用 pNFS （建议）。
+NOTE: 如果使用的是 NFSv4.1 ，则可以启用和使用 pNFS 。
 
 如果使用 SAP HANA 多主机系统，请按下表所示设置 SVM 的 NFSv4 租赁时间。
 

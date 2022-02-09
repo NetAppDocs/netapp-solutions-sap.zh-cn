@@ -13,10 +13,10 @@ NetApp FAS 产品系列已通过认证，可在定制数据中心集成（ TDI �
 
 此认证目前仅适用于以下型号：
 
-* FAS2720 ， FAS2750 ， FAS8300 ， FAS8700 和 FAS9000A 有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见 https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/enterprise-storage.html["经过认证并受支持的 SAP HANA 硬件目录"^]。
+* FAS2720 ， FAS2750 ， FAS8300 ， FAS8700 和 FAS9000A 有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见 https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:13["经过认证并受支持的 SAP HANA 硬件目录"^]。
 
 
-本文档介绍了 NFS 版本 3 （ NFSv3 ）协议或 NFS 版本 4 （ NFSv4.0 和 NFSv4.1 ）协议的 ONTAP 配置要求。在本文档的其余部分中， NFSv4 既指 NFSv4.0 ，也指 NFSv4.1 。
+本文档介绍了 NFS 版本 3 （ NFSv3 ）协议或 NFS 版本 4 （ NFSv4.1 ）协议的 ONTAP 配置要求。
 
 
 NOTE: 要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采用本文所述的配置。更改任何设置或使用本文未列出的功能可能会导致发生原因性能下降或出现意外行为，只有在 NetApp 支持人员建议的情况下，才应执行此操作。
