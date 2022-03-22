@@ -2,6 +2,37 @@
 section: backup
 title: 备份，还原和灾难恢复
 entries:
+- title: 使用 SnapCenter 进行 SAP HANA 备份和恢复
+  type: solutions
+  entries:
+  - title: 概述
+    url: "/backup/saphana-br-scs-overview.html"
+  - title: SnapCenter 架构
+    url: "/backup/saphana-br-scs-snapcenter-architecture.html"
+  - title: SnapCenter SAP HANA 备份解决方案
+    url: "/backup/saphana-br-scs-snapcenter-sap-hana-backup-solution.html"
+  - title: SnapCenter 概念和最佳实践
+    url: "/backup/saphana-br-scs-snapcenter-concepts-and-best-practices.html"
+  - title: 用于此报告的实验室设置
+    url: "/backup/saphana-br-scs-lab-setup-used-for-this-report.html"
+  - title: SnapCenter 配置
+    url: "/backup/saphana-br-scs-snapcenter-configuration.html"
+  - title: SnapCenter 初始配置
+    url: "/backup/saphana-br-scs-snapcenter-initial-configuration.html"
+  - title: 用于 SAP HANA 数据库备份的 SnapCenter 资源专用配置
+    url: "/backup/saphana-br-scs-snapcenter-resource-specific-configuration-for-sap-hana-database-backups.html"
+  - title: 用于非数据卷备份的 SnapCenter 资源专用配置
+    url: "/backup/saphana-br-scs-snapcenter-resource-specific-configuration-for-non-data-volume-backups.html"
+  - title: 数据库备份
+    url: "/backup/saphana-br-scs-database-backups.html"
+  - title: 块完整性检查
+    url: "/backup/saphana-br-scs-block-integrity-check.html"
+  - title: 还原和恢复
+    url: "/backup/saphana-br-scs-restore-and-recovery.html"
+  - title: 高级配置和调整
+    url: "/backup/saphana-br-scs-advanced-configuration-and-tuning.html"
+  - title: 从何处查找追加信息和版本历史记录
+    url: "/backup/saphana-br-scs-where-to-find-additional-information.html"
 - title: 使用 SnapCenter 备份和恢复 SAP HANA 系统复制
   type: solutions
   entries:

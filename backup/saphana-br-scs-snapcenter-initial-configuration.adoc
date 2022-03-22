@@ -1,0 +1,260 @@
+---
+sidebar: sidebar 
+permalink: backup/saphana-br-scs-snapcenter-initial-configuration.html 
+keywords: configuration, storage system, plug-in, hdbsql client 
+summary: 本节介绍初始 SnapCenter 配置，包括存储系统，凭据，主机， hdbsql. 客户端和策略。 
+---
+= 初始 SnapCenter 配置
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:saphana-br-scs-snapcenter-configuration.html["先前版本： SnapCenter 配置。"]
+
+初始配置包括以下步骤：
+
+. 存储系统配置：
+. 插件安装的凭据配置
+. 对于中央 HANA 插件主机：
++
+.. 主机配置和 SAP HANA 插件部署
+.. SAP HANA hdbsql. 客户端软件安装和配置
+
+
+. 策略配置
+
+
+以下各节介绍了初始配置步骤。
+
+
+
+== 存储系统配置：
+
+. 登录到 SnapCenter 服务器图形用户界面。
++
+image:saphana-br-scs-image23.png["错误：缺少图形映像"]
+
+. 选择存储系统。
++
+
+NOTE: 在屏幕中，您可以选择存储系统类型，可以是 ONTAP SVM 或 ONTAP 集群。如果在 SVM 级别配置存储系统，则需要为每个 SVM 配置一个管理 LIF 。或者，您也可以在集群级别使用 SnapCenter 管理访问。以下示例将使用 SVM 管理。
+
++
+image:saphana-br-scs-image24.png["错误：缺少图形映像"]
+
+. 单击 New 以添加存储系统并提供所需的主机名和凭据。
++
+
+NOTE: SVM 用户不需要是 vsadmin 用户，如屏幕截图所示。通常，在 SVM 上配置用户并为其分配执行备份和还原操作所需的权限。有关所需权限的详细信息，请参见 http://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-isg%2Fhome.html["《 SnapCenter 安装指南》"^] 在标题为 " 所需的最小 ONTAP 权限 " 一节中。
+
++
+image:saphana-br-scs-image25.png["错误：缺少图形映像"]
+
+. 单击更多选项以配置存储平台。
++
+存储平台可以是 FAS ， AFF ， ONTAP Select 或 Cloud Volumes ONTAP 。
+
++
+
+NOTE: 对于用作 SnapVault 或 SnapMirror 目标的系统，选择二级图标。
+
++
+image:saphana-br-scs-image26.png["错误：缺少图形映像"]
+
+. 根据需要添加其他存储系统。在我们的示例中，添加了一个额外的异地备份存储和一个灾难恢复存储。
++
+image:saphana-br-scs-image27.png["错误：缺少图形映像"]
+
+
+
+
+
+== 凭据配置
+
+. 转到 " 设置 " ，选择 " 凭据 " ，然后单击 " 新建 " 。
++
+image:saphana-br-scs-image28.png["错误：缺少图形映像"]
+
+. 提供用于在 Linux 系统上安装插件的用户凭据。
++
+image:saphana-br-scs-image29.png["错误：缺少图形映像"]
+
+. 提供用于在 Windows 系统上安装插件的用户凭据。
++
+image:saphana-br-scs-image30.png["错误：缺少图形映像"]
+
++
+下图显示了已配置的凭据。
+
+
+
+image:saphana-br-scs-image31.png["错误：缺少图形映像"]
+
+
+
+== 在中央插件主机上安装 SAP HANA 插件
+
+在实验室设置中， SnapCenter 服务器也用作中央 HANA 插件主机。运行 SnapCenter 服务器的 Windows 主机将作为主机添加，而 SAP HANA 插件将安装在 Windows 主机上。
+
+
+NOTE: SAP HANA 插件需要 Java 64 位版本 1.8 。在部署 SAP HANA 插件之前，需要在主机上安装 Java 。
+
+. 转到主机，然后单击添加。
++
+image:saphana-br-scs-image32.png["错误：缺少图形映像"]
+
+. 提供所需的主机信息。单击提交。
++
+image:saphana-br-scs-image33.png["错误：缺少图形映像"]
+
++
+下图显示了部署 HANA 插件后配置的所有主机。
+
++
+image:saphana-br-scs-image34.png["错误：缺少图形映像"]
+
+
+
+
+
+=== SAP HANA hdbsql. 客户端软件安装和配置
+
+SAP HANA hdbsql 客户端软件必须安装在安装了 SAP HANA 插件的同一主机上。可从下载此软件 https://support.sap.com/en/index.html["SAP 支持门户"^]。
+
+在资源配置期间配置的 HDBSQL 操作系统用户必须能够运行 hdbsql. 可执行文件。必须在 `hana.properties` 文件中配置 hdbsql. 可执行文件的路径。
+
+* Windows
+
+
+....
+C:\More C:\Program Files\NetApp\SnapCenter\Snapcenter Plug-in Creator\etc\hana.properties
+HANA_HDBSQL_CMD=C:\\Program Files\\sap\\hdbclient\\hdbsql.exe
+....
+* Linux ：
+
+
+....
+cat /opt/NetApp/snapcenter/scc/etc/hana.properties
+HANA_HDBSQL_CMD=/usr/sap/hdbclient/hdbsql
+....
+
+
+== 策略配置
+
+如本节所述 link:saphana-br-scs-snapcenter-concepts-and-best-practices.html#data-protection-strategy["" 数据保护策略 " ，"] 策略通常独立于资源进行配置，可供多个 SAP HANA 数据库使用。
+
+典型的最低配置包含以下策略：
+
+* 无复制的每小时备份策略： `LocalSnap`
+* 使用 SnapVault 复制执行每日备份的策略： `LocalSnapAndSnapVault`
+* 使用基于文件的备份执行每周块完整性检查的策略： `BlockIntegrityCheck`
+
+
+以下各节将介绍这三个策略的配置。
+
+
+
+=== 每小时 Snapshot 备份策略
+
+. 转到 " 设置 ">" 策略 " ，然后单击 " 新建 " 。
++
+image:saphana-br-scs-image35.png["错误：缺少图形映像"]
+
+. 输入策略名称和问题描述。单击下一步。
++
+image:saphana-br-scs-image36.png["错误：缺少图形映像"]
+
+. 选择基于 Snapshot 的备份类型，并选择每小时作为计划频率。
++
+image:saphana-br-scs-image37.png["错误：缺少图形映像"]
+
+. 配置按需备份的保留设置。
++
+image:saphana-br-scs-image38.png["错误：缺少图形映像"]
+
+. 配置计划备份的保留设置。
++
+image:saphana-br-scs-image39.png["错误：缺少图形映像"]
+
+. 配置复制选项。在这种情况下，不会选择 SnapVault 或 SnapMirror 更新。
++
+image:saphana-br-scs-image40.png["错误：缺少图形映像"]
+
+. 在摘要页面上，单击完成。
++
+image:saphana-br-scs-image41.png["错误：缺少图形映像"]
+
+
+
+
+
+=== 使用 SnapVault 复制执行每日 Snapshot 备份的策略
+
+. 转到 " 设置 ">" 策略 " ，然后单击 " 新建 " 。
+. 输入策略名称和问题描述。单击下一步。
++
+image:saphana-br-scs-image42.png["错误：缺少图形映像"]
+
+. 将备份类型设置为基于 Snapshot ，并将计划频率设置为每日。
++
+image:saphana-br-scs-image43.png["错误：缺少图形映像"]
+
+. 配置按需备份的保留设置。
++
+image:saphana-br-scs-image44.png["错误：缺少图形映像"]
+
+. 配置计划备份的保留设置。
++
+image:saphana-br-scs-image45.png["错误：缺少图形映像"]
+
+. 创建本地 Snapshot 副本后，选择 Update SnapVault 。
++
+
+NOTE: 二级策略标签必须与存储层上数据保护配置中的 SnapMirror 标签相同。请参见一节 link:saphana-br-scs-snapcenter-resource-specific-configuration-for-sap-hana-database-backups.html#configuration-of-data-protection-to-off-site-backup-storage["" 将数据保护配置为异地备份存储。 ""]
+
++
+image:saphana-br-scs-image46.png["错误：缺少图形映像"]
+
+. 在摘要页面上，单击完成。
++
+image:saphana-br-scs-image47.png["错误：缺少图形映像"]
+
+
+
+
+
+=== 每周块完整性检查策略
+
+. 转到 " 设置 ">" 策略 " ，然后单击 " 新建 " 。
+. 输入策略名称和问题描述。单击下一步。
++
+image:saphana-br-scs-image48.png["错误：缺少图形映像"]
+
+. 将备份类型设置为基于文件，并将计划频率设置为每周。
++
+image:saphana-br-scs-image49.png["错误：缺少图形映像"]
+
+. 配置按需备份的保留设置。
++
+image:saphana-br-scs-image50.png["错误：缺少图形映像"]
+
+. 配置计划备份的保留设置。
++
+image:saphana-br-scs-image50.png["错误：缺少图形映像"]
+
+. 在摘要页面上，单击完成。
++
+image:saphana-br-scs-image51.png["错误：缺少图形映像"]
+
++
+下图显示了已配置策略的摘要。
+
++
+image:saphana-br-scs-image52.png["错误：缺少图形映像"]
+
+
+
+link:saphana-br-scs-snapcenter-resource-specific-configuration-for-sap-hana-database-backups.html["接下来： SAP HANA 数据库备份的 SnapCenter 资源专用配置。"]

@@ -2,8 +2,6 @@
 section: bp
 title: 最佳实践
 entries:
-- title: 使用 Azure NetApp Files 在 Microsoft Azure 上运行 SAP 应用程序
-  url: "/bp/sap-apps-azure-anf_pdf_link.html"
 - title: "《采用 FCP 的 NetApp AFF 系统上的 SAP HANA 配置指南》"
   type: solutions
   entries:
