@@ -93,7 +93,7 @@ NOTE: 在 HANA 数据库主机上部署 HANA 插件时，默认情况下会自�
 |===
 
 
-=== SAP HANA 插件的部署选项
+== SAP HANA 插件的部署选项
 
 下图显示了逻辑视图以及 SnapCenter 服务器与 SAP HANA 数据库之间的通信。
 

@@ -113,7 +113,7 @@ NetApp 进行了性能测试，以定义最佳值。下表列出了必须在 SAP
 
 | 异步写入提交块 | 全部 
 |===
-有关 SAP 测试工具配置的详细信息，请参见 https://service.sap.com/sap/support/notes/1943937["SAP 注释 1943937"^] 适用于 HWCCT （ SAP HANA 1.0 ）和 适用于 HCMT/HCOT （ SAP HANA 2.0 ）。
+有关 SAP 测试工具配置的详细信息，请参见 https://service.sap.com/sap/support/notes/1943937["SAP 注释 1943937"^] 适用于 HWCCT （ SAP HANA 1.0 ）和 https://launchpad.support.sap.com/["SAP 注释 2493172"^] 适用于 HCMT/HCOT （ SAP HANA 2.0 ）。
 
 以下示例显示了如何为 HCMT/HCOT 执行计划设置变量。
 

@@ -81,6 +81,9 @@ NOTE: 您必须关闭并重新打开拓扑视图才能查看更新后的备份�
 image:saphana-br-scs-image88.png["错误：缺少图形映像"]
 
 . 单击活动区域中作业的活动行时，将显示作业详细信息。您可以单击查看日志来打开详细的作业日志。
++
+image:saphana-br-scs-image89.png["错误：缺少图形映像"]
+
 . 在 SAP HANA Studio 中，新备份会显示在备份目录中。备份目录中的注释和 EBID 字段也会使用 SnapCenter 中的相同备份名称。
 
 

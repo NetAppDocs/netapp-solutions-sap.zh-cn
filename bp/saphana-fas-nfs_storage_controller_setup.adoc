@@ -65,9 +65,9 @@ FabricPool 是将日志备份移动到另一存储层的理想选择。移动备
 . 创建并配置所需的聚合，如中所述 link:saphana-fas-nfs_storage_controller_setup.html#aggregate-configuration["聚合配置"]
 . 创建 Storage Virtual Machine （ SVM ），如中所述 link:saphana-fas-nfs_storage_controller_setup.html#storage-virtual-machine-configuration["Storage Virtual Machine 配置"]
 . 按照中所述创建 LIF link:saphana-fas-nfs_storage_controller_setup.html#logical-interface-configuration["逻辑接口配置。"]
-. 在聚合中创建卷，如中所述 link:saphana-fas-nfs_storage_controller_setup.html#volume-configuration-for-sap-hana-single-host-systems["SAP HANA 单主机系统的卷配置"] 和 
+. 在聚合中创建卷，如中所述 link:saphana-fas-nfs_storage_controller_setup.html#volume-configuration-for-sap-hana-single-host-systems["SAP HANA 单主机系统的卷配置"] 和 link:saphana-fas-nfs_storage_controller_setup.html#volume-configuration-for-sap-hana-multiple-host-systems["SAP HANA 多主机系统的卷配置。"]
 . 按照中所述设置所需的卷选项 link:saphana-fas-nfs_storage_controller_setup.html#volume-options["卷选项"]
-. 为 NFSv3 设置所需的选项，如中所述 link:saphana-fas-nfs_storage_controller_setup.html#nfs-configuration-for-nfsv3["NFSv3 的 NFS 配置"] 或 NFSv4 ，如中所述 
+. 为 NFSv3 设置所需的选项，如中所述 link:saphana-fas-nfs_storage_controller_setup.html#nfs-configuration-for-nfsv3["NFSv3 的 NFS 配置"] 或 NFSv4 ，如中所述 link:saphana-fas-nfs_storage_controller_setup.html#nfs-configuration-for-nfsv4["NFSv4 的 NFS 配置。"]
 . 将卷挂载到命名空间并设置导出策略，如中所述 link:saphana-fas-nfs_storage_controller_setup.html#mount-volumes-to-namespace-and-set-export-policies["将卷挂载到命名空间并设置导出策略。"]
 
 

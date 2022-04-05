@@ -67,7 +67,7 @@ FabricPool 是将日志备份移动到另一存储层的理想选择。移动备
 . 按照一节中所述创建逻辑接口（ LIF ） link:saphana_fas_fc_storage_controller_setup.html#logical-interface-configuration["逻辑接口配置。"]
 . 按照一节中所述创建 FCP 端口集 link:saphana_fas_fc_storage_controller_setup.html#fcp-port-sets["FCP 端口集。"]
 . 按照一节中所述，使用 HANA 服务器的全球通用名称（ WWN ）创建启动程序组（ igroup ） link:saphana_fas_fc_storage_controller_setup.html#initiator-groups["启动程序组。"]
-. 在聚合中创建卷和 LUN ，如一节所述 link:saphana_fas_fc_storage_controller_setup.html#volume-and-lun-configuration-for-sap-hana-single-host-systems["SAP HANA 单主机系统的卷和 LUN 配置"] 和 
+. 在聚合中创建卷和 LUN ，如一节所述 link:saphana_fas_fc_storage_controller_setup.html#volume-and-lun-configuration-for-sap-hana-single-host-systems["SAP HANA 单主机系统的卷和 LUN 配置"] 和 link:saphana_fas_fc_storage_controller_setup.html#volume-and-lun-configuration-for-sap-hana-multiple-host-systems["SAP HANA 多主机系统的卷和 LUN 配置。"]
 
 
 

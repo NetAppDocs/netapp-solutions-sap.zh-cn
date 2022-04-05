@@ -3830,4 +3830,5 @@
   <block id="6a7a37ab9e89af68799737e9713d5e7c" category="paragraph"><block ref="6a7a37ab9e89af68799737e9713d5e7c" category="inline-link-macro-rx"></block></block>
   <block id="0a3b81cd04b7ee3bbb79ae9a19dc8656" category="sidebar">使用 SnapCenter 进行 SAP HANA 备份和恢复</block>
   <block id="d7ca353f8f69588ea48c2bafac41c0d7" category="sidebar">SnapCenter 初始配置</block>
+  <block id="65b5051ec5b2187399e784008897baff" category="paragraph"><block ref="65b5051ec5b2187399e784008897baff" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>
