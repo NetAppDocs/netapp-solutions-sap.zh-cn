@@ -344,9 +344,6 @@ image:saphana-fas-nfs_image18.jpg["错误：缺少图形映像"]
 | 禁用 NFSv4 写入委派 | NFS modify -vserver <vserver_name> -v4.1-write-delegation 已禁用 
 
 
-| 设置 NFSv4 租用时间 | 设置高级 NFS 修改 -vserver <vserver_name> -v4-lease-seconds 10 set admin 
-
-
 | 禁用 NFSv4 数字 ID | nfs modify -vserver <vserver_name> -v4-numeric-id 已禁用 
 |===
 
