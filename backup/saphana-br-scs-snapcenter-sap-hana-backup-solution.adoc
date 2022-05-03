@@ -6,6 +6,7 @@ summary: 本节列出了此解决方案 中使用的组件，支持的 SAP HANA 
 ---
 = SnapCenter SAP HANA 备份解决方案
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

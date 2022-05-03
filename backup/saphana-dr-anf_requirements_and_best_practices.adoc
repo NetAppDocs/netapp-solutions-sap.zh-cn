@@ -6,6 +6,7 @@ summary: Microsoft Azure 不保证特定虚拟机（ VM ）类型在创建时或
 ---
 = 要求和最佳实践
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

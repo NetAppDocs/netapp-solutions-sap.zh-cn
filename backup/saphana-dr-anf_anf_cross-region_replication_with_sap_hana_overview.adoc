@@ -6,6 +6,7 @@ summary: 有关跨区域复制的应用程序无关信息，请访问以下位�
 ---
 = 利用 SAP HANA 实现跨区域复制
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

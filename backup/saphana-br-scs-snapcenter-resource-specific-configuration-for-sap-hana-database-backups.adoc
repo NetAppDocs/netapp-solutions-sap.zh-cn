@@ -6,6 +6,7 @@ summary: 本节介绍 SS2 和 SS1 这两种示例配置的配置步骤。
 ---
 = 用于 SAP HANA 数据库备份的 SnapCenter 资源专用配置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

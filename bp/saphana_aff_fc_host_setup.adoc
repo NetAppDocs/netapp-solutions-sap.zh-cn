@@ -6,6 +6,7 @@ summary: 在设置主机之前，必须从 NetApp 支持站点下载 NetApp SAN 
 ---
 = 主机设置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

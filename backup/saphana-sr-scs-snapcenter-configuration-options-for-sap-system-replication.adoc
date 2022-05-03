@@ -6,6 +6,7 @@ summary: 此页面介绍 SAP 系统复制的配置选项。
 ---
 = 适用于 SAP 系统复制的 SnapCenter 配置选项
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

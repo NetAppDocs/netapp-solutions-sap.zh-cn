@@ -5,6 +5,7 @@ keywords: sap, hana, disaster, recovery, azure, files
 summary: 研究表明，业务应用程序停机对企业业务产生了重大负面影响。 
 ---
 = TR-4891 ：《使用 Azure NetApp Files 实现 SAP HANA 灾难恢复》
+:allow-uri-read: 
 
 
 NetApp Ralf Klahr Nil Baucer ， Microsoft

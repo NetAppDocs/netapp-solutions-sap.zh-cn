@@ -6,6 +6,7 @@ keywords: netapp, solutions, SAP, lifecycle, management, lcm, videos, demos
 ---
 = SAP 生命周期管理视频和演示
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

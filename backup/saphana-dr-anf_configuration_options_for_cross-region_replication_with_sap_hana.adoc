@@ -6,6 +6,7 @@ summary: 下图显示了使用 ANF 跨区域复制的 SAP HANA 系统的卷复�
 ---
 = 使用 SAP HANA 进行跨区域复制的配置选项
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

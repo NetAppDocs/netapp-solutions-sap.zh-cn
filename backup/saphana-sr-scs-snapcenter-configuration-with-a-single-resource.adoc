@@ -6,6 +6,7 @@ summary: SnapCenter 资源使用 HANA 系统复制环境的虚拟 IP 地址（�
 ---
 = 使用单个资源的 SnapCenter 配置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

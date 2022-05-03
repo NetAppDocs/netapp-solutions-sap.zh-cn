@@ -6,6 +6,7 @@ summary: SAP HANA 系统复制通常用作 SAP HANA 数据库的高可用性或�
 ---
 = TR-4719 ： SAP HANA 系统复制—使用 SnapCenter 进行备份和恢复
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

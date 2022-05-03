@@ -6,6 +6,7 @@ summary:
 ---
 = SnapCenter 服务策略配置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

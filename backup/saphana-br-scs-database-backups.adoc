@@ -6,6 +6,7 @@ summary: 在 SnapCenter 中，数据库备份通常使用在每个 HANA 数据�
 ---
 = 数据库备份
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

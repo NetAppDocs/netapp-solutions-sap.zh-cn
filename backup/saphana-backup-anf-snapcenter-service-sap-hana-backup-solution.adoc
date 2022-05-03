@@ -6,6 +6,7 @@ summary: 本节介绍 SnapCenter 服务备份解决方案涵盖的领域。
 ---
 = SnapCenter 服务 SAP HANA 备份解决方案
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

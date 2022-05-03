@@ -6,6 +6,7 @@ summary:
 ---
 = 使用 VMware vSphere 的 SAP HANA
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

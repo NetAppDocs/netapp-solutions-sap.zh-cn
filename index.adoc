@@ -8,6 +8,7 @@ keywords: netapp, solutions, SAP, HANA
 ---
 = SAP 业务应用程序和 SAP HANA 数据库解决方案
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

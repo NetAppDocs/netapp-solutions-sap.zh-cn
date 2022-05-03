@@ -5,6 +5,7 @@ keywords: tr-4338, pdf, sap, hana, vmware, vsphere, aff, fas, all flash, fabric 
 summary: 本参考架构文档可帮助客户在 VMware vSphere 虚拟机（ VM ）以及 NetApp FAS 和全闪存 FAS （ AFF ）存储系统上设计和部署 SAP HANA 单主机和多主机解决方案。 
 ---
 = TR-4338 ：《采用 NetApp 技术的 VMware vSphere 上的 SAP HANA — FAS 和全闪存 FAS 系统》
+:allow-uri-read: 
 :firstname: : hardbreaks:
 :author: : hardbreaks:
 :authorinitials: :

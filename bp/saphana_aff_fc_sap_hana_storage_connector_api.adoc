@@ -6,6 +6,7 @@ summary: 只有具有故障转移功能的多主机环境才需要存储连接�
 ---
 = SAP HANA 存储连接器 API
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

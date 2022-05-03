@@ -5,6 +5,7 @@ keywords: sap, hana, fas, systems, nfs, configuration, guide
 summary: NetApp FAS 产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用。经过认证的企业级存储系统采用 NetApp ONTAP 软件的特征。 
 ---
 = TR-4290 ：《采用 NFS 配置的 NetApp FAS 系统上的 SAP HANA 》指南
+:allow-uri-read: 
 
 
 NetApp 公司 Nil Bauser 和 Marco schön

@@ -6,6 +6,7 @@ summary: 本节介绍在单主机和多主机系统上安装 SAP HANA 所需的�
 ---
 = SAP HANA 软件安装
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

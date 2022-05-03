@@ -6,6 +6,7 @@ summary: 从 SAP HANA 1.0 SPS10 开始， SAP 引入了一些参数来调整 I/O
 ---
 = 适用于 SAP HANA 的 I/O 堆栈配置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: 现在，可以根据之前创建的 /etc/fstab 文件在目标主机�
 ---
 = 在目标主机上挂载新卷
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

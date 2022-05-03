@@ -6,6 +6,7 @@ summary: 以下三个屏幕截图显示了数据，日志备份和共享卷的�
 ---
 = 监控 ANF 跨区域复制
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

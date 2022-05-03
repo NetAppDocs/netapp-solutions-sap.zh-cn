@@ -6,6 +6,7 @@ keywords: netapp, solutions, SAP, videos, demos
 ---
 = SAP 解决方案视频和演示
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

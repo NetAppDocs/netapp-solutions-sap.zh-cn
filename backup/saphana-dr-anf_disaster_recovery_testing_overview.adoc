@@ -6,6 +6,7 @@ summary: 要实施有效的灾难恢复策略，您必须测试所需的工作�
 ---
 = 灾难恢复测试
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

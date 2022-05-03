@@ -6,6 +6,7 @@ summary:
 ---
 = SnapCenter 服务快照备份配置概述
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

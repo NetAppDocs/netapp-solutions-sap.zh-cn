@@ -6,6 +6,7 @@ summary: 您可以使用 Azure NetApp Files NetApp Snapshot 技术在几秒钟�
 ---
 = NetApp 解决方案
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

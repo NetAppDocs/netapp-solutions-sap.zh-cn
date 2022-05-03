@@ -6,6 +6,7 @@ summary: 使用 SnapCenter 服务时，数据库备份通常使用策略中定�
 ---
 = SAP HANA 数据库 Snapshot 备份
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: SnapCenter 4.6 支持对配置有 HANA 系统复制的 HANA 系统进�
 ---
 = 使用资源组的 SnapCenter 4.6 配置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

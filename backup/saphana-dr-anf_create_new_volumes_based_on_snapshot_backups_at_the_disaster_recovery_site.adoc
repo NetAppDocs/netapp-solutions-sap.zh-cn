@@ -6,6 +6,7 @@ summary: 根据灾难恢复设置（包括或不包括日志备份复制），�
 ---
 = 在灾难恢复站点基于 Snapshot 备份创建新卷
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

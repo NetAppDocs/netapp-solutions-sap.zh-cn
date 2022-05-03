@@ -6,6 +6,7 @@ summary: 以下各节介绍了三种不同场景和示例配置的还原和恢�
 ---
 = 还原和恢复
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

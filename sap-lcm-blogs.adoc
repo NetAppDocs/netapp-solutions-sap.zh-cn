@@ -6,6 +6,7 @@ keywords: netapp, solutions, SAP, lifecycle, management, lcm, blogs
 ---
 = SAP 生命周期管理博客
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

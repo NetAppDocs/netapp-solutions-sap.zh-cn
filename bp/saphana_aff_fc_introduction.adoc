@@ -6,6 +6,7 @@ summary: NetApp AFF 产品系列已通过认证，可在 TDI 项目中与 SAP HA
 ---
 = TR-4436 ：《基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA 》
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

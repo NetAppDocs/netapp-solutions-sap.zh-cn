@@ -6,6 +6,7 @@ keywords: netapp, solutions, SAP, best practices, blogs
 ---
 = SAP 配置最佳实践博客
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

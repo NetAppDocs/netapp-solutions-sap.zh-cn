@@ -5,6 +5,7 @@ keywords: tr-4250, pdf, sap, hana, oracle, unix, nfs, dr, snap creator
 summary: 本文档介绍了在设计存储解决方案以使用 Oracle 数据库支持 SAP 业务套件产品时所面临的挑战。本文档的主要重点是使用最新一代 SAP 解决方案的业务和 IT 主管面临的常见存储基础架构设计，部署，操作和管理挑战。本文档中的建议是通用的；它们并不特定于 SAP 应用程序或 SAP 实施的规模和范围。 
 ---
 = TR-4250 ： SAP 与基于 UNIX 的 Oracle 和 NFS 以及适用于 SAP 3.4 的 NetApp ONTAP 和 SnapManager
+:allow-uri-read: 
 :firstname: : hardbreaks:
 :author: : hardbreaks:
 :authorinitials: :

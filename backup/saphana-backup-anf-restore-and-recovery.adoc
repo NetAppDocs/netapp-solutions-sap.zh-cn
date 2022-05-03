@@ -6,6 +6,7 @@ summary: 本节介绍 HANA MDC 单主机单租户系统的还原和恢复工作�
 ---
 = 还原和恢复
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

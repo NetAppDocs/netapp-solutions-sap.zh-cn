@@ -6,6 +6,7 @@ summary: 非数据卷的备份是 SnapCenter 服务的一个集成部分。保�
 ---
 = SAP HANA 非数据卷的备份配置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

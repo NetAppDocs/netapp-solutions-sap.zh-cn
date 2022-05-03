@@ -6,6 +6,7 @@ summary: 以下是 SAP HANA 软件安装的要求。
 ---
 = SAP HANA 软件安装
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

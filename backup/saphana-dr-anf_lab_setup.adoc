@@ -6,6 +6,7 @@ summary: 已对 SAP HANA 单主机系统执行解决方案验证。适用于 ANF
 ---
 = 实验室设置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

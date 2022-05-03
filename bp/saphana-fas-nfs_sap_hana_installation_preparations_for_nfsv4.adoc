@@ -6,6 +6,7 @@ summary: NFS 版本 4 及更高版本需要用户身份验证。可以使用轻�
 ---
 = NFSv4 的 SAP HANA 安装准备
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

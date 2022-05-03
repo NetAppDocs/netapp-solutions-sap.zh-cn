@@ -6,6 +6,7 @@ summary: 配置网络时，请遵循以下准则。
 ---
 = 网络设置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

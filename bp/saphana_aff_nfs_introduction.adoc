@@ -6,6 +6,7 @@ summary: NetApp AFF 系统产品系列已通过认证，可在定制数据中心
 ---
 = TR-4435 ：《采用 NFS 的 NetApp AFF 系统上的 SAP HANA —配置指南》
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

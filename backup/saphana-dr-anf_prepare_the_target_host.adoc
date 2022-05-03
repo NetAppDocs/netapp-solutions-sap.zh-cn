@@ -6,6 +6,7 @@ summary: 本节介绍服务器上所需的准备步骤，这些步骤用于灾�
 ---
 = 准备目标主机
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

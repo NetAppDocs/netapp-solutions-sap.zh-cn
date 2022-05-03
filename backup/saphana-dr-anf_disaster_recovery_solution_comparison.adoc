@@ -6,6 +6,7 @@ summary: 全面的灾难恢复解决方案必须能够使客户从主站点的�
 ---
 = 灾难恢复解决方案比较
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

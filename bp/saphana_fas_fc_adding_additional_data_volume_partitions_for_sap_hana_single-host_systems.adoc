@@ -6,6 +6,7 @@ summary: 从 SAP HANA 2.0 SPS4 开始，可以配置其他数据卷分区。通�
 ---
 = 为 SAP HANA 单主机系统添加其他数据卷分区
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

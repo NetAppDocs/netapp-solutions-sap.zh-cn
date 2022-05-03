@@ -6,6 +6,7 @@ summary: 本节介绍 SAP HANA 主机的专用存储网络设置。
 ---
 = 网络设置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

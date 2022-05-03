@@ -6,6 +6,7 @@ summary: SAP 建议将基于存储的 Snapshot 备份与每周基于文件的备
 ---
 = 块完整性检查
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

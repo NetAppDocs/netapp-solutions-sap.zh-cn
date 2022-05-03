@@ -6,6 +6,7 @@ summary: 本节介绍单个主机 SAP HANA MDC 单租户系统 PR1 的配置步�
 ---
 = SAP HANA 数据库备份的备份配置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

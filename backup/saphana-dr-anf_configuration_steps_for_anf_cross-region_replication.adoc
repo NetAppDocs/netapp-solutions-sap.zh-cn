@@ -6,6 +6,7 @@ summary: 在配置卷复制之前，必须在灾难恢复站点上执行几个�
 ---
 = ANF 跨区域复制的配置步骤
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

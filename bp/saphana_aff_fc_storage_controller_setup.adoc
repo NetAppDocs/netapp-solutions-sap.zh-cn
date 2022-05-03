@@ -6,6 +6,7 @@ summary: 本节介绍 NetApp 存储系统的配置。您必须根据相应的 Da
 ---
 = 存储控制器设置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

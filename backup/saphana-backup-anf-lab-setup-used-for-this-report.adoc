@@ -6,6 +6,7 @@ summary: 本报告所使用的实验室设置包括 SAP HANA 系统 PR1-SAP HANA
 ---
 = 用于此报告的实验室设置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

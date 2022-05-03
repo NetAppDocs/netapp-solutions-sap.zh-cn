@@ -6,6 +6,7 @@ summary: 本技术报告使用的实验室设置包括五种不同的 SAP HANA �
 ---
 = 用于此报告的实验室设置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

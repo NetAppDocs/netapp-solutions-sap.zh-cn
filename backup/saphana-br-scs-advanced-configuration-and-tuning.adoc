@@ -6,6 +6,7 @@ summary: 此页面介绍了完成配置和调整所需的各种操作。
 ---
 = 高级配置和调整
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

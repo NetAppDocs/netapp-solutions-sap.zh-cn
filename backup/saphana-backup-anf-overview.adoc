@@ -6,6 +6,7 @@ summary: 本技术报告介绍了使用 NetApp SnapCenter 服务和 Azure NetApp
 ---
 = TR-4905 ：《使用 SnapCenter 服务在 Azure NetApp Files 上备份和恢复 SAP HANA 》
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

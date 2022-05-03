@@ -5,6 +5,7 @@ keywords: tr-4467, pdf, sap, microsoft, recovery, disaster, dr, snap creator
 summary: 本文档为客户和合作伙伴提供了部署 NetApp ONTAP 以支持在 Windows 环境中的 Microsoft SQL Server 中运行 SAP 业务套件解决方案的最佳实践。 
 ---
 = TR-4467 ： SAP 与 Windows 上的 Microsoft SQL Server —使用 NetApp ONTAP 和 SnapCenter 的最佳实践
+:allow-uri-read: 
 
 
 NetApp 公司 Marco Schoen

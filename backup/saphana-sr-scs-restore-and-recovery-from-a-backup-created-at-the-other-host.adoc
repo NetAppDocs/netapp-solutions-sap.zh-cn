@@ -6,6 +6,7 @@ summary: 对于这两种 SnapCenter 配置选项，从在另一个 SAP HANA 主�
 ---
 = 从在另一主机上创建的备份进行还原和恢复
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

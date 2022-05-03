@@ -6,6 +6,7 @@ summary: 根据日志备份复制是否属于灾难恢复设置的一部分，�
 ---
 = 灾难恢复故障转移
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

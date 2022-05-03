@@ -6,6 +6,7 @@ summary: SnapCenter 是一个统一的可扩展平台，可实现应用程序一
 ---
 = SnapCenter 架构
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

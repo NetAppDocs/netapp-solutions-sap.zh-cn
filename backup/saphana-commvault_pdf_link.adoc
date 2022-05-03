@@ -6,6 +6,7 @@ summary: TR-4711 介绍了适用于 SAP HANA 的 NetApp 和 Commvault 解决方�
 ---
 = TR-4711 ：《使用 NetApp 存储系统和 Commvault 软件的 SAP HANA 备份和恢复》
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

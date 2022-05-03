@@ -6,6 +6,7 @@ summary: 每个 SAP HANA 服务器都必须具有一个冗余 FCP SAN 连接，�
 ---
 = SAN 网络结构设置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: 发生灾难故障转移时，必须断开目标卷，以便目标主�
 ---
 = 中断并删除复制对等关系
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

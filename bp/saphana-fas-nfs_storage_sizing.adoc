@@ -6,6 +6,7 @@ summary: 下一节概述了为 SAP HANA 估算存储系统规模所需的性能�
 ---
 = 存储规模估算
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

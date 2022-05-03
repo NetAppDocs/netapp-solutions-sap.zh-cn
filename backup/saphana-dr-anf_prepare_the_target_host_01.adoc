@@ -6,6 +6,7 @@ summary: 本节介绍用于灾难恢复故障转移的服务器所需的准备�
 ---
 = 准备目标主机
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

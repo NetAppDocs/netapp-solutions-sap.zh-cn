@@ -6,6 +6,7 @@ summary:
 ---
 = 灾难恢复测试
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

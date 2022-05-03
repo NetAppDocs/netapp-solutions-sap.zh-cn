@@ -6,6 +6,7 @@ summary: 默认情况下， SAP HANA 在每个 SAP HANA 服务中仅使用一个
 ---
 = SAP HANA 数据卷大小
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

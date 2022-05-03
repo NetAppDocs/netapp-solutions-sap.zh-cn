@@ -6,6 +6,7 @@ summary: 本节所述的所有步骤对物理服务器上的 SAP HANA 环境和�
 ---
 = 主机设置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

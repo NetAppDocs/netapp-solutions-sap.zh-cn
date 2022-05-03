@@ -6,6 +6,7 @@ summary: SAP HANA 主机使用冗余 FCP 基础架构和多路径软件连接到
 ---
 = 架构
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

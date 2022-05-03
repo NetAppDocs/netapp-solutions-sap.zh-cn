@@ -6,6 +6,7 @@ summary: 您必须同步存储控制器与 SAP HANA 数据库主机之间的时�
 ---
 = 时间同步
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

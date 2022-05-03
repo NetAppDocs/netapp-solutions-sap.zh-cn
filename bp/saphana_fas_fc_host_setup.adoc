@@ -6,6 +6,7 @@ summary: 文档还包含有关特定于所用 Linux 版本的多路径配置的�
 ---
 = 主机设置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

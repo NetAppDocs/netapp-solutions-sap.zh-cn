@@ -6,6 +6,7 @@ summary: TR-4646 概述了 SAP HANA 灾难恢复保护的选项。其中包括�
 ---
 = TR-4646 ：《使用存储复制实现 SAP HANA 灾难恢复》
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

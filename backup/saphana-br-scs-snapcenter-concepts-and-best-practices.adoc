@@ -6,6 +6,7 @@ summary: 本节介绍与 SAP HANA 资源配置和部署相关的 SnapCenter 概�
 ---
 = SnapCenter 概念和最佳实践
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

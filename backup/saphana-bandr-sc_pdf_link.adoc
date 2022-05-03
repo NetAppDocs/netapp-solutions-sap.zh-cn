@@ -5,6 +5,7 @@ keywords: tr-4313, pdf, sap, hana, backup, recovery, disaster, dr, snap creator
 summary: 本文档介绍了适用于 SAP HANA 的 NetApp 备份和恢复解决方案的安装和配置。解决方案基于 NetApp Snap Creator 框架和适用于 SAP HANA 的 Snap Creator 插件。经认证的 Cisco SAP HANA 多节点设备与 NetApp 存储相结合，可支持此解决方案。在定制数据中心集成（ TDI ）项目中，单节点和多节点 SAP HANA 系统也支持此解决方案。 
 ---
 = TR-4313 ：《使用 Snap Creator 备份和恢复 SAP HANA 》
+:allow-uri-read: 
 :firstname: : hardbreaks:
 :author: : hardbreaks:
 :authorinitials: :

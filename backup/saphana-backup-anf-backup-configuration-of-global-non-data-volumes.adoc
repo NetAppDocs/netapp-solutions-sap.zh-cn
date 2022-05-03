@@ -6,6 +6,7 @@ summary: 本节列出了对 SAP HANA 非数据卷执行备份配置所需的步�
 ---
 = 全局非数据卷的备份配置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: 备份操作始终在主 SAP HANA 主机上执行。无法在二级 SAP
 ---
 = Storage Snapshot 备份和 SAP 系统复制
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

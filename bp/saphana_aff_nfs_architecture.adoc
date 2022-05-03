@@ -6,6 +6,7 @@ summary: SAP HANA 主机通过使用冗余 10GbE 或速度更快的网络基础�
 ---
 = 架构
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

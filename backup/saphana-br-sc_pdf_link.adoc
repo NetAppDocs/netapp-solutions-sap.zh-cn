@@ -6,6 +6,7 @@ summary: 技术报告 TR-4614 提供了使用 NetApp SnapCenter 保护 SAP HANA 
 ---
 = TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

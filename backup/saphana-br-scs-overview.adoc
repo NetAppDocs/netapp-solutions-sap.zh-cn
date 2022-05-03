@@ -6,6 +6,7 @@ summary: 如今，企业需要为其 SAP 应用程序提供持续，无中断的
 ---
 = TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: 本节介绍初始 SnapCenter 配置，包括存储系统，凭据，�
 ---
 = 初始 SnapCenter 配置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

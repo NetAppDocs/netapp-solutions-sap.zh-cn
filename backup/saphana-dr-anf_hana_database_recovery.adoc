@@ -6,6 +6,7 @@ summary: 下面显示了 HANA 数据库恢复的步骤
 ---
 = HANA 数据库恢复
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
