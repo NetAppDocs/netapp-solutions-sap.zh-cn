@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: backup/amazon-fsx-add-a-policy-to-resource-protection.html 
+keywords: policy, resource, protection, hana, daily schedule 
+summary: 本节介绍如何将策略添加到资源保护中。 
+---
+= 将策略添加到资源保护中
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:amazon-fsx-create-a-new-snapcenter-policy-for-backup-replication.html["先前：创建新的SnapCenter 策略以进行备份复制。"]
+
+您必须将新策略添加到HANA资源保护配置中、如下图所示。
+
+image:amazon-fsx-image86.png["错误：缺少图形映像"]
+
+我们在设置中定义了每日计划。
+
+image:amazon-fsx-image87.png["错误：缺少图形映像"]
+
+link:amazon-fsx-create-a-backup-with-replication.html["下一步：使用复制创建备份。"]

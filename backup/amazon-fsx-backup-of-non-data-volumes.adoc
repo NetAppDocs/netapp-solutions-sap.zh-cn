@@ -1,0 +1,157 @@
+---
+sidebar: sidebar 
+permalink: backup/amazon-fsx-backup-of-non-data-volumes.html 
+keywords: non-data volume, restore, recover 
+summary: 非数据卷的备份是SnapCenter 和SAP HANA插件的集成部分。保护数据库数据卷足以将SAP HANA数据库还原和恢复到给定时间点、前提是数据库安装资源和所需日志仍然可用。 
+---
+= 备份非数据卷
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:amazon-fsx-snapcenter-backup-operations.html["先前：SnapCenter 备份操作。"]
+
+非数据卷的备份是SnapCenter 和SAP HANA插件的集成部分。保护数据库数据卷足以将SAP HANA数据库还原和恢复到给定时间点、前提是数据库安装资源和所需日志仍然可用。
+
+要从必须还原其他非数据文件的情况中恢复， NetApp 建议为非数据卷开发一个额外的备份策略，以增加 SAP HANA 数据库备份的容量。根据您的特定要求，非数据卷的备份可能会因计划频率和保留设置而异，您应考虑非数据文件的更改频率。例如， HANA 卷 ` ha/shared` 包含可执行文件，但也包含 SAP HANA 跟踪文件。虽然可执行文件仅在升级 SAP HANA 数据库时发生更改，但 SAP HANA 跟踪文件可能需要更高的备份频率，以支持分析 SAP HANA 的问题情况。
+
+通过 SnapCenter 非数据卷备份，可以在几秒钟内创建所有相关卷的 Snapshot 副本，并且空间效率与 SAP HANA 数据库备份相同。不同之处在于，不需要与 SAP HANA 数据库进行 SQL 通信。
+
+
+
+=== 配置非数据卷资源
+
+按照以下步骤配置非数据卷资源：
+
+. 从资源选项卡中、选择非数据卷、然后单击添加SAP HANA数据库。
++
+image:amazon-fsx-image60.png["错误：缺少图形映像"]
+
+. 在添加SAP HANA数据库对话框的第1步中的资源类型列表中、选择非数据卷。指定要用于资源的资源以及关联SID和SAP HANA插件主机的名称、然后单击下一步。
++
+image:amazon-fsx-image61.png["错误：缺少图形映像"]
+
+. 将 SVM 和存储卷添加为存储占用空间，然后单击下一步。
++
+image:amazon-fsx-image62.png["错误：缺少图形映像"]
+
+. 要保存设置、请在摘要步骤中单击完成。
++
+image:amazon-fsx-image63.png["错误：缺少图形映像"]
+
++
+此时、新的非数据卷将添加到SnapCenter 中。双击新资源以执行资源保护。
+
++
+image:amazon-fsx-image64.png["错误：缺少图形映像"]
+
++
+资源保护与以前使用HANA数据库资源时所述的方式相同。
+
+. 现在、您可以单击立即备份来执行备份。
++
+image:amazon-fsx-image65.png["错误：缺少图形映像"]
+
+. 选择策略并启动备份操作。
++
+image:amazon-fsx-image66.png["错误：缺少图形映像"]
+
+
+
+SnapCenter 作业日志显示了各个工作流步骤。
+
+image:amazon-fsx-image67.png["错误：缺少图形映像"]
+
+此时、新备份将显示在非数据卷资源的资源视图中。
+
+image:amazon-fsx-image68.png["错误：缺少图形映像"]
+
+
+
+=== 还原和恢复
+
+借助SnapCenter 、具有单个租户的HANA单主机MDC系统支持自动还原和恢复操作。对于具有多个租户的多主机系统或MDC系统、SnapCenter 仅执行还原操作、您必须手动执行恢复。
+
+您可以通过以下步骤执行自动还原和恢复操作：
+
+. 选择要用于还原操作的备份。
+. 选择还原类型。选择 Complete Restore with Volume Revert 或 without Volume Revert 。
+. 从以下选项中选择恢复类型：
++
+** 到最新状态
+** 时间点
+** 特定数据备份
+** 无法恢复
++
+选定恢复类型用于恢复系统和租户数据库。
+
+
+
+
+
+接下来， SnapCenter 将执行以下操作：
+
+. 它会停止 HANA 数据库。
+. 它会还原数据库。根据选定的还原类型、将执行不同的操作。
++
+** 如果选择了卷还原、则SnapCenter 将卸载此卷、并在存储层使用基于卷的SnapRestore 还原此卷、然后挂载此卷。
+** 如果未选择卷还原、则SnapCenter 将通过在存储层上执行单个文件SnapRestore 操作来还原所有文件。
+
+
+. 它将恢复数据库：
++
+.. 通过恢复系统数据库
+.. 恢复租户数据库
+.. 启动HANA数据库
++
+如果选择"无恢复"、则SnapCenter 将退出、您必须手动对系统和租户数据库执行还原操作。
+
+
+
+
+
+要执行手动还原操作、请执行以下步骤：
+
+. 在 SnapCenter 中选择要用于还原操作的备份。
++
+image:amazon-fsx-image69.png["错误：缺少图形映像"]
+
+. 选择还原范围和类型。
++
+HANA MDC单租户系统的标准方案是、在卷还原中使用完整资源。对于包含多个租户的HANA MDC系统、您可能只需要还原一个租户。有关单租户还原的详细信息、请参见 https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-restore-and-recovery.html["还原和恢复(netapp.com)"^]。
+
++
+image:amazon-fsx-image70.png["错误：缺少图形映像"]
+
+. 选择恢复范围并提供日志备份和目录备份的位置。
++
+SnapCenter 使用HANA global.ini文件中的默认路径或更改后的路径来预填充日志和目录备份位置。
+
++
+image:amazon-fsx-image71.png["错误：缺少图形映像"]
+
+. 输入可选的还原前命令。
++
+image:amazon-fsx-image72.png["错误：缺少图形映像"]
+
+. 输入可选的还原后命令。
++
+image:amazon-fsx-image73.png["错误：缺少图形映像"]
+
+. 要启动还原和恢复操作、请单击完成。
++
+image:amazon-fsx-image74.png["错误：缺少图形映像"]
+
++
+SnapCenter 执行还原和恢复操作。此示例显示了还原和恢复作业的作业详细信息。
+
++
+image:amazon-fsx-image75.png["错误：缺少图形映像"]
+
+
+
+link:amazon-fsx-backup-replication-with-snapvault_overview.html["下一步：概述—使用SnapVault 备份复制。"]

@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: backup/amazon-fsx-overview.html 
+keywords: tr4926, 4926, introduction, overview 
+summary: 本技术报告介绍了在适用于NetApp ONTAP 和NetApp SnapCenter 的Amazon FSX上保护SAP HANA数据的最佳实践。本文档介绍 SnapCenter 概念，配置建议和操作工作流，包括配置，备份操作， 以及还原和恢复操作。 
+---
+= TR-4926：《基于Amazon FSX的SAP HANA for NetApp ONTAP —使用SnapCenter 进行备份和恢复》
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+NetApp 公司 Nil Bauser
+
+本技术报告介绍了在适用于NetApp ONTAP 和NetApp SnapCenter 的Amazon FSX上保护SAP HANA数据的最佳实践。本文档介绍 SnapCenter 概念，配置建议和操作工作流，包括配置，备份操作， 以及还原和恢复操作。
+
+如今，企业需要为其 SAP 应用程序提供持续，无中断的可用性。面对不断增加的数据量和对系统备份等日常维护任务的需求、他们希望获得一致的性能。执行SAP数据库备份是一项关键任务、可能会对生产SAP系统的性能产生重大影响。
+
+备份窗口在缩减、而要备份的数据量在增加。因此、很难找到对业务流程影响最小的备份时间。恢复和恢复SAP系统所需的时间值得关注、因为SAP生产系统和非生产系统的停机时间必须尽可能地减少、以降低业务成本。
+
+link:amazon-fsx-backup-and-recovery-using-amazon-fsx-for-ontap.html["接下来：使用适用于ONTAP 的Amazon FSX进行备份和恢复。"]

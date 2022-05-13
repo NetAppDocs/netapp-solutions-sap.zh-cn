@@ -1,0 +1,15 @@
+---
+sidebar: sidebar 
+permalink: amazon-fsx-backup-replication-with-snapvault.html 
+keywords:  
+summary:  
+---
+= 使用SnapVault 进行备份复制
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+

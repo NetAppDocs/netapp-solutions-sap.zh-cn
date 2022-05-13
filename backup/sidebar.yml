@@ -2,6 +2,39 @@
 section: backup
 title: 备份，还原和灾难恢复
 entries:
+- title: 基于Amazon FSX的SAP HANA for NetApp ONTAP —使用SnapCenter 进行备份和恢复
+  type: solutions
+  entries:
+  - title: 概述
+    url: "/backup/amazon-fsx-overview.html"
+  - title: 使用适用于ONTAP 的Amazon FSX进行备份和恢复
+    url: "/backup/amazon-fsx-backup-and-recovery-using-amazon-fsx-for-ontap.html"
+  - title: SnapCenter 架构
+    url: "/backup/amazon-fsx-snapcenter-architecture.html"
+  - title: SnapCenter 配置
+    url: "/backup/amazon-fsx-snapcenter-configuration.html"
+  - title: SnapCenter 备份操作
+    url: "/backup/amazon-fsx-snapcenter-backup-operations.html"
+  - title: 备份非数据卷
+    url: "/backup/amazon-fsx-backup-of-non-data-volumes.html"
+  - title: 使用SnapVault 进行备份复制
+    entries:
+    - title: 概述
+      url: "/backup/amazon-fsx-backup-replication-with-snapvault_overview.html"
+    - title: 在ONTAP 文件系统的FSX上配置复制关系
+      url: "/backup/amazon-fsx-configure-replication-relationships-on-fsx-for-ontap-file-systems.html"
+    - title: 将备份SVM添加到SnapCenter
+      url: "/backup/amazon-fsx-add-a-backup-svm-to-snapcenter.html"
+    - title: 为备份复制创建新的SnapCenter 策略
+      url: "/backup/amazon-fsx-create-a-new-snapcenter-policy-for-backup-replication.html"
+    - title: 将策略添加到资源保护中
+      url: "/backup/amazon-fsx-add-a-policy-to-resource-protection.html"
+    - title: 使用复制创建备份
+      url: "/backup/amazon-fsx-create-a-backup-with-replication.html"
+    - title: 从二级存储还原和恢复
+      url: "/backup/amazon-fsx-restore-and-recover-from-secondary-storage.html"
+  - title: 从何处查找追加信息和版本历史记录
+    url: "/backup/amazon-fsx-where-to-find-additional-information.html"
 - title: 使用 SnapCenter 进行 SAP HANA 备份和恢复
   type: solutions
   entries:

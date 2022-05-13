@@ -1,0 +1,51 @@
+---
+sidebar: sidebar 
+permalink: backup/amazon-fsx-where-to-find-additional-information.html 
+keywords:  
+summary:  
+---
+= 从何处查找追加信息
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:amazon-fsx-restore-and-recover-from-secondary-storage.html["先前：从二级存储还原和恢复。"]
+
+要了解有关本文档中所述信息的更多信息，请查看以下文档和 / 或网站：
+
+* 适用于NetApp ONTAP 的FSx用户指南—什么是适用于NetApp ONTAP 的Amazon FSx？
++
+https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html[]
+
+* SnapCenter 资源页面
++
+https://www.netapp.com/us/documentation/snapcenter-software.aspx["https://www.netapp.com/us/documentation/snapcenter-software.aspx"^]
+
+* SnapCenter 软件文档
++
+https://docs.netapp.com/us-en/snapcenter/index.html["https://docs.netapp.com/us-en/snapcenter/index.html"^]
+
+* TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作
++
+https://www.netapp.com/pdf.html?item=/media/17111-tr4667.pdf[]
+
+* TR-4719：SAP HANA系统复制—使用SnapCenter 进行备份和恢复
++
+https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-sr-scs-sap-hana-system-replication-overview.html["https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-sr-scs-sap-hana-system-replication-overview.html"^]
+
+
+
+
+
+== 版本历史记录
+
+|===
+| version | Date | 文档版本历史记录 
+
+
+| 版本 1.0 | 2022年5月 | 初始版本。 
+|===

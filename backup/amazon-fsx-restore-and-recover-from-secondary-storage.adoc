@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: backup/amazon-fsx-restore-and-recover-from-secondary-storage.html 
+keywords: restore, recover, secondary, storage, 
+summary: 本节介绍如何从二级存储进行还原和恢复。 
+---
+= 从二级存储还原和恢复
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:amazon-fsx-create-a-backup-with-replication.html["上一步：使用复制创建备份。"]
+
+要从二级存储还原和恢复、请执行以下步骤：
+
+要检索二级存储上所有备份的列表、请在SnapCenter 拓扑视图中单击存储副本、然后选择一个备份并单击还原。
+
+image:amazon-fsx-image92.png["错误：缺少图形映像"]
+
+还原对话框将显示二级位置。
+
+image:amazon-fsx-image93.png["错误：缺少图形映像"]
+
+进一步的还原和恢复步骤与先前在主存储上对Snapshot备份所述的步骤相同。
+
+link:amazon-fsx-where-to-find-additional-information.html["下一步：从何处查找追加信息 和版本历史记录。"]
