@@ -1946,11 +1946,7 @@
   <block id="731764091ffe7cacd12c33c9048bfd8f" category="inline-link-macro"><block ref="731764091ffe7cacd12c33c9048bfd8f" category="inline-link-rx"></block></block>
   <block id="a064ef72c49c2eebe828ed0cd3a38305" category="paragraph"><block ref="a064ef72c49c2eebe828ed0cd3a38305" category="inline-link-macro-rx"></block></block>
   <block id="1d5e541dc8524e30bb2781003f0d8400" category="paragraph"><block ref="1d5e541dc8524e30bb2781003f0d8400" category="inline-link-macro-rx"></block></block>
-  <block id="cf609e4fa30936be5f8dfd92fb076afe" category="summary">技术报告 TR-4614 提供了使用 NetApp SnapCenter 保护 SAP HANA 数据的最佳实践。本文档介绍 SnapCenter 概念，配置建议和操作工作流，包括配置，备份操作， 以及还原和恢复操作。</block>
   <block id="47f5c5f7b80224cb7832ed3973296f38" category="doc">TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》</block>
-  <block id="fcd16ddc69c35eca3711f2163e64ac8c" category="paragraph">TR-4616 概述了 SAP HANA 灾难恢复保护的选项。其中包括基于同步和异步 NetApp SnapMirror 存储复制的三站点灾难恢复解决方案的详细设置信息和用例问题描述。所述的解决方案将 NetApp SnapCenter 与 SAP HANA 插件结合使用来管理数据库一致性。</block>
-  <block id="432caa999eec7b9c7ddcabb7fe098139" category="inline-link-macro"><block ref="432caa999eec7b9c7ddcabb7fe098139" category="inline-link-rx"></block></block>
-  <block id="f122cfeb37e2d3200cb4806af587b661" category="paragraph"><block ref="f122cfeb37e2d3200cb4806af587b661" category="inline-link-macro-rx"></block></block>
   <block id="8132c1d54d27cf7a67ac0e563e82c329" category="summary">TR-4646 概述了 SAP HANA 灾难恢复保护的选项。其中包括基于同步和异步 NetApp SnapMirror 存储复制的三站点灾难恢复解决方案的详细设置信息和用例问题描述。所述的解决方案将 NetApp SnapCenter 与 SAP HANA 插件结合使用来管理数据库一致性。</block>
   <block id="c79cdf002876c8be8a196f93f344a33f" category="inline-link-macro"><block ref="c79cdf002876c8be8a196f93f344a33f" category="inline-link-rx"></block></block>
   <block id="d925ae253e076ec94fce589bf0750a31" category="paragraph"><block ref="d925ae253e076ec94fce589bf0750a31" category="inline-link-macro-rx"></block></block>
@@ -4254,4 +4250,692 @@
   <block id="265110f4d7e59b2f94484d2789a052ba" category="paragraph"><block ref="265110f4d7e59b2f94484d2789a052ba" category="inline-image-macro-rx" type="image"></block></block>
   <block id="95097e935fdf6be438e5789d41bb9589" category="paragraph"><block ref="95097e935fdf6be438e5789d41bb9589" category="inline-link-macro-rx"></block></block>
   <block id="0a6bfe5423e343fa9ae1504fcfa72370" category="sidebar">基于Amazon FSX的SAP HANA for NetApp ONTAP —使用SnapCenter 进行备份和恢复</block>
+  <block id="2520bc20ed8f06d07a35a217bc3733db" category="summary">SAP副本工作流类似于系统刷新工作流的初始步骤。SnapCenter 工作流包含五个主要步骤、如下图所示。</block>
+  <block id="1766338061a6090980d332c6df579283" category="doc">使用SnapCenter 的SAP系统副本工作流概述</block>
+  <block id="b6116a64497b5ba6c67fb76d9af72ed6" category="inline-link-macro">上一页：使用SnapCenter 的SAP系统刷新工作流概述。</block>
+  <block id="75f42676f7f050918715361d6edc2142" category="paragraph"><block ref="75f42676f7f050918715361d6edc2142" category="inline-link-macro-rx"></block></block>
+  <block id="7aa8b886cbd1e8e0f72f49cd8f14f5e1" category="list-text">初始安装和准备目标系统。</block>
+  <block id="170367c3a1937dad3cc726eb6d0fc622" category="list-text">SnapCenter 克隆创建工作流。</block>
+  <block id="c7f9bfe1b7700991d822d31d7701e893" category="list-text">SnapCenter 克隆拆分工作流(可选)。</block>
+  <block id="71c5a4c3d62b2754b16c0e0374d9853c" category="list-text">SAP后处理(手动或使用第三方工具)。</block>
+  <block id="501bdef8be53a1b43a09160704c1c22b" category="list-text">新系统可用作测试/QA系统。</block>
+  <block id="1a3fd559c45e149503b7a31b829fdf49" category="paragraph"><block ref="1a3fd559c45e149503b7a31b829fdf49" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="66d001ab3b7a3d143dd245e768e15278" category="inline-link-macro">接下来：使用SnapCenter 的SAP系统克隆工作流概述。</block>
+  <block id="948583a001036270348ac4ab87cea998" category="paragraph"><block ref="948583a001036270348ac4ab87cea998" category="inline-link-macro-rx"></block></block>
+  <block id="b68813bdd3217ea1e1219746a10db990" category="summary">FlexClone技术可实现快速配置过程、并可显著节省容量、因为修复系统通常只能在短时间内使用。</block>
+  <block id="4918362f7575b370dea00cbbd262d325" category="doc">使用SnapCenter 的SAP系统克隆工作流概述</block>
+  <block id="8a20d61d3aac46d0eeb266f2c9885b6a" category="inline-link-macro">上一页：使用SnapCenter 的SAP系统副本工作流概述。</block>
+  <block id="2ac9ff14c7b83b146bc16bbe15c97f27" category="paragraph"><block ref="2ac9ff14c7b83b146bc16bbe15c97f27" category="inline-link-macro-rx"></block></block>
+  <block id="c2ffacf5c155f02a34cc584126f3c6fd" category="paragraph">如上一节所述、SnapCenter 可以从任何现有Snapshot备份管理数据集的克隆、并可将这些数据集快速配置到任何目标系统。将生产数据配置到修复系统以解决逻辑损坏的速度至关重要、因为通常需要重置修复系统并选择其他生产数据集。FlexClone技术可实现快速配置过程、并可显著节省容量、因为修复系统通常只能在短时间内使用。</block>
+  <block id="df8b846e57e91f637f1a98c60c3d4e4e" category="paragraph">下图总结了使用SnapCenter 执行SAP系统克隆操作所需的步骤。</block>
+  <block id="6c6b1904ee50bc5e034aac55ab21693e" category="list-text">HANA共享卷的SnapCenter 克隆创建工作流。</block>
+  <block id="093ee2daaf21be64a5bb2ed4343fb467" category="list-text">启动SAP HANA服务。</block>
+  <block id="657fb933950024a575e9f7b1b8e010a3" category="list-text">适用于HANA数据卷的SnapCenter 克隆创建工作流、包括数据库恢复。</block>
+  <block id="13ec00296afef73e5f8d0b209af5d984" category="list-text">现在、HANA系统可用作修复系统。</block>
+  <block id="3b93426fba5c9b07ba74ba6c905b1eff" category="admonition">如果必须将系统重置为其他Snapshot备份、则步骤6和步骤4就足以满足要求。HANA共享卷可以继续挂载。</block>
+  <block id="369cc9284a0690b16f7e5e6fc7eedd89" category="paragraph">如果不再需要该系统、则执行清理过程时需执行以下步骤。</block>
+  <block id="c8db5d0b568841f0c7edd14c95272fe9" category="list-text">HANA数据卷的SnapCenter 克隆删除工作流、包括关闭数据库。</block>
+  <block id="d220a66485a5f2da02d8844477577f2d" category="list-text">停止SAP HANA服务。</block>
+  <block id="75553bbd45118bc9af4f506ea0928b95" category="list-text">HANA共享卷的SnapCenter 克隆删除工作流。</block>
+  <block id="af85c76e749d10207fb237a6cbbfc8d8" category="paragraph"><block ref="af85c76e749d10207fb237a6cbbfc8d8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="babe89dd8942b06138b66c6f4c3f3fff" category="inline-link-macro">"使用SnapCenter 克隆SAP系统"</block>
+  <block id="6e9193241d90d638068ce0f269752a62" category="paragraph">部分 <block ref="a4506d7466a9fbf36dd3c26b9a984ae5" category="inline-link-macro-rx"></block> 提供系统克隆工作流的详细分步问题描述。</block>
+  <block id="ebeb3766d89000ac9872a8b7520bf8d9" category="inline-link-macro">接下来：使用存储快照备份的SAP HANA系统刷新操作工作流。</block>
+  <block id="38f88b2ecd6a609a52423cbe7ac403dd" category="paragraph"><block ref="38f88b2ecd6a609a52423cbe7ac403dd" category="inline-link-macro-rx"></block></block>
+  <block id="f354a9cadcf2f6a3fe818f35cc2127ae" category="summary">执行SAP HANA系统刷新所需的步骤取决于源系统租户配置以及目标系统上所需的租户名称、如下图所示。</block>
+  <block id="cf67a3b9648300993952961c0bddddd8" category="doc">使用存储快照备份的SAP HANA系统刷新操作工作流</block>
+  <block id="8b76c8a3768220da668f990ff1165166" category="inline-link-macro">上一页：使用SnapCenter 的SAP系统克隆工作流概述。</block>
+  <block id="affbe4753bad7d53b5f7401d82aeb3b9" category="paragraph"><block ref="affbe4753bad7d53b5f7401d82aeb3b9" category="inline-link-macro-rx"></block></block>
+  <block id="6c2ff06798395ff7e93405fe680e438b" category="paragraph">由于租户名称是在系统数据库中配置的、因此、在恢复系统数据库后、目标系统也会提供源系统的租户名称。因此、只能使用与源租户相同的名称来恢复目标系统上的租户、如下图中的选项1所示。如果目标系统上的租户名称必须不同、则必须先使用与源租户相同的名称恢复租户、然后将其重命名为所需的目标租户名称。这是下图中的选项2。</block>
+  <block id="bc6be1b4b97d1163c8a0bea0b3e493be" category="paragraph">此规则的一个例外是具有单个租户的HANA系统、其中租户名称与系统SID相同。此配置是首次安装HANA后的默认配置。此特定配置由HANA数据库标记。在这种情况下、可以使用目标系统的租户名称在目标系统上执行租户恢复、该名称也必须与目标系统的系统SID相同。下图中的选项3显示了此工作流。</block>
+  <block id="f210346b47439daee1d54fff79a1a9a8" category="admonition">在源系统上执行任何租户创建、重命名或丢弃操作后、此配置标志将被HANA数据库删除。因此、即使已将配置恢复为租户= SID、此标志也不再可用、并且无法再使用工作流3进行租户恢复。在这种情况下、所需的工作流为选项2。</block>
+  <block id="6b398b121f328682662cbb74d8d5903d" category="paragraph"><block ref="6b398b121f328682662cbb74d8d5903d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="29352ddc2d68fa9b97c559469efda55e" category="paragraph">此图显示了MDC单租户初始安装的配置标志。</block>
+  <block id="5d10a4f5ad861e984a9902fef04c507f" category="paragraph"><block ref="5d10a4f5ad861e984a9902fef04c507f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="253d82f9b93da7ff55b70dd2e851bab6" category="inline-link-macro">接下来：自动化示例脚本。</block>
+  <block id="e0ce6621ebfffd823749b743f208b616" category="paragraph"><block ref="e0ce6621ebfffd823749b743f208b616" category="inline-link-macro-rx"></block></block>
+  <block id="35728520c8c65fa51d15b44dc8c6d6e5" category="summary">SnapCenter 提供的工作流允许您从任何现有Snapshot备份管理数据集的克隆。此克隆数据集是一个FlexClone卷、可用于从源系统快速配置HANA数据卷并将其连接到目标系统。因此、它非常适合对QA、测试、沙盒或培训系统执行系统刷新操作。</block>
+  <block id="5567a4429aece8d2bfac765da9d65e55" category="doc">使用SnapCenter 的SAP系统刷新工作流概述</block>
+  <block id="0c89e3a21ff737e84bc62ed3d0cb4b03" category="inline-link-macro">先前：系统刷新和克隆的用例。</block>
+  <block id="d7ae53cc518da7684e6b5305f3918c10" category="paragraph"><block ref="d7ae53cc518da7684e6b5305f3918c10" category="inline-link-macro-rx"></block></block>
+  <block id="33948d0127a19507f5aeec9c99ba322c" category="paragraph">SnapCenter 克隆工作流可处理存储层上的所有必需操作、并可使用脚本进行扩展以执行主机特定操作和HANA数据库特定操作。在本文档中、我们使用脚本在目标主机上执行挂载和卸载操作、以及执行HANA数据库恢复和关闭操作。使用脚本实现进一步自动化的SnapCenter 工作流可处理所有必需的HANA数据库操作、但不包括任何所需的SAP后处理步骤。SAP后处理必须手动执行、也可以使用第三方工具执行。</block>
+  <block id="07bf829af468c554b26b886107d2e8a9" category="inline-link-macro">"自动化示例脚本"。</block>
+  <block id="71bac6ae0cfe28a058c25a8f51c50d6d" category="admonition">使用这些脚本自动执行的所有步骤也可以手动执行。但是、对于目标主机上的挂载操作、您需要知道FlexClone卷的存储系统接合路径。接合路径在SnapCenter 中不可见、因此您需要直接在存储系统上查找接合路径、或者可以使用一个简单的脚本在目标主机上提供SnapCenter 环境变量。有关详细信息、请参见一节 <block ref="f09e683370135f6dedfca208b8dde8fa" category="inline-link-macro-rx"></block></block>
+  <block id="76ff2412c1a96785e74a3945950a922a" category="paragraph">采用SnapCenter 的SAP系统刷新工作流包含五个主要步骤、如下图所示。</block>
+  <block id="2398bee7e215208312bd1fd15c402a64" category="list-text">一次性初始安装和准备目标系统。</block>
+  <block id="82e05f9cb002e0a1f14937e1b4384cd8" category="list-text">SAP后处理(手动或使用第三方工具)。</block>
+  <block id="3f522cf6b00c62989892f56696f4f462" category="list-text">该系统可用作测试/QA系统。</block>
+  <block id="d3f74aca91e434f8f77657bb30f4b01f" category="list-text">请求新的系统刷新时、将使用SnapCenter 克隆删除工作流删除FlexClone卷、刷新将在第2步中重新启动。</block>
+  <block id="4126d00521b83457dbb104ecdd088631" category="paragraph"><block ref="4126d00521b83457dbb104ecdd088631" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ce0b1ecb3f8bfc806a477a8dfa431ea0" category="paragraph">在大多数情况下、目标测试/QA系统至少会使用几周、并且在一到两周后、FlexClone容量节省将不再存在。必须从FlexClone卷释放源系统的Snapshot备份、以便SnapCenter 保留管理可以将其删除。因此、NetApp建议立即或在几天后拆分FlexClone卷。克隆拆分操作不会阻止使用克隆的卷、因此、可以在使用HANA数据库时随时执行。</block>
+  <block id="0056927d09a94ad9d99ae19f1ae65777" category="admonition">拆分FlexClone卷时、SnapCenter 会删除在目标系统上创建的所有备份。</block>
+  <block id="d7042db521c3031288a499b741210224" category="paragraph">包括克隆拆分在内的刷新操作包括以下步骤(下图)。</block>
+  <block id="837c1a7092ca06093a81099db86da8c1" category="list-text">一次性初始安装和准备目标系统。</block>
+  <block id="8aebb15edb2abfa5d96c34de17486875" category="list-text">SnapCenter 克隆创建工作流。</block>
+  <block id="5196a2cb5b7533ecf4e268c7b346a1b3" category="list-text">SnapCenter 克隆拆分工作流。</block>
+  <block id="770d2ecd0548c9ea7ceb18483bdeb137" category="list-text">现在、该系统可用作测试/QA系统。</block>
+  <block id="d8a1945286ed5528fa3bf3bf82aa14eb" category="list-text">请求新系统刷新时、SnapCenter 克隆创建工作流将与其他关闭和卸载步骤结合使用。</block>
+  <block id="2f02093c9e2d7667a513ad0bebeed79c" category="admonition">必须在存储系统上手动删除先前拆分的旧数据卷。</block>
+  <block id="61cecf1f6d2b65f9db95504f9c3b5c20" category="paragraph">下图简要展示了采用克隆拆分的SnapCenter 的SAP系统刷新工作流。</block>
+  <block id="e411a494be4f2c10b3faa22a1dc3b34e" category="paragraph"><block ref="e411a494be4f2c10b3faa22a1dc3b34e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="bf2ace2832642b55dc83b6716197376d" category="inline-link-macro">《使用SnapCenter 更新SAP HANA系统》</block>
+  <block id="83f3645d9ca2a90e24d8292c68c44ee9" category="paragraph">部分 <block ref="03ef541d09405ce284f5845fef8fc171" category="inline-link-macro-rx"></block> 提供两个系统刷新工作流的详细分步问题描述。</block>
+  <block id="7860ef82c3a73e48496bf7f7c2c1fbc6" category="inline-link-macro">接下来：使用SnapCenter 的SAP系统副本工作流概述。</block>
+  <block id="dbc042458790742f8dee8d9fc6b64bfc" category="paragraph"><block ref="dbc042458790742f8dee8d9fc6b64bfc" category="inline-link-macro-rx"></block></block>
+  <block id="dc5972f4834e498bc24fcfa79ab4832e" category="summary">本节提供了SAP系统克隆操作的分步问题描述 、可用于设置修复系统以解决逻辑损坏问题。</block>
+  <block id="91e262c7cc6612696dc2e8b343ccd3fa" category="doc">使用SnapCenter 克隆SAP系统</block>
+  <block id="85ceb795d362bf1c3abfb6dd78898968" category="inline-link-macro">先前版本：使用SnapCenter 更新SAP HANA系统。</block>
+  <block id="7945ec735fc6b8e4e7fbeffb9c05cb16" category="paragraph"><block ref="7945ec735fc6b8e4e7fbeffb9c05cb16" category="inline-link-macro-rx"></block></block>
+  <block id="ffefa136567c9bce814e06e202bf39a5" category="admonition">实验室设置和验证不包括SAP应用程序服务。但是、本文档重点介绍了SAP应用程序服务所需的步骤。</block>
+  <block id="52f78b138165376783e782c4e6583ca9" category="section-title">前提条件和限制</block>
+  <block id="941aff5aa3403626a81cc9bdeda3c978" category="paragraph">以下各节所述的工作流具有一些与HANA系统架构和SnapCenter 配置相关的前提条件和限制。</block>
+  <block id="0690296e4fd61fa9dded075121c912fc" category="list-text">所述工作流适用于具有单个租户的单主机SAP HANA MDC系统。</block>
+  <block id="ec3932ac89d1c96f286080a9337e4278" category="list-text">要执行自动化脚本、必须在目标主机上部署SnapCenter HANA插件。无需在HANA源系统主机上安装HANA插件。</block>
+  <block id="ee3fbfdb1dd6cd4597f33c1efa4f0758" category="list-text">此工作流已针对NFS进行验证。用于挂载HANA共享卷的自动化脚本`sc-mount-volume.sh`不支持FCP。此步骤必须手动完成、也可以通过扩展脚本完成。</block>
+  <block id="782706ac0958bde2b750e3de0b75550a" category="list-text">所述工作流仅适用于SnapCenter 4.6 P1版本或更高版本。较旧版本的工作流略有不同。</block>
+  <block id="622b9f9f92968ade655dadd32b7f91a9" category="paragraph">下图显示了用于系统克隆操作的实验室设置。</block>
+  <block id="3722e4213a96d42e9f9a969b7f28bf9c" category="paragraph">使用的软件版本如下：</block>
+  <block id="7cc7838ef5244a98d6f64a04dd4aeed6" category="list-text">SnapCenter 4.6 P1</block>
+  <block id="178d83362e608d5b686e6f83e46db144" category="list-text">HANA系统：HANA 2.0 SPS6修订版61</block>
+  <block id="3a8852ac51fa4936260676a40523e314" category="list-text">VMware 6.7.0</block>
+  <block id="742f3621a1fbf8a6a061df1aa75f1b03" category="list-text">SLES 15 SP2</block>
+  <block id="629a677a12d5ce146953ce7f089d9494" category="inline-link">采用NFS的NetApp AFF 系统上的SAP HANA</block>
+  <block id="ff7ee7b7ca8351554223b4200c6564dc" category="list-text">ONTAP 9.7P7所有HANA系统均根据配置指南进行配置<block ref="9042a1cec9cc6f21384e148006094985" category="inline-link-rx"></block>。SnapCenter 和HANA资源是根据最佳实践指南进行配置的<block ref="f70d28502828defa3eb13d3b730673fb" category="inline-link-rx"></block>。</block>
+  <block id="ef025a7d89bd64ae2fa7dff71373d950" category="paragraph"><block ref="ef025a7d89bd64ae2fa7dff71373d950" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="311d495fe9e684d64927a5a6c5ea754b" category="section-title">目标主机准备</block>
+  <block id="45bdd686062a6e366f360ed4be35e2d6" category="paragraph">本节介绍用作系统克隆目标的服务器所需的准备步骤。</block>
+  <block id="d13d26ea3c2e52e2bba8c90daf3e6966" category="paragraph">在正常操作期间、目标主机可能会用于其他目的、例如HANA QA或测试系统。因此、在请求系统克隆操作时、必须执行所述的大部分步骤。另一方面、只需复制配置文件、即可准备相关配置文件、例如`/etc/fstab`和` usr/sap/sapservices`、然后将其投入生产。</block>
+  <block id="dc7033e5c84635d07cf8825b6e15c568" category="paragraph">目标主机准备工作还包括关闭HANA QA或测试系统。</block>
+  <block id="b69071a45ad28f853ea645b7bdce7c78" category="admonition">必须正确隔离目标服务器，使其无法与其他系统通信。如果未设置适当的隔离、则克隆的生产系统可能会与其他生产系统交换数据。</block>
+  <block id="d47c82608e9c54c2177ab011e592cd3a" category="admonition">在实验室设置中、我们仅从目标系统的角度在内部更改了目标系统的主机名。在外部、仍可使用主机名ha-7访问此主机。登录到主机时、主机本身为HANA 1。</block>
+  <block id="36845bdd5a76b6bbbf4d901da04ec5f4" category="paragraph">必须使用SnapCenter 中的添加主机操作在目标主机上部署SnapCenter HANA插件。</block>
+  <block id="11ba9045ace190d52590b95322ebbe99" category="section-title">准备日志和日志备份卷</block>
+  <block id="c3dc73ef5b64395a593922e549e1489c" category="paragraph">由于您不需要从源系统克隆日志卷、并且使用Clear log选项执行任何恢复、因此必须在目标主机上准备一个空的日志卷。</block>
+  <block id="3480283b2df2bb5abbf5fc8dc0d3334c" category="paragraph">由于源系统已配置一个单独的日志备份卷、因此必须准备一个空的日志备份卷并将其挂载到源系统上的相同挂载点。</block>
+  <block id="f589ee4577bcd9213118347f1cc22d38" category="paragraph">在日志卷hdb*中、必须按照与源系统相同的方式创建子目录。</block>
+  <block id="83706c0c7217c1bc161fae80897bb12f" category="paragraph">在日志备份卷中、必须为系统和租户数据库创建子目录。</block>
+  <block id="b0801fc20ca88c457d0193f04f91045f" category="paragraph">您必须为数据和共享卷准备挂载点。</block>
+  <block id="c8b581f04f2da2cf41b3514fa8deddee" category="paragraph">在我们的示例中、必须创建目录`/ha/data/ss1/mnt00001`、/`ha/shared`和`usr/sap/ss1`。</block>
+  <block id="e739a1d8673a03b9e93493bce7137da3" category="section-title">为SnapCenter 脚本准备SID专用的配置文件</block>
+  <block id="cd25e1af49bc0a863b5c3acf8d919782" category="paragraph">您必须为SnapCenter 自动化脚本`sc-system-refresh.sh`创建配置文件。</block>
+  <block id="7a509a4c06e4915ff64b195bf2803fb5" category="section-title">克隆HANA共享卷</block>
+  <block id="c2e6f34ab0c3137d404e7be7870fa00a" category="list-text">从源系统SS1共享卷中选择Snapshot备份、然后单击从备份克隆。</block>
+  <block id="9479cade44efcb27b3c0a62f4208885b" category="paragraph"><block ref="9479cade44efcb27b3c0a62f4208885b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="89691fc0f16a91d4901d2a4d7164493e" category="list-text">选择已准备好目标修复系统的主机。NFS导出IP地址必须是目标主机的存储网络接口。由于目标SID与源系统保持相同的SID；在我们的示例中、这是SS1。</block>
+  <block id="2472cb70469d0fcc59ea579a34dc1340" category="paragraph"><block ref="2472cb70469d0fcc59ea579a34dc1340" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8ae991813efd55da49ac68bbc88f63ba" category="list-text">使用所需的命令行选项输入挂载脚本。</block>
+  <block id="b0704925bc5bea80a03806a5f5017568" category="admonition">HANA系统会根据配置指南中的建议在子目录中为`、HANA或Shared `以及`、usr/sap/ss1`使用一个卷<block ref="b7649e38f11c8b09b37711f6fbcf2088" category="inline-link-rx"></block>。此脚本`sc-mount-volume.sh`可使用特殊的命令行选项来支持此配置。如果mount path命令行选项等于`usr-sap-and-shared`、则该脚本会相应地将子目录`shared`和`usr-sap`挂载到卷中。</block>
+  <block id="db82954a5439eff4f1d679234ca68295" category="paragraph"><block ref="db82954a5439eff4f1d679234ca68295" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="cc896021fb024f9f0a119749d16f42c6" category="list-text">SnapCenter 中的作业详细信息屏幕将显示操作进度。</block>
+  <block id="b963046719df96770d7ddc1c5af67d7d" category="paragraph"><block ref="b963046719df96770d7ddc1c5af67d7d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="72d3e9e22bd36b3b46999b7f5b9aa1a7" category="list-text">`sc- mount-volume.sh`脚本的日志文件显示了为挂载操作执行的不同步骤。</block>
+  <block id="3354083e1ade3f55174dd1aec90b6e10" category="list-text">SnapCenter 工作流完成后、会在目标主机上挂载`us/sap/ss1`和`/ha/shared`文件系统。</block>
+  <block id="fb14d9cdc6b29f21dde7c843415b0e30" category="list-text">在SnapCenter 中、可以看到克隆卷的新资源。</block>
+  <block id="5184f4a4fdc0d636e0c4439f7d0d530a" category="paragraph"><block ref="5184f4a4fdc0d636e0c4439f7d0d530a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="787798927a9e01f37cf1f2b12782268c" category="list-text">现在、` HANA或Shared`卷已可用、SAP HANA服务可以启动。</block>
+  <block id="00b4aea8ca661a80df56438138e5a6ef" category="list-text">SAP Host Agent和sapstartsrv进程现已启动。</block>
+  <block id="e75e233d1a0d5dfc08414007ca9b4ddb" category="section-title">克隆其他SAP应用程序服务</block>
+  <block id="29a0134a82b203378a4fec07c8d30065" category="paragraph">其他SAP应用程序服务的克隆方式与SAP HANA共享卷相同、如"一节所述<block ref="5b1d1e8204f1ce06ab667e6607dd71e0" category="inline-xref-macro-rx"></block>。" 当然、SAP应用程序服务器所需的存储卷也必须使用SnapCenter 进行保护。</block>
+  <block id="79b2df01271f96878cbcb0ea44bbd7a0" category="paragraph">您必须将所需的服务条目添加到`/usr/sapservices`中、并且必须准备端口、用户和文件系统挂载点(例如、` usr/sap/SID`)。</block>
+  <block id="2184a1291c65d3b3b536d54f7d596a25" category="section-title">克隆数据卷并恢复HANA数据库</block>
+  <block id="409067f391f0443fce74e99eafe8a1ee" category="list-text">从源系统SS1中选择HANA Snapshot备份。</block>
+  <block id="8981362219ab300b1e0063c0374ae662" category="paragraph"><block ref="8981362219ab300b1e0063c0374ae662" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="69cdd6e77df0fcbd8187dadbf5e5c0b3" category="list-text">选择已准备好目标修复系统的主机。NFS导出IP地址必须是目标主机的存储网络接口。目标SID与源系统保持相同的SID；在我们的示例中、这是SS1。</block>
+  <block id="c19176afcd3227597520e8b7875b93e6" category="paragraph"><block ref="c19176afcd3227597520e8b7875b93e6" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1a647d84638cf480b069da0b497b7e5d" category="list-text">使用所需的命令行选项输入挂载和克隆后脚本。</block>
+  <block id="15d48db8dbfbe71e50402d54efb10365" category="admonition">用于恢复操作的脚本会将HANA数据库恢复到Snapshot操作的时间点、而不会执行任何正向恢复。如果需要正向恢复到特定时间点、则必须手动执行恢复。手动前向恢复还要求目标主机可以使用源系统的日志备份。</block>
+  <block id="a0c9bab045b9ddad34300cf37b8411e9" category="paragraph"><block ref="a0c9bab045b9ddad34300cf37b8411e9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="08998266f7cb1a354e3febc706e98833" category="paragraph"><block ref="08998266f7cb1a354e3febc706e98833" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="96d0be67148d5ea0b988513277fca416" category="paragraph">`sc-system-refresh.sh`脚本的日志文件显示了为挂载和恢复操作执行的不同步骤。</block>
+  <block id="9371d9155ae7adbf26a3481b9528e6d9" category="paragraph">挂载和恢复操作后、HANA数据卷将挂载到目标主机上。</block>
+  <block id="b13431d1ac2704ecb1fb9ec732bca88c" category="paragraph">HANA系统现已推出、可用作修复系统等。</block>
+  <block id="4eac001af3d1f40cda8f969719f95a37" category="paragraph"><block ref="4eac001af3d1f40cda8f969719f95a37" category="inline-link-macro-rx"></block></block>
+  <block id="ed29f17df3580cba5cb6856890544444" category="inline-link-macro">先前版本：使用LSC、AzAcSnap和Azure NetApp Files 更新SAP HANA系统。</block>
+  <block id="5e31d7709a40af6bb91217169aa2d912" category="paragraph"><block ref="5e31d7709a40af6bb91217169aa2d912" category="inline-link-macro-rx"></block></block>
+  <block id="bc4fe2352063642d68529f2aa0ca7ca3" category="list-text">NetApp 产品文档</block>
+  <block id="fa4af55c3fdbce23e96d2cf73261fa5b" category="inline-link"><block ref="fa4af55c3fdbce23e96d2cf73261fa5b" category="inline-link-rx"></block></block>
+  <block id="2e85fc867cab94d246e0bf6043b361cd" category="paragraph"><block ref="2e85fc867cab94d246e0bf6043b361cd" category="inline-link-rx"></block></block>
+  <block id="36098c0d1c3de71d8727b1543bace633" category="cell">2022 年 4 月</block>
+  <block id="c75e5611c366c76c5c9a0af0a9532fb4" category="summary">SAP系统副本一词通常用作SAP系统刷新、SAP系统副本或SAP系统克隆操作这三个不同过程的同义词。请务必区分不同的操作、因为每个操作的工作流和用例都不同。</block>
+  <block id="14eeebfaf0a3f6c3f31d03561a918d1d" category="doc">SAP系统复制、刷新和克隆情形</block>
+  <block id="5231f9fa4d08024f4620b759f83d0e97" category="inline-link-macro">上一页：简介。</block>
+  <block id="be4c22f337eb68c56fde2725e2d8ef93" category="paragraph"><block ref="be4c22f337eb68c56fde2725e2d8ef93" category="inline-link-macro-rx"></block></block>
+  <block id="63d77ab1313f4f81998ac664534d61f8" category="paragraph">术语SAP系统副本通常用作三个不同流程的同义词：SAP系统刷新、SAP系统副本或SAP系统克隆操作。请务必区分不同的操作、因为每个操作的工作流和用例都不同。</block>
+  <block id="2524d9452b0a981704b4a6ee5d325ae9" category="list-text">* SAP系统刷新。* SAP系统刷新是使用源SAP系统中的数据刷新现有目标SAP系统。目标系统通常是SAP传输环境的一部分、例如质量保证系统、该系统会使用生产系统中的数据进行更新。源系统和目标系统的主机名、实例编号和SID不同。</block>
+  <block id="70163042bd4905ce5700fc7a0ebfb1ab" category="list-text">* SAP系统副本。* SAP系统副本是使用源SAP系统中的数据设置的新目标SAP系统。例如、新的目标系统可以是一个包含生产系统数据的附加测试系统。源系统和目标系统的主机名、实例编号和SID不同。</block>
+  <block id="9d987abf3f9fb4867efa110ffee16b77" category="list-text">* SAP系统克隆。* SAP系统克隆是源SAP系统的相同克隆。SAP系统克隆通常用于解决逻辑损坏或测试灾难恢复场景。在执行系统克隆操作时、主机名、实例编号和SID保持不变。因此、必须为目标系统建立适当的网络隔离、以确保与生产环境之间不存在通信。</block>
+  <block id="17b4b3b92e56681d19761a021d9cfa3b" category="paragraph">下图说明了在系统刷新、系统副本或系统克隆操作期间必须执行的主要步骤。蓝色框表示可通过SnapCenter 自动执行的步骤、而绿色框则表示必须在SnapCenter 之外手动或使用第三方工具执行的步骤。</block>
+  <block id="2a39adbe314ab2d3ca27f709c77c853a" category="inline-link">将NetApp ONTAP 系统与SAP Landscape Management集成</block>
+  <block id="67d7a5531f7d837d39bf473ae02fb0b0" category="paragraph">所有这三种操作均可通过SAP Lama和NetApp存储服务连接器实现完全自动化。有关详细信息、请参见<block ref="a13d781a0803b9540621516c1b4376a3" category="inline-link-rx"></block>。</block>
+  <block id="bddc59e4f7f67a4d785497bfd06f2fd6" category="inline-link-macro">利用Libelle SystemCopy自动执行SAP系统副本操作</block>
+  <block id="740197237f4608b855d01d89dd68880c" category="inline-link">www.libelle.com</block>
+  <block id="e4f10763472c63e1fd6c7a6d8ebb7526" category="paragraph">NetApp还与Libelle合作<block ref="6162d527da418b61f12bbe43cff5a2df" category="inline-link-rx"></block> 将SnapCenter 克隆与Libelle SystemCopy集成、以自动执行SAP预处理和后处理。有关详细的 解决方案 问题描述 、请参见 <block ref="1ae2635161bddbc5be99b75be3f2bd9a" category="inline-link-macro-rx"></block>。</block>
+  <block id="734f6d6122e9b0d740289d0d0a3e6555" category="paragraph"><block ref="734f6d6122e9b0d740289d0d0a3e6555" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6dd7afca2990fac3059f0f7d5ed29893" category="inline-link-macro">下一步：系统刷新和克隆的用例。</block>
+  <block id="f9e5e578866efa8531bfe353445ab2b4" category="paragraph"><block ref="f9e5e578866efa8531bfe353445ab2b4" category="inline-link-macro-rx"></block></block>
+  <block id="bf71c2f30ce593737e5676b615d679b7" category="summary">本节介绍如何将LSC与NetApp SnapCenter 集成。LSC和SnapCenter 之间的集成支持所有SAP支持的数据库。但是、我们必须区分SAP AnyDB和SAP HANA、因为SAP HANA提供了一个无法用于SAP AnyDB的中央通信主机。</block>
+  <block id="1a69541a93d21817ebaad2102f643fb1" category="doc">使用LSC和SnapCenter 更新SAP HANA系统</block>
+  <block id="d18ef09b6c394f166f0c0fd7ca87fcb6" category="paragraph"><block ref="d18ef09b6c394f166f0c0fd7ca87fcb6" category="inline-link-macro-rx"></block></block>
+  <block id="d6a68c1e93d6606c28c5465a88d436c9" category="paragraph">本节介绍如何将LSC与NetApp SnapCenter 集成。LSC和SnapCenter 之间的集成支持所有SAP支持的数据库。但是、我们必须区分SAP AnyDB和SAP HANA、因为SAP HANA提供了一个无法用于SAP AnyDB的中央通信主机。</block>
+  <block id="deb112a96121fb1b1188979dcbf067d3" category="paragraph">SAP AnyDB的默认SnapCenter 代理和数据库插件安装是SnapCenter 代理的本地安装、以及数据库服务器的相应数据库插件。</block>
+  <block id="a6013c0e984d4c44e03b3e7a74e5aeb0" category="paragraph">在本节中、我们将以SAP HANA数据库为例介绍LSC与SnapCenter 之间的集成。如前文所述、对于SAP HANA、安装SnapCenter 代理和SAP HANA数据库插件有两种不同的选项：</block>
+  <block id="bcbedc871164d34fd83bbf2db3afbfbe" category="list-text">*标准SnapCenter 代理和SAP HANA插件安装。*在标准安装中、SnapCenter 代理和SAP HANA插件在本地安装在SAP HANA数据库服务器上。</block>
+  <block id="c4e5652d7c6756098b7fa87e73bd054c" category="list-text">*使用中央通信主机的SnapCenter 安装。*中央通信主机随SnapCenter 代理、SAP HANA插件和HANA数据库客户端一起安装、负责处理为环境中的多个SAP HANA系统备份和还原SAP HANA数据库所需的所有数据库相关操作。因此、中央通信主机无需安装完整的SAP HANA数据库系统。</block>
+  <block id="b4414ea38c77a0a3ee9e47059486f3e2" category="paragraph">有关这些不同的SnapCenter 代理和SAP HANA数据库插件安装选项的详细信息、请参见技术报告<block ref="dcc70b4da54279e83b2675b3331c54b4" category="inline-link-rx"></block>。</block>
+  <block id="a0e8a8955d20c8fc657e47b2296ed8c1" category="paragraph">以下各节重点介绍了使用标准安装或中央通信主机将LSC与SnapCenter 集成的区别。值得注意的是、无论使用何种安装选项和数据库、未突出显示的所有配置步骤都是相同的。</block>
+  <block id="cc1cd0a0f9eb582d235ae4d0f6e8342b" category="paragraph">要从源数据库执行基于Snapshot副本的自动备份并为新目标数据库创建克隆、所述的LSC与SnapCenter 集成使用中所述的配置选项和脚本<block ref="cd920b3d7d4dc41443c1d02db576233a" category="inline-link-rx"></block>。</block>
+  <block id="2859fee4a02ffd846470095dc466260c" category="paragraph">下图显示了在不使用LSC的情况下使用SnapCenter 的SAP系统刷新生命周期中的典型高级工作流：</block>
+  <block id="052eec788d8241d56e540b703047914e" category="list-text">手动预处理(导出许可证、用户、打印机等)。</block>
+  <block id="7e1b2dbe7aeb5bb0dae54646fc7b068f" category="list-text">如有必要、删除目标系统上已有的克隆。</block>
+  <block id="1ec54762821f370d94ab59973a242731" category="list-text">由SnapCenter 执行的将源系统的现有Snapshot副本克隆到目标系统的操作。</block>
+  <block id="a2f01cea3186adcc7a8299f963129bef" category="list-text">手动执行SAP后处理操作(导入许可证、用户、打印机、禁用批处理作业等)。</block>
+  <block id="15ede771c76a381ce180a8a5b016a9e5" category="list-text">然后、该系统可用作测试或QA系统。</block>
+  <block id="0b1431f9973ec538c4929da23ef2df09" category="list-text">请求新系统刷新时、工作流将在步骤2重新启动。</block>
+  <block id="dad719ad8230b28731f943672a4d5160" category="paragraph">SAP客户知道、下图中以绿色显示的手动步骤非常耗时且容易出错。在使用LSC和SnapCenter 集成时、这些手动步骤会与LSC以可靠且可重复的方式执行、并提供进行内部和外部审核所需的所有日志。</block>
+  <block id="a1ac4d20408e8685f13f991ede187151" category="paragraph">下图概述了基于SnapCenter的常规SAP系统更新操作步骤。</block>
+  <block id="869fe55c49ecfa0988d906053ce583af" category="paragraph"><block ref="869fe55c49ecfa0988d906053ce583af" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="dfafb60fecb9c84a71b2f57e43572aa4" category="paragraph">必须满足以下前提条件：</block>
+  <block id="e6dc24f83de456eb68d52ebe06229756" category="list-text">必须安装SnapCenter。源系统和目标系统必须在SnapCenter 中进行配置、可以采用标准安装、也可以使用中央通信主机进行配置。可以在源系统上创建Snapshot副本。</block>
+  <block id="4030bd38003569b0aa03679aacb58d03" category="list-text">必须在SnapCenter 中正确配置存储后端、如下图所示。</block>
+  <block id="adae505ddc244f688a2eeaaeb9747fcd" category="paragraph"><block ref="adae505ddc244f688a2eeaaeb9747fcd" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="783367908b6fad41041132e4e731f814" category="paragraph">接下来的两个映像涵盖了标准安装、其中SnapCenter 代理和SAP HANA插件安装在每个数据库服务器的本地。</block>
+  <block id="716491e046b3f9f90b117da16c013072" category="paragraph">必须在源数据库上安装SnapCenter 代理和相应的数据库插件。</block>
+  <block id="552a0bcabdfc469737bf3ecab5bf1221" category="paragraph"><block ref="552a0bcabdfc469737bf3ecab5bf1221" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f57e5828892c745a8a32aaeda8baade2" category="paragraph">必须在目标数据库上安装SnapCenter 代理和相应的数据库插件。</block>
+  <block id="1cc339903a9de0cee515084a102d7427" category="paragraph"><block ref="1cc339903a9de0cee515084a102d7427" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6263b2edbc1c1dcb7a51621051498083" category="paragraph">下图介绍了中央通信主机部署、其中、SnapCenter 代理、SAP HANA插件和SAP HANA数据库客户端安装在一个集中式服务器(如SnapCenter 服务器)上、用于管理环境中的多个SAP HANA系统。</block>
+  <block id="cb782b8498178806c8212caf20778a66" category="paragraph">SnapCenter 代理、SAP HANA数据库插件和HANA数据库客户端必须安装在中央通信主机上。</block>
+  <block id="b0557394f16a976cbfb1216651de50b3" category="paragraph"><block ref="b0557394f16a976cbfb1216651de50b3" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="eef8c7a6c890ac29bbfadeef31ec706a" category="paragraph">必须在SnapCenter 中正确配置源数据库的备份、才能成功创建Snapshot副本。</block>
+  <block id="f15452ba714a2595ed7feef9bca8e82b" category="paragraph"><block ref="f15452ba714a2595ed7feef9bca8e82b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="370b67a38ee79201ffeff4eeef17db78" category="paragraph">LSC主服务器和LSC员工必须安装在SAP环境中。在此部署中、我们还在SnapCenter 服务器上安装了LSC主服务器、并在目标SAP数据库服务器上安装了LSC工作程序、此操作应进行刷新。有关更多详细信息、请参见下一节"<block ref="c48fa9372da5e679296fa19c382bd1c1" category="inline-xref-macro-rx"></block>。 "</block>
+  <block id="de1921a90d14a58282dcb74904bfbc87" category="paragraph">文档资源：</block>
+  <block id="c804e38e267ab7e08a61f3e791e5a99a" category="inline-link">SnapCenter 文档中心</block>
+  <block id="5f238be6282547752bdf3926f1af44c2" category="list-text"><block ref="5f238be6282547752bdf3926f1af44c2" category="inline-link-rx"></block></block>
+  <block id="550ff411af842971b5bef45c5d9d1a59" category="inline-link">TR-4700 ：适用于 Oracle 数据库的 SnapCenter 插件</block>
+  <block id="2c7b4a7cfd7910e959b3899cdd539867" category="list-text"><block ref="2c7b4a7cfd7910e959b3899cdd539867" category="inline-link-rx"></block></block>
+  <block id="4d0488fb3017f2f14273ce8765843a99" category="list-text"><block ref="4d0488fb3017f2f14273ce8765843a99" category="inline-link-rx"></block></block>
+  <block id="3d6ce96c053ea7e9b5b5760fe4e75ae7" category="list-text"><block ref="3d6ce96c053ea7e9b5b5760fe4e75ae7" category="inline-link-rx"></block></block>
+  <block id="56f5eeda3975435c8530355bc5441429" category="inline-link">TR-4769—SnapCenter 最佳实践和规模估算准则</block>
+  <block id="025547de09dae9dc145b97701e1b973f" category="list-text"><block ref="025547de09dae9dc145b97701e1b973f" category="inline-link-rx"></block></block>
+  <block id="6be1ed7d0e35cab2dd490a58f13d3761" category="inline-link">《SnapCenter 4.6 cmdlet参考指南》</block>
+  <block id="76f3b0f8b6a51710bcff71e212056376" category="list-text"><block ref="76f3b0f8b6a51710bcff71e212056376" category="inline-link-rx"></block></block>
+  <block id="6273877c694f4875c4ab83bf5ef28e30" category="paragraph">本节介绍在演示数据中心中设置的示例架构。此设置分为标准安装和使用中央通信主机的安装。</block>
+  <block id="e0090e5eeb1da23a2924e8a8913a9bf8" category="section-title">标准安装</block>
+  <block id="18500288570633595d57fbe40cf00d2d" category="paragraph">下图显示了一个标准安装、其中SnapCenter 代理以及数据库插件安装在源和目标数据库服务器的本地。在实验室设置中、我们安装了SAP HANA插件。此外、目标服务器上也安装了LSC员工。为了简化并减少虚拟服务器的数量、我们在SnapCenter 服务器上安装了LSC主服务器。下图显示了不同组件之间的通信。</block>
+  <block id="10f64e56801423087c6c3e687fdcfa77" category="paragraph"><block ref="10f64e56801423087c6c3e687fdcfa77" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="007661ea1b3047cae7c25cb610ab167c" category="section-title">中央通信主机</block>
+  <block id="404683c0fc052e1bb3f98c2e3b837701" category="paragraph">下图显示了使用中央通信主机进行的设置。在此配置中、SnapCenter 代理以及SAP HANA插件和HANA数据库客户端安装在一个专用服务器上。在此设置中、我们使用SnapCenter 服务器安装中央通信主机。此外、LSC工作程序再次安装在目标服务器上。为了简化并减少虚拟服务器的数量、我们还决定在SnapCenter 服务器上安装LSC主服务器。下图显示了不同组件之间的通信。</block>
+  <block id="b7e24114bfa31b185d5e58d75816b5a4" category="paragraph"><block ref="b7e24114bfa31b185d5e58d75816b5a4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="37e133ea70387ff2d153dfd4610277a9" category="section-title">Libelle SystemCopy的初始一次性准备步骤</block>
+  <block id="e2a4a6c5862a5dd11da8456a71cb4213" category="paragraph">LSC安装包含三个主要组件：</block>
+  <block id="239ee2a2c55f17e70845f88c9c4b5dcc" category="list-text">* LSC主系统。*顾名思义、这是一个主组件、用于控制基于Lible的系统副本的自动工作流。在演示环境中、LSC主服务器安装在SnapCenter 服务器上。</block>
+  <block id="4126f3ecfcea5aa9990a2aa8cd1332ef" category="list-text">* LSC员工。* LSC员工是Lbelle软件的一部分、该软件通常在目标SAP系统上运行、并执行自动系统副本所需的脚本。在演示环境中、LSC员工安装在目标SAP HANA应用程序服务器上。</block>
+  <block id="5e6c40f175398bcd638cb9750798878a" category="list-text">* LSC Satellite。* LSC Satellite是Libelle软件的一部分、该软件运行在第三方系统上、必须在该系统上执行其他脚本。LSC主节点还可以同时充当LSC卫星系统的角色。</block>
+  <block id="58ab23d5a0e0f21a7077556a4a2aeccb" category="paragraph">我们首先定义了LSC中涉及的所有系统、如下图所示：</block>
+  <block id="fc732f49b72c2472c6b8643d5353f2ec" category="list-text">*。172.30.15.35* SAP源系统和SAP HANA源系统的IP地址。</block>
+  <block id="9179a1ee6a75d729452f54f714900f9d" category="list-text">172.30.15.3.*此配置中LSC主系统和LSC卫星系统的IP地址。由于我们在SnapCenter 服务器上安装了LSC主服务器、因此SnapCenter 4.x PowerShell Cmdlet已在此Windows主机上可用、因为它们是在SnapCenter 服务器安装期间安装的。因此、我们决定为此系统启用LSC从属角色、并在此主机上执行所有SnapCenter PowerShell Cmdlet。如果您使用的是其他系统、请确保根据SnapCenter 文档在此主机上安装SnapCenter PowerShell Cmdlet。</block>
+  <block id="f2e8e2175c9da79f9518268cae7290b7" category="list-text">*。172.30.15.36* SAP目标系统、SAP HANA目标系统和LSC工作程序的IP地址。</block>
+  <block id="9dbe0511fc1dcc2f05099fa37692c272" category="paragraph">也可以使用主机名或完全限定域名、而不是IP地址。</block>
+  <block id="f6ec8e3f7e5bd6f3e424a8845be503ac" category="paragraph">下图显示了主节点、员工节点、卫星节点、SAP源节点、SAP目标节点、 源数据库和目标数据库。</block>
+  <block id="cb599f228f1d14851d0a5f2dafacfcac" category="paragraph"><block ref="cb599f228f1d14851d0a5f2dafacfcac" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b79cd6f4ffb52ea19abfc129a1113b1f" category="paragraph">对于主要集成、我们必须再次将配置步骤与标准安装和使用中央通信主机的安装分开。</block>
+  <block id="f79c000ff76c1c3fcccfde48d40ae022" category="paragraph">本节介绍在源系统和目标系统上安装了SnapCenter 代理和所需数据库插件的情况下使用标准安装时所需的配置步骤。使用标准安装时、挂载克隆卷以及还原和恢复目标系统所需的所有任务都将从服务器本身的目标数据库系统上运行的SnapCenter 代理执行。这样、可以访问通过SnapCenter 代理的环境变量提供的所有克隆相关详细信息。因此、您只需要在LSC复制阶段创建一个额外的任务。此任务会在源数据库系统上执行Snapshot副本过程、并在目标数据库系统上执行克隆和还原与恢复过程。所有与SnapCenter 相关的任务均使用在LSC任务`NTAP_SYSTEM_clone`中输入的PowerShell脚本触发。</block>
+  <block id="ffdc08e8ba0dbaa69cfc632f5ee35d2d" category="paragraph">下图显示了复制阶段的LSC任务配置。</block>
+  <block id="b90365d7ef9c42485ea70fa6f24acade" category="paragraph"><block ref="b90365d7ef9c42485ea70fa6f24acade" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7247a3044be0984304dbbf83efd3d439" category="paragraph">下图突出显示了`NTAP_SYSTEM_clone`进程的配置。由于您正在执行PowerShell脚本、因此此Windows PowerShell脚本将在卫星系统上执行。在这种情况下、这是安装了LSC主服务器的SnapCenter 服务器、该服务器也充当卫星系统。</block>
+  <block id="2bddad8660ff97972a3a646d5fd4fab5" category="paragraph"><block ref="2bddad8660ff97972a3a646d5fd4fab5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d290af93396c45593291e7d4ffdddab8" category="paragraph">由于LSC必须了解Snapshot副本、克隆和恢复操作是否成功、因此您必须至少定义两种返回代码类型。一个代码用于成功执行脚本、另一个代码用于脚本执行失败、如下图所示。</block>
+  <block id="14dfdadc5a95fdee64c51fc0968f9aa3" category="list-text">`LSC：OK`如果执行成功、则必须从脚本写入标准输出。</block>
+  <block id="cf6b0a784c583f2e4731ee8103199cbf" category="list-text">`LSC：如果执行失败、则必须将error`从脚本写入标准输出。</block>
+  <block id="2a061633d48387d221dbff6e2a9b5b3e" category="paragraph"><block ref="2a061633d48387d221dbff6e2a9b5b3e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2d7a6e0aa948c67c2dfbc5d04b2f328d" category="paragraph">下图显示了PowerShell脚本的一部分、必须运行该脚本才能在源数据库系统上执行基于Snapshot的备份、并在目标数据库系统上执行克隆。此脚本不应完整。相反、该脚本显示了LSC与SnapCenter 之间的集成的外观以及设置起来的简便性。</block>
+  <block id="28c9fb9d6a170c4b19c09bbdf04f0051" category="paragraph"><block ref="28c9fb9d6a170c4b19c09bbdf04f0051" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="54895eed2981e39cc9de40355230f8a2" category="paragraph">由于脚本是在LSC主系统(也是一个卫星系统)上执行的、因此SnapCenter 服务器上的LSC主系统必须以具有在SnapCenter 中执行备份和克隆操作的适当权限的Windows用户身份运行。要验证用户是否具有适当的权限、用户应能够在SnapCenter UI中执行Snapshot副本和克隆。</block>
+  <block id="d99842a2f1f1c478453bfb614fad5f06" category="paragraph">无需在SnapCenter 服务器本身上运行LSC主节点和LSC分身扩展。LSC主节点和LSC分身扩展可以在任何Windows计算机上运行。在LSC子系统上运行PowerShell脚本的前提条件是、已在Windows服务器上安装SnapCenter PowerShell cmdlet。</block>
+  <block id="473556daf85d0d3ed30051948502a319" category="paragraph">要使用中央通信主机在LSC和SnapCenter 之间进行集成、只需在复制阶段进行调整。Snapshot副本和克隆是使用中央通信主机上的SnapCenter 代理创建的。因此、有关新创建卷的所有详细信息仅在中央通信主机上可用、而在目标数据库服务器上不可用。但是、要挂载克隆卷并执行恢复、需要在目标数据库服务器上提供这些详细信息。因此、在复制阶段需要执行两项额外任务。在中央通信主机上执行一个任务、在目标数据库服务器上执行一个任务。下图显示了这两项任务。</block>
+  <block id="6a89e29d4743cfea15787c6664a35855" category="list-text">* NTAP_SYSTEM_clone_cp.*此任务使用PowerShell脚本创建Snapshot副本和克隆、该脚本可在中央通信主机上执行必要的SnapCenter 功能。因此、此任务会在LSC子系统上运行、而在我们的实例中、LSC主节点是在Windows上运行的。此脚本会收集有关克隆和新创建卷的所有详细信息、并将其移交给第二个任务`NTAP_MNT_RECOVER`、该任务在目标数据库服务器上运行的LSC员工上运行。</block>
+  <block id="943cadb1083368f2707a68ed586e7923" category="list-text">* ntap_mnt_recovery_cp.*此任务将停止目标SAP系统和SAP HANA数据库、卸载旧卷、然后根据上一任务传递的参数挂载新创建的存储克隆卷`ntap_system_clone_cp`。然后还原和恢复目标SAP HANA数据库。</block>
+  <block id="bc8b34a4e5d18ac4bbf5e5921a5d2d4c" category="paragraph"><block ref="bc8b34a4e5d18ac4bbf5e5921a5d2d4c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="cf6d8bd1cac77f539772c0247b9b04d9" category="paragraph">下图突出显示了任务`NTAP_SYSTEM_clone_cp`的配置。这是在子系统上执行的Windows PowerShell脚本。在这种情况下、卫星系统是安装了LSC主服务器的SnapCenter 服务器。</block>
+  <block id="3ad23eb87367de9983f9f8bbca87ad5b" category="paragraph"><block ref="3ad23eb87367de9983f9f8bbca87ad5b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="22285bc33a6c217be29249f174091652" category="paragraph">由于LSC必须了解Snapshot副本和克隆操作是否成功、因此您必须至少定义两种返回代码类型：一种返回代码用于成功执行脚本、另一种返回代码用于失败执行脚本、如下图所示。</block>
+  <block id="62ebeb472f2a01a7c37858ef5040ad0e" category="list-text">`LSC：如果执行失败、则必须将error`从脚本写入标准输出。</block>
+  <block id="91791a18364624ee4c97a0153e618877" category="paragraph"><block ref="91791a18364624ee4c97a0153e618877" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1fc5d3b1a8e8ad8e070bac1db2755b14" category="paragraph">下图显示了在中央通信主机上使用SnapCenter 代理执行Snapshot副本和克隆时必须运行的部分PowerShell脚本。此脚本并不完整。相反、该脚本用于显示LSC与SnapCenter 之间的集成的外观以及设置起来的简便性。</block>
+  <block id="c3949176e6b94bf9a01a76dbcbae1af7" category="paragraph"><block ref="c3949176e6b94bf9a01a76dbcbae1af7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="82a941dabf24a9e7993a0dfd0b019266" category="paragraph">如前所述、您必须将克隆卷的名称移交给下一个任务`NTAP_MNT_RECOATE_CP`以在目标服务器上挂载克隆卷。克隆卷的名称也称为接合路径、存储在变量`$JunctionPath`中。将任务移交给后续的LSC任务是通过自定义LSC变量实现的。</block>
+  <block id="49e000ffe321ceb1a70d82ea78d0c6bd" category="paragraph">由于脚本是在LSC主系统(也是一个卫星系统)上执行的、因此SnapCenter 服务器上的LSC主系统必须以具有在SnapCenter 中执行备份和克隆操作的适当权限的Windows用户身份运行。要验证它是否具有适当的权限、用户应能够在SnapCenter 图形用户界面中执行Snapshot副本和克隆。</block>
+  <block id="ea8d68751393b58709f3ea40ba70acb6" category="paragraph">下图突出显示了任务`NTAP_MNT_RECOATE_CP`的配置。由于我们要执行Linux Shell脚本、因此这是在目标数据库系统上执行的一个命令脚本。</block>
+  <block id="7417e1023d3ac8f7b1e0964a22dbdb80" category="paragraph"><block ref="7417e1023d3ac8f7b1e0964a22dbdb80" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c4b5d16f882636f7442e3048f2324b72" category="paragraph">由于LSC必须了解如何挂载克隆卷以及是否已成功还原和恢复目标数据库、因此我们必须至少定义两种返回代码类型。一个代码用于成功执行脚本、一个代码用于失败执行脚本、如下图所示。</block>
+  <block id="04f898f9a2ca1daab101a5cde1ccfaba" category="paragraph"><block ref="04f898f9a2ca1daab101a5cde1ccfaba" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2e3f585a020dfdc63a988e48a87104dd" category="paragraph">下图显示了用于停止目标数据库、卸载旧卷、挂载克隆卷以及还原和恢复目标数据库的部分Linux Shell脚本。在上一任务中、接合路径已写入LSC变量。以下命令将读取此LSC变量并将其值存储在Linux Shell脚本的`$JunctionPath`变量中。</block>
+  <block id="732504ea297afd88dd03368c58912f84" category="paragraph">目标系统上的LSC工作程序以`&lt;sidaadm&gt;`的形式运行、但mount命令必须以root用户身份运行。因此、您必须创建`central_plugin_host_wrapper_script.sh`。使用`sudo`命令从任务`NTAP_MNT_recovery_cp`调用了脚本`central_plugin_host_wrapper_script.sh`。使用`sudo`命令、该脚本将使用UID 0运行、我们可以执行所有后续步骤、例如卸载旧卷、挂载克隆卷以及还原和恢复目标数据库。要使用`sUdo`启用脚本执行、必须在`/etc/sudoers`中添加以下行：</block>
+  <block id="0f94a1dc80013e0240a47f7a16d90e6e" category="paragraph"><block ref="0f94a1dc80013e0240a47f7a16d90e6e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8194823b374a03595ee2ee92861dfa5c" category="section-title">SAP HANA系统刷新操作</block>
+  <block id="fd4570f5dbab54ff8215f97356cef84a" category="paragraph">既然已经在LSC和NetApp SnapCenter 之间执行了所有必要的集成任务、那么启动完全自动化的SAP系统刷新就只需单击一下即可。</block>
+  <block id="cc5747bb54ae81e815234f4894e61642" category="paragraph">下图显示了标准安装中的任务`NTAP`系统`_`克隆`S`。如您所见、创建Snapshot副本和克隆、在目标数据库服务器上挂载克隆卷以及还原和恢复目标数据库大约需要14分钟。值得注意的是、借助Snapshot和NetApp FlexClone技术、此任务的持续时间几乎保持不变、与源数据库的大小无关。</block>
+  <block id="94660e32faf98b602eb41f1b3e5752c8" category="paragraph"><block ref="94660e32faf98b602eb41f1b3e5752c8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7ae2a6447550be2b8594e4607e4a7453" category="paragraph">下图显示了使用中央通信主机时的两个任务`NTAP_SYSTEM_clone_cp`和`NTAP_MNT_recovery_cp`。如您所见、创建Snapshot副本、克隆、在目标数据库服务器上挂载克隆卷以及还原和恢复目标数据库大约需要12分钟。使用标准安装时、执行这些步骤所需的时间大致相同。同样、无论源数据库的大小如何、Snapshot和NetApp FlexClone技术都能确保这些任务的一致、快速完成。</block>
+  <block id="70cba9cd73b22ae39380d2cbcf53ac6d" category="paragraph"><block ref="70cba9cd73b22ae39380d2cbcf53ac6d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="be11ef66465253bb5e82ea68df2bfaf4" category="inline-link-macro">接下来：使用LSC、AzAcSnap和Azure NetApp Files 更新SAP HANA系统。</block>
+  <block id="003f3b5f26d7c92f147b8716fc4c2add" category="paragraph"><block ref="003f3b5f26d7c92f147b8716fc4c2add" category="inline-link-macro-rx"></block></block>
+  <block id="0b0165f536fb34f552053dcf6d4b7e0e" category="inline-link-macro">先前版本：使用SnapCenter 克隆SAP系统。</block>
+  <block id="acc7922f74e3f36f3c0b8e1f0fcfebec" category="paragraph"><block ref="acc7922f74e3f36f3c0b8e1f0fcfebec" category="inline-link-macro-rx"></block></block>
+  <block id="362c26abf7af5442c5d449bb2075123f" category="inline-link"><block ref="362c26abf7af5442c5d449bb2075123f" category="inline-link-rx"></block></block>
+  <block id="428b7c3b557c016c4e280ca7305fafbe" category="paragraph"><block ref="428b7c3b557c016c4e280ca7305fafbe" category="inline-link-rx"></block></block>
+  <block id="e61238a14181b36aa57a53b7e2f1ce7e" category="list-text"><block ref="e61238a14181b36aa57a53b7e2f1ce7e" category="inline-link-rx"></block></block>
+  <block id="5abea00f163fbfaf287f7d7bf3d56515" category="inline-link"><block ref="5abea00f163fbfaf287f7d7bf3d56515" category="inline-link-rx"></block></block>
+  <block id="08d3e53921f22babd48e40151c9c8a2d" category="paragraph"><block ref="08d3e53921f22babd48e40151c9c8a2d" category="inline-link-rx"></block></block>
+  <block id="385733e4132cdcc96b0a35704a97d643" category="list-text"><block ref="385733e4132cdcc96b0a35704a97d643" category="inline-link-rx"></block></block>
+  <block id="3f50f7ed267e090adcfbab165f2e5c47" category="list-text">TR-4436：《基于采用光纤通道协议的NetApp全闪存FAS 系统的SAP HANA》</block>
+  <block id="4c361fcdd2690df8b614197d1376ce01" category="inline-link"><block ref="4c361fcdd2690df8b614197d1376ce01" category="inline-link-rx"></block></block>
+  <block id="12c13219923113504598b1314ea3454c" category="paragraph"><block ref="12c13219923113504598b1314ea3454c" category="inline-link-rx"></block></block>
+  <block id="abb522bb2ca57b2c5746580a64109029" category="list-text">TR-4435：《基于采用NFS的NetApp全闪存FAS 系统的SAP HANA》</block>
+  <block id="f493247973297a32e1c0884f990577fe" category="inline-link"><block ref="f493247973297a32e1c0884f990577fe" category="inline-link-rx"></block></block>
+  <block id="114424331356280012de3c1ecdc95bf0" category="paragraph"><block ref="114424331356280012de3c1ecdc95bf0" category="inline-link-rx"></block></block>
+  <block id="6b41430e7ec93dd6cafb0e46de268b8c" category="list-text">NetApp SAP软件解决方案产品页面</block>
+  <block id="4fe93d029c188ed918aa4e4a2498ecb0" category="inline-link"><block ref="4fe93d029c188ed918aa4e4a2498ecb0" category="inline-link-rx"></block></block>
+  <block id="48f967e98dd7651648ec4b74e1c56b13" category="paragraph"><block ref="48f967e98dd7651648ec4b74e1c56b13" category="inline-link-rx"></block></block>
+  <block id="c7b0e86345062bedaccd6a5198bf3a08" category="section-title">版本历史记录</block>
+  <block id="95798f037b7bacec7599a19423a6bb64" category="cell">2018 年 2 月</block>
+  <block id="4a6be73b305b889cfd4f3834bd0f1680" category="cell">涵盖SnapCenter 4.3和改进的自动化脚本的完整重写。适用于系统刷新和系统克隆操作的新工作流问题描述。</block>
+  <block id="23bb02d00145cbbee811d75260628934" category="cell">已更新SnapCenter 4.6 P1的工作流。</block>
+  <block id="ad60b8b05274e402a4498c82d95225d1" category="summary">用于优化SAP生命周期管理的NetApp解决方案已集成到SAP HANA数据库和生命周期管理工具中、将高效的应用程序集成数据保护与灵活配置SAP测试系统相结合、如下图所示。</block>
+  <block id="856228be68913d2211ee02f22a38e8e9" category="paragraph">在当今瞬息万变的业务环境中、企业必须不断创新、并对不断变化的市场做出快速响应。在这种竞争环境下、在工作流程中实施更大灵活性的公司可以更有效地适应市场需求。</block>
+  <block id="69c3a79c1804cbae032d6195f6cacac7" category="paragraph">不断变化的市场需求还会影响公司的SAP环境、因此需要定期集成、更改和更新。IT部门必须以更少的资源和更短的时间实施这些变更。要在部署这些变更时最大程度地降低风险、需要进行全面的测试和培训、这就需要使用实际生产数据的其他SAP系统。</block>
+  <block id="3f764a0345ec7999f352204a5b3fdddd" category="paragraph">配置这些系统的传统SAP生命周期管理方法主要基于手动流程。这些手动流程往往容易出错且耗时、会延迟创新和业务需求响应。</block>
+  <block id="a5ddf82af10e90e54f80f1c95a97c3f4" category="paragraph"><block ref="a5ddf82af10e90e54f80f1c95a97c3f4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b3994c00931c89a0a503c3ac46453065" category="section-title">应用程序集成的Snapshot备份操作</block>
+  <block id="6243c53e13fe45e2f2d8139d84df9fc3" category="paragraph">在存储层上创建应用程序一致的NetApp Snapshot备份是本文档所述系统副本和系统克隆操作的基础。基于存储的Snapshot备份是使用适用于SAP HANA的NetApp SnapCenter 插件以及SAP HANA数据库提供的接口创建的。SnapCenter 会将Snapshot备份注册到SAP HANA备份目录中、以便这些备份可用于还原和恢复以及克隆操作。</block>
+  <block id="a401037b1fd939681f3b1d35a4cf1871" category="section-title">异地备份和/或灾难恢复数据复制</block>
+  <block id="1330cf26bb73ed79d4f5ce73055208da" category="paragraph">应用程序一致的Snapshot备份可以在存储层复制到异地备份站点或由SnapCenter 控制的灾难恢复站点。复制基于块更改、因此可节省空间和带宽。</block>
+  <block id="c080449f164d4f10c7e09760a05892b1" category="section-title">对SAP系统副本或克隆操作使用任何Snapshot备份</block>
+  <block id="081ba012afe11bcd1b8a6bd63696006b" category="paragraph">通过NetApp技术和软件集成、您可以使用源系统的任何Snapshot备份执行SAP系统复制或克隆操作。可以从SAP生产系统使用的同一存储、用于异地备份的存储或灾难恢复站点上的存储中选择此Snapshot备份。这种灵活性使您可以根据需要将开发和测试系统与生产系统分开、并涵盖其他情形、例如在灾难恢复站点测试灾难恢复。</block>
+  <block id="9a44f200391ceb970e5a7d2117387553" category="section-title">通过集成实现自动化</block>
+  <block id="56d0fbc6603d3792bb6ace3eeba4640c" category="paragraph">配置SAP测试系统的场景和用例多种多样、您对自动化级别的要求可能也不同。适用于SAP的NetApp软件产品集成到SAP的数据库和生命周期管理产品中、以支持不同的场景和自动化级别。</block>
+  <block id="9faeb8f5b5338bf989de461d80bdda01" category="paragraph">带有适用于SAP HANA插件的NetApp SnapCenter 用于根据应用程序一致的Snapshot备份配置所需的存储卷、并执行所有所需的主机和数据库操作、直到SAP HANA数据库已启动。根据使用情形、可能需要SAP系统副本、系统克隆、系统刷新或其他手动步骤、例如SAP后处理。下一节将介绍更多详细信息。</block>
+  <block id="dee484fd236b3a8c6df508ff1a995b0b" category="paragraph">可以使用SAP Landscape Management (Lama)对SAP测试系统执行完全自动化的端到端配置。NetApp存储服务连接器集成到SAP Lama中、并在存储层为SAP Lama提供所需的操作。有关详细信息、请参见<block ref="a13d781a0803b9540621516c1b4376a3" category="inline-link-rx"></block>。</block>
+  <block id="6acc785ae1308d6bb0b3f0b0cb8369d1" category="inline-link-macro">接下来：SAP系统复制、刷新和克隆场景。</block>
+  <block id="71efe2c700906d471bf80e4148c1a6e9" category="paragraph"><block ref="71efe2c700906d471bf80e4148c1a6e9" category="inline-link-macro-rx"></block></block>
+  <block id="51804259bd2554b5e3aed937261760cc" category="summary">在本文档中、使用了两个脚本进一步自动执行SnapCenter 克隆创建和克隆删除操作。</block>
+  <block id="d648af91bd5d8a9bfbf67955f22a64fc" category="doc">自动化示例脚本</block>
+  <block id="a3a71941bb3a83836bb851db62d40419" category="inline-link-macro">先前版本：使用存储快照备份的SAP HANA系统刷新操作工作流。</block>
+  <block id="2df1c0d4eaff18bd93a47926a806e873" category="paragraph"><block ref="2df1c0d4eaff18bd93a47926a806e873" category="inline-link-macro-rx"></block></block>
+  <block id="f7766c06cfb3d8eda8ed33fc1adc40c2" category="list-text">脚本`sc-system-refresh.sh`用于系统刷新和系统克隆工作流、用于对HANA数据卷执行挂载和卸载操作、以及对HANA数据库执行恢复和关闭操作。</block>
+  <block id="86f2aadf0f2fc8e480ba7d3db06806f7" category="list-text">脚本`sc-mount-volume.sh`用于系统克隆工作流、用于对HANA共享卷执行挂载和卸载操作。</block>
+  <block id="98d5cd937b8c3364f24d00295990f0bf" category="admonition">示例脚本按原样提供、NetApp不支持。您可以通过电子邮件向以下地址请求脚本：mailto：ng-sapcc@netapp.com^ ng-sapcc@netapp.com。</block>
+  <block id="1895adf39b38ef18443a63aa503d8314" category="section-title">脚本sc-system-refresh.sh</block>
+  <block id="d914d56d7c4dbe25fe358724cadd161c" category="paragraph">示例脚本`sc-system-refresh.sh`用于执行SAP HANA数据卷的挂载和卸载操作以及恢复和关闭操作。在SnapCenter 工作流clone create和clone delete中、使用特定的命令行选项调用该脚本、如下图所示。</block>
+  <block id="9fc49ab8b12deb9a63ed3abcc0c81388" category="paragraph">此脚本属于通用脚本、并配置了一个特定于SID的配置文件和环境变量、这些文件和变量可由SnapCenter 在执行此脚本时使用。脚本和配置文件必须在系统刷新操作的目标主机上可用。如果此脚本用于多个目标主机、则可以提供一个NFS共享、使所有目标主机均可使用此脚本。</block>
+  <block id="689a66fe0c7eeb024e2d965566e00fd1" category="admonition">当前版本的脚本支持具有单个容器、MDC单租户或MDC多租户配置的单个主机系统。它不支持SAP HANA多主机系统。</block>
+  <block id="37f03f9473f314543df0c566e5f574d7" category="admonition">此脚本支持使用NFS或光纤通道(FC)作为存储协议的HANA系统。</block>
+  <block id="b101fedc7521206f4f9ba31bb8e44827" category="paragraph"><block ref="b101fedc7521206f4f9ba31bb8e44827" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="9f44c7e376181d4ca0921e1d3a50fda8" category="section-title">支持的租户恢复操作</block>
+  <block id="f7c6da6e7aefea19fdfc498a2ec0bc76" category="inline-link-macro">《使用存储快照备份的SAP HANA系统刷新操作工作流》</block>
+  <block id="7b4411b02c60488071d427057429a2e8" category="paragraph">如一节所述 <block ref="d94d29d329c6f57fb83f9f1927159f1b" category="inline-link-macro-rx"></block> 目标系统上可能的租户恢复操作取决于源系统的租户配置。脚本`sc-system-refresh.sh`支持所有租户恢复操作、这些操作可能取决于源系统配置、如下表所示。</block>
+  <block id="8d56fe5a88639964171b4bbd96f2e00a" category="paragraph">如果目标系统需要使用其他租户名称、则必须在执行恢复操作后手动重命名此租户。</block>
+  <block id="90c9f514d641c6546821f3d099ea3057" category="cell">HANA系统</block>
+  <block id="6fdfd09c74753f84071cba9ce0611394" category="cell">源系统上的租户配置</block>
+  <block id="30132596f3bd792ed24a69cf1fdae843" category="cell">目标系统上的租户配置</block>
+  <block id="44209cba336c1d303fb4e247025f798c" category="cell">单个容器</block>
+  <block id="004c7f829dcf842443fd006747d3de9f" category="cell">MDC单租户</block>
+  <block id="c71db1f0ff2bac482804f98b63405342" category="cell">源租户名称等于源SID</block>
+  <block id="d929ba5e22f3284a57126c2edcb90be7" category="cell">目标租户名称等于目标SID</block>
+  <block id="fa8fc5ef8247db89b09a5feb3ba454cd" category="cell">源租户名称不等于源SID</block>
+  <block id="7f0af4df67950a3197c9553be6bc7ba8" category="cell">目标租户名称等于源租户名称</block>
+  <block id="78872edb0be427b181e6e8e7190de742" category="cell">MDC多租户</block>
+  <block id="82a6e1233b922d8cab83fc7d0256ab6a" category="cell">任何租户名称</block>
+  <block id="fa75de1ed62040e81bcf2dbd0bef5d62" category="cell">只有第一个租户会恢复、并且与源租户具有相同的名称。</block>
+  <block id="651d7ef2e8c3366e98b7826592f95fa7" category="section-title">SID专用配置文件</block>
+  <block id="b2a76bbf3423d7ba72553b6a469b19d9" category="paragraph">此脚本使用配置文件配置一些目标系统专用参数。配置文件必须具有SID专用文件名`sc-system-refresh- sid.cfg`。</block>
+  <block id="ecb1d9dfedf1541c7998a2f4588663ba" category="admonition">使用目标系统的hdbuserstore密钥配置的数据库用户必须存在于源数据库中、并且必须具有允许数据库恢复的正确权限。</block>
+  <block id="d0f60714a1ed3782abba56ac9489b10c" category="paragraph">下表显示了配置文件参数。</block>
+  <block id="b5a7adde1af5c87d7fd797b6245c2a39" category="cell">Description</block>
+  <block id="3b5949e0c26b87767a4752a276de9570" category="cell">密钥</block>
+  <block id="3a0cdfb5467246a2065933013464dc24" category="cell">例如：QS1KEY</block>
+  <block id="a7b3be749b6be09f50b485c82887cb5d" category="cell">SAP HANA hdbuserstore密钥、应用于目标SAP HANA数据库的恢复操作。必须为目标主机上的用户&lt;sid&gt;adm配置此密钥。</block>
+  <block id="83a59f4531c50a35ebc414248499e7df" category="cell">协议</block>
+  <block id="9954f1758a74f9ece72459a8aca46883" category="cell">NFS或FCP</block>
+  <block id="56147a88cf9e0102ad8e2873cc800991" category="cell">存储协议、用于连接HANA数据库数据卷。</block>
+  <block id="f6e70b0472340b97ea218873e7a5cde0" category="paragraph">以下输出显示了`SID=QS1`的SAP HANA系统的示例配置文件。</block>
+  <block id="9ba220b8314947bfb807aaa20db482fa" category="section-title">SnapCenter 环境变量</block>
+  <block id="c05a52fae37942af7adad0d02ba87fee" category="paragraph">SnapCenter 提供了一组环境变量、这些变量可在目标主机上执行的脚本中使用。该脚本使用这些变量来确定相关的配置设置。</block>
+  <block id="ba25c653128001bcf08bf808ced252a9" category="list-text">脚本变量`ha_Architecture`用于确定单个容器或MDC系统所需的恢复操作。</block>
+  <block id="ec5eb366ca755ac2bc471a5bd1cd07cd" category="list-text">派生自`ha_database_type`环境变量</block>
+  <block id="43cc589a910d8d9a1f87d79d6dde8f77" category="list-text">例如：`mDC\SS1_Hana数据库类型=多个容器`</block>
+  <block id="860b544d5df250512091fa01e8d6c131" category="list-text">脚本变量`tenant_list、source_tenant`和`SOURCE_SID`用于确定恢复操作的目标租户名称。</block>
+  <block id="810fd5e22aed350a845d5152e2792d97" category="list-text">派生自`tenant_database_names`环境变量</block>
+  <block id="180716d3619e705d1aa63e83bbd6fb0c" category="list-text">例如：`mDC\SM1_tenant_database_names=TENANT1、TENAN2`</block>
+  <block id="9da824d922a311daa6550bc58ba65f12" category="list-text">脚本变量`Storage、junction_path`用于挂载操作。</block>
+  <block id="984b9615b6eb4137fbe36d80e6c215bf" category="list-text">派生自`clored_volumes_mount_path`环境变量</block>
+  <block id="506c2c0c7f5b70af3df68c45c46f45a7" category="list-text">例如：</block>
+  <block id="3e88016e64c25f9d19a24a1f021ac09a" category="section-title">脚本sc-mount-volume.sh</block>
+  <block id="5d5e8180e8e28f025880fcba510f9534" category="paragraph">示例脚本`sc- mount-volume.sh`用于对任何卷执行挂载和卸载。此脚本用于通过SAP HANA系统克隆操作挂载HANA共享卷。在SnapCenter 工作流clone create和clone delete中、使用特定的命令行选项调用该脚本、如下图所示。</block>
+  <block id="d7024a5c2d5ed7203f976d4b75f475b4" category="admonition">该脚本支持使用NFS作为存储协议的HANA系统。</block>
+  <block id="45f8afeea5c6274f6a448f8526c68aa8" category="paragraph"><block ref="45f8afeea5c6274f6a448f8526c68aa8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="29e2dd6e9c1ba11d2dd4b2729177f644" category="list-text">派生自`clored_volumes_mount_path`环境变量。</block>
+  <block id="14d04d54afbe1cbf1d1c652d03b4ab5b" category="section-title">用于获取SnapCenter 环境变量的脚本</block>
+  <block id="f849fc808040266d8c8e8176608047f5" category="paragraph">如果不应使用自动化脚本、而应手动执行这些步骤、则需要了解FlexClone卷的存储系统接合路径。接合路径在SnapCenter 中不可见、因此您需要直接在存储系统上查找接合路径、或者可以使用一个简单的脚本在目标主机上提供SnapCenter 环境变量。需要在SnapCenter 克隆创建操作中将此脚本作为挂载操作脚本添加。</block>
+  <block id="19cc491dd4ab0c0c23981caff6da1749" category="paragraph">在`env-from-sc.txt`文件中、查找变量`clone-volumes_mount_path`以获取FlexClone卷的存储系统IP地址和接合路径。</block>
+  <block id="a5db31eb7ca073c97cdc5059e6b1149e" category="inline-link-macro">接下来：使用SnapCenter 更新SAP HANA系统。</block>
+  <block id="2fbbbc8425272793c16625ea652d2aaa" category="paragraph"><block ref="2fbbbc8425272793c16625ea652d2aaa" category="inline-link-macro-rx"></block></block>
+  <block id="d1d283ed469f9cbb4c4f40ee4c2c78d0" category="summary">用于优化SAP生命周期管理的NetApp解决方案已集成到SAP AnyDB和SAP HANA数据库中。此外、NetApp还集成到SAP生命周期管理工具中、将高效的应用程序集成数据保护与灵活的SAP测试系统配置相结合。</block>
+  <block id="8133b664c0921de8f7cfeb9e67c3402e" category="doc">TR-4929：使用Libelle SystemCopy自动执行SAP系统复制操作</block>
+  <block id="6581ea45f3bd063045396c433f8b8673" category="paragraph">Holger Zecha、Tobias BRANDL、NetApp Franz Dieggruber、Libelle</block>
+  <block id="dd2d3355ce822b7021e69bb9d84e81f9" category="paragraph">不断变化的市场需求还会影响公司的SAP环境、因此需要定期集成、更改和更新。IT部门必须以更少的资源和更短的时间实施这些变更。要在部署这些变更时最大程度地降低风险、需要进行全面的测试和培训、这就需要使用生产中的实际数据创建更多的SAP系统。</block>
+  <block id="512e1d819a2e72bd976007357739c04d" category="paragraph">用于优化SAP生命周期管理的NetApp解决方案已集成到SAP AnyDB和SAP HANA数据库中。此外、NetApp还集成到SAP生命周期管理工具中、将高效的应用程序集成数据保护与灵活的SAP测试系统配置相结合。</block>
+  <block id="85843ef1a579ba31f7d2d08eee1f3767" category="inline-link">SAP同构系统副本指南</block>
+  <block id="2ff1b2a382b2aaf88d7989c339b64c0c" category="inline-link">Libelle</block>
+  <block id="5ef992ffc6cb882658d3affca1d6a660" category="inline-link">Libelle系统副本(LSC)</block>
+  <block id="577e0778dbb772e991e1ef7491d4a63d" category="inline-link">在创纪录的时间内完成完整的端到端自动化系统副本</block>
+  <block id="cb542b2dfbc4144e32b4ad8589d73ce9" category="paragraph">虽然这些NetApp解决方案可以解决问题描述 高效管理大量数据的问题、即使对于最大的数据库也是如此、但是完整的端到端SAP系统复制和刷新操作必须包括复制前和复制后活动、才能将源SAP系统的身份完全更改为目标系统。SAP在中介绍了所需的活动<block ref="0de971f1438283e76a91316d0d3300a0" category="inline-link-rx"></block>。为了进一步减少手动流程的数量并提高SAP系统复制流程的质量和稳定性、我们的合作伙伴表示<block ref="afdd381059116a8c46ab98bfde7cbd99" category="inline-link-rx"></block> 开发了<block ref="733635162e915754a49ad8c2e771a2c5" category="inline-link-rx"></block> 工具。我们已与Libelle合作、将适用于SAP系统副本的NetApp解决方案集成到LSC中以提供<block ref="08c74391aa9b631b71159d2b8e7655b7" category="inline-link-rx"></block>。</block>
+  <block id="d9693233c8bb371afd0a7faaa0c944bb" category="section-title">应用程序集成的Snapshot副本操作</block>
+  <block id="df1fdb1abc84b3d20f88397c73bba7ce" category="inline-link">Microsoft Azure应用程序一致的Snapshot工具</block>
+  <block id="2550d042e773faa90e9c72382941e7ca" category="paragraph">在存储层上创建应用程序一致的NetApp Snapshot副本是本文档所述系统副本和系统克隆操作的基础。基于存储的Snapshot副本可使用适用于SAP HANA或SAP的NetApp SnapCenter 插件在原生 NetApp ONTAP 系统上或通过使用创建<block ref="c71ed82ea3bb1854004aa6a0fd6774ad" category="inline-link-rx"></block> (AzAcSnap)和由Microsoft Azure中运行的SAP HANA和Oracle数据库提供的接口。使用SAP HANA时、SnapCenter 和AzAcSnap会将Snapshot副本注册到SAP HANA备份目录中、以便这些备份可用于还原和恢复以及克隆操作。</block>
+  <block id="c92c24a3b359481ce49bb324a8332db9" category="paragraph">应用程序一致的Snapshot副本可以在存储层复制到异地备份站点或由SnapCenter 内部控制的灾难恢复站点。复制基于块更改、因此可节省空间和带宽。通过使用跨区域复制(RCRR)功能在Azure区域之间高效复制Azure NetApp Files 卷、在采用Azure NetApp Files 的Azure中运行的SAP HANA和Oracle系统也可以使用相同的技术。</block>
+  <block id="d92849d4de6a2769ac5847c9d79a1640" category="section-title">使用任何Snapshot副本执行SAP系统副本或克隆操作</block>
+  <block id="789d2cc69d2afb78e02f72d73b164988" category="paragraph">通过NetApp技术和软件集成、您可以将源系统的任何Snapshot副本用于SAP系统副本或克隆操作。可以从SAP生产系统使用的同一存储、用于异地备份的存储(例如Azure中的Azure NetApp Files 备份)或灾难恢复站点上的存储(Azure NetApp Files CRR目标卷)中选择此Snapshot副本。这种灵活性使您可以根据需要将开发和测试系统与生产系统分开、并涵盖其他情形、例如在灾难恢复站点测试灾难恢复。</block>
+  <block id="77b7177c9e95eb53f805c69f8b7a862d" category="paragraph">配置SAP测试系统的场景和用例多种多样、您对自动化级别的要求可能也不同。适用于SAP的NetApp软件产品集成到SAP和其他第三方供应商(例如Libelle)的数据库和生命周期管理产品中、以支持不同的场景和自动化级别。</block>
+  <block id="bb8dcc59de9078f53fc58de9c2f7cee5" category="paragraph">带有适用于SAP HANA和SAP AnyDB或Azure上的AzAcSnap插件的NetApp SnapCenter 用于根据应用程序一致的Snapshot副本配置所需的存储卷克隆、并执行所有必要的主机和数据库操作、直到启动SAP数据库为止。根据使用情形、可能需要SAP系统副本、系统克隆、系统刷新或其他手动步骤、例如SAP后处理。下一节将介绍更多详细信息。</block>
+  <block id="8851fd3c41521c43b8872d5844987d90" category="paragraph">可以使用Libelle SystemCopy (LSC)自动化功能对SAP测试系统执行完全自动化的端到端配置或更新。本文档将更详细地介绍SnapCenter 或AzAcSnap与LSC的集成。</block>
+  <block id="31f2fe4efe97c6c07f6792cf857596b8" category="section-title">Libelle系统副本</block>
+  <block id="3d3d7012f3fc84e162e820c211555de4" category="paragraph">Libelle SystemCopy是一款基于框架的软件解决方案 、用于创建完全自动化的系统和横向副本。只需简单地轻触一个按钮、即可使用全新的生产数据更新QA和测试系统。Libelle SystemCopy支持所有传统数据库和操作系统、并为所有平台提供了自己的复制机制、但同时集成了备份/还原过程或存储工具、例如NetApp Snapshot副本和NetApp FlexClone卷。系统副本期间所需的活动可从SAP ABAP堆栈外部进行控制。这样、SAP应用程序就不需要进行任何传输或其他更改。通常、成功完成系统副本操作步骤 所需的所有步骤可分为四个步骤：</block>
+  <block id="1088566a14cfbaeba677e0abd83c10d5" category="list-text">*检查阶段。*检查涉及的系统环境。</block>
+  <block id="56a32c0278a7c01b44ab4ea945a636a0" category="list-text">*阶段前。*准备目标系统以进行系统副本。</block>
+  <block id="5b615fbc78e5d6145480840d167efffc" category="list-text">*复制阶段。*提供从源到目标系统的实际生产数据库副本。</block>
+  <block id="7fa823cd52bf8b21a23eb54e78e7926b" category="list-text">*后阶段。*副本之后完成同构系统副本操作步骤 并提供更新后的目标系统的所有任务。</block>
+  <block id="bd6d85bfbf8eed33fcd6d6195ba63e05" category="paragraph">在复制阶段、即使对于最大的数据库、也会使用NetApp Snapshot和FlexClone功能将所需时间降至最少几分钟。</block>
+  <block id="b950f3bf7751b53e112aa6665a1e0e31" category="paragraph">对于检查、预处理和后处理阶段、LSC会提供450多个预配置任务、涵盖95%的典型刷新操作。因此、LSC采用了符合SAP标准的自动化。由于LSC的软件定义特性、可以轻松调整和增强系统更新流程、以满足客户SAP环境的特定需求。</block>
+  <block id="d79a0116ae6180c79075dda925087409" category="section-title">SAP系统更新和克隆的用例</block>
+  <block id="f1615122fe3ee987c5398359f2dca8a8" category="paragraph">在多种情况下、源系统中的数据必须可供目标系统使用：</block>
+  <block id="b0b38c4cc3e591b6cdab5040cd71f242" category="list-text">定期更新质量保证以及测试和培训系统</block>
+  <block id="d88297c655f3ff29d2a1ec937fdd33a7" category="list-text">创建中断修复或修复系统环境以解决逻辑损坏问题</block>
+  <block id="a70c7e060a3886f8f55acde979d98f33" category="list-text">灾难恢复测试场景</block>
+  <block id="6f89f570d60963a6699473a3ff97bc26" category="paragraph">虽然修复系统和灾难恢复测试系统通常使用SAP系统克隆(不需要执行大量后处理操作)来更新测试和培训系统、但要与源系统共存、必须应用这些后处理步骤。因此、本文档重点介绍SAP系统更新场景。有关不同使用情形的更多详细信息、请参见技术报告<block ref="cd920b3d7d4dc41443c1d02db576233a" category="inline-link-rx"></block>。</block>
+  <block id="0a2e09fa683bd368c81839911e03b708" category="paragraph">本文档其余部分分为两部分。第一部分介绍了NetApp SnapCenter 与适用于SAP HANA的Libelle SystemCopy以及在内部NetApp ONTAP 系统上运行的SAP AnyDB系统的集成。第二部分介绍了AzAcSnap与在Microsoft Azure中运行的适用于SAP HANA系统的LSC以及所提供的Azure NetApp Files 的集成。尽管底层ONTAP 技术是相同的、但与 原生 ONTAP 安装相比、Azure NetApp Files 提供不同的接口和工具集成(例如AzAcSnap)。</block>
+  <block id="2068acecca0077fd3a48d2668542bccc" category="inline-link-macro">接下来：使用LSC和SnapCenter 更新SAP HANA系统。</block>
+  <block id="901dbde8a2b798f61a514b189d3ac126" category="paragraph"><block ref="901dbde8a2b798f61a514b189d3ac126" category="inline-link-macro-rx"></block></block>
+  <block id="3af0a07313f24e03257baf4f77dca35c" category="summary">在多种情况下、必须将源系统中的数据提供给目标系统、以便用于测试或培训目的。必须定期使用源系统中的数据更新这些测试和培训系统、以确保使用当前数据集执行测试和培训。</block>
+  <block id="8632014b0a82d2a229bc13ad57a2ac7e" category="doc">系统更新和克隆的用例</block>
+  <block id="05ac89336715d6f26191f1492a1fb31a" category="inline-link-macro">先前版本：SAP系统复制、刷新和克隆情形。</block>
+  <block id="d8dd073dd8b75a463357b52dfc5ba25d" category="paragraph"><block ref="d8dd073dd8b75a463357b52dfc5ba25d" category="inline-link-macro-rx"></block></block>
+  <block id="16fc6bd74d4496ed31fe8ee50e1887ee" category="section-title">对QA、测试、沙盒或培训系统进行数据刷新</block>
+  <block id="496f6480899827292afdc45c94aabc78" category="paragraph">在多种情况下、必须将源系统中的数据提供给目标系统、以便用于测试或培训目的。必须定期使用源系统中的数据更新这些测试和培训系统、以确保使用当前数据集执行测试和培训。这些系统更新操作包括基础架构层、数据库层和应用程序层上的多个任务、它们可能需要数天时间、具体取决于自动化级别。</block>
+  <block id="4ef50dae8742b31bd8ec2d69e25fdef1" category="paragraph">下图显示了SAP系统刷新、复制和克隆操作。</block>
+  <block id="031d22d85a5da16f3ba181da66c12ecd" category="paragraph"><block ref="031d22d85a5da16f3ba181da66c12ecd" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="461e187f7dadcae3439069c475efba9c" category="paragraph">SnapCenter 克隆工作流可用于加速和自动化基础架构层和数据库层上的所需任务。SnapCenter 不会将备份从源系统还原到目标系统、而是使用NetApp Snapshot副本和NetApp FlexClone技术、这样、在几分钟内即可完成启动的HANA数据库所需的任务、而无需花费数小时、如下图所示。克隆过程所需的时间与数据库大小无关、因此即使是非常大的系统也可以在几分钟内创建完毕。</block>
+  <block id="d1a24aa3152d972fcab200a268e7235f" category="paragraph">下图显示了QA、测试、沙盒或培训系统的数据刷新。</block>
+  <block id="bcc93bdc05fd8eec85752da1e432d248" category="paragraph"><block ref="bcc93bdc05fd8eec85752da1e432d248" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="00b4ead5541ced0624c52fdc64a84c14" category="inline-link-macro">《使用SnapCenter 更新SAP HANA系统》。</block>
+  <block id="42f2ef2ba52b6a85eaf58f1a330f7210" category="paragraph">一节介绍了系统刷新操作的工作流 <block ref="e55292fa4cf2ac9dc22d1926cd366aca" category="inline-link-macro-rx"></block></block>
+  <block id="c93a3b395dcad6d7d4701c7ae95fc9d7" category="section-title">解决逻辑损坏问题</block>
+  <block id="af5083b35bb63e06e5abf6eb41bc6a64" category="paragraph">逻辑损坏可能是由软件错误，人为错误或破坏引起的。遗憾的是，使用标准高可用性和灾难恢复解决方案往往无法解决逻辑损坏问题。因此、根据发生逻辑损坏的层、应用程序、文件系统或存储、有时可能无法满足最短停机时间和最大数据丢失要求。</block>
+  <block id="a57853f44c435f203fab190cb2f37b09" category="paragraph">最糟糕的情况是SAP应用程序中的逻辑损坏。SAP 应用程序通常在不同应用程序相互通信并交换数据的环境中运行。因此，不建议使用还原和恢复发生逻辑损坏的 SAP 系统。将系统还原到损坏发生前的某个时间点会导致数据丢失。此外， SAP 环境将不再同步，需要额外的后处理。</block>
+  <block id="40d7615d00f208b51b1e36048899ef14" category="paragraph">更好的方法是尝试通过在单独的修复系统中分析问题来修复系统中的逻辑错误、而不是还原SAP系统。根发生原因分析需要业务流程和应用程序所有者的参与。在这种情况下，您可以根据发生逻辑损坏之前存储的数据创建修复系统（生产系统的克隆）。在修复系统中，可以将所需数据导出并导入到生产系统中。通过这种方法、生产系统无需停止、在最佳情况下、不会丢失任何数据、也不会丢失一小部分数据。</block>
+  <block id="2791cdc032a8ce86baaddd3e7e010995" category="paragraph">设置修复系统时、灵活性和速度至关重要。对于基于NetApp存储的Snapshot备份、可以使用NetApp FlexClone技术使用多个一致的数据库映像来创建生产系统的克隆、如下图所示。如果使用基于文件的备份的重定向还原来设置修复系统、则只需几秒钟即可创建FlexClone卷、而不是多小时。</block>
+  <block id="c1e885ff16ee900105c65331fffef05d" category="paragraph"><block ref="c1e885ff16ee900105c65331fffef05d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3d7345edeeb5411d19faf37f4b0c3c2b" category="inline-link-macro">"使用SnapCenter 克隆SAP系统。"</block>
+  <block id="cd54fd82fa6c906e20ebfd1a171d8845" category="paragraph">一节介绍了修复系统创建的工作流 <block ref="cfd6c85725a07b8a62d48c44cdaafa1a" category="inline-link-macro-rx"></block></block>
+  <block id="5286abcb37bc2a905758c905666d0e5d" category="paragraph">有效的灾难恢复策略需要测试所需的工作流。测试可证明该策略是否有效、以及内部文档是否足以满足要求。此外、管理员还可以通过它对所需的过程进行培训。</block>
+  <block id="f693601db2c33356395c1020a3b09d61" category="paragraph">使用SnapMirror进行存储复制可以执行灾难恢复测试、而不会使RTO和RPO面临风险。可以在不中断数据复制的情况下执行灾难恢复测试。</block>
+  <block id="f4ee3b1ed515524d4ecf1ed0eb6009df" category="paragraph">异步和同步SnapMirror的灾难恢复测试会在灾难恢复目标上使用Snapshot备份和FlexClone卷。</block>
+  <block id="7e6c953c75eaf106e6a44189131fd8f0" category="paragraph">下图显示了灾难恢复测试。</block>
+  <block id="53b525b68641353affc24f8c4e64c1d2" category="paragraph"><block ref="53b525b68641353affc24f8c4e64c1d2" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="23d78a8119a85afc982e82f6af3a08a0" category="paragraph">有关详细的分步问题描述 、请参见技术报告<block ref="52b379c796572c84dee3ce1ed1c3826b" category="inline-link-rx"></block>。</block>
+  <block id="ccb696a8a182ac023820c12f0d2215f2" category="inline-link-macro">接下来：使用SnapCenter 的SAP系统刷新工作流概述。</block>
+  <block id="93340f7f28c1267d08165625e5161a29" category="paragraph"><block ref="93340f7f28c1267d08165625e5161a29" category="inline-link-macro-rx"></block></block>
+  <block id="270e0c458007c88cf15cb7fbdb4890eb" category="summary">本节将为SAP HANA数据库的不同系统刷新操作选项提供分步问题描述。</block>
+  <block id="ed6366424ce9a66f8fb6ed2d75c90f8a" category="doc">使用SnapCenter 更新SAP HANA系统</block>
+  <block id="808254f0550776a888bafd3ac4970807" category="inline-link-macro">上一步：自动化示例脚本。</block>
+  <block id="62f57e3cd1fce3aeb1f6294921b8c2cb" category="paragraph"><block ref="62f57e3cd1fce3aeb1f6294921b8c2cb" category="inline-link-macro-rx"></block></block>
+  <block id="b28e3552f08f48399d98c4e3f2ebf170" category="paragraph">下一节将为SAP HANA数据库的不同系统刷新操作选项提供分步问题描述。</block>
+  <block id="ca6901d32a1871c68df005c11893ef03" category="paragraph">本节将介绍以下情形。</block>
+  <block id="2a995a569260d18dbea0c475b32b5070" category="list-text">无需执行克隆拆分操作即可刷新SAP HANA系统。</block>
+  <block id="577d45313453f242dbed0d7091f85dd2" category="list-text">从租户名称等于SID的主存储克隆</block>
+  <block id="0519c794e8dee044b6955a224b3fd694" category="list-text">从租户名称等于SID的异地备份存储克隆</block>
+  <block id="1694cd7363603670d079a64892e40f2e" category="list-text">从租户名称不等于SID的主存储克隆</block>
+  <block id="f5dda657758ce85749d3b1d78126301c" category="list-text">克隆删除操作</block>
+  <block id="eec94e3f3d2ba5db3a1e72117c9ba511" category="list-text">通过克隆拆分操作刷新SAP HANA系统</block>
+  <block id="25c0305dfdc1e02814116467a7b1157d" category="list-text">克隆拆分操作</block>
+  <block id="df239f38953986dc1710f0064101678e" category="paragraph"><block ref="df239f38953986dc1710f0064101678e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="549857ff78ff15b9e6eef9c923be04a8" category="list-text">所述工作流适用于具有单个或多个租户的单主机SAP HANA MDC系统。自动化脚本不支持SAP HANA多主机系统。</block>
+  <block id="4d00e36a56a9005825e75e625320710e" category="list-text">要执行自动化脚本、必须在目标主机上部署SnapCenter HANA插件。HANA源系统主机上不需要安装HANA插件。</block>
+  <block id="04e121499bbff104b16f959e82fdc314" category="list-text">所述工作流仅适用于SnapCenter 4.6 P1或更高版本。较旧版本的工作流略有不同。</block>
+  <block id="10b6f8ea3f6024502051c00f3b3b0b95" category="list-text">这些工作流适用于使用NFS和FCP的HANA系统。</block>
+  <block id="37225e9225b6516b9c93db3aa013bf01" category="paragraph">下图显示了用于不同系统刷新操作选项的实验室设置。</block>
+  <block id="fe9696b9b6183d7296d0f7aa65607960" category="list-text">从主存储或异地备份存储克隆；租户名称等于SID。</block>
+  <block id="138283049fef5ee154f142eed601b5d6" category="list-text">源HANA系统：带有租户SS1的SS1</block>
+  <block id="aff8e91d94f3ad4019e97e0b4ea356ae" category="list-text">目标HANA系统：使用租户QS1的QS1</block>
+  <block id="ea9d307953e5c9d327e185c56c644cc8" category="list-text">从主存储克隆；租户名称不等于SID。</block>
+  <block id="487bb1c30f5b6f5ae0ef610473fdf2e7" category="list-text">源HANA系统：带有Tanant1和租户2的SM1</block>
+  <block id="d0e79a527c5c25c3a33fc58ffd7c3cf5" category="list-text">目标HANA系统：采用租户1的QS1</block>
+  <block id="02ab5e821b3157aebb569eef485fa62b" category="list-text">SnapCenter 4.6 P1</block>
+  <block id="b1ae86bc2b6247190d86e3b5e996c089" category="list-text">HANA系统：HANA 2.0 SPS6修订版61和HANA 2.0 SPS5修订版52</block>
+  <block id="bdb9d4569afec846fc12c6671235c013" category="list-text">ONTAP 9.7P7</block>
+  <block id="93e2ec534a7e1e8ee8969d773ba67200" category="paragraph">所有HANA系统均根据配置指南进行配置<block ref="9042a1cec9cc6f21384e148006094985" category="inline-link-rx"></block>。SnapCenter 和HANA资源是根据最佳实践指南进行配置的<block ref="f70d28502828defa3eb13d3b730673fb" category="inline-link-rx"></block>。</block>
+  <block id="713278b17c5cd7faa41b36cab2cd3bf1" category="paragraph"><block ref="713278b17c5cd7faa41b36cab2cd3bf1" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f730f78b62e0154b1968bf5a9cfaa272" category="section-title">初始一次性准备步骤</block>
+  <block id="63c1495b9d918ac3c7b4a93cbe522b61" category="paragraph">在初始步骤中、必须安装目标HANA系统和SAP应用程序服务、然后必须在SnapCenter 中配置HANA系统。</block>
+  <block id="55caeb55e7746649bb2f1b652c080d85" category="list-text">安装HANA目标系统和SAP应用程序服务</block>
+  <block id="be9dc20d998d7ee2c72693d2cc60c146" category="list-text">在SnapCenter 中配置HANA系统、如中所述<block ref="7d612f806d1e07d1f3292801524311f8" category="inline-link-rx"></block></block>
+  <block id="fb8729d55caeeef457cfc3e2a43785ec" category="list-text">配置用于SnapCenter 备份操作的HANA数据库用户。此用户在源系统和目标系统上必须相同。</block>
+  <block id="39bbfe03089cb7b26b516f3bc9e2d339" category="list-text">为上述备份用户配置hdbuserstore密钥。</block>
+  <block id="59747ddc5dc366ea4ef5ef2a6377f839" category="list-text">在目标主机上部署SnapCenter HANA插件。SnapCenter 会自动发现HANA系统。</block>
+  <block id="acf3db297a0ad4bb5ffe3672ff5e2cb4" category="list-text">配置HANA资源保护(可选)。</block>
+  <block id="c339e6217e1e3820b4e0049fdf784407" category="paragraph">初始安装后的首次SAP系统刷新操作将按以下步骤进行准备：</block>
+  <block id="192e0eea8d38ced1355dab03d63f645e" category="list-text">关闭SAP应用程序服务和目标HANA系统。</block>
+  <block id="d44c7e15d174646982dd84b2b319ab03" category="list-text">卸载HANA数据卷。</block>
+  <block id="d15ae9c4b3386df38b1c8b39d279b83b" category="section-title">从租户名称等于SID的主存储克隆</block>
+  <block id="4cb440919c14b7b5becb14d046d8cbd2" category="paragraph">本节介绍HANA系统刷新工作流、其中源系统和目标系统上的租户名称与SID相同。存储克隆在主存储上执行、并使用脚本`sc-system-refresh.sh`进一步实现自动化。</block>
+  <block id="5573f8a92c5b5d3d2e529b15cacad43f" category="paragraph">下图显示了从租户名称= SID的主存储克隆。</block>
+  <block id="2bf5c8938c42515ad64387b48218a975" category="paragraph"><block ref="2bf5c8938c42515ad64387b48218a975" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="bf53d2bd10de0b4d63b8b4e5961de63a" category="paragraph">此工作流包括以下步骤：</block>
+  <block id="07c961d286f81d1b5db9494f6035284f" category="list-text">如果目标HANA系统已在SnapCenter 中受到保护、则必须先删除保护。</block>
+  <block id="14ec8064529be3c2a6ffe3291f642e34" category="list-text">打开SnapCenter 克隆向导。</block>
+  <block id="b732ccdc3bf0ac2eceafe40d284c26ba" category="list-text">从源HANA系统SS1中选择Snapshot备份。</block>
+  <block id="c5bc1108bafaeb9ba090c6a052e5414a" category="list-text">选择目标主机并为其提供存储网络接口。</block>
+  <block id="a54279d2a51634ebef5deaa1d8116b38" category="list-text">提供目标系统的SID (在本示例中为QS1)。</block>
+  <block id="eba76588ce04243b401c5094333bd738" category="list-text">提供挂载和克隆后操作的脚本。</block>
+  <block id="7947e028a44fed4e753a83137b2c74d1" category="list-text">要执行SnapCenter 克隆操作、请完成以下步骤：</block>
+  <block id="bef154bddec648665d006827252d3def" category="list-text">根据源HANA系统的选定Snapshot备份创建FlexClone卷。</block>
+  <block id="173f11496853aa1e59d7f974652558d1" category="list-text">将FlexClone卷导出到目标主机存储网络接口。</block>
+  <block id="23fd77fb734d35c9438efda6db8a81aa" category="list-text">执行挂载操作脚本。</block>
+  <block id="d9bb55c29020321c081427f79add7a65" category="list-text">FlexClone卷作为数据卷挂载在目标主机上。</block>
+  <block id="1ae80716711a2da01db96f27079fa144" category="list-text">将所有权更改为qs1adm。</block>
+  <block id="adfc4f5f95fd14fe5e97864c6d86f868" category="list-text">执行克隆后操作脚本。</block>
+  <block id="3341903edb9816045da3c0ee4d66d7c0" category="list-text">恢复系统数据库。</block>
+  <block id="b60470565d8fe8651182cb2c066bac7d" category="list-text">恢复租户名称= QS1的租户数据库。</block>
+  <block id="adc2b9c278da13b528d00324aaeb5cdd" category="list-text">启动SAP应用程序服务。</block>
+  <block id="e1c708e2804c337ef823929e99a3455d" category="list-text">也可以在SnapCenter 中保护目标HANA资源。</block>
+  <block id="c5ba90ff83ae13b97d609a49e54c1ae6" category="paragraph">以下屏幕截图显示了所需的步骤。</block>
+  <block id="f004e2eef151bcdf5bd7ea895d76ca67" category="list-text">从源系统SS1中选择Snapshot备份、然后单击从备份克隆。</block>
+  <block id="3d6e57c014fe290dc79aa90e27dddf88" category="paragraph"><block ref="3d6e57c014fe290dc79aa90e27dddf88" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2beea213cf9a65bc8a70c66c0f77391d" category="list-text">选择安装目标系统QS1的主机。输入QS1作为目标SID。NFS导出IP地址必须是目标主机的存储网络接口。</block>
+  <block id="43fd51d416af6e9f18b014529be516b2" category="admonition">此处输入的目标SID用于控制SnapCenter 管理克隆的方式。如果目标主机上的SnapCenter 中已配置目标SID、则SnapCenter 只需将克隆分配给主机即可。如果未在目标主机上配置SID、SnapCenter 将创建一个新资源。</block>
+  <block id="758363fa84c32651f9292f2a5cc32a28" category="paragraph"><block ref="758363fa84c32651f9292f2a5cc32a28" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="92e40993ee50730e77531cba9693e2c8" category="list-text">使用所需的命令行选项输入挂载和克隆后脚本。</block>
+  <block id="1da094df1dab4d426de4957e68eb4990" category="paragraph"><block ref="1da094df1dab4d426de4957e68eb4990" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="9d94d2cd136d267b823119465ff12cce" category="list-text">SnapCenter 中的"作业详细信息"屏幕显示操作的进度。作业详细信息还显示、包括数据库恢复在内的整体运行时间不到2分钟。</block>
+  <block id="668232ce8d31f584760f2f4a5780959e" category="paragraph"><block ref="668232ce8d31f584760f2f4a5780959e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="15ad79b2ed70013562c0d01be6d5c47a" category="list-text">`sc-system-refresh.sh`脚本的日志文件显示了为挂载和恢复操作执行的不同步骤。该脚本会自动检测到源系统只有一个租户、并且名称与源系统SID SS1完全相同。因此、此脚本已恢复租户名称为QS1的租户。</block>
+  <block id="ae412af2cf9a8a129cdb2a54dad8cbeb" category="inline-link-macro">《使用存储快照备份的SAP HANA系统刷新操作工作流》、</block>
+  <block id="afcb1f460a479b434bc2e1c6660ebbcd" category="admonition">如果源租户名称与源租户SID相同、但与默认租户配置标志相同、如一节所述 <block ref="ed7f275ab757734a24425cd920afe9f7" category="inline-link-macro-rx"></block> 不再设置、恢复操作将失败、必须手动执行。</block>
+  <block id="0b5d0b2bad6c93484f679ba8419a784f" category="list-text">SnapCenter 作业完成后、克隆将显示在源系统的拓扑视图中。</block>
+  <block id="88f19da46d22f2f8414d0a0a8867a6b6" category="paragraph"><block ref="88f19da46d22f2f8414d0a0a8867a6b6" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="eb7be2e609f53d976252980a5fb13056" category="list-text">HANA数据库现在正在运行、SAP应用程序服务可以启动。</block>
+  <block id="fd11ad04c8bb5382877ffe14a2c9c2b9" category="list-text">如果要保护目标HANA系统、必须在SnapCenter 中配置资源保护。</block>
+  <block id="bb78481c3ee74e7c2f67d913b4b7b5ef" category="paragraph"><block ref="bb78481c3ee74e7c2f67d913b4b7b5ef" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="77dab2103eaa63111d90367492942c5d" category="section-title">从租户名称等于SID的异地备份存储克隆</block>
+  <block id="dcc6549ce81731114e4cf1ce74ef63ca" category="paragraph">本节介绍源系统和目标系统上的租户名称与SID相同的HANA系统刷新工作流。存储克隆在异地备份存储上执行、并使用脚本`sc-system-refresh.sh`进一步实现自动化。</block>
+  <block id="a1004bdbfd5d0adc8808c6558359668c" category="paragraph"><block ref="a1004bdbfd5d0adc8808c6558359668c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="29cec1274f240553a4ff462962cb67ef" category="paragraph">主备份存储克隆与异地备份存储克隆之间的HANA系统刷新工作流唯一不同之处在于在SnapCenter 中选择了Snapshot备份。对于异地备份存储克隆、必须先选择二级备份。</block>
+  <block id="837e411cb06fd2fb7816981174a4edc4" category="paragraph"><block ref="837e411cb06fd2fb7816981174a4edc4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="157c12f15ead2ce03155298b5993cf4c" category="paragraph">如果选定备份具有多个二级存储位置、则需要选择所需的目标卷。</block>
+  <block id="327d949e6fd9f7292c445b433b47a8c5" category="paragraph"><block ref="327d949e6fd9f7292c445b433b47a8c5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="78184728d775ae4a002e4a173ee4900a" category="paragraph">所有后续步骤均与""一节所述的从主存储克隆的工作流相同<block ref="c97beb62b14d7af628661ab1b7083442" category="inline-xref-macro-rx"></block>。 "</block>
+  <block id="76aa27a87d3422dbfbd64167d0ee13a1" category="section-title">从租户名称不等于SID的主存储克隆</block>
+  <block id="246cdc6844a0e538e4f6603d3729feee" category="paragraph">本节介绍HANA系统刷新工作流、其中源上的租户名称与SID不相等。存储克隆在主存储上执行、并使用脚本`sc-system-refresh.sh`进一步实现自动化。</block>
+  <block id="4673c340c8aa985d02926436427cf9eb" category="paragraph"><block ref="4673c340c8aa985d02926436427cf9eb" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fb5bae147fa2b5448fb954976b70afc3" category="paragraph">SnapCenter 中所需的步骤与""一节中所述的步骤相同<block ref="c97beb62b14d7af628661ab1b7083442" category="inline-xref-macro-rx"></block>。"] 不同之处在于脚本`sc-system-refresh.sh`中的租户恢复操作。</block>
+  <block id="2b68c12375c80ea7202f0761c4fec2f7" category="paragraph">如果此脚本检测到源系统租户名称与源系统SID不同、则会使用与源租户相同的租户名称在目标系统上执行租户恢复。如果目标租户名称应具有其他名称、则必须在之后手动重命名此租户。</block>
+  <block id="1dbd1d4931ef272ce46f923c3cc14deb" category="admonition">如果源系统具有多个租户、则此脚本仅会恢复第一个租户。必须手动恢复其他租户。</block>
+  <block id="3a6409fe6b4d53ff3f6b240aac5341a9" category="paragraph">新的SAP HANA系统刷新操作可通过使用SnapCenter 克隆删除操作清理目标系统来启动。</block>
+  <block id="e2ce46f9cc8de206cfbfd637042c4b0b" category="admonition">SAP应用程序服务不会随SnapCenter 克隆删除工作流停止。可以在关闭功能中扩展此脚本、也可以手动停止应用程序服务。</block>
+  <block id="a3401f0667947c2b63c2b4a3fed9e267" category="paragraph">如果目标HANA系统已在SnapCenter 中受到保护、则必须先删除此保护。在目标系统的拓扑视图中、单击删除保护。</block>
+  <block id="989eccbebcc495e2fe59a81e515b0985" category="paragraph"><block ref="989eccbebcc495e2fe59a81e515b0985" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3e15eddacbaee9932214636dff97abc2" category="paragraph"><block ref="3e15eddacbaee9932214636dff97abc2" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="90c309f11ecd1ac79e33675f70945513" category="paragraph">此时、克隆删除工作流将按以下步骤执行：</block>
+  <block id="be9bc84ed210547ec7c14180e17bf5b9" category="list-text">在源系统的拓扑视图中选择克隆、然后单击删除。</block>
+  <block id="4ad31e486af5b781eb51270c2d16f306" category="paragraph"><block ref="4ad31e486af5b781eb51270c2d16f306" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fd3b9e0c6370bb8b1bc50684358716e2" category="list-text">使用所需的命令行选项输入克隆前和卸载脚本。</block>
+  <block id="61602eb9c1606a0cc9997652ab5014da" category="paragraph"><block ref="61602eb9c1606a0cc9997652ab5014da" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e33bfba94c90e7d4b42f179784bd6f9e" category="paragraph"><block ref="e33bfba94c90e7d4b42f179784bd6f9e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ab6c6ce6391f56063487189d2fcf7a78" category="list-text">`sc-system-refresh.sh`脚本的日志文件显示了关闭和卸载操作步骤。</block>
+  <block id="651c5cde8d72dbd0c53ab15e99678b9b" category="list-text">现在、可以使用SnapCenter 克隆创建操作重新启动SAP HANA刷新操作。</block>
+  <block id="eefd7414dd589e4a4133686b9fc64373" category="section-title">执行克隆拆分操作的SAP HANA系统刷新</block>
+  <block id="803bcd228d1c94485bf2b18ff9f11f49" category="paragraph">如果系统刷新操作的目标系统使用时间较长(超过1-2周)、则通常不会节省任何FlexClone容量。此外、SnapCenter 保留管理也会阻止源系统的相关Snapshot备份、并且不会将其删除。</block>
+  <block id="08eaabb3aed4565ef294e8813596fa2e" category="paragraph">因此、在大多数情况下、在系统刷新操作中拆分FlexClone卷是有意义的。</block>
+  <block id="9cb37b148747af7977290265de6e3e8e" category="admonition">克隆拆分操作不会阻止使用克隆的卷、因此可以在使用HANA数据库时随时执行。</block>
+  <block id="360ba780d29018e88a0631d411374c56" category="admonition">通过克隆拆分操作、SnapCenter 会删除在SnapCenter 存储库中的目标系统上创建的所有备份。对于NetApp AFF 系统、克隆拆分操作会将Snapshot副本保留在卷上；只有对于FAS 系统、ONTAP 才会删除Snapshot副本。这是SnapCenter 中的一个已知错误、将在未来版本中予以解决。</block>
+  <block id="0760f364c123ffeb65230ca87dd8d091" category="paragraph">SnapCenter 中的克隆拆分工作流可通过选择克隆并单击克隆拆分在源系统的拓扑视图中启动。</block>
+  <block id="9af9c37e3998035f8bc3f6a36b5bdda8" category="paragraph"><block ref="9af9c37e3998035f8bc3f6a36b5bdda8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0bb89be537550b86187cea5cf67ac2da" category="paragraph">下一屏幕将显示一个预览、其中提供了有关拆分卷所需容量的信息。</block>
+  <block id="c7d002d1f2e180b92480b04daf204c3e" category="paragraph"><block ref="c7d002d1f2e180b92480b04daf204c3e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="32da2ef1aadc17a0c37d725aa68059c6" category="paragraph">SnapCenter 作业日志显示克隆拆分操作的进度。</block>
+  <block id="75caa100dec7744d82e6a0dddbbe4934" category="paragraph"><block ref="75caa100dec7744d82e6a0dddbbe4934" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b1f6480dba4de873a5c13f1a5eb6cb22" category="paragraph">返回到源系统的拓扑视图时、克隆不再可见。现在、拆分的卷独立于源系统的Snapshot备份。</block>
+  <block id="4e279ef56c8dec1eb92fb5b6e29f4a53" category="paragraph"><block ref="4e279ef56c8dec1eb92fb5b6e29f4a53" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c1581e8de0ba932c7d6f7e03047baaa5" category="paragraph"><block ref="c1581e8de0ba932c7d6f7e03047baaa5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="875e31e8ed3564eab8486ddbbf14da98" category="paragraph">克隆拆分操作后的刷新工作流看起来与不执行克隆拆分操作的刷新工作流略有不同。执行克隆拆分操作后、无需执行克隆删除操作、因为目标数据卷不再是FlexClone卷。</block>
+  <block id="44b1c469b04e22c1b02dfc159d42b76f" category="list-text">如果目标HANA系统已在SnapCenter 中受到保护、则必须先删除此保护。</block>
+  <block id="a3a1751a895917b2a93271ecd142a988" category="list-text">进入SnapCenter 克隆向导。</block>
+  <block id="9b7d4441890df21b59985f2678aecdbf" category="list-text">从源HANA系统SS1中选择Snapshot备份。</block>
+  <block id="c28023e6646ca3cb43502a132cd326bf" category="list-text">选择目标主机并提供目标主机的存储网络接口。</block>
+  <block id="34e82d25d19905b44504ec1f9a6074e0" category="list-text">提供克隆前、挂载和克隆后操作的脚本。</block>
+  <block id="955fc654ce08874287363442ae3a05e7" category="list-text">SnapCenter 克隆操作。</block>
+  <block id="c6b0b90b778034587b6c6ec42e911ba3" category="list-text">将所有权更改为qs1adm。</block>
+  <block id="9d811d9640890f043797b252de118ff9" category="list-text">恢复系统数据库。</block>
+  <block id="89323a923dd015f1c1a63e0e7b037191" category="list-text">恢复租户名称为QS1的租户数据库。</block>
+  <block id="8ed643b400f5b8818c206d496ca25b2a" category="list-text">手动删除旧的拆分目标卷。</block>
+  <block id="2da0fbf285f68c883efe64e56c6fb6a8" category="list-text">从源系统SS1中选择Snapshot备份、然后单击从备份克隆。</block>
+  <block id="39413e8f3a99f75b4799f7561d4b5e28" category="paragraph"><block ref="39413e8f3a99f75b4799f7561d4b5e28" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d8167b3338beef6747a1140d7dbb1db4" category="admonition">此处输入的目标SID用于控制SnapCenter 管理克隆的方式。如果目标主机上的SnapCenter 中已配置目标SID、则SnapCenter 只需将克隆分配给主机即可。如果未在目标主机上配置SID、SnapCenter 将创建一个新资源。</block>
+  <block id="4278fbd4b12a3d37e896d2fb2c50112a" category="paragraph"><block ref="4278fbd4b12a3d37e896d2fb2c50112a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f16fb3c3571534cf8d9dab0d59140a70" category="list-text">使用所需的命令行选项输入克隆前、挂载和克隆后脚本。在克隆前步骤中、使用脚本关闭HANA数据库并卸载数据卷。</block>
+  <block id="075ef9c0fea2bfef2fedf09421e97520" category="paragraph"><block ref="075ef9c0fea2bfef2fedf09421e97520" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4c3598a628eabf81182fedcb2644641a" category="list-text">SnapCenter 中的作业详细信息屏幕将显示操作进度。作业详细信息还显示、包括数据库恢复在内的整体运行时间不到2分钟。</block>
+  <block id="2773ed031ad7078870b82d19da26d408" category="paragraph"><block ref="2773ed031ad7078870b82d19da26d408" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0879aa8ce4f24e250f4ff6b532ca0e85" category="list-text">`sc-system-refresh.sh`脚本的日志文件显示了为关闭、卸载、挂载和恢复操作执行的不同步骤。该脚本会自动检测到源系统只有一个租户、并且名称与源系统SID SS1完全相同。因此、此脚本已恢复租户名称为QS1的租户。</block>
+  <block id="0dea17e6f635ab0c3868e15ed7f49829" category="list-text">执行刷新操作后、旧的目标数据卷仍存在、必须使用ONTAP 系统管理器等手动将其删除。</block>
+  <block id="76a5308fe89a8e782a72010d9a7ee852" category="section-title">使用PowerShell脚本实现SnapCenter 工作流自动化</block>
+  <block id="c0ff26b620598b6000a1bcf255a128c6" category="paragraph">在前面几节中、使用SnapCenter UI执行了不同的工作流。所有工作流也可以使用PowerShell脚本或REST API调用执行、从而实现进一步的自动化。以下各节介绍了以下工作流的基本PowerShell脚本示例。</block>
+  <block id="2021b3b77c933e0e9fc9d56a3a552caf" category="list-text">创建克隆</block>
+  <block id="12ed4152d6bd08ebcd4e8d515069f7a5" category="list-text">删除克隆</block>
+  <block id="37ba622841aed0dc2e49254702244420" category="admonition">示例脚本按原样提供、NetApp不支持。</block>
+  <block id="2cbd77b31c264f22e56a266062e0b76e" category="paragraph">必须在PowerShell命令窗口中执行所有脚本。在运行这些脚本之前、必须使用`Open-SmConnection`命令与SnapCenter 服务器建立连接。</block>
+  <block id="81040d6711353f30feae62b8255cac0a" category="paragraph">下面的简单脚本演示了如何使用PowerShell命令执行SnapCenter 克隆创建操作。SnapCenter `New-SmClone`命令可使用之前讨论的实验室环境和自动化脚本所需的命令行选项来执行。</block>
+  <block id="f01358f0b3c6557b9a0d6ca899e3caeb" category="paragraph">屏幕输出显示了克隆create powershell脚本的执行情况。</block>
+  <block id="60af87a36f879c4e11b6fe3ca1c7243f" category="paragraph">下面的简单脚本演示了如何使用PowerShell命令执行SnapCenter 克隆删除操作。使用之前讨论的实验室环境和自动化脚本所需的命令行选项执行SnapCenter `Remove-SmClone`命令。</block>
+  <block id="e76ca097f489e790c48bef1cede72490" category="paragraph">屏幕输出将显示克隆删除PowerShell脚本的执行情况。</block>
+  <block id="a8cbe653a38b6555478292c8201083cd" category="inline-link-macro">接下来：使用SnapCenter 克隆SAP系统。</block>
+  <block id="ae5345c78ae9296598fefd8e5dabcec9" category="paragraph"><block ref="ae5345c78ae9296598fefd8e5dabcec9" category="inline-link-macro-rx"></block></block>
+  <block id="1ac85619672d3775188dd5a646cde2e7" category="summary">在Azure上使用适用于SAP HANA、Oracle和DB2的Azure NetApp Files 为客户提供了NetApp ONTAP 的高级数据管理和数据保护功能以及原生 Microsoft Azure NetApp Files 服务。</block>
+  <block id="7795765c3d2e54c77f3ddad7877f93e2" category="doc">使用LSC、AzAcSnap和Azure NetApp Files 更新SAP HANA系统</block>
+  <block id="9feb37412183993901b30e7332fad66e" category="inline-link-macro">先前版本：使用LSC和SnapCenter 更新SAP HANA系统。</block>
+  <block id="a6f1cf5ecbcd4076fb2a189488d4b908" category="paragraph"><block ref="a6f1cf5ecbcd4076fb2a189488d4b908" category="inline-link-macro-rx"></block></block>
+  <block id="fa93527877c31a5c6e9ce20800f4865c" category="inline-link">适用于SAP HANA的Azure NetApp Files</block>
+  <block id="e55759cd3f81e064f2a8f339a6c05115" category="inline-link">AzAcSnap</block>
+  <block id="09f21139c961e6762596c00d8a70ff85" category="paragraph">使用<block ref="e44e132e965fcb8ded073c9571f6e761" category="inline-link-rx"></block>在Azure上运行的原生 、Oracle和DB2为客户提供了NetApp ONTAP 的高级数据管理和数据保护功能以及Microsoft Azure NetApp Files 服务。<block ref="5970ce2e45a53257e469b102e0b782c9" category="inline-link-rx"></block> 是快速执行SAP系统刷新操作以创建SAP HANA和Oracle系统的应用程序一致的NetApp Snapshot副本的基础(AzAcSnap目前不支持DB2)。</block>
+  <block id="46218e7d3d10ced22363fc51163a8631" category="paragraph">Snapshot副本备份是在备份策略中按需或定期创建的、随后可以高效克隆到新卷、并用于快速刷新目标系统。AzAcSnap提供了创建备份并将其克隆到新卷所需的工作流、而Libelle SystemCopy则执行全面的端到端系统刷新所需的预处理和后处理步骤。</block>
+  <block id="eaa4caa91e8a756ac88c72f7fa40f7ef" category="paragraph">在本章中、我们将介绍使用AzAcSnap和Libelle SystemCopy以及SAP HANA作为基础数据库的自动化SAP系统刷新。由于AzAcSnap也可用于Oracle、因此也可以使用适用于Oracle的AzAcSnap实施相同的操作步骤。AzAcSnap将来可能会支持其他数据库、然后会使用LSC和AzAcSnap为这些数据库启用系统复制操作。</block>
+  <block id="f37683b4ee88357da8b8ff8d55aa1304" category="paragraph">下图显示了使用AzAcSnap和LSC的SAP系统刷新生命周期的典型高级工作流：</block>
+  <block id="5802128cf27d5a7bd20d04ed131c4bb6" category="list-text">由LSC执行的SAP预处理操作。</block>
+  <block id="134d7bd893793f6cd5c99330d7b3504d" category="list-text">将源系统的现有Snapshot副本还原(或克隆)到目标系统由AzAcSnap执行。</block>
+  <block id="099f06a764be7ee4654b26209cb55657" category="list-text">由LSC执行的SAP后处理操作。</block>
+  <block id="4b34b0d40dff8a07be6ef92392bacaea" category="paragraph">然后、该系统可用作测试或QA系统。请求新的系统刷新后、工作流将在步骤2中重新启动。必须手动删除所有剩余的克隆卷。</block>
+  <block id="6dab1fed0d48a8518974affe4abc61f5" category="paragraph"><block ref="6dab1fed0d48a8518974affe4abc61f5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5d254ff3f488e6288f82f4fec056f63a" category="paragraph">必须满足以下前提条件。</block>
+  <block id="f67cde57713136eea461365a6e071ca0" category="section-title">已为源数据库安装并配置AzAcSnap</block>
+  <block id="a652e1055f4eb346a05a0a8ae89ccf80" category="paragraph">通常、AzAcSnap有两个部署选项、如下图所示。</block>
+  <block id="a33fdfdbe5e63cebae840dbd0fb8b354" category="paragraph"><block ref="a33fdfdbe5e63cebae840dbd0fb8b354" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ad0fea35a0ba8f00a3f79747ff581fe9" category="paragraph">可以在中央Linux VM上安装和运行AzAcSnap、所有数据库配置文件均集中存储在该VM上、AzAcSnap可通过hdbsql客户端访问所有数据库以及所有这些数据库的已配置HANA用户存储密钥。通过分散式部署、AzAcSnap会单独安装在通常仅存储本地数据库的数据库配置的每个数据库主机上。LSC集成支持这两种部署选项。但是、我们在本文档的实验室设置中采用了一种混合方法。AzAcSnap与所有数据库配置文件一起安装在一个中央NFS共享上。此中央安装共享已挂载到`/mnt/software/AZACSNAP/snapshot-tool`下的所有VM上。然后、在DB VM上本地执行该工具。</block>
+  <block id="3473bf6ac226ea97187d11de4c036254" category="section-title">已为源SAP系统和目标SAP系统安装和配置Libelle SystemCopy</block>
+  <block id="6d4c9a9ee647a3bb91c46c91c618bbd0" category="paragraph">Libelle SystemCopy部署包括以下组件：</block>
+  <block id="c7487082a9119948c757ddc187f61aa0" category="paragraph"><block ref="c7487082a9119948c757ddc187f61aa0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="569de98db8273c0914828fb03d807225" category="list-text">* LSC主系统。*顾名思义、这是一个主组件、用于控制基于Lible的系统副本的自动工作流。</block>
+  <block id="13b1b9bc69152de535f089e6aa2557fa" category="list-text">* LSC Worker*。LSC员工通常在目标SAP系统上运行、并执行自动系统复制所需的脚本。</block>
+  <block id="f827b8d117bc460f3b9c2612535f7e04" category="list-text">* LSC Satellite。* LSC Satellite运行在第三方系统上、必须在该系统上执行其他脚本。LSC主节点还可以充当LSC卫星系统的角色。</block>
+  <block id="6ad330317942586b738ce4d07b4d04dd" category="paragraph">必须在合适的虚拟机上安装Libelle SystemCopy (LSC)图形用户界面。在此实验室设置中、LSC GUI安装在单独的Windows VM上、但也可以与LSC工作人员一起在DB主机上运行。LSC工作程序必须至少安装在目标数据库的VM上。根据您选择的AzAcSnap部署选项、可能需要安装其他LSC辅助设备。必须在执行AzAcSnap的虚拟机上安装LSC辅助程序。</block>
+  <block id="6118b8c345b5bb01238a53ac29f93c35" category="paragraph">安装LSC后、必须根据LSC准则执行源数据库和目标数据库的基本配置。下图显示了本文档中实验室环境的配置。有关源SAP系统和目标SAP系统及数据库的详细信息、请参见下一节。</block>
+  <block id="cb89419556c8bcac070f65acf0e1a6c5" category="paragraph"><block ref="cb89419556c8bcac070f65acf0e1a6c5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0f57aa4795f7dfe2ad4752c161b57833" category="paragraph">您还应为SAP系统配置合适的标准任务列表。有关LSC安装和配置的详细信息、请参见LSC安装包中的LSC用户手册。</block>
+  <block id="482723983a4f2af954e36ff41e567451" category="section-title">已知限制</block>
+  <block id="582de1e52b4b4b8c43afd9e2901bb386" category="paragraph">此处介绍的AzAcSnap和LSC集成仅适用于SAP HANA单主机数据库。也可以支持SAP HANA多主机(或横向扩展)部署、但此类部署需要在复制阶段对LSC自定义任务以及底层脚本进行一些调整或增强。本文档不会介绍此类增强功能。</block>
+  <block id="d5fd1a217e57fc0be1c5b301de253791" category="paragraph">SAP系统刷新集成始终使用源系统的最新成功Snapshot副本执行目标系统刷新。如果您要使用其他较早的Snapshot副本、请使用中的相应逻辑 <block ref="2af3f1688ba1a6519fca5748b63691bc" category="inline-xref-macro-rx"></block> 必须调整自定义任务。本文档不会介绍此过程。</block>
+  <block id="ef0b4c849c8032326f9a09dbcac2c1aa" category="paragraph">实验室设置由一个源SAP系统和一个目标SAP系统组成、这两个系统都运行在SAP HANA单主机数据库上。</block>
+  <block id="ac070aa5e6a10e38f43a73ecc6d42841" category="paragraph">下图显示了实验室设置。</block>
+  <block id="d861c343b201f7c50c6ec8267d280bd2" category="paragraph"><block ref="d861c343b201f7c50c6ec8267d280bd2" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6b0375a968afca58417a6ccc5db74398" category="paragraph">它包含以下系统、软件版本和Azure NetApp Files 卷：</block>
+  <block id="49777ec13a778673605c9e33fe4d84de" category="list-text">* P01.* SAP HANA 2.0 SP5数据库。源数据库、单主机、单用户租户。</block>
+  <block id="8be862122af4c9837175fbad21e59c86" category="list-text">* PN1* SAP NetWeaver ABAP 7.51。源SAP系统。</block>
+  <block id="6bda167dc65db3a371fbd8355cb7bc59" category="list-text">安装了具有AzAcSnap的* VM-P01.* SLES 15 SP2。托管P01和PN1的源VM。</block>
+  <block id="63ed1d491719254b5f3c455a5f911ae5" category="list-text">* qL1.* SAP HANA 2.0 SP5数据库。系统刷新目标数据库、单主机、单用户租户。</block>
+  <block id="32da3b0f0447a0ec3ab62e03e5eb84ee" category="list-text">* QN1* SAP NetWeaver ABAP 7.51。系统更新目标SAP系统。</block>
+  <block id="c8ae9af9ad689cb19e7af7e97a1887ae" category="list-text">已安装具有LSC Worker的* VM-ql1.* SLES 15 SP2。托管QL1和QN1的目标VM。</block>
+  <block id="9e018e4a68d1463bc5db2d746d1acb7f" category="list-text">LSC主版本9.0.0.052。</block>
+  <block id="f25f13481e770cb30d45d52a5d67617c" category="list-text">*虚拟机- LSC-MASTER.* Windows Server 2016。托管LSC主界面和LSC图形用户界面。</block>
+  <block id="067614b5d11d65ce10a3c3c952fea380" category="list-text">专用数据库主机上挂载的P01和QL1的数据、日志和共享Azure NetApp Files 卷。</block>
+  <block id="4f53adf1b17bd4d8d6121ec5aba2a189" category="list-text">用于在所有VM上挂载脚本、AzAcSnap安装和配置文件的中央Azure NetApp Files 卷。</block>
+  <block id="7586e39c6c4f8cbe63f3b66c1b9e3faa" category="paragraph">在执行首次SAP系统刷新之前、您必须集成由AzAcSnap执行的基于Azure NetApp Files Snapshot副本和克隆的存储操作。此外、还必须执行辅助脚本来启动和停止数据库以及挂载或卸载Azure NetApp Files 卷。在复制阶段、所有必需的任务都会在LSC中作为自定义任务执行。下图显示了LSC任务列表中的自定义任务。</block>
+  <block id="69d7683305142afd07c1b50f77aaf2ee" category="paragraph"><block ref="69d7683305142afd07c1b50f77aaf2ee" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="46d4412b24c36c75d9f3d4767b465cdc" category="paragraph">此处将详细介绍所有五个复制任务。在其中某些任务中、使用示例脚本`sc-system-refresh.sh`进一步自动执行所需的SAP HANA数据库恢复操作以及数据卷的挂载和卸载。该脚本会在系统输出中使用`LSC：success`消息来指示已成功执行LSC。有关自定义任务和可用参数的详细信息、请参见LSC用户手册和LSC开发人员指南。此实验室环境中的所有任务都会在目标DB VM上执行。</block>
+  <block id="3c3eb031881af72bbc2cd35d51f73ec5" category="admonition">示例脚本按原样提供、NetApp不支持。您可以通过电子邮件向以下地址请求此脚本：mailto：ng-sapcc@netapp.com^ ng-sapcc@netapp.com。</block>
+  <block id="d5588a980e081e89a600221efeb98b75" category="section-title">Sc-system-refresh.sh配置文件</block>
+  <block id="fb57465e538291ad6aa0cd830ca9bf3b" category="paragraph">如前所述、系统会使用辅助脚本启动和停止数据库、挂载和卸载Azure NetApp Files 卷以及从Snapshot副本恢复SAP HANA数据库。脚本`sc-system-refresh.sh`存储在中央NFS共享上。该脚本要求为每个目标数据库提供一个配置文件、该文件必须与该脚本本身存储在同一文件夹中。配置文件必须具有以下名称：`sc-system-refresh-&lt;target DB sid&gt;.cfg`(例如、在此实验室环境中为`sc-system-refresh-ql1.cfg`)。此处使用的配置文件使用固定/硬编码的源数据库SID。进行一些更改后、可以对脚本和配置文件进行增强、以将源数据库SID用作输入参数。</block>
+  <block id="f6c6e1dc96f073e737f971bc3de9bf27" category="paragraph">必须根据特定环境调整以下参数：</block>
+  <block id="c225d666b6830be01af89c21fb5b7663" category="section-title">ZSCCOPYSHUTDOWN</block>
+  <block id="d2a4d4fa2135bbe64765a848486bf0e3" category="paragraph">此任务将停止目标SAP HANA数据库。此任务的代码部分包含以下文本：</block>
+  <block id="66e8ad725021919d88a78f141636e9e9" category="paragraph">脚本`sc-system-refresh.sh`采用两个参数`shutdown`命令和DB SID、使用sapcontrol停止SAP HANA数据库。系统输出将重定向到标准LSC日志文件。如前所述、系统会使用`LSC：success`消息指示执行成功。</block>
+  <block id="eaf0d593dd3699b3ce75412eb657ca04" category="paragraph"><block ref="eaf0d593dd3699b3ce75412eb657ca04" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a0148c02de1fd7114f8aff04fbc1d77e" category="section-title">ZSCCOPYUMOUNT</block>
+  <block id="a188fa865cb93fe9e4fe446df15457ab" category="paragraph">此任务将从目标数据库操作系统(OS)卸载旧的Azure NetApp Files 数据卷。此任务的代码部分包含以下文本：</block>
+  <block id="b0f77d682c2a17e5fb5645acd2be9ad9" category="paragraph">使用与上一任务相同的脚本。传递的两个参数是`umount`命令和DB SID。</block>
+  <block id="f1ffbb80b33a17caf09dab5d5759da18" category="section-title">ZAZACSNAPRESTORE</block>
+  <block id="893ecde8f8b221085cc1f80173cf2a6f" category="paragraph">此任务将运行AzAcSnap、以便将源数据库的最新成功Snapshot副本克隆到目标数据库的新卷。此操作相当于在传统备份环境中重定向还原备份。但是、即使对于最大的数据库、Snapshot副本和克隆功能也可以在数秒内执行此任务、而对于传统备份、此任务可能需要几个小时的时间。此任务的代码部分包含以下文本：</block>
+  <block id="d2d41dd98a152a7ea8b159ca20e4ab02" category="inline-link">使用Azure应用一致的Snapshot工具还原</block>
+  <block id="62ee4a8664a0e46bebbe8a72cd8dbcab" category="paragraph">有关`restore`命令的AzAcSnap命令行选项的完整文档、请参见Azure文档：<block ref="c5fde8728491d75aa1afef4669aa2a0d" category="inline-link-rx"></block>。此调用假定可以在中央NFS共享上找到源数据库的json DB配置文件、命名约定如下：`azacsnap-&lt;source DB SID&gt;。JSON`、(例如、此实验室环境中的`azacsnap-P01.json`)。</block>
+  <block id="82c163596353a5052a29181bedeaa772" category="admonition">由于无法更改AzAcSnap命令的输出、因此无法使用默认的`LSC：Success`消息执行此任务。因此、AzAcSnap输出中的字符串`示例挂载指令`用作成功的返回代码。在AzAcSnap 5.0 GA版本中、只有在克隆过程成功时、才会生成此输出。</block>
+  <block id="ec16e54e6d69802cf5c8689992d032ca" category="paragraph">下图显示了AzAcSnap还原到新卷成功消息。</block>
+  <block id="ff2a47c3602b07a11dace2d6bea98fcc" category="paragraph"><block ref="ff2a47c3602b07a11dace2d6bea98fcc" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1c7e35fce098356ccba33d52f38b9ede" category="section-title">ZSCCOPYMOUNT</block>
+  <block id="064b2926edf3b035dc0bcd3f7a1fc7bb" category="paragraph">此任务会将新的Azure NetApp Files 数据卷挂载到目标数据库的操作系统上。此任务的代码部分包含以下文本：</block>
+  <block id="6a2a3f49299c67baa45c92224d7eff0e" category="paragraph">此时将再次使用sc-system-refresh.sh脚本、传递`mount`命令和目标数据库SID。</block>
+  <block id="f64b75a1baf8c4281e01d865f1c874e5" category="section-title">ZSCCOPYRECOVER</block>
+  <block id="730fe24ed3ef0ef3bd0be5dd1af0f3af" category="inline-link">动态增加或减少卷配额</block>
+  <block id="f2f5edcd956f2ae9e108055b0188a470" category="paragraph">此任务将根据已还原(克隆)的Snapshot副本对系统数据库和租户数据库执行SAP HANA数据库恢复。此处使用的恢复选项适用于特定数据库备份、例如、不会为正向恢复应用任何其他日志。因此、恢复时间非常短(最多几分钟)。此操作的运行时间取决于SAP HANA数据库的启动情况、该数据库会在恢复过程后自动发生。为了加快启动速度、如果需要、可以临时增加Azure NetApp Files 数据卷的吞吐量、如本Azure文档所述：<block ref="e891566aaa8094b6e6bbfcb7652af128" category="inline-link-rx"></block>。此任务的代码部分包含以下文本：</block>
+  <block id="b8d42515ee80a358d1c946f1ccf838dc" category="paragraph">此脚本将再次与`re封面`命令和目标数据库SID结合使用。</block>
+  <block id="4bd56b391b93afbc4de82fc45017847a" category="paragraph">在本节中、实验室系统的刷新操作示例显示了此工作流的主要步骤。</block>
+  <block id="b63b967fbfcc2b625ffd8c4e6d742f78" category="paragraph">已为备份目录中列出的P01源数据库创建常规和按需Snapshot副本。</block>
+  <block id="a3d04f4d455a0f6118e2e8465622823a" category="paragraph"><block ref="a3d04f4d455a0f6118e2e8465622823a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="44d822623a67b202b6fcd5653ee5c4f1" category="paragraph">在刷新操作中、使用了3月12日起的最新备份。在备份详细信息部分中、列出了此备份的外部备份ID (EBID)。这是Azure NetApp Files 数据卷上相应Snapshot副本备份的Snapshot副本名称、如下图所示。</block>
+  <block id="769f7a650380281a234a3f7cbec72806" category="paragraph"><block ref="769f7a650380281a234a3f7cbec72806" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="01d15505073ca5412063edc35cf07b35" category="paragraph">要启动刷新操作、请在LSC图形用户界面中选择正确的配置、然后单击开始执行。</block>
+  <block id="09607f50153017449c2750d6e4c3f62d" category="paragraph"><block ref="09607f50153017449c2750d6e4c3f62d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="62021ea8e70f699321bf7b3de6ecce87" category="paragraph">LSC将开始执行检查阶段的任务、然后执行预阶段的已配置任务。</block>
+  <block id="3f26dbf1ea393e54568e5201cd862779" category="paragraph"><block ref="3f26dbf1ea393e54568e5201cd862779" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="adafee97abc781243b6b647f8ffc7ddd" category="paragraph">作为预阶段的最后一步、目标SAP系统将停止。在以下复制阶段、将执行上一节中所述的步骤。首先、目标SAP HANA数据库将停止、而旧的Azure NetApp Files 卷将从操作系统中卸载。</block>
+  <block id="f1e3ee62f635b9bacd660db2f6ca0f0e" category="paragraph"><block ref="f1e3ee62f635b9bacd660db2f6ca0f0e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4778404c5c2a6cb13b27028a13e6ec62" category="paragraph">然后、ZAZACSNAPRESTORE任务将从P01系统的现有Snapshot副本创建一个新卷作为克隆。以下两张图片显示了LSC图形用户界面中的任务日志以及Azure门户中克隆的Azure NetApp Files 卷。</block>
+  <block id="b53f1c99895c8e20dc924911200aa2a7" category="paragraph"><block ref="b53f1c99895c8e20dc924911200aa2a7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4a8eefc4e2802ff7979008300dd2cc4e" category="paragraph"><block ref="4a8eefc4e2802ff7979008300dd2cc4e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ac8d5bfc0cf9544d6cc1869d7061a604" category="paragraph">然后、此新卷将挂载到目标数据库主机上、系统数据库和租户数据库将使用包含的Snapshot副本进行恢复。成功恢复后、SAP HANA数据库将自动启动。SAP HANA数据库的启动占用复制阶段的大部分时间。无论数据库大小如何、其余步骤通常只需几秒到几分钟即可完成。下图显示了如何使用SAP提供的python恢复脚本恢复系统数据库。</block>
+  <block id="7bd05f03ede952aef4f6d0fadabf82a3" category="paragraph"><block ref="7bd05f03ede952aef4f6d0fadabf82a3" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="bb19e82722621ce22f94d846c584a966" category="paragraph">复制阶段结束后、LSC将继续执行后阶段中定义的所有步骤。系统刷新过程完全完成后、目标系统将重新启动并运行并完全可用。使用此实验室系统时、SAP系统刷新的总运行时间约为25分钟、其中复制阶段占用的时间仅不到5分钟。</block>
+  <block id="3b7e2a13f6f2900aebaac1a475f80d70" category="paragraph"><block ref="3b7e2a13f6f2900aebaac1a475f80d70" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4eab10bc40a84a5e6e404013a09733f4" category="inline-link-macro">下一步：从何处查找追加信息 和版本历史记录。</block>
+  <block id="43678c52f4cb8971c772ed90d9f6ce7c" category="paragraph"><block ref="43678c52f4cb8971c772ed90d9f6ce7c" category="inline-link-macro-rx"></block></block>
+  <block id="aed4be0abac71ea3a4ee20b172e42949" category="sidebar">利用Libelle SystemCopy自动执行SAP系统副本操作</block>
+  <block id="8e070ffcf4d959eabcd3559b9bb17ec6" category="sidebar">从何处查找追加信息 和版本历史记录</block>
 </blocks>

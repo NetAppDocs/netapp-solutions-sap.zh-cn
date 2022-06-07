@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: lifecycle/sc-copy-clone-overview-of-sap-system-refresh-workflow-with-snapcenter.html 
+keywords: overview, sap system refresh, workflow 
+summary: SnapCenter 提供的工作流允许您从任何现有Snapshot备份管理数据集的克隆。此克隆数据集是一个FlexClone卷、可用于从源系统快速配置HANA数据卷并将其连接到目标系统。因此、它非常适合对QA、测试、沙盒或培训系统执行系统刷新操作。 
+---
+= 使用SnapCenter 的SAP系统刷新工作流概述
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:sc-copy-clone-use-cases-for-system-refresh-and-cloning.html["先前：系统刷新和克隆的用例。"]
+
+SnapCenter 提供的工作流允许您从任何现有Snapshot备份管理数据集的克隆。此克隆数据集是一个FlexClone卷、可用于从源系统快速配置HANA数据卷并将其连接到目标系统。因此、它非常适合对QA、测试、沙盒或培训系统执行系统刷新操作。
+
+SnapCenter 克隆工作流可处理存储层上的所有必需操作、并可使用脚本进行扩展以执行主机特定操作和HANA数据库特定操作。在本文档中、我们使用脚本在目标主机上执行挂载和卸载操作、以及执行HANA数据库恢复和关闭操作。使用脚本实现进一步自动化的SnapCenter 工作流可处理所有必需的HANA数据库操作、但不包括任何所需的SAP后处理步骤。SAP后处理必须手动执行、也可以使用第三方工具执行。
+
+
+NOTE: 使用这些脚本自动执行的所有步骤也可以手动执行。但是、对于目标主机上的挂载操作、您需要知道FlexClone卷的存储系统接合路径。接合路径在SnapCenter 中不可见、因此您需要直接在存储系统上查找接合路径、或者可以使用一个简单的脚本在目标主机上提供SnapCenter 环境变量。有关详细信息、请参见一节 link:sc-copy-clone-automation-example-scripts.html[""自动化示例脚本"。"]
+
+采用SnapCenter 的SAP系统刷新工作流包含五个主要步骤、如下图所示。
+
+. 一次性初始安装和准备目标系统。
+. SnapCenter 克隆创建工作流。
+. SAP后处理(手动或使用第三方工具)。
+. 该系统可用作测试/QA系统。
+. 请求新的系统刷新时、将使用SnapCenter 克隆删除工作流删除FlexClone卷、刷新将在第2步中重新启动。
+
+
+image:sc-copy-clone-image7.png["错误：缺少图形映像"]
+
+在大多数情况下、目标测试/QA系统至少会使用几周、并且在一到两周后、FlexClone容量节省将不再存在。必须从FlexClone卷释放源系统的Snapshot备份、以便SnapCenter 保留管理可以将其删除。因此、NetApp建议立即或在几天后拆分FlexClone卷。克隆拆分操作不会阻止使用克隆的卷、因此、可以在使用HANA数据库时随时执行。
+
+
+NOTE: 拆分FlexClone卷时、SnapCenter 会删除在目标系统上创建的所有备份。
+
+包括克隆拆分在内的刷新操作包括以下步骤(下图)。
+
+. 一次性初始安装和准备目标系统。
+. SnapCenter 克隆创建工作流。
+. SnapCenter 克隆拆分工作流。
+. SAP后处理(手动或使用第三方工具)。
+. 现在、该系统可用作测试/QA系统。
+. 请求新系统刷新时、SnapCenter 克隆创建工作流将与其他关闭和卸载步骤结合使用。
+
+
+
+NOTE: 必须在存储系统上手动删除先前拆分的旧数据卷。
+
+下图简要展示了采用克隆拆分的SnapCenter 的SAP系统刷新工作流。
+
+image:sc-copy-clone-image8.png["错误：缺少图形映像"]
+
+部分 link:sc-copy-clone-sap-hana-system-refresh-with-snapcenter.html["《使用SnapCenter 更新SAP HANA系统》"] 提供两个系统刷新工作流的详细分步问题描述。
+
+link:sc-copy-clone-overview-of-sap-system-copy-workflow-with-snapcenter.html["接下来：使用SnapCenter 的SAP系统副本工作流概述。"]

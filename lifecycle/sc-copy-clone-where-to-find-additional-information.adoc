@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: lifecycle/sc-copy-clone-where-to-find-additional-information.html 
+keywords:  
+summary:  
+---
+= 从何处查找追加信息
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:sc-copy-clone-sap-system-clone-with-snapcenter.html["先前版本：使用SnapCenter 克隆SAP系统。"]
+
+要了解有关本文档中所述信息的更多信息，请参见以下文档和 / 或网站：
+
+* TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》
++
+https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html["https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html"^]
+
+* https://www.netapp.com/us/media/tr-4018.pdf["TR-4018 ：《将 NetApp ONTAP 系统与 SAP Landscape Management 集成》"^]
++
+https://www.netapp.com/us/media/tr-4018.pdf["https://www.netapp.com/us/media/tr-4018.pdf"^]
+
+* https://www.netapp.com/us/media/tr-4646.pdf["TR-4646 ：《使用存储复制实现 SAP HANA 灾难恢复》"^]
++
+https://www.netapp.com/us/media/tr-4646.pdf["https://www.netapp.com/us/media/tr-4646.pdf"^]
+
+* TR-4436：《基于采用光纤通道协议的NetApp全闪存FAS 系统的SAP HANA》
++
+https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_fc_introduction.html["https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_fc_introduction.html"^]
+
+* TR-4435：《基于采用NFS的NetApp全闪存FAS 系统的SAP HANA》
++
+https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_introduction.html["https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_introduction.html"^]
+
+* NetApp SAP软件解决方案产品页面
++
+http://www.netapp.com/us/solutions/applications/sap/index.aspx["http://www.netapp.com/us/solutions/applications/sap/index.aspx"^]
+
+
+
+
+
+== 版本历史记录
+
+|===
+| version | Date | 文档版本历史记录 
+
+
+| 版本 1.0 | 2018 年 2 月 | 初始版本。 
+
+
+| 版本 2.0 | 2021年2月 | 涵盖SnapCenter 4.3和改进的自动化脚本的完整重写。适用于系统刷新和系统克隆操作的新工作流问题描述。 
+
+
+| 版本 3.0 | 2022年5月 | 已更新SnapCenter 4.6 P1的工作流。 
+|===

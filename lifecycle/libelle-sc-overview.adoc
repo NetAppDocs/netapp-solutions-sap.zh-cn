@@ -1,0 +1,87 @@
+---
+sidebar: sidebar 
+permalink: lifecycle/libelle-sc-overview.html 
+keywords: tr4929, 4929, overview, introduction 
+summary: 用于优化SAP生命周期管理的NetApp解决方案已集成到SAP AnyDB和SAP HANA数据库中。此外、NetApp还集成到SAP生命周期管理工具中、将高效的应用程序集成数据保护与灵活的SAP测试系统配置相结合。 
+---
+= TR-4929：使用Libelle SystemCopy自动执行SAP系统复制操作
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+Holger Zecha、Tobias BRANDL、NetApp Franz Dieggruber、Libelle
+
+在当今瞬息万变的业务环境中、企业必须不断创新、并对不断变化的市场做出快速响应。在这种竞争环境下、在工作流程中实施更大灵活性的公司可以更有效地适应市场需求。
+
+不断变化的市场需求还会影响公司的SAP环境、因此需要定期集成、更改和更新。IT部门必须以更少的资源和更短的时间实施这些变更。要在部署这些变更时最大程度地降低风险、需要进行全面的测试和培训、这就需要使用生产中的实际数据创建更多的SAP系统。
+
+配置这些系统的传统SAP生命周期管理方法主要基于手动流程。这些手动流程往往容易出错且耗时、会延迟创新和业务需求响应。
+
+用于优化SAP生命周期管理的NetApp解决方案已集成到SAP AnyDB和SAP HANA数据库中。此外、NetApp还集成到SAP生命周期管理工具中、将高效的应用程序集成数据保护与灵活的SAP测试系统配置相结合。
+
+虽然这些NetApp解决方案可以解决问题描述 高效管理大量数据的问题、即使对于最大的数据库也是如此、但是完整的端到端SAP系统复制和刷新操作必须包括复制前和复制后活动、才能将源SAP系统的身份完全更改为目标系统。SAP在中介绍了所需的活动 https://help.sap.com/viewer/6ffd9a3438944dc39dfe288d758a2ed5/LATEST/en-US/f6abb90a62aa4695bb96871a89287704.html["SAP同构系统副本指南"^]。为了进一步减少手动流程的数量并提高SAP系统复制流程的质量和稳定性、我们的合作伙伴表示 https://www.libelle.com["Libelle"^] 开发了 https://www.libelle.com/products/systemcopy["Libelle系统副本(LSC)"^] 工具。我们已与Libelle合作、将适用于SAP系统副本的NetApp解决方案集成到LSC中以提供 https://www.youtube.com/watch?v=wAFyA_WbNm4["在创纪录的时间内完成完整的端到端自动化系统副本"^]。
+
+
+
+== 应用程序集成的Snapshot副本操作
+
+在存储层上创建应用程序一致的NetApp Snapshot副本是本文档所述系统副本和系统克隆操作的基础。基于存储的Snapshot副本可使用适用于SAP HANA或SAP的NetApp SnapCenter 插件在原生 NetApp ONTAP 系统上或通过使用创建 https://docs.microsoft.com/en-us/azure/azure-netapp-files/azacsnap-introduction["Microsoft Azure应用程序一致的Snapshot工具"^] (AzAcSnap)和由Microsoft Azure中运行的SAP HANA和Oracle数据库提供的接口。使用SAP HANA时、SnapCenter 和AzAcSnap会将Snapshot副本注册到SAP HANA备份目录中、以便这些备份可用于还原和恢复以及克隆操作。
+
+
+
+== 异地备份和/或灾难恢复数据复制
+
+应用程序一致的Snapshot副本可以在存储层复制到异地备份站点或由SnapCenter 内部控制的灾难恢复站点。复制基于块更改、因此可节省空间和带宽。通过使用跨区域复制(RCRR)功能在Azure区域之间高效复制Azure NetApp Files 卷、在采用Azure NetApp Files 的Azure中运行的SAP HANA和Oracle系统也可以使用相同的技术。
+
+
+
+== 使用任何Snapshot副本执行SAP系统副本或克隆操作
+
+通过NetApp技术和软件集成、您可以将源系统的任何Snapshot副本用于SAP系统副本或克隆操作。可以从SAP生产系统使用的同一存储、用于异地备份的存储(例如Azure中的Azure NetApp Files 备份)或灾难恢复站点上的存储(Azure NetApp Files CRR目标卷)中选择此Snapshot副本。这种灵活性使您可以根据需要将开发和测试系统与生产系统分开、并涵盖其他情形、例如在灾难恢复站点测试灾难恢复。
+
+
+
+== 通过集成实现自动化
+
+配置SAP测试系统的场景和用例多种多样、您对自动化级别的要求可能也不同。适用于SAP的NetApp软件产品集成到SAP和其他第三方供应商(例如Libelle)的数据库和生命周期管理产品中、以支持不同的场景和自动化级别。
+
+带有适用于SAP HANA和SAP AnyDB或Azure上的AzAcSnap插件的NetApp SnapCenter 用于根据应用程序一致的Snapshot副本配置所需的存储卷克隆、并执行所有必要的主机和数据库操作、直到启动SAP数据库为止。根据使用情形、可能需要SAP系统副本、系统克隆、系统刷新或其他手动步骤、例如SAP后处理。下一节将介绍更多详细信息。
+
+可以使用Libelle SystemCopy (LSC)自动化功能对SAP测试系统执行完全自动化的端到端配置或更新。本文档将更详细地介绍SnapCenter 或AzAcSnap与LSC的集成。
+
+
+
+== Libelle系统副本
+
+Libelle SystemCopy是一款基于框架的软件解决方案 、用于创建完全自动化的系统和横向副本。只需简单地轻触一个按钮、即可使用全新的生产数据更新QA和测试系统。Libelle SystemCopy支持所有传统数据库和操作系统、并为所有平台提供了自己的复制机制、但同时集成了备份/还原过程或存储工具、例如NetApp Snapshot副本和NetApp FlexClone卷。系统副本期间所需的活动可从SAP ABAP堆栈外部进行控制。这样、SAP应用程序就不需要进行任何传输或其他更改。通常、成功完成系统副本操作步骤 所需的所有步骤可分为四个步骤：
+
+* *检查阶段。*检查涉及的系统环境。
+* *阶段前。*准备目标系统以进行系统副本。
+* *复制阶段。*提供从源到目标系统的实际生产数据库副本。
+* *后阶段。*副本之后完成同构系统副本操作步骤 并提供更新后的目标系统的所有任务。
+
+
+在复制阶段、即使对于最大的数据库、也会使用NetApp Snapshot和FlexClone功能将所需时间降至最少几分钟。
+
+对于检查、预处理和后处理阶段、LSC会提供450多个预配置任务、涵盖95%的典型刷新操作。因此、LSC采用了符合SAP标准的自动化。由于LSC的软件定义特性、可以轻松调整和增强系统更新流程、以满足客户SAP环境的特定需求。
+
+
+
+== SAP系统更新和克隆的用例
+
+在多种情况下、源系统中的数据必须可供目标系统使用：
+
+* 定期更新质量保证以及测试和培训系统
+* 创建中断修复或修复系统环境以解决逻辑损坏问题
+* 灾难恢复测试场景
+
+
+虽然修复系统和灾难恢复测试系统通常使用SAP系统克隆(不需要执行大量后处理操作)来更新测试和培训系统、但要与源系统共存、必须应用这些后处理步骤。因此、本文档重点介绍SAP系统更新场景。有关不同使用情形的更多详细信息、请参见技术报告 https://www.netapp.com/pdf.html?item=/media/17111-tr4667pdf.pdf["TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作"^]。
+
+本文档其余部分分为两部分。第一部分介绍了NetApp SnapCenter 与适用于SAP HANA的Libelle SystemCopy以及在内部NetApp ONTAP 系统上运行的SAP AnyDB系统的集成。第二部分介绍了AzAcSnap与在Microsoft Azure中运行的适用于SAP HANA系统的LSC以及所提供的Azure NetApp Files 的集成。尽管底层ONTAP 技术是相同的、但与 原生 ONTAP 安装相比、Azure NetApp Files 提供不同的接口和工具集成(例如AzAcSnap)。
+
+link:libelle-sc-sap-hana-system-refresh-with-lsc-and-snapcenter.html["接下来：使用LSC和SnapCenter 更新SAP HANA系统。"]

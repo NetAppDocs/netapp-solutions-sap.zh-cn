@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: lifecycle/sc-copy-clone-overview-of-sap-system-clone-workflow-with-snapcenter.html 
+keywords: system clone, target host, clone create 
+summary: FlexClone技术可实现快速配置过程、并可显著节省容量、因为修复系统通常只能在短时间内使用。 
+---
+= 使用SnapCenter 的SAP系统克隆工作流概述
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:sc-copy-clone-overview-of-sap-system-copy-workflow-with-snapcenter.html["上一页：使用SnapCenter 的SAP系统副本工作流概述。"]
+
+如上一节所述、SnapCenter 可以从任何现有Snapshot备份管理数据集的克隆、并可将这些数据集快速配置到任何目标系统。将生产数据配置到修复系统以解决逻辑损坏的速度至关重要、因为通常需要重置修复系统并选择其他生产数据集。FlexClone技术可实现快速配置过程、并可显著节省容量、因为修复系统通常只能在短时间内使用。
+
+下图总结了使用SnapCenter 执行SAP系统克隆操作所需的步骤。
+
+. 准备目标主机。
+. HANA共享卷的SnapCenter 克隆创建工作流。
+. 启动SAP HANA服务。
+. 适用于HANA数据卷的SnapCenter 克隆创建工作流、包括数据库恢复。
+. 现在、HANA系统可用作修复系统。
+
+
+
+NOTE: 如果必须将系统重置为其他Snapshot备份、则步骤6和步骤4就足以满足要求。HANA共享卷可以继续挂载。
+
+如果不再需要该系统、则执行清理过程时需执行以下步骤。
+
+. HANA数据卷的SnapCenter 克隆删除工作流、包括关闭数据库。
+. 停止SAP HANA服务。
+. HANA共享卷的SnapCenter 克隆删除工作流。
+
+
+image:sc-copy-clone-image10.png["错误：缺少图形映像"]
+
+部分 link:sc-copy-clone-sap-system-clone-with-snapcenter.html[""使用SnapCenter 克隆SAP系统""] 提供系统克隆工作流的详细分步问题描述。
+
+link:sc-copy-clone-sap-hana-system-refresh-operation-workflows-using-storage-snapshot-backups.html["接下来：使用存储快照备份的SAP HANA系统刷新操作工作流。"]

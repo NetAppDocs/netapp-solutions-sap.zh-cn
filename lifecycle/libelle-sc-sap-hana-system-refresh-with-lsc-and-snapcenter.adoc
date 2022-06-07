@@ -1,0 +1,250 @@
+---
+sidebar: sidebar 
+permalink: lifecycle/libelle-sc-sap-hana-system-refresh-with-lsc-and-snapcenter.html 
+keywords: prerequisites, limitations, lab setup, standard installation, central communication host, system refresh 
+summary: 本节介绍如何将LSC与NetApp SnapCenter 集成。LSC和SnapCenter 之间的集成支持所有SAP支持的数据库。但是、我们必须区分SAP AnyDB和SAP HANA、因为SAP HANA提供了一个无法用于SAP AnyDB的中央通信主机。 
+---
+= 使用LSC和SnapCenter 更新SAP HANA系统
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:libelle-sc-overview.html["上一步：概述。"]
+
+本节介绍如何将LSC与NetApp SnapCenter 集成。LSC和SnapCenter 之间的集成支持所有SAP支持的数据库。但是、我们必须区分SAP AnyDB和SAP HANA、因为SAP HANA提供了一个无法用于SAP AnyDB的中央通信主机。
+
+SAP AnyDB的默认SnapCenter 代理和数据库插件安装是SnapCenter 代理的本地安装、以及数据库服务器的相应数据库插件。
+
+在本节中、我们将以SAP HANA数据库为例介绍LSC与SnapCenter 之间的集成。如前文所述、对于SAP HANA、安装SnapCenter 代理和SAP HANA数据库插件有两种不同的选项：
+
+* *标准SnapCenter 代理和SAP HANA插件安装。*在标准安装中、SnapCenter 代理和SAP HANA插件在本地安装在SAP HANA数据库服务器上。
+* *使用中央通信主机的SnapCenter 安装。*中央通信主机随SnapCenter 代理、SAP HANA插件和HANA数据库客户端一起安装、负责处理为环境中的多个SAP HANA系统备份和还原SAP HANA数据库所需的所有数据库相关操作。因此、中央通信主机无需安装完整的SAP HANA数据库系统。
+
+
+有关这些不同的SnapCenter 代理和SAP HANA数据库插件安装选项的详细信息、请参见技术报告 https://www.netapp.com/pdf.html?item=/media/12405-tr4614pdf.pdf["TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》"^]。
+
+以下各节重点介绍了使用标准安装或中央通信主机将LSC与SnapCenter 集成的区别。值得注意的是、无论使用何种安装选项和数据库、未突出显示的所有配置步骤都是相同的。
+
+要从源数据库执行基于Snapshot副本的自动备份并为新目标数据库创建克隆、所述的LSC与SnapCenter 集成使用中所述的配置选项和脚本 https://www.netapp.com/pdf.html?item=/media/17111-tr4667pdf.pdf["TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作"^]。
+
+
+
+== 概述
+
+下图显示了在不使用LSC的情况下使用SnapCenter 的SAP系统刷新生命周期中的典型高级工作流：
+
+. 一次性初始安装和准备目标系统。
+. 手动预处理(导出许可证、用户、打印机等)。
+. 如有必要、删除目标系统上已有的克隆。
+. 由SnapCenter 执行的将源系统的现有Snapshot副本克隆到目标系统的操作。
+. 手动执行SAP后处理操作(导入许可证、用户、打印机、禁用批处理作业等)。
+. 然后、该系统可用作测试或QA系统。
+. 请求新系统刷新时、工作流将在步骤2重新启动。
+
+
+SAP客户知道、下图中以绿色显示的手动步骤非常耗时且容易出错。在使用LSC和SnapCenter 集成时、这些手动步骤会与LSC以可靠且可重复的方式执行、并提供进行内部和外部审核所需的所有日志。
+
+下图概述了基于SnapCenter的常规SAP系统更新操作步骤。
+
+image:libelle-sc-image1.png["错误：缺少图形映像"]
+
+
+
+== 前提条件和限制
+
+必须满足以下前提条件：
+
+* 必须安装SnapCenter。源系统和目标系统必须在SnapCenter 中进行配置、可以采用标准安装、也可以使用中央通信主机进行配置。可以在源系统上创建Snapshot副本。
+* 必须在SnapCenter 中正确配置存储后端、如下图所示。
+
+
+image:libelle-sc-image2.png["错误：缺少图形映像"]
+
+接下来的两个映像涵盖了标准安装、其中SnapCenter 代理和SAP HANA插件安装在每个数据库服务器的本地。
+
+必须在源数据库上安装SnapCenter 代理和相应的数据库插件。
+
+image:libelle-sc-image3.png["错误：缺少图形映像"]
+
+必须在目标数据库上安装SnapCenter 代理和相应的数据库插件。
+
+image:libelle-sc-image4.png["错误：缺少图形映像"]
+
+下图介绍了中央通信主机部署、其中、SnapCenter 代理、SAP HANA插件和SAP HANA数据库客户端安装在一个集中式服务器(如SnapCenter 服务器)上、用于管理环境中的多个SAP HANA系统。
+
+SnapCenter 代理、SAP HANA数据库插件和HANA数据库客户端必须安装在中央通信主机上。
+
+image:libelle-sc-image5.png["错误：缺少图形映像"]
+
+必须在SnapCenter 中正确配置源数据库的备份、才能成功创建Snapshot副本。
+
+image:libelle-sc-image6.png["错误：缺少图形映像"]
+
+LSC主服务器和LSC员工必须安装在SAP环境中。在此部署中、我们还在SnapCenter 服务器上安装了LSC主服务器、并在目标SAP数据库服务器上安装了LSC工作程序、此操作应进行刷新。有关更多详细信息、请参见下一节"<<Lab setup>>。 "
+
+文档资源：
+
+* https://docs.netapp.com/us-en/snapcenter/["SnapCenter 文档中心"^]
+* https://www.netapp.com/pdf.html?item=/media/12403-tr4700.pdf["TR-4700 ：适用于 Oracle 数据库的 SnapCenter 插件"^]
+* https://www.netapp.com/pdf.html?item=/media/12405-tr4614pdf.pdf["TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》"^]
+* https://www.netapp.com/pdf.html?item=/media/17111-tr4667pdf.pdf["TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作"^]
+* https://fieldportal.netapp.com/content/883721["TR-4769—SnapCenter 最佳实践和规模估算准则"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2880726["《SnapCenter 4.6 cmdlet参考指南》"^]
+
+
+
+
+== 实验室设置
+
+本节介绍在演示数据中心中设置的示例架构。此设置分为标准安装和使用中央通信主机的安装。
+
+
+
+=== 标准安装
+
+下图显示了一个标准安装、其中SnapCenter 代理以及数据库插件安装在源和目标数据库服务器的本地。在实验室设置中、我们安装了SAP HANA插件。此外、目标服务器上也安装了LSC员工。为了简化并减少虚拟服务器的数量、我们在SnapCenter 服务器上安装了LSC主服务器。下图显示了不同组件之间的通信。
+
+image:libelle-sc-image7.png["错误：缺少图形映像"]
+
+
+
+=== 中央通信主机
+
+下图显示了使用中央通信主机进行的设置。在此配置中、SnapCenter 代理以及SAP HANA插件和HANA数据库客户端安装在一个专用服务器上。在此设置中、我们使用SnapCenter 服务器安装中央通信主机。此外、LSC工作程序再次安装在目标服务器上。为了简化并减少虚拟服务器的数量、我们还决定在SnapCenter 服务器上安装LSC主服务器。下图显示了不同组件之间的通信。
+
+image:libelle-sc-image8.png["错误：缺少图形映像"]
+
+
+
+== Libelle SystemCopy的初始一次性准备步骤
+
+LSC安装包含三个主要组件：
+
+* * LSC主系统。*顾名思义、这是一个主组件、用于控制基于Lible的系统副本的自动工作流。在演示环境中、LSC主服务器安装在SnapCenter 服务器上。
+* * LSC员工。* LSC员工是Lbelle软件的一部分、该软件通常在目标SAP系统上运行、并执行自动系统副本所需的脚本。在演示环境中、LSC员工安装在目标SAP HANA应用程序服务器上。
+* * LSC Satellite。* LSC Satellite是Libelle软件的一部分、该软件运行在第三方系统上、必须在该系统上执行其他脚本。LSC主节点还可以同时充当LSC卫星系统的角色。
+
+
+我们首先定义了LSC中涉及的所有系统、如下图所示：
+
+* *。172.30.15.35* SAP源系统和SAP HANA源系统的IP地址。
+* 172.30.15.3.*此配置中LSC主系统和LSC卫星系统的IP地址。由于我们在SnapCenter 服务器上安装了LSC主服务器、因此SnapCenter 4.x PowerShell Cmdlet已在此Windows主机上可用、因为它们是在SnapCenter 服务器安装期间安装的。因此、我们决定为此系统启用LSC从属角色、并在此主机上执行所有SnapCenter PowerShell Cmdlet。如果您使用的是其他系统、请确保根据SnapCenter 文档在此主机上安装SnapCenter PowerShell Cmdlet。
+* *。172.30.15.36* SAP目标系统、SAP HANA目标系统和LSC工作程序的IP地址。
+
+
+也可以使用主机名或完全限定域名、而不是IP地址。
+
+下图显示了主节点、员工节点、卫星节点、SAP源节点、SAP目标节点、 源数据库和目标数据库。
+
+image:libelle-sc-image9.png["错误：缺少图形映像"]
+
+对于主要集成、我们必须再次将配置步骤与标准安装和使用中央通信主机的安装分开。
+
+
+
+=== 标准安装
+
+本节介绍在源系统和目标系统上安装了SnapCenter 代理和所需数据库插件的情况下使用标准安装时所需的配置步骤。使用标准安装时、挂载克隆卷以及还原和恢复目标系统所需的所有任务都将从服务器本身的目标数据库系统上运行的SnapCenter 代理执行。这样、可以访问通过SnapCenter 代理的环境变量提供的所有克隆相关详细信息。因此、您只需要在LSC复制阶段创建一个额外的任务。此任务会在源数据库系统上执行Snapshot副本过程、并在目标数据库系统上执行克隆和还原与恢复过程。所有与SnapCenter 相关的任务均使用在LSC任务`NTAP_SYSTEM_clone`中输入的PowerShell脚本触发。
+
+下图显示了复制阶段的LSC任务配置。
+
+image:libelle-sc-image10.png["错误：缺少图形映像"]
+
+下图突出显示了`NTAP_SYSTEM_clone`进程的配置。由于您正在执行PowerShell脚本、因此此Windows PowerShell脚本将在卫星系统上执行。在这种情况下、这是安装了LSC主服务器的SnapCenter 服务器、该服务器也充当卫星系统。
+
+image:libelle-sc-image11.png["错误：缺少图形映像"]
+
+由于LSC必须了解Snapshot副本、克隆和恢复操作是否成功、因此您必须至少定义两种返回代码类型。一个代码用于成功执行脚本、另一个代码用于脚本执行失败、如下图所示。
+
+* `LSC：OK`如果执行成功、则必须从脚本写入标准输出。
+* `LSC：如果执行失败、则必须将error`从脚本写入标准输出。
+
+
+image:libelle-sc-image12.png["错误：缺少图形映像"]
+
+下图显示了PowerShell脚本的一部分、必须运行该脚本才能在源数据库系统上执行基于Snapshot的备份、并在目标数据库系统上执行克隆。此脚本不应完整。相反、该脚本显示了LSC与SnapCenter 之间的集成的外观以及设置起来的简便性。
+
+image:libelle-sc-image13.png["错误：缺少图形映像"]
+
+由于脚本是在LSC主系统(也是一个卫星系统)上执行的、因此SnapCenter 服务器上的LSC主系统必须以具有在SnapCenter 中执行备份和克隆操作的适当权限的Windows用户身份运行。要验证用户是否具有适当的权限、用户应能够在SnapCenter UI中执行Snapshot副本和克隆。
+
+无需在SnapCenter 服务器本身上运行LSC主节点和LSC分身扩展。LSC主节点和LSC分身扩展可以在任何Windows计算机上运行。在LSC子系统上运行PowerShell脚本的前提条件是、已在Windows服务器上安装SnapCenter PowerShell cmdlet。
+
+
+
+=== 中央通信主机
+
+要使用中央通信主机在LSC和SnapCenter 之间进行集成、只需在复制阶段进行调整。Snapshot副本和克隆是使用中央通信主机上的SnapCenter 代理创建的。因此、有关新创建卷的所有详细信息仅在中央通信主机上可用、而在目标数据库服务器上不可用。但是、要挂载克隆卷并执行恢复、需要在目标数据库服务器上提供这些详细信息。因此、在复制阶段需要执行两项额外任务。在中央通信主机上执行一个任务、在目标数据库服务器上执行一个任务。下图显示了这两项任务。
+
+* * NTAP_SYSTEM_clone_cp.*此任务使用PowerShell脚本创建Snapshot副本和克隆、该脚本可在中央通信主机上执行必要的SnapCenter 功能。因此、此任务会在LSC子系统上运行、而在我们的实例中、LSC主节点是在Windows上运行的。此脚本会收集有关克隆和新创建卷的所有详细信息、并将其移交给第二个任务`NTAP_MNT_RECOVER`、该任务在目标数据库服务器上运行的LSC员工上运行。
+* * ntap_mnt_recovery_cp.*此任务将停止目标SAP系统和SAP HANA数据库、卸载旧卷、然后根据上一任务传递的参数挂载新创建的存储克隆卷`ntap_system_clone_cp`。然后还原和恢复目标SAP HANA数据库。
+
+
+image:libelle-sc-image14.png["错误：缺少图形映像"]
+
+下图突出显示了任务`NTAP_SYSTEM_clone_cp`的配置。这是在子系统上执行的Windows PowerShell脚本。在这种情况下、卫星系统是安装了LSC主服务器的SnapCenter 服务器。
+
+image:libelle-sc-image15.png["错误：缺少图形映像"]
+
+由于LSC必须了解Snapshot副本和克隆操作是否成功、因此您必须至少定义两种返回代码类型：一种返回代码用于成功执行脚本、另一种返回代码用于失败执行脚本、如下图所示。
+
+* `LSC：OK`如果执行成功、则必须从脚本写入标准输出。
+* `LSC：如果执行失败、则必须将error`从脚本写入标准输出。
+
+
+image:libelle-sc-image16.png["错误：缺少图形映像"]
+
+下图显示了在中央通信主机上使用SnapCenter 代理执行Snapshot副本和克隆时必须运行的部分PowerShell脚本。此脚本并不完整。相反、该脚本用于显示LSC与SnapCenter 之间的集成的外观以及设置起来的简便性。
+
+image:libelle-sc-image17.png["错误：缺少图形映像"]
+
+如前所述、您必须将克隆卷的名称移交给下一个任务`NTAP_MNT_RECOATE_CP`以在目标服务器上挂载克隆卷。克隆卷的名称也称为接合路径、存储在变量`$JunctionPath`中。将任务移交给后续的LSC任务是通过自定义LSC变量实现的。
+
+....
+echo $JunctionPath > $_task(current, custompath1)_$
+....
+由于脚本是在LSC主系统(也是一个卫星系统)上执行的、因此SnapCenter 服务器上的LSC主系统必须以具有在SnapCenter 中执行备份和克隆操作的适当权限的Windows用户身份运行。要验证它是否具有适当的权限、用户应能够在SnapCenter 图形用户界面中执行Snapshot副本和克隆。
+
+下图突出显示了任务`NTAP_MNT_RECOATE_CP`的配置。由于我们要执行Linux Shell脚本、因此这是在目标数据库系统上执行的一个命令脚本。
+
+image:libelle-sc-image18.png["错误：缺少图形映像"]
+
+由于LSC必须了解如何挂载克隆卷以及是否已成功还原和恢复目标数据库、因此我们必须至少定义两种返回代码类型。一个代码用于成功执行脚本、一个代码用于失败执行脚本、如下图所示。
+
+* `LSC：OK`如果执行成功、则必须从脚本写入标准输出。
+* `LSC：如果执行失败、则必须将error`从脚本写入标准输出。
+
+
+image:libelle-sc-image19.png["错误：缺少图形映像"]
+
+下图显示了用于停止目标数据库、卸载旧卷、挂载克隆卷以及还原和恢复目标数据库的部分Linux Shell脚本。在上一任务中、接合路径已写入LSC变量。以下命令将读取此LSC变量并将其值存储在Linux Shell脚本的`$JunctionPath`变量中。
+
+....
+JunctionPath=$_include($_task(NTAP_SYSTEM_CLONE_CP, custompath1)_$, 1, 1)_$
+....
+目标系统上的LSC工作程序以`<sidaadm>`的形式运行、但mount命令必须以root用户身份运行。因此、您必须创建`central_plugin_host_wrapper_script.sh`。使用`sudo`命令从任务`NTAP_MNT_recovery_cp`调用了脚本`central_plugin_host_wrapper_script.sh`。使用`sudo`命令、该脚本将使用UID 0运行、我们可以执行所有后续步骤、例如卸载旧卷、挂载克隆卷以及还原和恢复目标数据库。要使用`sUdo`启用脚本执行、必须在`/etc/sudoers`中添加以下行：
+
+....
+hn6adm ALL=(root) NOPASSWD:/usr/local/bin/H06/central_plugin_host_wrapper_script.sh
+....
+image:libelle-sc-image20.png["错误：缺少图形映像"]
+
+
+
+== SAP HANA系统刷新操作
+
+既然已经在LSC和NetApp SnapCenter 之间执行了所有必要的集成任务、那么启动完全自动化的SAP系统刷新就只需单击一下即可。
+
+下图显示了标准安装中的任务`NTAP`系统`_`克隆`S`。如您所见、创建Snapshot副本和克隆、在目标数据库服务器上挂载克隆卷以及还原和恢复目标数据库大约需要14分钟。值得注意的是、借助Snapshot和NetApp FlexClone技术、此任务的持续时间几乎保持不变、与源数据库的大小无关。
+
+image:libelle-sc-image21.png["错误：缺少图形映像"]
+
+下图显示了使用中央通信主机时的两个任务`NTAP_SYSTEM_clone_cp`和`NTAP_MNT_recovery_cp`。如您所见、创建Snapshot副本、克隆、在目标数据库服务器上挂载克隆卷以及还原和恢复目标数据库大约需要12分钟。使用标准安装时、执行这些步骤所需的时间大致相同。同样、无论源数据库的大小如何、Snapshot和NetApp FlexClone技术都能确保这些任务的一致、快速完成。
+
+image:libelle-sc-image22.png["错误：缺少图形映像"]
+
+link:libelle-sc-sap-hana-system-refresh-with-lsc,-azacsnap,-and-azure-netapp-files.html["接下来：使用LSC、AzAcSnap和Azure NetApp Files 更新SAP HANA系统。"]

@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: lifecycle/sc-copy-clone-sap-system-copy,-refresh,-and-clone-scenarios.html 
+keywords: sap system refresh, system copy, system clone, 
+summary: SAP系统副本一词通常用作SAP系统刷新、SAP系统副本或SAP系统克隆操作这三个不同过程的同义词。请务必区分不同的操作、因为每个操作的工作流和用例都不同。 
+---
+= SAP系统复制、刷新和克隆情形
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:sc-copy-clone-introduction.html["上一页：简介。"]
+
+术语SAP系统副本通常用作三个不同流程的同义词：SAP系统刷新、SAP系统副本或SAP系统克隆操作。请务必区分不同的操作、因为每个操作的工作流和用例都不同。
+
+* * SAP系统刷新。* SAP系统刷新是使用源SAP系统中的数据刷新现有目标SAP系统。目标系统通常是SAP传输环境的一部分、例如质量保证系统、该系统会使用生产系统中的数据进行更新。源系统和目标系统的主机名、实例编号和SID不同。
+* * SAP系统副本。* SAP系统副本是使用源SAP系统中的数据设置的新目标SAP系统。例如、新的目标系统可以是一个包含生产系统数据的附加测试系统。源系统和目标系统的主机名、实例编号和SID不同。
+* * SAP系统克隆。* SAP系统克隆是源SAP系统的相同克隆。SAP系统克隆通常用于解决逻辑损坏或测试灾难恢复场景。在执行系统克隆操作时、主机名、实例编号和SID保持不变。因此、必须为目标系统建立适当的网络隔离、以确保与生产环境之间不存在通信。
+
+
+下图说明了在系统刷新、系统副本或系统克隆操作期间必须执行的主要步骤。蓝色框表示可通过SnapCenter 自动执行的步骤、而绿色框则表示必须在SnapCenter 之外手动或使用第三方工具执行的步骤。
+
+所有这三种操作均可通过SAP Lama和NetApp存储服务连接器实现完全自动化。有关详细信息、请参见 https://www.netapp.com/us/media/tr-4018.pdf["将NetApp ONTAP 系统与SAP Landscape Management集成"^]。
+
+NetApp还与Libelle合作 https://www.libelle.com["www.libelle.com"^] 将SnapCenter 克隆与Libelle SystemCopy集成、以自动执行SAP预处理和后处理。有关详细的 解决方案 问题描述 、请参见 link:https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/libelle-sc-overview.html["利用Libelle SystemCopy自动执行SAP系统副本操作"^]。
+
+image:sc-copy-clone-image2.png["错误：缺少图形映像"]
+
+link:sc-copy-clone-use-cases-for-system-refresh-and-cloning.html["下一步：系统刷新和克隆的用例。"]

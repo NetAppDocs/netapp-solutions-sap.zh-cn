@@ -1,0 +1,176 @@
+---
+sidebar: sidebar 
+permalink: lifecycle/sc-copy-clone-automation-example-scripts.html 
+keywords: example script, automation, clone create, clone delete 
+summary: 在本文档中、使用了两个脚本进一步自动执行SnapCenter 克隆创建和克隆删除操作。 
+---
+= 自动化示例脚本
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:sc-copy-clone-sap-hana-system-refresh-operation-workflows-using-storage-snapshot-backups.html["先前版本：使用存储快照备份的SAP HANA系统刷新操作工作流。"]
+
+在本文档中、使用了两个脚本进一步自动执行SnapCenter 克隆创建和克隆删除操作。
+
+* 脚本`sc-system-refresh.sh`用于系统刷新和系统克隆工作流、用于对HANA数据卷执行挂载和卸载操作、以及对HANA数据库执行恢复和关闭操作。
+* 脚本`sc-mount-volume.sh`用于系统克隆工作流、用于对HANA共享卷执行挂载和卸载操作。
+
+
+
+NOTE: 示例脚本按原样提供、NetApp不支持。您可以通过电子邮件向以下地址请求脚本：mailto：ng-sapcc@netapp.com^ ng-sapcc@netapp.com。
+
+
+
+== 脚本sc-system-refresh.sh
+
+示例脚本`sc-system-refresh.sh`用于执行SAP HANA数据卷的挂载和卸载操作以及恢复和关闭操作。在SnapCenter 工作流clone create和clone delete中、使用特定的命令行选项调用该脚本、如下图所示。
+
+此脚本属于通用脚本、并配置了一个特定于SID的配置文件和环境变量、这些文件和变量可由SnapCenter 在执行此脚本时使用。脚本和配置文件必须在系统刷新操作的目标主机上可用。如果此脚本用于多个目标主机、则可以提供一个NFS共享、使所有目标主机均可使用此脚本。
+
+
+NOTE: 当前版本的脚本支持具有单个容器、MDC单租户或MDC多租户配置的单个主机系统。它不支持SAP HANA多主机系统。
+
+
+NOTE: 此脚本支持使用NFS或光纤通道(FC)作为存储协议的HANA系统。
+
+image:sc-copy-clone-image13.png["错误：缺少图形映像"]
+
+
+
+=== 支持的租户恢复操作
+
+如一节所述 link:sc-copy-clone-sap-hana-system-refresh-operation-workflows-using-storage-snapshot-backups.html["《使用存储快照备份的SAP HANA系统刷新操作工作流》"] 目标系统上可能的租户恢复操作取决于源系统的租户配置。脚本`sc-system-refresh.sh`支持所有租户恢复操作、这些操作可能取决于源系统配置、如下表所示。
+
+如果目标系统需要使用其他租户名称、则必须在执行恢复操作后手动重命名此租户。
+
+|===
+| HANA系统 | 源系统上的租户配置 | 目标系统上的租户配置 
+
+
+| 单个容器 | 不适用 | 不适用 
+
+
+| MDC单租户 | 源租户名称等于源SID | 目标租户名称等于目标SID 
+
+
+| MDC单租户 | 源租户名称不等于源SID | 目标租户名称等于源租户名称 
+
+
+| MDC多租户 | 任何租户名称 | 只有第一个租户会恢复、并且与源租户具有相同的名称。 
+|===
+
+
+=== SID专用配置文件
+
+此脚本使用配置文件配置一些目标系统专用参数。配置文件必须具有SID专用文件名`sc-system-refresh- sid.cfg`。
+
+
+NOTE: 使用目标系统的hdbuserstore密钥配置的数据库用户必须存在于源数据库中、并且必须具有允许数据库恢复的正确权限。
+
+下表显示了配置文件参数。
+
+|===
+| 参数 |  | Description 
+
+
+| 密钥 | 例如：QS1KEY | SAP HANA hdbuserstore密钥、应用于目标SAP HANA数据库的恢复操作。必须为目标主机上的用户<sid>adm配置此密钥。 
+
+
+| 协议 | NFS或FCP | 存储协议、用于连接HANA数据库数据卷。 
+|===
+以下输出显示了`SID=QS1`的SAP HANA系统的示例配置文件。
+
+....
+ss1adm@hana-1:/mnt/sapcc-share/SAP-System-Refresh> cat sc-system-refresh-QS1.cfg
+# ---------------------------------------------
+# Target database specific parameters
+# ---------------------------------------------
+# hdbuserstore key, which should be used to connect to the target database
+KEY="QS1KEY"
+# Used storage protocol, NFS or FCP
+PROTOCOL="NFS"
+ss1adm@hana-1:/mnt/sapcc-share/SAP-System-Refresh>
+....
+
+
+=== SnapCenter 环境变量
+
+SnapCenter 提供了一组环境变量、这些变量可在目标主机上执行的脚本中使用。该脚本使用这些变量来确定相关的配置设置。
+
+* 脚本变量`ha_Architecture`用于确定单个容器或MDC系统所需的恢复操作。
++
+** 派生自`ha_database_type`环境变量
+** 例如：`mDC\SS1_Hana数据库类型=多个容器`
+
+
+* 脚本变量`tenant_list、source_tenant`和`SOURCE_SID`用于确定恢复操作的目标租户名称。
++
+** 派生自`tenant_database_names`环境变量
+** 例如：`mDC\SM1_tenant_database_names=TENANT1、TENAN2`
+
+
+* 脚本变量`Storage、junction_path`用于挂载操作。
++
+** 派生自`clored_volumes_mount_path`环境变量
+** 例如：
+
+
+
+
+....
+CLONED_VOLUMES_MOUNT_PATH=192.168.175.117:/SS1_data_mnt00001_Clone_05112206115489411
+....
+
+
+== 脚本sc-mount-volume.sh
+
+示例脚本`sc- mount-volume.sh`用于对任何卷执行挂载和卸载。此脚本用于通过SAP HANA系统克隆操作挂载HANA共享卷。在SnapCenter 工作流clone create和clone delete中、使用特定的命令行选项调用该脚本、如下图所示。
+
+
+NOTE: 该脚本支持使用NFS作为存储协议的HANA系统。
+
+image:sc-copy-clone-image14.png["错误：缺少图形映像"]
+
+
+
+=== SnapCenter 环境变量
+
+SnapCenter 提供了一组环境变量、这些变量可在目标主机上执行的脚本中使用。该脚本使用这些变量来确定相关的配置设置。
+
+* 脚本变量`Storage、junction_path`用于挂载操作。
++
+** 派生自`clored_volumes_mount_path`环境变量。
+** 例如：
+
+
+
+
+....
+CLONED_VOLUMES_MOUNT_PATH=192.168.175.117:/SS1_shared_Clone_05112206115489411
+....
+
+
+== 用于获取SnapCenter 环境变量的脚本
+
+如果不应使用自动化脚本、而应手动执行这些步骤、则需要了解FlexClone卷的存储系统接合路径。接合路径在SnapCenter 中不可见、因此您需要直接在存储系统上查找接合路径、或者可以使用一个简单的脚本在目标主机上提供SnapCenter 环境变量。需要在SnapCenter 克隆创建操作中将此脚本作为挂载操作脚本添加。
+
+....
+ss1adm@hana-1:/mnt/sapcc-share/SAP-System-Refresh> cat get-env.sh
+#!/bin/bash
+rm /tmp/env-from-sc.txt
+env > /tmp/env-from-sc.txt
+ss1adm@hana-1:/mnt/sapcc-share/SAP-System-Refresh>
+....
+在`env-from-sc.txt`文件中、查找变量`clone-volumes_mount_path`以获取FlexClone卷的存储系统IP地址和接合路径。
+
+例如：
+
+....
+CLONED_VOLUMES_MOUNT_PATH=192.168.175.117:/SS1_data_mnt00001_Clone_05112206115489411
+....
+link:sc-copy-clone-sap-hana-system-refresh-with-snapcenter.html["接下来：使用SnapCenter 更新SAP HANA系统。"]
