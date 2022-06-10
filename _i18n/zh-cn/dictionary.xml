@@ -273,8 +273,6 @@
   <block id="7a28a9c1676d9980d4743396ec41e05e" category="list-text">TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》<block ref="026a8e661ca1c91258a93024c126a529" category="inline-link-rx"></block></block>
   <block id="ed4d2f627a13537ec50cc73b8aab9434" category="inline-link">www.netapp.com/us/media/tr-4338.pdf</block>
   <block id="0aeac98f03977f60da41b25c44ab1d16" category="list-text">TR-4338 ：《基于 VMware vSphere 的 SAP HANA 与 NetApp FAS 和 AFF 系统》<block ref="f3cf3d4bafab3435fc6438043df8d588" category="inline-link-rx"></block></block>
-  <block id="144b9f7c2b692720a8d41abdda9b5485" category="inline-link"><block ref="144b9f7c2b692720a8d41abdda9b5485" category="inline-link-rx"></block></block>
-  <block id="9437a0c7fd3aa1491ea7e97594e4706e" category="list-text">TR-4667 ：使用 SnapCenter 4.0 SAP HANA 插件自动执行 SAP 系统副本<block ref="cb22cde491c8ae8ab780a6806f412e04" category="inline-link-rx"></block></block>
   <block id="c9617ae303d0bce89d13bebecca2ea1b" category="inline-link"><block ref="c9617ae303d0bce89d13bebecca2ea1b" category="inline-link-rx"></block></block>
   <block id="af970b7f5802a374d53f2c5d39adb076" category="list-text">NetApp 文档中心<block ref="bf78332b32395471af72955679895502" category="inline-link-rx"></block></block>
   <block id="29381d3b46032a1fd6af6512d8c47b4a" category="inline-link"><block ref="29381d3b46032a1fd6af6512d8c47b4a" category="inline-link-rx"></block></block>
@@ -729,7 +727,6 @@
   <block id="c5c650b56fbb9fa65cf9e47fde05f179" category="list-text">TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》<block ref="a50e21e630f35731790436c759fca5b7" category="inline-link-rx"></block></block>
   <block id="0a96172d42ff3da65b0f1c7bc827f84e" category="list-text">TR-4338 ：《基于 VMware vSphere 的 SAP HANA 与 NetApp FAS 和 AFF 系统》<block ref="98a7d509ee148a118d5943b98dac0880" category="inline-link-rx"></block></block>
   <block id="f15eda444a7f3c1908338e1801c55307" category="inline-link">www.netapp.com/us/media/tr-4667.pdf</block>
-  <block id="25432379081387b0127fa08bb638c061" category="list-text">TR-4667 ：使用 SnapCenter 4.0 SAP HANA 插件自动执行 SAP 系统副本<block ref="123ec0a6c1b7ebb478c5566cdc547f86" category="inline-link-rx"></block></block>
   <block id="69e9c5891ea0d7c109eca9d776a28922" category="list-text">NetApp 文档中心<block ref="25f769ea9202a023ba9c99acedadbda6" category="inline-link-rx"></block></block>
   <block id="e9de988fb4a8df63ad9aa891e14b766c" category="list-text">NetApp FAS 存储系统资源<block ref="b8ffe4c4013882c10001270e8b487ee3" category="inline-link-rx"></block></block>
   <block id="06c9004a0f2fcfcfd8f0e4998e26ceea" category="list-text">SAP HANA 软件解决方案<block ref="f8e283f33fb9df1008b8f59ee91b76be" category="inline-link-rx"></block></block>
@@ -1049,8 +1046,6 @@
   <block id="026a8e661ca1c91258a93024c126a529" category="paragraph"><block ref="026a8e661ca1c91258a93024c126a529" category="inline-link-rx"></block></block>
   <block id="d3f52fc82e5e1c25912db41874144b01" category="list-text">TR-4338 ：《基于 VMware vSphere 的 SAP HANA 与 NetApp FAS 和 AFF 系统》</block>
   <block id="f3cf3d4bafab3435fc6438043df8d588" category="paragraph"><block ref="f3cf3d4bafab3435fc6438043df8d588" category="inline-link-rx"></block></block>
-  <block id="2505e1f3dd70f8398b450e6045393d0e" category="list-text">TR-4667 ：使用 SnapCenter 4.0 SAP HANA 插件自动执行 SAP 系统副本</block>
-  <block id="cb22cde491c8ae8ab780a6806f412e04" category="paragraph"><block ref="cb22cde491c8ae8ab780a6806f412e04" category="inline-link-rx"></block></block>
   <block id="c54847a2046020d06d345fd8b61fc169" category="list-text">NetApp 文档中心</block>
   <block id="bf78332b32395471af72955679895502" category="paragraph"><block ref="bf78332b32395471af72955679895502" category="inline-link-rx"></block></block>
   <block id="b4142d7007d4ca027509ca5370c0f3e9" category="list-text">NetApp FAS 存储系统资源</block>
@@ -1879,7 +1874,6 @@
   <block id="d5d6ed7727f0e542e6846a58af1d02ba" category="sidebar">SAP HANA 生命周期管理</block>
   <block id="68cc439f4e585883d2aaa26a4e3bcef2" category="sidebar">SAP HANA 灾难恢复</block>
   <block id="fa532045e834ec2fac1200964a189516" category="sidebar">生命周期管理</block>
-  <block id="1e83c49aed775d711f6d1a9a0a6a7060" category="sidebar">使用 SnapCenter SAP HANA 插件自动化 SAP 系统副本</block>
   <block id="91a1838980cefe2d841b83794fd6d4a1" category="sidebar">将 NetApp 存储与 SAP Landscape Management 集成</block>
   <block id="992418be64e705531aba529adefec66f" category="sidebar">备份，还原和灾难恢复</block>
   <block id="972d8dadb82724623a226062c52b514d" category="sidebar">使用 Azure NetApp Files 实现 SAP HANA 灾难恢复</block>
@@ -4423,7 +4417,6 @@
   <block id="c4e5652d7c6756098b7fa87e73bd054c" category="list-text">*使用中央通信主机的SnapCenter 安装。*中央通信主机随SnapCenter 代理、SAP HANA插件和HANA数据库客户端一起安装、负责处理为环境中的多个SAP HANA系统备份和还原SAP HANA数据库所需的所有数据库相关操作。因此、中央通信主机无需安装完整的SAP HANA数据库系统。</block>
   <block id="b4414ea38c77a0a3ee9e47059486f3e2" category="paragraph">有关这些不同的SnapCenter 代理和SAP HANA数据库插件安装选项的详细信息、请参见技术报告<block ref="dcc70b4da54279e83b2675b3331c54b4" category="inline-link-rx"></block>。</block>
   <block id="a0e8a8955d20c8fc657e47b2296ed8c1" category="paragraph">以下各节重点介绍了使用标准安装或中央通信主机将LSC与SnapCenter 集成的区别。值得注意的是、无论使用何种安装选项和数据库、未突出显示的所有配置步骤都是相同的。</block>
-  <block id="cc1cd0a0f9eb582d235ae4d0f6e8342b" category="paragraph">要从源数据库执行基于Snapshot副本的自动备份并为新目标数据库创建克隆、所述的LSC与SnapCenter 集成使用中所述的配置选项和脚本<block ref="cd920b3d7d4dc41443c1d02db576233a" category="inline-link-rx"></block>。</block>
   <block id="2859fee4a02ffd846470095dc466260c" category="paragraph">下图显示了在不使用LSC的情况下使用SnapCenter 的SAP系统刷新生命周期中的典型高级工作流：</block>
   <block id="052eec788d8241d56e540b703047914e" category="list-text">手动预处理(导出许可证、用户、打印机等)。</block>
   <block id="7e1b2dbe7aeb5bb0dae54646fc7b068f" category="list-text">如有必要、删除目标系统上已有的克隆。</block>
@@ -4455,7 +4448,6 @@
   <block id="550ff411af842971b5bef45c5d9d1a59" category="inline-link">TR-4700 ：适用于 Oracle 数据库的 SnapCenter 插件</block>
   <block id="2c7b4a7cfd7910e959b3899cdd539867" category="list-text"><block ref="2c7b4a7cfd7910e959b3899cdd539867" category="inline-link-rx"></block></block>
   <block id="4d0488fb3017f2f14273ce8765843a99" category="list-text"><block ref="4d0488fb3017f2f14273ce8765843a99" category="inline-link-rx"></block></block>
-  <block id="3d6ce96c053ea7e9b5b5760fe4e75ae7" category="list-text"><block ref="3d6ce96c053ea7e9b5b5760fe4e75ae7" category="inline-link-rx"></block></block>
   <block id="56f5eeda3975435c8530355bc5441429" category="inline-link">TR-4769—SnapCenter 最佳实践和规模估算准则</block>
   <block id="025547de09dae9dc145b97701e1b973f" category="list-text"><block ref="025547de09dae9dc145b97701e1b973f" category="inline-link-rx"></block></block>
   <block id="6be1ed7d0e35cab2dd490a58f13d3761" category="inline-link">《SnapCenter 4.6 cmdlet参考指南》</block>
@@ -4653,7 +4645,6 @@
   <block id="b0b38c4cc3e591b6cdab5040cd71f242" category="list-text">定期更新质量保证以及测试和培训系统</block>
   <block id="d88297c655f3ff29d2a1ec937fdd33a7" category="list-text">创建中断修复或修复系统环境以解决逻辑损坏问题</block>
   <block id="a70c7e060a3886f8f55acde979d98f33" category="list-text">灾难恢复测试场景</block>
-  <block id="6f89f570d60963a6699473a3ff97bc26" category="paragraph">虽然修复系统和灾难恢复测试系统通常使用SAP系统克隆(不需要执行大量后处理操作)来更新测试和培训系统、但要与源系统共存、必须应用这些后处理步骤。因此、本文档重点介绍SAP系统更新场景。有关不同使用情形的更多详细信息、请参见技术报告<block ref="cd920b3d7d4dc41443c1d02db576233a" category="inline-link-rx"></block>。</block>
   <block id="0a2e09fa683bd368c81839911e03b708" category="paragraph">本文档其余部分分为两部分。第一部分介绍了NetApp SnapCenter 与适用于SAP HANA的Libelle SystemCopy以及在内部NetApp ONTAP 系统上运行的SAP AnyDB系统的集成。第二部分介绍了AzAcSnap与在Microsoft Azure中运行的适用于SAP HANA系统的LSC以及所提供的Azure NetApp Files 的集成。尽管底层ONTAP 技术是相同的、但与 原生 ONTAP 安装相比、Azure NetApp Files 提供不同的接口和工具集成(例如AzAcSnap)。</block>
   <block id="2068acecca0077fd3a48d2668542bccc" category="inline-link-macro">接下来：使用LSC和SnapCenter 更新SAP HANA系统。</block>
   <block id="901dbde8a2b798f61a514b189d3ac126" category="paragraph"><block ref="901dbde8a2b798f61a514b189d3ac126" category="inline-link-macro-rx"></block></block>
@@ -4938,4 +4929,12 @@
   <block id="43678c52f4cb8971c772ed90d9f6ce7c" category="paragraph"><block ref="43678c52f4cb8971c772ed90d9f6ce7c" category="inline-link-macro-rx"></block></block>
   <block id="aed4be0abac71ea3a4ee20b172e42949" category="sidebar">利用Libelle SystemCopy自动执行SAP系统副本操作</block>
   <block id="8e070ffcf4d959eabcd3559b9bb17ec6" category="sidebar">从何处查找追加信息 和版本历史记录</block>
+  <block id="2c5d95d1e63dd18b275493c1704ed479" category="list-text">TR-4667：使用SnapCenter 4.0 SAP HANA插件自动执行SAP系统副本</block>
+  <block id="bc2cda4f2510d2d58906aedd61e82e50" category="inline-link"><block ref="bc2cda4f2510d2d58906aedd61e82e50" category="inline-link-rx"></block></block>
+  <block id="acae3e0452c3127b0c142245461a61ae" category="paragraph"><block ref="acae3e0452c3127b0c142245461a61ae" category="inline-link-rx"></block></block>
+  <block id="6aa1ba1b9f6e5fae64ea9d88054f4805" category="list-text">TR-4667：使用SnapCenter 4.0 SAP HANA插件自动执行SAP系统副本<block ref="637c8239b2db20891c482cfa0b2e2b23" category="inline-link-rx"></block></block>
+  <block id="7e00b6917da8eaba0d8e9182e2234480" category="list-text">TR-4667：使用SnapCenter 4.0 SAP HANA插件自动执行SAP系统副本<block ref="acae3e0452c3127b0c142245461a61ae" category="inline-link-rx"></block></block>
+  <block id="845479810e43d8fc64263c1a762de016" category="paragraph">要从源数据库执行基于Snapshot副本的自动备份并为新目标数据库创建克隆、所述的LSC与SnapCenter 集成使用中所述的配置选项和脚本 <block ref="6cb270d5a2712c948be937faf1cb1d50" category="inline-link-macro-rx"></block>。</block>
+  <block id="66988e72fd271cabc6a7489ab70e1a4f" category="list-text"><block ref="66988e72fd271cabc6a7489ab70e1a4f" category="inline-link-rx"></block></block>
+  <block id="5c427e461906a4b90dc3d5777ec58bfa" category="paragraph">虽然修复系统和灾难恢复测试系统通常使用SAP系统克隆(不需要执行大量后处理操作)来更新测试和培训系统、但要与源系统共存、必须应用这些后处理步骤。因此、本文档重点介绍SAP系统更新场景。有关不同使用情形的更多详细信息、请参见技术报告<block ref="d89e94a6aaf703375bdbc4104c3e8227" category="inline-link-rx"></block>。</block>
 </blocks>

@@ -49,9 +49,9 @@ https://www.netapp.com/us/media/tr-4614.pdf["https://www.netapp.com/us/media/tr-
 +
 http://www.netapp.com/us/media/tr-4338.pdf["www.netapp.com/us/media/tr-4338.pdf"^]
 
-* TR-4667 ：使用 SnapCenter 4.0 SAP HANA 插件自动执行 SAP 系统副本
+* TR-4667：使用SnapCenter 4.0 SAP HANA插件自动执行SAP系统副本
 +
-https://www.netapp.com/us/media/tr-4667.pdf["https://www.netapp.com/us/media/tr-4667.pdf"^]
+https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html["https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html"^]
 
 * NetApp 文档中心
 +

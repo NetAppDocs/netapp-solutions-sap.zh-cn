@@ -29,7 +29,7 @@ SAP AnyDB的默认SnapCenter 代理和数据库插件安装是SnapCenter 代理�
 
 以下各节重点介绍了使用标准安装或中央通信主机将LSC与SnapCenter 集成的区别。值得注意的是、无论使用何种安装选项和数据库、未突出显示的所有配置步骤都是相同的。
 
-要从源数据库执行基于Snapshot副本的自动备份并为新目标数据库创建克隆、所述的LSC与SnapCenter 集成使用中所述的配置选项和脚本 https://www.netapp.com/pdf.html?item=/media/17111-tr4667pdf.pdf["TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作"^]。
+要从源数据库执行基于Snapshot副本的自动备份并为新目标数据库创建克隆、所述的LSC与SnapCenter 集成使用中所述的配置选项和脚本 link:https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html["TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作"^]。
 
 
 
@@ -91,7 +91,7 @@ LSC主服务器和LSC员工必须安装在SAP环境中。在此部署中、我�
 * https://docs.netapp.com/us-en/snapcenter/["SnapCenter 文档中心"^]
 * https://www.netapp.com/pdf.html?item=/media/12403-tr4700.pdf["TR-4700 ：适用于 Oracle 数据库的 SnapCenter 插件"^]
 * https://www.netapp.com/pdf.html?item=/media/12405-tr4614pdf.pdf["TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》"^]
-* https://www.netapp.com/pdf.html?item=/media/17111-tr4667pdf.pdf["TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作"^]
+* https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html["TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作"^]
 * https://fieldportal.netapp.com/content/883721["TR-4769—SnapCenter 最佳实践和规模估算准则"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2880726["《SnapCenter 4.6 cmdlet参考指南》"^]
 
