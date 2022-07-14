@@ -1121,7 +1121,6 @@
   <block id="478e40cd9ddf422d368f6b4491dd38c7" category="paragraph"><block ref="478e40cd9ddf422d368f6b4491dd38c7" category="inline-link-macro-rx"></block></block>
   <block id="4f0141ecc04bee7dc293f8992542b4bd" category="summary">NetApp FAS 产品系列已通过认证，可在 TDI 项目中与 SAP HANA 结合使用。经过认证的企业级存储平台采用 NetApp ONTAP 操作系统。</block>
   <block id="088c8c258db90c09658a39d2839f52b0" category="doc">TR-4384 ：《采用光纤通道协议的 NetApp FAS 系统上的 SAP HANA 配置指南》</block>
-  <block id="d505ac9d8d6e21d17ef8d33d547be191" category="list-text">FAS2720 ， FAS2750 ， FAS8200 ， FAS8300 ， FAS8700 ， FAS9000</block>
   <block id="42eb56ae1e83db3afce70f056a668205" category="inline-link">经过认证并受支持的 SAP HANA 硬件目录</block>
   <block id="b448d121930edfc4a956027d7533c403" category="paragraph">本文档介绍了使用光纤通道协议（ FCP ）的 FAS 配置。</block>
   <block id="bd06b22fab5b6b92f9bf2b53d26f4805" category="admonition">要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采用本文所述的配置。更改此处未列出的任何设置或使用的功能可能会导致性能下降或出现意外行为，只有在 NetApp 支持人员建议的情况下，才应执行此操作。</block>
@@ -2830,7 +2829,6 @@
   <block id="f9d7623ba6cc83509340e737618f63c2" category="paragraph">以下示例显示了一个主机 SAP HANA 数据库，其中 SID=NF2 使用 NFSv3 ， NFS 传输大小为 1 MB 用于读取， 256 k 用于写入。</block>
   <block id="b6002aa673859c29cc8fc6915c01cf54" category="paragraph">下一个示例显示了一个多主机 SAP HANA 数据库，其中 SID=NF2 对数据和日志文件系统使用 NFSv4.1 ，而对 ` ， HA/Shared` 和 ` ， USR/SAP/NF2` 文件系统使用 NFSv3 。使用 1 MB 的 NFS 传输大小进行读取，使用 256 k 的 NFS 传输大小进行写入。</block>
   <block id="4ba3e1c058ef7fff97064b76f2483b24" category="paragraph">有关 SAP HANA 容量要求的详细问题描述，请参见<block ref="7c7e574e6ad6c7603298dd899482269f" category="inline-link-rx"></block> 随附白皮书。</block>
-  <block id="257f17de4aa60411125a8899104c5927" category="list-text">FAS2720 ， FAS2750 ， FAS8300 ， FAS8700 和 FAS9000A 有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见<block ref="b94cf00a6e18ec3712e81f808581c042" category="inline-link-rx"></block>。</block>
   <block id="45bb1f13b573370e5659e113eaa6e2a7" category="paragraph">本文档介绍了 NFS 版本 3 （ NFSv3 ）协议或 NFS 版本 4 （ NFSv4.1 ）协议的 ONTAP 配置要求。</block>
   <block id="bc3bbc9b5df10cfc4c9d9747e9b15e4f" category="paragraph">有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见<block ref="2585df8f0f74fb3d91dc9a930fa3213b" category="inline-link-rx"></block>。</block>
   <block id="fa880fcc81edcdb201d07b92940b6c2c" category="paragraph">第一个磁盘架至少需要 12 个 NVMe SSD ，最多支持 16 个 SAP HANA 主机。一个完全填充的磁盘架最多可支持 48 个 SAP HANA 主机。</block>
@@ -4937,4 +4935,6 @@
   <block id="845479810e43d8fc64263c1a762de016" category="paragraph">要从源数据库执行基于Snapshot副本的自动备份并为新目标数据库创建克隆、所述的LSC与SnapCenter 集成使用中所述的配置选项和脚本 <block ref="6cb270d5a2712c948be937faf1cb1d50" category="inline-link-macro-rx"></block>。</block>
   <block id="66988e72fd271cabc6a7489ab70e1a4f" category="list-text"><block ref="66988e72fd271cabc6a7489ab70e1a4f" category="inline-link-rx"></block></block>
   <block id="5c427e461906a4b90dc3d5777ec58bfa" category="paragraph">虽然修复系统和灾难恢复测试系统通常使用SAP系统克隆(不需要执行大量后处理操作)来更新测试和培训系统、但要与源系统共存、必须应用这些后处理步骤。因此、本文档重点介绍SAP系统更新场景。有关不同使用情形的更多详细信息、请参见技术报告<block ref="d89e94a6aaf703375bdbc4104c3e8227" category="inline-link-rx"></block>。</block>
+  <block id="ecf911b27dfacab49658bef695c01f50" category="list-text">FAS2720、FAS2750、FAS8300、FAS8700、FAS9000、 和FAS9500。有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见<block ref="b94cf00a6e18ec3712e81f808581c042" category="inline-link-rx"></block>。</block>
+  <block id="9b340c29d45c75265853d640bc6a1e05" category="list-text">FAS2720、FAS2750、FAS8200、FAS8300、FAS8700、 FAS9000、FAS9500</block>
 </blocks>
