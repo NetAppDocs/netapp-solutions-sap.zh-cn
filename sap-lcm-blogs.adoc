@@ -19,7 +19,7 @@ keywords: netapp, solutions, SAP, lifecycle, management, lcm, blogs
 
 
 
-=== SAP 生命周期管理博客
+== SAP 生命周期管理博客
 
 * link:https://blogs.sap.com/2021/10/27/whitepaper-sap-landscape-management-with-netapp/["NetApp 的 SAP Landscape Management"]
 

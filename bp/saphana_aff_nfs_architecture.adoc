@@ -45,7 +45,7 @@ image:saphana_aff_nfs_image5.png["错误：缺少图形映像"]
 
 
 
-=== SAP HANA 备份
+== SAP HANA 备份
 
 所有 NetApp 存储控制器上的 ONTAP 软件都提供了一种内置机制，可在运行期间备份 SAP HANA 数据库，而不会影响性能。基于存储的 NetApp Snapshot 备份是一种完全受支持的集成备份解决方案，可用于 SAP HANA 单个容器以及具有单个租户或多个租户的 SAP HANA 多租户数据库容器（ MDG ）系统。
 
@@ -70,7 +70,7 @@ NOTE: 有关 SAP HANA 备份和恢复解决方案的详细信息，请参见 htt
 
 
 
-=== SAP HANA 灾难恢复
+== SAP HANA 灾难恢复
 
 SAP HANA 灾难恢复（ DR ）可以通过 SAP HANA 系统复制在数据库层上完成，也可以通过存储复制技术在存储层完成。下一节概述了基于存储复制的灾难恢复解决方案。
 
@@ -78,7 +78,7 @@ SAP HANA 灾难恢复（ DR ）可以通过 SAP HANA 系统复制在数据库层
 
 
 
-==== 基于 SnapMirror 的存储复制
+=== 基于 SnapMirror 的存储复制
 
 下图显示了一个三站点灾难恢复解决方案，它使用同步 SnapMirror 复制到本地灾难恢复数据中心，并使用异步 SnapMirror 将数据复制到远程灾难恢复数据中心。
 
@@ -98,7 +98,7 @@ image:saphana_aff_nfs_image7.png["错误：缺少图形映像"]
 
 
 
-==== 基于 MetroCluster 的存储复制
+=== 基于 MetroCluster 的存储复制
 
 下图简要展示了解决方案。每个站点上的存储集群可提供本地高可用性，并用于生产工作负载。每个站点的数据会同步复制到另一位置，并可在发生灾难故障转移时使用。
 

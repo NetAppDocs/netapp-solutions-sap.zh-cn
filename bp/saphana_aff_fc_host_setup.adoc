@@ -21,7 +21,7 @@ link:saphana_aff_fc_sap_hana_storage_connector_api.html["先前版本： SAP HAN
 
 
 
-=== 配置多路径
+== 配置多路径
 
 
 NOTE: 必须在 SAP HANA 多主机配置中的所有辅助主机和备用主机上执行步骤 1 到 6 。
@@ -216,7 +216,7 @@ size=512G features='4 queue_if_no_path pg_init_retries 50 retain_attached_hw_han
 
 
 
-=== 创建 LVM 卷组和逻辑卷
+== 创建 LVM 卷组和逻辑卷
 
 只有在使用 LVM 时，才需要执行此步骤。以下示例适用于使用 SID FC5 的 2+1 主机设置。
 
@@ -270,7 +270,7 @@ vgchange -a y
 ....
 
 
-=== 创建文件系统
+== 创建文件系统
 
 要在属于 HANA 系统的每个 LUN 上创建 XFS 文件系统，请执行以下操作之一：
 
@@ -305,7 +305,7 @@ NOTE: 多主机示例命令显示 2+1 多主机 HANA 系统。
 
 
 
-=== 创建挂载点
+== 创建挂载点
 
 要创建所需的挂载点目录，请执行以下操作之一：
 
@@ -341,7 +341,7 @@ NOTE: 对于使用 Linux LVM 的系统配置，必须执行相同的步骤。
 
 
 
-=== 挂载文件系统
+== 挂载文件系统
 
 要在系统启动期间使用 ` /etc/fstab` 配置文件挂载文件系统，请完成以下步骤：
 
