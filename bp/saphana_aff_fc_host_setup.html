@@ -1713,7 +1713,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-03 06:05:11 +0000">05/03/2022</time>
+    <time datetime="2022-07-15 19:07:03 +0000">07/15/2022</time>
     
   
 
@@ -1733,8 +1733,9 @@
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="配置多路径">配置多路径</h3>
+<div class="sect1">
+<h2 id="配置多路径">配置多路径</h2>
+<div class="sectionbody">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1979,8 +1980,10 @@ size=512G features='4 queue_if_no_path pg_init_retries 50 retain_attached_hw_han
 </ol>
 </div>
 </div>
-<div class="sect2">
-<h3 id="创建-lvm-卷组和逻辑卷">创建 LVM 卷组和逻辑卷</h3>
+</div>
+<div class="sect1">
+<h2 id="创建-lvm-卷组和逻辑卷">创建 LVM 卷组和逻辑卷</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>只有在使用 LVM 时，才需要执行此步骤。以下示例适用于使用 SID FC5 的 2+1 主机设置。</p>
 </div>
@@ -2069,8 +2072,10 @@ lvscan</pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="创建文件系统">创建文件系统</h3>
+</div>
+<div class="sect1">
+<h2 id="创建文件系统">创建文件系统</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>要在属于 HANA 系统的每个 LUN 上创建 XFS 文件系统，请执行以下操作之一：</p>
 </div>
@@ -2131,8 +2136,10 @@ mkfs.xfs FC5_log_mnt00002-vol</pre>
 </table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="创建挂载点">创建挂载点</h3>
+</div>
+<div class="sect1">
+<h2 id="创建挂载点">创建挂载点</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>要创建所需的挂载点目录，请执行以下操作之一：</p>
 </div>
@@ -2197,8 +2204,10 @@ stlrx300s8-6:/ # chmod 777 /hana/shared</pre>
 </table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="挂载文件系统">挂载文件系统</h3>
+</div>
+<div class="sect1">
+<h2 id="挂载文件系统">挂载文件系统</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>要在系统启动期间使用 ` /etc/fstab` 配置文件挂载文件系统，请完成以下步骤：</p>
 </div>
@@ -2266,6 +2275,7 @@ stlrx300s8-6:/ # chmod 777 /hana/shared</pre>
 </div>
 <div class="paragraph">
 <p><a href="saphana_aff_fc_i_o_stack_configuration_for_sap_hana.html">"接下来： SAP HANA 的 I/O 堆栈配置。"</a></p>
+</div>
 </div>
 </div>
 

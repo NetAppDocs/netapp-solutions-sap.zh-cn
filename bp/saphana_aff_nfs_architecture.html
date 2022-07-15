@@ -1713,7 +1713,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-03 06:05:11 +0000">05/03/2022</time>
+    <time datetime="2022-07-15 19:07:03 +0000">07/15/2022</time>
     
   
 
@@ -1773,8 +1773,9 @@
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="sap-hana-备份">SAP HANA 备份</h3>
+<div class="sect1">
+<h2 id="sap-hana-备份">SAP HANA 备份</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>所有 NetApp 存储控制器上的 ONTAP 软件都提供了一种内置机制，可在运行期间备份 SAP HANA 数据库，而不会影响性能。基于存储的 NetApp Snapshot 备份是一种完全受支持的集成备份解决方案，可用于 SAP HANA 单个容器以及具有单个租户或多个租户的 SAP HANA 多租户数据库容器（ MDG ）系统。</p>
 </div>
@@ -1822,16 +1823,18 @@
 </table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="sap-hana-灾难恢复">SAP HANA 灾难恢复</h3>
+</div>
+<div class="sect1">
+<h2 id="sap-hana-灾难恢复">SAP HANA 灾难恢复</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>SAP HANA 灾难恢复（ DR ）可以通过 SAP HANA 系统复制在数据库层上完成，也可以通过存储复制技术在存储层完成。下一节概述了基于存储复制的灾难恢复解决方案。</p>
 </div>
 <div class="paragraph">
 <p>有关 SAP HANA 灾难恢复解决方案的详细信息，请参见 <a href="https://www.netapp.com/pdf.html?item=/media/8584-tr4646pdf.pdf" target="_blank" rel="noopener">"TR-4646 ：《使用存储复制实现 SAP HANA 灾难恢复》"</a>。</p>
 </div>
-<div class="sect3">
-<h4 id="基于-snapmirror-的存储复制">基于 SnapMirror 的存储复制</h4>
+<div class="sect2">
+<h3 id="基于-snapmirror-的存储复制">基于 SnapMirror 的存储复制</h3>
 <div class="paragraph">
 <p>下图显示了一个三站点灾难恢复解决方案，它使用同步 SnapMirror 复制到本地灾难恢复数据中心，并使用异步 SnapMirror 将数据复制到远程灾难恢复数据中心。</p>
 </div>
@@ -1857,8 +1860,8 @@
 <p>同步复制提供 StrictSync 模式。如果由于任何原因未完成对二级存储的写入，则应用程序 I/O 将失败，从而确保主存储系统和二级存储系统完全相同。只有在 SnapMirror 关系恢复为 InSync 状态后，主系统的应用程序 I/O 才会恢复。如果主存储发生故障，则在故障转移后可以在二级存储上恢复应用程序 I/O ，而不会丢失数据。在 StrictSync 模式下， RPO 始终为零。</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="基于-metrocluster-的存储复制">基于 MetroCluster 的存储复制</h4>
+<div class="sect2">
+<h3 id="基于-metrocluster-的存储复制">基于 MetroCluster 的存储复制</h3>
 <div class="paragraph">
 <p>下图简要展示了解决方案。每个站点上的存储集群可提供本地高可用性，并用于生产工作负载。每个站点的数据会同步复制到另一位置，并可在发生灾难故障转移时使用。</p>
 </div>
@@ -1867,6 +1870,7 @@
 </div>
 <div class="paragraph">
 <p><a href="saphana_aff_nfs_storage_sizing.html">"接下来：存储规模估算。"</a></p>
+</div>
 </div>
 </div>
 </div>
