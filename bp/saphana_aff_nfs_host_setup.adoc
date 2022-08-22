@@ -77,6 +77,9 @@ net.ipv4.tcp_timestamps = 1
 net.ipv4.tcp_sack = 1
 ....
 
+NOTE: 自RedHat Enterprise Linux 8.6版起、还可以使用适用于SAP的RHEL系统角色(Ansible)应用这些设置。请参见 https://launchpad.support.sap.com/["SAP 注释 3024346"^] （需要 SAP 登录）。
+
+
 
 == 在 /has/ 共享卷中创建子目录
 
