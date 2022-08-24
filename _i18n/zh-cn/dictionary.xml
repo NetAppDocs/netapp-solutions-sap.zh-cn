@@ -1020,16 +1020,13 @@
   <block id="9ba59bf1b64e9d129b41dbb49f3c385f" category="paragraph">有关使用 NFS 和 NetApp FAS 系统的 AFF 系统的配置指南，请访问以下链接：</block>
   <block id="6e309be8793679276c5f6a7bdd2bfdfa" category="inline-link">基于采用 FCP 的 NetApp FAS 系统的 SAP HANA</block>
   <block id="794aa68d1e6abb7bdd6b9ecf4a1125fd" category="inline-link">基于采用 NFS 的 NetApp FAS 系统的 SAP HANA</block>
-  <block id="4300aba024439d53329726e8ecb7f77b" category="list-text"><block ref="4300aba024439d53329726e8ecb7f77b" category="inline-link-rx"></block></block>
   <block id="5f6e041a9634120ceb1ee084f6acde8a" category="inline-link">SAP 注释 2235581 — SAP HANA 支持的操作系统</block>
   <block id="10fba2fd8d2b0860517a92eefbfce26b" category="paragraph">在 SAP HANA 多主机环境中，标准 SAP HANA 存储连接器用于在发生 SAP HANA 主机故障转移时提供隔离。有关操作系统配置准则和 HANA 专用 Linux 内核依赖关系，请始终参考相关 SAP 注释。有关详细信息，请参见<block ref="362348e4aadbc3b1dc4fa3ddcce8fb65" category="inline-link-rx"></block>。</block>
   <block id="c28f239d8c4b11cfe19d1dcf078100b9" category="section-title">SAP HANA 量身定制的数据中心集成</block>
   <block id="e13ebe7bf91deecb41098f3561e752bf" category="paragraph">NetApp AFF 存储系统已通过 SAP HANA TDI 计划的认证，该计划同时使用 NFS （ NAS ）和 FC （ SAN ）协议。它们可以部署在任何当前 SAP HANA 方案中，例如采用单主机或多主机配置的基于 HANA 的 SAP Business Suite ， S/4HANA ， BB/4HANA 或基于 HANA 的 SAP Business Warehouse 。任何经认证可与 SAP HANA 结合使用的服务器均可与 NetApp 认证的存储解决方案结合使用。下图显示了一个架构概述。</block>
   <block id="92587b11e86da44eb218f2b17846d58e" category="paragraph"><block ref="92587b11e86da44eb218f2b17846d58e" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="ea6847e11cffe9d9606d920fe126bfdc" category="paragraph">有关高效 SAP HANA 系统的前提条件和建议的详细信息，请参见以下资源：</block>
   <block id="14a31d6554fa48b10cc86d1aaf656a07" category="inline-link">SAP HANA 定制数据中心集成常见问题解答</block>
   <block id="9282f2106e2ecc166cf241e78c58163e" category="list-text"><block ref="9282f2106e2ecc166cf241e78c58163e" category="inline-link-rx"></block></block>
-  <block id="44cbaf598c2b8895a3d3a875dd63203f" category="list-text"><block ref="44cbaf598c2b8895a3d3a875dd63203f" category="inline-link-rx"></block></block>
   <block id="677ab22de36ea7a11313727ef07c5d64" category="inline-link-macro">先前版本：为 SAP HANA 单主机系统添加其他数据卷分区。</block>
   <block id="8743d46cf40e9841fd4d7a036d38956c" category="paragraph"><block ref="8743d46cf40e9841fd4d7a036d38956c" category="inline-link-macro-rx"></block></block>
   <block id="156ab83547a69207813015793bfe2332" category="paragraph"><block ref="156ab83547a69207813015793bfe2332" category="inline-link-rx"></block></block>
@@ -1079,9 +1076,7 @@
   <block id="af01ac16ca42b9b924b834a3199131e9" category="paragraph">此认证适用于以下型号：</block>
   <block id="793f62e70c31f71a93161db091bea2c0" category="paragraph">有关使用 FCP 的 NetApp AFF 系统以及使用 NFS 或 FCP 的 FAS 系统的配置指南，请访问以下链接：</block>
   <block id="fd645c3ffaeed1c3efb140082b037a69" category="inline-link">基于采用光纤通道协议的 NetApp FAS 系统的 SAP HANA</block>
-  <block id="8c286ade008f7d794b82d8e4bc981424" category="list-text"><block ref="8c286ade008f7d794b82d8e4bc981424" category="inline-link-rx"></block></block>
   <block id="d3eeeac9b8ca9512c68dfff9f3b301a2" category="inline-link">基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA</block>
-  <block id="c5b75af125f41729ef7bcd709c04f970" category="list-text"><block ref="c5b75af125f41729ef7bcd709c04f970" category="inline-link-rx"></block></block>
   <block id="36fafbaf89be825de435f50a73ce793c" category="paragraph">下表显示了 NFS 版本， NFS 锁定和所需隔离实施的受支持组合，具体取决于 SAP HANA 数据库配置。</block>
   <block id="4a74ba49b2778c7cf6b73600b7dfe758" category="paragraph">对于不使用主机自动故障转移的 SAP HANA 单主机系统或多个主机，支持 NFSv3 和 NFSv4 。</block>
   <block id="8456bce54ecacb824d3f0f3333eec164" category="paragraph">对于采用主机自动故障转移的 SAP HANA 多主机系统， NetApp 仅支持 NFSv4 ，而使用 NFSv4 锁定作为服务器专用 STONITH （ SAP HANA HA/DR 提供程序）实施的替代方案。</block>
@@ -1101,7 +1096,6 @@
   <block id="e0f43a4c6e28079f6afdc78865b7782e" category="admonition">有关操作系统配置准则和特定于 HANA 的 Linux 内核依赖关系，请参见相关 SAP 注释。有关详细信息，请参见 SAP 注释 2235581 ： SAP HANA 支持的操作系统。</block>
   <block id="5d75848b6169b06c4cd7d6a8c2ec2337" category="paragraph">NetApp AFF 存储控制器已通过 SAP HANA TDI 计划的认证，并同时使用 NFS （ NAS ）和 FC （ SAN ）协议。它们可以部署在任何当前 SAP HANA 方案中，例如采用单主机或多主机配置的基于 HANA 的 SAP Business Suite ， S/4HANA ， BB/4HANA 或基于 HANA 的 SAP Business Warehouse 。任何经认证可与 SAP HANA 结合使用的服务器均可与 NetApp 认证的存储解决方案结合使用。有关 SAP HANA TDI 的架构概述，请参见下图。</block>
   <block id="b397cda0484ae78f49c994384022879a" category="paragraph"><block ref="b397cda0484ae78f49c994384022879a" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="0b915d978fec9594c52c6c0d2f128886" category="paragraph">有关 producti SAP HANA 系统的前提条件和建议的详细信息，请参见以下资源：</block>
   <block id="4769b140b92a70ffdab406be16d30122" category="paragraph">可通过多种方法将存储连接到虚拟机（ VM ）。首选选项是直接从子操作系统中连接具有 NFS 的存储卷。使用此选项时，物理主机和 VM 的主机和存储配置不会有所不同。</block>
   <block id="35eb3c62d099b5d5e6334b74d5b2bcff" category="paragraph">此外，还支持 NFS 数据存储库和采用 NFS 的 VVol 数据存储库。对于这两个选项，数据存储库中只能存储一个 SAP HANA 数据或日志卷，以用于生产用例。此外，无法实施由 NetApp SnapCenter 和基于此的解决方案协调的基于 Snapshot 的备份和恢复，例如 SAP 系统克隆。</block>
   <block id="f7fbf8be79b2dbbf7cca7d63ea2aaa3e" category="paragraph">本文档介绍了从子操作系统直接挂载 NFS 的建议设置。</block>
@@ -1223,7 +1217,6 @@
   <block id="fdb63fa26dfca812f4f453ca18a829c7" category="section-title">SAP HANA 量身定制的数据中心集成</block>
   <block id="c2798d82f6c464fd30d247919005bc5b" category="paragraph">NetApp FAS 存储控制器已通过 SAP HANA TDI 计划的认证，并同时使用 NFS （ NAS ）和 FC （ SAN ）协议。它们可以部署在任何当前 SAP HANA 方案中，例如采用单主机或多主机配置的基于 HANA 的 SAP Business Suite ， S/4HANA ， BB/4HANA 或基于 HANA 的 SAP Business Warehouse 。任何经认证可与 SAP HANA 结合使用的服务器均可与 NetApp 认证的存储解决方案结合使用。有关架构概述，请参见下图。</block>
   <block id="780627a969a9ecaba83ec1a8ad4e34f6" category="paragraph"><block ref="780627a969a9ecaba83ec1a8ad4e34f6" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="c57f9f1ae5801f0d8675d5d2053fbac7" category="paragraph">有关生产 SAP HANA 系统的前提条件和建议的详细信息，请参见以下 SAP 资源：</block>
   <block id="cd67947f6f1984974a5e507afaa2222d" category="paragraph">可以通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。使用此选项时，物理主机和 VM 之间的主机和存储配置不会有所不同。</block>
   <block id="3e0badc46d16811661a7977c8991b3ea" category="paragraph">此外，还支持 NFS 数据存储库或采用 NFS 的 VVol 数据存储库。对于这两个选项，数据存储库中只能存储一个 SAP HANA 数据或日志卷，以用于生产用例。此外，无法实施由 SnapCenter 协调的基于 Snapshot 副本的备份和恢复，以及基于此操作的解决方案，例如 SAP 系统克隆。</block>
   <block id="41f8d362e2484ed69d1a57c66be636dc" category="paragraph"><block ref="41f8d362e2484ed69d1a57c66be636dc" category="inline-link-macro-rx"></block></block>
@@ -1905,12 +1898,7 @@
   <block id="4a889ac1eab815e3cc9e7d0066d4360d" category="paragraph">本文档介绍了在设计存储解决方案以使用 Oracle 数据库支持 SAP 业务套件产品时所面临的挑战。本文档的主要重点是使用最新一代 SAP 解决方案的业务和 IT 主管面临的常见存储基础架构设计，部署，操作和管理挑战。本文档中的建议是通用的；它们并不特定于 SAP 应用程序或 SAP 实施的规模和范围。本文档假定读者已基本了解 NetApp 和 SAP 产品的技术和操作。本文档是在 NetApp ， SAP ， Oracle 和我们的客户技术人员的互动基础上编写的。</block>
   <block id="72b1d38d81a57d1482ce5708d98653f1" category="inline-link-macro"><block ref="72b1d38d81a57d1482ce5708d98653f1" category="inline-link-rx"></block></block>
   <block id="d30f42b2a88310780291191529d76b18" category="paragraph"><block ref="d30f42b2a88310780291191529d76b18" category="inline-link-macro-rx"></block></block>
-  <block id="c9d1db03ff9188655c6df6826c9cec88" category="list-text"><block ref="c9d1db03ff9188655c6df6826c9cec88" category="inline-link-rx"></block></block>
-  <block id="172a4f6be2e5258ba785f0fbe99140f7" category="list-text"><block ref="172a4f6be2e5258ba785f0fbe99140f7" category="inline-link-rx"></block></block>
-  <block id="d76e7542f28a5b74ef246f360a1518d6" category="list-text"><block ref="d76e7542f28a5b74ef246f360a1518d6" category="inline-link-rx"></block></block>
   <block id="1c00cdc071680932dbe093eee9f348e7" category="paragraph">可以通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。中介绍了此选项 <block ref="0f1147a043e687692dc16c07b278ec3b" category="inline-link-macro-rx"></block>。</block>
-  <block id="6578ba8f8050606717eb26d6e9c36396" category="list-text"><block ref="6578ba8f8050606717eb26d6e9c36396" category="inline-link-rx"></block></block>
-  <block id="9e2f7b0947eed9e36a3d84200631ce7d" category="list-text"><block ref="9e2f7b0947eed9e36a3d84200631ce7d" category="inline-link-rx"></block></block>
   <block id="81c2f60fe1cd3484018d62f2addc343a" category="summary">本参考架构文档可帮助客户在 VMware vSphere 虚拟机（ VM ）以及 NetApp FAS 和全闪存 FAS （ AFF ）存储系统上设计和部署 SAP HANA 单主机和多主机解决方案。</block>
   <block id="fc21beda63f542908cf6ffb86e8a9b91" category="doc">TR-4338 ：《采用 NetApp 技术的 VMware vSphere 上的 SAP HANA — FAS 和全闪存 FAS 系统》</block>
   <block id="492dbdbda06cf15ce343cbe404369a3d" category="paragraph">本参考架构文档可帮助客户在 VMware vSphere 虚拟机（ VM ）以及 NetApp FAS 和全闪存 FAS （ AFF ）存储系统上设计和部署 SAP HANA 单主机和多主机解决方案。此参考架构是根据现有 VMware 和 NetApp 客户的经验，真实模拟以及 NetApp 工程实验室验证而部署并记录的解决方案。本文档可帮助客户完成整个项目生命周期，包括需求评估，解决方案设计，安装和管理。</block>
@@ -4938,4 +4926,12 @@
   <block id="9f7a362263a005504b84698373ae8acb" category="paragraph">如果使用 NFSv3 连接存储，则必须在 ` /etc/modprobe.d/sunrpc.conf` 中设置参数 `sunrpc.tcp_max_slot_table_entries 参数` 。如果此文件不存在，则必须先通过添加以下行来创建它：</block>
   <block id="c27949e29c7b8b43b4bd0feb8b22be99" category="admonition">自RedHat Enterprise Linux 8.6版起、还可以使用适用于SAP的RHEL系统角色(Ansible)应用这些设置。请参见<block ref="d34bfa3c287edf039e3a5c4e365c2a83" category="inline-link-rx"></block> （需要 SAP 登录）。</block>
   <block id="a45ee993bf9abd75c709b9125c24c32a" category="admonition">自RedHat Enterprise Linux 8.6版以来、还可以使用适用于SAP的RHEL系统角色(Ansible)应用这些设置。请参见<block ref="d34bfa3c287edf039e3a5c4e365c2a83" category="inline-link-rx"></block> （需要 SAP 登录）。</block>
+  <block id="6ed4f46c3f6437e250cb69f8684772f4" category="list-text"><block ref="6ed4f46c3f6437e250cb69f8684772f4" category="inline-link-rx"></block></block>
+  <block id="24d3ef74df0d2ceedb42c4a4c33104d4" category="list-text"><block ref="24d3ef74df0d2ceedb42c4a4c33104d4" category="inline-link-rx"></block></block>
+  <block id="a52e74dbfc20d705ac349fdd5b3d0188" category="list-text"><block ref="a52e74dbfc20d705ac349fdd5b3d0188" category="inline-link-rx"></block></block>
+  <block id="aeb3b72555ced42ccaba566af6824c8b" category="paragraph">有关高效SAP HANA系统的前提条件和建议的详细信息、请参见以下资源：</block>
+  <block id="bee7a17172474fbff8f082af26c835d8" category="list-text"><block ref="bee7a17172474fbff8f082af26c835d8" category="inline-link-rx"></block></block>
+  <block id="1b0cf038717d1ac5c71d63e939cce293" category="list-text"><block ref="1b0cf038717d1ac5c71d63e939cce293" category="inline-link-rx"></block></block>
+  <block id="e7f295e915bb11e75ddb24aa294f7351" category="paragraph">有关生产SAP HANA系统的前提条件和建议的详细信息、请参见以下SAP资源：</block>
+  <block id="1ad4402d015b30446fdee11f5a31f55b" category="paragraph">有关producti SAP HANA系统的前提条件和建议的详细信息、请参见以下资源：</block>
 </blocks>

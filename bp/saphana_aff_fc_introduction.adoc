@@ -36,9 +36,9 @@ NOTE: 要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采�
 
 有关使用 NFS 和 NetApp FAS 系统的 AFF 系统的配置指南，请访问以下链接：
 
-* https://docs.netapp.com/us-en/netapp-solutions-sap_main/bp/saphana_fas_fc_introduction.html["基于采用 FCP 的 NetApp FAS 系统的 SAP HANA"^]
-* https://docs.netapp.com/us-en/netapp-solutions-sap_main/bp/saphana-fas-nfs_introduction.html["基于采用 NFS 的 NetApp FAS 系统的 SAP HANA"^]
-* https://docs.netapp.com/us-en/netapp-solutions-sap_main/bp/saphana_aff_nfs_introduction.html["基于采用 NFS 的 NetApp AFF 系统的 SAP HANA"^]
+* https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_fas_fc_introduction.html["基于采用 FCP 的 NetApp FAS 系统的 SAP HANA"^]
+* https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_introduction.html["基于采用 NFS 的 NetApp FAS 系统的 SAP HANA"^]
+* https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_introduction.html["基于采用 NFS 的 NetApp AFF 系统的 SAP HANA"^]
 
 
 在 SAP HANA 多主机环境中，标准 SAP HANA 存储连接器用于在发生 SAP HANA 主机故障转移时提供隔离。有关操作系统配置准则和 HANA 专用 Linux 内核依赖关系，请始终参考相关 SAP 注释。有关详细信息，请参见 https://launchpad.support.sap.com/["SAP 注释 2235581 — SAP HANA 支持的操作系统"^]。
@@ -51,10 +51,9 @@ NetApp AFF 存储系统已通过 SAP HANA TDI 计划的认证，该计划同时�
 
 image:saphana_aff_fc_image1.png["错误：缺少图形映像"]
 
-有关高效 SAP HANA 系统的前提条件和建议的详细信息，请参见以下资源：
+有关高效SAP HANA系统的前提条件和建议的详细信息、请参见以下资源：
 
 * http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html["SAP HANA 定制数据中心集成常见问题解答"^]
-* http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html["SAP HANA 存储要求"^]
 
 
 

@@ -24,9 +24,9 @@ NOTE: 要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采�
 
 有关使用 FCP 的 NetApp FAS 系统以及使用 NFS 或 FC 的 AFF 系统的配置指南，请访问以下链接：
 
-* https://docs.netapp.com/us-en/netapp-solutions_main/ent-apps-db/saphana_fas_fc_introduction.html["基于采用光纤通道协议的 NetApp FAS 系统的 SAP HANA"^]
-* https://docs.netapp.com/us-en/netapp-solutions_main/ent-apps-db/saphana_aff_nfs_introduction.html["基于采用 NFS 的 NetApp AFF 系统的 SAP HANA"^]
-* https://docs.netapp.com/us-en/netapp-solutions_main/ent-apps-db/saphana_aff_fc_introduction.html["基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA"^]
+* https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_fas_fc_introduction.html["基于采用光纤通道协议的 NetApp FAS 系统的 SAP HANA"^]
+* https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_introduction.html["基于采用 NFS 的 NetApp AFF 系统的 SAP HANA"^]
+* https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_fc_introduction.html["基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA"^]
 
 
 下表显示了 NFS 版本， NFS 锁定和所需隔离实施的受支持组合，具体取决于 SAP HANA 数据库配置。
@@ -66,10 +66,9 @@ NetApp FAS 存储控制器已通过 SAP HANA TDI 计划的认证，并同时使�
 
 image:saphana-fas-nfs_image1.png["错误：缺少图形映像"]
 
-有关生产 SAP HANA 系统的前提条件和建议的详细信息，请参见以下 SAP 资源：
+有关生产SAP HANA系统的前提条件和建议的详细信息、请参见以下SAP资源：
 
 * http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html["SAP HANA 定制数据中心集成常见问题解答"^]
-* http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html["SAP HANA 存储要求"^]
 
 
 
