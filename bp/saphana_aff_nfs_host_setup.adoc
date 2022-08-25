@@ -43,7 +43,7 @@ net.ipv4.tcp_timestamps = 1
 net.ipv4.tcp_sack = 1
 ....
 
-NOTE: 可以使用适用于 SAP 操作系统的 SLES 版本中的 Saptune 设置这些值。有关详细信息，请参见 https://launchpad.support.sap.com/["SAP 注释 3024346"^] （需要 SAP 登录）。
+NOTE: 可以使用适用于 SAP 操作系统的 SLES 版本中的 Saptune 设置这些值。有关详细信息，请参见 https://launchpad.support.sap.com/#/notes/3024346["SAP 注释 3024346"^] （需要 SAP 登录）。
 
 如果使用 NFSv3 连接存储，则必须在 ` /etc/modprobe.d/sunrpc.conf` 中设置 `sunrpc.tcp_max_slot_table_entries` 。如果此文件不存在，则必须先通过添加以下行来创建它：
 
@@ -77,7 +77,7 @@ net.ipv4.tcp_timestamps = 1
 net.ipv4.tcp_sack = 1
 ....
 
-NOTE: 自RedHat Enterprise Linux 8.6版起、还可以使用适用于SAP的RHEL系统角色(Ansible)应用这些设置。请参见 https://launchpad.support.sap.com/["SAP 注释 3024346"^] （需要 SAP 登录）。
+NOTE: 自RedHat Enterprise Linux 8.6版起、还可以使用适用于SAP的RHEL系统角色(Ansible)应用这些设置。请参见 https://launchpad.support.sap.com/#/notes/3024346["SAP 注释 3024346"^] （需要 SAP 登录）。
 
 
 
