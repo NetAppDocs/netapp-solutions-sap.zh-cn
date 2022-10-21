@@ -84,7 +84,7 @@ image:libelle-sc-image5.png["错误：缺少图形映像"]
 
 image:libelle-sc-image6.png["错误：缺少图形映像"]
 
-LSC主服务器和LSC员工必须安装在SAP环境中。在此部署中、我们还在SnapCenter 服务器上安装了LSC主服务器、并在目标SAP数据库服务器上安装了LSC工作程序、此操作应进行刷新。有关更多详细信息、请参见下一节"<<Lab setup>>。 "
+LSC主服务器和LSC员工必须安装在SAP环境中。在此部署中、我们还在SnapCenter 服务器上安装了LSC主服务器、并在目标SAP数据库服务器上安装了LSC工作程序、此操作应进行刷新。有关更多详细信息、请参见下一节" setup。 "
 
 文档资源：
 

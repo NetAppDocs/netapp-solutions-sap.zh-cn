@@ -662,7 +662,6 @@
   <block id="68d9ac2d7e973e347e878b223355bf31" category="inline-link">SAP 注释 3024346</block>
   <block id="fe039cc1acff15ac3ebdef50867dad8e" category="paragraph">如果使用 NFSv3 连接存储，则必须在 ` /etc/modprobe.d/sunrpc.conf` 中设置 `sunrpc.tcp_max_slot_table_entries` 参数。如果此文件不存在，则必须先通过添加以下行来创建它：</block>
   <block id="82740b25df395d68a79118ebc5c4da80" category="section-title">适用于 Red Hat Enterprise Linux 7.2 或更高版本的配置参数</block>
-  <block id="ba0e722235d43672bc79f8b3d5e18c9f" category="paragraph">您必须在每个 SAP HANA 主机上为 SAP HANA 生成的工作负载调整额外的内核和配置参数。</block>
   <block id="384d34c5cb85a44702029243289c3645" category="paragraph">如果使用 NFSv3 连接存储，则必须在 ` /etc/modprobe.d/sunrpc.conf` 中设置参数 `sunrpc.tcp_max_slot_table_entries` 。如果此文件不存在，则必须先通过添加以下行来创建它：</block>
   <block id="c2e770dd6d768668395e4b8d3b9291d1" category="paragraph">从 Red Hat Enterprise Linux 7.2 开始，您必须在 ` /etc/sysctl.d` 目录的配置文件中设置内核参数。例如，必须创建一个名为 `91-netapp-hana` 的配置文件。</block>
   <block id="4142bd640477d1c4292c7fcbb3bb1f57" category="section-title">在 /has/ 共享卷中创建子目录</block>
@@ -697,12 +696,9 @@
   <block id="7f4fbd9239422e6cbff6a5c40524adb3" category="cell">vers=3 ， nolock ，</block>
   <block id="5ce2764cf9f6ed7aadfe7ba01b6b29a4" category="cell">vers=4 ， minorVersion=1 ， lock</block>
   <block id="7d7894f31c9b83146d2bc22185ed5db0" category="cell">rsize=65536 ， wsize=65536 ，</block>
-  <block id="15ae6c88c5781cc59702ffce23dbc9c4" category="admonition">要提高 NFSv3 的读取性能，建议使用 `nconnect=n` mount 选项，该选项可用于 SUSE Linux Enterprise Server 12 SP4 或更高版本以及 RedHat Enterprise Linux （ RHEL ） 8.3 或更高版本。</block>
-  <block id="5af44f409fcf1d822ee94e4abf92a132" category="admonition">性能测试表明， `nconnect=8` 可提供良好的读取结果。日志写入可能会因会话数较少而受益，例如 `nconnect=2.` 请注意，从 NFS 服务器进行的首次挂载（ IP 地址）会定义所使用的会话量。即使 `nconnect` 使用不同的值，后续挂载也不会更改此设置。</block>
   <block id="ae2c578e6abfee06e6c468fd4e7cb392" category="paragraph">要在系统启动期间使用 ` /etc/fstab` 配置文件挂载文件系统，请完成以下步骤：</block>
   <block id="f731bd3074578aba0a3c1b5ab0ca78ee" category="list-text">将所需的文件系统添加到 ` /etc/fstab` 配置文件中。</block>
   <block id="aff8bbab4f16423ec5907aed644aead6" category="list-text">运行 `mount – a` 在所有主机上挂载文件系统。</block>
-  <block id="8ffd511efff2f95144ac621432b751cd" category="paragraph">下一个示例显示了一个多主机 SAP HANA 数据库，其中 SID=NF2 对数据和日志文件系统使用 NFSv4.1 ，而对 ` ， HA/Shared` 和 ` ， USR/SAP/NF2` 文件系统使用 NFSv3 。使用的 NFS 传输大小为 1 MB 。</block>
   <block id="2555851d01cabd281a371497bed0a9a9" category="list-text">将所需的文件系统添加到所有主机上的 ` /etc/fstab` 配置文件中。</block>
   <block id="4292e3e460b31d735c080ccc8524778e" category="admonition">每个数据库主机的 ` /usr/sap/nF2` 文件系统都不同。以下示例显示了 ` /NF2_Shared/usr- sap- host1` 。</block>
   <block id="05fcfc623e22f168e6b8f88a05afe537" category="inline-link-macro">接下来：为 NFSv4 准备 SAP HANA 安装。</block>
@@ -913,8 +909,6 @@
   <block id="d52686ae129e1d4bbe8cb75712e98f22" category="cell">vers=3 ， nolock</block>
   <block id="9fdcbaccc733453d8e7687d8e14a4e06" category="cell">rsize=65536 ， wsize=65536</block>
   <block id="a6b3bab4792cb8cb5eda6f38e11a69e7" category="admonition">要提高 NFSv3 的读取性能， NetApp 建议您使用 `nconnect=n` mount 选项，该选项可在 SUSE Linux Enterprise Server 12 SP4 或更高版本以及 RedHat Enterprise Linux （ RHEL ） 8.3 或更高版本中使用。</block>
-  <block id="c252bc09fef14c3fb2a8d711bae9e7ed" category="admonition">性能测试表明， `nconnect=8` 可提供良好的读取结果。日志写入可能会因会话数较少而受益，例如 `nconnect=2` 。请注意，从 NFS 服务器进行的首次挂载（ IP 地址）会定义所使用的会话量。即使 nconnect 使用不同的值，后续挂载也不会更改此设置。</block>
-  <block id="d3413923f038d5ccbb48c2ba31d26f55" category="paragraph">以下示例显示了使用 NFSv3 且 NFS 传输大小为 1 MB 的单个主机 SAP HANA 数据库，其中 SID=NF2 。要在系统启动期间使用 ` /etc/fstab` 配置文件挂载文件系统，请完成以下步骤：</block>
   <block id="03c18c34eb30051a996a6e6304e449da" category="paragraph"><block ref="03c18c34eb30051a996a6e6304e449da" category="inline-link-macro-rx"></block></block>
   <block id="af4ba9ef9ab9bd07d7c649c6d51dfa19" category="summary">从 SAP HANA 1.0 SPS10 开始， SAP 引入了一些参数来调整 I/O 行为并针对所用文件和存储系统优化数据库。</block>
   <block id="044185db5eecc41b1eff832a2449939e" category="doc">适用于 SAP HANA 的 I/O 堆栈配置</block>
@@ -2802,13 +2796,11 @@
   <block id="18cab9085e2115741cf08f1964299a5a" category="paragraph">本文档介绍了 NFS 协议版本 3 （ NFSv3 ）或 NFS 协议版本 4 （ NFSv4.1 ）的 ONTAP 配置要求。</block>
   <block id="e678bbdfe53ad933277605d32601cebe" category="admonition">如果使用的是 NFSv4.1 ，则可以启用和使用 pNFS 。</block>
   <block id="c16b7b6c06ec01825313e31feb82c6d2" category="cell">rsize=1048576 ， wsize=262144</block>
-  <block id="c16896dd475dc23d3a84eb0def7cee50" category="admonition">从 ONTAP 9.8 开始， NetApp 支持 NFSv4.1 的 nconnect 选项。SLES15SP2 和 RHEL 8.4 提供了第一个支持 NFSv4.1 nconnect 的 NFS 客户端。有关追加信息，请查看 Linux 供应商文档。</block>
   <block id="d15827908daa628f6154e0a4e3d8a3da" category="paragraph">第一个磁盘架至少需要 12 个 NVMe SSD ，最多支持 16 个 SAP HANA 主机。一个完全填充的磁盘架（ 24 个 SSD ）最多支持 48 个 SAP HANA 主机。相同的适用场景 AFF A800 系统的内部磁盘。</block>
   <block id="5f99a6ad54bfd8d0c68c8cc9f709365b" category="inline-link">SAP 备注： 1900823</block>
   <block id="8e473bb8179de06c9675fded85db8531" category="paragraph">有关 SAP HANA 容量要求的详细问题描述，请参见<block ref="7c7e574e6ad6c7603298dd899482269f" category="inline-link-rx"></block> 白皮书。</block>
   <block id="0b65064648e048922c198e4d6e2cafc1" category="admonition">使用不同的存储虚拟接口连接每个数据卷，以确保每个卷使用不同的 TCP 会话，或者使用 nconnect 挂载选项（如果适用于您的操作系统）。</block>
   <block id="4a09ae73b23148acb0508b47589e3623" category="cell">rsize=1048576 ， wsize=262144 ，</block>
-  <block id="1aee368bcb2be0cdb87c1fb6bbdfe17d" category="admonition">从 ONTAP 9.8 和 SUSE SLES15SP2 或 RedHat RHEL 8.4 或更高版本开始， NetApp 支持 NFSv4.1 的 nconnect 选项。对于追加信息，请查看 Linux 供应商文档。</block>
   <block id="f9d7623ba6cc83509340e737618f63c2" category="paragraph">以下示例显示了一个主机 SAP HANA 数据库，其中 SID=NF2 使用 NFSv3 ， NFS 传输大小为 1 MB 用于读取， 256 k 用于写入。</block>
   <block id="b6002aa673859c29cc8fc6915c01cf54" category="paragraph">下一个示例显示了一个多主机 SAP HANA 数据库，其中 SID=NF2 对数据和日志文件系统使用 NFSv4.1 ，而对 ` ， HA/Shared` 和 ` ， USR/SAP/NF2` 文件系统使用 NFSv3 。使用 1 MB 的 NFS 传输大小进行读取，使用 256 k 的 NFS 传输大小进行写入。</block>
   <block id="4ba3e1c058ef7fff97064b76f2483b24" category="paragraph">有关 SAP HANA 容量要求的详细问题描述，请参见<block ref="7c7e574e6ad6c7603298dd899482269f" category="inline-link-rx"></block> 随附白皮书。</block>
@@ -4933,5 +4925,10 @@
   <block id="537754f62b9e3072d7b143e82ea96f51" category="admonition">可以使用适用于 SAP 操作系统的 SLES 版本中的 Saptune 设置这些值。有关详细信息，请参见<block ref="c8345b27d24ece14a320acdc31cc02d7" category="inline-link-rx"></block> （需要 SAP 登录）。</block>
   <block id="64de99f49b55f96ef81b9f1d7d3ef301" category="admonition">自RedHat Enterprise Linux 8.6版起、还可以使用适用于SAP的RHEL系统角色(Ansible)应用这些设置。请参见<block ref="c8345b27d24ece14a320acdc31cc02d7" category="inline-link-rx"></block> （需要 SAP 登录）。</block>
   <block id="a02f77a47cb5c9004f19c8c78d662cd5" category="admonition">可以使用适用于 SAP 操作系统的 SLES 版本中的 Saptune 设置这些值。请参见<block ref="c8345b27d24ece14a320acdc31cc02d7" category="inline-link-rx"></block> （需要 SAP 登录）。</block>
-  <block id="bdd70ece842485df8dbfc92d3ddc2d1e" category="admonition">自RedHat Enterprise Linux 8.6版以来、还可以使用适用于SAP的RHEL系统角色(Ansible)应用这些设置。请参见<block ref="c8345b27d24ece14a320acdc31cc02d7" category="inline-link-rx"></block> （需要 SAP 登录）。</block>
+  <block id="8af9dcc6bc45874f6dab0a351794996a" category="admonition">性能测试表明、`nconnect=8`可为数据卷提供良好的读取结果。日志写入可能会因会话数较少而受益，例如 `nconnect=2` 。使用"nconnect"选项也可能有利于共享卷。请注意，从 NFS 服务器进行的首次挂载（ IP 地址）会定义所使用的会话量。即使nconnect使用不同的值、进一步挂载到同一IP地址也不会更改此设置。</block>
+  <block id="b35bcba907dc97a5b6020488961f3307" category="admonition">从ONTAP 9.8和SUSE SLES15SP2或RedHat RHEL 8.4或更高版本开始、NetApp也支持NFSv4.1的nconnect选项。对于追加信息，请查看 Linux 供应商文档。</block>
+  <block id="dbe18498a47f8eb26e80012f0c049b0d" category="paragraph">以下示例显示了一个主机 SAP HANA 数据库，其中 SID=NF2 使用 NFSv3 ， NFS 传输大小为 1 MB 用于读取， 256 k 用于写入。要在系统启动期间使用 ` /etc/fstab` 配置文件挂载文件系统，请完成以下步骤：</block>
+  <block id="afd4f67ca3483f6b519e8ebc2a53dcea" category="admonition">自RedHat Enterprise Linux 8.6版以来、还可以使用适用于SAP的RHEL系统角色(Ansible)应用这些设置。请参见<block ref="c8345b27d24ece14a320acdc31cc02d7" category="inline-link-rx"></block> （需要 SAP 登录）。</block>
+  <block id="e7a66fb065da642109c3abf1481bfcd0" category="paragraph">根据NFS版本和ONTAP 版本、使用不同的挂载选项。必须将以下文件系统挂载到主机：</block>
+  <block id="d1805ea655a389bcd86b519f65f01560" category="admonition">性能测试显示、`nconnect=8`可提供良好的读取结果、尤其是对数据卷。日志写入可能会因会话数较少而受益，例如 `nconnect=2` 。使用"nconnect"选项也可能有利于共享卷。请注意，从 NFS 服务器进行的首次挂载（ IP 地址）会定义所使用的会话量。即使nconnect使用不同的值、进一步挂载到同一IP地址也不会更改此设置。</block>
 </blocks>

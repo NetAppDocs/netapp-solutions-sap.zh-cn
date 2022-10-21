@@ -60,14 +60,14 @@ FabricPool 是将日志备份移动到另一存储层的理想选择。移动备
 
 以下概述总结了所需的存储配置步骤。后续章节将详细介绍每个步骤。在本节中，我们假定已设置存储硬件，并且已安装 ONTAP 软件。此外，存储端口（ 10GbE 或更快）与网络之间的连接必须已建立。
 
-. 按照中所述检查正确的磁盘架配置 "<<Disk shelf connection>>。 "
-. 按照中所述创建和配置所需的聚合 "<<Aggregate configuration>>。 "
-. 创建 Storage Virtual Machine （ SVM ），如 "<<SVM configuration>>。 "
-. 按照中所述创建 LIF"<<LIF configuration>>。 "
-. 在聚合中创建卷，如 "<<Volume configuration for SAP HANA single host systems>>，和<<Volume configuration for SAP HANA multiple host systems>>。 "
-. 按照中所述设置所需的卷选项 "<<Volume options>>。 "
-. 按照中所述为 NFSv3 设置所需的选项 "<<NFS configuration for NFSv3>>" 或 NFSv4 ，如 "<<NFS configuration for NFSv4>>。 "
-. 将卷挂载到命名空间并设置导出策略，如 "<<Mount volumes to namespace and set export policies>>。 "
+. 按照中所述检查正确的磁盘架配置 " shelf connection。 "
+. 按照中所述创建和配置所需的聚合 " configuration。 "
+. 创建 Storage Virtual Machine （ SVM ），如 " configuration。 "
+. 按照中所述创建 LIF" configuration。 "
+. 在聚合中创建卷，如 " configuration for SAP HANA single host systems，和 configuration for SAP HANA multiple host systems。 "
+. 按照中所述设置所需的卷选项 " options。 "
+. 按照中所述为 NFSv3 设置所需的选项 " configuration for NFSv3" 或 NFSv4 ，如 " configuration for NFSv4。 "
+. 将卷挂载到命名空间并设置导出策略，如 " volumes to namespace and set export policies。 "
 
 
 

@@ -228,7 +228,7 @@ hana-1:/mnt/sapcc-share/SAP-System-Refresh #
 
 == 克隆其他SAP应用程序服务
 
-其他SAP应用程序服务的克隆方式与SAP HANA共享卷相同、如"一节所述<<Cloning the HANA shared volume>>。" 当然、SAP应用程序服务器所需的存储卷也必须使用SnapCenter 进行保护。
+其他SAP应用程序服务的克隆方式与SAP HANA共享卷相同、如"一节所述 the HANA shared volume。" 当然、SAP应用程序服务器所需的存储卷也必须使用SnapCenter 进行保护。
 
 您必须将所需的服务条目添加到`/usr/sapservices`中、并且必须准备端口、用户和文件系统挂载点(例如、` usr/sap/SID`)。
 
