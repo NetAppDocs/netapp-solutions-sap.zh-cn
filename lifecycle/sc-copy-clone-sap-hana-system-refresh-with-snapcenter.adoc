@@ -239,7 +239,7 @@ image:sc-copy-clone-image25.png["错误：缺少图形映像"]
 
 image:sc-copy-clone-image26.png["错误：缺少图形映像"]
 
-所有后续步骤均与""一节所述的从主存储克隆的工作流相同 from primary storage with tenant name equal to SID。 "
+所有后续步骤均与""一节所述的从主存储克隆的工作流相同<<从租户名称等于SID的主存储克隆>>。 "
 
 
 
@@ -249,7 +249,7 @@ image:sc-copy-clone-image26.png["错误：缺少图形映像"]
 
 image:sc-copy-clone-image27.png["错误：缺少图形映像"]
 
-SnapCenter 中所需的步骤与""一节中所述的步骤相同 from primary storage with tenant name equal to SID。"] 不同之处在于脚本`sc-system-refresh.sh`中的租户恢复操作。
+SnapCenter 中所需的步骤与""一节中所述的步骤相同<<从租户名称等于SID的主存储克隆>>。"] 不同之处在于脚本`sc-system-refresh.sh`中的租户恢复操作。
 
 如果此脚本检测到源系统租户名称与源系统SID不同、则会使用与源租户相同的租户名称在目标系统上执行租户恢复。如果目标租户名称应具有其他名称、则必须在之后手动重命名此租户。
 

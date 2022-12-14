@@ -60,12 +60,12 @@ FabricPool 是将日志备份移动到另一存储层的理想选择。移动备
 
 以下概述总结了所需的存储配置步骤。后续章节将更详细地介绍每个步骤。在本节中，我们假定已设置存储硬件，并且已安装 ONTAP 软件。此外，必须已将存储 FCP 端口连接到 SAN 网络结构。
 
-. 检查磁盘架配置是否正确，如 " shelf connection。 "
-. 创建并配置所需的聚合，如 " configuration。 "
-. 创建 Storage Virtual Machine （ SVM ），如 " virtual machine configuration。 "
-. 创建逻辑接口（ LIF ），如 " interface configuration。 "
-. 创建端口集，如 " port sets。 "
-. 在聚合中创建启动程序组，卷和 LUN ，如创建 " and volumes and mapping LUNs to initiator groups。 "
+. 检查磁盘架配置是否正确，如 "<<磁盘架连接>>。 "
+. 创建并配置所需的聚合，如 "<<聚合配置>>。 "
+. 创建 Storage Virtual Machine （ SVM ），如 "<<Storage Virtual Machine 配置>>。 "
+. 创建逻辑接口（ LIF ），如 "<<逻辑接口配置>>。 "
+. 创建端口集，如 "<<FCP 端口集>>。 "
+. 在聚合中创建启动程序组，卷和 LUN ，如创建 "<<LUNs and volumes and mapping LUNs to initiator groups>>。 "
 
 
 

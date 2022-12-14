@@ -169,7 +169,7 @@ image:saphana-br-scs-image54.png["错误：缺少图形映像"]
 下图显示了保护策略。用于保护关系的保护策略用于定义 SnapMirror 标签以及在二级存储上保留备份。在我们的示例中，已用标签为 `Daily` ，保留设置为 5 。
 
 
-NOTE: 要创建的策略中的 SnapMirror 标签必须与 SnapCenter 策略配置中定义的标签匹配。有关详细信息，请参见 " for daily Snapshot backups with SnapVault replication。 "
+NOTE: 要创建的策略中的 SnapMirror 标签必须与 SnapCenter 策略配置中定义的标签匹配。有关详细信息，请参见 "<<使用 SnapVault 复制执行每日 Snapshot 备份的策略>>。 "
 
 
 NOTE: 异地备份存储上的备份保留在策略中定义，并由 ONTAP 控制。
@@ -235,7 +235,7 @@ image:saphana-br-scs-image59.png["错误：缺少图形映像"]
 +
 image:saphana-br-scs-image60.png["错误：缺少图形映像"]
 
-.. 完成资源配置后，请按照 " " 一节中所述配置资源保护 protection configuration。 "
+.. 完成资源配置后，请按照 " " 一节中所述配置资源保护<<资源保护配置>>。 "
 
 
 
