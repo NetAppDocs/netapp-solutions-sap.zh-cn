@@ -4931,4 +4931,361 @@
   <block id="afd4f67ca3483f6b519e8ebc2a53dcea" category="admonition">自RedHat Enterprise Linux 8.6版以来、还可以使用适用于SAP的RHEL系统角色(Ansible)应用这些设置。请参见<block ref="c8345b27d24ece14a320acdc31cc02d7" category="inline-link-rx"></block> （需要 SAP 登录）。</block>
   <block id="e7a66fb065da642109c3abf1481bfcd0" category="paragraph">根据NFS版本和ONTAP 版本、使用不同的挂载选项。必须将以下文件系统挂载到主机：</block>
   <block id="d1805ea655a389bcd86b519f65f01560" category="admonition">性能测试显示、`nconnect=8`可提供良好的读取结果、尤其是对数据卷。日志写入可能会因会话数较少而受益，例如 `nconnect=2` 。使用"nconnect"选项也可能有利于共享卷。请注意，从 NFS 服务器进行的首次挂载（ IP 地址）会定义所使用的会话量。即使nconnect使用不同的值、进一步挂载到同一IP地址也不会更改此设置。</block>
+  <block id="6f7cbdc39f9acbcde843e913e06a5bd8" category="summary">要停用克隆的系统、必须事先停止并准备好该系统。之后、可以启动系统销毁工作流。</block>
+  <block id="7c4bf45739108965dce4dca9b396f39d" category="doc">SAP Lama取消配置工作流—系统销毁</block>
+  <block id="7d2873665d2795e9c49d5a4c3b46fde1" category="inline-link-macro">先前版本：SAP Lama配置工作流—克隆系统。</block>
+  <block id="d364b9b9187e547b897ed747674bc53a" category="paragraph"><block ref="d364b9b9187e547b897ed747674bc53a" category="inline-link-macro-rx"></block></block>
+  <block id="ce5e3f676f90c441971cc56d6dffe08e" category="paragraph">下图突出显示了使用系统销毁工作流执行的主要步骤。</block>
+  <block id="fa37114811e0a6c252384710fd555989" category="inline-image-macro">此图简要展示了系统销毁工作流。其中包含以下步骤：停止系统、取消准备系统、删除存储克隆和删除系统配置。</block>
+  <block id="2c49f1c2b6cf2a413b781562e94f51c9" category="paragraph"><block ref="2c49f1c2b6cf2a413b781562e94f51c9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="326db1dde007554a6fc6a7f35a558d15" category="inline-image-macro">此图包含一个架构图、其中结合了上述工作流步骤在系统中的运行位置。</block>
+  <block id="be134f57e81ec33622cfc4840b1b0b96" category="paragraph"><block ref="be134f57e81ec33622cfc4840b1b0b96" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="cd1551a21e8c953f9daec26871057a76" category="list-text">在此示例中、我们将为之前创建的系统运行系统销毁工作流。我们在*系统视图*屏幕中选择系统、然后在*销毁进程*下启动系统销毁工作流。</block>
+  <block id="22dd11876567037f3dce168aca90a55d" category="inline-image-macro">此屏幕截图显示了SAP Lama图形用户界面、该图形用户界面可打开System &amp;gt；Provisioning Systems视图、在此可以打开销毁系统下拉列表。</block>
+  <block id="c29f9ca5d936c517167eb4d17112544a" category="paragraph"><block ref="cd60d04f86fbd91a9f493108cae035e8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d34819d82542a5e53e6821ec5e4db0e4" category="list-text">此处显示了配置阶段维护的所有挂载点、并在系统销毁工作流过程中删除这些挂载点。</block>
+  <block id="b6d7ae1d25c1ed56190634cbcb9f9b20" category="inline-image-macro">此屏幕截图显示了销毁存储卷选项卡下的销毁系统屏幕、其中列出了所有挂载点。</block>
+  <block id="80e4ac8363c4bb43c3e0be2319263403" category="paragraph"><block ref="80e4ac8363c4bb43c3e0be2319263403" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c55590507c7a5987bf4a4f7b1d810243" category="paragraph">不会删除任何虚拟主机名、因为这些主机名通过DNS维护并已自动分配。</block>
+  <block id="47667892836644d0cd83d17b4917dc35" category="inline-image-macro">此屏幕截图显示了"Delete Host Names"选项卡下的"Destroy System"屏幕。未列出任何主机名。</block>
+  <block id="ed02cb72288b1d82c109e6809814b6d8" category="paragraph"><block ref="ed02cb72288b1d82c109e6809814b6d8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="bbd7a36bba667209844b03f241994057" category="list-text">单击执行按钮可启动此操作。</block>
+  <block id="99ed6ae4a60e41a6306ef4ca90f88b38" category="inline-image-macro">此屏幕截图显示了销毁存储卷摘要页面。</block>
+  <block id="c9e5185c4873df6611b8dfbcf745108e" category="paragraph"><block ref="c9e5185c4873df6611b8dfbcf745108e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4ccc4170b3fa1543f818c336ac8fe5f3" category="paragraph">现在、SAP Lama会删除卷克隆并删除克隆系统的配置。</block>
+  <block id="3c4c4cc2b32a212b8dfdcb531f7833dc" category="list-text">您可以在*监控*菜单下监控克隆工作流的进度。</block>
+  <block id="048eec815017fa246a747d2da0febba7" category="inline-image-macro">此屏幕截图实时显示系统销毁工作流的进度。</block>
+  <block id="665bbfd6b563f38b5fe08024fd11bd2a" category="paragraph"><block ref="665bbfd6b563f38b5fe08024fd11bd2a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2f0172893615db7f6217f8aea9f5d77c" category="list-text">通过选择*删除NetAppClone*任务、将显示该步骤的详细日志。此处显示了Ansible攻略手册的执行情况。如您所见、《Ansible攻略手册》<block ref="02f575c9a42953c46d6832e43305b6fd" prefix=" " category="inline-code"></block> 对每个HANA数据库卷、数据、日志和共享执行。</block>
+  <block id="4354252a68eb4bbcfdd68b6514d4c26f" category="inline-image-macro">此屏幕截图显示了系统销毁工作流的日志页面。</block>
+  <block id="9337347d6d92fec3b5156bcc5bb61fdb" category="paragraph"><block ref="9337347d6d92fec3b5156bcc5bb61fdb" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3444b3912e49b9ee6b82e89cd3ee703d" category="inline-link-macro">接下来：SAP Lama配置工作流—复制系统。</block>
+  <block id="65f3658bf00c6057ea5e6b3944007494" category="paragraph"><block ref="65f3658bf00c6057ea5e6b3944007494" category="inline-link-macro-rx"></block></block>
+  <block id="b9b81059c0673276efc1c1e439881f55" category="summary">通过将Ansible等现代自动化框架集成到SAP Lama配置工作流中、客户可以灵活地使用解决方案 来满足标准或更复杂的基础架构要求。</block>
+  <block id="6f8b794f3246b0c1e1780bb4d4d5dc53" category="doc">结论</block>
+  <block id="5d31f0d1a0a87ea0f6a99aa660b266a4" category="inline-link-macro">先前版本：提供程序脚本配置和Ansible攻略手册。</block>
+  <block id="5f02483aeae731e2ae996fee251c5cfd" category="paragraph"><block ref="5f02483aeae731e2ae996fee251c5cfd" category="inline-link-macro-rx"></block></block>
+  <block id="261f5cfcc4c662ad4bdb40d9718a5735" category="list-text">NetApp命名空间中的集合</block>
+  <block id="95b860ff1d3414d84c1d0dd66c71beb5" category="inline-link"><block ref="95b860ff1d3414d84c1d0dd66c71beb5" category="inline-link-rx"></block></block>
+  <block id="c7d87c9780b4892d37181cf021e638e2" category="paragraph"><block ref="c7d87c9780b4892d37181cf021e638e2" category="inline-link-rx"></block></block>
+  <block id="1371cf980b833fe3e01808264a214fa5" category="list-text">有关Ansible集成和示例Ansible攻略手册的文档</block>
+  <block id="17d0c87f7f769c8ea7ac812812ebd6d5" category="inline-link"><block ref="17d0c87f7f769c8ea7ac812812ebd6d5" category="inline-link-rx"></block></block>
+  <block id="854bcd8220ccda1e905303668e3793ab" category="paragraph"><block ref="854bcd8220ccda1e905303668e3793ab" category="inline-link-rx"></block></block>
+  <block id="1bc1c7499928cd5f0942064dd37f54f2" category="list-text">Ansible与NetApp的全面集成</block>
+  <block id="d7b64d94b2b9e3dbbe93b80934086220" category="inline-link"><block ref="d7b64d94b2b9e3dbbe93b80934086220" category="inline-link-rx"></block></block>
+  <block id="a71e2ab189cc2e25539ceb7f9c4ced72" category="paragraph"><block ref="a71e2ab189cc2e25539ceb7f9c4ced72" category="inline-link-rx"></block></block>
+  <block id="54ec5aa26742228ba1f9e4024c4d73ac" category="list-text">有关将SAP Lama与Ansible集成的博客</block>
+  <block id="3da5f444c1b02ebe424e80c245333bf1" category="inline-link"><block ref="3da5f444c1b02ebe424e80c245333bf1" category="inline-link-rx"></block></block>
+  <block id="b6a1e2104cef9312a7e1e31c53499350" category="paragraph"><block ref="b6a1e2104cef9312a7e1e31c53499350" category="inline-link-rx"></block></block>
+  <block id="abf2ed748dab1316ba3962b6eacbe747" category="list-text">SAP Landscape Management 3.0企业版文档</block>
+  <block id="137cdbd940ab5580ba6f97a90cdc49d7" category="inline-link"><block ref="137cdbd940ab5580ba6f97a90cdc49d7" category="inline-link-rx"></block></block>
+  <block id="c9d90f3898ea1626d1c3a9a148fd4de1" category="paragraph"><block ref="c9d90f3898ea1626d1c3a9a148fd4de1" category="inline-link-rx"></block></block>
+  <block id="2358274d65c1630d9cc77d20a679ca78" category="list-text">SAP Lama文档—提供商定义</block>
+  <block id="aa594a5bd07b5bc43679c6743f5318cc" category="inline-link"><block ref="aa594a5bd07b5bc43679c6743f5318cc" category="inline-link-rx"></block></block>
+  <block id="76ff1106df915feb26c63a2d10f8ed76" category="paragraph"><block ref="76ff1106df915feb26c63a2d10f8ed76" category="inline-link-rx"></block></block>
+  <block id="cf584bec369b5b183362b23e3b48c171" category="list-text">SAP Lama文档—自定义挂钩</block>
+  <block id="a449378b07182beacf1e06df0157fb1a" category="inline-link"><block ref="a449378b07182beacf1e06df0157fb1a" category="inline-link-rx"></block></block>
+  <block id="29786d40f149d2b6bde83fc7b3b8d311" category="paragraph"><block ref="29786d40f149d2b6bde83fc7b3b8d311" category="inline-link-rx"></block></block>
+  <block id="82f583fbca7e52c75cf724100fceeb87" category="list-text">SAP Lama文档—配置SAP Host Agent注册脚本</block>
+  <block id="a42ebcc58d97420fee4c785861bdf4d3" category="inline-link"><block ref="a42ebcc58d97420fee4c785861bdf4d3" category="inline-link-rx"></block></block>
+  <block id="b837152d68eb7f96b0f885c89e076a13" category="paragraph"><block ref="b837152d68eb7f96b0f885c89e076a13" category="inline-link-rx"></block></block>
+  <block id="41bf842c374d0fd4ab82ce0e6079a372" category="list-text">SAP Lama文档—自定义操作和自定义挂钩的参数</block>
+  <block id="ef2b3fe29f808573588186cae37d62c0" category="inline-link"><block ref="ef2b3fe29f808573588186cae37d62c0" category="inline-link-rx"></block></block>
+  <block id="a8fc83992fa48ceb04a6dd0a40ec951e" category="paragraph"><block ref="a8fc83992fa48ceb04a6dd0a40ec951e" category="inline-link-rx"></block></block>
+  <block id="ac28a244d6bbc68fc735b6d8e78c406f" category="list-text">SAP Lama文档—自适应设计</block>
+  <block id="c3c9babca9a3c4755fc4fc97aab15698" category="inline-link"><block ref="c3c9babca9a3c4755fc4fc97aab15698" category="inline-link-rx"></block></block>
+  <block id="062786b87b67b615196261414e684e55" category="paragraph"><block ref="062786b87b67b615196261414e684e55" category="inline-link-rx"></block></block>
+  <block id="3cd8b5fe5ca94a9fdb5caaf96875ef7e" category="inline-link"><block ref="3cd8b5fe5ca94a9fdb5caaf96875ef7e" category="inline-link-rx"></block></block>
+  <block id="6bfac05f3cc2c0adace9c385ef708fd9" category="paragraph"><block ref="6bfac05f3cc2c0adace9c385ef708fd9" category="inline-link-rx"></block></block>
+  <block id="abb14d21829ba186172f6e1d0b64b55b" category="cell">2023年1月</block>
+  <block id="dfd02aef9802f4824ead7c08b8f81f1f" category="cell">初始版本。</block>
+  <block id="30216ab76baa66d9e857660c909822e7" category="summary">在本章中、我们将简要讨论系统克隆工作流和输入屏幕的不同之处。</block>
+  <block id="50cca7f997c3211915cd57a3bb04b29c" category="doc">SAP Lama配置工作流—复制系统</block>
+  <block id="8ff70a8b4cc140ad4c748b96474f870b" category="inline-link-macro">先前版本：SAP Lama取消配置工作流—系统销毁。</block>
+  <block id="59219532e5305fac7e7ddba7d8c9f225" category="paragraph"><block ref="59219532e5305fac7e7ddba7d8c9f225" category="inline-link-macro-rx"></block></block>
+  <block id="072f81464e5d856a8d5a7f8883a36632" category="paragraph">下图突出显示了使用系统副本工作流执行的主要步骤。</block>
+  <block id="01b76581a904a061a13aac9f12d95640" category="inline-image-macro">此图提供了系统副本工作流的时间表。其中包含存储克隆、准备系统、激活隔离、系统重命名、启动系统、导入配置、复制后自动化和停用系统。</block>
+  <block id="1fd4abb2e9e4644dca0b00cc5564ae7d" category="paragraph"><block ref="1fd4abb2e9e4644dca0b00cc5564ae7d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="266de5c670b51a2300bfff08eadf3f83" category="paragraph">在本章中、我们将简要讨论系统克隆工作流和输入屏幕的不同之处。如下图所示、存储工作流不会发生任何变化。</block>
+  <block id="3f9896a740ccd028335e64982c037d5a" category="inline-image-macro">此图提供了一个架构图、其中包含多个叠加步骤、显示了工作流中每个步骤的执行位置。</block>
+  <block id="0ee7ebf271ff2743b8f544bbfeb81691" category="paragraph"><block ref="0ee7ebf271ff2743b8f544bbfeb81691" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c46bd11826f2315cf0610d409ffd537e" category="list-text">系统副本工作流可以在系统准备就绪后启动。这不是此配置的特定任务、我们也不会对此进行详细说明。如果您需要更多信息、请查看SAP Lama文档。</block>
+  <block id="4233ffb48a1b0153e20c92c0f6c40e0c" category="inline-image-macro">此屏幕截图显示了"系统"选项卡下的"配置系统"视图。此时将列出两个系统、并且"Copy System"下拉列表已突出显示。</block>
+  <block id="675714232d181513a4eeff22a3b0db21" category="paragraph"><block ref="675714232d181513a4eeff22a3b0db21" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="083716145cee33ff2046c406370b2405" category="list-text">在复制工作流期间、系统将根据第一个屏幕中的指定进行重命名。</block>
+  <block id="bc347213ce1c3f1d2438267811473b15" category="inline-image-macro">此屏幕截图显示了复制系统页面、其中突出显示了系统ID和HANA SID框。</block>
+  <block id="0e5538f491798b42e37ed0f1c413963d" category="paragraph"><block ref="0e5538f491798b42e37ed0f1c413963d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6c469dd99db5fe4f2cdd41a2240beab2" category="list-text">在工作流期间、您可以更改实例编号。</block>
+  <block id="4deccc9f34577d008d9c3b2b0c99aec4" category="inline-image-macro">此屏幕截图显示了SAP实例编号选项卡、其中包含三个数据框。</block>
+  <block id="fd186e381af91342321d2f87740110a9" category="paragraph"><block ref="fd186e381af91342321d2f87740110a9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7803f3d937daa0d08bcf01b401c1f147" category="admonition">更改实例编号尚未经过测试、可能需要在提供程序脚本中进行更改。</block>
+  <block id="f5ad1b268b7a64d86910e1ae4182ef29" category="list-text">如上所述、*自定义克隆*屏幕与克隆工作流并无不同、如下所示。</block>
+  <block id="d5dc66f7bd8c1011c81ddc3e66057ee0" category="inline-image-macro">此屏幕截图显示了复制系统页面、其中包含自定义克隆信息和操作参数。</block>
+  <block id="d6c61f59b9d13174e1e29f1881cb383a" category="paragraph"><block ref="d6c61f59b9d13174e1e29f1881cb383a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="54ca6a630ee4f94a5198fac13397bd58" category="list-text">如我们所述、其余输入掩码不会与标准有所偏差、我们不会在此处进一步介绍这些掩码。最后一个屏幕将显示摘要、现在可以开始执行。</block>
+  <block id="e0543801e3151d1c0326270020101b9a" category="inline-image-macro">此屏幕截图显示了复制系统屏幕、其中包含基本信息和主机列表。右下角是"Execute"按钮。</block>
+  <block id="7413e2537a132edd12589463531e2bcd" category="paragraph"><block ref="7413e2537a132edd12589463531e2bcd" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e3ae308e52556fdb623ce663f313b439" category="paragraph">复制过程完成后、不会为自定义克隆过程启用目标实例。</block>
+  <block id="f25336d3bf88cbd451a163c97ac17567" category="inline-image-macro">此屏幕截图显示了Lama Systems屏幕以及系统详细信息。</block>
+  <block id="3692e43b127e4974805821bedcf7b7af" category="paragraph"><block ref="3692e43b127e4974805821bedcf7b7af" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8da564d2ce3424e459494f5a0676b5fe" category="paragraph">在系统销毁过程中、必须手动采用预挂步骤、因为已设置限制并会阻止执行。</block>
+  <block id="ccca928b2a7d8dd76d677eb328f1da6f" category="inline-image-macro">此屏幕截图显示了Lama Systems屏幕以及系统详细信息、并选中了Use Custom Processing Process复选框。</block>
+  <block id="ea9e8adaeb644dd10fe0cff853bb61c9" category="paragraph"><block ref="ea9e8adaeb644dd10fe0cff853bb61c9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="447b03b249dc99078c09554651d7b75d" category="inline-link-macro">接下来：SAP Lama配置工作流—系统刷新。</block>
+  <block id="d0fafa2f13b6bd5677fb87cf6b3377a9" category="paragraph"><block ref="d0fafa2f13b6bd5677fb87cf6b3377a9" category="inline-link-macro-rx"></block></block>
+  <block id="c4da05fb7cdd8766abc25fbafbea5a65" category="summary">在本文档中的示例部署和工作流执行期间、我们将使用以下提供程序配置文件、执行脚本和Ansible攻略手册。</block>
+  <block id="d53d04a1ea080883183470ec02c16fdd" category="doc">提供程序脚本配置和Ansible攻略手册</block>
+  <block id="d075b8370b5d1860d1832df4652c9bcb" category="inline-link-macro">先前版本：AP Lama配置工作流—系统刷新。</block>
+  <block id="c9d0557baae9a55d0e043df1c3e959d0" category="paragraph"><block ref="c9d0557baae9a55d0e043df1c3e959d0" category="inline-link-macro-rx"></block></block>
+  <block id="f23e38be71134dd193343d810430ee13" category="admonition">示例脚本按原样提供、NetApp不支持。您可以通过电子邮件发送电子邮件至：mailto：ng-sapcc@netapp.com ng-sapcc@netapp.com^请求最新版本的脚本。</block>
+  <block id="9feebf1712ffdf30142ff1038f2355ff" category="section-title">提供程序配置文件netapp_clone.conf</block>
+  <block id="15d4f6de10e85918b52fcdf3fa78b2a5" category="paragraph">此时将按照中所述创建配置文件<block ref="840230e2b210400caa403b3aab40b668" category="inline-link-rx"></block>。此配置文件必须位于安装了SAP主机代理的Ansible控制节点上。</block>
+  <block id="d0813c701ba6b269a96b838cf74abedc" category="paragraph">已配置的操作系统用户<block ref="24a29401ac4c9ae51f6da9510e56b6ab" prefix=" " category="inline-code"></block> 必须具有执行脚本和所调用的Ansible攻略手册的适当权限。您可以将脚本放置在通用脚本目录中。SAP Lama可以在调用脚本时提供多个参数。</block>
+  <block id="a0104975cac3e4d943107b138472b95f" category="inline-link">SAP Lama文档</block>
+  <block id="fe04f70c92d468b41a00ac721c2baa57" category="paragraph">除了自定义参数之外、<block ref="d4dd8a053b8921e0c97c9fad320ec6c2" prefix=" " category="inline-code"></block>，<block ref="5272e959f6dcee40a765dfc5b7c078e4" prefix=" " category="inline-code"></block>，<block ref="d4dd8a053b8921e0c97c9fad320ec6c2" prefix=" " category="inline-code"></block>，和<block ref="5272e959f6dcee40a765dfc5b7c078e4" prefix=" " category="inline-code"></block>、可以移交许多其他人、如中所示<block ref="7af1e5ad564c38fa8886e29ffc9fd522" category="inline-link-rx"></block>。</block>
+  <block id="cf0f4d3b8cdc69ccc8949ccb49435a5a" category="section-title">提供程序脚本netapp_clone.sh</block>
+  <block id="2ba17681023aebd89534577dad86560b" category="paragraph">提供程序脚本必须存储在中<block ref="7d2dc603b61f4a1874bc1ce662075b91" prefix=" " category="inline-code"></block> 在提供程序配置文件中进行配置。</block>
+  <block id="03df896fc71cd516fdcf44aa699c4933" category="section-title">变量</block>
+  <block id="bc01539c93d17a2b0f783e4f71b90e40" category="paragraph">以下变量在脚本中进行了硬编码、必须进行相应调整。</block>
+  <block id="f6cd53bc6bdc52ffc68b4d7d70bd2983" category="list-text"><block ref="5c02ab368b8fc3928b534dac33254332" prefix="" category="inline-code"></block>&lt;hostname of netapp cluster&gt;</block>
+  <block id="c2d8140083809cc5b28989c192c7583b" category="list-text"><block ref="e24726c77a4b5dec5edaf5bac725b89f" prefix="" category="inline-code"></block>&lt;SVM name where source system volumes are stored&gt;</block>
+  <block id="05b0a54c6c43fd11d9f8332bcfff94aa" category="inline-link">NetApp Ansible模块—准备ONTAP</block>
+  <block id="0438110aaa77dc44bccb1ddfe89b0d28" category="paragraph">证书文件<block ref="5697de2afb62d59b2877f2a7351ecff8" prefix=" " category="inline-code"></block> 和<block ref="03af5d39699563e8a0e5f65d820a4f9c" prefix=" " category="inline-code"></block> 必须按照中所述提供<block ref="3af2b6d20ca12a9d04bef18f3151e29e" category="inline-link-rx"></block>。</block>
+  <block id="9ab689b3746aba13d2b0d80a43a23582" category="admonition">如果不同的SAP系统需要不同的集群或SVM、则可以在SAP Lama提供程序定义中将这些变量作为参数添加。</block>
+  <block id="18d821c99fe3d5876a94747ea97ee786" category="section-title">功能：创建清单文件</block>
+  <block id="8bd40edd8c06fc2cce652993a0e9b88e" category="paragraph">要使Ansible攻略手册的执行更具动态性、请使用<block ref="5041a4494e62ffcb13cfe23041ebc270" prefix=" " category="inline-code"></block> 文件会即时创建。在变量部分中配置了一些静态值、而在执行期间动态创建了一些静态值。</block>
+  <block id="576eb476f089a96bcd4354951241757b" category="section-title">功能：运行Ansible攻略手册</block>
+  <block id="ce8914401ecb3769fce4ddc4e1ced2e8" category="paragraph">此功能用于将Ansible攻略手册与动态创建的一起执行<block ref="d28e452e49fc926f32af1d87afcff3ce" prefix=" " category="inline-code"></block> 文件攻略手册的命名约定为<block ref="a6d1d971f71d0033c54dd886792835e2" prefix=" " category="inline-code"></block>。的值<block ref="11f852efb3bc8ae7dac506ad959a0820" prefix=" " category="inline-code"></block> 依赖于Lama操作、并由Lama作为命令行参数进行移交。</block>
+  <block id="bd5cc661e59e91681d4af8d42f266b60" category="section-title">主部分</block>
+  <block id="8008be4d646729fc2b2eacc341248378" category="paragraph">本节包含主要执行计划。变量<block ref="11f852efb3bc8ae7dac506ad959a0820" prefix=" " category="inline-code"></block> 包含Lama替换步骤的名称、由Lama在调用该脚本时提供。</block>
+  <block id="ee18f05f19fdfaeb9188e25812655d93" category="list-text">系统克隆和系统副本配置工作流的值：</block>
+  <block id="5bc5a2b2e92b316952f792fccde81bfc" category="list-text">克隆卷</block>
+  <block id="fa4194159c5a4ad6ef8927aa7d748906" category="list-text">PostCloneVolumes</block>
+  <block id="924718ea3d11b3fab6f774ae0dc5d993" category="list-text">系统销毁工作流的价值：</block>
+  <block id="2b566d405e2ccbecac2cf005770047cb" category="list-text">ServiceConfigRemoval</block>
+  <block id="65c7a43c3cc81a55199e705b073e6c04" category="list-text">系统刷新工作流的价值：</block>
+  <block id="ddb34f7875ee414d57c52d7f6b1532c0" category="list-text">ClearMountConfig</block>
+  <block id="b7a8d056647cd4547e218c04d0f035da" category="section-title">HookOperationName =克隆卷</block>
+  <block id="d84f8c0ddcc3d73f02cf17eccbacb6e2" category="paragraph">执行此步骤后、将执行Ansible攻略手册、从而触发Snapshot副本和克隆操作。卷名称和挂载配置由SAP Lama通过变量中定义的XML文件传递<block ref="e0a24edf8af93d34591b84a3ba4c60ca" prefix=" " category="inline-code"></block>。此文件已保存、因为此文件将在步骤的稍后部分使用<block ref="de1ba36294d8c3bc57e5d9df81711f9e" prefix=" " category="inline-code"></block> 以创建新的挂载点配置。卷名称将从XML文件中提取、并对每个卷执行Ansible克隆攻略手册。</block>
+  <block id="c80bb2258a3a0e1a34ad0ba8971ad5d7" category="admonition">在此示例中、作为实例和中央服务共享同一个卷。因此、只有在使用SAP实例编号时才会执行卷克隆 <block ref="14ba4a6ef0dc47790ff7704515344fff" prefix="(" category="inline-code"></block>)不是<block ref="96a3be3cf272e017046d1b2674a52bd3" prefix=" " category="inline-code"></block>。在其他环境中、这可能有所不同、必须相应地进行更改。</block>
+  <block id="ef6e9f1dd886e5d5363a05e4d08cecc6" category="section-title">HookOperationName = PostCloneVolumes</block>
+  <block id="223edcc0773a44e4b34959031a80f42f" category="paragraph">在此步骤中、将显示自定义属性<block ref="58df34e81d3ebd3108d3cd89e9ed8c5d" prefix=" " category="inline-code"></block> 和<block ref="8f2c6579709285c9a24c1233a19b7518" prefix=" " category="inline-code"></block> 并维护目标系统的挂载点配置。</block>
+  <block id="7ade54baca7712e1446f7644e2b63881" category="paragraph">在期间停用系统时、自定义属性稍后会用作输入<block ref="2b566d405e2ccbecac2cf005770047cb" prefix=" " category="inline-code"></block> 或<block ref="ddb34f7875ee414d57c52d7f6b1532c0" prefix=" " category="inline-code"></block> 阶段。系统用于保留在系统配置工作流期间指定的自定义参数设置。</block>
+  <block id="f6e52e9107b3ac6aa07d820f3587c7e7" category="paragraph">此示例中使用的值为<block ref="bdb47fed0d313262c9d3c7d41c894201" prefix=" " category="inline-code"></block> 和<block ref="85e7e9424d29538746c1b1b2cbb86003" prefix=" " category="inline-code"></block>。</block>
+  <block id="7beba9ba634960c6d652b856b7fa9af7" category="paragraph">卷<block ref="feb928da308850091372edc73ab231a4" prefix=" " category="inline-code"></block>、动态创建的Ansible文件包括以下值：<block ref="74570c0ba8bed87fb108923b85e1c86e" prefix=" " category="inline-code"></block>：<block ref="feb928da308850091372edc73ab231a4" prefix=" " category="inline-code"></block>，<block ref="ab8c0f3f510441dfbf6832e5c66506cb" prefix=" " category="inline-code"></block>，和<block ref="404f3f40c3094f27edaf2e379e807d19" prefix=" " category="inline-code"></block>。</block>
+  <block id="39637c1bfac2481530e7f976d2404f57" category="paragraph">这将导致卷HN9_SAP上的快照名称<block ref="a929b360dff8b79736d40929f007faec" prefix=" " category="inline-code"></block> 以及创建的卷克隆名称<block ref="2f11b298ad59bd8dfd88c2aadbbf81e8" prefix=" " category="inline-code"></block>。</block>
+  <block id="b199cb39ab8949193c27458fe7923308" category="admonition">可以使用任何自定义属性来保留配置过程中使用的参数。</block>
+  <block id="17b57d511dca01dac6e1f3d0eea8591e" category="inline-link">SAP注释1889590</block>
+  <block id="37bfe2d6c630cd8dce994786cedb88f1" category="paragraph">挂载点配置将从中的Lama移交的XML文件中提取<block ref="c76dd551d0df4615489f4840c234db4e" prefix=" " category="inline-code"></block> 步骤。。<block ref="58df34e81d3ebd3108d3cd89e9ed8c5d" prefix=" " category="inline-code"></block> 添加到卷名称中、并通过默认脚本输出发送回Lama。中介绍了此功能<block ref="f917bd775336e1bab012a560d990f292" category="inline-link-rx"></block>。</block>
+  <block id="96552086a9a139af05ca83c2b608b1f5" category="admonition">在此示例中、存储系统上的qtree是在单个卷上放置不同数据的常用方法。例如：<block ref="feb928da308850091372edc73ab231a4" prefix=" " category="inline-code"></block> 保存的挂载点<block ref="602440fe8fe65977e9574638f9a2c511" prefix=" " category="inline-code"></block>，<block ref="10fba32c279114a49cdfd03372e1e02e" prefix=" " category="inline-code"></block>，和<block ref="238092ea5275b74b281dd99d812a95eb" prefix=" " category="inline-code"></block>。子目录的工作方式相同。在其他环境中、这可能有所不同、必须相应地进行更改。</block>
+  <block id="346a028f600790fffe377b01a2b9981c" category="section-title">HookOperationName = ServiceConfigRemoval</block>
+  <block id="53a8b34c26f167a4b06e6eec25b55427" category="paragraph">在此步骤中、负责删除卷克隆的Ansible攻略手册正在运行。</block>
+  <block id="5ac066717b22e8c02f8bffb6a8ddcd96" category="paragraph">卷名称由SAP Lama通过挂载配置文件和自定义属性进行传递<block ref="58df34e81d3ebd3108d3cd89e9ed8c5d" prefix=" " category="inline-code"></block> 和<block ref="8f2c6579709285c9a24c1233a19b7518" prefix=" " category="inline-code"></block> 用于传递系统配置工作流期间最初指定的参数值(请参见上的注释<block ref="ef6e9f1dd886e5d5363a05e4d08cecc6" prefix=" " category="inline-code"></block>）。</block>
+  <block id="e8065accf11ce1a2b63e42eec427fd63" category="paragraph">卷名称将从xml文件中提取、并对每个卷执行Ansible克隆攻略手册。</block>
+  <block id="81ad9d04ab6444acadad9192d00a12c0" category="admonition">在此示例中、作为实例和中央服务共享同一个卷。因此、只有在使用SAP实例编号时才会执行卷删除 <block ref="14ba4a6ef0dc47790ff7704515344fff" prefix="(" category="inline-code"></block>)不是<block ref="96a3be3cf272e017046d1b2674a52bd3" prefix=" " category="inline-code"></block>。在其他环境中、这可能有所不同、必须相应地进行更改。</block>
+  <block id="92f6f8cba070fb9e27767dd5551e768b" category="section-title">HookOperationName = ClearMountConfig</block>
+  <block id="4a4f44bf22d06f8fafafadd3fd090a90" category="paragraph">在此步骤中、负责在系统刷新工作流期间删除卷克隆的Ansible攻略手册正在运行。</block>
+  <block id="d58b54d2e52ca8489cc7248ba854ae21" category="paragraph">卷名称由SAP Lama通过挂载配置文件和自定义属性进行传递<block ref="58df34e81d3ebd3108d3cd89e9ed8c5d" prefix=" " category="inline-code"></block> 和<block ref="8f2c6579709285c9a24c1233a19b7518" prefix=" " category="inline-code"></block> 用于传递系统配置工作流期间最初指定的参数值。</block>
+  <block id="8886a6fe82aff5197d15c38da5b592fd" category="paragraph">卷名称将从XML文件中提取、并对每个卷执行Ansible克隆攻略手册。</block>
+  <block id="8d58923ab8b9151914bc816648b0875d" category="admonition">在此示例中、作为实例和中央服务共享同一个卷。因此、只有在使用SAP实例编号时才会执行卷删除 <block ref="14ba4a6ef0dc47790ff7704515344fff" prefix="(" category="inline-code"></block>)不是<block ref="96a3be3cf272e017046d1b2674a52bd3" prefix=" " category="inline-code"></block>。在其他环境中、这可能有所不同、必须相应地进行更改。</block>
+  <block id="1943d0253ccc5d45e36df0227dd4793e" category="section-title">Ansible攻略手册NetApp_Lam_CloneVolumes.yml</block>
+  <block id="d370af02588316b01d589655a107cbbc" category="inline-link">NetApp Ansible模块—YAML文件</block>
+  <block id="06a69040885f67ea75f8c71bd26cdfdf" category="paragraph">在Lama系统克隆工作流的CloneVolumes步骤中执行的攻略手册是的组合<block ref="3e3c61f048949537d0dfdcc5a1db6ce2" prefix=" " category="inline-code"></block> 和<block ref="bf70df0c372967b21792d4176664f064" prefix=" " category="inline-code"></block> (请参见<block ref="ae5d962151a417d9f49d9333a90e0f3c" category="inline-link-rx"></block>）。本攻略手册可轻松扩展、以涵盖从二级克隆操作和克隆拆分操作等其他使用情形。</block>
+  <block id="455e5b157968d37a4203a9f3779b384a" category="section-title">Ansible攻略手册NetApp_Lam_ServiceConfigRemove.yml</block>
+  <block id="ce2acc94df9bd91ff47fc72ecf404031" category="paragraph">在中执行的攻略手册<block ref="2b566d405e2ccbecac2cf005770047cb" prefix=" " category="inline-code"></block> Lama系统销毁工作流的阶段是的组合<block ref="35dd0b5421b741dfd4e373d5f4d1e4d1" prefix=" " category="inline-code"></block> 和<block ref="8e983ebe58c49099839bfd3bb1b83f41" prefix=" " category="inline-code"></block> (请参见<block ref="ae5d962151a417d9f49d9333a90e0f3c" category="inline-link-rx"></block>）。它必须与的执行步骤一致<block ref="1f06042fc02f2e855ea461c7817d81a4" prefix=" " category="inline-code"></block> 攻略手册。</block>
+  <block id="bd68c303edefacbfbb91261b59a4e9ac" category="section-title">Ansible攻略手册NetApp_Lama _ClearMountConfig.yml</block>
+  <block id="ff0f6a8ce2fcd64cebec6e1d9151cfce" category="paragraph">攻略手册、在中执行<block ref="219f5b01b91b2ed6147264d0df5f9c07" prefix=" " category="inline-code"></block> Lama系统刷新工作流的阶段是的组合<block ref="35dd0b5421b741dfd4e373d5f4d1e4d1" prefix=" " category="inline-code"></block> 和<block ref="8e983ebe58c49099839bfd3bb1b83f41" prefix=" " category="inline-code"></block> (请参见<block ref="ae5d962151a417d9f49d9333a90e0f3c" category="inline-link-rx"></block>）。它必须与的执行步骤一致<block ref="1f06042fc02f2e855ea461c7817d81a4" prefix=" " category="inline-code"></block> 攻略手册。</block>
+  <block id="85e6de7723c608b48d8483e8f080d82e" category="section-title">Ansible inventory.yml示例</block>
+  <block id="13618afb34e29ee98ce78d61d6dd1f2c" category="paragraph">此清单文件是在工作流执行期间动态构建的、此处仅显示用于说明。</block>
+  <block id="4b774a4819b60036fd16dae7b1618fe7" category="inline-link-macro">接下来：总结。</block>
+  <block id="0121b72f1048ad47d27993ba834591c8" category="paragraph"><block ref="0121b72f1048ad47d27993ba834591c8" category="inline-link-macro-rx"></block></block>
+  <block id="b606dabc2c3e184086b564adb1940f56" category="doc">SAP系统克隆、复制和刷新场景</block>
+  <block id="624ad99ea806758007584adea9961445" category="paragraph"><block ref="624ad99ea806758007584adea9961445" category="inline-link-macro-rx"></block></block>
+  <block id="3e2c20ce79434cedb498fc7527d30dbe" category="paragraph">术语SAP系统副本通常用作三个不同流程的同义词：SAP系统克隆、SAP系统副本或SAP系统刷新。请务必区分不同的操作、因为每个操作的工作流和用例都不同。</block>
+  <block id="43767cf21d4b8f31f9dcdee8e59adb69" category="paragraph">下图说明了在执行系统克隆、系统副本或系统刷新操作期间必须执行的主要步骤。紫色框表示可集成NetApp存储功能的步骤。所有这三项操作均可通过SAP Lama实现完全自动化。</block>
+  <block id="596b75e644e7872d4337d48a315dd53d" category="inline-image-macro">此图分别描绘了系统克隆、系统副本和系统刷新的三个流程时间表。</block>
+  <block id="50e1d44f2792b680cc4c690f57736241" category="paragraph"><block ref="50e1d44f2792b680cc4c690f57736241" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2c93721b169a730e0590387eea9a96ee" category="inline-link-macro">下一步：系统刷新、复制和克隆的用例。</block>
+  <block id="bb0ac805dad993ca6396fa3c7a85f266" category="paragraph"><block ref="bb0ac805dad993ca6396fa3c7a85f266" category="inline-link-macro-rx"></block></block>
+  <block id="10f22ce6f0d2560d2593dccd1c7a2cac" category="summary">SAP Landscape Management (Lama)支持SAP系统管理员自动执行SAP系统操作、包括端到端SAP系统克隆、复制和刷新操作。</block>
+  <block id="f0e2318cd32c61c7c602d5745e21791b" category="doc">TR-4953：《使用Ansible实现NetApp SAP Landscape Management集成》</block>
+  <block id="5d36e325b7addc853f5a7a6ecd350eb2" category="paragraph">NetApp公司Nil Bauser的Michael Schlosser</block>
+  <block id="f130ce1e1c7d90310044ef7daf088f2e" category="paragraph">NetApp提供了一组丰富的Ansible模块、SAP Lama可以通过SAP Lama Automation Studio访问NetApp Snapshot和FlexClone等技术。这些技术有助于简化和加速SAP系统克隆、复制和刷新操作。</block>
+  <block id="d2c4fa04492deec7383fc3a48fb61fcc" category="paragraph">在内部运行NetApp存储解决方案的客户或在Amazon Web Services、Microsoft Azure或Google Cloud Platform等公共云提供商中使用NetApp存储服务的客户均可使用此集成。</block>
+  <block id="e95a257ceffab9c7ca49cb69ae38d9d7" category="paragraph">本文档介绍了如何为SAP Lama配置NetApp存储功能、以便使用Ansible自动化执行SAP系统复制、克隆和刷新操作。</block>
+  <block id="494151a5ba2beb41cd33cb34ecaa3b34" category="inline-link-macro">接下来：SAP系统克隆、复制和刷新场景。</block>
+  <block id="f1f59a5379c668a0313447a3dba4f01f" category="paragraph"><block ref="f1f59a5379c668a0313447a3dba4f01f" category="inline-link-macro-rx"></block></block>
+  <block id="1549d8a91814eafffd1bb350b7956ad9" category="summary">在刷新工作流期间、必须删除存储克隆。您可以使用与系统销毁工作流相同的Ansible攻略手册。但是、自定义挂锁的定义步骤与此不同、因此攻略手册的名称也相应。克隆的过程步骤也不会有所不同。</block>
+  <block id="7949afbae2a9d5fd15f7b4c7f7a05fa4" category="doc">SAP Lama配置工作流—系统刷新</block>
+  <block id="9220fe6d4e22f106fa49606d2e0f9dc7" category="inline-link-macro">先前版本：SAP Lama配置工作流—复制系统。</block>
+  <block id="1795fc9ac323cc6308efcae72b0bafbc" category="paragraph"><block ref="1795fc9ac323cc6308efcae72b0bafbc" category="inline-link-macro-rx"></block></block>
+  <block id="7f4f2ac27cfdf79058d0e50de2e9742d" category="paragraph">下图突出显示了使用系统刷新工作流执行的主要步骤。</block>
+  <block id="481edeab724446585cba31c21c5c303b" category="inline-image-macro">此图显示了系统刷新工作流中各个步骤的时间线。它包含导出配置、停止系统、取消准备系统、删除存储克隆、存储克隆、准备系统、激活隔离、系统重命名、启动系统、导入配置、复制后自动化以及停用隔离。</block>
+  <block id="9c922d24ae362be7b4b207796c78fc80" category="paragraph"><block ref="9c922d24ae362be7b4b207796c78fc80" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="271d28463c63d7fd4374acd04ad1d970" category="paragraph">在刷新工作流期间、必须删除存储克隆。您可以使用与系统销毁工作流相同的Ansible攻略手册。但是、自定义挂锁的定义步骤与此不同、因此攻略手册的名称也相应。克隆的n´t步骤与此不同。</block>
+  <block id="9e5091c63ff2962a881841af91e2823c" category="inline-image-macro">此图显示了一个架构图、其中包括此工作流中包含的步骤。</block>
+  <block id="f66bd4318b3bbbdefc2a05b723e920b8" category="paragraph"><block ref="f66bd4318b3bbbdefc2a05b723e920b8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d1a447a92da11b77de2544fbcfe43acf" category="paragraph">刷新工作流可以通过复制的系统的配置屏幕触发。</block>
+  <block id="5d395370196d6d4e376fe46b17b57d79" category="inline-image-macro">此屏幕截图显示了配置系统视图、并突出显示了刷新系统下拉列表。</block>
+  <block id="6940d83e659b53fe2828f35b5691fab4" category="paragraph"><block ref="6940d83e659b53fe2828f35b5691fab4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8cfad5ce51e7271ce19cce7c6b114c91" category="paragraph">同样、输入屏幕与标准屏幕没有任何不同、可以从摘要屏幕开始执行工作流。</block>
+  <block id="29fc636c559035fd7df8a518d41d0ce2" category="inline-image-macro">此屏幕截图显示了刷新系统屏幕、包括要刷新的系统的基本数据以及目标系统的主机选择。</block>
+  <block id="dfbc93639d1067b24f414457d7eb84e4" category="paragraph"><block ref="dfbc93639d1067b24f414457d7eb84e4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4e22f2b8efbb602218c7385804fb05f3" category="inline-link-macro">接下来：提供程序脚本配置和Ansible攻略手册。</block>
+  <block id="db0410882f9a399768af0469082c6756" category="paragraph"><block ref="db0410882f9a399768af0469082c6756" category="inline-link-macro-rx"></block></block>
+  <block id="3174e9fa49f311c5e00e12e71a3b5b98" category="summary">由于系统和存储设置具有大量可用选项、因此应使用示例实施作为您的各个系统设置和配置要求的模板。</block>
+  <block id="22b2b5c6aa3ef83ba384074fa4b1f70b" category="doc">实施示例</block>
+  <block id="d636957b95987f0920f5f75840a58677" category="inline-link-macro">先前版本：使用Ansible实现NetApp SAP Lama集成。</block>
+  <block id="f19fa360d8053527cbb9fdad004ee091" category="paragraph"><block ref="f19fa360d8053527cbb9fdad004ee091" category="inline-link-macro-rx"></block></block>
+  <block id="218856d6f0f5481bf616ccd68aa42cba" category="section-title">经验证的配置和限制</block>
+  <block id="ead08ec5c8fd39a74fa185810bb7521e" category="paragraph">以下原则适用于示例实施、可能需要进行调整以满足客户需求：</block>
+  <block id="da30655d4bed2647c2fec11ec1ee095a" category="list-text">受管SAP系统使用NFS访问NetApp存储卷、并根据自适应设计原则进行设置。</block>
+  <block id="a606bd07766c70874c1247221e4b6920" category="list-text">您可以使用NetApp Ansible模块(ZAPI和REST API)支持的所有ONTAP 版本。</block>
+  <block id="8a13407d32dabdb45cd5b99a37d3658d" category="list-text">单个NetApp集群和SVM的凭据在提供程序脚本中硬编码为变量。</block>
+  <block id="62479efe2da12c69ae8fead43ad2a41c" category="list-text">存储克隆是在源SAP系统使用的同一存储系统上执行的。</block>
+  <block id="2822fed36861cecbea9530e16c3dc549" category="list-text">目标SAP系统的存储卷与附录中的源卷名称相同。</block>
+  <block id="45d18080d1d1501f967a6234b8e9c807" category="list-text">未在二级存储(SV/SM)上实施克隆。</block>
+  <block id="a2c82d2d1a8c3fa26f5d24f153350b67" category="list-text">未实施FlexClone拆分。</block>
+  <block id="295940074fec313c1941e256113f0e88" category="list-text">源SAP系统和目标SAP系统的实例编号相同。</block>
+  <block id="92b9b9bba1ad0383940e73178d2d2b1f" category="inline-link">自适应设计</block>
+  <block id="694793abedab052f0f8fe31c7ed5d468" category="inline-link">适用于NetApp ONTAP 的Ansible攻略手册</block>
+  <block id="e3f6982f9a27e912e8c722adde3efd24" category="paragraph">下图显示了我们使用的实验室设置。用于系统克隆操作的源SAP系统HN9由数据库H09、SAP CS和SAP作为服务运行在安装了的同一主机(sap-lnx32)上<block ref="0f7e6b0bf7b6b1239b509159ab784efd" category="inline-link-rx"></block> 已启用。根据准备了一个Ansible控制节点<block ref="2b2330f758d35be084c542c192f2a4aa" category="inline-link-rx"></block> 文档。</block>
+  <block id="440bd2077d1dc4268b805695e517765a" category="inline-link-macro">"附录：提供程序脚本配置。"</block>
+  <block id="0ddc9ab61cfb2c7266939699da865a07" category="paragraph">此主机上也安装了SAP主机代理。NetApp提供程序脚本以及Ansible攻略手册已在Ansible控制节点上进行配置、如中所述 <block ref="3a5309a81be4983848acab2ae66229f5" category="inline-link-macro-rx"></block></block>
+  <block id="b66c6a3a7edc45e35e3ddf6c05273c2e" category="paragraph">主机<block ref="0e4bb0c252ec92e9686dfba6c8df0076" prefix=" " category="inline-code"></block> 用作SAP Lama克隆操作的目标、并在此配置了隔离就绪功能。</block>
+  <block id="83b45fa496284bbb2f02b9bded901b86" category="paragraph">系统复制和刷新操作使用不同的SAP系统(HNA作为源、HN2作为目标)、因为在该系统上启用了后复制自动化(PCA)。</block>
+  <block id="dfa47107ed64e58579a060d20cca230a" category="inline-image-macro">此图展示了各种SAP主机代理以及它们如何通过NFS挂载与NetApp存储进行交互。此外、还会显示SAP Lama实例。</block>
+  <block id="d0f0f43af738b26d182641cb7c12254e" category="paragraph"><block ref="d0f0f43af738b26d182641cb7c12254e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="9d50189ad22fa1f80dd4993b241fa520" category="paragraph">实验室设置中使用了以下软件版本：</block>
+  <block id="b4cd99983baacefc54875fd2de6c03d4" category="list-text">SAP LaMa Enterprise Edition 3.00 SP23_2</block>
+  <block id="7bdc9b8c3e894f5a2369e5c3b8a133e4" category="list-text">SAP HANA 2.00.052.00.1599235305</block>
+  <block id="d550cc442fbc5ea03e42ba86d0cfeb03" category="list-text">SAP 7.77修补程序27 (S/4 HANA 1909)</block>
+  <block id="f6297e2394a4dfe959fc0dace04882a1" category="list-text">SAP Host Agent 7.22修补程序56</block>
+  <block id="780c1fbb148682140e46cccca790b4ff" category="list-text">SAPCACEXT 7.22修补程序69</block>
+  <block id="bded4cce06ec88cd16a823fa44159118" category="list-text">Linux SLES 15 SP2</block>
+  <block id="8271f798ae4ae5f28efaa3a9eaf06233" category="list-text">Ansible 2.13.7.</block>
+  <block id="4b0373c99a4c85c6b0f82b56d8c42730" category="list-text">NetApp ONTAP 9.8P8</block>
+  <block id="70cc2142e75ab6a0289b10c66ef4448a" category="section-title">SAP Lama配置</block>
+  <block id="97604b3e0820bd1474b9e6fae5edb42d" category="section-title">SAP Lama提供程序定义</block>
+  <block id="cdde8d4b44ba034030a4e67f7cd1355c" category="paragraph">提供程序定义在SAP LaMa的Automation Studio中执行、如以下屏幕截图所示。示例实施使用一个提供程序定义、该定义用于不同的自定义配置步骤和操作挂钩、如前面所述。</block>
+  <block id="1746e76929a022aece9b6dfb14dae7f4" category="inline-image-macro">SAP Lama图形用户界面中的SAP提供程序定义的屏幕截图。</block>
+  <block id="08c5b98069920bf5ac7b4961005b5056" category="paragraph"><block ref="08c5b98069920bf5ac7b4961005b5056" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4f341f0e5eb3b1f46991cea35272fcf1" category="paragraph">提供程序<block ref="f66a8619ee48b9a9e3c50bb78492093d" prefix=" " category="inline-code"></block> 定义为脚本<block ref="e43ee3b6f349861a2a2c82d22b32d52e" prefix=" " category="inline-code"></block> 已在SAP主机代理上注册。SAP主机代理在中央主机上运行<block ref="b364ceeb78cb4529181c9ca2c288a0f4" prefix=" " category="inline-code"></block>、也充当Ansible控制节点。</block>
+  <block id="64435bf2455f95dd405db3790145406d" category="inline-image-macro">常规选项卡下名为netapp_clone的单个提供程序定义的屏幕截图。显示了摘要部分、已用部分和选项部分。</block>
+  <block id="54c6354a212b8f91f2ff043d95c8a94e" category="paragraph"><block ref="54c6354a212b8f91f2ff043d95c8a94e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0534b8ad7bf71ef8b710dad564e0cd7a" category="paragraph">*已用英寸*选项卡显示了此提供程序用于哪些自定义操作。以下章节将显示自定义配置* NetApp克隆*和自定义挂钩*删除NetApp克隆*和*删除NetApp克隆刷新*的配置。</block>
+  <block id="a340f1bceb05f0cd1b147b9f672ba8d2" category="inline-image-macro">Used-In部分的屏幕截图、其中列出了使用此定义的自定义操作。在此示例中、我们将看到删除NetAppClone、删除NetAppClone刷新和NetApp克隆。</block>
+  <block id="70f474aab1616506d03d24a8657ae910" category="paragraph"><block ref="70f474aab1616506d03d24a8657ae910" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7a0ae7f1897ba065a4175f0a031d40ca" category="paragraph">在执行配置工作流期间会请求参数*克隆后修复*和* Snap后 修复*、这些参数用于Snapshot和FlexClone卷名称。</block>
+  <block id="e9f68f9346bf37c4d5361a06a77f7922" category="inline-image-macro">"Parameters"部分的屏幕截图、其中列出了两个参数：CLonePostFix"和SnapPostFix"。</block>
+  <block id="7f23aeaaf119e1c77839ccb7a26f572a" category="paragraph"><block ref="7f23aeaaf119e1c77839ccb7a26f572a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f75575994c2d652cc4c91f3475946ddd" category="section-title">SAP Lama自定义配置</block>
+  <block id="71f3f2d0ca1eb7593b6ccbae27d47630" category="paragraph">在SAP Lama自定义配置中、使用前面所述的客户提供程序替换配置工作流步骤*克隆卷*和*后克隆卷*。</block>
+  <block id="9f86a21de7693c92ea6e20ccf4b6bfed" category="inline-image-macro">自定义配置配置屏幕的屏幕截图。列出了进程CloneVolumes和FinalizeCloneVolumes。</block>
+  <block id="18ed31da1adaccc57dd6543fc9b26c8f" category="paragraph"><block ref="18ed31da1adaccc57dd6543fc9b26c8f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="9e1240b3666e6094668a9e44b93b1aaf" category="section-title">SAP Lama自定义挂钩</block>
+  <block id="fc234b36f71d0a48d49f813690e499d5" category="paragraph">如果使用系统销毁工作流删除系统、则会使用hook *删除NetAppClone*调用提供程序定义<block ref="f66a8619ee48b9a9e3c50bb78492093d" prefix=" " category="inline-code"></block>。系统刷新工作流期间会使用*删除NetApp克隆刷新*挂钩、因为执行期间会保留此实例。</block>
+  <block id="1214fb9ed85a47de9908cb172d861fb9" category="inline-image-macro">"Custom Hooks"屏幕的屏幕截图、其中包含自定义Hooks Delete NetAppClone Refresh和Delete NetAppClone。</block>
+  <block id="baaa9a167a827541388c50135103e4fd" category="paragraph"><block ref="baaa9a167a827541388c50135103e4fd" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0c3cf1c76c18bb4fefa6e023a411ffc4" category="paragraph">请务必为自定义挂钩配置*使用挂载数据XML*、以便SAP Lama向提供程序提供挂载点配置的信息。</block>
+  <block id="f2e7523bdd169ca65eca0147bca8fff1" category="inline-image-macro">"Delete NetAppClone General "屏幕的屏幕截图、其中突出显示了"Use Mount Data XML yes "。</block>
+  <block id="8a8dd4fc02cb2cf28f0b93868a12473e" category="paragraph"><block ref="8a8dd4fc02cb2cf28f0b93868a12473e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="98f4e317bbaa784645b3288ba01b74c6" category="paragraph">为了确保只有在使用自定义配置工作流创建系统时才使用和执行自定义挂钩、系统中会添加以下限制。</block>
+  <block id="ec60f21e7cd865823a756b683438922a" category="inline-image-macro">"Delete NetAppClone Constrains"页面的屏幕截图。包含一个称为自定义克隆进程名称(静态)的限制。</block>
+  <block id="d574b7c12d0ffbf3da10d882088b0cef" category="paragraph"><block ref="d574b7c12d0ffbf3da10d882088b0cef" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="251b0d3699e5721f1881283a4fca406a" category="paragraph">有关使用自定义挂钩的详细信息、请参见<block ref="cccebfd04b7323b5c9d595ca9e1a8202" category="inline-link-rx"></block>。</block>
+  <block id="8e28a1dc58486d267cf25af39d6a11e6" category="section-title">为SAP源系统启用自定义配置工作流</block>
+  <block id="113da349476dc9377bcc12b4a0257c93" category="paragraph">要为源系统启用自定义配置工作流、必须在配置中对其进行调整。必须选中具有相应自定义配置定义的*使用自定义配置过程*复选框。</block>
+  <block id="0f9f630eca85dbbe04a442a7a696930c" category="inline-image-macro">SAP Lama Configuration &amp;gt；System&amp;gt；System Details屏幕的屏幕截图。"使用自定义配置过程"复选框将突出显示。</block>
+  <block id="032c2a456234741b329b07d476cc4d1a" category="paragraph"><block ref="875d532bdc997e1002f70ac7b667645e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7d2b00bc2711e0322869201b0aa47d14" category="inline-link-macro">接下来：SAP Lama配置工作流—克隆系统。</block>
+  <block id="00dce0767e2512b23468b23504bee9ac" category="paragraph"><block ref="00dce0767e2512b23468b23504bee9ac" category="inline-link-macro-rx"></block></block>
+  <block id="9d9c41126d52bd5f1a379e53bd0752f3" category="summary">在本节中、我们将根据采用HANA数据库H09的源SAP系统HN9完成完整的SAP Lama系统克隆工作流。下图概述了工作流期间执行的步骤。</block>
+  <block id="2080b046fbab316052bf3cd004fba2c1" category="doc">SAP Lama配置工作流—克隆系统</block>
+  <block id="24699046bc864ed36aa118e7d56dfb78" category="inline-link-macro">先前：示例实施。</block>
+  <block id="6b7cd807aa80b4988f851f2971fd2751" category="paragraph"><block ref="6b7cd807aa80b4988f851f2971fd2751" category="inline-link-macro-rx"></block></block>
+  <block id="f928bd8b1ecd05387cc712d7a46bf18c" category="paragraph">下图突出显示了使用系统克隆工作流执行的主要步骤。</block>
+  <block id="f796aa70006aac29ee5eb4b2ed23ba95" category="inline-image-macro">包含存储克隆、准备系统、激活隔离和启动系统步骤的工作流图。</block>
+  <block id="43c1e12c4de1117893166b4d61a58800" category="paragraph"><block ref="43c1e12c4de1117893166b4d61a58800" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fdf5d8e6fccfdfce632b92c3e93acaf7" category="inline-image-macro">此图显示了工作流期间执行的步骤、包括创建克隆系统配置、创建存储快照和克隆、创建挂载点配置、设置自定义属性以及准备和启动系统。</block>
+  <block id="11be0398e50f67b0d6de3c0d5065d86d" category="paragraph"><block ref="11be0398e50f67b0d6de3c0d5065d86d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="bcda724368fccf9bf6be920fc775e707" category="list-text">要启动克隆工作流、请打开菜单树中的*配置*、然后选择源系统(在我们的示例HN9中)。然后启动*克隆系统*向导。</block>
+  <block id="320b2524f93a492ce1312bd5ae04746a" category="inline-image-macro">此屏幕截图显示了配置系统视图。它包含两个系统。</block>
+  <block id="92e855188fcadbee0c81d0aef8797e36" category="paragraph"><block ref="92e855188fcadbee0c81d0aef8797e36" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="26f307d1b32126e9ef74d6d94d34593a" category="list-text">输入请求的值。向导的屏幕1会要求您输入克隆系统的池名称。此步骤指定要启动克隆系统的实例(虚拟或物理)。默认情况下、将系统克隆到与目标系统相同的池中。</block>
+  <block id="28e2a407caa32a2e6d85a365fc6137ee" category="inline-image-macro">克隆系统向导屏幕1用于提供目标系统的基本数据。</block>
+  <block id="5d15a1dd9a1e0efc6857b74627bf9a71" category="paragraph"><block ref="5d15a1dd9a1e0efc6857b74627bf9a71" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="93097e472af50d9306626ab3c2ad088c" category="list-text">此向导的屏幕2会询问启动新SAP实例的目标主机。可以从上一屏幕指定的主机池中选择此实例的目标主机。每个实例或服务都可以在不同的主机上启动。在我们的示例中、所有这三个服务都在同一主机上运行。</block>
+  <block id="d45437922cbadac03e555f9396029c52" category="inline-image-macro">克隆系统向导屏幕2提供了目标系统的主机选择。</block>
+  <block id="942813ee3bf3e2e859a1cad799510176" category="paragraph"><block ref="942813ee3bf3e2e859a1cad799510176" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="dbbb3c208933ad8e73912e8b71c8cfe9" category="list-text">在屏幕3中提供所需的信息、该屏幕要求提供虚拟主机名和网络。通常、主机名会保留在DNS中、因此IP地址会相应地预先填充。</block>
+  <block id="1e0378f2db383a2474acde3e5f6c08c4" category="inline-image-macro">通过克隆系统向导屏幕3、您可以提供虚拟主机名和网络。</block>
+  <block id="47a8e72c82c913fb5ec4254dfdc296d9" category="paragraph"><block ref="47a8e72c82c913fb5ec4254dfdc296d9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="45f39a262ef1deb0ae56818de7b8012c" category="list-text">在屏幕4中、将列出自定义克隆操作。提供了克隆和* SnapPostfix*名称、这些名称将在FlexClone卷和Snapshot名称的存储克隆操作期间使用。如果将这些字段留空、则为在提供程序脚本的变量部分中配置的默认值<block ref="e43ee3b6f349861a2a2c82d22b32d52e" prefix=" " category="inline-code"></block> 已使用。</block>
+  <block id="9dd8edfbceb76bf22d88c7fd9447943b" category="inline-image-macro">在克隆系统向导屏幕4中、自定义克隆选项与操作参数均列出。</block>
+  <block id="d2131ff1c4a2e5d26bf0b2cb33f5c8eb" category="paragraph"><block ref="d2131ff1c4a2e5d26bf0b2cb33f5c8eb" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0eca4f9874b4bf56a3688acd75704009" category="list-text">在屏幕5中、已选择数据库一致性选项。在本示例中、我们选择了*联机：克隆运行DB*。</block>
+  <block id="31680669fa3034c6e5659a85a5154f00" category="inline-image-macro">在克隆系统向导屏幕5中、列出了数据库一致性选项、并选择了联机：克隆运行数据库。</block>
+  <block id="78a4d37e4d6724327721d85ef21012d9" category="paragraph"><block ref="78a4d37e4d6724327721d85ef21012d9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="625f6568780e6e1c8d04b941df9248ef" category="list-text">在屏幕6中、只有在执行租户克隆时才需要输入。</block>
+  <block id="47abcfee5b22144e9b3b60e685c63dc6" category="inline-image-macro">在克隆系统向导屏幕6中、如果要执行租户克隆、您可以提供用户名和密码。</block>
+  <block id="9326b2ac6972353a648e8ebac728915c" category="paragraph"><block ref="9326b2ac6972353a648e8ebac728915c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="64606b6bd8cb0c32c15e338b0756702c" category="list-text">在屏幕7中、可以配置系统隔离。</block>
+  <block id="31d6011ed5b7611543fb146a48f8b7ec" category="inline-image-macro">在克隆系统向导屏幕7中、您可以定义允许的传出连接以进行系统隔离。</block>
+  <block id="1d8e554fbc28ed599fa3b330903e7d0b" category="paragraph"><block ref="1d8e554fbc28ed599fa3b330903e7d0b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d5be567f5a60baa8d0255d467375bfb9" category="list-text">在屏幕8中、摘要页面包含启动工作流之前进行最终确认的所有设置。单击*执行*以启动工作流。</block>
+  <block id="632b59e47eba1c14746c6f4bb3c38289" category="inline-image-macro">克隆系统向导屏幕8提供了所输入信息的摘要。</block>
+  <block id="7a46bc035ec735ffe93788d32e556ee4" category="paragraph"><block ref="7a46bc035ec735ffe93788d32e556ee4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="93cefbf94e2762da32c6ca08f9ea4841" category="paragraph">现在、SAP Lama将执行配置中指示的所有操作。这些操作包括创建存储卷克隆和导出、将其挂载到目标主机、添加用于隔离的防火墙规则以及启动HANA数据库和SAP服务。</block>
+  <block id="e214579b1ef23c2afaf6095e9e34f58f" category="inline-image-macro">此屏幕截图显示了系统克隆过程的"监控"屏幕。</block>
+  <block id="a118fa5c9c9accd7643ffad4342eaf35" category="paragraph"><block ref="a118fa5c9c9accd7643ffad4342eaf35" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c2cc1ea5bc6c9297f5c6cb7ff1096618" category="paragraph">在详细日志中、操作*克隆卷*和*修改挂载点并添加自定义属性*将在Ansible节点上执行<block ref="b364ceeb78cb4529181c9ca2c288a0f4" prefix=" " category="inline-code"></block> 主机。这些步骤会对每个服务、HANA数据库、SAP中央服务和SAP即服务执行。</block>
+  <block id="3df6b54174cd2a42f59a8dbd7cbc813a" category="inline-image-macro">此屏幕截图显示了系统克隆屏幕、其中显示了详细日志中描述的各种操作。</block>
+  <block id="6721ceca95a36e6e11baced7869c395e" category="paragraph"><block ref="6721ceca95a36e6e11baced7869c395e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f63912439c7fa06d095f53e9e3e4b864" category="list-text">通过选择*克隆卷*任务、将显示该步骤的详细日志、并显示Ansible攻略手册的执行情况。您可以看到、Ansible攻略手册<block ref="c9a20dd023079737355442f70666f77f" prefix=" " category="inline-code"></block> 对每个HANA数据库卷、数据、日志和共享执行。</block>
+  <block id="ca31c500f57ebe381bd2273516bebe25" category="inline-image-macro">此屏幕显示了详细介绍卷克隆的日志。</block>
+  <block id="55ca9b09ad1ce9c38941c90c88767f7e" category="paragraph"><block ref="55ca9b09ad1ce9c38941c90c88767f7e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="857f308602f7ba1d17c9bcd529db65a0" category="list-text">在*修改挂载点并添加自定义属性*步骤的详细信息视图中、您可以找到有关挂载点以及执行脚本移交的自定义属性的信息。</block>
+  <block id="b030ac3d8ad8890898d0e771a32c477b" category="inline-image-macro">更多日志信息</block>
+  <block id="441425b2f5b62ff29a43ee5c4a2ca207" category="paragraph"><block ref="441425b2f5b62ff29a43ee5c4a2ca207" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="22bfd63c8b4d3df02dbc6b174c65b0f1" category="paragraph">工作流完成后、克隆的SAP系统即已准备就绪、已启动并可供使用。</block>
+  <block id="746a177f13d2fcdab855bd4b1944a327" category="inline-link-macro">接下来：SAP Lama取消配置工作流—系统销毁。</block>
+  <block id="25ca648c91e1e2b245d67a22ef8392b2" category="paragraph"><block ref="25ca648c91e1e2b245d67a22ef8392b2" category="inline-link-macro-rx"></block></block>
+  <block id="ac8a75fedf05fbee71814a271251285f" category="summary">此集成方法将SAP Lama自定义配置和操作挂钩与Ansible攻略手册结合使用、用于NetApp存储管理。下图简要概述了Lama端的配置以及示例实施的相应组件。</block>
+  <block id="3a05a4cf01114d4fe10b4485ddee4278" category="doc">使用Ansible实现NetApp SAP Lama集成</block>
+  <block id="e48765c69029da61acaebe483e9316c2" category="inline-link-macro">先前：系统刷新、复制和克隆的用例。</block>
+  <block id="89525646254a114f60fce4de9edd46b2" category="paragraph"><block ref="89525646254a114f60fce4de9edd46b2" category="inline-link-macro-rx"></block></block>
+  <block id="198b2bd9b00943bcedf9ecdd177e1c38" category="inline-image-macro">这是一个相当复杂的映像、其中包含三个框、分别标记为SAP Lama、Ansible控制节点和NetApp存储。每个方框包含在每个级别发生的相应流程步骤。</block>
+  <block id="e066a9a52290d370f53ecf456c5be0f4" category="paragraph"><block ref="e066a9a52290d370f53ecf456c5be0f4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b9e659c463a2a678f0e611704e512f86" category="paragraph">充当Ansible控制节点的中央主机用于执行SAP Lama发出的请求、并使用Ansible攻略手册触发NetApp存储操作。必须在此主机上安装SAP主机代理组件、才能将此主机用作与SAP Lama的通信网关。</block>
+  <block id="638982755cb7864b186283043849388f" category="paragraph">在Lama Automation Studio中、定义了一个在Ansible主机的SAP主机代理上注册的提供程序。主机代理配置文件指向一个Shell脚本、此脚本由SAP Lama使用一组命令行参数调用、具体取决于请求的操作。</block>
+  <block id="68dcf0e282674b14fed37a5be8c28905" category="paragraph">在Lama Automation Studio中、定义了自定义配置和自定义连接、以便在配置期间以及在系统取消配置后的清理操作期间执行存储克隆操作。然后、Ansible控制节点上的shell脚本将执行相应的Ansible攻略手册、从而触发Snapshot和FlexClone操作、并通过取消配置工作流删除克隆。</block>
+  <block id="dae3fc22ee8211dc76b1b10604d664bf" category="paragraph">有关NetApp Ansible模块和Lama提供程序定义的详细信息、请访问：</block>
+  <block id="0041533e713a78228719d821d293dcd4" category="inline-link">NetApp Ansible模块</block>
+  <block id="9f56dd7786268026308d6c101b3d76c4" category="list-text"><block ref="9f56dd7786268026308d6c101b3d76c4" category="inline-link-rx"></block></block>
+  <block id="d57e5b07e6dad93c13ff5947c9e556e5" category="inline-link">SAP Lama文档—提供程序定义</block>
+  <block id="b961383b57c9b01bb96a93facf9ff473" category="list-text"><block ref="b961383b57c9b01bb96a93facf9ff473" category="inline-link-rx"></block></block>
+  <block id="714cd76444125876327bb20f1a232e54" category="inline-link-macro">接下来：示例实施。</block>
+  <block id="19c69d5c1080a8849a938b3a8ddcefed" category="paragraph"><block ref="19c69d5c1080a8849a938b3a8ddcefed" category="inline-link-macro-rx"></block></block>
+  <block id="4159d7c81405c1d9cd6ccf2d2dc39862" category="summary">在多种情况下、必须将源系统中的数据提供给目标系统、以便用于测试或培训目的。必须定期使用源系统中的数据更新这些测试和培训系统、以确保使用当前数据集执行测试和培训。这些系统刷新操作包括基础架构层、数据库层和应用程序层上的多个任务、它们可能需要数天时间、具体取决于自动化级别。</block>
+  <block id="f57f410c06dab6a60fe8e6a28770509d" category="doc">系统刷新、复制和克隆的用例</block>
+  <block id="58cf688ef7e81bf38e1210c60ca69584" category="inline-link-macro">先前版本：SAP系统克隆、复制和刷新场景。</block>
+  <block id="47e39cc1a5ff97fe1718e7ce1eb31c90" category="paragraph"><block ref="47e39cc1a5ff97fe1718e7ce1eb31c90" category="inline-link-macro-rx"></block></block>
+  <block id="56d5fedf8fc8bf63d4174389cb19f7ed" category="inline-image-macro">此图展示了从主要开发环境到临时项目拆分、修复系统、培训系统和SANbox系统的环境工作流。它显示了用于这些不同目的的系统刷新、系统副本和系统克隆的位置。</block>
+  <block id="27a88cfd40f9f876e71c77f4b3ebce5b" category="paragraph"><block ref="27a88cfd40f9f876e71c77f4b3ebce5b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3e7487fffc42c7f8a2aeaa0819e630a4" category="paragraph">SAP Lama和NetApp克隆工作流可用于加速和自动化基础架构和数据库层的所需任务。SAP Lama不会将备份从源系统还原到目标系统、而是使用NetApp Snapshot副本和NetApp FlexClone技术、以便在几分钟内即可完成启动的HANA数据库所需的任务、而不是像下图所示的几小时内完成。克隆过程所需的时间与数据库大小无关；因此、即使是非常大的系统也只需几分钟即可创建完毕。通过自动执行操作系统和数据库层以及SAP后处理端的任务、可以进一步缩短运行时间。</block>
+  <block id="5250c15aaf7bc535777e729ee215e00a" category="inline-image-macro">此图显示了使用和不使用NetApp Snapshot副本的克隆过程与NetApp FlexClone技术之间的比较、从而显著加快了该过程的运行速度。</block>
+  <block id="a0519aa55a3128b6d977868b191a4c9b" category="paragraph"><block ref="a0519aa55a3128b6d977868b191a4c9b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f18de1d998f8c83fe7b43b1fe738c842" category="paragraph">逻辑损坏可能是由软件错误，人为错误或破坏引起的。遗憾的是，使用标准高可用性和灾难恢复解决方案往往无法解决逻辑损坏问题。因此、根据发生逻辑损坏的层、应用程序、文件系统或存储、有时可能无法满足最短停机时间和可接受的数据丢失要求。</block>
+  <block id="fe74c6bc72a7cff471befb07d7218feb" category="paragraph">更好的方法是尝试通过在单独的修复系统中分析问题来修复系统中的逻辑错误、而不是还原SAP系统。根发生原因分析需要业务流程和应用程序所有者的参与。在这种情况下，您可以根据发生逻辑损坏之前存储的数据创建修复系统（生产系统的克隆）。在修复系统中、可以将所需数据导出并导入到生产系统中。通过这种方法、生产系统无需停止、在最佳情况下、不会丢失任何数据、也不会丢失一小部分数据。</block>
+  <block id="ff74c5a8991cf91e9cf124b189bc2877" category="paragraph">设置修复系统时、灵活性和速度至关重要。借助基于NetApp存储的Snapshot备份、可以使用NetApp FlexClone技术使用多个一致的数据库映像来创建生产系统的克隆。如果使用基于文件的备份的重定向还原来设置修复系统、则只需几秒钟即可创建FlexClone卷、而不是多小时。</block>
+  <block id="7b0ea79aabb35accd10a6389af9d0d3b" category="inline-image-macro">此图显示了使用FlexClone技术从克隆系统创建修复系统的分步过程。</block>
+  <block id="0fd3fed7a6654b610a5215582f3890df" category="paragraph"><block ref="0fd3fed7a6654b610a5215582f3890df" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7a11ff2d89142afadf2fbe0a94ecc400" category="paragraph">使用SnapMirror进行存储复制可以执行灾难恢复测试、而不会使RTO和RPO面临风险。可以在不中断数据复制的情况下执行灾难恢复测试。异步和同步SnapMirror的灾难恢复测试会在灾难恢复目标上使用Snapshot备份和FlexClone卷。</block>
+  <block id="ecec150056053bbf2793c30155015e60" category="paragraph">SAP Lama可用于编排整个测试操作步骤 、还负责网络隔离、目标主机维护等。</block>
+  <block id="cf485594ca520eaab221d7e9f1c35741" category="inline-image-macro">此图显示了主数据中心、本地灾难恢复数据中心和远程灾难恢复数据中心中的NetApp存储系统之间的关系。它们通过同步SnapMirror和异步SnapMirror关系进行连接。</block>
+  <block id="8dda9dbd415a90ebdecd67562ff62647" category="paragraph"><block ref="8dda9dbd415a90ebdecd67562ff62647" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="041a3821794f47be7b2454c6e42e40e9" category="inline-link-macro">接下来：使用Ansible实现NetApp SAP Lama集成。</block>
+  <block id="cbd461cf21aebe404144b08c1c869d9c" category="paragraph"><block ref="cbd461cf21aebe404144b08c1c869d9c" category="inline-link-macro-rx"></block></block>
+  <block id="2e979feafadb9bbdb7932ab43f8d549c" category="sidebar">使用Ansible实现NetApp SAP Landscape Management集成</block>
 </blocks>

@@ -1,0 +1,88 @@
+---
+sidebar: sidebar 
+permalink: lifecycle/lama-ansible-sap-lama-provisioning-workflow-clone-system.html 
+keywords: provisioning, workflow, clone system, 
+summary: 在本节中、我们将根据采用HANA数据库H09的源SAP系统HN9完成完整的SAP Lama系统克隆工作流。下图概述了工作流期间执行的步骤。 
+---
+= SAP Lama配置工作流—克隆系统
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:lama-ansible-example-implementation.html["先前：示例实施。"]
+
+[role="lead"]
+下图突出显示了使用系统克隆工作流执行的主要步骤。
+
+image:lama-ansible-image17.png["包含存储克隆、准备系统、激活隔离和启动系统步骤的工作流图。"]
+
+在本节中、我们将根据采用HANA数据库H09的源SAP系统HN9完成完整的SAP Lama系统克隆工作流。下图概述了工作流期间执行的步骤。
+
+image:lama-ansible-image18.png["此图显示了工作流期间执行的步骤、包括创建克隆系统配置、创建存储快照和克隆、创建挂载点配置、设置自定义属性以及准备和启动系统。"]
+
+. 要启动克隆工作流、请打开菜单树中的*配置*、然后选择源系统(在我们的示例HN9中)。然后启动*克隆系统*向导。
++
+image:lama-ansible-image19.png["此屏幕截图显示了配置系统视图。它包含两个系统。"]
+
+. 输入请求的值。向导的屏幕1会要求您输入克隆系统的池名称。此步骤指定要启动克隆系统的实例(虚拟或物理)。默认情况下、将系统克隆到与目标系统相同的池中。
++
+image:lama-ansible-image20.png["克隆系统向导屏幕1用于提供目标系统的基本数据。"]
+
+. 此向导的屏幕2会询问启动新SAP实例的目标主机。可以从上一屏幕指定的主机池中选择此实例的目标主机。每个实例或服务都可以在不同的主机上启动。在我们的示例中、所有这三个服务都在同一主机上运行。
++
+image:lama-ansible-image21.png["克隆系统向导屏幕2提供了目标系统的主机选择。"]
+
+. 在屏幕3中提供所需的信息、该屏幕要求提供虚拟主机名和网络。通常、主机名会保留在DNS中、因此IP地址会相应地预先填充。
++
+image:lama-ansible-image22.png["通过克隆系统向导屏幕3、您可以提供虚拟主机名和网络。"]
+
+. 在屏幕4中、将列出自定义克隆操作。提供了克隆和* SnapPostfix*名称、这些名称将在FlexClone卷和Snapshot名称的存储克隆操作期间使用。如果将这些字段留空、则为在提供程序脚本的变量部分中配置的默认值 `netapp_clone.sh` 已使用。
++
+image:lama-ansible-image23.png["在克隆系统向导屏幕4中、自定义克隆选项与操作参数均列出。"]
+
+. 在屏幕5中、已选择数据库一致性选项。在本示例中、我们选择了*联机：克隆运行DB*。
++
+image:lama-ansible-image24.png["在克隆系统向导屏幕5中、列出了数据库一致性选项、并选择了联机：克隆运行数据库。"]
+
+. 在屏幕6中、只有在执行租户克隆时才需要输入。
++
+image:lama-ansible-image25.png["在克隆系统向导屏幕6中、如果要执行租户克隆、您可以提供用户名和密码。"]
+
+. 在屏幕7中、可以配置系统隔离。
++
+image:lama-ansible-image26.png["在克隆系统向导屏幕7中、您可以定义允许的传出连接以进行系统隔离。"]
+
+. 在屏幕8中、摘要页面包含启动工作流之前进行最终确认的所有设置。单击*执行*以启动工作流。
++
+image:lama-ansible-image27.png["克隆系统向导屏幕8提供了所输入信息的摘要。"]
+
++
+现在、SAP Lama将执行配置中指示的所有操作。这些操作包括创建存储卷克隆和导出、将其挂载到目标主机、添加用于隔离的防火墙规则以及启动HANA数据库和SAP服务。
+
+. 您可以在*监控*菜单下监控克隆工作流的进度。
++
+image:lama-ansible-image28.png["此屏幕截图显示了系统克隆过程的\"监控\"屏幕。"]
+
++
+在详细日志中、操作*克隆卷*和*修改挂载点并添加自定义属性*将在Ansible节点上执行 `sap-jump` 主机。这些步骤会对每个服务、HANA数据库、SAP中央服务和SAP即服务执行。
+
++
+image:lama-ansible-image29.png["此屏幕截图显示了系统克隆屏幕、其中显示了详细日志中描述的各种操作。"]
+
+. 通过选择*克隆卷*任务、将显示该步骤的详细日志、并显示Ansible攻略手册的执行情况。您可以看到、Ansible攻略手册 `netapp_lama_CloneVolumes.yml` 对每个HANA数据库卷、数据、日志和共享执行。
++
+image:lama-ansible-image30.png["此屏幕显示了详细介绍卷克隆的日志。"]
+
+. 在*修改挂载点并添加自定义属性*步骤的详细信息视图中、您可以找到有关挂载点以及执行脚本移交的自定义属性的信息。
++
+image:lama-ansible-image31.png["更多日志信息"]
+
+
+
+工作流完成后、克隆的SAP系统即已准备就绪、已启动并可供使用。
+
+link:lama-ansible-sap-lama-deprovisioning-workflow-system-destroy.html["接下来：SAP Lama取消配置工作流—系统销毁。"]

@@ -1,0 +1,123 @@
+---
+sidebar: sidebar 
+permalink: lifecycle/lama-ansible-example-implementation.html 
+keywords: example, template, setup, configuration, scripts 
+summary: 由于系统和存储设置具有大量可用选项、因此应使用示例实施作为您的各个系统设置和配置要求的模板。 
+---
+= 实施示例
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:lama-ansible-netapp-sap-lama-integration-using-ansible.html["先前版本：使用Ansible实现NetApp SAP Lama集成。"]
+
+由于系统和存储设置具有大量可用选项、因此应使用示例实施作为您的各个系统设置和配置要求的模板。
+
+
+NOTE: 示例脚本按原样提供、NetApp不支持。您可以通过电子邮件发送电子邮件至：mailto：ng-sapcc@netapp.com ng-sapcc@netapp.com^请求最新版本的脚本。
+
+
+
+== 经验证的配置和限制
+
+以下原则适用于示例实施、可能需要进行调整以满足客户需求：
+
+* 受管SAP系统使用NFS访问NetApp存储卷、并根据自适应设计原则进行设置。
+* 您可以使用NetApp Ansible模块(ZAPI和REST API)支持的所有ONTAP 版本。
+* 单个NetApp集群和SVM的凭据在提供程序脚本中硬编码为变量。
+* 存储克隆是在源SAP系统使用的同一存储系统上执行的。
+* 目标SAP系统的存储卷与附录中的源卷名称相同。
+* 未在二级存储(SV/SM)上实施克隆。
+* 未实施FlexClone拆分。
+* 源SAP系统和目标SAP系统的实例编号相同。
+
+
+
+
+== 实验室设置
+
+下图显示了我们使用的实验室设置。用于系统克隆操作的源SAP系统HN9由数据库H09、SAP CS和SAP作为服务运行在安装了的同一主机(sap-lnx32)上 https://help.sap.com/doc/700f9a7e52c7497cad37f7c46023b7ff/3.0.11.0/en-US/737a99e86f8743bdb8d1f6cf4b862c79.html["自适应设计"^] 已启用。根据准备了一个Ansible控制节点 https://github.com/sap-linuxlab/demo.netapp_ontap/blob/main/netapp_ontap.md["适用于NetApp ONTAP 的Ansible攻略手册"^] 文档。
+
+此主机上也安装了SAP主机代理。NetApp提供程序脚本以及Ansible攻略手册已在Ansible控制节点上进行配置、如中所述 link:ama-ansible-appendix--provider-script-configuration-and-ansible-playbooks.html[""附录：提供程序脚本配置。""]
+
+主机 `sap-lnx49` 用作SAP Lama克隆操作的目标、并在此配置了隔离就绪功能。
+
+系统复制和刷新操作使用不同的SAP系统(HNA作为源、HN2作为目标)、因为在该系统上启用了后复制自动化(PCA)。
+
+image:lama-ansible-image7.png["此图展示了各种SAP主机代理以及它们如何通过NFS挂载与NetApp存储进行交互。此外、还会显示SAP Lama实例。"]
+
+实验室设置中使用了以下软件版本：
+
+* SAP LaMa Enterprise Edition 3.00 SP23_2
+* SAP HANA 2.00.052.00.1599235305
+* SAP 7.77修补程序27 (S/4 HANA 1909)
+* SAP Host Agent 7.22修补程序56
+* SAPCACEXT 7.22修补程序69
+* Linux SLES 15 SP2
+* Ansible 2.13.7.
+* NetApp ONTAP 9.8P8
+
+
+
+
+== SAP Lama配置
+
+
+
+=== SAP Lama提供程序定义
+
+提供程序定义在SAP LaMa的Automation Studio中执行、如以下屏幕截图所示。示例实施使用一个提供程序定义、该定义用于不同的自定义配置步骤和操作挂钩、如前面所述。
+
+image:lama-ansible-image8.png["SAP Lama图形用户界面中的SAP提供程序定义的屏幕截图。"]
+
+提供程序 `netapp_clone` 定义为脚本 `netapp_clone.sh` 已在SAP主机代理上注册。SAP主机代理在中央主机上运行 `sap-jump`、也充当Ansible控制节点。
+
+image:lama-ansible-image9.png["常规选项卡下名为netapp_clone的单个提供程序定义的屏幕截图。显示了摘要部分、已用部分和选项部分。"]
+
+*已用英寸*选项卡显示了此提供程序用于哪些自定义操作。以下章节将显示自定义配置* NetApp克隆*和自定义挂钩*删除NetApp克隆*和*删除NetApp克隆刷新*的配置。
+
+image:lama-ansible-image10.png["Used-In部分的屏幕截图、其中列出了使用此定义的自定义操作。在此示例中、我们将看到删除NetAppClone、删除NetAppClone刷新和NetApp克隆。"]
+
+在执行配置工作流期间会请求参数*克隆后修复*和* Snap后 修复*、这些参数用于Snapshot和FlexClone卷名称。
+
+image:lama-ansible-image11.png["\"Parameters\"部分的屏幕截图、其中列出了两个参数：CLonePostFix\"和SnapPostFix\"。"]
+
+
+
+=== SAP Lama自定义配置
+
+在SAP Lama自定义配置中、使用前面所述的客户提供程序替换配置工作流步骤*克隆卷*和*后克隆卷*。
+
+image:lama-ansible-image12.png["自定义配置配置屏幕的屏幕截图。列出了进程CloneVolumes和FinalizeCloneVolumes。"]
+
+
+
+=== SAP Lama自定义挂钩
+
+如果使用系统销毁工作流删除系统、则会使用hook *删除NetAppClone*调用提供程序定义 `netapp_clone`。系统刷新工作流期间会使用*删除NetApp克隆刷新*挂钩、因为执行期间会保留此实例。
+
+image:lama-ansible-image13.png["\"Custom Hooks\"屏幕的屏幕截图、其中包含自定义Hooks Delete NetAppClone Refresh和Delete NetAppClone。"]
+
+请务必为自定义挂钩配置*使用挂载数据XML*、以便SAP Lama向提供程序提供挂载点配置的信息。
+
+image:lama-ansible-image14.png["\"Delete NetAppClone General \"屏幕的屏幕截图、其中突出显示了\"Use Mount Data XML yes \"。"]
+
+为了确保只有在使用自定义配置工作流创建系统时才使用和执行自定义挂钩、系统中会添加以下限制。
+
+image:lama-ansible-image15.png["\"Delete NetAppClone Constrains\"页面的屏幕截图。包含一个称为自定义克隆进程名称(静态)的限制。"]
+
+有关使用自定义挂钩的详细信息、请参见 https://help.sap.com/doc/700f9a7e52c7497cad37f7c46023b7ff/3.0.11.0/en-US/139eca2f925e48738a20dbf0b56674c5.html["SAP Lama文档"^]。
+
+
+
+=== 为SAP源系统启用自定义配置工作流
+
+要为源系统启用自定义配置工作流、必须在配置中对其进行调整。必须选中具有相应自定义配置定义的*使用自定义配置过程*复选框。
+
+image:lama-ansible-image16.png["SAP Lama Configuration  Details屏幕的屏幕截图。\"使用自定义配置过程\"复选框将突出显示。"]
+
+link:lama-ansible-sap-lama-provisioning-workflow-clone-system.html["接下来：SAP Lama配置工作流—克隆系统。"]

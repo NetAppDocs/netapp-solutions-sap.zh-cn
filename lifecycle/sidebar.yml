@@ -2,6 +2,31 @@
 section: lifecycle
 title: 生命周期管理
 entries:
+- title: 使用Ansible实现NetApp SAP Landscape Management集成
+  type: solutions
+  entries:
+  - title: 简介
+    url: "/lifecycle/lama-ansible-introduction.html"
+  - title: SAP系统克隆、复制和刷新场景
+    url: "/lifecycle/lama-ansible-sap-system-clone,-copy,-and-refresh-scenarios.html"
+  - title: 系统刷新、复制和克隆的用例
+    url: "/lifecycle/lama-ansible-use-cases-for-system-refresh,-copy,-and-cloning.html"
+  - title: 使用Ansible实现NetApp SAP Lama集成
+    url: "/lifecycle/lama-ansible-netapp-sap-lama-integration-using-ansible.html"
+  - title: 实施示例
+    url: "/lifecycle/lama-ansible-example-implementation.html"
+  - title: SAP Lama配置工作流—克隆系统
+    url: "/lifecycle/lama-ansible-sap-lama-provisioning-workflow-clone-system.html"
+  - title: SAP Lama取消配置工作流—系统销毁
+    url: "/lifecycle/lama-ansible-sap-lama-deprovisioning-workflow-system-destroy.html"
+  - title: SAP Lama配置工作流—复制系统
+    url: "/lifecycle/lama-ansible-sap-lama-provisioning-workflow-copy-system.html"
+  - title: SAP Lama配置工作流—系统刷新
+    url: "/lifecycle/lama-ansible-sap-lama-provisioning-workflow-system-refresh.html"
+  - title: 提供程序脚本配置和Ansible攻略手册
+    url: "/lifecycle/lama-ansible-appendix-provider-script-configuration-and-ansible-playbooks.html"
+  - title: 结论
+    url: "/lifecycle/lama-ansible-conclusion.html"
 - title: 利用 SnapCenter 自动执行 SAP HANA 系统复制和克隆操作
   type: solutions
   entries:

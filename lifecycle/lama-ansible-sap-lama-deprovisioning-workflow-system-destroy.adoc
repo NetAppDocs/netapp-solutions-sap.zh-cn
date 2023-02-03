@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: lifecycle/lama-ansible-sap-lama-deprovisioning-workflow-system-destroy.html 
+keywords: destroy, workflow 
+summary: 要停用克隆的系统、必须事先停止并准备好该系统。之后、可以启动系统销毁工作流。 
+---
+= SAP Lama取消配置工作流—系统销毁
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:lama-ansible-sap-lama-provisioning-workflow-clone-system.html["先前版本：SAP Lama配置工作流—克隆系统。"]
+
+[role="lead"]
+下图突出显示了使用系统销毁工作流执行的主要步骤。
+
+image:lama-ansible-image32.png["此图简要展示了系统销毁工作流。其中包含以下步骤：停止系统、取消准备系统、删除存储克隆和删除系统配置。"]
+
+. 要停用克隆的系统、必须事先停止并准备好该系统。之后、可以启动系统销毁工作流。
++
+image:lama-ansible-image33.png["此图包含一个架构图、其中结合了上述工作流步骤在系统中的运行位置。"]
+
+. 在此示例中、我们将为之前创建的系统运行系统销毁工作流。我们在*系统视图*屏幕中选择系统、然后在*销毁进程*下启动系统销毁工作流。
++
+image:lama-ansible-image34.png["此屏幕截图显示了SAP Lama图形用户界面、该图形用户界面可打开System  Systems视图、在此可以打开销毁系统下拉列表。"]
+
+. 此处显示了配置阶段维护的所有挂载点、并在系统销毁工作流过程中删除这些挂载点。
++
+image:lama-ansible-image35.png["此屏幕截图显示了销毁存储卷选项卡下的销毁系统屏幕、其中列出了所有挂载点。"]
+
++
+不会删除任何虚拟主机名、因为这些主机名通过DNS维护并已自动分配。
+
++
+image:lama-ansible-image36.png["此屏幕截图显示了\"Delete Host Names\"选项卡下的\"Destroy System\"屏幕。未列出任何主机名。"]
+
+. 单击执行按钮可启动此操作。
++
+image:lama-ansible-image37.png["此屏幕截图显示了销毁存储卷摘要页面。"]
+
++
+现在、SAP Lama会删除卷克隆并删除克隆系统的配置。
+
+. 您可以在*监控*菜单下监控克隆工作流的进度。
++
+image:lama-ansible-image38.png["此屏幕截图实时显示系统销毁工作流的进度。"]
+
+. 通过选择*删除NetAppClone*任务、将显示该步骤的详细日志。此处显示了Ansible攻略手册的执行情况。如您所见、《Ansible攻略手册》 `netapp_lama_ServiceConfigRemoval.yml` 对每个HANA数据库卷、数据、日志和共享执行。
++
+image:lama-ansible-image39.png["此屏幕截图显示了系统销毁工作流的日志页面。"]
+
+
+
+link:lama-ansible-sap-lama-provisioning-workflow-copy-system.html["接下来：SAP Lama配置工作流—复制系统。"]
