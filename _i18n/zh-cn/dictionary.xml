@@ -2791,7 +2791,6 @@
   <block id="bc86535b64f45ec20770222ebaa5ca21" category="cell">更新以涵盖 SnapCenter 4.6 HANA 系统复制支持</block>
   <block id="02fa3d38f575ae1d4c7d0f5663a0d3ed" category="sidebar">使用 SnapCenter 备份和恢复 SAP HANA 系统复制</block>
   <block id="4bb12dc6461f1d5fa4e11ed67fdeef9e" category="sidebar">SAP HANA 系统复制概述</block>
-  <block id="c35a0cd0a7282bf70f4933947c018788" category="list-text">AFF A220 ， AFF A250 ， AFF A300 ， AFF A320 ， AFF A400 ， AFF A700s ， AFF A700 ， AFF A800 ， AFF A900</block>
   <block id="152277675a8ef46c12f1dc91f2f53ede" category="paragraph">有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见<block ref="a3976abaebe3520fd66c465c4d7747d7" category="inline-link-rx"></block>。</block>
   <block id="18cab9085e2115741cf08f1964299a5a" category="paragraph">本文档介绍了 NFS 协议版本 3 （ NFSv3 ）或 NFS 协议版本 4 （ NFSv4.1 ）的 ONTAP 配置要求。</block>
   <block id="e678bbdfe53ad933277605d32601cebe" category="admonition">如果使用的是 NFSv4.1 ，则可以启用和使用 pNFS 。</block>
@@ -5288,4 +5287,5 @@
   <block id="041a3821794f47be7b2454c6e42e40e9" category="inline-link-macro">接下来：使用Ansible实现NetApp SAP Lama集成。</block>
   <block id="cbd461cf21aebe404144b08c1c869d9c" category="paragraph"><block ref="cbd461cf21aebe404144b08c1c869d9c" category="inline-link-macro-rx"></block></block>
   <block id="2e979feafadb9bbdb7932ab43f8d549c" category="sidebar">使用Ansible实现NetApp SAP Landscape Management集成</block>
+  <block id="17f31b52b49dfe7dec5229f7caf638c6" category="list-text">AFF A150、AFF A220、AFF A250、AFF A300、AFF A320、 AFF A400、AFF A700s、AFF A700、AFF A800、AFF A900</block>
 </blocks>
