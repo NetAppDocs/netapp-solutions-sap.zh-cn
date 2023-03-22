@@ -1,0 +1,212 @@
+---
+sidebar: sidebar 
+permalink: backup/anf-cba-restore-and-recovery-from-snapshot-backup.html 
+keywords: restore, recovery, operation, system database 
+summary: 本节介绍如何从Snapshot备份执行还原和恢复。 
+---
+= 从Snapshot备份还原和恢复
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:anf-cba-snapshot-based-backup-operations-of-global-non-data-volumes.html["Previous：对全局非数据卷执行基于Snapshot的备份操作。"]
+
+[role="lead"]
+下一节介绍HANA MDC单主机、单租户系统的还原和恢复工作流。此时将突出显示多主机系统的差异。这些示例显示 SAP HANA Studio 是一种执行手动恢复的工具。您还可以使用 SAP HANA Cockpit 或 HANA SQL 语句执行恢复操作。
+
+要使用SAP HANA Studio和Cloud Backup for Applications还原和恢复SAP HANA MDC单租户系统、请完成以下步骤：
+
+. 使用 SAP HANA Studio 准备还原和恢复过程：
++
+.. 选择*恢复系统数据库*并确认SAP HANA系统关闭。
+.. 选择恢复类型和日志备份位置。
++
+此时将显示数据备份列表。
+
+.. 选择相关备份以查看外部备份 ID 。
+
+
+. 卸载 HANA 数据卷。
+. 使用Cloud Backup for Applications执行还原过程：
++
+.. 在备份视图中，从 SAP HANA Studio 中选择与外部备份 ID 或注释字段匹配的备份。
+.. 要启动还原操作、请在上下文菜单中选择*还原*。
+
+
+. 挂载 HANA 数据卷。
+. 使用 SAP HANA Studio 对系统数据库运行恢复过程：
++
+.. 从备份列表中单击*刷新*、然后选择可用于恢复的备份(以绿色图标表示)。
+.. 启动恢复操作。
++
+恢复操作完成后，系统数据库将启动。
+
+
+
+. 使用 SAP HANA Studio 对租户数据库运行恢复过程：
++
+.. 选择*恢复租户数据库*并选择要恢复的租户。
+.. 选择恢复类型和日志备份位置。
+
+
+. 此时将显示数据备份列表。由于数据卷已还原，租户备份指示可用（绿色）。
++
+.. 选择备份并启动恢复过程。恢复过程完成后，租户数据库将自动启动。
+
+
+
+
+此时将显示数据备份列表。由于数据卷已还原，租户备份指示可用（绿色）。选择备份并启动恢复过程。恢复过程完成后，租户数据库将自动启动。
+
+以下步骤介绍了HANA系统PR1的还原和恢复操作。
+
+
+
+== 准备还原和恢复操作
+
+. 要在SAP HANA Studio中开始恢复系统数据库、请转到*备份和恢复*>*恢复系统数据库*。
++
+image:anf-cba-image79.png["正在完成的步骤的屏幕截图。"]
+
++
+image:anf-cba-image80.png["正在完成的步骤的屏幕截图。"]
+
+. 选择恢复类型并单击 * 下一步 * 。
++
+image:anf-cba-image81.png["正在完成的步骤的屏幕截图。"]
+
+. 提供备份目录的位置、然后单击*下一步*。
++
+image:anf-cba-image82.png["正在完成的步骤的屏幕截图。"]
+
+. 此时将根据HANA备份目录的内容显示可用备份列表。选择所需的备份并记下外部备份ID：例如最新的备份。
++
+image:anf-cba-image83.png["正在完成的步骤的屏幕截图。"]
+
+. 卸载所有数据卷。
++
+....
+umount /hana/data/PR1/mnt00001
+....
++
+
+NOTE: 对于 SAP HANA 多主机系统，您必须卸载每个主机上的所有数据卷。
+
+
+
+
+
+== 还原HANA数据库
+
+. 要启动还原操作、请在备份视图中选择备份(此备份也会显示在HANA Studio中)、然后在上下文菜单中选择还原。
++
+image:anf-cba-image84.png["正在完成的步骤的屏幕截图。"]
+
+. 在下一步中、您可以为还原操作提供前后脚本。
++
+image:anf-cba-image85.png["正在完成的步骤的屏幕截图。"]
+
++
+Cloud Backup for Applications作业日志显示还原操作的进度。
+
++
+image:anf-cba-image86.png["正在完成的步骤的屏幕截图。"]
+
+. 等待还原过程完成并挂载数据卷。
++
+....
+mount /hana/data/SP1/mnt00001
+....
++
+
+NOTE: 对于SAP HANA多主机系统、您必须在每个主机上挂载所有数据卷。
+
+
+
+
+
+== 恢复系统数据库
+
+. 要更新可用备份列表，请转到 SAP HANA Studio 并单击刷新。使用Cloud Backup for Applications还原的备份会在备份列表中显示一个绿色图标。选择备份，然后单击下一步。
++
+image:anf-cba-image87.png["正在完成的步骤的屏幕截图。"]
+
+. 提供日志备份的位置。单击 * 下一步 * 。
++
+image:anf-cba-image88.png["正在完成的步骤的屏幕截图。"]
+
+. 根据需要选择其他设置。确保未选择使用增量备份。单击 * 下一步 * 。
++
+image:anf-cba-image89.png["正在完成的步骤的屏幕截图。"]
+
+. 查看恢复设置、然后单击*完成*。
++
+image:anf-cba-image90.png["正在完成的步骤的屏幕截图。"]
+
+. 恢复过程开始。请等待系统数据库恢复完成。
++
+image:anf-cba-image91.png["正在完成的步骤的屏幕截图。"]
+
+
+
+
+
+== 恢复租户数据库
+
+. 在SAP HANA Studio中、选择系统数据库条目、然后转到*备份和恢复*>*恢复租户数据库*。
++
+image:anf-cba-image92.png["正在完成的步骤的屏幕截图。"]
+
+. 选择要恢复的租户、然后单击*下一步*。
++
+image:anf-cba-image93.png["正在完成的步骤的屏幕截图。"]
+
+. 指定恢复类型，然后单击下一步。
++
+image:anf-cba-image94.png["正在完成的步骤的屏幕截图。"]
+
+. 确认备份目录位置、然后单击*下一步*。
++
+image:anf-cba-image95.png["正在完成的步骤的屏幕截图。"]
+
+. 确认租户数据库已脱机。单击确定继续。
++
+image:anf-cba-image96.png["正在完成的步骤的屏幕截图。"]
+
++
+由于在恢复系统数据库之前已还原数据卷，因此租户备份将立即可用。
+
+. 选择以绿色突出显示的备份、然后单击*下一步*。
++
+image:anf-cba-image97.png["正在完成的步骤的屏幕截图。"]
+
+. 确认日志备份位置、然后单击*下一步*。
++
+image:anf-cba-image98.png["正在完成的步骤的屏幕截图。"]
+
+. 根据需要选择其他设置。确保未选择*使用增量备份*。单击 * 下一步 * 。
++
+image:anf-cba-image99.png["正在完成的步骤的屏幕截图。"]
+
+. 查看恢复设置、然后单击*完成*以启动租户数据库的恢复过程。
++
+image:anf-cba-image100.png["正在完成的步骤的屏幕截图。"]
+
+. 请等待恢复完成并启动租户数据库。
++
+image:anf-cba-image101.png["正在完成的步骤的屏幕截图。"]
+
++
+SAP HANA 系统已启动且正在运行。
+
++
+
+NOTE: 对于包含多个租户的SAP HANA MDC系统、必须对每个租户重复步骤16到25。
+
+
+
+link:anf-cba-backup-operations-with-hana-system-replication.html["接下来：使用HANA系统复制执行备份操作。"]

@@ -1,0 +1,73 @@
+---
+sidebar: sidebar 
+permalink: backup/anf-cba-backup-operations-with-hana-multiple-host-systems.html 
+keywords: system replication, cba, hsr, multiple host, standby host 
+summary: 本节介绍如何使用HANA系统复制执行备份操作。 
+---
+= HANA多主机系统的备份操作
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:anf-cba-backup-operations-with-hana-system-replication.html["先前版本：使用HANA系统复制执行备份操作。"]
+
+
+
+= HANA多主机系统的备份操作
+
+HANA数据库执行Snapshot备份的方式与对单主机系统执行Snapshot备份的方式相同。必须在系统数据库中触发备份操作SQL命令、并为所有HANA工作节点创建HANA备份保存点、以使每个节点的所有数据卷保持一致。下一步、必须对每个数据卷执行存储Snapshot操作。
+
+
+
+== HANA多主机系统、无备用主机
+
+在CBA中配置无备用主机的HANA多主机系统的方式与HANA单主机系统类似。
+
+. 需要在运行HANA命名服务器和系统数据库的工作节点上安装HANA插件。运行索引服务器的工作节点不需要HANA插件。
+. 为系统数据库配置HDB用户存储密钥的方式与为HANA单主机系统配置的方式相同。
+. 在配置存储占用空间时、必须添加HANA系统的所有数据卷。
++
+在以下示例中、您将添加Data1、Data2和Data3卷。
+
++
+
+NOTE: 每个HANA主机的数据卷必须按照与备用主机配置相同的方式挂载到每个主机上。Cloud Backup for Applications会创建备份中包含的文件列表、因此需要能够访问属于HANA系统的所有卷。启用ANF跨区域复制或ANF备份后、单文件还原操作需要文件列表。
+
++
+image:anf-cba-image111.png["此图显示了如何在运行Nameserver/SYSTEMDB的工作节点上安装HANA插件。"]
+
+
+
+
+
+== 采用备用主机的HANA多主机系统
+
+在当前的CBA版本中、支持具有备用主机的HANA多主机系统、前提是在将命名服务器故障转移到备用主机后、故障主机将重新启动、然后出现相同的操作系统配置、文件系统挂载和HANA插件。
+
+在CBA中配置具有备用主机的HANA多主机系统、具体步骤如下。
+
+. HANA插件必须安装在运行HANA命名服务器/系统数据库的工作节点上。
+. HDB用户存储密钥配置有两个主机：系统数据库(名称服务器主机)和备用主机。在CBA密钥配置中、主机：端口字符串必须用分号分隔、并且列表必须以双引号开头和结尾。然后、hdbsql客户端将从用户存储密钥中的第一个条目开始、并尝试连接到数据库。如果条目不起作用、则使用下一个条目。因此、在用户存储密钥中将主命名服务器主机配置为第一个条目、将备用主机配置为第二个条目非常重要。
++
+image:anf-cba-image112.png["此屏幕截图显示了\"添加用户存储\"屏幕、其中填写了相应的信息。"]
+
+. 必须将HANA系统的所有数据卷添加到存储占用空间配置中。
++
+在下图所示的示例中、您需要添加Data1和Data2卷。
+
++
+image:anf-cba-image113.png["此图显示了如何将Data1和Data2添加到Worker名称服务器和备用服务器。"]
+
+
+
+如果将命名服务器故障转移到备用主机、则假定故障主机会在短时间内重新启动、并采用与先前相同的配置。在这种情况下、HANA插件以及hdbsql和hdb用户存储组件均可用、并可继续用于备份操作。
+
+对于前面所述的用户存储配置、hdbsqll客户端现在使用指向当前命名服务器主机的第二个主机条目并执行备份操作。
+
+image:anf-cba-image114.png["此图显示了故障VM在故障转移到备用主机后重新启动并充当新的备用主机。"]
+
+link:anf-cba-where-to-find-additional-information-and-version-history.html["下一步：从何处查找追加信息 和版本历史记录。"]

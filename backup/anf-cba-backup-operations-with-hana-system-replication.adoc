@@ -1,0 +1,110 @@
+---
+sidebar: sidebar 
+permalink: backup/anf-cba-backup-operations-with-hana-system-replication.html 
+keywords: system replication, cba, hsr, multiple host, standby host 
+summary: 本节介绍如何使用HANA系统复制执行备份操作。 
+---
+= 使用HANA系统复制执行备份操作
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:anf-cba-restore-and-recovery-from-snapshot-backup.html["先前：从Snapshot备份还原和恢复。"]
+
+
+
+== 存储Snapshot备份和HANA系统复制
+
+备份操作始终在主SAP HANA主机上执行、因为备份操作所需的SQL命令无法在二级SAP HANA主机上执行。
+
+对于 SAP HANA 备份操作，主 SAP HANA 主机和二级 SAP HANA 主机是一个实体。它们共享同一个SAP HANA备份目录、并使用备份进行还原和恢复、而不管备份是在主SAP HANA主机还是在二级SAP HANA主机上创建的。
+
+要使用任何备份进行还原并使用日志备份从两个主机执行正向恢复，需要一个可从两个主机访问的共享日志备份位置。NetApp 建议您使用共享存储卷。但是，您还应将日志备份目标分隔为共享卷中的子目录。
+
+每个 SAP HANA 主机都有自己的存储卷。使用基于存储的Snapshot执行备份时、系统会在主SAP HANA主机的存储卷上创建数据库一致的Snapshot副本。
+
+image:anf-cba-image102.png["此图显示了如何在主SAP HANA主机的存储卷上创建数据库一致的Snapshot副本。"]
+
+执行到主机2的故障转移后、主机2将成为主SAP HANA主机、此时将在主机2上执行备份、并在主机2的存储卷上创建Snapshot备份。
+
+在主机 2 上创建的备份可以直接在存储层进行还原。如果必须使用在主机 1 上创建的备份，则必须将备份从主机 1 存储卷复制到主机 2 存储卷。正向恢复使用两个主机的日志备份。
+
+image:anf-cba-image103.png["此图显示了正向恢复如何使用两个主机的日志备份。"]
+
+
+
+== 支持CBA和HSR的HANA系统的备份操作
+
+如上一节简要介绍的那样、您必须考虑在启用了HSR的HANA系统中执行备份操作的几个方面。
+
+* 备份操作只能在主HANA主机上执行。因此、在执行备份操作时、CBA必须了解哪个主机当前是主主机。
++
+** 必须对当前主主机执行备份SQL语句。
+** Snapshot备份只能在主主机数据卷上进行、因为二级主机数据卷的状态不一致、因此对还原和恢复操作毫无用处。
+
+
+* Snapshot备份的保留管理必须在两个主机上执行。例如、在执行到二级主机的故障转移后、还必须根据在所有层、在CBA、ANF卷和HANA备份目录中定义的保留时间删除以前主主机的备份。否则、由于旧数据备份、基于日志备份保留管理删除旧日志备份将被阻止。
+
+
+在CBA中、主和二级HANA主机的配置与普通HANA系统一样、如下图所示。配置期间唯一的区别是、选中一个复选框、告知CBA此HANA系统属于HSR复制。CBA从主机读取HSR状态、并可确定哪些主机属于一起、哪些主机是主主机或二级主机。对于CBA内部、这两个主机将被视为一个实体、其中仅对当前主主机执行备份、并在两个主机上执行保留管理。
+
+
+NOTE: 对于双主机配置、CBA仅支持HSR。
+
+image:anf-cba-image104.png["此图显示了CBA如何在双主机配置中仅支持HSR。"]
+
+
+
+== 安装和配置步骤概述
+
+启用了HSR的HANA系统所需的配置步骤稍有不同。在本节中、我们仅重点介绍与已介绍的标准配置步骤相比的差异。
+
+. 在主HSR主机的HANA系统数据库中创建一个备份用户。
+. 在Cloud Backup for Applications中添加主主机并配置HANA系统。
++
+.. 在配置期间选择* HANA系统复制*。
++
+image:anf-cba-image105.png["正在完成的步骤的屏幕截图。"]
+
+.. 添加主主机的存储占用空间。
++
+image:anf-cba-image106.png["正在完成的步骤的屏幕截图。"]
+
+
+
+. 此时、新的HANA系统将列出并显示一个HSR图标。
++
+image:anf-cba-image107.png["正在完成的步骤的屏幕截图。"]
+
+. 在Cloud Backup for Applications中添加二级主机并配置HANA系统。
++
+.. 在配置期间选择* HANA系统复制*。
++
+image:anf-cba-image108.png["正在完成的步骤的屏幕截图。"]
+
+.. 添加二级主机的存储占用空间。
++
+image:anf-cba-image109.png["正在完成的步骤的屏幕截图。"]
+
++
+此时、这两个系统都会显示HSR图标。
+
++
+image:anf-cba-image110.png["正在完成的步骤的屏幕截图。"]
+
+
+
+. 将备份策略添加到主HANA系统和二级HANA系统。
++
+
+NOTE: 您必须向两个系统添加相同的策略、因为保留管理会在两个HANA主机上执行。
+
+
+
+现在、备份将根据定义的策略执行。CBA始终会在主HANA主机上触发Snapshot备份操作。
+
+link:anf-cba-backup-operations-with-hana-multiple-host-systems.html["接下来：使用HANA多主机系统执行备份操作。"]

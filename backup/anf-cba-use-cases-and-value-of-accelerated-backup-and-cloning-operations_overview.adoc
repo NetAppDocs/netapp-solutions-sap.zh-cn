@@ -1,0 +1,37 @@
+---
+sidebar: sidebar 
+permalink: backup/anf-cba-use-cases-and-value-of-accelerated-backup-and-cloning-operations_overview.html 
+keywords: system upgrade, backups, restore 
+summary: 执行备份是任何数据保护策略的关键部分。系统会定期计划备份、以确保您可以从系统故障中恢复。这是最明显的使用情形、但也有其他SAP生命周期管理任务、加快备份和恢复操作至关重要。 
+---
+= 概述加快备份和克隆操作的使用情形和价值
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:anf-cba-backup-and-recovery-using-azure-netapp-files.html["先前版本：使用Azure NetApp Files 进行备份和恢复。"]
+
+[role="lead"]
+执行备份是任何数据保护策略的关键部分。系统会定期计划备份、以确保您可以从系统故障中恢复。这是最明显的使用情形、但也有其他SAP生命周期管理任务、加快备份和恢复操作至关重要。
+
+SAP HANA系统升级就是一个示例、其中、升级前的按需备份以及升级失败后可能执行的还原操作会对整体计划内停机造成显著影响。以4TB数据库为例、您可以使用基于Snapshot的备份和还原操作将计划内停机时间减少8小时。
+
+另一个用例示例是典型的测试周期、在此周期中、必须使用不同的数据集或参数通过多个迭代执行测试。在利用快速备份和还原操作时、您可以轻松地在测试周期内创建保存点、并在测试失败或需要重复时将系统重置为上述任一保存点。这样可以提前完成测试、从而可以进行更多测试并改进测试结果。
+
+image:anf-cba-image3.png["此图显示了备份和恢复操作的使用情形。"]
+
+实施Snapshot备份后、还可以使用这些备份来解决其他使用情形、这些使用情形需要创建HANA数据库副本。使用ANF、您可以根据任何可用Snapshot备份的内容创建新卷。此操作的运行时间为几秒、与卷大小无关。
+
+最常见的使用情形是SAP系统更新、其中需要将生产系统中的数据复制到测试或QA系统。通过利用ANF克隆功能、您可以在几秒钟内从生产系统的任何Snapshot副本为测试系统配置卷。然后、必须将新卷连接到测试系统并恢复HANA数据库。
+
+第二种使用情形是创建修复系统、用于解决生产系统中的逻辑损坏问题。在这种情况下、使用生产系统的旧Snapshot备份来启动修复系统、该修复系统是生产系统的一个克隆、与发生损坏之前的数据完全相同。然后、使用修复系统分析问题并在所需数据损坏之前导出这些数据。
+
+最后一个使用情形是、可以在不停止复制的情况下运行灾难恢复故障转移测试、从而不影响RTO和灾难恢复设置的恢复点目标(RPO)。使用ANF跨区域复制将数据复制到灾难恢复站点时、生产Snapshot备份也可在灾难恢复站点上使用、然后可用于创建新卷以进行灾难恢复测试。
+
+image:anf-cba-image4.png["此图显示了克隆操作的使用情形。"]
+
+link:anf-cba-cloud-backup-for-applications-architecture.html["接下来：适用于应用程序架构的云备份。"]

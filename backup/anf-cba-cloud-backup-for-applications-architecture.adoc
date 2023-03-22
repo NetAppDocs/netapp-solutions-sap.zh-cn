@@ -1,0 +1,319 @@
+---
+sidebar: sidebar 
+permalink: backup/anf-cba-cloud-backup-for-applications-architecture.html 
+keywords: applications, anf, strategy, data protection, backup 
+summary: 适用于应用程序的云备份是一种SaaS解决方案 、可为在NetApp云存储上运行的应用程序提供数据保护功能。在NetApp BlueXP中启用的适用于应用程序的云备份可为基于Azure NetApp Files 的SAP HANA提供高效、应用程序一致且基于策略的保护。Cloud Backup for Applications可提供集中控制和监管、同时为用户委派管理应用程序专用备份和还原操作的能力。 
+---
+= 适用于应用程序的Cloud Backup架构
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:anf-cba-use-cases-and-value-of-accelerated-backup-and-cloning-operations_overview.html["先前版本：Cloud Backup for Applications架构概述。"]
+
+[role="lead"]
+适用于应用程序的云备份是一种SaaS解决方案 、可为在NetApp云存储上运行的应用程序提供数据保护功能。在NetApp BlueXP中启用的适用于应用程序的云备份可为基于Azure NetApp Files 的SAP HANA提供高效、应用程序一致且基于策略的保护。Cloud Backup for Applications可提供集中控制和监管、同时为用户委派管理应用程序专用备份和还原操作的能力。
+
+Cloud Backup for Applications在NetApp BlueXP中以SaaS的形式运行、并利用框架和UI。BlueXP工作环境框架用于配置和管理Azure NetApp Files 的凭据。
+
+必须在客户vNet中部署BlueXP连接器。NetApp SaaS组件与客户环境之间的通信仅通过连接器执行。此连接器正在使用ANF管理API执行ANF存储操作。
+
+HANA插件提供了HANA数据库专用的逻辑、必须在每个HANA主机上部署。HANA插件使用HANA hdbsql客户端和用户存储密钥与HANA数据库进行通信。所有数据库操作均由BlueXP连接器触发。
+
+image:anf-cba-image5.png["此图展示了NetApp SaaS的基本架构以及客户网络和Azure订阅。"]
+
+
+
+== 适用于基于ANF的SAP HANA的Cloud Backup for Applications
+
+
+
+=== 解决方案概述
+
+Cloud Backup for Application支持对以下组件执行基于Snapshot的备份操作：
+
+. * SAP HANA系统*数据卷。
+. SAP HANA数据库的*非数据卷*。例如、 `/hana/shared` 卷和/或SAP应用程序服务器数据。
+. 不属于特定HANA系统的*全局非数据卷*。例如、SAP传输目录 `/usr/sap/trans`。
+
+
+这些组件的备份操作包括：
+
+* 计划备份或按需备份
+* 可选的前脚本和后脚本
+* 策略驱动型保留管理
++
+** 用于ANF卷级别的Snapshot
+** 在SAP HANA备份目录中(适用于HANA数据卷备份)
+
+
+
+
+SAP HANA基于文件的备份用于数据库块完整性检查、也可以按需或按计划执行备份操作。策略驱动型保留管理在文件系统级别和HANA备份目录中执行。
+
+HANA数据库日志备份的保留管理是根据HANA数据库数据备份(基于Snapshot或文件)的定义保留进行的。
+
+CBA支持对所有基于Snapshot的备份执行还原操作。基于文件的备份只能使用本机HANA工具进行还原。
+
+image:anf-cba-image6.png["此图显示了HANA系统多租户数据库容器和全局非数据卷的备份和还原。"]
+
+
+
+=== 解决方案 操作
+
+Snapshot数据备份通过触发SAP HANA数据库备份保存点来使用Cloud Backup for Applications执行、以便在存储层上创建的Snapshot副本基于SAP HANA数据库的一致映像。请参见 https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/b41a2823576f4726be649bc98e61d62c.html?q=sap%20hana%20snapshot%20backup["《SAP管理指南》"^] 有关详细信息 ...
+
+为了对所有SAP HANA相关资源进行完整备份、Cloud Backup for Applications还支持您使用基于存储的Snapshot副本备份所有非数据卷。您可以独立于数据库数据备份计划非数据卷，以启用单个保留和保护策略。
+
+SAP 建议将基于存储的 Snapshot 备份与每周基于文件的备份相结合，以执行块完整性检查。您可以从CBA中执行块完整性检查。块完整性检查（基于文件）备份也用于将备份卸载到另一个存储位置。
+
+Cloud Backup for Applications会根据您可配置的保留策略管理数据备份、日志备份和SAP HANA备份目录的管理工作。
+
+下图总结了备份解决方案。
+
+image:anf-cba-image7.png["此图总结了备份解决方案。"]
+
+在对非数据卷执行基于存储的Snapshot备份时、Cloud Backup for Applications会执行以下任务：
+
+. 创建非数据卷的存储 Snapshot 副本。
+. 根据定义的保留策略删除存储 Snapshot 副本。
+
+
+在对SAP HANA数据库执行基于存储的Snapshot备份时、Cloud Backup for Applications会执行以下任务：
+
+. 创建 SAP HANA 备份保存点，以便在持久性层上创建一致的映像。
+. 创建数据卷的存储 Snapshot 副本。
+. 在 SAP HANA 备份目录中注册存储 Snapshot 备份。
+. 发布 SAP HANA 备份保存点。
+. 根据定义的保留策略删除存储 Snapshot 副本。
+. 根据定义的保留策略删除 SAP HANA 备份目录条目。
+. 每当手动删除数据备份或根据保留策略删除数据备份时、Cloud Backup for Applications都会删除早于最旧数据备份的所有日志备份。日志备份会在文件系统和 SAP HANA 备份目录中删除。
+
+
+
+
+=== 支持的 SAP HANA 版本和配置
+
+Cloud Backup for Applications支持包含一个或多个租户的HANA MDC系统、配置选项如下：
+
+* SAP HANA 2.0 SPS4 及更高版本
+* SAP HANA单主机系统
+* SAP HANA多主机系统、如一节所述 link:anf-cba-backup-operations-with-hana-system-replication.html#backup-operations-with-hana-multiple-host-systems["《HANA多主机系统的备份操作》"]
+* 配置了HANA系统复制(HSR)的SAP HANA系统、如一节所述 link:anf-cba-backup-operations-with-hana-system-replication.html["《使用HANA系统复制执行备份操作》"]
+
+
+
+
+== 适用于应用程序的Cloud Backup概念和最佳实践
+
+
+
+=== 数据保护策略
+
+在配置Cloud Backup for Applications之前、您必须根据各种SAP系统的RTO和RPO要求定义数据保护策略。
+
+一种常见方法是定义系统类型、例如生产、开发、测试或沙盒系统。所有系统类型相同的 SAP 系统通常具有相同的数据保护参数。
+
+您必须定义以下参数：
+
+* 执行 Snapshot 备份的频率
+* Snapshot 备份的保留时间
+* 执行块完整性检查（基于文件的备份）的频率
+* 块完整性检查备份(基于文件的备份)的保留时间
+
+
+下表显示了生产、开发和测试系统类型的数据保护参数示例。对于生产系统，已定义高备份频率，并执行每周基于文件的备份。测试和开发系统的要求较低、Snapshot备份的计划频率较低。
+
+|===
+| Parameters | 生产系统 | 开发系统 | 测试系统 
+
+
+| Snapshot 备份频率 | 每 4 小时 | 每 6 小时 | 每 12 小时 
+
+
+| Snapshot 备份保留 | 3 天 | 3 天 | 3 天 
+
+
+| 块完整性检查频率 | 每周一次 | 每周一次 | 每周一次 
+
+
+| 块完整性检查保留 | 4 周 | 2 周 | 1 周 
+|===
+下表显示了必须为 Snapshot 备份操作的数据保护参数配置的策略。
+
+|===
+| Parameters | 策略 SnapshotEvery4h | 策略 SnapshotEvery6h | 策略 SnapshotEvery12h 
+
+
+| 备份类型 | 基于 Snapshot | 基于 Snapshot | 基于 Snapshot 
+
+
+| 计划类型 | 每小时 | 每小时 | 每小时 
+
+
+| Retention | 计数 = 18 | 计数 = 12 | 计数 = 3 
+
+
+| 备份计划 | 每 4 小时 | 每 6 小时 | 每 12 小时 
+|===
+下表显示了在基于文件的备份操作中必须为数据保护参数配置的策略。
+
+|===
+| Parameters | 策略文件 Based4Week | 策略文件 Based2Weeks | 策略文件已确定 1Week 
+
+
+| 备份类型 | 基于文件 | 基于文件 | 基于文件 
+
+
+| 计划类型 | 每周 | 每周 | 每周 
+
+
+| Retention | 计数 = 4 | 计数 = 2 | 计数 = 1 
+
+
+| 备份计划 | 每星期日 | 每星期日 | 每星期日 
+|===
+
+
+== 备份操作
+
+SAP在采用HANA 2.0 SPS4的多租户系统MDC中引入了对Snapshot备份的支持。在 SAP HANA MDC 系统中，租户配置不一定是静态的。您可以添加或删除租户。Cloud Backup for Applications不能依赖在将HANA数据库添加到Cloud Backup for Applications时发现的配置。Cloud Backup for Applications必须知道在执行备份操作时哪些租户可用。
+
+因此，对于每个备份操作，工作流的第一步是获取租户信息。下一步是执行 Snapshot 备份操作本身。此步骤包括用于触发HANA备份保存点的SQL命令、用于执行ANF Snapshot备份的SQL命令以及用于关闭HANA备份保存点的SQL命令。通过使用 close 命令， HANA 数据库将更新系统数据库和每个租户的备份目录。
+
+
+NOTE: 当一个或多个租户停止时、SAP HANA不支持对MDC系统执行Snapshot备份操作。
+
+为了对数据备份进行保留管理和管理HANA备份目录管理、Cloud Backup for Applications必须对系统数据库和第一步中确定的所有租户数据库执行目录删除操作。与日志备份相同、Cloud Backup for Applications工作流必须在备份操作中的每个租户上运行。
+
+下图显示了备份工作流的概述。
+
+image:anf-cba-image8.png["此图显示了备份工作流的概述。"]
+
+
+
+=== HANA 数据库的 Snapshot 备份的备份工作流
+
+Cloud Backup for Applications按以下顺序备份SAP HANA数据库：
+
+. Cloud Backup for Applications从HANA数据库读取租户列表。
+. 租户信息存储在Cloud Backup for Applications元数据中、用于备份操作。
+. Cloud Backup for Applications会触发SAP HANA全局同步备份保存点、以便在持久性层上创建一致的数据库映像。
++
+
+NOTE: 对于SAP HANA MDC单租户或多租户系统、系统数据库和每个租户数据库的同步全局备份保存点只需执行一次操作即可创建。
+
+. Cloud Backup for Applications可为为HANA系统配置的所有数据卷创建ANF Snapshot副本。对于单主机HANA数据库、只有一个数据卷。使用 SAP HANA 多主机数据库时，有多个数据卷。
+. Cloud Backup for Applications会将Snapshot备份注册到SAP HANA备份目录中。
+. Cloud Backup for Applications会删除SAP HANA备份保存点。
+. Cloud Backup for Applications会根据为备份定义的保留策略删除其数据库以及SAP HANA备份目录中的ANF Snapshot副本和备份条目。对系统数据库和所有租户执行HANA备份目录操作。
+. Cloud Backup for Applications会删除文件系统和SAP HANA备份目录中早于SAP HANA备份目录中标识的最旧成功数据备份的所有日志备份。这些操作将对系统数据库和所有租户执行。
+
+
+
+
+=== 用于块完整性检查操作的备份工作流
+
+Cloud Backup for Applications按以下顺序执行块完整性检查：
+
+. Cloud Backup for Applications从HANA数据库读取租户列表。
+. Cloud Backup for Applications会为系统数据库和每个租户触发基于文件的备份操作。
+. Cloud Backup for Applications会根据为块完整性检查操作定义的保留策略、删除其数据库、文件系统和SAP HANA备份目录中基于文件的备份。系统会对系统数据库和所有租户执行文件系统备份删除和HANA备份目录操作。
+. Cloud Backup for Applications会删除文件系统和SAP HANA备份目录中早于SAP HANA备份目录中标识的最旧数据备份的所有日志备份。这些操作将对系统数据库和所有租户执行。
+
+
+
+
+== 数据和日志备份的备份保留管理和管理
+
+数据备份保留管理和日志备份管理可分为四个主要方面、包括以下保留管理：
+
+* Snapshot 备份
+* 基于文件的备份
+* SAP HANA 备份目录中的数据备份
+* 在 SAP HANA 备份目录和文件系统中记录备份
+
+
+下图概述了不同的工作流以及每个操作的依赖关系。以下各节将详细介绍不同的操作。
+
+image:anf-cba-image9.png["此图概述了不同的工作流以及每个操作的依赖关系。"]
+
+
+
+=== Snapshot 备份的保留管理
+
+Cloud Backup for Applications可根据Cloud Backup for Applications备份策略中定义的保留期限删除存储和Cloud Backup for Applications存储库中的Snapshot副本、从而处理SAP HANA数据库备份和非数据卷备份的管理工作。
+
+保留管理逻辑会在Cloud Backup for Applications中对每个备份工作流执行。
+
+您也可以在Cloud Backup for Applications中手动删除Snapshot备份。
+
+
+
+=== 基于文件的备份的保留管理
+
+Cloud Backup for Applications可根据Cloud Backup for Applications备份策略中定义的保留期限删除文件系统上的备份、从而处理基于文件的备份的管理工作。
+
+保留管理逻辑会在Cloud Backup for Applications中对每个备份工作流执行。
+
+
+
+=== SAP HANA 备份目录中的数据备份保留管理
+
+当Cloud Backup for Applications删除任何备份(Snapshot或基于文件)时、此数据备份也会在SAP HANA备份目录中删除。
+
+
+
+=== 日志备份的保留管理
+
+SAP HANA 数据库会自动创建日志备份。这些日志备份运行会在SAP HANA中配置的备份目录中为每个SAP HANA服务创建备份文件。
+
+如果要进行正向恢复、则不再需要早于最旧成功数据备份的日志备份、因此可以删除这些备份。
+
+Cloud Backup for Applications可执行以下步骤、在文件系统级别以及SAP HANA备份目录中对日志文件备份进行管理：
+
+* Cloud Backup for Applications会读取SAP HANA备份目录、以获取最旧的成功文件备份或Snapshot备份的备份ID。
+* Cloud Backup for Applications会删除SAP HANA目录和文件系统中早于此备份ID的所有日志备份。
+
+
+
+NOTE: Cloud Backup for Applications仅负责管理Cloud Backup for Applications创建的备份。如果在Cloud Backup for Applications之外创建了任何其他数据备份、则必须确保从备份目录中删除这些数据备份。如果不从备份目录中手动删除此类数据备份、则此数据备份可能会成为最旧的数据备份、而旧的日志备份则不会删除、直到删除此数据备份为止。
+
+
+NOTE: 默认情况下、日志备份管理处于启用状态、但可以在HANA插件主机级别禁用。编辑 `hana.property` 文件 `/opt/NetApp/snapcenter/scc/etc`。包括参数 `LOG_CLEANUP_DISABLE = Y` 在中 `hana.property` 配置文件会禁用日志备份管理。如果此文件不存在、则必须创建它。
+
+
+
+== 启用与HANA数据库的安全通信
+
+如果为HANA数据库配置了安全通信、则会显示 `hdbsql` 由CBA执行的命令必须使用其他命令行选项。这可以通过使用调用的包装程序脚本来实现 `hdbsql` 具有所需选项。
+
+
+NOTE: 可通过多种选项配置SSL通信。在以下示例中，使用命令行选项描述了最简单的客户端配置，其中不会执行服务器证书验证。如果需要在服务器和/或客户端上验证证书、则需要使用不同的hdbsql"命令行选项、并且必须按照SAP HANA安全指南中所述相应地配置PSE环境。
+
+而不是配置 `hdbsql` 中的可执行文件 `hana.properties` 文件、则添加包装程序脚本。在文件中 `/opt/NetApp/snapcenter/scc/etc/hana.properties`、您必须添加以下内容。如果此文件不存在、则必须创建它。
+
+此示例适用于SID=SM1和实例编号=12的HANA系统。
+
+....
+HANA_HDBSQL_CMD = /usr/sap/SM1/HDB12/exe/hdbsqls
+....
+wrapper script `hdbsqls` calls `hdbsqll` with the required command-line options.
+
+....
+#/bin/bash
+/usr/sap/SM1/HDB12/exe/hdbsql -e -ssltrustcert $*
+....
+
+
+== Snapshot 备份的容量要求
+
+您必须考虑存储层上的块更改率高于传统数据库的更改率。由于列存储的HANA表合并过程、整个表将写入磁盘、而不仅仅是表中更改的数据。
+
+如果在一天内执行多个Snapshot备份、我们客户群的数据显示、每天的变更率介于20%到50%之间。
+
+link:anf-cba-overview-of-installation-and-configuration-steps.html["下一步：概述安装和配置步骤。"]

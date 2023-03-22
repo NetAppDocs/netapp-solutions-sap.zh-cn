@@ -1,0 +1,120 @@
+---
+sidebar: sidebar 
+permalink: backup/anf-cba-snapshot-based-backup-operations-of-global-non-data-volumes.html 
+keywords: global non-data, configuration, assign policy, azure portal 
+summary: 本节介绍如何为全局非数据卷创建基于Snapshot的备份操作。 
+---
+= 对全局非数据卷执行基于Snapshot的备份操作
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:anf-cba-snapshot-based-backup-operations-of-non-data-volumes.html["Previous：对非数据卷执行基于Snapshot的备份操作。"]
+
+[role="lead"]
+在CBA中、全局非数据卷是指未分配给特定HANA系统的卷。示例包括SAP传输目录 `/usr/sap/trans` 或软件存储库。
+
+
+
+== Configuration
+
+要为非数据卷配置数据保护、请完成以下步骤。
+
+. 单击*添加HANA系统*、然后选择*全局非数据卷*作为*系统类型*。
++
+image:anf-cba-image66.png["正在完成的步骤的屏幕截图。"]
+
+. 请提供名称和SID或SID列表、以供参考。您还需要选择一个插件主机。这可以是您环境中的任何插件主机。
++
+image:anf-cba-image67.png["正在完成的步骤的屏幕截图。"]
+
+. 单击*添加存储*以配置全局非数据卷的存储占用空间。
++
+image:anf-cba-image68.png["正在完成的步骤的屏幕截图。"]
+
+. 输入全局非数据卷的信息。
++
+image:anf-cba-image69.png["正在完成的步骤的屏幕截图。"]
+
+. 全局非数据卷与HANA系统在CBA信息板中的列出方式相同。
++
+image:anf-cba-image70.png["正在完成的步骤的屏幕截图。"]
+
+
+
+
+
+== 分配策略
+
+要激活计划的备份、必须分配备份策略。
+
+. 转至*分配策略*。
++
+image:anf-cba-image71.png["正在完成的步骤的屏幕截图。"]
+
+. 单击 * 分配 * 。
++
+image:anf-cba-image72.png["正在完成的步骤的屏幕截图。"]
+
+. 此时、此策略将分配给非数据卷。
++
+image:anf-cba-image73.png["正在完成的步骤的屏幕截图。"]
+
+
+
+
+
+== 创建全局非数据卷的按需备份
+
+要创建按需数据库备份、请完成以下步骤：
+
+. 在CBA信息板视图中、选择上下文菜单中的*按需备份*。
++
+image:anf-cba-image74.png["正在完成的步骤的屏幕截图。"]
+
+. 在*按需备份*对话框中、选择*基于策略*或*一次*。
++
+** 对于*基于策略*、按需备份与计划备份在保留以及脚本前和脚本后配置方面的处理方式相同。
+** 使用*一次*、您可以定义特定保留、特定备份名称以及特定的前脚本和后脚本。
++
+在我们的示例中、我们选择了基于策略、因此必须在下一步中选择策略和保留。
+
++
+image:anf-cba-image75.png["正在完成的步骤的屏幕截图。"]
+
++
+在*作业监控*视图中、您可以看到不同的工作流步骤、这些步骤的运行时间以及总操作运行时间。在我们的示例中、备份操作需要41秒。
+
++
+image:anf-cba-image76.png["正在完成的步骤的屏幕截图。"]
+
+
+
+
+
+
+
+== 查看CBA拓扑视图中的Snapshot备份信息
+
+在CBA信息板视图的上下文菜单中、选择*查看拓扑*以打开备份概述。
+
+备份概述显示了使用CBA创建的备份列表。
+
+
+NOTE: 备份名称使用备份策略中定义的格式。ANF卷上的Snapshot名称也使用相同的命名约定。
+
+image:anf-cba-image77.png["正在完成的步骤的屏幕截图。"]
+
+
+
+== 查看Azure Portal中的Snapshot备份信息
+
+在CBA中用作备份名称的名称也用作ANF卷上的Snapshot备份名称。下图显示了全局非数据卷的Azure门户和Snapshot备份 `software`。
+
+image:anf-cba-image78.png["正在完成的步骤的屏幕截图。"]
+
+link:anf-cba-restore-and-recovery-from-snapshot-backup.html["下一步：从Snapshot备份还原和恢复。"]

@@ -1,0 +1,97 @@
+---
+sidebar: sidebar 
+permalink: backup/anf-cba-create-backup-policies.html 
+keywords: policy, snapshot, backups, file-based 
+summary: 策略通常独立于资源进行配置、可供多个SAP HANA数据库使用。典型的最低配置包括一个每小时Snapshot备份策略和一个使用基于文件的备份进行每周块完整性检查的策略。 
+---
+= 创建备份策略
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+link:anf-cba-overview-of-installation-and-configuration-steps.html["先前：安装和配置步骤概述。"]
+
+[role="lead"]
+如前文所述、策略通常独立于资源进行配置、可供多个SAP HANA数据库使用。典型的最低配置包括以下两个策略：
+
+* 每小时Snapshot备份策略：例如、 `SnapshotEvery4Hours`。
+* 使用基于文件的备份执行每周块完整性检查的策略：例如、 `WeeklyBlockIntegrityCheck`。
+
+
+以下各节将介绍这两个策略的配置。
+
+
+
+== 为基于Snapshot的备份创建策略
+
+. 请转到*设置*>*策略*以创建新策略。
++
+image:anf-cba-image25.png["此屏幕截图显示了BlueXP和gt；备份和恢复和管理；应用程序和管理系统屏幕。"]
+
+. 单击 * 创建策略 * 。
++
+image:anf-cba-image26.png["此屏幕截图显示了包含创建策略按钮的屏幕。"]
+
+. 配置Snapshot名称格式。
++
+NetApp建议将追加信息 添加到Snapshot名称中、以便于在HANA备份目录中进行标识。
+
++
+
+NOTE: 在HSR设置中、您还应将系统名称添加为名称格式。当然、您需要以一种名称包含角色或主机名的方式配置主主机和二级主机的系统名称：例如、 `SID-HSR-Primary` 或 `SID-HSR-Secondary`。通过这种方法、您可以轻松确定在HANA备份目录中创建备份的主机。
+
++
+image:anf-cba-image27.png["此屏幕截图显示了BlueXP和gt；备份和恢复和管理；应用程序和管理；创建策略屏幕。已填写名称策略字段。"]
+
+. 配置计划。在我们的示例中、我们每4小时执行一次Snapshot备份、并将备份保留3天。
++
+image:anf-cba-image28.png["此屏幕截图显示了BlueXP和gt；备份和恢复和管理；应用程序和管理；创建策略屏幕。此时将显示计划。"]
+
+. 您也可以添加随备份操作执行的前脚本和后脚本。
++
+这些脚本将在HANA数据库主机上执行。另请参见 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-cloud-native-sap-hana-data.html["备份云原生SAP HANA数据库| NetApp文档"^]。
+
++
+image:anf-cba-image29.png["此屏幕截图显示了BlueXP和gt；备份和恢复和管理；应用程序和管理；创建策略屏幕。此时将显示\"前\"和\"后\"脚本字段。"]
+
+. 此时将创建基于Snapshot的备份策略。
++
+image:anf-cba-image30.png["此屏幕截图显示了BlueXP和gt；备份和恢复和管理；应用程序和管理策略屏幕。策略创建显示为已完成。"]
+
+
+
+
+
+== 为基于文件的备份创建策略
+
+. 选择 * 创建策略 * 。
++
+image:anf-cba-image31.png["此屏幕截图显示了BlueXP和gt；备份和恢复和管理；应用程序和管理；创建策略屏幕。"]
+
+. 在创建策略屏幕中、提供策略名称、备份类型、备份命名约定以及计划和保留详细信息。
++
+image:anf-cba-image32.png["此屏幕截图显示了BlueXP和gt；备份和恢复和管理；应用程序和管理；创建策略屏幕。填写基本策略信息。"]
+
+. 在我们的示例中、我们在每个星期日配置了每周备份、并保留了一个*要保留的副本*。
++
+
+NOTE: "1"是您可以为*要保留的副本*配置的最低数量。这意味着、文件系统上始终至少有一个基于文件的备份。在执行下一个基于文件的备份期间、您需要的容量是容量的两倍、因为在创建新备份后、旧备份将被删除。
+
++
+image:anf-cba-image33.png["此屏幕截图显示了BlueXP和gt；备份和恢复和管理；应用程序和管理；创建策略屏幕。显示每周计划。"]
+
+. 您也可以添加随备份操作执行的前脚本和后脚本。
++
+image:anf-cba-image34.png["此屏幕截图显示了BlueXP和gt；备份和恢复和管理；应用程序和管理；创建策略屏幕。指示了前脚本和后脚本字段。"]
+
+. 现在、备份策略列表将显示一个Snapshot备份策略和另一个基于文件的备份策略。
++
+image:anf-cba-image35.png["策略创建完成。"]
+
+
+
+link:anf-cba-snapshot-based-backup-operations-of-the-hana-database.html["接下来：对HANA数据库执行基于Snapshot的备份操作。"]
