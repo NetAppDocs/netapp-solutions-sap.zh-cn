@@ -15,10 +15,6 @@ summary: 本节介绍如何使用HANA系统复制执行备份操作。
 
 link:anf-cba-backup-operations-with-hana-system-replication.html["先前版本：使用HANA系统复制执行备份操作。"]
 
-
-
-= HANA多主机系统的备份操作
-
 HANA数据库执行Snapshot备份的方式与对单主机系统执行Snapshot备份的方式相同。必须在系统数据库中触发备份操作SQL命令、并为所有HANA工作节点创建HANA备份保存点、以使每个节点的所有数据卷保持一致。下一步、必须对每个数据卷执行存储Snapshot操作。
 
 
