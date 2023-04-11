@@ -13,7 +13,7 @@ summary: 本节介绍此解决方案 的所有组件的安装和配置。
 :imagesdir: ./../media/
 
 
-link:anf-cba-cloud-backup-for-applications-architecture.html["先前版本：Cloud Backup for Applications架构。"]
+link:anf-cba-cloud-backup-for-applications-concepts-and-best-practices.html["先前版本：Cloud Backup for Applications概念和最佳实践。"]
 
 [role="lead"]
 所需的安装和配置步骤可分为三个方面。

@@ -2016,7 +2016,6 @@
   <block id="8002bc13927c65b5f265b031079ce1d4" category="cell">文档版本历史记录</block>
   <block id="a5f3f63c2f6e1d6d4605650633b9ce8a" category="cell">2021年10月</block>
   <block id="ea9349a37bfee247df0f87cbcacca796" category="cell">初始版本。</block>
-  <block id="0f68b904e33d9ac04605aecc958bcf52" category="doc">追加信息</block>
   <block id="4c28efc16ec0589f9fb25a451feba324" category="inline-link-macro">上一步：还原和恢复。</block>
   <block id="4f6b276c14acce5792e8927470a89fc2" category="paragraph"><block ref="4f6b276c14acce5792e8927470a89fc2" category="inline-link-macro-rx"></block></block>
   <block id="7d5b957cd473f6eaf5ad335a9c63c4ff" category="paragraph">要了解有关本文档中所述信息的更多信息，请查看以下文档和 / 或网站：</block>
@@ -2456,7 +2455,6 @@
   <block id="27a5339355631306e0eeb66ec61f8aaf" category="paragraph">还原和恢复时间是根据以下假设计算的：数据库可以以 250 MBps 的速度进行还原；每天的日志文件数是数据库大小的 50% （例如， 1 TB 数据库每天创建 500 MB 的日志文件）； 并且可以在 100 Mbps 的速度下执行恢复。</block>
   <block id="c8935e1beb0848eefbbd5cda10297089" category="inline-link-macro">接下来： SnapCenter 服务架构。</block>
   <block id="60443fe21455bdcdcd0c21760abd95cd" category="paragraph"><block ref="60443fe21455bdcdcd0c21760abd95cd" category="inline-link-macro-rx"></block></block>
-  <block id="6abf73ac39531a37ff136074cc08335d" category="sidebar">使用 SnapCenter 服务在 Azure NetApp Files 上执行 SAP HANA 备份和恢复</block>
   <block id="a06fe30236099001fb8865692c8ec7e3" category="paragraph">SnapCenter 服务会根据 SnapCenter 服务备份策略中定义的保留期限删除存储和 SnapCenter 服务存储库中的 Snapshot 副本，从而处理 SAP HANA 数据库备份和非数据卷备份的后台管理。</block>
   <block id="9146086648c59ec16c636f6376bdfd2e" category="paragraph">保留管理逻辑会对 SnapCenter 中的每个备份工作流执行。</block>
   <block id="dbe479d1c7a378f616224ba6a3d956b0" category="paragraph"><block ref="dbe479d1c7a378f616224ba6a3d956b0" category="inline-image-macro-rx" type="image"></block></block>
@@ -5290,8 +5288,6 @@
   <block id="17f31b52b49dfe7dec5229f7caf638c6" category="list-text">AFF A150、AFF A220、AFF A250、AFF A300、AFF A320、 AFF A400、AFF A700s、AFF A700、AFF A800、AFF A900</block>
   <block id="e6c434a39cbdd99e996e35ba917a1f79" category="summary">适用于应用程序的云备份是一种SaaS解决方案 、可为在NetApp云存储上运行的应用程序提供数据保护功能。在NetApp BlueXP中启用的适用于应用程序的云备份可为基于Azure NetApp Files 的SAP HANA提供高效、应用程序一致且基于策略的保护。Cloud Backup for Applications可提供集中控制和监管、同时为用户委派管理应用程序专用备份和还原操作的能力。</block>
   <block id="68b2531582c9405379a246e2f5612632" category="doc">适用于应用程序的Cloud Backup架构</block>
-  <block id="1e418ab89f193c74121a07ce83abaed4" category="inline-link-macro">先前版本：Cloud Backup for Applications架构概述。</block>
-  <block id="d9d3ce81752bc06ac7427df8f9d0dd8d" category="paragraph"><block ref="d9d3ce81752bc06ac7427df8f9d0dd8d" category="inline-link-macro-rx"></block></block>
   <block id="f6fcca3f3d3bfd44d0aa729b3d893d98" category="paragraph">Cloud Backup for Applications在NetApp BlueXP中以SaaS的形式运行、并利用框架和UI。BlueXP工作环境框架用于配置和管理Azure NetApp Files 的凭据。</block>
   <block id="b56d64743b38fb4b0973d9110fb21c20" category="paragraph">必须在客户vNet中部署BlueXP连接器。NetApp SaaS组件与客户环境之间的通信仅通过连接器执行。此连接器正在使用ANF管理API执行ANF存储操作。</block>
   <block id="9e9b9e3d6624aa7bef29265a2780a193" category="paragraph">HANA插件提供了HANA数据库专用的逻辑、必须在每个HANA主机上部署。HANA插件使用HANA hdbsql客户端和用户存储密钥与HANA数据库进行通信。所有数据库操作均由BlueXP连接器触发。</block>
@@ -5465,7 +5461,6 @@
   <block id="8fb6836a6a4f22c7090d031fb31467d8" category="inline-link-macro">接下来：对非数据卷执行基于Snapshot的备份操作。</block>
   <block id="052102618f8c4535a292e7e8eda937ce" category="paragraph"><block ref="052102618f8c4535a292e7e8eda937ce" category="inline-link-macro-rx"></block></block>
   <block id="731c91555406019fb4ca7b621105abba" category="summary">执行备份是任何数据保护策略的关键部分。系统会定期计划备份、以确保您可以从系统故障中恢复。这是最明显的使用情形、但也有其他SAP生命周期管理任务、加快备份和恢复操作至关重要。</block>
-  <block id="51f47ae99b1d73a12860cadd58026d0c" category="doc">概述加快备份和克隆操作的使用情形和价值</block>
   <block id="e97a05d9d17313a2f8bcb989f95b853d" category="inline-link-macro">先前版本：使用Azure NetApp Files 进行备份和恢复。</block>
   <block id="ec02aabec7c977a0d1479d4c3756ea39" category="paragraph"><block ref="ec02aabec7c977a0d1479d4c3756ea39" category="inline-link-macro-rx"></block></block>
   <block id="9a8fc8d0db2b6ce4ad7546eec3a993b7" category="paragraph">SAP HANA系统升级就是一个示例、其中、升级前的按需备份以及升级失败后可能执行的还原操作会对整体计划内停机造成显著影响。以4TB数据库为例、您可以使用基于Snapshot的备份和还原操作将计划内停机时间减少8小时。</block>
@@ -5853,4 +5848,15 @@
   <block id="fb4d860c1938626a4cb9b8f66c6eb6f2" category="cell">2023年3月</block>
   <block id="8e44a3ecd2d34ebd0399052b6ee88e12" category="sidebar">基于ANF的SAP HANA—通过云备份为应用程序备份和恢复</block>
   <block id="a412c94443f5ac6c0322b71de9e01398" category="sidebar">加速备份和克隆操作的用例和价值</block>
+  <block id="0c955f27cc01753f6caba6b35f81c22b" category="inline-link-macro">先前版本：Cloud Backup for Applications概念和最佳实践。</block>
+  <block id="1d6e2b0c5c8f5ecf276b1c1ae033b52c" category="paragraph"><block ref="1d6e2b0c5c8f5ecf276b1c1ae033b52c" category="inline-link-macro-rx"></block></block>
+  <block id="caf742ad86750136d207a022f2424f96" category="summary">在配置Cloud Backup for Applications之前、您必须根据各种SAP系统的RTO和RPO要求定义数据保护策略。一种常见方法是定义系统类型、例如生产、开发、测试或沙盒系统。所有系统类型相同的 SAP 系统通常具有相同的数据保护参数。</block>
+  <block id="f28f5248fad899e39a597fa4869c8b78" category="inline-link-macro">先前版本：适用于基于ANF的SAP HANA的Cloud Backup for Applications。</block>
+  <block id="158768d66bdd83e626f048a6dff08419" category="paragraph"><block ref="158768d66bdd83e626f048a6dff08419" category="inline-link-macro-rx"></block></block>
+  <block id="1833b1326ace61b7d0db9c7322a816f1" category="inline-link-macro">接下来：Cloud Backup for Applications概念和最佳实践。</block>
+  <block id="94e31554b8b3f5e3703d90f6ca54b3ad" category="paragraph"><block ref="94e31554b8b3f5e3703d90f6ca54b3ad" category="inline-link-macro-rx"></block></block>
+  <block id="709e94314858df04c7357462a0792849" category="inline-link-macro">先前：加快备份和克隆操作的用例和价值。</block>
+  <block id="7d0603f1cd927eedf5cdee93312e268b" category="paragraph"><block ref="7d0603f1cd927eedf5cdee93312e268b" category="inline-link-macro-rx"></block></block>
+  <block id="0f8328591822cd94c86e0d9fa42a479e" category="inline-link-macro">接下来：在ANF上为SAP HANA的应用程序提供Cloud Backup。</block>
+  <block id="2aa507441d0bdacbf0b3c44eb914612f" category="paragraph"><block ref="2aa507441d0bdacbf0b3c44eb914612f" category="inline-link-macro-rx"></block></block>
 </blocks>
