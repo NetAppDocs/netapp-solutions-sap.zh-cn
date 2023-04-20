@@ -231,7 +231,7 @@ NOTE: SAP Lama 要求 /usr/sap/SID 目录为本地目录。因此，如果使用
 | 通用参数 | NFSv3 | NFSv4 | ONTAP 9 中的 NFS 传输大小 | 使用 ONTAP 8 时的 NFS 传输大小 
 
 
-| rw ， bg ， hard ， timeo=600 ， noatime ， | vers=3 ， nolock ， | vers=4 ， minorVersion=1 ， lock | rsize=1048576 ， wsize=262144 ， | rsize=65536 ， wsize=65536 ， 
+| rw ， bg ， hard ， timeo=600 ， noatime ， | nfsvers=3、无锁定、 | nfsvers=4.1、锁定 | rsize=1048576 ， wsize=262144 ， | rsize=65536 ， wsize=65536 ， 
 |===
 
 NOTE: 要提高 NFSv3 的读取性能， NetApp 建议您使用 `nconnect=n` mount 选项，该选项可在 SUSE Linux Enterprise Server 12 SP4 或更高版本以及 RedHat Enterprise Linux （ RHEL ） 8.3 或更高版本中使用。
