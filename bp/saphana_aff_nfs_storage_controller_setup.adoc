@@ -335,6 +335,9 @@ image:saphana_aff_nfs_image17.jpg["错误：缺少图形映像"]
 | 禁用 NFSv4 数字 ID | nfs modify -vserver <vserver_name> -v4-numeric-id 已禁用 
 |===
 
+NOTE: 请注意、禁用数字ID需要用户管理、如一节所述 link:saphana_aff_nfs_sap_hana_installation_preparations_for_nfsv4.html["《 NFSv4 的 SAP HANA 安装准备工作》。"]
+
+
 NOTE: 在所有 Linux 服务器（` /etc/idmapd.conf` ）和 SVM 上，必须将 NFSv4 域 ID 设置为相同的值，如一节所述 link:saphana_aff_nfs_sap_hana_installation_preparations_for_nfsv4.html["《 NFSv4 的 SAP HANA 安装准备工作》。"]
 
 
