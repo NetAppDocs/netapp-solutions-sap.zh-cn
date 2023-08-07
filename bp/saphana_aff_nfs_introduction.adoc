@@ -15,11 +15,16 @@ summary: NetApp AFF 系统产品系列已通过认证，可在定制数据中心
 
 NetApp 公司 Nil Bauser 和 Marco schön
 
-NetApp AFF 系统产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用。经过认证的企业级存储系统采用 NetApp ONTAP 软件的特征。
+NetApp AFF A系列和AFF C系列产品系列已通过认证、可在定制数据中心集成(TDI)项目中与SAP HANA结合使用。
 
 此认证适用于以下型号：
 
 * AFF A150、AFF A220、AFF A250、AFF A300、AFF A320、 AFF A400、AFF A700s、AFF A700、AFF A800、AFF A900
+* AFF C250、AFF C400、AFF C800
++
+
+NOTE: NetApp AFF C系列需要使用NetApp OM技术 支持9.13.1.或更高版本
+
 
 
 有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见 https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:13["经过认证并受支持的 SAP HANA 硬件目录"^]。
