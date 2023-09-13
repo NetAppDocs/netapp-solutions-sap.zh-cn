@@ -491,8 +491,6 @@
   <block id="fd18465573ec21a6218982055981f6b1" category="section-title">存储效率</block>
   <block id="cc9ff39c9f631978557ae00fd8f5865d" category="paragraph">在 SSD 配置中， SAP HANA 支持实时重复数据删除，跨卷实时重复数据删除，实时数据压缩和实时数据缩减。</block>
   <block id="ed6036f9cee51fdd7e2a091bbae50c50" category="paragraph">不支持在基于 HDD 的配置中启用存储效率功能。</block>
-  <block id="f884253d5c2cf3e0fbcf27b5bd7fc515" category="section-title">NetApp 卷加密</block>
-  <block id="473b0453336bcd8bf5591681f8f2d0a1" category="paragraph">SAP HANA 支持使用 NetApp 卷加密（ NVE ）。</block>
   <block id="a662d487b875a4e232a16649f36fb399" category="section-title">Quality of service</block>
   <block id="7686322155849443f06959615c011bf4" category="paragraph">QoS 可用于限制共享使用控制器上特定 SAP HANA 系统或其他应用程序的存储吞吐量。其中一个使用情形是，限制开发和测试系统的吞吐量，使其不会影响混合环境中的生产系统。</block>
   <block id="6c86cfdf44739a850a7a1248b66cb537" category="paragraph">在规模估算过程中，您应确定非生产系统的性能要求。开发和测试系统的规模可以采用较低的性能值进行调整，通常在 SAP 定义的生产系统 KPI 的 20% 到 50% 范围内。</block>
@@ -784,7 +782,6 @@
   <block id="52f0703c63884d2286e98f0a3488601f" category="paragraph"><block ref="52f0703c63884d2286e98f0a3488601f" category="inline-link-macro-rx"></block></block>
   <block id="7c2539ff7a7121e5f40217630b2b7413" category="paragraph"><block ref="7c2539ff7a7121e5f40217630b2b7413" category="inline-link-macro-rx"></block></block>
   <block id="fef2c24f71a084e813005b395f827515" category="paragraph">在 SSD 配置中， SAP HANA 支持实时重复数据删除，跨卷实时重复数据删除，实时压缩和实时数据缩减。</block>
-  <block id="c4b8c29f448328e82ce27062b5fd9c28" category="section-title">NetApp 卷加密</block>
   <block id="8bc14f0cb78851f59e85c1d447c2c99f" category="section-title">Quality of service</block>
   <block id="37464f39e18200cea48c4d9c6761a91b" category="paragraph">在规模估算过程中，您应确定非生产系统的性能要求。开发和测试系统的规模可以采用较低的性能值进行调整，通常在 SAP 定义的生产系统 KPI 的 20% 到 50% 范围内。</block>
   <block id="67a6bbb8d3e29659ce53d34fa70d088f" category="paragraph">可以使用 " 仅快照 " 分层策略，也可以在 NetApp SnapVault 或 SnapMirror 目标等备份目标上使用 FabricPool 。</block>
@@ -1321,7 +1318,6 @@
   <block id="7a6d6ee33360204901e8acd302ee01b7" category="paragraph"><block ref="7a6d6ee33360204901e8acd302ee01b7" category="inline-link-macro-rx"></block></block>
   <block id="38b9ce28746b740067bec85a2b293e2a" category="paragraph"><block ref="38b9ce28746b740067bec85a2b293e2a" category="inline-link-macro-rx"></block></block>
   <block id="0d3eab0b9e96ff06837e191b39218d16" category="paragraph">不支持在 HDD 配置中启用存储效率功能。</block>
-  <block id="908c5fb32cc42e93096371afa23e0dce" category="paragraph">SAP HANA 支持使用 NetApp 卷加密（ NVE ）。</block>
   <block id="e2a82c831a3a4651879482e858053e83" category="paragraph">QoS 可用于限制特定 SAP HANA 系统的存储吞吐量。其中一个使用情形是，限制开发和测试系统的吞吐量，使其不会影响混合环境中的生产系统。</block>
   <block id="6897ebb03b24bb6d57001cdf55ad2d30" category="paragraph">在规模估算过程中，必须确定非生产系统的性能要求。开发和测试系统的规模可以使用较低的性能值进行调整，通常在生产系统的 20% 到 50% 范围内。</block>
   <block id="8469b8e3a88a77acf02664f233b3cb72" category="paragraph">从 ONTAP 9 开始， QoS 会在存储卷级别进行配置，并使用最大吞吐量值（ MBps ）和 I/O 数（ IOPS ）。</block>
@@ -5864,4 +5860,7 @@
   <block id="fcb7778cf38a196128c87d1b6e20281e" category="paragraph">NetApp AFF A系列和AFF C系列产品系列已通过认证、可在定制数据中心集成(TDI)项目中与SAP HANA结合使用。</block>
   <block id="7c3d41bb91a832b194d140ed72b101e7" category="list-text">AFF C250、AFF C400、AFF C800</block>
   <block id="326f77b6d7cda2b57e0f8e89a8f89959" category="admonition">NetApp AFF C系列需要使用NetApp ONTAP 9.13.1.或更高版本</block>
+  <block id="f7d09d43174d21d3203d6472d2543dc2" category="section-title">NetApp卷和聚合加密</block>
+  <block id="381cfdf4e70ff7173296a764c78e97ae" category="paragraph">SAP HANA支持使用NetApp卷加密(NVE)和NetApp聚合加密(NAE)。</block>
+  <block id="5d10dd356a9d8604eaed291a9dfeb67e" category="section-title">NetApp卷和聚合加密</block>
 </blocks>

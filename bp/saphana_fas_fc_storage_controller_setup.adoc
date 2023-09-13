@@ -27,9 +27,9 @@ link:saphana_fas_fc_time_synchronization.html["Previous ：时间同步。"]
 
 
 
-== NetApp 卷加密
+== NetApp卷和聚合加密
 
-SAP HANA 支持使用 NetApp 卷加密（ NVE ）。
+SAP HANA支持使用NetApp卷加密(NVE)和NetApp聚合加密(NAE)。
 
 
 
