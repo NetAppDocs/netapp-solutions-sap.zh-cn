@@ -2787,7 +2787,6 @@
   <block id="4ba3e1c058ef7fff97064b76f2483b24" category="paragraph">有关 SAP HANA 容量要求的详细问题描述，请参见<block ref="7c7e574e6ad6c7603298dd899482269f" category="inline-link-rx"></block> 随附白皮书。</block>
   <block id="45bb1f13b573370e5659e113eaa6e2a7" category="paragraph">本文档介绍了 NFS 版本 3 （ NFSv3 ）协议或 NFS 版本 4 （ NFSv4.1 ）协议的 ONTAP 配置要求。</block>
   <block id="bc3bbc9b5df10cfc4c9d9747e9b15e4f" category="paragraph">有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见<block ref="2585df8f0f74fb3d91dc9a930fa3213b" category="inline-link-rx"></block>。</block>
-  <block id="eb08d46fa92fc78a1fd6730ec46042b6" category="list-text">ASA AFF A220 ， ASA AFF A250 ， ASA AFF A400 ， ASA AFF A700 ， ASA AFF A800 ， ASA AFF A900</block>
   <block id="97bfb54320c9268725cfbb374a5168fb" category="paragraph">有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见<block ref="a3976abaebe3520fd66c465c4d7747d7" category="inline-link-rx"></block>。</block>
   <block id="71eda0c30c9b341a4814ddd0954d1862" category="summary">本节介绍初始 SnapCenter 配置，包括存储系统，凭据，主机， hdbsql. 客户端和策略。</block>
   <block id="4386d3e7902f293404d64c4abe1e295d" category="doc">初始 SnapCenter 配置</block>
@@ -5285,4 +5284,8 @@
   <block id="2976619a79e897d24427ec6796aa4a70" category="paragraph">如果使用具有主机自动故障转移功能的SAP HANA多主机系统、则需要在中调整故障转移参数<block ref="46649585ec21482ae2e5fcac30c7dcae" prefix=" " category="inline-code"></block> 如下表所示。
 在这些部分中、保持默认重试间隔10秒。</block>
   <block id="73d4ace7e434b8709f5a930ad845d6d6" category="paragraph">如果使用具有主机自动故障转移功能的SAP HANA多主机系统、则需要在中调整故障转移参数<block ref="46649585ec21482ae2e5fcac30c7dcae" prefix=" " category="inline-code"></block> 如下表所示。请在这些部分中保留默认重试间隔 10 秒。</block>
+  <block id="724e5b34aefa3c5cafe7d5d30b9a4beb" category="list-text">AFF A150、AFF A250、AFF A400、AFF A800、AFF A900</block>
+  <block id="f24901db79bd7adbcfdc97deb6526be7" category="list-text">ASA A250、ASA A400、ASA A800、ASA A900</block>
+  <block id="7165d8e624155bf7a4889b98927f605c" category="list-text">ASA C250、ASA C400、ASA C800</block>
+  <block id="ba7dc8a883957fda819c429f468dc4d0" category="admonition">NetApp AFF和ASA C系列要求使用NetApp ONTAP 9.13.1.或更高版本</block>
 </blocks>
