@@ -343,17 +343,8 @@ NOTE: 在所有 Linux 服务器（` /etc/idmapd.conf` ）和 SVM 上，必须将
 
 NOTE: 如果使用的是 NFSv4.1 ，则可以启用和使用 pNFS 。
 
-如果使用 SAP HANA 多主机系统，请在 SVM 上设置 NFSv4 租赁时间（如下表所示）。
-
-|===
-| Action | 命令 
-
-
-| 设置 NFSv4 租用时间 | 设置高级 NFS 修改 -vserver <vserver_name> -v4-lease-seconds 10 set admin 
-|===
-从 HANA 2.0 SPS4 开始， HANA 提供了用于控制故障转移行为的参数。NetApp 建议使用这些 HANA 参数，而不是在 SVM 级别设置租用时间。
-
-这些参数位于 `nameserver.ini` 中，如下表所示。请在这些部分中保留默认重试间隔 10 秒。
+如果使用具有主机自动故障转移功能的SAP HANA多主机系统、则需要在中调整故障转移参数 `nameserver.ini` 如下表所示。
+在这些部分中、保持默认重试间隔10秒。
 
 |===
 | 部分 nameserver.ini | 参数 | 价值 
