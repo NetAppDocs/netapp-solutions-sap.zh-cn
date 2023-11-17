@@ -13,8 +13,6 @@ summary: 在本节中、我们将根据采用HANA数据库H09的源SAP系统HN9�
 :imagesdir: ./../media/
 
 
-link:lama-ansible-example-implementation.html["先前：示例实施。"]
-
 [role="lead"]
 下图突出显示了使用系统克隆工作流执行的主要步骤。
 
@@ -84,5 +82,3 @@ image:lama-ansible-image31.png["更多日志信息"]
 
 
 工作流完成后、克隆的SAP系统即已准备就绪、已启动并可供使用。
-
-link:lama-ansible-sap-lama-deprovisioning-workflow-system-destroy.html["接下来：SAP Lama取消配置工作流—系统销毁。"]

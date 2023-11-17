@@ -13,7 +13,8 @@ summary: 从 SAP HANA 2.0 SPS4 开始，您可以配置其他数据卷分区，�
 :imagesdir: ./../media/
 
 
-link:saphana-fas-nfs_sap_hana_software_installation.html["先前版本： SAP HANA 软件安装。"]从 SAP HANA 2.0 SPS4 开始，您可以配置其他数据卷分区，从而可以为 SAP HANA 租户数据库的数据卷配置两个或更多卷。您还可以扩展到超出单个卷的大小和性能限制的范围。
+[role="lead"]
+从 SAP HANA 2.0 SPS4 开始，您可以配置其他数据卷分区，从而可以为 SAP HANA 租户数据库的数据卷配置两个或更多卷。您还可以扩展到超出单个卷的大小和性能限制的范围。
 
 
 NOTE: 对于 SAP HANA 单主机和多主机系统，可以为数据卷使用两个或更多个单独的卷。您可以随时添加其他数据卷分区，但这样做可能需要重新启动 SAP HANA 数据库。
@@ -212,5 +213,3 @@ NOTE: 使用不同的存储虚拟接口连接到每个数据卷，以确保每�
 ALTER SYSTEM ALTER DATAVOLUME ADD PARTITION PATH '/hana/data2/SID/';
 ....
 image:saphana-fas-nfs_image19.jpg["错误：缺少图形映像"]
-
-link:saphana-fas-nfs_where_to_find_additional_information.html["下一步：从何处查找追加信息。"]

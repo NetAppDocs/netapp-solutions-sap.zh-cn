@@ -13,8 +13,7 @@ summary:
 :imagesdir: ./../media/
 
 
-link:sc-copy-clone-sap-system-clone-with-snapcenter.html["先前版本：使用SnapCenter 克隆SAP系统。"]
-
+[role="lead"]
 要了解有关本文档中所述信息的更多信息，请参见以下文档和 / 或网站：
 
 * TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》
@@ -42,20 +41,3 @@ https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_introducti
 http://www.netapp.com/us/solutions/applications/sap/index.aspx["http://www.netapp.com/us/solutions/applications/sap/index.aspx"^]
 
 
-
-
-
-== 版本历史记录
-
-|===
-| version | Date | 文档版本历史记录 
-
-
-| 版本 1.0 | 2018 年 2 月 | 初始版本。 
-
-
-| 版本 2.0 | 2021年2月 | 涵盖SnapCenter 4.3和改进的自动化脚本的完整重写。适用于系统刷新和系统克隆操作的新工作流问题描述。 
-
-
-| 版本 3.0 | 2022年5月 | 已更新SnapCenter 4.6 P1的工作流。 
-|===

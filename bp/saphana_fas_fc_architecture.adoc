@@ -13,8 +13,7 @@ summary: SAP HANA 主机使用冗余 FCP 基础架构和多路径软件连接到
 :imagesdir: ./../media/
 
 
-link:saphana_fas_fc_introduction.html["先前版本：《采用 FCP 的 FAS 系统上的 SAP HANA 配置指南》。"]
-
+[role="lead"]
 SAP HANA 主机使用冗余 FCP 基础架构和多路径软件连接到存储控制器。如果交换机或主机总线适配器（ HBA ）发生故障，则需要一个冗余 FCP 交换机基础架构来提供容错 SAP HANA 主机到存储连接。必须在交换机上配置适当的分区，以使所有 HANA 主机能够访问存储控制器上所需的 LUN 。
 
 可以在存储层使用不同型号的 FAS 产品系列。连接到存储的最大 SAP HANA 主机数由 SAP HANA 性能要求定义。所需的磁盘架数量取决于 SAP HANA 系统的容量和性能要求。
@@ -96,5 +95,3 @@ image:saphana_fas_fc_image6.png["错误：缺少图形映像"]
 下图简要展示了解决方案。每个站点上的存储集群均可提供本地高可用性，并用于生产工作负载。每个站点上的数据会同步复制到另一位置，并可在发生灾难故障转移时使用。
 
 image:saphana_fas_fc_image7.png["错误：缺少图形映像"]
-
-link:saphana_fas_fc_storage_sizing.html["接下来：存储规模估算。"]

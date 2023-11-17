@@ -13,8 +13,7 @@ summary: 要了解有关本文档中所述信息的更多信息，请参见以�
 :imagesdir: ./../media/
 
 
-link:saphana_fas_fc_adding_additional_data_volume_partitions_for_sap_hana_single-host_systems.html["先前版本：为 SAP HANA 单主机系统添加其他数据卷分区。"]
-
+[role="lead"]
 要了解有关本文档中所述信息的更多信息，请参见以下文档和 / 或网站：
 
 * 在 VMware vSphere 上纵向扩展 SAP HANA 的最佳实践和建议
@@ -64,5 +63,3 @@ https://www.netapp.com/us/documentation/index.aspx["https://www.netapp.com/us/do
 http://www.netapp.com/us/solutions/applications/sap/index.aspx["www.netapp.com/us/solutions/applications/sap/index.aspx#sap-hana"^]
 
 
-
-link:saphana_fas_fc_update_history.html["下一步：更新历史记录。"]

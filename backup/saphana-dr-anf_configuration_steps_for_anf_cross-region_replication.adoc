@@ -13,8 +13,7 @@ summary: 在配置卷复制之前，必须在灾难恢复站点上执行几个�
 :imagesdir: ./../media/
 
 
-link:saphana-dr-anf_lab_setup.html["上一步：实验室设置。"]
-
+[role="lead"]
 在配置卷复制之前，必须在灾难恢复站点上执行几个准备步骤。
 
 * NetApp 帐户必须可用，并且必须与源帐户配置相同的 Azure 订阅。
@@ -91,5 +90,3 @@ NOTE: 您可以从目标卷的属性屏幕复制目标卷 ID 。
 image:saphana-dr-anf_image13.png["错误：缺少图形映像"]
 
 必须对 HANA 共享卷和日志备份卷执行相同的步骤。
-
-link:saphana-dr-anf_monitoring_anf_cross-region_replication.html["下一步：监控 ANF 跨区域复制。"]

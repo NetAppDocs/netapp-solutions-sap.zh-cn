@@ -88,5 +88,3 @@ image:saphana-fas-nfs_image1.png["错误：缺少图形映像"]
 * http://www.vmware.com/files/pdf/sap-hana-scale-out-deployments-on-vsphere.pdf["在 VMware vSphere 上横向扩展 SAP HANA 的最佳实践和建议"^]
 * https://launchpad.support.sap.com/["2161991 — VMware vSphere 配置准则— SAP One Support Launchpad （需要登录）"^]
 
-
-link:saphana-fas-nfs_architecture.html["接下来：架构。"]

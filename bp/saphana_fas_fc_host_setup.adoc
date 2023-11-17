@@ -13,8 +13,7 @@ summary: 文档还包含有关特定于所用 Linux 版本的多路径配置的�
 :imagesdir: ./../media/
 
 
-link:saphana_fas_fc_sap_hana_storage_connector_api.html["先前版本： SAP HANA 存储连接器 API 。"]
-
+[role="lead"]
 在设置主机之前，必须从下载 NetApp SAN Host Utilities http://mysupport.netapp.com/["NetApp 支持"^] 站点和安装在 HANA 服务器上。Host Utility 文档提供了有关根据使用的 FCP HBA 而必须安装的其他软件的信息。
 
 文档还包含有关特定于所用 Linux 版本的多路径配置的信息。本文档介绍了 SLES 15 和 Red Hat Enterprise Linux 7.6 或更高版本所需的配置步骤，如中所述 https://library.netapp.com/ecm/ecm_download_file/ECMLP2547958["《 Linux Host Utilities 7.1 安装和设置指南》"^]。
@@ -384,5 +383,3 @@ stlrx300s8-6:/ # cat /etc/fstab
 
 . 要挂载文件系统，请在每个主机上运行 `mount – a` 命令。
 
-
-link:saphana_fas_fc_i_o_stack_configuration_for_sap_hana.html["接下来： SAP HANA 的 I/O 堆栈配置。"]

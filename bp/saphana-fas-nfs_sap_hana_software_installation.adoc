@@ -13,7 +13,8 @@ summary: 以下是 SAP HANA 软件安装的要求。
 :imagesdir: ./../media/
 
 
-link:saphana-fas-nfs_sap_hana_data_volume_size.html["先前版本： SAP HANA 数据卷大小。"]
+[role="lead"]
+以下是 SAP HANA 软件安装的要求。
 
 
 
@@ -83,5 +84,3 @@ Enter Installation Path [/hana/shared]:
 ....
 . 验证安装工具是否已在所有工作主机和备用主机上安装所有选定组件。
 
-
-link:saphana-fas-nfs_adding_additional_data_volume_partitions.html["下一步：添加其他数据卷分区。"]

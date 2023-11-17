@@ -13,8 +13,6 @@ summary:
 :imagesdir: ./../media/
 
 
-link:lama-ansible-introduction.html["上一页：简介。"]
-
 [role="lead"]
 术语SAP系统副本通常用作三个不同流程的同义词：SAP系统克隆、SAP系统副本或SAP系统刷新。请务必区分不同的操作、因为每个操作的工作流和用例都不同。
 
@@ -26,5 +24,3 @@ link:lama-ansible-introduction.html["上一页：简介。"]
 下图说明了在执行系统克隆、系统副本或系统刷新操作期间必须执行的主要步骤。紫色框表示可集成NetApp存储功能的步骤。所有这三项操作均可通过SAP Lama实现完全自动化。
 
 image:lama-ansible-image1.png["此图分别描绘了系统克隆、系统副本和系统刷新的三个流程时间表。"]
-
-link:lama-ansible-use-cases-for-system-refresh,-copy,-and-cloning.html["下一步：系统刷新、复制和克隆的用例。"]

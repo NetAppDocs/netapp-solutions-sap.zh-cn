@@ -23,5 +23,3 @@ NetApp提供了一组丰富的Ansible模块、SAP Lama可以通过SAP Lama Autom
 在内部运行NetApp存储解决方案的客户或在Amazon Web Services、Microsoft Azure或Google Cloud Platform等公共云提供商中使用NetApp存储服务的客户均可使用此集成。
 
 本文档介绍了如何为SAP Lama配置NetApp存储功能、以便使用Ansible自动化执行SAP系统复制、克隆和刷新操作。
-
-link:lama-ansible-sap-system-clone,-copy,-and-refresh-scenarios.html["接下来：SAP系统克隆、复制和刷新场景。"]

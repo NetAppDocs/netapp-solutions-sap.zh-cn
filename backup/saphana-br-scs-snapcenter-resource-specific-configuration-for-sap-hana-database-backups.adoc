@@ -13,8 +13,7 @@ summary: 本节介绍 SS2 和 SS1 这两种示例配置的配置步骤。
 :imagesdir: ./../media/
 
 
-link:saphana-br-scs-snapcenter-initial-configuration.html["先前版本： SnapCenter 初始配置。"]
-
+[role="lead"]
 本节介绍两个示例配置的配置步骤。
 
 * * SS2.*
@@ -398,5 +397,3 @@ Exit /b 0
 下图显示了资源保护配置屏幕中的 POST Quiesce 命令。
 
 image:saphana-br-scs-image77.png["错误：缺少图形映像"]
-
-link:saphana-br-scs-snapcenter-resource-specific-configuration-for-non-data-volume-backups.html["接下来：针对非数据卷备份的 SnapCenter 资源专用配置。"]

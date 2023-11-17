@@ -13,8 +13,7 @@ summary: SAP HANA 主机通过使用冗余 10GbE 或速度更快的网络基础�
 :imagesdir: ./../media/
 
 
-link:saphana_aff_nfs_introduction.html["先前版本：《采用 NFS 的 NetApp 全闪存 FAS 系统上的 SAP HANA 配置指南》。"]
-
+[role="lead"]
 SAP HANA 主机通过使用冗余 10GbE 或速度更快的网络基础架构连接到存储控制器。SAP HANA 主机和存储控制器之间的数据通信基于 NFS 协议。如果交换机或网络接口卡（ Network Interface Card ， NIC ）发生故障，则需要一个冗余交换基础架构来提供容错 SAP HANA 主机到存储连接。
 
 这些交换机可能会将各个端口的性能与端口通道进行聚合，以便在主机级别显示为一个逻辑实体。
@@ -103,5 +102,3 @@ image:saphana_aff_nfs_image7.png["错误：缺少图形映像"]
 下图简要展示了解决方案。每个站点上的存储集群可提供本地高可用性，并用于生产工作负载。每个站点的数据会同步复制到另一位置，并可在发生灾难故障转移时使用。
 
 image:saphana_aff_nfs_image8.png["错误：缺少图形映像"]
-
-link:saphana_aff_nfs_storage_sizing.html["接下来：存储规模估算。"]

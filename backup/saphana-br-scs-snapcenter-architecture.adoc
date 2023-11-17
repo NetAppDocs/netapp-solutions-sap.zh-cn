@@ -13,13 +13,10 @@ summary: SnapCenter 是一个统一的可扩展平台，可实现应用程序一
 :imagesdir: ./../media/
 
 
-link:saphana-br-scs-overview.html["上一步：概述。"]
+[role="lead"]
+SnapCenter 是一个统一的可扩展平台，可实现应用程序一致的数据保护。SnapCenter 提供集中控制和监管，同时委派用户管理应用程序专用的备份，还原和克隆作业。借助 SnapCenter ，数据库和存储管理员可以通过一种工具来管理各种应用程序和数据库的备份，还原和克隆操作。
 
-
-
-== SnapCenter 概述
-
-SnapCenter 是一个统一的可扩展平台，可实现应用程序一致的数据保护。SnapCenter 提供集中控制和监管，同时委派用户管理应用程序专用的备份，还原和克隆作业。借助 SnapCenter ，数据库和存储管理员可以通过一种工具来管理各种应用程序和数据库的备份，还原和克隆操作。SnapCenter 负责管理由 NetApp 提供支持的 Data Fabric 中各个端点的数据。您可以使用 SnapCenter 在内部环境之间，内部环境与云之间以及私有云，混合云或公有 云之间复制数据。
+SnapCenter 负责管理由 NetApp 提供支持的 Data Fabric 中各个端点的数据。您可以使用 SnapCenter 在内部环境之间，内部环境与云之间以及私有云，混合云或公有 云之间复制数据。
 
 
 
@@ -32,5 +29,3 @@ SnapCenter 包括 SnapCenter 服务器，适用于 Windows 的 SnapCenter 插件
 下图显示了 SnapCenter 组件。
 
 image:saphana-br-scs-image6.png["错误：缺少图形映像"]
-
-link:saphana-br-scs-snapcenter-sap-hana-backup-solution.html["接下来： SnapCenter SAP HANA 备份解决方案 。"]

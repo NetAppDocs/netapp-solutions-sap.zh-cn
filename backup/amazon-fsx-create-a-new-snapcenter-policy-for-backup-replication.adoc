@@ -13,8 +13,7 @@ summary: 本节介绍如何配置备份复制策略。
 :imagesdir: ./../media/
 
 
-link:amazon-fsx-add-a-backup-svm-to-snapcenter.html["上一步：将备份SVM添加到SnapCenter。"]
-
+[role="lead"]
 您必须按如下所示配置备份复制策略：
 
 . 请为此策略提供一个名称。
@@ -50,5 +49,3 @@ image:amazon-fsx-image84.png["错误：缺少图形映像"]
 此时将配置新的SnapCenter 策略。
 
 image:amazon-fsx-image85.png["错误：缺少图形映像"]
-
-link:amazon-fsx-add-a-policy-to-resource-protection.html["下一步：将策略添加到资源保护中。"]

@@ -13,7 +13,8 @@ summary: 本节介绍 SAP HANA 主机的专用存储网络设置。
 :imagesdir: ./../media/
 
 
-link:saphana_aff_nfs_infrastructure_setup_and_configuration_overview.html["先前版本：基础架构设置和配置。"]
+[role="lead"]
+本节介绍 SAP HANA 主机的专用存储网络设置。
 
 配置网络时，请遵循以下准则：
 
@@ -53,5 +54,3 @@ image:saphana_aff_nfs_image11.png["错误：缺少图形映像"]
 NOTE: 对于用于 NFS 流量的接口，必须关闭 LRO （大型接收卸载）。有关所有其他网络配置准则，请参见相应的适用于 SAP HANA 的 VMware 最佳实践指南。
 
 image:saphana_aff_nfs_image12.png["错误：缺少图形映像"]
-
-link:saphana_aff_nfs_time_synchronization.html["下一步：时间同步。"]

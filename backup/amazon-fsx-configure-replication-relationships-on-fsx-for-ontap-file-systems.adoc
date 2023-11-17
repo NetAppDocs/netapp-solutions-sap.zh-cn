@@ -13,8 +13,7 @@ summary: 本节介绍如何为ONTAP 文件系统的FSX建立对等关系、如�
 :imagesdir: ./../media/
 
 
-link:amazon-fsx-backup-replication-with-snapvault_overview.html["上一步：概述—使用SnapVault 备份复制。"]
-
+[role="lead"]
 有关SnapMirror配置选项的追加信息 、请参见ONTAP 文档、网址为 https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-replication-workflow-concept.html["SnapMirror复制工作流(netapp.com)"^]。
 
 * ONTAP 文件系统的源FSx：`FSxId00fa9e3c784b6abbb`
@@ -170,4 +169,3 @@ sapcc-hana-svm:PFX_data_mnt00001
                               Snapmirrored
                                       Idle           -         true    -
 ....
-link:amazon-fsx-add-a-backup-svm-to-snapcenter.html["下一步：将备份SVM添加到SnapCenter。"]

@@ -13,8 +13,7 @@ summary: 本节提供了SAP系统克隆操作的分步问题描述 、可用于�
 :imagesdir: ./../media/
 
 
-link:sc-copy-clone-sap-hana-system-refresh-with-snapcenter.html["先前版本：使用SnapCenter 更新SAP HANA系统。"]
-
+[role="lead"]
 本节提供了SAP系统克隆操作的分步问题描述 、可用于设置修复系统以解决逻辑损坏问题。
 
 
@@ -294,5 +293,3 @@ Filesystem                                                       1K-blocks     U
 192.168.175.117:/SS1_data_mnt00001_Clone_0421220520054605           262144064  3732864 258411200   2% /hana/data/SS1/mnt00001
 ....
 HANA系统现已推出、可用作修复系统等。
-
-link:sc-copy-clone-where-to-find-additional-information.html["下一步：从何处查找追加信息 和版本历史记录。"]

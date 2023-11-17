@@ -13,8 +13,7 @@ summary:
 :imagesdir: ./../media/
 
 
-link:saphana_aff_fc_storage_sizing.html["上一步：存储规模估算。"]
-
+[role="lead"]
 以下各节提供了 SAP HANA 基础架构设置和配置准则，并介绍了设置 SAP HANA 系统所需的所有步骤。在这些部分中，使用了以下示例配置：
 
 * 使用 SID=SS3 和 ONTAP 9.7 或更早版本的 HANA 系统
@@ -29,5 +28,3 @@ link:saphana_aff_fc_storage_sizing.html["上一步：存储规模估算。"]
 
 
 
-
-link:saphana_aff_fc_san_fabric_setup.html["接下来： SAN 网络结构设置。"]

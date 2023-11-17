@@ -13,8 +13,7 @@ summary: 本节介绍 NetApp 存储系统的配置。您必须根据相应的 Da
 :imagesdir: ./../media/
 
 
-link:saphana_aff_fc_time_synchronization.html["Previous ：时间同步。"]
-
+[role="lead"]
 本节介绍 NetApp 存储系统的配置。您必须根据相应的 Data ONTAP 设置和配置指南完成主安装和设置。
 
 
@@ -423,5 +422,3 @@ lun map -path /vol/FC5_log_mnt00002/FC5_log_mnt00002  -igroup HANA-FC5
 lun map -path /vol/FC5_log2_mnt00002/FC5_log2_mnt00002  -igroup HANA-FC5
 ....
 
-
-link:saphana_aff_fc_sap_hana_storage_connector_api.html["接下来： SAP HANA 存储连接器 API 。"]

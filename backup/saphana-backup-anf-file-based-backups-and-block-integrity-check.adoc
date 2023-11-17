@@ -13,8 +13,7 @@ summary: SAP 建议将基于存储的 Snapshot 备份与每周基于文件的备
 :imagesdir: ./../media/
 
 
-link:saphana-backup-anf-sap-hana-database-snapshot-backups.html["先前版本： SAP HANA 数据库 Snapshot 备份。"]
-
+[role="lead"]
 SAP 建议将基于存储的 Snapshot 备份与每周基于文件的备份相结合，以执行块完整性检查。SnapCenter 服务支持使用选择基于文件的备份作为备份类型的策略来执行块完整性检查。
 
 除了 HANA 数据卷上的 Snapshot 备份之外，基于文件的备份还用于具有二级备份副本。如果主数据卷完全丢失，您可以使用这些基于文件的备份执行还原和恢复操作。
@@ -52,5 +51,3 @@ drwxr-x--- 4 pr1adm sapsys       4096 Jan 31 18:59 ..
 == 使用基于文件的备份进行还原和恢复
 
 您必须在 SnapCenter 外部对基于文件的备份执行还原和恢复操作，方法是对 HANA Studio 或 HANA Cockpit 执行标准 HANA 恢复操作。
-
-link:saphana-backup-anf-restore-and-recovery.html["下一步：还原和恢复。"]

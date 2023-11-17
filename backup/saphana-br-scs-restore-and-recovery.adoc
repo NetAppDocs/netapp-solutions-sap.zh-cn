@@ -13,8 +13,7 @@ summary: 以下各节介绍了三种不同场景和示例配置的还原和恢�
 :imagesdir: ./../media/
 
 
-link:saphana-br-scs-block-integrity-check.html["上一步：块完整性检查。"]
-
+[role="lead"]
 以下各节介绍了三种不同场景和示例配置的还原和恢复工作流。
 
 * 自动还原和恢复：
@@ -534,5 +533,3 @@ SAP HANA 系统已启动且正在运行。
 NOTE: 对于包含多个租户的 SAP HANA MDC 系统，必须对每个租户重复步骤 20 – 29 。
 
 
-
-link:saphana-br-scs-advanced-configuration-and-tuning.html["接下来：高级配置和调整。"]

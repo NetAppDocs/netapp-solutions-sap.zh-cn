@@ -13,8 +13,7 @@ summary: 本节介绍 HANA MDC 单主机单租户系统的还原和恢复工作�
 :imagesdir: ./../media/
 
 
-link:saphana-backup-anf-file-based-backups-and-block-integrity-check.html["Previous ：基于文件的备份和块完整性检查。"]
-
+[role="lead"]
 下一节介绍 HANA MDC 单主机单租户系统的还原和恢复工作流。本节介绍了多主机系统的不同之处。
 
 这些示例显示 SAP HANA Studio 是一种执行手动恢复的工具。您还可以使用 SAP HANA Cockpit 或 HANA SQL 语句执行恢复操作。
@@ -178,5 +177,3 @@ SAP HANA 系统已启动且正在运行。
 
 
 对于包含多个租户的 SAP HANA MDC 系统，必须对每个租户重复步骤 15 到 24 。
-
-link:saphana-backup-anf-additional-information.html["下一步：从何处查找追加信息。"]

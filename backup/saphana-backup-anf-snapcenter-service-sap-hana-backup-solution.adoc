@@ -13,7 +13,8 @@ summary: 本节介绍 SnapCenter 服务备份解决方案涵盖的领域。
 :imagesdir: ./../media/
 
 
-link:saphana-backup-anf-snapcenter-service-architecture.html["先前版本： SnapCenter 服务架构。"]
+[role="lead"]
+本节介绍 SnapCenter 服务备份解决方案涵盖的领域。
 
 
 
@@ -108,5 +109,3 @@ SnapCenter 服务支持以下 SAP HANA 架构和版本：
 NOTE: SAP 引入了对 MDC 系统的 Snapshot 备份支持，其中 HANA 2.0 SP1 适用于单租户系统， HANA 2.0 SPS4 适用于多租户系统。
 
 不支持将数据 Snapshot 备份与 SnapCenter 服务和日志备份与后置解决方案结合使用。必须将日志备份配置为写入文件系统。
-
-link:saphana-backup-anf-snapcenter-service-concepts-and-best-practices.html["接下来： SnapCenter 服务概念和最佳实践。"]

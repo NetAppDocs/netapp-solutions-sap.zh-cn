@@ -13,8 +13,7 @@ summary: SnapCenter 资源使用 HANA 系统复制环境的虚拟 IP 地址（�
 :imagesdir: ./../media/
 
 
-link:saphana-sr-scs-snapcenter-4.6-configuration-using-a-resource-group.html["先前版本：使用资源组的 SnapCenter 4.6 配置。"]
-
+[role="lead"]
 SnapCenter 资源使用 HANA 系统复制环境的虚拟 IP 地址（主机名）进行配置。通过这种方法，无论主机 1 还是主机 2 是主主机， SnapCenter 始终与主主机进行通信。两个 SAP HANA 主机的数据卷均包含在 SnapCenter 资源中。
 
 
@@ -192,5 +191,3 @@ image:saphana-sr-scs-image46.png["错误：缺少图形映像"]
 完成正向恢复后，将启动二级主机（主机 2 ），并启动 SAP HANA 系统复制重新同步。执行所有数据的完全复制。
 
 image:saphana-sr-scs-image47.png["错误：缺少图形映像"]
-
-link:saphana-sr-scs-restore-and-recovery-from-a-backup-created-at-the-other-host.html["下一步：从在另一主机上创建的备份还原和恢复。"]

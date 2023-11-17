@@ -13,8 +13,7 @@ summary: 本节所述的所有主机设置步骤对物理服务器上的 SAP HAN
 :imagesdir: ./../media/
 
 
-link:saphana_aff_nfs_storage_controller_setup.html["先前：存储控制器设置。"]
-
+[role="lead"]
 本节所述的所有主机设置步骤对物理服务器上的 SAP HANA 环境和在 VMware vSphere 上运行的 SAP HANA 均有效。
 
 
@@ -276,5 +275,3 @@ stlrx300s8-5:/ # cat /etc/fstab
 ....
 . 运行 `mount – a` 在所有主机上挂载文件系统。
 
-
-link:saphana_aff_nfs_sap_hana_installation_preparations_for_nfsv4.html["接下来：为 NFSv4 准备 SAP HANA 安装。"]

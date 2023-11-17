@@ -13,8 +13,7 @@ summary: 从 SAP HANA 2.0 SPS4 开始，可以配置其他数据卷分区。通�
 :imagesdir: ./../media/
 
 
-link:saphana_fas_fc_sap_hana_software_installation.html["先前版本： SAP HANA 软件安装。"]
-
+[role="lead"]
 从 SAP HANA 2.0 SPS4 开始，可以配置其他数据卷分区。通过此功能，您可以为 SAP HANA 租户数据库的数据卷配置两个或更多 LUN ，并可扩展到超出单个 LUN 的大小和性能限制。
 
 
@@ -120,5 +119,3 @@ ALTER SYSTEM ALTER DATAVOLUME ADD PARTITION PATH '/hana/data2/SID/';
 image:saphana_fas_fc_image28.jpg["错误：缺少图形映像"]
 
 
-
-link:saphana_fas_fc_where_to_find_additional_information.html["下一步：从何处查找追加信息。"]

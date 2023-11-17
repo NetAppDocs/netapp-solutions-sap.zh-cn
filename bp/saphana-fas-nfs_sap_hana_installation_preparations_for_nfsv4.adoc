@@ -13,8 +13,7 @@ summary: NFS 版本 4 及更高版本需要用户身份验证。可以使用轻�
 :imagesdir: ./../media/
 
 
-link:saphana-fas-nfs_host_setup.html["上一步：主机设置。"]
-
+[role="lead"]
 NFS 版本 4 及更高版本需要用户身份验证。可以使用轻型目录访问协议（ Lightweight Directory Access Protocol ， LDAP ）服务器等中央用户管理工具或使用本地用户帐户来完成此身份验证。以下各节介绍如何配置本地用户帐户。
 
 在开始安装 SAP HANA 软件之前，必须在 SAP HANA 主机和存储控制器上手动创建管理用户 ` <sidadm>` 和 `sapsys` 组。
@@ -56,4 +55,3 @@ vserver services unix-user create -vserver <vserver> -user <user name> -id <user
 ....
 vserver services unix-user modify -vserver <vserver> -user root -primary-gid 0
 ....
-link:saphana-fas-nfs_i_o_stack_configuration_for_sap_hana.html["接下来： SAP HANA 的 I/O 堆栈配置。"]

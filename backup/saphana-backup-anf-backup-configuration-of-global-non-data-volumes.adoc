@@ -13,8 +13,7 @@ summary: 本节列出了对 SAP HANA 非数据卷执行备份配置所需的步�
 :imagesdir: ./../media/
 
 
-link:saphana-backup-anf-backup-configuration-of-sap-hana-non-data-volumes.html["先前版本： SAP HANA 非数据卷的备份配置。"]
-
+[role="lead"]
 要设置全局非数据卷的备份配置，请执行以下步骤：
 
 . 转到 SAP HANA Systems ，然后单击添加。
@@ -47,5 +46,3 @@ image:saphana-backup-anf-image44.png["错误：缺少图形映像"]
 image:saphana-backup-anf-image45.png["错误：缺少图形映像"]
 
 
-
-link:saphana-backup-anf-sap-hana-database-snapshot-backups.html["接下来： SAP HANA 数据库 Snapshot 备份。"]

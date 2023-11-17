@@ -13,8 +13,7 @@ summary: 此页面介绍了完成配置和调整所需的各种操作。
 :imagesdir: ./../media/
 
 
-link:saphana-br-scs-restore-and-recovery.html["上一步：还原和恢复。"]
-
+[role="lead"]
 本节介绍客户可用于根据其特定需求调整 SnapCenter 设置的配置和调整选项。并非所有设置都适用于所有客户情形。
 
 
@@ -217,5 +216,3 @@ PS C:\Users\scadmin> Check the configuration using the Windows Task Scheduler.
 image:saphana-br-scs-image158.png["错误：缺少图形映像"]
 
 
-
-link:saphana-br-scs-where-to-find-additional-information.html["下一步：从何处查找追加信息。"]

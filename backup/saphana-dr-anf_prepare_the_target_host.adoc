@@ -13,8 +13,7 @@ summary: 本节介绍服务器上所需的准备步骤，这些步骤用于灾�
 :imagesdir: ./../media/
 
 
-link:saphana-dr-anf_disaster_recovery_testing_overview.html["先前版本：灾难恢复测试。"]
-
+[role="lead"]
 本节介绍用于灾难恢复故障转移测试的服务器所需的准备步骤。
 
 在正常操作期间，目标主机通常用于其他目的，例如 HANA QA 或测试系统。因此，在执行灾难故障转移测试时，必须运行大多数这些步骤。另一方面，只需复制配置文件，即可准备相关配置文件，例如 ` /etc/fstab` 和 ` usr/sapservices` ，然后将其投入生产。灾难恢复测试操作步骤可确保正确配置准备好的相关配置文件。
@@ -111,4 +110,3 @@ vm-pr1:~ # cat /etc/fstab
 # HANA file and log backup destination
 10.0.2.4:/hanabackup-sm-dest-clone    /hanabackup nfs   rw,vers=3,hard,timeo=600,rsize=262144,wsize=262144,nconnect=8,bg,noatime,nolock 0 0
 ....
-link:saphana-dr-anf_create_new_volumes_based_on_snapshot_backups_at_the_disaster_recovery_site.html["接下来：在灾难恢复站点基于 Snapshot 备份创建新卷。"]

@@ -13,12 +13,7 @@ summary: 以下三个屏幕截图显示了数据，日志备份和共享卷的�
 :imagesdir: ./../media/
 
 
-link:saphana-dr-anf_configuration_steps_for_anf_cross-region_replication.html["上一步： ANF 跨区域复制的配置步骤。"]
-
-
-
-== 复制状态
-
+[role="lead"]
 以下三个屏幕截图显示了数据，日志备份和共享卷的复制状态。
 
 卷复制滞后时间是了解 RPO 预期的有用值。例如，日志备份卷复制显示最长滞后时间为 58 分钟，这意味着最大 RPO 具有相同的值。
@@ -47,5 +42,3 @@ image:saphana-dr-anf_image16.png["错误：缺少图形映像"]
 NOTE: 在源卷和目标卷中，还会创建 SnapMirror Snapshot 副本，用于重新同步和复制更新操作。从 HANA 数据库角度来看，这些 Snapshot 副本的应用程序不一致；只有通过 AzaCSnap 创建的应用程序一致的快照才能用于 HANA 恢复操作。
 
 image:saphana-dr-anf_image17.png["错误：缺少图形映像"]
-
-link:saphana-dr-anf_disaster_recovery_testing_overview.html["接下来：灾难恢复测试。"]

@@ -13,8 +13,6 @@ summary: 要停用克隆的系统、必须事先停止并准备好该系统。�
 :imagesdir: ./../media/
 
 
-link:lama-ansible-sap-lama-provisioning-workflow-clone-system.html["先前版本：SAP Lama配置工作流—克隆系统。"]
-
 [role="lead"]
 下图突出显示了使用系统销毁工作流执行的主要步骤。
 
@@ -54,5 +52,3 @@ image:lama-ansible-image38.png["此屏幕截图实时显示系统销毁工作流
 image:lama-ansible-image39.png["此屏幕截图显示了系统销毁工作流的日志页面。"]
 
 
-
-link:lama-ansible-sap-lama-provisioning-workflow-copy-system.html["接下来：SAP Lama配置工作流—复制系统。"]

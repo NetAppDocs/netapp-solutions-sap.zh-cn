@@ -13,7 +13,8 @@ summary: 本节介绍如何创建按需Snapshot备份和按需块完整性检查
 :imagesdir: ./../media/
 
 
-link:amazon-fsx-snapcenter-configuration.html["先前版本： SnapCenter 配置。"]
+[role="lead"]
+您可以创建按需Snapshot备份和按需块完整性检查操作。
 
 
 
@@ -119,4 +120,3 @@ drwxr-xr-x 4 pfxadm sapsys       4096 Feb 21 15:02 ..
 -rw-r----- 1 pfxadm sapsys 3825213440 Feb 22 12:55 SnapCenter_SnapCenter_hana-1_BlockIntegrityCheck_Weekly_02-22-2022_12.55.18.7966_databackup_1_1
 hana-1:~ #
 ....
-link:amazon-fsx-backup-of-non-data-volumes.html["接下来：备份非数据卷。"]

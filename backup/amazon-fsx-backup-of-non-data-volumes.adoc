@@ -13,9 +13,10 @@ summary: 非数据卷的备份是SnapCenter 和SAP HANA插件的集成部分。�
 :imagesdir: ./../media/
 
 
-link:amazon-fsx-snapcenter-backup-operations.html["先前：SnapCenter 备份操作。"]
+[role="lead"]
+非数据卷的备份是SnapCenter 和SAP HANA插件的集成部分。
 
-非数据卷的备份是SnapCenter 和SAP HANA插件的集成部分。保护数据库数据卷足以将SAP HANA数据库还原和恢复到给定时间点、前提是数据库安装资源和所需日志仍然可用。
+保护数据库数据卷足以将SAP HANA数据库还原和恢复到给定时间点、前提是数据库安装资源和所需日志仍然可用。
 
 要从必须还原其他非数据文件的情况中恢复， NetApp 建议为非数据卷开发一个额外的备份策略，以增加 SAP HANA 数据库备份的容量。根据您的特定要求，非数据卷的备份可能会因计划频率和保留设置而异，您应考虑非数据文件的更改频率。例如， HANA 卷 ` ha/shared` 包含可执行文件，但也包含 SAP HANA 跟踪文件。虽然可执行文件仅在升级 SAP HANA 数据库时发生更改，但 SAP HANA 跟踪文件可能需要更高的备份频率，以支持分析 SAP HANA 的问题情况。
 
@@ -153,5 +154,3 @@ SnapCenter 执行还原和恢复操作。此示例显示了还原和恢复作业
 image:amazon-fsx-image75.png["错误：缺少图形映像"]
 
 
-
-link:amazon-fsx-backup-replication-with-snapvault_overview.html["下一步：概述—使用SnapVault 备份复制。"]

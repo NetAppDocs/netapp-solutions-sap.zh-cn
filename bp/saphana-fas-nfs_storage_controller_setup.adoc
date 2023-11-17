@@ -13,8 +13,7 @@ summary: 本节介绍 NetApp 存储系统的配置。您必须根据相应的 ON
 :imagesdir: ./../media/
 
 
-link:saphana-fas-nfs_time_synchronization.html["Previous ：时间同步。"]
-
+[role="lead"]
 本节介绍 NetApp 存储系统的配置。您必须根据相应的 ONTAP 设置和配置指南完成主安装和设置。
 
 
@@ -375,5 +374,3 @@ NOTE: 如果使用的是 NFSv4.1 ，则可以启用和使用 pNFS 。
 == 将卷挂载到命名空间并设置导出策略
 
 创建卷时，必须将卷挂载到命名空间。在本文档中，我们假定接合路径名称与卷名称相同。默认情况下，使用默认策略导出卷。如果需要，可以调整导出策略。
-
-link:saphana-fas-nfs_host_setup.html["下一步：主机设置。"]

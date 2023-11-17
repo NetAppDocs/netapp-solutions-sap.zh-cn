@@ -13,9 +13,10 @@ summary: 您可以使用 Azure NetApp Files NetApp Snapshot 技术在几秒钟�
 :imagesdir: ./../media/
 
 
-link:saphana-backup-anf-overview.html["上一步：概述。"]
+[role="lead"]
+您可以使用 Azure NetApp Files NetApp Snapshot 技术在几秒钟内创建数据库备份。创建 Snapshot 副本所需的时间与数据库大小无关，因为 Snapshot 副本不会移动存储平台上的任何物理数据块。
 
-您可以使用 Azure NetApp Files NetApp Snapshot 技术在几秒钟内创建数据库备份。创建 Snapshot 副本所需的时间与数据库大小无关，因为 Snapshot 副本不会移动存储平台上的任何物理数据块。此外，使用 Snapshot 技术不会影响实时 SAP 系统的性能。因此，您可以计划创建 Snapshot 副本，而无需考虑对话峰值或批处理活动期间。基于 Azure NetApp Files 的 SAP 客户通常会在一天内计划多个联机 Snapshot 备份；例如，每四小时备份一次很常见。这些 Snapshot 备份通常会在主存储系统上保留三到五天，然后再被删除。
+此外，使用 Snapshot 技术不会影响实时 SAP 系统的性能。因此，您可以计划创建 Snapshot 副本，而无需考虑对话峰值或批处理活动期间。基于 Azure NetApp Files 的 SAP 客户通常会在一天内计划多个联机 Snapshot 备份；例如，每四小时备份一次很常见。这些 Snapshot 备份通常会在主存储系统上保留三到五天，然后再被删除。
 
 Snapshot 副本还为还原和恢复操作提供了主要优势。通过卷还原操作，可以根据可用的 Snapshot 副本将整个数据库还原到任意时间点。无论数据库大小如何，此类还原过程都只需几秒钟即可完成。由于在一天中会创建多个联机 Snapshot 备份，因此与传统备份方法相比，恢复过程所需的时间显著减少。由于还原操作可以使用仅使用几小时（而不是长达 24 小时）的 Snapshot 副本执行，因此必须应用较少的事务日志。因此， RTO 会减少到几分钟，而不是传统单周期备份所需的几小时。
 
@@ -88,5 +89,3 @@ image:saphana-backup-anf-image5.jpg["错误：缺少图形映像"]
 此图显示了 HANA 服务器 RAM 大小。计算内存中的数据库大小等于服务器 RAM 大小的一半。
 
 还原和恢复时间是根据以下假设计算的：数据库可以以 250 MBps 的速度进行还原；每天的日志文件数是数据库大小的 50% （例如， 1 TB 数据库每天创建 500 MB 的日志文件）； 并且可以在 100 Mbps 的速度下执行恢复。
-
-link:saphana-backup-anf-snapcenter-service-architecture.html["接下来： SnapCenter 服务架构。"]

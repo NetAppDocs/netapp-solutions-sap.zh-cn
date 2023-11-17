@@ -13,8 +13,7 @@ summary: 本节介绍单个主机 SAP HANA MDC 单租户系统 PR1 的配置步�
 :imagesdir: ./../media/
 
 
-link:saphana-backup-anf-snapcenter-service-snapshot-backup-configuration-overview.html["先前版本： SnapCenter 服务快照备份配置概述。"]
-
+[role="lead"]
 本节介绍单个主机 SAP HANA MDC 单租户系统 PR1 的配置步骤。对于具有多个租户的 MDC 系统，这些步骤是相同的。单容器或多主机系统的差异反映在相应的配置步骤中。
 
 
@@ -102,5 +101,3 @@ HANA 系统概述屏幕将显示 HANA 系统和已分配的策略。
 image:saphana-backup-anf-image30.png["错误：缺少图形映像"]
 
 
-
-link:saphana-backup-anf-backup-configuration-of-sap-hana-non-data-volumes.html["接下来： SAP HANA 非数据卷的备份配置。"]

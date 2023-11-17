@@ -13,8 +13,7 @@ summary: 下图显示了使用 ANF 跨区域复制的 SAP HANA 系统的卷复�
 :imagesdir: ./../media/
 
 
-link:saphana-dr-anf_anf_cross-region_replication_with_sap_hana_overview.html["先前版本：使用 SAP HANA 进行跨区域复制。"]
-
+[role="lead"]
 下图显示了使用 ANF 跨区域复制的 SAP HANA 系统的卷复制关系。使用 ANF 跨区域复制时，必须复制 HANA 数据和 HANA 共享卷。如果仅复制 HANA 数据卷，则典型 RPO 值的范围为一天。如果需要较低的 RPO 值，则还必须复制 HANA 日志备份以进行正向恢复。
 
 
@@ -51,4 +50,3 @@ image:saphana-dr-anf_image6.png["错误：缺少图形映像"]
 
 | 正向恢复 | 不适用 | 过去 24 小时的日志 + Snapshot 计划（例如 6 小时） + | 过去 24 小时的日志 + Snapshot 计划（例如 6 小时） + 
 |===
-link:saphana-dr-anf_requirements_and_best_practices.html["接下来：要求和最佳实践。"]

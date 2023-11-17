@@ -13,8 +13,7 @@ summary: 备份操作始终在主 SAP HANA 主机上执行。无法在二级 SAP
 :imagesdir: ./../media/
 
 
-link:saphana-sr-scs-sap-hana-system-replication-overview.html["先前版本： SAP HANA 系统复制概述。"]
-
+[role="lead"]
 备份操作始终在主 SAP HANA 主机上执行。无法在二级 SAP HANA 主机上执行备份操作所需的 SQL 命令。
 
 对于 SAP HANA 备份操作，主 SAP HANA 主机和二级 SAP HANA 主机是一个实体。它们共享同一个 SAP HANA 备份目录，并使用备份进行还原和恢复，而不管备份是在主 SAP HANA 主机还是在二级 SAP HANA 主机上创建的。
@@ -30,5 +29,3 @@ image:saphana-sr-scs-image3.png["错误：缺少图形映像"]
 在主机 2 上创建的备份可以直接在存储层进行还原。如果必须使用在主机 1 上创建的备份，则必须将备份从主机 1 存储卷复制到主机 2 存储卷。正向恢复使用两个主机的日志备份。
 
 image:saphana-sr-scs-image4.png["错误：缺少图形映像"]
-
-link:saphana-sr-scs-snapcenter-configuration-options-for-sap-system-replication.html["接下来： SAP 系统复制的 SnapCenter 配置选项。"]

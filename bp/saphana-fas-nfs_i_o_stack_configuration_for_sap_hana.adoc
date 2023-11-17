@@ -13,8 +13,7 @@ summary: 从 SAP HANA 1.0 SPS10 开始， SAP 引入了一些参数来调整 IO 
 :imagesdir: ./../media/
 
 
-link:saphana-fas-nfs_sap_hana_installation_preparations_for_nfsv4.html["先前版本： NFSv4 的 SAP HANA 安装准备。"]
-
+[role="lead"]
 从 SAP HANA 1.0 SPS10 开始， SAP 引入了一些参数来调整 I/O 行为并针对所使用的文件和存储系统优化数据库。
 
 NetApp 进行了性能测试以定义理想值。下表列出了从性能测试中推断的最佳值。
@@ -65,4 +64,3 @@ python setParameter.py -set=SYSTEM/global.ini/fileio/async_read_submit=on
 python setParameter.py -set=SYSTEM/global.ini/fileio/async_write_submit_active=on
 python setParameter.py -set=SYSTEM/global.ini/fileio/async_write_submit_blocks=all
 ....
-link:saphana-fas-nfs_sap_hana_data_volume_size.html["接下来： SAP HANA 数据卷大小。"]

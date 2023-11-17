@@ -13,13 +13,10 @@ summary: 在多种情况下、必须将源系统中的数据提供给目标系�
 :imagesdir: ./../media/
 
 
-link:sc-copy-clone-sap-system-copy,-refresh,-and-clone-scenarios.html["先前版本：SAP系统复制、刷新和克隆情形。"]
+[role="lead"]
+在多种情况下、必须将源系统中的数据提供给目标系统、以便用于测试或培训目的。必须定期使用源系统中的数据更新这些测试和培训系统、以确保使用当前数据集执行测试和培训。
 
-
-
-== 对QA、测试、沙盒或培训系统进行数据刷新
-
-在多种情况下、必须将源系统中的数据提供给目标系统、以便用于测试或培训目的。必须定期使用源系统中的数据更新这些测试和培训系统、以确保使用当前数据集执行测试和培训。这些系统更新操作包括基础架构层、数据库层和应用程序层上的多个任务、它们可能需要数天时间、具体取决于自动化级别。
+这些系统更新操作包括基础架构层、数据库层和应用程序层上的多个任务、它们可能需要数天时间、具体取决于自动化级别。
 
 下图显示了SAP系统刷新、复制和克隆操作。
 
@@ -64,5 +61,3 @@ image:sc-copy-clone-image5.png["错误：缺少图形映像"]
 image:sc-copy-clone-image6.png["错误：缺少图形映像"]
 
 有关详细的分步问题描述 、请参见技术报告 http://www.netapp.com/us/media/tr-4646.pdf["使用存储复制实现 SAP HANA 灾难恢复"^]。
-
-link:sc-copy-clone-overview-of-sap-system-refresh-workflow-with-snapcenter.html["接下来：使用SnapCenter 的SAP系统刷新工作流概述。"]

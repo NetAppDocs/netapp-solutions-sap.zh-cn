@@ -13,8 +13,7 @@ summary: SAP副本工作流类似于系统刷新工作流的初始步骤。SnapC
 :imagesdir: ./../media/
 
 
-link:sc-copy-clone-overview-of-sap-system-refresh-workflow-with-snapcenter.html["上一页：使用SnapCenter 的SAP系统刷新工作流概述。"]
-
+[role="lead"]
 SAP副本工作流类似于系统刷新工作流的初始步骤。SnapCenter 工作流包含五个主要步骤、如下图所示。
 
 . 初始安装和准备目标系统。
@@ -25,5 +24,3 @@ SAP副本工作流类似于系统刷新工作流的初始步骤。SnapCenter 工
 
 
 image:sc-copy-clone-image9.png["错误：缺少图形映像"]
-
-link:sc-copy-clone-overview-of-sap-system-clone-workflow-with-snapcenter.html["接下来：使用SnapCenter 的SAP系统克隆工作流概述。"]

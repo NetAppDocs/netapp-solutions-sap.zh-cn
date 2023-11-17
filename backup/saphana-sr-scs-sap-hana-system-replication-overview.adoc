@@ -46,5 +46,3 @@ image:saphana-sr-scs-image1.png["错误：缺少图形映像"]
 关于备份要求，您必须能够在数据中心 1 的正常运行期间以及数据中心 2 的灾难恢复期间创建备份。数据中心 1 和 2 中提供了一个单独的备份基础架构，备份操作会在灾难故障转移过程中激活。备份基础架构通常不会共享，无法对在另一数据中心创建的备份执行还原操作。
 
 image:saphana-sr-scs-image2.png["错误：缺少图形映像"]
-
-link:saphana-sr-scs-storage-snapshot-backups-and-sap-system-replication.html["接下来： Storage Snapshot 备份和 SAP 系统复制。"]

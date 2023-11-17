@@ -13,8 +13,7 @@ summary: 本节介绍初始 SnapCenter 配置，包括存储系统，凭据，�
 :imagesdir: ./../media/
 
 
-link:saphana-br-scs-snapcenter-configuration.html["先前版本： SnapCenter 配置。"]
-
+[role="lead"]
 初始配置包括以下步骤：
 
 . 存储系统配置：
@@ -257,5 +256,3 @@ image:saphana-br-scs-image51.png["错误：缺少图形映像"]
 image:saphana-br-scs-image52.png["错误：缺少图形映像"]
 
 
-
-link:saphana-br-scs-snapcenter-resource-specific-configuration-for-sap-hana-database-backups.html["接下来： SAP HANA 数据库备份的 SnapCenter 资源专用配置。"]

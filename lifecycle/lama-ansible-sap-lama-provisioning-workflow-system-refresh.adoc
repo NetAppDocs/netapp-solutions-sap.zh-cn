@@ -13,8 +13,6 @@ summary: 在刷新工作流期间、必须删除存储克隆。您可以使用�
 :imagesdir: ./../media/
 
 
-link:lama-ansible-sap-lama-provisioning-workflow-copy-system.html["先前版本：SAP Lama配置工作流—复制系统。"]
-
 [role="lead"]
 下图突出显示了使用系统刷新工作流执行的主要步骤。
 
@@ -31,5 +29,3 @@ image:lama-ansible-image51.png["此屏幕截图显示了配置系统视图、并
 同样、输入屏幕与标准屏幕没有任何不同、可以从摘要屏幕开始执行工作流。
 
 image:lama-ansible-image52.png["此屏幕截图显示了刷新系统屏幕、包括要刷新的系统的基本数据以及目标系统的主机选择。"]
-
-link:lama-ansible-appendix-provider-script-configuration-and-ansible-playbooks.html["接下来：提供程序脚本配置和Ansible攻略手册。"]

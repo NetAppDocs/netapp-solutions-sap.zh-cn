@@ -13,8 +13,7 @@ summary: 在 SnapCenter 中，数据库备份通常使用在每个 HANA 数据�
 :imagesdir: ./../media/
 
 
-link:saphana-br-scs-snapcenter-resource-specific-configuration-for-non-data-volume-backups.html["先前版本：适用于非数据卷备份的 SnapCenter 资源专用配置。"]
-
+[role="lead"]
 在 SnapCenter 中，数据库备份通常使用在每个 HANA 数据库的资源保护配置中定义的计划来执行。
 
 可以使用 SnapCenter 图形用户界面， PowerShell 命令行或 REST API 执行按需数据库备份。
@@ -115,5 +114,3 @@ image:saphana-br-scs-image93.png["错误：缺少图形映像"]
 
 . 在 SAP HANA Studio 中，新备份会显示在备份目录中。备份目录中的注释和 EBID 字段也会使用 SnapCenter 中的相同备份名称。
 
-
-link:saphana-br-scs-block-integrity-check.html["下一步：块完整性检查。"]

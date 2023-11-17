@@ -13,8 +13,7 @@ summary: 执行SAP HANA系统刷新所需的步骤取决于源系统租户配置
 :imagesdir: ./../media/
 
 
-link:sc-copy-clone-overview-of-sap-system-clone-workflow-with-snapcenter.html["上一页：使用SnapCenter 的SAP系统克隆工作流概述。"]
-
+[role="lead"]
 执行SAP HANA系统刷新所需的步骤取决于源系统租户配置以及目标系统上所需的租户名称、如下图所示。
 
 由于租户名称是在系统数据库中配置的、因此、在恢复系统数据库后、目标系统也会提供源系统的租户名称。因此、只能使用与源租户相同的名称来恢复目标系统上的租户、如下图中的选项1所示。如果目标系统上的租户名称必须不同、则必须先使用与源租户相同的名称恢复租户、然后将其重命名为所需的目标租户名称。这是下图中的选项2。
@@ -29,5 +28,3 @@ image:sc-copy-clone-image11.png["错误：缺少图形映像"]
 此图显示了MDC单租户初始安装的配置标志。
 
 image:sc-copy-clone-image12.png["错误：缺少图形映像"]
-
-link:sc-copy-clone-automation-example-scripts.html["接下来：自动化示例脚本。"]

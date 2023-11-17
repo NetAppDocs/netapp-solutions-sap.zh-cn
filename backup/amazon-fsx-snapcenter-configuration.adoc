@@ -13,7 +13,8 @@ summary: 您必须对基本SnapCenter 配置和HANA资源保护执行本节中�
 :imagesdir: ./../media/
 
 
-link:amazon-fsx-snapcenter-architecture.html["先前版本： SnapCenter 架构。"]
+[role="lead"]
+您必须对基本SnapCenter 配置和HANA资源保护执行本节中的步骤。
 
 
 
@@ -349,5 +350,3 @@ image:amazon-fsx-image46.png["错误：缺少图形映像"]
 HANA资源配置现已完成、您可以执行备份。
 
 image:amazon-fsx-image47.png["错误：缺少图形映像"]
-
-link:amazon-fsx-snapcenter-backup-operations.html["接下来：SnapCenter 备份操作。"]

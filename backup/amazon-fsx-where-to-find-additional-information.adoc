@@ -13,8 +13,7 @@ summary:
 :imagesdir: ./../media/
 
 
-link:amazon-fsx-restore-and-recover-from-secondary-storage.html["先前：从二级存储还原和恢复。"]
-
+[role="lead"]
 要了解有关本文档中所述信息的更多信息，请查看以下文档和 / 或网站：
 
 * 适用于NetApp ONTAP 的FSx用户指南—什么是适用于NetApp ONTAP 的Amazon FSx？
@@ -38,14 +37,3 @@ https://www.netapp.com/pdf.html?item=/media/17111-tr4667.pdf[]
 https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-sr-scs-sap-hana-system-replication-overview.html["https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-sr-scs-sap-hana-system-replication-overview.html"^]
 
 
-
-
-
-== 版本历史记录
-
-|===
-| version | Date | 文档版本历史记录 
-
-
-| 版本 1.0 | 2022年5月 | 初始版本。 
-|===

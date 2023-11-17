@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: lifecycle/lama-ansible-conclusion.html 
-keywords: conclusion, additional information, version history 
+keywords: conclusion, additional information 
 summary: 通过将Ansible等现代自动化框架集成到SAP Lama配置工作流中、客户可以灵活地使用解决方案 来满足标准或更复杂的基础架构要求。 
 ---
 = 结论
@@ -12,8 +12,6 @@ summary: 通过将Ansible等现代自动化框架集成到SAP Lama配置工作�
 :linkattrs: 
 :imagesdir: ./../media/
 
-
-link:lama-ansible-appendix-provider-script-configuration-and-ansible-playbooks.html["先前版本：提供程序脚本配置和Ansible攻略手册。"]
 
 [role="lead"]
 通过将Ansible等现代自动化框架集成到SAP Lama配置工作流中、客户可以灵活地使用解决方案 来满足标准或更复杂的基础架构要求。
@@ -69,14 +67,3 @@ https://help.sap.com/doc/700f9a7e52c7497cad37f7c46023b7ff/3.0.11.0/en-US/737a99e
 https://www.netapp.com/support-and-training/documentation/["https://www.netapp.com/support-and-training/documentation/"^]
 
 
-
-
-
-== 版本历史记录
-
-|===
-| version | Date | 文档版本历史记录 
-
-
-| 版本 1.0 | 2023年1月 | 初始版本。 
-|===

@@ -13,8 +13,7 @@ summary: 在我们的实验室设置中、我们会在第二个AWS可用性区�
 :imagesdir: ./../media/
 
 
-link:amazon-fsx-backup-of-non-data-volumes.html["Previous：备份非数据卷。"]
-
+[role="lead"]
 在我们的实验室设置中、我们会在第二个AWS可用性区域中使用第二个FSX for ONTAP 文件系统来展示HANA数据卷的备份复制。
 
 如第章所述 link:amazon-fsx-snapcenter-architecture.html#data-protection-strategy[""数据保护策略""]、复制目标必须是另一个可用性区域中ONTAP 文件系统的第二个FSx、才能防止ONTAP 文件系统的主FSx发生故障。此外、应将HANA共享卷复制到二级FSX for ONTAP 文件系统。
@@ -48,5 +47,3 @@ image:amazon-fsx-image8.png["错误：缺少图形映像"]
 
 
 以下各章将更详细地介绍各个步骤。
-
-link:amazon-fsx-configure-replication-relationships-on-fsx-for-ontap-file-systems.html["下一步：在ONTAP 文件系统的FSX上配置复制关系。"]

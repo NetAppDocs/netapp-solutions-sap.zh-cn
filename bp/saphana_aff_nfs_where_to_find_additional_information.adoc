@@ -13,8 +13,7 @@ summary:
 :imagesdir: ./../media/
 
 
-link:saphana_aff_nfs_adding_additional_data_volume_partitions.html["上一步：添加其他数据卷分区。"]
-
+[role="lead"]
 要了解有关本文档中所述信息的更多信息，请参见以下文档和 / 或网站：
 
 * 在 VMware vSphere 上纵向扩展 SAP HANA 的最佳实践和建议http://www.vmware.com/files/pdf/SAP_HANA_on_vmware_vSphere_best_practices_guide.pdf["www.vmware.com/files/pdf/SAP_HANA_on_vmware_vSphere_best_practices_guide.pdf"^]
@@ -30,5 +29,3 @@ link:saphana_aff_nfs_adding_additional_data_volume_partitions.html["上一步：
 * NetApp FAS 存储系统资源https://mysupport.netapp.com/info/web/ECMLP2676498.html["https://mysupport.netapp.com/info/web/ECMLP2676498.html"^]
 * SAP HANA 软件解决方案http://www.netapp.com/us/solutions/applications/sap/index.aspx["www.netapp.com/us/solutions/applications/sap/index.aspx#sap-hana"^]
 
-
-link:saphana_aff_nfs_update_history.html["下一步：更新历史记录。"]

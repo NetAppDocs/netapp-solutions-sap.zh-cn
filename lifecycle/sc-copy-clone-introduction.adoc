@@ -52,5 +52,3 @@ image:sc-copy-clone-image1.png["错误：缺少图形映像"]
 带有适用于SAP HANA插件的NetApp SnapCenter 用于根据应用程序一致的Snapshot备份配置所需的存储卷、并执行所有所需的主机和数据库操作、直到SAP HANA数据库已启动。根据使用情形、可能需要SAP系统副本、系统克隆、系统刷新或其他手动步骤、例如SAP后处理。下一节将介绍更多详细信息。
 
 可以使用SAP Landscape Management (Lama)对SAP测试系统执行完全自动化的端到端配置。NetApp存储服务连接器集成到SAP Lama中、并在存储层为SAP Lama提供所需的操作。有关详细信息、请参见 https://www.netapp.com/us/media/tr-4018.pdf["将NetApp ONTAP 系统与SAP Landscape Management集成"^]。
-
-link:sc-copy-clone-sap-system-copy,-refresh,-and-clone-scenarios.html["接下来：SAP系统复制、刷新和克隆场景。"]

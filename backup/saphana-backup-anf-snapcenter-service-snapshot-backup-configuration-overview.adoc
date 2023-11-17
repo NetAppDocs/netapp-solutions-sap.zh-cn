@@ -13,8 +13,7 @@ summary:
 :imagesdir: ./../media/
 
 
-link:saphana-backup-anf-snapcenter-service-policy-configuration.html["先前版本： SnapCenter 服务策略配置。"]
-
+[role="lead"]
 SnapCenter 服务支持两种不同的 Snapshot 备份操作类型：
 
 * 使用 Snapshot 操作进行 SAP HANA 数据备份。
@@ -40,5 +39,3 @@ SAP HANA 数据库数据卷的备份将 HANA SQL 语句结合在一起，用于�
 
 
 
-
-link:saphana-backup-anf-backup-configuration-of-sap-hana-database-backups.html["接下来： SAP HANA 数据库备份的备份配置。"]

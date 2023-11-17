@@ -13,9 +13,10 @@ summary: 您可以使用NetApp Snapshot技术在几分钟内创建数据库备�
 :imagesdir: ./../media/
 
 
-link:amazon-fsx-overview.html["上一步：概述。"]
+[role="lead"]
+您可以使用NetApp Snapshot技术在几分钟内创建数据库备份。
 
-您可以使用NetApp Snapshot技术在几分钟内创建数据库备份。创建 Snapshot 副本所需的时间与数据库大小无关，因为 Snapshot 副本不会移动存储平台上的任何物理数据块。此外，使用 Snapshot 技术不会影响实时 SAP 系统的性能。因此，您可以计划创建 Snapshot 副本，而无需考虑对话峰值或批处理活动期间。SAP和NetApp客户通常会在一天内计划多个联机Snapshot备份；例如、每六小时备份一次很常见。这些Snapshot备份通常会在主存储系统上保留三到五天、然后再被删除或分层到更便宜的存储中以供长期保留。
+创建 Snapshot 副本所需的时间与数据库大小无关，因为 Snapshot 副本不会移动存储平台上的任何物理数据块。此外，使用 Snapshot 技术不会影响实时 SAP 系统的性能。因此，您可以计划创建 Snapshot 副本，而无需考虑对话峰值或批处理活动期间。SAP和NetApp客户通常会在一天内计划多个联机Snapshot备份；例如、每六小时备份一次很常见。这些Snapshot备份通常会在主存储系统上保留三到五天、然后再被删除或分层到更便宜的存储中以供长期保留。
 
 Snapshot 副本还为还原和恢复操作提供了主要优势。通过NetApp SnapRestore 技术、可以根据当前可用的Snapshot副本将整个数据库或数据库的一部分还原到任意时间点。无论数据库大小如何，此类还原过程都只需几秒钟即可完成。由于在一天中可以创建多个联机Snapshot备份、因此与传统的每天一次备份方法相比、恢复过程所需的时间显著减少。由于您可以使用最长只有几小时(而不是长达24小时)的Snapshot副本执行还原、因此在正向恢复期间必须应用的事务日志更少。因此、RTO会减少到几分钟、而不是传统流式备份所需的几小时。
 
@@ -94,5 +95,3 @@ image:amazon-fsx-image3.png["错误：缺少图形映像"]
 最后一个使用情形是、能够在不停止复制的情况下运行灾难恢复故障转移测试、从而不影响灾难恢复设置的RTO和恢复点目标(RPO)。当使用适用于ONTAP 的FSX NetApp SnapMirror复制将数据复制到灾难恢复站点时、生产Snapshot备份也可在灾难恢复站点上使用、然后可用于创建新卷以进行灾难恢复测试。
 
 image:amazon-fsx-image4.png["错误：缺少图形映像"]
-
-link:amazon-fsx-snapcenter-architecture.html["接下来： SnapCenter 架构。"]

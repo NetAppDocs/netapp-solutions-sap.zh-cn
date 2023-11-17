@@ -106,5 +106,3 @@ NOTE: 此图显示了 HANA 服务器 RAM 大小。计算内存中的数据库大
 
 
 NOTE: 还原和恢复时间根据以下假设进行计算。数据库可以以 250 MBps 的速度进行还原。每天的日志文件数是数据库大小的 50% 。例如， 1 TB 数据库每天创建 500 MB 的日志文件。可以在 100 Mbps 的速度下执行恢复。
-
-link:saphana-br-scs-snapcenter-architecture.html["接下来： SnapCenter 架构。"]

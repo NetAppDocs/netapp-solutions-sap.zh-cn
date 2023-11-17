@@ -13,8 +13,7 @@ summary: SnapCenter 4.6 支持对配置有 HANA 系统复制的 HANA 系统进�
 :imagesdir: ./../media/
 
 
-link:saphana-sr-scs-snapcenter-configuration-options-for-sap-system-replication.html["先前版本：适用于 SAP 系统复制的 SnapCenter 配置选项。"]
-
+[role="lead"]
 SnapCenter 4.6 支持对配置有 HANA 系统复制的 HANA 系统进行自动发现。SnapCenter 4.6 包含一个逻辑，用于在备份操作期间识别主和二级 HANA 主机，并处理两个 HANA 主机之间的保留管理。此外，自动还原和恢复现在也可用于 HANA 系统复制环境。
 
 
@@ -161,5 +160,3 @@ image:saphana-sr-scs-image26.png["错误：缺少图形映像"]
 SnapCenter 4.6 资源组配置的还原和恢复操作与自动发现的非系统复制设置相同。所有还原和自动恢复选项均可用。有关更多详细信息，请参见技术报告 https://www.netapp.com/us/media/tr-4614.pdf["TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》"^]。
 
 一节介绍了从另一主机上创建的备份执行的还原操作 link:saphana-sr-scs-restore-and-recovery-from-a-backup-created-at-the-other-host.html["从在另一主机上创建的备份还原和恢复"]。
-
-link:saphana-sr-scs-snapcenter-configuration-with-a-single-resource.html["接下来：使用单个资源配置 SnapCenter 。"]

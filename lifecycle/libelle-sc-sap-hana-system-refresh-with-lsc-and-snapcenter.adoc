@@ -13,8 +13,7 @@ summary: 本节介绍如何将LSC与NetApp SnapCenter 集成。LSC和SnapCenter 
 :imagesdir: ./../media/
 
 
-link:libelle-sc-overview.html["上一步：概述。"]
-
+[role="lead"]
 本节介绍如何将LSC与NetApp SnapCenter 集成。LSC和SnapCenter 之间的集成支持所有SAP支持的数据库。但是、我们必须区分SAP AnyDB和SAP HANA、因为SAP HANA提供了一个无法用于SAP AnyDB的中央通信主机。
 
 SAP AnyDB的默认SnapCenter 代理和数据库插件安装是SnapCenter 代理的本地安装、以及数据库服务器的相应数据库插件。
@@ -246,5 +245,3 @@ image:libelle-sc-image21.png["错误：缺少图形映像"]
 下图显示了使用中央通信主机时的两个任务`NTAP_SYSTEM_clone_cp`和`NTAP_MNT_recovery_cp`。如您所见、创建Snapshot副本、克隆、在目标数据库服务器上挂载克隆卷以及还原和恢复目标数据库大约需要12分钟。使用标准安装时、执行这些步骤所需的时间大致相同。同样、无论源数据库的大小如何、Snapshot和NetApp FlexClone技术都能确保这些任务的一致、快速完成。
 
 image:libelle-sc-image22.png["错误：缺少图形映像"]
-
-link:libelle-sc-sap-hana-system-refresh-with-lsc,-azacsnap,-and-azure-netapp-files.html["接下来：使用LSC、AzAcSnap和Azure NetApp Files 更新SAP HANA系统。"]

@@ -13,13 +13,10 @@ summary: SnapCenter 是一个统一的可扩展平台，可实现应用程序一
 :imagesdir: ./../media/
 
 
-link:amazon-fsx-backup-and-recovery-using-amazon-fsx-for-ontap.html["先前版本：使用Amazon FSX for ONTAP 进行备份和恢复。"]
+[role="lead"]
+SnapCenter 是一个统一的可扩展平台，可实现应用程序一致的数据保护。SnapCenter 提供集中控制和监管，同时委派用户管理应用程序专用的备份，还原和克隆作业。借助 SnapCenter ，数据库和存储管理员可以通过一种工具来管理各种应用程序和数据库的备份，还原和克隆操作。
 
-
-
-== SnapCenter 概述
-
-SnapCenter 是一个统一的可扩展平台，可实现应用程序一致的数据保护。SnapCenter 提供集中控制和监管，同时委派用户管理应用程序专用的备份，还原和克隆作业。借助 SnapCenter ，数据库和存储管理员可以通过一种工具来管理各种应用程序和数据库的备份，还原和克隆操作。SnapCenter 负责管理由 NetApp 提供支持的 Data Fabric 中各个端点的数据。您可以使用 SnapCenter 在内部环境之间，内部环境与云之间以及私有云，混合云或公有 云之间复制数据。
+SnapCenter 负责管理由 NetApp 提供支持的 Data Fabric 中各个端点的数据。您可以使用SnapCenter在内部环境之间、内部环境与云之间以及私有云、混合云或公共云之间复制数据。
 
 
 
@@ -205,5 +202,3 @@ SnapCenter ：
 
 
 image:amazon-fsx-image8.png["错误：缺少图形映像"]
-
-link:amazon-fsx-snapcenter-configuration.html["下一步： SnapCenter 配置。"]

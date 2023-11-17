@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: backup/saphana-sr-scs-where-to-find-additional-information_overview.html 
-keywords: additional information, version history 
+keywords: additional information, 
 summary:  
 ---
-= 从何处查找追加信息和版本历史记录
+= 从何处查找追加信息
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -13,8 +13,7 @@ summary:
 :imagesdir: ./../media/
 
 
-link:saphana-sr-scs-restore-and-recovery-from-a-backup-created-at-the-other-host.html["先前：从在另一主机上创建的备份还原和恢复。"]
-
+[role="lead"]
 要了解有关本文档中所述信息的更多信息，请参见以下文档：
 
 * 使用 SnapCenter 实现 SAP HANA 备份和恢复
@@ -30,5 +29,3 @@ https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-intro
 https://www.netapp.com/us/media/tr-4646.pdf["https://www.netapp.com/us/media/tr-4646.pdf"^]
 
 
-
-link:saphana-sr-scs-version-history.html["下一步：版本历史记录。"]

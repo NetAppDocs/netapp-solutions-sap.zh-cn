@@ -13,8 +13,7 @@ summary: 非数据卷的备份是 SAP HANA 插件的集成部分。保护数据�
 :imagesdir: ./../media/
 
 
-link:saphana-br-scs-snapcenter-resource-specific-configuration-for-sap-hana-database-backups.html["先前版本：适用于 SAP HANA 数据库备份的 SnapCenter 资源专用配置。"]
-
+[role="lead"]
 非数据卷的备份是 SAP HANA 插件的集成部分。保护数据库数据卷足以将 SAP HANA 数据库还原和恢复到给定时间点，前提是数据库安装资源和所需日志仍然可用。
 
 要从必须还原其他非数据文件的情况中恢复， NetApp 建议为非数据卷开发一个额外的备份策略，以增加 SAP HANA 数据库备份的容量。根据您的特定要求，非数据卷的备份可能会因计划频率和保留设置而异，您应考虑非数据文件的更改频率。例如， HANA 卷 ` ha/shared` 包含可执行文件，但也包含 SAP HANA 跟踪文件。虽然可执行文件仅在升级 SAP HANA 数据库时发生更改，但 SAP HANA 跟踪文件可能需要更高的备份频率，以支持分析 SAP HANA 的问题情况。
@@ -87,5 +86,3 @@ NetApp SSC 和 SAP Lama 可以直接使用 NetApp SSC 创建按需 Snapshot 副�
 NOTE: 在正常备份操作中， NetApp 不建议包含日志卷。如果从备份还原日志卷，则它会覆盖上次活动的重做日志，并阻止将数据库恢复到最近的状态。
 
 SnapCenter 资源组可满足所有这些要求。在 SnapCenter 中配置了三个资源：每个资源用于数据卷，日志卷和共享卷。这些资源将放入资源组中，然后在资源组级别定义保护。在资源组保护中，自定义 Snapshot 名称必须在开头使用 VCM 进行定义。
-
-link:saphana-br-scs-database-backups.html["下一步：数据库备份。"]

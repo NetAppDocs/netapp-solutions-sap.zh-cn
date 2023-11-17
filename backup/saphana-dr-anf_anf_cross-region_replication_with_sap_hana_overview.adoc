@@ -13,8 +13,5 @@ summary: 有关跨区域复制的应用程序无关信息，请访问以下位�
 :imagesdir: ./../media/
 
 
-link:saphana-dr-anf_disaster_recovery_solution_comparison.html["先前版本：灾难恢复解决方案比较。"]
-
+[role="lead"]
 有关跨区域复制的应用程序无关信息，请参见 https://docs.microsoft.com/en-us/azure/azure-netapp-files/["Azure NetApp Files 文档 | Microsoft 文档"^] 在概念和操作指南部分。
-
-link:saphana-dr-anf_configuration_options_for_cross-region_replication_with_sap_hana.html["接下来：使用 SAP HANA 进行跨区域复制的配置选项。"]

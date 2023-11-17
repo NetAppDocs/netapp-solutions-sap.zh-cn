@@ -13,7 +13,8 @@ summary: 本节介绍如何配置系统，以便在单主机和多主机系统�
 :imagesdir: ./../media/
 
 
-link:saphana_aff_nfs_sap_hana_data_volume_size.html["先前版本： SAP HANA 数据卷大小。"]
+[role="lead"]
+本节介绍如何配置系统，以便在单主机和多主机系统上安装 SAP HANA 软件。
 
 
 
@@ -83,5 +84,3 @@ Enter Installation Path [/hana/shared]:
 ....
 . 验证安装工具是否已在所有工作主机和备用主机上安装所有选定组件。
 
-
-link:saphana_aff_nfs_adding_additional_data_volume_partitions.html["下一步：添加其他数据卷分区。"]

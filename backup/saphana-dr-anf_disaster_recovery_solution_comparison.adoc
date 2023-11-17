@@ -13,8 +13,7 @@ summary: 全面的灾难恢复解决方案必须能够使客户从主站点的�
 :imagesdir: ./../media/
 
 
-link:saphana-dr-anf_data_protection_overview_overview.html["先前版本：《使用 Azure NetApp Files 进行 SAP HANA 灾难恢复概述》。"]
-
+[role="lead"]
 全面的灾难恢复解决方案必须能够使客户从主站点的完全故障中恢复。因此，必须将数据传输到二级站点，并且在站点发生故障时，要运行所需的生产 SAP HANA 系统，需要一个完整的基础架构。根据应用程序的可用性要求以及要保护的灾难类型，必须考虑双站点或三站点灾难恢复解决方案。
 
 下图显示了一种典型配置，其中数据会在同一 Azure 区域内同步复制到另一个可用性区域。短距离允许您同步复制数据，以实现零 RPO （通常用于提供 HA ）。
@@ -139,4 +138,3 @@ image:saphana-dr-anf_image5.png["错误：缺少图形映像"]
 
 | 在不影响 RTO 和 RPO 的情况下执行灾难恢复测试 | 是的。 | 否 | 否 
 |===
-link:saphana-dr-anf_anf_cross-region_replication_with_sap_hana_overview.html["接下来：使用 SAP HANA 进行跨区域复制。"]

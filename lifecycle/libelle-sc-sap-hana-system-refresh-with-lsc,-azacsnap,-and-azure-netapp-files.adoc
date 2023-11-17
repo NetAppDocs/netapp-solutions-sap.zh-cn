@@ -13,8 +13,7 @@ summary: 在Azure上使用适用于SAP HANA、Oracle和DB2的Azure NetApp Files 
 :imagesdir: ./../media/
 
 
-link:libelle-sc-sap-hana-system-refresh-with-lsc-and-snapcenter.html["先前版本：使用LSC和SnapCenter 更新SAP HANA系统。"]
-
+[role="lead"]
 使用 https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-solution-architectures["适用于SAP HANA的Azure NetApp Files"^]在Azure上运行的原生 、Oracle和DB2为客户提供了NetApp ONTAP 的高级数据管理和数据保护功能以及Microsoft Azure NetApp Files 服务。 https://docs.microsoft.com/en-us/azure/azure-netapp-files/azacsnap-introduction["AzAcSnap"^] 是快速执行SAP系统刷新操作以创建SAP HANA和Oracle系统的应用程序一致的NetApp Snapshot副本的基础(AzAcSnap目前不支持DB2)。
 
 Snapshot副本备份是在备份策略中按需或定期创建的、随后可以高效克隆到新卷、并用于快速刷新目标系统。AzAcSnap提供了创建备份并将其克隆到新卷所需的工作流、而Libelle SystemCopy则执行全面的端到端系统刷新所需的预处理和后处理步骤。
@@ -241,5 +240,3 @@ image:libelle-sc-image38.jpg["错误：缺少图形映像"]
 复制阶段结束后、LSC将继续执行后阶段中定义的所有步骤。系统刷新过程完全完成后、目标系统将重新启动并运行并完全可用。使用此实验室系统时、SAP系统刷新的总运行时间约为25分钟、其中复制阶段占用的时间仅不到5分钟。
 
 image:libelle-sc-image39.jpg["错误：缺少图形映像"]
-
-link:libelle-sc-where-to-find-additional-information.html["下一步：从何处查找追加信息 和版本历史记录。"]

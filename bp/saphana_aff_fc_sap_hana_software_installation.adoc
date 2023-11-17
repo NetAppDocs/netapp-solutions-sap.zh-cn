@@ -13,7 +13,8 @@ summary: 本节介绍在单主机和多主机系统上安装 SAP HANA 所需的�
 :imagesdir: ./../media/
 
 
-link:saphana_aff_nfs_i_o_stack_configuration_for_sap_hana.html["先前版本： SAP HANA 的 I/O 堆栈配置。"]
+[role="lead"]
+本节介绍在单主机和多主机系统上安装 SAP HANA 所需的准备工作。
 
 
 
@@ -146,5 +147,3 @@ Enter Local Host Name [sapcc-hana-tst-03]:
 ....
 . 验证安装工具是否已在所有工作主机和备用主机上安装所有选定组件。
 
-
-link:saphana_aff_fc_adding_additional_data_volume_partitions_for_sap_hana_single-host_systems.html["下一步：为 SAP HANA 单主机系统添加其他数据卷分区。"]

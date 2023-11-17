@@ -13,8 +13,7 @@ summary: 要实施有效的灾难恢复策略，您必须测试所需的工作�
 :imagesdir: ./../media/
 
 
-link:saphana-dr-anf_monitoring_anf_cross-region_replication.html["先前版本：监控 ANF 跨区域复制。"]
-
+[role="lead"]
 要实施有效的灾难恢复策略，您必须测试所需的工作流。测试可证明该策略是否有效以及内部文档是否充足，同时还允许管理员对所需的程序进行培训。
 
 ANF 跨区域复制支持灾难恢复测试，而不会使 RTO 和 RPO 面临风险。可以在不中断数据复制的情况下执行灾难恢复测试。
@@ -39,5 +38,3 @@ ANF 跨区域复制支持灾难恢复测试，而不会使 RTO 和 RPO 面临风
 以下各小节详细介绍了这些步骤。
 
 image:saphana-dr-anf_image18.png["错误：缺少图形映像"]
-
-link:saphana-dr-anf_prepare_the_target_host.html["下一步：准备目标主机。"]

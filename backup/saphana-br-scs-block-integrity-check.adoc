@@ -13,8 +13,7 @@ summary: SAP 建议将基于存储的 Snapshot 备份与每周基于文件的备
 :imagesdir: ./../media/
 
 
-link:saphana-br-scs-database-backups.html["Previous ：数据库备份。"]
-
+[role="lead"]
 SAP 建议将基于存储的 Snapshot 备份与每周基于文件的备份相结合，以执行块完整性检查。SnapCenter 支持使用选择基于文件的备份作为备份类型的策略来执行块完整性检查。
 
 使用此策略计划备份时， SnapCenter 会为系统和租户数据库创建标准 SAP HANA 文件备份。
@@ -91,4 +90,3 @@ drwxr-xr-- 4 ss1adm sapsys       4096 Nov 19 05:11 ..
 -rw-r----- 1 ss1adm sapsys     159744 Nov 23 08:46 SnapCenter_SnapCenter_BlockIntegrityCheck_Weekly_11-23-2019_06.00.07.8397_databackup_0_1
 -rw-r----- 1 ss1adm sapsys 1577066496 Nov 23 08:46 SnapCenter_SnapCenter_BlockIntegrityCheck_Weekly_11-23-2019_06.00.07.8397_databackup_1_1
 ....
-link:saphana-br-scs-restore-and-recovery.html["下一步：还原和恢复。"]

@@ -13,8 +13,7 @@ summary: 本节将为SAP HANA数据库的不同系统刷新操作选项提供分
 :imagesdir: ./../media/
 
 
-link:sc-copy-clone-automation-example-scripts.html["上一步：自动化示例脚本。"]
-
+[role="lead"]
 下一节将为SAP HANA数据库的不同系统刷新操作选项提供分步问题描述。
 
 
@@ -601,4 +600,3 @@ PolicyName         :
 Clone delete job has been finshed.
 PS C:\NetApp>
 ....
-link:sc-copy-clone-sap-system-clone-with-snapcenter.html["接下来：使用SnapCenter 克隆SAP系统。"]

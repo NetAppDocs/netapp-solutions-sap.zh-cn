@@ -33,7 +33,7 @@ entries:
       url: "/backup/amazon-fsx-create-a-backup-with-replication.html"
     - title: 从二级存储还原和恢复
       url: "/backup/amazon-fsx-restore-and-recover-from-secondary-storage.html"
-  - title: 从何处查找追加信息和版本历史记录
+  - title: 从何处查找追加信息
     url: "/backup/amazon-fsx-where-to-find-additional-information.html"
 - title: 使用 SnapCenter 进行 SAP HANA 备份和恢复
   type: solutions
@@ -64,7 +64,7 @@ entries:
     url: "/backup/saphana-br-scs-restore-and-recovery.html"
   - title: 高级配置和调整
     url: "/backup/saphana-br-scs-advanced-configuration-and-tuning.html"
-  - title: 从何处查找追加信息和版本历史记录
+  - title: 从何处查找追加信息
     url: "/backup/saphana-br-scs-where-to-find-additional-information.html"
 - title: 使用 SnapCenter 备份和恢复 SAP HANA 系统复制
   type: solutions
@@ -83,8 +83,6 @@ entries:
     url: "/backup/saphana-sr-scs-restore-and-recovery-from-a-backup-created-at-the-other-host.html"
   - title: 从何处查找追加信息
     url: "/backup/saphana-sr-scs-where-to-find-additional-information_overview.html"
-  - title: 版本历史记录
-    url: "/backup/saphana-sr-scs-version-history.html"
 - title: 使用 Azure NetApp Files 实现 SAP HANA 灾难恢复
   type: solutions
   entries:
@@ -130,8 +128,6 @@ entries:
       url: "/backup/saphana-dr-anf_mount_the_volumes_at_the_target_host.html"
     - title: HANA 数据库恢复
       url: "/backup/saphana-dr-anf_hana_database_recovery_01.html"
-  - title: 更新历史记录
-    url: "/backup/saphana-dr-anf_update_history.html"
 - title: 使用存储复制实现 SAP HANA 灾难恢复
   url: "/backup/saphana-dr-sr_pdf_link.html"
 - title: 使用 Snap Creator 备份和恢复 SAP HANA

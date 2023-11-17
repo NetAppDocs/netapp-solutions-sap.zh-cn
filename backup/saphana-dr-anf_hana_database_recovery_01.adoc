@@ -13,7 +13,8 @@ summary: 以下是 HANA 数据库恢复的步骤。
 :imagesdir: ./../media/
 
 
-link:saphana-dr-anf_mount_the_volumes_at_the_target_host.html["上一步：在目标主机上挂载卷。"]
+[role="lead"]
+以下是 HANA 数据库恢复的步骤。
 
 启动所需的 SAP 服务。
 
@@ -122,5 +123,3 @@ Backup '/mnt/log-backup/SYSTEMDB/log_backup_0_0_0_0.1589289811148' successfully 
 必须对系统和租户数据库的最新日志备份文件执行检查。
 
 如果 `hdbbackupcheck` 工具报告最新日志备份出错，则必须删除或删除最新的日志备份集。
-
-link:saphana-dr-anf_update_history.html["下一步：更新历史记录。"]

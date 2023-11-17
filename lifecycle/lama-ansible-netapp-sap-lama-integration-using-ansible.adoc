@@ -13,8 +13,6 @@ summary: 此集成方法将SAP Lama自定义配置和操作挂钩与Ansible攻�
 :imagesdir: ./../media/
 
 
-link:lama-ansible-use-cases-for-system-refresh,-copy,-and-cloning.html["先前：系统刷新、复制和克隆的用例。"]
-
 [role="lead"]
 此集成方法将SAP Lama自定义配置和操作挂钩与Ansible攻略手册结合使用、用于NetApp存储管理。下图简要概述了Lama端的配置以及示例实施的相应组件。
 
@@ -31,5 +29,3 @@ image:lama-ansible-image6.png["这是一个相当复杂的映像、其中包含�
 * https://www.ansible.com/integrations/infrastructure/netapp["NetApp Ansible模块"^]
 * https://help.sap.com/doc/700f9a7e52c7497cad37f7c46023b7ff/3.0.11.0/en-US/bf6b3e43340a4cbcb0c0f3089715c068.html["SAP Lama文档—提供程序定义"^]
 
-
-link:lama-ansible-example-implementation.html["接下来：示例实施。"]

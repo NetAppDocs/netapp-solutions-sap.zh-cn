@@ -13,8 +13,6 @@ summary: 在本章中、我们将简要讨论系统克隆工作流和输入屏�
 :imagesdir: ./../media/
 
 
-link:lama-ansible-sap-lama-deprovisioning-workflow-system-destroy.html["先前版本：SAP Lama取消配置工作流—系统销毁。"]
-
 [role="lead"]
 下图突出显示了使用系统副本工作流执行的主要步骤。
 
@@ -57,5 +55,3 @@ image:lama-ansible-image47.png["此屏幕截图显示了Lama Systems屏幕以及
 在系统销毁过程中、必须手动采用预挂步骤、因为已设置限制并会阻止执行。
 
 image:lama-ansible-image48.png["此屏幕截图显示了Lama Systems屏幕以及系统详细信息、并选中了Use Custom Processing Process复选框。"]
-
-link:lama-ansible-sap-lama-provisioning-workflow-system-refresh.html["接下来：SAP Lama配置工作流—系统刷新。"]

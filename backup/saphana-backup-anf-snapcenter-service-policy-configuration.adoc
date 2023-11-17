@@ -13,8 +13,7 @@ summary:
 :imagesdir: ./../media/
 
 
-link:saphana-backup-anf-lab-setup-used-for-this-report.html["Previous ：用于此报告的实验室设置。"]
-
+[role="lead"]
 如本节所述 link:saphana-backup-anf-snapcenter-service-concepts-and-best-practices.html#data-protection-strategy["" 数据保护策略 " ，"] 策略通常独立于资源进行配置，可供多个 SAP HANA 数据库使用。
 
 典型的最低配置包含以下策略：
@@ -77,5 +76,3 @@ image:saphana-backup-anf-image17.png["错误：缺少图形映像"]
 image:saphana-backup-anf-image18.png["错误：缺少图形映像"]
 
 
-
-link:saphana-backup-anf-snapcenter-service-snapshot-backup-configuration-overview.html["接下来： SnapCenter 服务快照备份配置概述。"]

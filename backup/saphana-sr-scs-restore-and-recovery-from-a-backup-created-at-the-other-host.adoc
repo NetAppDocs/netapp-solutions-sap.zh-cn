@@ -13,8 +13,7 @@ summary: 对于这两种 SnapCenter 配置选项，从在另一个 SAP HANA 主�
 :imagesdir: ./../media/
 
 
-link:saphana-sr-scs-snapcenter-configuration-with-a-single-resource.html["先前版本：使用单个资源的 SnapCenter 配置。"]
-
+[role="lead"]
 对于这两种 SnapCenter 配置选项，从在另一个 SAP HANA 主机上创建的备份执行还原操作都是有效的。
 
 下图显示了本节所述的还原和恢复方案概览。
@@ -80,5 +79,3 @@ stlrx300s8-5:/mnt/tmp # cp -Rp hdb00002.00003/ /hana/data/SSR/mnt00001/
 stlrx300s8-5:/mnt/tmp # cp -Rp hdb00003.00003/ /hana/data/SSR/mnt00001/
 ....
 使用 SAP HANA Studio 进行恢复的过程如一节所述 link:saphana-sr-scs-snapcenter-configuration-with-a-single-resource.html#snapcenter-restore-of-the-valid-backup-only["仅对有效备份执行 SnapCenter 还原"]。
-
-link:saphana-sr-scs-where-to-find-additional-information_overview.html["下一步：从何处查找追加信息。"]

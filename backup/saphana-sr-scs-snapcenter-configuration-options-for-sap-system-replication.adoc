@@ -13,8 +13,7 @@ summary: 此页面介绍 SAP 系统复制的配置选项。
 :imagesdir: ./../media/
 
 
-link:saphana-sr-scs-storage-snapshot-backups-and-sap-system-replication.html["先前版本： Storage Snapshot 备份和 SAP 系统复制。"]
-
+[role="lead"]
 在 SAP HANA 系统复制环境中，使用 NetApp SnapCenter 软件配置数据保护有两种选择：
 
 * SnapCenter 资源组，包括 SAP HANA 主机和 SnapCenter 4.6 或更高版本的自动发现。
@@ -51,5 +50,3 @@ image:saphana-sr-scs-image5.png["错误：缺少图形映像"]
 NOTE: 通常， NetApp 建议在 SnapCenter 4.6 中使用资源组配置选项来保护启用了 HANA 系统复制的 HANA 系统。只有在 SnapCenter 操作方法基于中央插件主机且 HANA 插件未部署在 HANA 数据库主机上时，才需要使用单个 SnapCenter 资源配置。
 
 以下各节将详细讨论这两个选项。
-
-link:saphana-sr-scs-snapcenter-4.6-configuration-using-a-resource-group.html["接下来：使用资源组的 SnapCenter 4.6 配置。"]
