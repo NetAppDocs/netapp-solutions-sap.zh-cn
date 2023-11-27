@@ -345,6 +345,12 @@ image:saphana-fas-nfs_image18.jpg["错误：缺少图形映像"]
 
 
 | 禁用 NFSv4 数字 ID | nfs modify -vserver <vserver_name> -v4-numeric-id 已禁用 
+
+
+| 更改NFSv4.x会话插槽的数量
+  可选 | 设置高级
+nf修改-vserver hana -v4.x-sSession-num-sports <value>
+设置admin 
 |===
 
 NOTE: 请注意、禁用编号ID需要进行用户管理、如中所述 link:saphana-fas-nfs_sap_hana_installation_preparations_for_nfsv4.html["NFSv4 的 SAP HANA 安装准备。"]

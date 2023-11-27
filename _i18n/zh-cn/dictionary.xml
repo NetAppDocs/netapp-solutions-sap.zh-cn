@@ -590,9 +590,7 @@
   <block id="efcd9df071a570f7c5ed3559b172bce3" category="section-title">SUSE Linux Enterprise Server 12 和 15</block>
   <block id="ebb8355d8accfb697b6808ce518c8666" category="paragraph">从 SUSE Linux Enterprise Server （ SLES ） 12 SP1 开始，必须在 ` /etc/sysctl.d` 目录的配置文件中设置内核参数。例如，必须创建一个名为 `91-netapp-hana` 的配置文件。</block>
   <block id="68d9ac2d7e973e347e878b223355bf31" category="inline-link">SAP 注释 3024346</block>
-  <block id="fe039cc1acff15ac3ebdef50867dad8e" category="paragraph">如果使用 NFSv3 连接存储，则必须在 ` /etc/modprobe.d/sunrpc.conf` 中设置 `sunrpc.tcp_max_slot_table_entries` 参数。如果此文件不存在，则必须先通过添加以下行来创建它：</block>
   <block id="82740b25df395d68a79118ebc5c4da80" category="section-title">适用于 Red Hat Enterprise Linux 7.2 或更高版本的配置参数</block>
-  <block id="384d34c5cb85a44702029243289c3645" category="paragraph">如果使用 NFSv3 连接存储，则必须在 ` /etc/modprobe.d/sunrpc.conf` 中设置参数 `sunrpc.tcp_max_slot_table_entries` 。如果此文件不存在，则必须先通过添加以下行来创建它：</block>
   <block id="c2e770dd6d768668395e4b8d3b9291d1" category="paragraph">从 Red Hat Enterprise Linux 7.2 开始，您必须在 ` /etc/sysctl.d` 目录的配置文件中设置内核参数。例如，必须创建一个名为 `91-netapp-hana` 的配置文件。</block>
   <block id="4142bd640477d1c4292c7fcbb3bb1f57" category="section-title">在 /has/ 共享卷中创建子目录</block>
   <block id="67435e0588f5cb039a7fb0f4578e90a7" category="admonition">这些示例显示了一个 SID=NF2 的 SAP HANA 数据库。</block>
@@ -628,7 +626,6 @@
   <block id="f731bd3074578aba0a3c1b5ab0ca78ee" category="list-text">将所需的文件系统添加到 ` /etc/fstab` 配置文件中。</block>
   <block id="aff8bbab4f16423ec5907aed644aead6" category="list-text">运行 `mount – a` 在所有主机上挂载文件系统。</block>
   <block id="2555851d01cabd281a371497bed0a9a9" category="list-text">将所需的文件系统添加到所有主机上的 ` /etc/fstab` 配置文件中。</block>
-  <block id="4292e3e460b31d735c080ccc8524778e" category="admonition">每个数据库主机的 ` /usr/sap/nF2` 文件系统都不同。以下示例显示了 ` /NF2_Shared/usr- sap- host1` 。</block>
   <block id="019dc6de8e76037cb2c701eebcc7885a" category="summary">要了解有关本文档中所述信息的更多信息，请参见以下文档和 / 或网站。</block>
   <block id="9e9bd8073039e8b9017ce3890a88b07f" category="list-text">在 VMware vSphere 上纵向扩展 SAP HANA 的最佳实践和建议<block ref="c53e7d8b68aab8589d1fe2ae632d97f1" category="inline-link-rx"></block></block>
   <block id="69d8738d5b71d896a0dc1609b971b14d" category="inline-link">www.vmware.com/files/pdf/sap-hana-scale-out-deployments-on-vsphere.pdf</block>
@@ -792,7 +789,6 @@
   <block id="f0c841de9af65f567936371d382c94ec" category="paragraph">规模估算过程需要详细信息，例如生产和非生产 SAP HANA 主机的数量，每个主机的 RAM 大小以及基于存储的 Snapshot 副本的备份保留。SAP HANA 主机的数量决定了存储控制器和所需磁盘的数量。</block>
   <block id="50555071af908138ac56ce172b19cc5d" category="paragraph"><block ref="50555071af908138ac56ce172b19cc5d" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e41020e64935329a6db54f4c483b9113" category="summary">本节所述的所有主机设置步骤对物理服务器上的 SAP HANA 环境和在 VMware vSphere 上运行的 SAP HANA 均有效。</block>
-  <block id="c60051ea586d490f1e69166ac39409e5" category="paragraph">如果使用 NFSv3 连接存储，则必须在 ` /etc/modprobe.d/sunrpc.conf` 中设置 `sunrpc.tcp_max_slot_table_entries` 。如果此文件不存在，则必须先通过添加以下行来创建它：</block>
   <block id="179a425489e8da15ef704b42e37645c8" category="section-title">适用于 Red Hat Enterprise Linux 7.2 或更高版本的配置参数</block>
   <block id="e19cf298e039e5acff1dbe7e98090d84" category="paragraph">您必须在每个 SAP HANA 主机上为 SAP HANA 生成的工作负载调整其他内核和配置参数。</block>
   <block id="5491b828c5fede318e582fdb0621d64f" category="paragraph">从 Red Hat Enterprise Linux 7.2 开始，您必须在 ` /etc/sysctl.d` 目录的配置文件中设置内核参数。例如，您必须创建一个名为 `91-netapp-hana` 的配置文件。</block>
@@ -4425,7 +4421,6 @@
   <block id="ecf911b27dfacab49658bef695c01f50" category="list-text">FAS2720、FAS2750、FAS8300、FAS8700、FAS9000、 和FAS9500。有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见<block ref="b94cf00a6e18ec3712e81f808581c042" category="inline-link-rx"></block>。</block>
   <block id="9b340c29d45c75265853d640bc6a1e05" category="list-text">FAS2720、FAS2750、FAS8200、FAS8300、FAS8700、 FAS9000、FAS9500</block>
   <block id="8293eb8037b07e6a99273e0e69a21b6f" category="paragraph">从 SUSE Linux Enterprise Server 12 SP1 开始，必须在 ` /etc/sysctl.d` 目录的配置文件中设置内核参数。例如，您必须创建一个名为 `91-netapp-hana` 的配置文件。</block>
-  <block id="9f7a362263a005504b84698373ae8acb" category="paragraph">如果使用 NFSv3 连接存储，则必须在 ` /etc/modprobe.d/sunrpc.conf` 中设置参数 `sunrpc.tcp_max_slot_table_entries 参数` 。如果此文件不存在，则必须先通过添加以下行来创建它：</block>
   <block id="6ed4f46c3f6437e250cb69f8684772f4" category="list-text"><block ref="6ed4f46c3f6437e250cb69f8684772f4" category="inline-link-rx"></block></block>
   <block id="24d3ef74df0d2ceedb42c4a4c33104d4" category="list-text"><block ref="24d3ef74df0d2ceedb42c4a4c33104d4" category="inline-link-rx"></block></block>
   <block id="a52e74dbfc20d705ac349fdd5b3d0188" category="list-text"><block ref="a52e74dbfc20d705ac349fdd5b3d0188" category="inline-link-rx"></block></block>
@@ -4437,12 +4432,10 @@
   <block id="537754f62b9e3072d7b143e82ea96f51" category="admonition">可以使用适用于 SAP 操作系统的 SLES 版本中的 Saptune 设置这些值。有关详细信息，请参见<block ref="c8345b27d24ece14a320acdc31cc02d7" category="inline-link-rx"></block> （需要 SAP 登录）。</block>
   <block id="64de99f49b55f96ef81b9f1d7d3ef301" category="admonition">自RedHat Enterprise Linux 8.6版起、还可以使用适用于SAP的RHEL系统角色(Ansible)应用这些设置。请参见<block ref="c8345b27d24ece14a320acdc31cc02d7" category="inline-link-rx"></block> （需要 SAP 登录）。</block>
   <block id="a02f77a47cb5c9004f19c8c78d662cd5" category="admonition">可以使用适用于 SAP 操作系统的 SLES 版本中的 Saptune 设置这些值。请参见<block ref="c8345b27d24ece14a320acdc31cc02d7" category="inline-link-rx"></block> （需要 SAP 登录）。</block>
-  <block id="8af9dcc6bc45874f6dab0a351794996a" category="admonition">性能测试表明、`nconnect=8`可为数据卷提供良好的读取结果。日志写入可能会因会话数较少而受益，例如 `nconnect=2` 。使用"nconnect"选项也可能有利于共享卷。请注意，从 NFS 服务器进行的首次挂载（ IP 地址）会定义所使用的会话量。即使nconnect使用不同的值、进一步挂载到同一IP地址也不会更改此设置。</block>
   <block id="b35bcba907dc97a5b6020488961f3307" category="admonition">从ONTAP 9.8和SUSE SLES15SP2或RedHat RHEL 8.4或更高版本开始、NetApp也支持NFSv4.1的nconnect选项。对于追加信息，请查看 Linux 供应商文档。</block>
   <block id="dbe18498a47f8eb26e80012f0c049b0d" category="paragraph">以下示例显示了一个主机 SAP HANA 数据库，其中 SID=NF2 使用 NFSv3 ， NFS 传输大小为 1 MB 用于读取， 256 k 用于写入。要在系统启动期间使用 ` /etc/fstab` 配置文件挂载文件系统，请完成以下步骤：</block>
   <block id="afd4f67ca3483f6b519e8ebc2a53dcea" category="admonition">自RedHat Enterprise Linux 8.6版以来、还可以使用适用于SAP的RHEL系统角色(Ansible)应用这些设置。请参见<block ref="c8345b27d24ece14a320acdc31cc02d7" category="inline-link-rx"></block> （需要 SAP 登录）。</block>
   <block id="e7a66fb065da642109c3abf1481bfcd0" category="paragraph">根据NFS版本和ONTAP 版本、使用不同的挂载选项。必须将以下文件系统挂载到主机：</block>
-  <block id="d1805ea655a389bcd86b519f65f01560" category="admonition">性能测试显示、`nconnect=8`可提供良好的读取结果、尤其是对数据卷。日志写入可能会因会话数较少而受益，例如 `nconnect=2` 。使用"nconnect"选项也可能有利于共享卷。请注意，从 NFS 服务器进行的首次挂载（ IP 地址）会定义所使用的会话量。即使nconnect使用不同的值、进一步挂载到同一IP地址也不会更改此设置。</block>
   <block id="6f7cbdc39f9acbcde843e913e06a5bd8" category="summary">要停用克隆的系统、必须事先停止并准备好该系统。之后、可以启动系统销毁工作流。</block>
   <block id="7c4bf45739108965dce4dca9b396f39d" category="doc">SAP Lama取消配置工作流—系统销毁</block>
   <block id="ce5e3f676f90c441971cc56d6dffe08e" category="paragraph">下图突出显示了使用系统销毁工作流执行的主要步骤。</block>
@@ -4801,4 +4794,22 @@
   <block id="93f305eb7fa597fc876f2e0744abf06b" category="paragraph">这些系统刷新操作包括基础架构层、数据库层和应用程序层上的多个任务、它们可能需要数天时间、具体取决于自动化级别。</block>
   <block id="848bda1dea8289263932caf2d35de15b" category="paragraph">这些系统更新操作包括基础架构层、数据库层和应用程序层上的多个任务、它们可能需要数天时间、具体取决于自动化级别。</block>
   <block id="c673a1530232358f588ada362c289d7f" category="sidebar">从何处查找追加信息</block>
+  <block id="e08842ba37eacff4f1a5b7fcf9749dc3" category="paragraph">。<block ref="6f72acaebcb9a0de6696aaf3508a6144" prefix=" " category="inline-code"></block> 参数必须在中设置<block ref="8ad2bc27658297501e1a64bf77a1fd56" prefix=" " category="inline-code"></block>。如果此文件不存在，则必须先通过添加以下行来创建它：</block>
+  <block id="b7de930c0dd2d22c43e147a8da62d970" category="admonition">性能测试表明了这一点<block ref="6ad27604f562c1a2600540bd7f1094d4" prefix=" " category="inline-code"></block> 可提供良好的读取结果、尤其是对数据卷。日志写入可能会因会话数较少而受益、例如<block ref="b3e16d81f1f84d087c55c1815a58a64c" prefix=" " category="inline-code"></block>。使用"nconnect"选项也可能有利于共享卷。请注意，从 NFS 服务器进行的首次挂载（ IP 地址）会定义所使用的会话量。即使nconnect使用不同的值、进一步挂载到同一IP地址也不会更改此设置。</block>
+  <block id="d7d1e0b01aa98fdaaa388843234520d5" category="admonition">从ONTAP 9.8和SUSE SLES15SP2或RedHat RHEL 8.4或更高版本开始、NetApp也支持NFSv4.1的nconnect选项。</block>
+  <block id="953d9b4b8aec5e0f96c90ef8b3d12b68" category="admonition">如果将nconnect与NFSv4.x结合使用、则应根据以下规则调整NFSv4.x会话插槽的数量：
+会话插槽数量等于&lt;nconnect value&gt; x 64。
+在主机上、这将由进行配置<block ref="0e1f4d10d02df866bcbb3247ad4ee7bd" prefix=" " category="inline-code"></block>
+然后重新启动。此外、还必须调整服务器端值、并按照中所述设置会话插槽的数量 <block ref="ab5c20669050c73ba24d89c4b271e9e7" category="inline-link-macro-rx"></block></block>
+  <block id="075d23786d3ed7499b8d563bd41298ef" category="admonition">。<block ref="68727786e22b015e3091f141273c8e9a" prefix=" " category="inline-code"></block> 每个数据库主机的文件系统都不同。以下示例显示了<block ref="7b5a8b70c72ff791a6c938600aa48468" prefix=" " category="inline-code"></block>。</block>
+  <block id="61dc8147d5af95ff65e5beeeceb8d669" category="cell">更改NFSv4.x会话插槽的数量
+  可选</block>
+  <block id="3a61ec547beefb69b89d0843ea4c03bd" category="cell">设置高级
+nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
+设置admin</block>
+  <block id="7de8b31e6597c345c3a3966bd41f80a2" category="admonition">性能测试表明了这一点<block ref="6ad27604f562c1a2600540bd7f1094d4" prefix=" " category="inline-code"></block> 为数据卷提供良好的读取结果。日志写入可能会因会话数较少而受益、例如<block ref="b3e16d81f1f84d087c55c1815a58a64c" prefix=" " category="inline-code"></block>。使用"nconnect"选项也可能有利于共享卷。请注意，从 NFS 服务器进行的首次挂载（ IP 地址）会定义所使用的会话量。即使nconnect使用不同的值、进一步挂载到同一IP地址也不会更改此设置。</block>
+  <block id="3efa710e585bff45d9c6786442911c9d" category="admonition">如果将nconnect与NFSv4.x结合使用、则应根据以下规则调整NFSv4.x会话插槽的数量：
+会话插槽数量等于&lt;nconnect value&gt; x 64。
+在主机上、这将由进行配置<block ref="0e1f4d10d02df866bcbb3247ad4ee7bd" prefix=" " category="inline-code"></block>
+然后重新启动。此外、还必须调整服务器端值、并按照中所述设置会话插槽的数量 <block ref="f5e012a6f36bf833f75aec36ff8eee0f" category="inline-link-macro-rx"></block></block>
 </blocks>

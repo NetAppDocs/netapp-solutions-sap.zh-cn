@@ -44,7 +44,7 @@ net.ipv4.tcp_sack = 1
 
 NOTE: 可以使用适用于 SAP 操作系统的 SLES 版本中的 Saptune 设置这些值。有关详细信息，请参见 https://launchpad.support.sap.com/#/notes/3024346["SAP 注释 3024346"^] （需要 SAP 登录）。
 
-如果使用 NFSv3 连接存储，则必须在 ` /etc/modprobe.d/sunrpc.conf` 中设置 `sunrpc.tcp_max_slot_table_entries` 。如果此文件不存在，则必须先通过添加以下行来创建它：
+。 `sunrpc.tcp_max_slot_table_entries` 参数必须在中设置 `/etc/modprobe.d/sunrpc.conf`。如果此文件不存在，则必须先通过添加以下行来创建它：
 
 ....
 options sunrpc tcp_max_slot_table_entries=128
@@ -55,7 +55,7 @@ options sunrpc tcp_max_slot_table_entries=128
 
 您必须在每个 SAP HANA 主机上为 SAP HANA 生成的工作负载调整其他内核和配置参数。
 
-如果使用 NFSv3 连接存储，则必须在 ` /etc/modprobe.d/sunrpc.conf` 中设置参数 `sunrpc.tcp_max_slot_table_entries 参数` 。如果此文件不存在，则必须先通过添加以下行来创建它：
+。 `sunrpc.tcp_max_slot_table_entries` 参数必须在中设置 `/etc/modprobe.d/sunrpc.conf`。如果此文件不存在，则必须先通过添加以下行来创建它：
 
 ....
 options sunrpc tcp_max_slot_table_entries=128
@@ -237,10 +237,17 @@ NOTE: SAP Lama 要求 /usr/sap/SID 目录为本地目录。因此，如果使用
 NOTE: 要提高 NFSv3 的读取性能， NetApp 建议您使用 `nconnect=n` mount 选项，该选项可在 SUSE Linux Enterprise Server 12 SP4 或更高版本以及 RedHat Enterprise Linux （ RHEL ） 8.3 或更高版本中使用。
 
 
-NOTE: 性能测试表明、`nconnect=8`可为数据卷提供良好的读取结果。日志写入可能会因会话数较少而受益，例如 `nconnect=2` 。使用"nconnect"选项也可能有利于共享卷。请注意，从 NFS 服务器进行的首次挂载（ IP 地址）会定义所使用的会话量。即使nconnect使用不同的值、进一步挂载到同一IP地址也不会更改此设置。
+NOTE: 性能测试表明了这一点 `nconnect=4` 为数据卷提供良好的读取结果。日志写入可能会因会话数较少而受益、例如 `nconnect=2`。使用"nconnect"选项也可能有利于共享卷。请注意，从 NFS 服务器进行的首次挂载（ IP 地址）会定义所使用的会话量。即使nconnect使用不同的值、进一步挂载到同一IP地址也不会更改此设置。
 
 
 NOTE: 从ONTAP 9.8和SUSE SLES15SP2或RedHat RHEL 8.4或更高版本开始、NetApp也支持NFSv4.1的nconnect选项。对于追加信息，请查看 Linux 供应商文档。
+
+
+NOTE: 如果将nconnect与NFSv4.x结合使用、则应根据以下规则调整NFSv4.x会话插槽的数量：
+会话插槽数量等于<nconnect value> x 64。
+在主机上、这将由进行配置
+`echo options nfs max_session_slots= <calculated value> > /etc/modprobe.d/nfsclient.conf`
+然后重新启动。此外、还必须调整服务器端值、并按照中所述设置会话插槽的数量 link:saphana_aff_nfs_storage_controller_setup.html#nfs-configuration-for-nfsv4["NFSv4 的 NFS 配置。"]
 
 以下示例显示了一个主机 SAP HANA 数据库，其中 SID=NF2 使用 NFSv3 ， NFS 传输大小为 1 MB 用于读取， 256 k 用于写入。要在系统启动期间使用 ` /etc/fstab` 配置文件挂载文件系统，请完成以下步骤：
 
@@ -248,10 +255,10 @@ NOTE: 从ONTAP 9.8和SUSE SLES15SP2或RedHat RHEL 8.4或更高版本开始、Net
 +
 ....
 sapcc-hana-tst-06:/ # cat /etc/fstab
-<storage-vif-data01>:/NF2_data_mnt00001 /hana/data/NF2/mnt00001 nfs rw,nfsvers=3,hard,timeo=600,nconnect=8,rsize=1048576,wsize=262144,bg,noatime,nolock 0 0
+<storage-vif-data01>:/NF2_data_mnt00001 /hana/data/NF2/mnt00001 nfs rw,nfsvers=3,hard,timeo=600,nconnect=4,rsize=1048576,wsize=262144,bg,noatime,nolock 0 0
 <storage-vif-log01>:/NF2_log_mnt00001 /hana/log/NF2/mnt00001 nfs rw,nfsvers=3,hard,timeo=600,nconnect=2,rsize=1048576,wsize=262144,bg,noatime,nolock 0 0
-<storage-vif-data01>:/NF2_shared/usr-sap /usr/sap/NF2 nfs rw,nfsvers=3,hard,timeo=600,nconnect=8,rsize=1048576,wsize=262144,bg,noatime,nolock 0 0
-<storage-vif-data01>:/NF2_shared/shared /hana/shared nfs rw,nfsvers=3,hard,timeo=600,nconnect=8,rsize=1048576,wsize=262144,bg,noatime,nolock 0 0
+<storage-vif-data01>:/NF2_shared/usr-sap /usr/sap/NF2 nfs rw,nfsvers=3,hard,timeo=600,nconnect=4,rsize=1048576,wsize=262144,bg,noatime,nolock 0 0
+<storage-vif-data01>:/NF2_shared/shared /hana/shared nfs rw,nfsvers=3,hard,timeo=600,nconnect=4,rsize=1048576,wsize=262144,bg,noatime,nolock 0 0
 ....
 . 运行 `mount – a` 在所有主机上挂载文件系统。
 
@@ -261,17 +268,17 @@ sapcc-hana-tst-06:/ # cat /etc/fstab
 . 将所需的文件系统添加到所有主机上的 ` /etc/fstab` 配置文件中。
 +
 
-NOTE: 每个数据库主机的 ` /usr/sap/nF2` 文件系统都不同。以下示例显示了 ` /NF2_Shared/usr- sap- host1` 。
+NOTE: 。 `/usr/sap/NF2` 每个数据库主机的文件系统都不同。以下示例显示了 `/NF2_shared/usr-sap-host1`。
 
 +
 ....
 stlrx300s8-5:/ # cat /etc/fstab
-<storage-vif-data01>:/NF2_data_mnt00001 /hana/data/NF2/mnt00001 nfs  rw,nfsvers=4.1,hard,timeo=600,nconnect=8,rsize=1048576,wsize=262144,bg,noatime,lock 0 0
-<storage-vif-data02>:/NF2_data_mnt00002 /hana/data/NF2/mnt00002 nfs rw,nfsvers=4.1,hard,timeo=600,nconnect=8,rsize=1048576,wsize=262144,bg,noatime,lock 0 0
+<storage-vif-data01>:/NF2_data_mnt00001 /hana/data/NF2/mnt00001 nfs  rw,nfsvers=4.1,hard,timeo=600,nconnect=4,rsize=1048576,wsize=262144,bg,noatime,lock 0 0
+<storage-vif-data02>:/NF2_data_mnt00002 /hana/data/NF2/mnt00002 nfs rw,nfsvers=4.1,hard,timeo=600,nconnect=4,rsize=1048576,wsize=262144,bg,noatime,lock 0 0
 <storage-vif-log01>:/NF2_log_mnt00001 /hana/log/NF2/mnt00001 nfs rw,nfsvers=4.1,hard,timeo=600,nconnect=2,rsize=1048576,wsize=262144,bg,noatime,lock 0 0
 <storage-vif-log02>:/NF2_log_mnt00002 /hana/log/NF2/mnt00002 nfs rw,nfsvers=4.1,hard,timeo=600,nconnect=2,rsize=1048576,wsize=262144,bg,noatime,lock 0 0
-<storage-vif-data02>:/NF2_shared/usr-sap-host1 /usr/sap/NF2 nfs rw,nfsvers=3,hard,timeo=600,nconnect=8,rsize=1048576,wsize=262144,bg,noatime,nolock 0 0
-<storage-vif-data02>:/NF2_shared/shared /hana/shared nfs rw,nfsvers=3,hard,timeo=600,nconnect=8,rsize=1048576,wsize=262144,bg,noatime,nolock 0 0
+<storage-vif-data02>:/NF2_shared/usr-sap-host1 /usr/sap/NF2 nfs rw,nfsvers=3,hard,timeo=600,nconnect=4,rsize=1048576,wsize=262144,bg,noatime,nolock 0 0
+<storage-vif-data02>:/NF2_shared/shared /hana/shared nfs rw,nfsvers=3,hard,timeo=600,nconnect=4,rsize=1048576,wsize=262144,bg,noatime,nolock 0 0
 ....
 . 运行 `mount – a` 在所有主机上挂载文件系统。
 
