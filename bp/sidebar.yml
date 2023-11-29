@@ -44,8 +44,6 @@ entries:
     url: "/bp/saphana_aff_nfs_storage_sizing.html"
   - title: 基础架构设置和配置
     entries:
-    - title: 基础架构设置和配置概述
-      url: "/bp/saphana_aff_nfs_infrastructure_setup_and_configuration_overview.html"
     - title: 网络设置
       url: "/bp/saphana_aff_nfs_network_setup.html"
     - title: 时间同步
@@ -77,8 +75,6 @@ entries:
     url: "/bp/saphana-fas-nfs_storage_sizing.html"
   - title: 基础架构设置和配置
     entries:
-    - title: 基础架构设置和配置概述
-      url: "/bp/saphana-fas-nfs_infrastructure_setup_and_configuration_overview.html"
     - title: 网络设置
       url: "/bp/saphana-fas-nfs_network_setup.html"
     - title: 时间同步
