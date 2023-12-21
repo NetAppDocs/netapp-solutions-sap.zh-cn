@@ -4,7 +4,7 @@ permalink: backup/saphana-br-scs-where-to-find-additional-information.html
 keywords:  
 summary:  
 ---
-= 从何处查找追加信息
+= 从何处查找追加信息和版本历史记录
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -41,3 +41,77 @@ https://www.netapp.com/pdf.html?item=/media/17195-tr4018pdf.pdf["https://www.net
 https://www.netapp.com/pdf.html?item=/media/8584-tr4646pdf.pdf["https://www.netapp.com/pdf.html?item=/media/8584-tr4646pdf.pdf"^]
 
 
+
+
+
+== 版本历史记录
+
+|===
+| version | Date | 文档版本历史记录 
+
+
+| 版本 1.0 | 2017年7月  a| 
+* 初始版本。
+
+
+
+
+| 版本 1.1 | 2017年9月  a| 
+* 添加了 " 高级配置和调整 " 一节。
+* 轻微更正。
+
+
+
+
+| 版本 2.0 | 2018年3月  a| 
+* SnapCenter 4.0更新：
+新的数据卷资源
+改进了单文件SnapRestore操作
+
+
+
+
+| 版本 3.0 | 2020年1月  a| 
+* 添加了 SnapCenter 概念和最佳实践一节。
+* SnapCenter 4.3更新：
+自动发现
+自动还原和恢复
+支持HANA多个租户的多个被租户
+单租户还原操作
+
+
+
+
+| 版本 3.1 | 2020 年 7 月  a| 
+* 少量更新和更正：
+SnapCenter 4.3.1支持NFSv4
+配置SSL通信
+在IBM Power上为Linux集中部署插件
+
+
+
+
+| 版本 3.2 | 2020年11月  a| 
+* 已为 HANA 2.0 SPS5 添加所需的数据库用户权限。
+
+
+
+
+| 版本 3.3 | 2021年5月  a| 
+* 已更新 SSL hdbsql" 配置 " 部分。
+* 增加了对 Linux LVM 的支持。
+
+
+
+
+| 版本 3.4 | 2021年8月  a| 
+* 已添加禁用自动发现配置问题描述 。
+
+
+
+
+| 版本 3.5 | 2022年2月  a| 
+* 对 SnapCenter 4.6 进行了少量更新，并支持对启用了 HANA 系统复制的 HANA 系统进行自动发现。
+
+
+|===

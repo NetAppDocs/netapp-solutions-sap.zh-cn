@@ -1561,7 +1561,6 @@
   <block id="b22da6ced8752b012e3da78c79177c72" category="admonition">必须在目标主机上创建此表中的挂载点。</block>
   <block id="d6592b2b5e0e3f570578edc3ab023e7a" category="summary">根据日志备份复制是否属于灾难恢复设置的一部分，灾难恢复的步骤略有不同。</block>
   <block id="baaf26c3cc1634b64f550cbbc10d58ed" category="doc">灾难恢复故障转移</block>
-  <block id="dc6b37a8d0f9881e114866c92f31728d" category="inline-link-macro">先前版本： HANA 数据库恢复。</block>
   <block id="e8bee4c9f7418a9fa7423012c3115980" category="paragraph">根据日志备份复制是否属于灾难恢复设置的一部分，灾难恢复的步骤略有不同。本节介绍了适用于纯数据备份复制以及与日志备份卷复制结合使用的数据卷复制的灾难恢复故障转移。</block>
   <block id="1db54f8e2a972ae70747d37496118790" category="paragraph">要执行灾难恢复故障转移，请完成以下步骤：</block>
   <block id="1f61cc07babe71682a84ca95fe1c7d13" category="list-text">中断并删除复制关系。</block>
@@ -1639,20 +1638,15 @@
   <block id="dd0dec62b557e33c38d24dc3cbaed4bc" category="sidebar">使用存储复制实现 SAP HANA 灾难恢复</block>
   <block id="fceb9e9a7a8e75da09a45b74960f3ce3" category="sidebar">使用 Snap Creator 备份和恢复 SAP HANA</block>
   <block id="0f1df2d5d1f6e9db4283f9e9814fa12a" category="sidebar">使用 NetApp 存储和 Commvault 软件进行 SAP HANA 备份和恢复</block>
-  <block id="3993b517d983222c5b766976180367f0" category="inline-link-macro">上一步：从何处查找追加信息。</block>
-  <block id="e20ed0e735d698ee86acdf1151e6e451" category="paragraph"><block ref="e20ed0e735d698ee86acdf1151e6e451" category="inline-link-macro-rx"></block></block>
-  <block id="53b99ad408aca79aba1e0bcc607cde85" category="paragraph"><block ref="53b99ad408aca79aba1e0bcc607cde85" category="inline-link-macro-rx"></block></block>
   <block id="c1fd2d028e3fff9cae781db6954eb52b" category="summary">本文档为客户和合作伙伴提供了部署 NetApp ONTAP 以支持在 Windows 环境中的 Microsoft SQL Server 中运行 SAP 业务套件解决方案的最佳实践。</block>
   <block id="c5dacd8b175c8c2367525c37eea1dc59" category="doc">TR-4467 ： SAP 与 Windows 上的 Microsoft SQL Server —使用 NetApp ONTAP 和 SnapCenter 的最佳实践</block>
   <block id="611a4a6b98272a717f8e1f6bf5ba787b" category="paragraph">NetApp 公司 Marco Schoen</block>
   <block id="3be0224caa6f122d821c38b09efdbac7" category="inline-link-macro"><block ref="3be0224caa6f122d821c38b09efdbac7" category="inline-link-rx"></block></block>
   <block id="386b4fc148c87ad6a824fb6645fff9ca" category="paragraph"><block ref="386b4fc148c87ad6a824fb6645fff9ca" category="inline-link-macro-rx"></block></block>
-  <block id="3b85cb8f62d84ee8a4e0891315a3af26" category="paragraph"><block ref="3b85cb8f62d84ee8a4e0891315a3af26" category="inline-link-macro-rx"></block></block>
   <block id="77856469e4786d81c487dfc174833e29" category="summary">TR-4757 提供了使用适用于 SAP 应用程序的 Azure NetApp Files 和 SAP HANA 部署的最佳实践。此外，本文档还详细介绍了 SAP 共享文件系统的不同使用情形。本文档介绍了利用 NetApp Cloud Volumes ONTAP for SAP Applications 和 SAP HANA 部署的最佳实践。它包括与 SAP 共享文件系统不同的使用情形，以及基于 Cloud Volumes ONTAP 的 SAP HANA 的特定性能注意事项。</block>
   <block id="0e03d1132f9763756b2e5e8f46c33610" category="doc">TR-4757 ：《 Microsoft Azure 上的 SAP 应用程序—使用 NetApp Cloud Volumes ONTAP 》</block>
   <block id="bc2f77b802672aed5e74bfb91aa5eee4" category="inline-link-macro"><block ref="bc2f77b802672aed5e74bfb91aa5eee4" category="inline-link-rx"></block></block>
   <block id="8e3940acd5b42b2156bc15a3fdf1827d" category="paragraph"><block ref="8e3940acd5b42b2156bc15a3fdf1827d" category="inline-link-macro-rx"></block></block>
-  <block id="05b3eeeac64d4f0f9123deacdf9c3fcf" category="paragraph"><block ref="05b3eeeac64d4f0f9123deacdf9c3fcf" category="inline-link-macro-rx"></block></block>
   <block id="5176c066b53609fe56eb537ca7fcac89" category="summary">IBM Power Systems 专为 SAP HANA 等数据密集型和任务关键型工作负载而设计。IBM Power Systems 通过提供四项关键功能来简化和加速 SAP HANA 部署—卓越的虚拟化和灵活性，更快的配置速度，经济实惠的可扩展性以及最大限度地延长正常运行时间。NetApp AFF 产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用，并与 IBM Power Systems 完美地相辅相成。本文档介绍将 NetApp ONTAP 与 AFF 产品系列和 IBM Power Systems 结合使用的 NAS （ NFS ）存储设置的最佳实践。</block>
   <block id="f20a40b88879c634d62a1183049bd409" category="doc">TR-4821 ：基于 IBM Power Systems 和采用 NFS 的 NetApp AFF 系统的 SAP HANA</block>
   <block id="68708a2f0db2622048ef976e3d1ceb61" category="paragraph">IBM Power Systems 专为 SAP HANA 等数据密集型和任务关键型工作负载而设计。IBM Power Systems 通过提供四项关键功能来简化和加速 SAP HANA 部署：卓越的虚拟化和灵活性，更快的配置速度，经济实惠的可扩展性以及最大限度地延长正常运行时间。NetApp AFF 产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用，并与 IBM Power Systems 完美地相辅相成。本文档介绍将 NetApp ONTAP 与 AFF 产品系列和 IBM Power Systems 结合使用的 NAS （ NFS ）存储设置的最佳实践。</block>
@@ -1688,7 +1682,6 @@
   <block id="bd3a2bd89a649bf3f808ac6c8cc752ef" category="paragraph">这一经过 NetApp 验证的架构涵盖了在采用 Brocade FC SAN Fabric 的 NetApp 全 SAN 阵列（ ASA ）存储系统上为 SAP HANA 打造现代化 SAP 系统和运营。它包括备份和恢复，灾难恢复和数据保护。解决方案利用 NetApp SnapCenter 自动执行 SAP HANA 备份，还原和恢复以及克隆工作流。本节将使用同步 NetApp SnapMirror 数据复制软件介绍灾难恢复配置，测试和故障转移场景。此外，还概述了使用 Commvault 进行 SAP 数据保护。</block>
   <block id="731764091ffe7cacd12c33c9048bfd8f" category="inline-link-macro"><block ref="731764091ffe7cacd12c33c9048bfd8f" category="inline-link-rx"></block></block>
   <block id="a064ef72c49c2eebe828ed0cd3a38305" category="paragraph"><block ref="a064ef72c49c2eebe828ed0cd3a38305" category="inline-link-macro-rx"></block></block>
-  <block id="1d5e541dc8524e30bb2781003f0d8400" category="paragraph"><block ref="1d5e541dc8524e30bb2781003f0d8400" category="inline-link-macro-rx"></block></block>
   <block id="47f5c5f7b80224cb7832ed3973296f38" category="doc">TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》</block>
   <block id="8132c1d54d27cf7a67ac0e563e82c329" category="summary">TR-4646 概述了 SAP HANA 灾难恢复保护的选项。其中包括基于同步和异步 NetApp SnapMirror 存储复制的三站点灾难恢复解决方案的详细设置信息和用例问题描述。所述的解决方案将 NetApp SnapCenter 与 SAP HANA 插件结合使用来管理数据库一致性。</block>
   <block id="c79cdf002876c8be8a196f93f344a33f" category="inline-link-macro"><block ref="c79cdf002876c8be8a196f93f344a33f" category="inline-link-rx"></block></block>
@@ -1731,280 +1724,67 @@
   <block id="896435116179bed2dde76b00414b4fa5" category="cell">新的 NetApp 存储系统会更改主机网络设置</block>
   <block id="7e0efdf8314ae57608296d0f91d73af0" category="list-text">对于单主机系统，请挂载 ` /ha/shared` 卷并创建 `shared` 和 `usr-sp` 子目录。</block>
   <block id="8d4c28e332eb5d0e100502eb8922957f" category="paragraph">可通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。中介绍了此选项<block ref="5860d5b399407cf49d81a6277de3a895" category="inline-link-rx"></block>。</block>
-  <block id="657da3820ae1c5b9809d428c8a98c5dc" category="doc">SnapCenter 服务策略配置</block>
   <block id="80bf104cdee8b8f9c92f9e4ff0972dab" category="inline-link-macro">" 数据保护策略 " ，</block>
-  <block id="0d76506ce590842642ec084812fb392b" category="paragraph">如本节所述 <block ref="6dfb9c5e5a91b956ae6fd79a2cc54865" category="inline-link-macro-rx"></block> 策略通常独立于资源进行配置，可供多个 SAP HANA 数据库使用。</block>
   <block id="c578586071a895e1a24fdb22dd828e77" category="paragraph">典型的最低配置包含以下策略：</block>
-  <block id="44a1c45f1cd946c3ff7dab49a5e1d69b" category="list-text">每小时 Snapshot 备份策略。</block>
-  <block id="c925be62973ad8668e1044d5e1e518ab" category="paragraph">例如， `SnapshotEvery4h`</block>
-  <block id="80e7374b1ae5af56c20cec0a07ff5099" category="list-text">使用基于文件的备份执行每周块完整性检查的策略。</block>
-  <block id="4dcc42ee87f97d7296fddd11cafdf045" category="paragraph">例如， `BlockIntegrityCheckEverySunday`</block>
-  <block id="994217b8d2a1bb1a5e7afd46125f4f57" category="paragraph">以下各节将介绍这两个策略的配置。</block>
   <block id="1a738a5297df57433f24d32effcccf4f" category="section-title">每小时 Snapshot 备份策略</block>
-  <block id="b23f36870137f20a703be85990d6ccf0" category="paragraph">要为每小时 Snapshot 备份创建策略，请执行以下步骤：</block>
-  <block id="3e3976aaf937733fcbbb7732058967a2" category="list-text">转至 Policies ，然后单击 Add Policy 。</block>
-  <block id="f35ad3eb3bdb12f0e61a22d7fbc4c0b6" category="paragraph"><block ref="f35ad3eb3bdb12f0e61a22d7fbc4c0b6" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="c12aa0956e37d8e56b1de4f41dd11ea4" category="list-text">在创建策略屏幕中，提供策略名称，备份类型，备份命名约定以及计划和保留详细信息。</block>
-  <block id="a51c9cd5029de9a06971dde0239e76ad" category="paragraph"><block ref="a51c9cd5029de9a06971dde0239e76ad" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="e2da36f48591ae1a2e0ed2c7b5eaa8dc" category="paragraph">例如，在下图中，对于 Snapshot 备份，会配置一个每 4 小时的计划，并将开始时间配置为上午 10 点。保留时间配置为 18 ，即 3 天。</block>
-  <block id="6c535fe97a4a2f0f9084fac8949b39b6" category="paragraph"><block ref="6c535fe97a4a2f0f9084fac8949b39b6" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1dbbbee609fcebacc44fff8b2749cd48" category="list-text">在自定义备份名称窗口中，您可以更改备份命名约定并添加自定义前缀。</block>
-  <block id="369f021e71b454527303c6e31c293d54" category="paragraph"><block ref="369f021e71b454527303c6e31c293d54" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="0a2ae5b43bfa4e22cf3cc58b3f7258d3" category="list-text">要创建新策略，请单击添加。</block>
-  <block id="069d2a93143b34ad6bad9f7298411ae3" category="section-title">每周块完整性检查策略</block>
-  <block id="0a07be8ca3d23badfcef7579623ff09d" category="paragraph">要创建用于每周块完整性检查的策略，请执行以下步骤：</block>
-  <block id="664b0ff647825df5251cffdfe7aa2013" category="list-text">在创建策略屏幕中，提供策略名称，备份类型，备份命名约定以及计划和保留详细信息。</block>
-  <block id="2b0f6638a8bd4007b8acd40ae23a2915" category="paragraph"><block ref="2b0f6638a8bd4007b8acd40ae23a2915" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b2264bb8d2d665cb70a23e37bcd51220" category="paragraph">下图显示了已配置策略的摘要。</block>
-  <block id="3e9601fb60651562515738604dfd6b17" category="paragraph"><block ref="3e9601fb60651562515738604dfd6b17" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="bad5ffeae5823a1ddf87624bc2cb1b62" category="summary">本节列出了对 SAP HANA 非数据卷执行备份配置所需的步骤。</block>
-  <block id="70ca7602c160a399201c98906dded213" category="doc">全局非数据卷的备份配置</block>
-  <block id="7f46c0544a2f295f9fbfe1ca42984b53" category="paragraph">要设置全局非数据卷的备份配置，请执行以下步骤：</block>
-  <block id="ecb80f209682d7fea859be16cd6635fd" category="list-text">转到 SAP HANA Systems ，然后单击添加。</block>
-  <block id="4303f49db9c81034b7d1c3e4abb54573" category="list-text">在 System Details 屏幕中，选择系统类型 Global Non-Data Volume 。您可以提供与全局卷关联的 SID 列表，以逗号分隔。输入您选择的系统名称，然后单击 Continue 。</block>
-  <block id="2545f6cc147814ca8ed894bd4a25fdff" category="paragraph"><block ref="2545f6cc147814ca8ed894bd4a25fdff" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="3dd603730152c8fd8ce81de887a8336c" category="list-text">选择卷并单击 Continue 。</block>
-  <block id="77b244ec5c5affdab7cecd341e553817" category="paragraph"><block ref="77b244ec5c5affdab7cecd341e553817" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1dbe43ca80d44abbf871801ea5aefb93" category="list-text">单击 Continue （继续）。</block>
-  <block id="7ade5977e75da2f40790638e6483e26f" category="paragraph"><block ref="7ade5977e75da2f40790638e6483e26f" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1bb250fbf1946dd1bd7ad228032f8803" category="list-text">单击添加。</block>
-  <block id="1a22f075528c48b204b8d9fd0941aba2" category="paragraph"><block ref="1a22f075528c48b204b8d9fd0941aba2" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="cd84f29f4deb1ed9ce6282df0d63c26b" category="list-text">要配置保护，请单击继续。</block>
-  <block id="0635a906eda8166a41db809ce35d859d" category="paragraph"><block ref="0635a906eda8166a41db809ce35d859d" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="fd08c7f3c47626f7bfed99493b2fff63" category="list-text">选择策略并单击保护。</block>
-  <block id="8a359217431402d80cc46cdffaa77ab2" category="paragraph"><block ref="8a359217431402d80cc46cdffaa77ab2" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="5eefa04bb01d8e54380a0db4bf4b406b" category="list-text">现在，传输目录将作为全局非数据卷显示在 HANA 系统列表中。</block>
-  <block id="87a68ccaf45a3043c383038f4d72c44c" category="paragraph"><block ref="87a68ccaf45a3043c383038f4d72c44c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f6a738f75f76f62a241636eca02cd87d" category="doc">版本历史记录</block>
-  <block id="8216d7034579e5d01a6ef172c0ade4a6" category="inline-link-macro">上一步：追加信息。</block>
-  <block id="4987011ed1027adb747b828c1efe8100" category="paragraph"><block ref="4987011ed1027adb747b828c1efe8100" category="inline-link-macro-rx"></block></block>
   <block id="8002bc13927c65b5f265b031079ce1d4" category="cell">文档版本历史记录</block>
-  <block id="a5f3f63c2f6e1d6d4605650633b9ce8a" category="cell">2021年10月</block>
   <block id="ea9349a37bfee247df0f87cbcacca796" category="cell">初始版本。</block>
   <block id="7d5b957cd473f6eaf5ad335a9c63c4ff" category="paragraph">要了解有关本文档中所述信息的更多信息，请查看以下文档和 / 或网站：</block>
-  <block id="7ad9bddd7e56c8ed9b71a1fb79aca09a" category="inline-link-macro">TR-4891 ：《使用 Azure NetApp Files 实现 SAP HANA 灾难恢复》</block>
-  <block id="8163cd5e840d189977f85a9f427fe208" category="list-text"><block ref="8163cd5e840d189977f85a9f427fe208" category="inline-link-macro-rx"></block></block>
-  <block id="3d98d7360fccf25b78b6a352a624ce91" category="summary">SnapCenter 服务是一个统一的可扩展平台，可实现应用程序一致的数据保护。SnapCenter 服务可提供集中控制和监管，同时将管理应用程序专用备份和还原操作的功能委派给用户。</block>
-  <block id="b22fa0f9ea3be611862901cc6be29585" category="doc">SnapCenter 服务架构</block>
-  <block id="d7e9a840abc3cb177353e706a8a85d9a" category="paragraph">SnapCenter 服务利用 NetApp Cloud Manager 软件作为 UI 并管理 Azure NetApp Files 的凭据。SnapCenter 服务在 Kubernetes 集群中运行，并通过 Cloud Manager Connector 与 NetApp Cloud Manager 进行通信。SnapCenter 服务使用 HANA hdbsql" 客户端触发 HANA 数据库操作，并使用 Azure NetApp Files 管理 API 触发 Azure NetApp Files 存储操作。</block>
-  <block id="b0ecfafd025c5ea54480a65db32023f9" category="paragraph">您可以将 SnapCenter 服务 Kubernetes 集群和 Cloud Manager Connector 部署在单独的服务 vNet 中，也可以将其部署在与 SAP HANA 系统相同的 vNet 中，如以下两个图所示。</block>
-  <block id="69a81fe994f478aae6ce14f3b3482818" category="paragraph"><block ref="69a81fe994f478aae6ce14f3b3482818" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="2656fed356c8a44a7e4b684243530461" category="paragraph"><block ref="2656fed356c8a44a7e4b684243530461" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="f5cc3104a7ecee8b07f982a1056746ec" category="paragraph">SnapCenter 服务安装至少需要两个虚拟机（ VM ），一个虚拟机用于 Cloud Manager Connector ，另一个虚拟机在非 HA 配置中运行 Kubernetes 集群。如果在高可用性（ HA ）配置中设置 SnapCenter 服务，则还需要两个 VM 。</block>
-  <block id="c7cd8012111bd2c086467ba00c0c1234" category="paragraph"><block ref="c7cd8012111bd2c086467ba00c0c1234" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="e02ba160215a0ecf393c368ccc7d0a1e" category="summary">使用 SnapCenter 服务时，数据库备份通常使用策略中定义的计划来执行。您还可以使用 SnapCenter 服务 UI 或 REST API 执行按需数据库备份。</block>
-  <block id="e6a7b93e369619e5e4e140800841dcb9" category="doc">SAP HANA 数据库 Snapshot 备份</block>
-  <block id="ab257e47c39d86a16bd3b4957cbcec07" category="section-title">确定 SAP HANA Studio 中的 SnapCenter 服务数据备份</block>
-  <block id="86b06efe2b1040b24db2db1e3834aeca" category="paragraph">在 SAP HANA 系统视图的上下文菜单中，选择查看备份以打开备份概述。</block>
-  <block id="ccf3933dd902c69d18eaa647992cd4fd" category="paragraph"><block ref="ccf3933dd902c69d18eaa647992cd4fd" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="cec96174584f2015ff8e6c8d47fbd6ef" category="paragraph">备份概述显示了使用 SnapCenter 服务创建的备份列表。下图显示了可用的备份，并突出显示了最新的备份。</block>
-  <block id="18fb8082962031e7f5f9fcd4c9923307" category="paragraph"><block ref="18fb8082962031e7f5f9fcd4c9923307" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="987058b2592da78d68009095f2897e7a" category="paragraph">在对 SAP HANA MDC 系统使用存储 Snapshot 副本执行备份时，系统会为数据卷创建 Snapshot 副本。此数据卷包含系统数据库的数据以及所有租户数据库的数据。为了反映此物理架构，每当 SnapCenter 服务触发 Snapshot 备份时， SAP HANA 都会在内部对系统数据库和所有租户数据库执行组合备份。这会导致 SAP HANA 备份目录中有多个单独的备份条目：一个用于系统数据库，一个用于每个租户数据库。</block>
-  <block id="1bb1525b78068520375b742e06ad78e6" category="admonition">对于 SAP HANA 单容器系统，数据库卷仅包含单个数据库， SAP HANA 备份目录中只有一个条目。</block>
-  <block id="773ea02e32b15b40f651bf11fd6b1e47" category="paragraph">在 SAP HANA 备份目录中， SnapCenter 服务备份名称存储在注释字段和外部备份 ID （ EBID ）字段中。下图显示了系统数据库和租户数据库 PR1 。这两个图都突出显示了 "Comment" 字段和 "EBID" 字段中存储的 SnapCenter 服务备份名称。</block>
-  <block id="681d54c1e8a5a69e25bd163b6012a082" category="paragraph"><block ref="681d54c1e8a5a69e25bd163b6012a082" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="576155af4e1dfe8a7e66dd2818de9afd" category="paragraph"><block ref="576155af4e1dfe8a7e66dd2818de9afd" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="3d67b7277b86d04475973c87937fc544" category="admonition">SnapCenter 服务只能识别自己的备份。例如，使用 SAP HANA Studio 创建的其他备份会显示在 SAP HANA 目录中，但不会显示在 SnapCenter 服务中。</block>
-  <block id="1d9dba18dabf1278d87c3f0faaab4a6a" category="section-title">确定 Azure NetApp Files 卷上的 SnapCenter 服务备份</block>
-  <block id="c7f8cd8a11a9e4995496bf8655caddc7" category="paragraph">同一名称在 SnapCenter 服务中用作备份名称，也用作 Azure NetApp Files 卷上的 Snapshot 备份名称。下图显示了数据库数据卷的 Azure 门户和 Snapshot 备份。</block>
-  <block id="948a6cc39ae19226e7d085f7d9a76f28" category="paragraph"><block ref="948a6cc39ae19226e7d085f7d9a76f28" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="3ddb255fc643972c1653785429e8c89a" category="section-title">列出非数据卷备份</block>
-  <block id="c6a0eadeedd717aee8a5f23a66fa22bd" category="paragraph">在 HANA 系统的备份视图中，选择非数据卷以显示非数据卷的备份列表，如下图所示。</block>
-  <block id="08476800ee3046a8d37ae1da8cf733ce" category="paragraph"><block ref="08476800ee3046a8d37ae1da8cf733ce" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="abbde25b6b6ca0d3e6bcf82513eefcd5" category="paragraph">在适用于 HANA 共享的 Azure NetApp Files 卷上， Snapshot 副本与 SnapCenter 服务中的名称相同。</block>
-  <block id="26e877fe3175841338a5e22b9c1783ae" category="paragraph"><block ref="26e877fe3175841338a5e22b9c1783ae" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="218b43887e5917792a34b127171b6eff" category="section-title">按需备份数据库</block>
-  <block id="34057a6389ae0142f1cf7b2a9bbc13dc" category="paragraph">要创建按需数据库备份，请执行以下步骤：</block>
-  <block id="cb542f3d98a4af3b394e8e2ac08b3dbb" category="list-text">在 SAP HANA 系统视图中，在上下文菜单中选择按需备份。您也可以选择数据卷或非数据卷。对于数据库备份，必须选择数据卷。</block>
-  <block id="3e3cb4722c0ba6ef2cf8ab0c119cb7b9" category="paragraph"><block ref="3e3cb4722c0ba6ef2cf8ab0c119cb7b9" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="7258579a735797fcead35da13d4760bc" category="list-text">在按需备份对话框中，选择策略：无或您已分配给 HANA 系统的策略之一。</block>
-  <block id="29640b9e4873dce9073d936d56540e4d" category="paragraph">如果选择策略无，则可以定义必须用于此特定备份的特定保留。如果选择分配给 HANA 系统的策略，则此备份会应用与使用此策略的计划备份相同的保留。</block>
-  <block id="b60ac14d39394b4c16b9aef79f22b2ec" category="paragraph">在以下示例中，选择了现有策略。</block>
-  <block id="84a7d7c49aea2f989b4814f147c7d14d" category="paragraph"><block ref="84a7d7c49aea2f989b4814f147c7d14d" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="37bbe2ce16288dd81e2442a6bb178409" category="paragraph"><block ref="37bbe2ce16288dd81e2442a6bb178409" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="060ab7d1d6d9de282832a28a822bf9cb" category="list-text">要启动备份工作流，请单击创建备份。</block>
-  <block id="64a8bfec4e5b1f8c26555ca9ccec4c1e" category="paragraph">此时将显示一个屏幕，其中显示了备份操作的作业 ID 。</block>
-  <block id="fdf1bb554f59537a7cf1310078a93088" category="list-text">要打开作业详细信息屏幕，请单击作业 ID 。</block>
-  <block id="8fa672da8297042c6911bc92964e8c08" category="paragraph"><block ref="8fa672da8297042c6911bc92964e8c08" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="2791eb518a49badace3628a628900f88" category="paragraph">作业监控器可显示不同的工作流步骤，步骤的运行时间以及总操作运行时间。在以下示例中，备份操作需要 19 秒。</block>
-  <block id="941558c17d2932f8ff5104e01219bc9e" category="paragraph"><block ref="941558c17d2932f8ff5104e01219bc9e" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="7d0b77f24a0815a4689c94808f0c3040" category="doc">SnapCenter 服务概念和最佳实践</block>
   <block id="f97a9615a6fd001bdf5fbaad3e762adc" category="section-title">数据保护策略</block>
-  <block id="1fa068175a2a7c34e7158fd825e93b55" category="paragraph">在配置 SnapCenter 服务之前，您必须根据各种 SAP 系统的 RTO 和 RPO 要求定义数据保护策略。</block>
   <block id="b02aece9e47a65d17a12859d410988d1" category="paragraph">一种常见方法是定义系统类型，例如生产，开发，测试或沙盒系统。所有系统类型相同的 SAP 系统通常具有相同的数据保护参数。</block>
-  <block id="5fc82bb0e81eaa252b8a1e3c3629f488" category="paragraph">您必须定义以下参数：</block>
-  <block id="0681806147e4b361440800bf0108bb6e" category="list-text">执行 Snapshot 备份的频率</block>
-  <block id="a100334cdf72592a996bd7acd4ff062d" category="list-text">Snapshot 备份的保留时间</block>
-  <block id="5b3290827c5b12b0a9c6f98e3b421968" category="list-text">执行块完整性检查（基于文件的备份）的频率</block>
-  <block id="c9e25451e7d95713032d435165a4f029" category="list-text">块完整性检查备份（基于文件的备份）保留多长时间？</block>
-  <block id="45514e257a69305d2f054180d49e4ed7" category="paragraph">下表显示了系统类型的生产，开发和测试的数据保护参数示例。对于生产系统，已定义高备份频率，并执行每周基于文件的备份。测试和开发系统的要求较低， Snapshot 备份的计划频率较低。</block>
   <block id="3225a10b07f1580f10dee4abc3779e6c" category="cell">Parameters</block>
   <block id="04184473c3677aaa3fdc23c8adf9ab11" category="cell">生产系统</block>
   <block id="6598f2cf94bde191c18961b9844ea3b8" category="cell">开发系统</block>
   <block id="58973466166271c2e12475c970facc8b" category="cell">测试系统</block>
-  <block id="3c19b01776c1146dd0d9cdca6fa370b9" category="cell">Snapshot 备份频率</block>
   <block id="c913695f49476696caed8e3ec2a9fbbc" category="cell">每 4 小时</block>
   <block id="ccd21fd3ff614e4ea81e358d4b9dad4f" category="cell">每 6 小时</block>
-  <block id="92d06747b703033cc28f7b6f8b948f63" category="cell">每 12 小时</block>
-  <block id="277750ba0d33ce72f10cd2f42343fd24" category="cell">Snapshot 备份保留</block>
   <block id="45fe0d3293152fa29cf10ef8a3c1871d" category="cell">3 天</block>
-  <block id="a42e014c4de4440fde4a5c383e0b75f1" category="cell">块完整性检查频率</block>
   <block id="27b749b17e9dce038e22b1cb63840cfd" category="cell">每周一次</block>
-  <block id="505dfdb84387a954ec1d18d65e9d99c0" category="cell">块完整性检查保留</block>
-  <block id="8f87e65f532c04d89e784906f0b37cb4" category="cell">4 周</block>
-  <block id="a1c7389b873d4d6c6e94194ba775e512" category="cell">2 周</block>
-  <block id="705fbbd6e1667845569c00fd7523d343" category="cell">1 周</block>
-  <block id="669e5aba0d347a992636fb3b761987a0" category="paragraph">下表显示了必须为 Snapshot 备份操作的数据保护参数配置的策略。</block>
-  <block id="d57f1f0e7257bb9bef3d08b183569191" category="cell">策略 SnapshotEvery4h</block>
-  <block id="da948b84a45b7caf9ff33a47816e413c" category="cell">策略 SnapshotEvery6h</block>
-  <block id="ec091c65fd47fb4fcfbaea2e7cdf5768" category="cell">策略 SnapshotEvery12h</block>
   <block id="a3c82f66d39159c3e9d428cd534beb34" category="cell">备份类型</block>
-  <block id="a45a544d986358b5b0ffb73a477b8ffb" category="cell">基于 Snapshot 副本</block>
-  <block id="2c6e889b47fa41bcf771096052af130b" category="cell">计划类型</block>
-  <block id="7f6d38d7d0f6e5ede0664468079dfb06" category="cell">Retention</block>
-  <block id="47695586bffbfd971b4d92aabdff020f" category="cell">计数 = 18</block>
   <block id="bfe4cb821fcce8a234fb6991bc72e925" category="cell">计数 = 12</block>
   <block id="4338f6486dc5d5a5832b758c3d22518e" category="cell">计数 = 3</block>
-  <block id="6cffbd716866d6f73e9ce7962119e4f4" category="cell">备份计划</block>
-  <block id="72c213a0f39bfda02fdca3cd75fe88c1" category="paragraph">下表显示了在基于文件的备份操作中必须为数据保护参数配置的策略。</block>
-  <block id="4d95c98d07a2262c023b8198da4857b9" category="cell">策略文件 Based4Week</block>
-  <block id="313e73dc232b2d2a9d1788028e804763" category="cell">策略文件 Based2Weeks</block>
-  <block id="36d44d9b2ed5e1413139cb8c342b7033" category="cell">策略文件已确定 1Week</block>
   <block id="5cd0336074a40ef0493567cff8dc3eb0" category="cell">基于文件</block>
   <block id="6c25e6a6da95b3d583c6ec4c3f82ed4d" category="cell">每周</block>
-  <block id="167f769f93203b0da90a2b5fd93fb7ab" category="cell">计数 = 4</block>
-  <block id="bd330fd6ea27bb4498197a54153ed87f" category="cell">计数 = 2</block>
   <block id="eaf6efa0c22d2f77a7e8c84b08564fa8" category="cell">计数 = 1</block>
-  <block id="fb6e32609f770af78e316b2a516f0458" category="cell">每星期日</block>
-  <block id="20939e9e6436cd19d7119a31c8efadc5" category="section-title">SnapCenter 服务策略</block>
-  <block id="1776b5f092f80878003195b5a08eecf5" category="paragraph">在 SnapCenter 服务中，单个保护策略包括以下参数：</block>
-  <block id="606394dacb02e565fa3a13247a44091f" category="list-text">基于 Snapshot</block>
-  <block id="50ad91cfa4175b59f67983ab95c77aca" category="list-text">基于文件</block>
-  <block id="39709989a702dd9ca02103fae12d5469" category="list-text">计划和保留</block>
-  <block id="29f9def1417e811770e92a903909a1e3" category="list-text">计划：每小时，每天，每周，每月。一个策略可以包含多个计划。</block>
-  <block id="f54f153525073accd05c535e13863b74" category="list-text">对于每个计划，系统会配置开始或结束时间以及频率。</block>
-  <block id="f6dec8da755198018d08ffccac96777c" category="list-text">对于每个计划，都会配置一个保留。保留可以基于时间，也可以基于计数器。</block>
-  <block id="862bcb3bce1ef04969173da076bc05e2" category="paragraph">下图显示了策略配置的屏幕截图。</block>
   <block id="e7c7c0ead110b5e0656460f4785bebf0" category="section-title">备份操作</block>
-  <block id="a2655c62687504e1a1a26684711a3660" category="paragraph">SAP 引入了对采用 HANA 2.0 SPS4 的 MDC 多租户系统的 Snapshot 备份的支持。在 SAP HANA MDC 系统中，租户配置不一定是静态的。您可以添加或删除租户。SnapCenter 服务不能依赖在将 HANA 数据库添加到 SnapCenter 时发现的配置。SnapCenter 服务必须知道在执行备份操作时哪些租户可用。</block>
-  <block id="acadf962f26526aefd97208028d226a3" category="paragraph">因此，对于每个备份操作，工作流的第一步是获取租户信息。下一步是执行 Snapshot 备份操作本身。此步骤包括用于触发 HANA 备份保存点的 SQL 命令，用于 Azure NetApp Files Snapshot 备份的 SQL 命令以及用于关闭 HANA 备份保存点的 SQL 命令。通过使用 close 命令， HANA 数据库将更新系统数据库和每个租户的备份目录。</block>
   <block id="43e6569b52fe76a3f2f6e68ae12ba5af" category="admonition">当一个或多个租户停止时， SAP 不支持对 MDC 系统执行 Snapshot 备份操作。</block>
-  <block id="b9406b8cb36e5bdce93da9bc33cd91c0" category="paragraph">要对数据备份进行保留管理和 HANA 备份目录管理， SnapCenter 服务必须对系统数据库以及第一步中确定的所有租户数据库执行目录删除操作。与日志备份相同， SnapCenter 服务工作流必须在备份操作中的每个租户上运行。</block>
   <block id="3e736a3cbf8d29dd995a15423e614970" category="paragraph">下图显示了备份工作流的概述。</block>
-  <block id="acc96a5d78c219cf554612da13a728d8" category="paragraph"><block ref="acc96a5d78c219cf554612da13a728d8" category="inline-image-macro-rx" type="image"></block></block>
   <block id="373d0b19f95f30915a259780f1e42683" category="section-title">HANA 数据库的 Snapshot 备份的备份工作流</block>
-  <block id="c435a12542336072de90e3f2e32593af" category="paragraph">SnapCenter 服务按以下顺序执行 SAP HANA 数据库的备份：</block>
-  <block id="bc9b6623e0577748259b2b42332f0812" category="list-text">从 HANA 数据库读取租户列表。</block>
-  <block id="870951e4ae4a536d464e304e825f5314" category="list-text">将租户信息存储在备份操作的 SnapCenter 服务元数据中。</block>
-  <block id="c7ed4f99b7c3d96a8f1ad59a25f8020b" category="list-text">触发 SAP HANA 全局同步备份保存点，以便在永久性层上创建一致的数据库映像。</block>
-  <block id="f58510d4a156fd4282b57786353b448b" category="paragraph">对于一个 SAP HANA MDC 单租户或多租户系统，系统会为系统数据库和每个租户数据库创建一个同步的全局备份保存点。</block>
-  <block id="127899a90685a4752c60a15ef66a32dc" category="list-text">为为 HANA 系统配置的所有数据卷创建 Azure NetApp Files Snapshot 副本。在我们的单主机 HANA 数据库示例中，只有一个数据卷。使用 SAP HANA 多主机数据库时，有多个数据卷。</block>
-  <block id="a456e1bb67f511db53f41e0b13fc139a" category="list-text">在 SAP HANA 备份目录中注册 Azure NetApp Files Snapshot 备份。</block>
-  <block id="7057b0a9b05c5dc697990f1f789b5747" category="list-text">删除 SAP HANA 备份保存点。</block>
-  <block id="935e24123094910a8dcaf0b0e9280639" category="list-text">根据为备份定义的保留策略，删除 Azure NetApp Files Snapshot 副本及其数据库以及 SAP HANA 备份目录中的备份条目。系统数据库和所有租户均执行 HANA 备份目录操作。</block>
-  <block id="f054e2b9315548327bf9f9c88322a6ff" category="list-text">删除文件系统和 SAP HANA 备份目录中早于 SAP HANA 备份目录中标识的最旧数据备份的所有日志备份。这些操作是针对系统数据库和所有租户执行的。</block>
   <block id="6f57f256df1b508ce741be6998f13777" category="section-title">用于块完整性检查操作的备份工作流</block>
-  <block id="b10f86a1c8ce7d0e390038b00b9a2080" category="paragraph">SnapCenter 服务按以下顺序执行块完整性检查：</block>
-  <block id="20718c29db6b1b57b66787bd4d0cafd3" category="list-text">为系统数据库和每个租户触发基于文件的备份操作。</block>
-  <block id="e0f389716faaabb87b7ee2edf04f27c8" category="list-text">根据为块完整性检查操作定义的保留策略，删除其数据库，文件系统和 SAP HANA 备份目录中基于文件的备份。文件系统上的备份删除以及系统数据库和所有租户的 HANA 备份目录操作均已完成。</block>
   <block id="6a01bd07e34e6ee4ae8c5d876de38f3e" category="section-title">数据和日志备份的备份保留管理和管理</block>
-  <block id="accf13547b16c3c9fd9acf3d9b951a7b" category="paragraph">数据备份保留管理和日志备份管理可分为四个主要方面，包括以下保留管理：</block>
-  <block id="763103c23d2971476388452c55a9291c" category="list-text">Snapshot 备份</block>
   <block id="4c86e375d8017415e5820e0dda39bc9b" category="list-text">基于文件的备份</block>
   <block id="437fd9c44077715ae57f9988105650f3" category="list-text">SAP HANA 备份目录中的数据备份</block>
   <block id="23fabc748ef59beac69090d6468dbf50" category="list-text">在 SAP HANA 备份目录和文件系统中记录备份</block>
   <block id="9ba5c6960af3983228e48ddca02fcc8a" category="paragraph">下图概述了不同的工作流以及每个操作的依赖关系。以下各节将详细介绍不同的操作。</block>
-  <block id="04b354fd89d6f31a599bbf642357396d" category="paragraph"><block ref="04b354fd89d6f31a599bbf642357396d" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="655271c16961cb3846dbea196199bdca" category="section-title">Snapshot 备份的保留管理</block>
-  <block id="bb5e2a765a6c5ccd3323267d2002aa80" category="paragraph">您也可以在 SnapCenter 中手动删除 Snapshot 备份。</block>
   <block id="c86bb70cd07f9b1870bd94c202cc545e" category="section-title">基于文件的备份的保留管理</block>
-  <block id="b5a6b396fa7194bf45899323b84c9733" category="paragraph">SnapCenter 服务通过根据 SnapCenter 服务备份策略中定义的保留删除文件系统上的备份来处理基于文件的备份的管理。</block>
   <block id="30045cea939eb38d6a07ae386520d93f" category="section-title">SAP HANA 备份目录中的数据备份保留管理</block>
-  <block id="c50372394664aaadf16de9ac94470039" category="paragraph">当 SnapCenter 服务删除任何备份（ Snapshot 或基于文件）时，此数据备份也会在 SAP HANA 备份目录中删除。</block>
   <block id="576bd3a8485aa05c1d0ffd6e07cdc22e" category="section-title">日志备份的保留管理</block>
   <block id="ad55e29b285f391746a7617dc2491e24" category="paragraph">SAP HANA 数据库会自动创建日志备份。这些日志备份会在 SAP HANA 中配置的备份目录中为每个 SAP HANA 服务创建备份文件。</block>
-  <block id="5099a5a8e9d5368a7adb39b288dc7a07" category="paragraph">要进行正向恢复，不再需要早于最新数据备份的日志备份，可以将其删除。</block>
-  <block id="711f793b3caba5769af7cfeb9f8cf5df" category="paragraph">SnapCenter 服务通过执行以下任务，在文件系统级别以及 SAP HANA 备份目录中对日志文件备份进行管理：</block>
-  <block id="d4ffe9ab22d61f3444e8ea27c79a59e3" category="list-text">读取 SAP HANA 备份目录以获取最旧的成功文件备份或 Snapshot 备份的备份 ID 。</block>
-  <block id="4e9e1a0c91d53a9ed294df295bf86f3b" category="list-text">删除 SAP HANA 目录和文件系统中早于此备份 ID 的所有日志备份。</block>
-  <block id="7b5c1828592d73d3ef07fb2e65af7a07" category="paragraph">SnapCenter 服务仅处理由 SnapCenter 创建的备份的管理工作。如果在 SnapCenter 之外创建了其他基于文件的备份，则必须确保从备份目录中删除基于文件的备份。如果不从备份目录中手动删除此类数据备份，则它可能会成为最旧的数据备份，而较早的日志备份则不会删除，直到删除此基于文件的备份为止。</block>
-  <block id="57e67e945c18ccb1029a4cd1b87a7ef6" category="admonition">您不能使用当前版本的 SnapCenter 服务关闭日志备份保留管理。</block>
   <block id="09de968635c1dc837bf4362d72aa3f9c" category="section-title">Snapshot 备份的容量要求</block>
-  <block id="496ce6bf6b50261c4c0ae7931efba4aa" category="paragraph">您必须考虑存储层上的块更改率高于传统数据库的更改率。由于列存储的 HANA 表合并过程，整个表将写入磁盘，而不仅仅是已更改的块。如果在一天内执行多个 Snapshot 备份，我们客户群的数据显示，每天的变更率介于 20% 到 50% 之间。</block>
-  <block id="e11d37c5e481b4ef1806fbde045376a6" category="summary">本节介绍 HANA MDC 单主机单租户系统的还原和恢复工作流。本节介绍了多主机系统的不同之处。</block>
   <block id="6be8f3086a30e59e908d53eb620b51dd" category="doc">还原和恢复</block>
-  <block id="da023c138a07a7aa53068d5ed6b2c27a" category="paragraph">下一节介绍 HANA MDC 单主机单租户系统的还原和恢复工作流。本节介绍了多主机系统的不同之处。</block>
-  <block id="5c5969d7d247bd15dfa1e7c7fc56100f" category="paragraph">这些示例显示 SAP HANA Studio 是一种执行手动恢复的工具。您还可以使用 SAP HANA Cockpit 或 HANA SQL 语句执行恢复操作。</block>
-  <block id="d33bc9fb38c14de24d3022367d116ca2" category="paragraph">要使用 SAP HANA Studio 和 SnapCenter 服务还原和恢复 SAP HANA MDC 单租户系统，请完成以下步骤：</block>
   <block id="6ce7acfe97d30fdc19c079a65ba07e22" category="list-text">使用 SAP HANA Studio 准备还原和恢复过程：</block>
-  <block id="9ff1c74f9b4ae68bac35d8943d361fd2" category="list-text">选择恢复系统数据库并确认 SAP HANA 系统关闭。</block>
   <block id="217b91e8b34ae4d89f6ce0aea3eae3e0" category="list-text">选择恢复类型和日志备份位置。</block>
-  <block id="1c403676f05ea1d9c9093e413591a8e7" category="paragraph">此时将显示数据备份列表。</block>
-  <block id="fbca6691078939a6429244cc281e46f5" category="list-text">选择相关备份以查看外部备份 ID 。</block>
-  <block id="c6bd81a286f7e71a35705e5d646dbc93" category="list-text">卸载 HANA 数据卷。</block>
-  <block id="1abfc09750a3ed8ac5db576c78a83b2a" category="list-text">使用 SnapCenter 服务执行还原过程：</block>
-  <block id="db61f8a8f9153584fd1fa08c725f5087" category="list-text">在备份视图中，从 SAP HANA Studio 中选择与外部备份 ID 或注释字段匹配的备份。</block>
-  <block id="de386ac70b4bb9a8c4489cac754e2c2e" category="list-text">要启动还原操作，请在上下文菜单中选择还原。</block>
-  <block id="72fd4053c46a59001d1fb08b992a0ec3" category="list-text">挂载 HANA 数据卷。</block>
   <block id="6f1c0c39a0a9457611f720a7e3f727f0" category="list-text">使用 SAP HANA Studio 对系统数据库运行恢复过程：</block>
   <block id="3290aa29be79f07d8193b526384a1119" category="list-text">从备份列表中单击刷新，然后选择可用于恢复的备份（以绿色图标表示）。</block>
-  <block id="cdb50d400dd4c6710aface8597dd8fcd" category="list-text">启动恢复操作。</block>
-  <block id="edf4a2131e251be4171c30b826cc5bb6" category="paragraph">恢复操作完成后，系统数据库将启动。</block>
   <block id="2fc425e07c82682fe2a27c132290ee3a" category="list-text">使用 SAP HANA Studio 对租户数据库运行恢复过程：</block>
   <block id="864972bbadf73d1b9129bd44ce27a736" category="list-text">选择恢复租户数据库并选择要恢复的租户。</block>
-  <block id="7ad370e8bb1a6a31a8adee36405ff407" category="paragraph">此时将显示数据备份列表。由于数据卷已还原，租户备份指示可用（绿色）。</block>
-  <block id="2250ddf88e1e90285f5442665539d9bb" category="list-text">选择备份并启动恢复过程。恢复过程完成后，租户数据库将自动启动。</block>
-  <block id="766ee28fe7f074e26b372edbe6ff57b9" category="paragraph">以下步骤介绍了 HANA 系统 PR1 的还原和恢复操作：</block>
-  <block id="644ed683627f0b88659e99f9600f2bbc" category="list-text">要开始恢复系统数据库，请在 SAP HANA Studio 中转至备份和恢复恢复恢复系统数据库选项。</block>
-  <block id="c03f44abd4c391c91945e5f027c47a2b" category="paragraph"><block ref="c03f44abd4c391c91945e5f027c47a2b" category="inline-image-macro-rx" type="image"></block></block>
   <block id="d224ae0a4d51e7c29e63a7687b30517d" category="list-text">选择恢复类型，然后单击下一步。</block>
-  <block id="c0d8eaad7afb8d53148ca017d566e656" category="paragraph"><block ref="c0d8eaad7afb8d53148ca017d566e656" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c3b11a2f5f2eee64b9649be717bb5932" category="list-text">提供备份目录的位置，然后单击下一步。</block>
-  <block id="66c7d176e3ac49c07400fb7b0f8d7afb" category="paragraph"><block ref="66c7d176e3ac49c07400fb7b0f8d7afb" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="f1be70d779bfe9f5e384e26df5bd4d3d" category="list-text">系统将根据 HANA 备份目录的内容显示可用备份列表。选择所需的备份并记下外部备份 ID ，例如最新的备份，如以下屏幕截图所示。</block>
-  <block id="1d845ad6654e5c16e4300a358539f410" category="paragraph"><block ref="1d845ad6654e5c16e4300a358539f410" category="inline-image-macro-rx" type="image"></block></block>
   <block id="86a3a7022ed0b6c13289fcbf758e3d5d" category="list-text">卸载所有数据卷。</block>
-  <block id="a8a8c29399914360aa0968fdf37e2219" category="admonition">对于 SAP HANA 多主机系统，您必须卸载每个主机上的所有数据卷。</block>
-  <block id="0e35bd4c6c1b4a63794d2268e7c835bc" category="list-text">在 SnapCenter 服务 UI 中，在 "SAP HANA 系统 " 视图的上下文菜单中选择查看备份。</block>
-  <block id="97b0bd92e4b8b6d860f972cd482f41a3" category="list-text">要启动还原操作，请在备份视图中选择最新的备份（此备份也会显示在 HANA Studio 中），然后在上下文菜单中选择还原。</block>
-  <block id="30c071f3c4d8f5ad05b0f10df6dbd6df" category="paragraph"><block ref="30c071f3c4d8f5ad05b0f10df6dbd6df" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="f624d0fc47fb7d44b5774c6ba424158c" category="list-text">要确认还原操作，请单击是，还原。</block>
-  <block id="5271ae47dc2dfea8d58b8cb4752234e4" category="paragraph"><block ref="5271ae47dc2dfea8d58b8cb4752234e4" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="3db84a9b9316478367df535fc63160eb" category="paragraph">SnapCenter 服务作业日志显示还原操作的进度。</block>
-  <block id="9c0baa809e05650c8da5a36b81455a2e" category="paragraph"><block ref="9c0baa809e05650c8da5a36b81455a2e" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="e8c7e3d5b53e81261bf9d39c3a7358a6" category="list-text">请等待还原过程完成。在每个数据库主机上，挂载所有数据卷。在以下示例中，您只能在数据库主机上重新挂载一个卷：</block>
-  <block id="6de35e17b3d7ec4d425e7b19b4ef1aa5" category="list-text">要更新可用备份列表，请转到 SAP HANA Studio 并单击刷新。使用 SnapCenter 服务还原的备份会在备份列表中显示一个绿色图标。选择备份，然后单击下一步。</block>
-  <block id="2a1df9c58609b1d30dbf364df7767826" category="paragraph"><block ref="2a1df9c58609b1d30dbf364df7767826" category="inline-image-macro-rx" type="image"></block></block>
   <block id="71cb1faebb7f639c1b5a4238f49846f4" category="list-text">提供日志备份的位置。单击下一步。</block>
-  <block id="9e72622921b746a1794d861e49f6e887" category="paragraph"><block ref="9e72622921b746a1794d861e49f6e887" category="inline-image-macro-rx" type="image"></block></block>
   <block id="498b10487f14bcddf044e9c0ce0997fb" category="list-text">根据需要选择其他设置。确保未选择使用增量备份。单击下一步。</block>
-  <block id="31d7924f74cb914c0f52f576ffd3c5eb" category="paragraph"><block ref="31d7924f74cb914c0f52f576ffd3c5eb" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ac359853b48f05fcb2cdd263bd2d14e2" category="list-text">查看恢复设置，然后单击完成。</block>
-  <block id="342d0d030660de334229a40496e46793" category="paragraph"><block ref="342d0d030660de334229a40496e46793" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2e40b2a74f9689cc8abbd4feebd9b496" category="paragraph">恢复过程开始。请等待系统数据库恢复完成。</block>
-  <block id="63c53061b2952aa7a0f0bfc31344276d" category="paragraph"><block ref="63c53061b2952aa7a0f0bfc31344276d" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="3400b6c6717824a99d529787a811bfb7" category="list-text">在 SAP HANA Studio 中，选择系统数据库的条目，然后转到备份和恢复恢复恢复租户数据库。</block>
-  <block id="6c20b9c1c4259c34703968f843bb6fca" category="paragraph"><block ref="6c20b9c1c4259c34703968f843bb6fca" category="inline-image-macro-rx" type="image"></block></block>
   <block id="52f086817629608d1c9271f5b8ecd51d" category="list-text">选择要恢复的租户，然后单击下一步。</block>
-  <block id="3bc7b20284dab349ac88aa38720e9107" category="paragraph"><block ref="3bc7b20284dab349ac88aa38720e9107" category="inline-image-macro-rx" type="image"></block></block>
   <block id="fc49bdb5ad0943d1647fac2e1b0c5944" category="list-text">指定恢复类型，然后单击下一步。</block>
-  <block id="ea2714922f936c9e999984b4b1ed58b9" category="paragraph"><block ref="ea2714922f936c9e999984b4b1ed58b9" category="inline-image-macro-rx" type="image"></block></block>
   <block id="cc9536c3856cee6b3ae895ffe692fc31" category="list-text">确认备份目录位置，然后单击下一步。</block>
-  <block id="684dba2c7e8f885b96f8f2cef063347b" category="paragraph"><block ref="684dba2c7e8f885b96f8f2cef063347b" category="inline-image-macro-rx" type="image"></block></block>
   <block id="57f97e9e6892dd6ef20f4c4bb68ab888" category="list-text">确认租户数据库已脱机。单击确定继续。</block>
-  <block id="019c95922fb2b4a26a8f449c44bc0c19" category="paragraph"><block ref="019c95922fb2b4a26a8f449c44bc0c19" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="f266cc3ce16008c4e3f629fa74579163" category="paragraph">由于在恢复系统数据库之前已还原数据卷，因此租户备份将立即可用。</block>
-  <block id="b670ee95daf251f747e87e791876ebd5" category="list-text">选择以绿色突出显示的备份，然后单击下一步。</block>
-  <block id="18f2d7291e77742af783d746ab3afe79" category="paragraph"><block ref="18f2d7291e77742af783d746ab3afe79" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ae0a00cc6d706f8a9fea3f175b6629a1" category="list-text">确认日志备份位置，然后单击下一步。</block>
-  <block id="b04e03b5536cb93f14e156bb28bd561a" category="paragraph"><block ref="b04e03b5536cb93f14e156bb28bd561a" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="de623cc32790df551f7b50fbbc195f12" category="paragraph"><block ref="de623cc32790df551f7b50fbbc195f12" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e4fdc1fd67853318f040ef298f53dde3" category="list-text">查看恢复设置，然后单击完成启动租户数据库的恢复过程。</block>
-  <block id="6d1c48b4e2ba01195303c40a610d14c5" category="paragraph"><block ref="6d1c48b4e2ba01195303c40a610d14c5" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b3eba0eb79b198a3876779400c4884c7" category="list-text">请等待恢复完成并启动租户数据库。</block>
-  <block id="6d415b67428190a30ada85b11108acd2" category="paragraph"><block ref="6d415b67428190a30ada85b11108acd2" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a05d610051777823f28850102c89dd02" category="paragraph">SAP HANA 系统已启动且正在运行。</block>
-  <block id="dfa6ffe50ff057f481ec772ceb2e431d" category="paragraph">对于包含多个租户的 SAP HANA MDC 系统，必须对每个租户重复步骤 15 到 24 。</block>
   <block id="2da06d509fa82d9f4e048f53fdd59f2f" category="summary">本技术报告介绍了使用 NetApp SnapCenter 服务和 Azure NetApp Files 保护 SAP HANA 数据的最佳实践。其中包括 SnapCenter 服务概念，配置建议和操作工作流，包括备份，还原和恢复操作。</block>
   <block id="84f6a50de79d49013e595a0b9fd524e0" category="doc">TR-4905 ：《使用 SnapCenter 服务在 Azure NetApp Files 上备份和恢复 SAP HANA 》</block>
   <block id="2090e19c47d41004ac9d83b4c834c1d8" category="paragraph">如今，企业需要为其 SAP 应用程序提供持续，无中断的可用性。面对不断增加的数据量以及系统备份等日常维护任务的需求，他们希望性能水平保持一致。执行 SAP 数据库备份是一项关键任务，可能会对生产 SAP 系统产生显著的性能影响。</block>
@@ -2015,164 +1795,26 @@
   <block id="f0e5827e00cf900f71151c63c4f3a68b" category="list-text">* 数据快速增长。 * 数据快速增长和备份时间不断缩短需要对备份基础架构进行持续投资。换言之，您必须购买额外的备份磁盘空间和更快的备份网络。您还必须支付这些备份资产的持续存储和管理费用。增量备份或差异备份可以解决这些问题，但这种安排会导致还原过程非常缓慢，繁琐且复杂，难以验证。此类系统通常会以业务无法接受的方式增加恢复时间目标（ RTO ）和恢复点目标（ RPO ）时间。</block>
   <block id="a8f8133e051f5ce157248709bac6d380" category="list-text">* 停机成本不断增加。 * SAP 系统的计划外停机通常会影响业务财务。在任何计划外停机中，很大一部分是由于需要还原和恢复 SAP 系统而造成的。因此，所需的 RTO 决定了备份和恢复架构的设计。</block>
   <block id="2a6ae4b4f6c920b26c01df5da7c2e422" category="list-text">* SAP 升级项目的备份和恢复时间。 * SAP 升级项目计划至少包括 SAP 数据库的三个备份。这些备份可显著缩短升级过程所需的时间。决定是否继续通常取决于从先前创建的备份还原和恢复数据库所需的时间。快速还原可以提供更多时间来解决升级期间可能发生的问题，而不仅仅是将系统还原到先前的状态。</block>
-  <block id="3fd29387f9151afeae7fb72e1419477e" category="summary">SAP 建议将基于存储的 Snapshot 备份与每周基于文件的备份相结合，以执行块完整性检查。SnapCenter 服务支持使用选择基于文件的备份作为备份类型的策略来执行块完整性检查。</block>
-  <block id="93e2686766814c09b5773b4bc9467df9" category="doc">基于文件的备份和块完整性检查</block>
-  <block id="349b9e102bc4c27c4f7bf9c185c52fc6" category="paragraph">除了 HANA 数据卷上的 Snapshot 备份之外，基于文件的备份还用于具有二级备份副本。如果主数据卷完全丢失，您可以使用这些基于文件的备份执行还原和恢复操作。</block>
-  <block id="1ecf27ace69a8487e0fa649877c42f4b" category="paragraph">使用此策略计划备份时， SnapCenter 服务会为系统和所有租户数据库创建标准 SAP HANA 文件备份。</block>
-  <block id="aa8e9e288845da1b828d099261d561b8" category="paragraph">SnapCenter 服务显示基于文件的备份的方式与显示基于快照的备份的方式不同。而是仅列出最后一个基于文件的备份。基于文件的备份成功或失败可在作业监控视图中查看。</block>
-  <block id="fb0c452464358115312ce694704b6373" category="paragraph">SAP HANA 备份目录会显示系统数据库和租户数据库的条目。下图显示了系统数据库备份目录中的 SnapCenter 服务块完整性检查。</block>
-  <block id="3fa4041f04e4590fa0580cd42c4c783a" category="paragraph"><block ref="3fa4041f04e4590fa0580cd42c4c783a" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="ab5b3f98ad1cc43aa8ebfca737a36237" category="paragraph">成功的块完整性检查可创建标准 SAP HANA 数据备份文件。SnapCenter 服务使用 HANA 数据库中配置的备份路径执行基于文件的数据备份操作。</block>
-  <block id="dea00757bf17037a8068b8445f472594" category="section-title">使用基于文件的备份进行还原和恢复</block>
-  <block id="8228eb025e7f95062dce982fe8d427d7" category="paragraph">您必须在 SnapCenter 外部对基于文件的备份执行还原和恢复操作，方法是对 HANA Studio 或 HANA Cockpit 执行标准 HANA 恢复操作。</block>
-  <block id="dc152e6bc8e0b3680d01e03c301c2da0" category="summary">本报告所使用的实验室设置包括 SAP HANA 系统 PR1-SAP HANA 单主机 MDC 单租户系统以及 SnapCenter 服务组件。</block>
   <block id="f811314d17a1d16a1faad0f452dc6860" category="doc">用于此报告的实验室设置</block>
-  <block id="7bced5ce4a70dee57c450effc91fd383" category="paragraph">此报告所使用的实验室设置包括 SAP HANA 系统 PR1-SAP HANA 单主机 MDC 单租户系统以及 SnapCenter 服务组件，如下图所示。</block>
-  <block id="9f8756b45fa4ae6c4343206361b20a11" category="paragraph"><block ref="9f8756b45fa4ae6c4343206361b20a11" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="18bc9c751e71d66a9ef9dca3e42c7aec" category="doc">SnapCenter 服务快照备份配置</block>
-  <block id="ce1186e2a3e921541555dcfe246e2ee2" category="summary">非数据卷的备份是 SnapCenter 服务的一个集成部分。保护数据库数据卷足以将 SAP HANA 数据库还原和恢复到给定时间点，前提是数据库安装资源和所需日志仍然可用。</block>
-  <block id="b1b1956d8b55eab5638f173ac97e856e" category="doc">SAP HANA 非数据卷的备份配置</block>
-  <block id="db57ac9c50cde3563821cde8b40d9ffb" category="paragraph">要从必须还原其他非数据文件的情况中恢复， NetApp 建议为这些卷开发一个额外的备份策略，以增加 SAP HANA 数据库备份的容量。根据您的特定要求，非数据卷的备份在计划频率和保留设置方面可能有所不同，您应考虑文件的更改频率。例如， HANA 卷 ` ha/shared` 包含可执行文件，但也包含 SAP HANA 跟踪文件。虽然可执行文件仅在升级 SAP HANA 数据库时发生更改，但 SAP HANA 跟踪文件可能需要更高的备份频率，以支持分析 SAP HANA 的问题情况。</block>
-  <block id="23e71eb09a1d06c5d415f99d14f94e62" category="paragraph">通过 SnapCenter 服务非数据卷备份，可以在几秒钟内创建所有相关卷的 Snapshot 副本，并且空间效率与 SAP HANA 数据库备份相同。不同之处在于，不需要与 SAP HANA 数据库进行 SQL 通信。</block>
-  <block id="3d5a89d96e487e64a7df9cda1d6b4328" category="paragraph">以下步骤显示了如何保护 SAP HANA 数据库 PR1 的 HANA 共享卷。</block>
-  <block id="29aef264cdadf1d5bfd6fa0779b71f9b" category="list-text">在 SAP HANA 系统视图中，选择屏幕右侧上下文菜单中的添加非数据卷。</block>
-  <block id="fe3d1cd060bbfa5d242d8fb48b11ec1a" category="paragraph"><block ref="fe3d1cd060bbfa5d242d8fb48b11ec1a" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="72c7fa65ac4bbdef40ecd4b74de34dba" category="list-text">单击添加存储。</block>
-  <block id="fc0160270fbe9775bad847e749ca1f53" category="paragraph"><block ref="fc0160270fbe9775bad847e749ca1f53" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="8c2ea23fcf0b083533118522253d2377" category="list-text">选择 HANA 共享卷，然后单击添加存储。</block>
-  <block id="9e7702c3e0615fbedfb5f7f34518ce37" category="paragraph"><block ref="9e7702c3e0615fbedfb5f7f34518ce37" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="9e51c87e9ccb2af660fb72fedcaa4eb8" category="list-text">要添加非数据卷，请单击添加。</block>
-  <block id="6169ddfda82960e9db805e1ce2c4c02c" category="paragraph"><block ref="6169ddfda82960e9db805e1ce2c4c02c" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="a84f3e353c2257433de09e98ccf7c779" category="paragraph">现在， SAP HANA 系统概述会在保护列中显示第二个图标，表示已向 HANA 系统添加非数据卷。</block>
-  <block id="22771eec141341f910f714ae0f706b10" category="paragraph"><block ref="22771eec141341f910f714ae0f706b10" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="d23dfe5eed416e1f036bddd57b4111cf" category="list-text">在右侧的上下文菜单中，选择保护 &gt; 非数据卷。</block>
-  <block id="d9ce3c733e6a50fc2f3c8f7e90b272a0" category="paragraph"><block ref="d9ce3c733e6a50fc2f3c8f7e90b272a0" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="2691edda03a73a56a38b7b5fdd51394c" category="list-text">为非数据卷分配策略。在以下示例中，将 `SnapshotEvery4h` 策略分配给 HANA 共享卷。</block>
-  <block id="dccadaf61da296d618c181668397d8a9" category="paragraph"><block ref="dccadaf61da296d618c181668397d8a9" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="bbbe98dc1924e05205b7d8954b150305" category="doc">SnapCenter 服务快照备份配置概述</block>
-  <block id="b6144f3b95cf59f5689819959aa59d46" category="paragraph">SnapCenter 服务支持两种不同的 Snapshot 备份操作类型：</block>
-  <block id="b61689b96ea75bf4026dedfc8b567fcc" category="list-text">使用 Snapshot 操作进行 SAP HANA 数据备份。</block>
-  <block id="897b29802c161cd736a5bc8dc373840a" category="paragraph">SAP HANA 数据库数据卷的备份将 HANA SQL 语句结合在一起，用于确保数据库一致性，并通过 Azure NetApp Files Snapshot 操作管理备份目录。</block>
-  <block id="17ff1079073f7fed3317b9cdb6a7867b" category="list-text">使用 Snapshot 备份操作备份包含非结构化数据的卷。</block>
-  <block id="8ee85cf1a38c0efceab143ec9eaee02d" category="paragraph">备份不需要与 HANA 数据库进行任何交互的二进制文件，配置文件等。备份将通过 Azure NetApp Files Snapshot 备份操作执行。在 SnapCenter 服务中，可以使用两个子类型来定义这些卷是否属于特定的 HANA 系统，或者它是否是由多个 HANA 系统使用的全局共享卷。</block>
-  <block id="0b42c9c1827377c956f0fdf85f1086f1" category="list-text">备份 SAP HANA 数据库的非数据卷</block>
-  <block id="2f9372e4723a17072ac5eb0432e55ebe" category="paragraph">备份与特定 HANA 系统关联的卷，例如 HANA 共享卷。</block>
-  <block id="a88ba96aad2a53b4201d1d8898f055ca" category="list-text">备份全局非数据卷</block>
-  <block id="8040d5adaedf83bde0844e646f5c5e96" category="paragraph">备份不与特定 HANA 系统关联的卷，例如 SAP 传输目录。</block>
-  <block id="e9568bed4d837cfe32f16bb134cb0270" category="paragraph">以下各节介绍了三种不同备份类型的配置。</block>
-  <block id="aef2c20bec8df18ad7f201971cb999aa" category="summary">本节介绍 SnapCenter 服务备份解决方案涵盖的领域。</block>
-  <block id="e4e22e5727008ed7198e0471dd02ebe0" category="doc">SnapCenter 服务 SAP HANA 备份解决方案</block>
   <block id="7e897f23ed71aef1c0a8acf1ae54e9e4" category="section-title">解决方案组件</block>
-  <block id="1ca7bcc72a6ddff63918db5b821014b6" category="paragraph">适用于 SAP HANA 的 SnapCenter 服务备份解决方案涵盖以下方面：</block>
   <block id="01b841fc3abde7f02e3fc6d20ce2490e" category="list-text">使用基于存储的 Snapshot 副本进行 SAP HANA 数据备份：</block>
   <block id="b91349a37c07cbc607967b352d27ac85" category="list-text">备份计划</block>
-  <block id="b6c4f276386f651e000864d5fe061514" category="list-text">按需备份</block>
   <block id="3dff72048413a2d2a95ad3e613d65664" category="list-text">保留管理</block>
   <block id="868fc3042a779c3102d74797f55dbcb8" category="list-text">维护 SAP HANA 备份目录</block>
   <block id="08982f6d9b754b9de2af69edceefff75" category="list-text">还原操作</block>
-  <block id="460e33183b7d64982fd96a73e43bec96" category="list-text">使用基于存储的 Snapshot 副本进行非数据卷备份</block>
-  <block id="805a3e49bb7c7bdafb52c12416271ab6" category="list-text">SnapCenter 区分属于特定 HANA 系统的非数据卷（例如 HANA 共享卷）和不属于特定 HANA 系统的全局非数据卷（例如 SAP 传输目录）。</block>
-  <block id="81584dbbda01b0be23a0bdbacb7e3689" category="list-text">用于检查数据库块完整性的基于文件的备份或备份到第二个位置：</block>
   <block id="43390268352d31fc3a2bfe63eda69144" category="list-text">HANA 数据库日志备份的保留管理：</block>
   <block id="f3afcc2a29b00a45585e1d8c2259abaf" category="list-text">基于数据备份保留进行保留管理</block>
-  <block id="bc79a3302d6565afb99239abeacee778" category="paragraph">SnapCenter 服务可通过触发 SAP HANA 数据库备份保存点来执行 Snapshot 数据备份，以便在存储层上创建的 Snapshot 副本基于 SAP HANA 数据库的一致映像。</block>
-  <block id="b707f98d0f22b5de7ba09c3e06d57e6f" category="paragraph">为了对所有 SAP HANA 相关资源进行完整备份，您还可以使用 SnapCenter 服务使用基于存储的 Snapshot 副本备份所有非数据卷。您可以独立于数据库数据备份计划非数据卷，以启用单个保留和保护策略。</block>
-  <block id="ad305722a053549e7fac7e43c03cddf9" category="paragraph">SAP 建议将基于存储的 Snapshot 备份与每周基于文件的备份相结合，以执行块完整性检查。您可以从 SnapCenter 中执行块完整性检查。块完整性检查（基于文件）备份也用于将备份卸载到另一个存储位置。</block>
-  <block id="45c315ec8e60e0097bfd08a60887ba10" category="paragraph">SnapCenter 服务会根据您可配置的保留策略管理数据备份，日志备份和 SAP HANA 备份目录的管理工作。</block>
-  <block id="954d628cf490da232f6a4ac2863aad8e" category="paragraph">下图总结了备份解决方案。</block>
-  <block id="d982d341f6527622733bcb2242fdc5f7" category="paragraph"><block ref="d982d341f6527622733bcb2242fdc5f7" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="54a37a8ffca763460f1c42da13095c17" category="paragraph">在对非数据卷执行基于存储的 Snapshot 备份时， SnapCenter 服务将执行以下任务：</block>
-  <block id="c8b12d773f20ab4488e9932c89593115" category="list-text">创建非数据卷的存储 Snapshot 副本。</block>
-  <block id="ca6d840804fcdb545005c89b11c39633" category="list-text">根据定义的保留策略删除存储 Snapshot 副本。</block>
-  <block id="b6f5a0d86266d876b5f9daa85e69d5c0" category="paragraph">在对 SAP HANA 数据库执行基于存储的 Snapshot 备份时， SnapCenter 服务将执行以下任务：</block>
-  <block id="d2e951ca13f9e58621f474ee64f428fc" category="list-text">创建 SAP HANA 备份保存点，以便在持久性层上创建一致的映像。</block>
-  <block id="112655e890c92e138e4566ac869fe122" category="list-text">创建数据卷的存储 Snapshot 副本。</block>
-  <block id="1725e19786612d1400818458b63e58d7" category="list-text">在 SAP HANA 备份目录中注册存储 Snapshot 备份。</block>
-  <block id="ca1b46a6963bec99dbe20ebc6424435b" category="list-text">发布 SAP HANA 备份保存点。</block>
-  <block id="f9cdcd84078b2b2649ac85030780933e" category="list-text">根据定义的保留策略删除 SAP HANA 备份目录条目。</block>
-  <block id="5ca3489e80f6152b2d8aecfe53ccc9dc" category="list-text">手动删除数据备份或根据保留策略删除数据备份后， SnapCenter 服务将删除早于最旧数据备份的所有日志备份。日志备份会在文件系统和 SAP HANA 备份目录中删除。</block>
   <block id="8c58572df982588195422e103d78a3e6" category="section-title">支持的 SAP HANA 版本和配置</block>
-  <block id="b323a1d0dcf8738aa7b338c866b95b06" category="paragraph">SnapCenter 服务支持连接到 Azure NetApp Files 卷的 SAP HANA 单主机和多主机配置。</block>
-  <block id="3ffc2027ba87c86efc55d7dc1595eef5" category="paragraph">SnapCenter 服务支持以下 SAP HANA 架构和版本：</block>
-  <block id="d0082d9d42295191298725dfc4b3f13f" category="list-text">SAP HANA 单个容器：</block>
-  <block id="b36898c984276a65e01650b8d66dba2c" category="list-text">SAP HANA 1.0 SPS12</block>
-  <block id="7f03f048fc01e029f9de2b2040cda627" category="list-text">具有单个或多个租户的 SAP HANA 多租户数据库容器（ MDG ）：</block>
-  <block id="9fc3ca038c1021071d24bcaa3d340a5e" category="list-text">SAP HANA 2.0 SPS4 及更高版本</block>
-  <block id="8881e88674192057b3be14c6b7788169" category="admonition">SAP 引入了对 MDC 系统的 Snapshot 备份支持，其中 HANA 2.0 SP1 适用于单租户系统， HANA 2.0 SPS4 适用于多租户系统。</block>
-  <block id="02f47ec656d99bcbbf1da968e37ee0e4" category="paragraph">不支持将数据 Snapshot 备份与 SnapCenter 服务和日志备份与后置解决方案结合使用。必须将日志备份配置为写入文件系统。</block>
-  <block id="c5cf6d1aaefb48b7ecce6b76b7bf4377" category="summary">本节介绍单个主机 SAP HANA MDC 单租户系统 PR1 的配置步骤。对于具有多个租户的 MDC 系统，这些步骤是相同的。单容器或多主机系统的差异反映在相应的配置步骤中。</block>
-  <block id="1e0b0af2e5976ca0d68476842f63a961" category="doc">SAP HANA 数据库备份的备份配置</block>
-  <block id="96fd386fc78511ec708b5f89a5e85c93" category="section-title">SAP HANA 备份用户</block>
-  <block id="ae5cc33fb02346fe0cfec7ae6d846748" category="paragraph">NetApp 建议在 HANA 数据库中配置一个专用数据库用户，以便使用 SnapCenter 服务运行备份操作。在 SnapCenter 服务中配置 HANA 系统期间，会为此备份用户配置一个 HANA 数据库用户存储密钥，此用户存储密钥用于与 HANA 系统进行通信。</block>
-  <block id="323057ceab34358b57b52c92a656eddb" category="paragraph">下图显示了 SAP HANA Studio 的屏幕截图，您可以通过该屏幕截图创建备份用户。</block>
-  <block id="706ab08e71b4ef3e93a8e6554d43abac" category="admonition">在 SAP HANA 2.0 SPS5 版本中更改了所需权限：需要备份管理员，目录读取，数据库备份管理员和数据库恢复操作员。对于早期版本，备份管理员和目录读取已足够。</block>
-  <block id="155e4efaa10fc07a830e4493452fe728" category="paragraph">对于具有单个或多个租户的 SAP HANA MDC 系统，您必须在系统数据库中创建用户，因为系统和租户数据库的所有备份命令都是使用系统数据库执行的。</block>
-  <block id="1bd4aa52f31e2d00c3dd83de61553497" category="paragraph"><block ref="1bd4aa52f31e2d00c3dd83de61553497" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="b151fd7ea7a9adade0edeca2c426a5e3" category="section-title">SnapCenter 服务中的 SAP HANA 系统配置</block>
-  <block id="e7b0b924b5ed369d4e99d4d3eaa3e0ee" category="paragraph">要在 SnapCenter 服务中配置 SAP HANA 系统 PR1 ，请执行以下步骤：</block>
-  <block id="5797aade36d870ca1067f0dfcd56a065" category="list-text">在 System Details 屏幕中，选择系统类型 HANA Single Container 或 Multitenant Database Container 。提供 HANA 系统的 SID ，并输入您选择的任何文本作为系统名称。</block>
-  <block id="613d8b8cb114bc11b685bc96403de15b" category="list-text">要添加 HANA 数据库用户存储密钥，请单击添加密钥。</block>
-  <block id="40b46241283410e33c54e30319bb6338" category="paragraph"><block ref="40b46241283410e33c54e30319bb6338" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="c94e84cfd2c8f1c453fc3c2381229819" category="list-text">输入用于为 HANA 数据库配置用户存储密钥的信息。您可以提供任何名称作为密钥名称。</block>
-  <block id="43d191ac766077c43ced8115cca3a9a6" category="paragraph">系统详细信息包括使用 hdbsql. 客户端与系统数据库通信的 IP 地址和端口。在 SAP HANA MDC 单租户设置中，端口 `3&lt;instanceNo&gt;13` 是用于通过 SQL 访问系统数据库的标准端口。对于 SAP HANA 单容器设置，端口 `3&lt;instanceNo&gt;15` 是用于通过 SQL 访问索引服务器的标准端口，必须在配置中使用。对于 SAP HANA 多主机设置，您必须为所有主机配置用户存储密钥。SnapCenter 服务会尝试使用提供的每个密钥连接到数据库，因此，它可以独立于将 SAP HANA 服务故障转移到其他主机而运行。</block>
-  <block id="57d0d87d5e1f9f0e3077c4e0130c2396" category="paragraph">您必须在先前配置的系统数据库中提供数据库用户的用户名和密码。SnapCenter 会使用此信息自动创建用户存储密钥，并使用该密钥与 HANA 数据库进行通信。</block>
-  <block id="4199e35f9107a5b135bef7d955a407e5" category="list-text">要继续，请单击添加。</block>
-  <block id="f1d2f1ce56b2bb8d06b1abc1d2135ff6" category="paragraph"><block ref="f1d2f1ce56b2bb8d06b1abc1d2135ff6" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="46fdcb6f81375bebee02fe50b677ece1" category="list-text">要继续进行存储占用空间配置，请单击 Continue 。</block>
-  <block id="2dd05f70f18a5bb23c378d5fbbe2e42e" category="paragraph"><block ref="2dd05f70f18a5bb23c378d5fbbe2e42e" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="fd824238a9ba64f6ef264d08ffac7e6d" category="list-text">输入 HANA 系统存储卷的信息。</block>
-  <block id="2c4bda86dd6050d761eb53c6b714006c" category="paragraph">选择用于 HANA 系统的 Azure NetApp Files 卷的工作环境和 NetApp 帐户。选择 HANA 系统的数据卷，例如 `PR1_data_mnt00001` 。</block>
-  <block id="68dc07d3e66bb8b9f2f47a7738efb57c" category="paragraph">对于 SAP HANA 多主机系统，您必须选择属于该系统的所有 HANA 主机的数据卷。</block>
-  <block id="39c12777853784dcb05f66bd28e07c0f" category="paragraph"><block ref="39c12777853784dcb05f66bd28e07c0f" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="3996d49b22d9c9c24453e24f665d066d" category="paragraph"><block ref="3996d49b22d9c9c24453e24f665d066d" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="7c45c4239510799b1244b2416d09d676" category="paragraph"><block ref="7c45c4239510799b1244b2416d09d676" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="8821bc68198d2bee69fc0c059d5c7074" category="list-text">要添加 HANA 系统，请单击添加。</block>
-  <block id="918fa8308dcf70523aacedcd6ed64ef4" category="paragraph"><block ref="918fa8308dcf70523aacedcd6ed64ef4" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="f2959ceb3422f00c5120421079814379" category="list-text">要继续进行保护配置，请单击继续。</block>
-  <block id="317038b7d8cdb65d7fb252dd409d5749" category="paragraph"><block ref="317038b7d8cdb65d7fb252dd409d5749" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="e250e698b6248c7c2871de43fd559d22" category="paragraph">此屏幕将显示已在 SnapCenter 服务中配置的所有策略。</block>
-  <block id="c6260cbe3279e7f723b7c93f8a651e2f" category="paragraph"><block ref="c6260cbe3279e7f723b7c93f8a651e2f" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="fc11b711059f89fd2ffd442417b8bec0" category="list-text">选择要分配的策略。例如，已选择先前创建的策略 `SnapshotEvery4h` 和 `BlockIntegrityCheckEverySunday` 。</block>
-  <block id="828828865ca7da7b88b4a545cba55ab3" category="list-text">要将策略分配给 HANA 系统，请单击保护。</block>
-  <block id="9afa7a3390d4dba10e8eee239a0ef9bf" category="paragraph"><block ref="9afa7a3390d4dba10e8eee239a0ef9bf" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="5a40f08077205a6f76619d7b1b6a603a" category="paragraph">HANA 系统概述屏幕将显示 HANA 系统和已分配的策略。</block>
-  <block id="244ec2ad0516b8cdacf9a313213eccef" category="paragraph"><block ref="244ec2ad0516b8cdacf9a313213eccef" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="f6abb193bba1d93cd1d8efa634a2329a" category="summary">您可以使用 Azure NetApp Files NetApp Snapshot 技术在几秒钟内创建数据库备份。创建 Snapshot 副本所需的时间与数据库大小无关，因为 Snapshot 副本不会移动存储平台上的任何物理数据块。</block>
   <block id="c8d591b036c6345c614160fd9eb8e2b7" category="doc">NetApp 解决方案</block>
-  <block id="2ebb083abaceade8f44332cae5485ba2" category="paragraph">Snapshot 副本还为还原和恢复操作提供了主要优势。通过卷还原操作，可以根据可用的 Snapshot 副本将整个数据库还原到任意时间点。无论数据库大小如何，此类还原过程都只需几秒钟即可完成。由于在一天中会创建多个联机 Snapshot 备份，因此与传统备份方法相比，恢复过程所需的时间显著减少。由于还原操作可以使用仅使用几小时（而不是长达 24 小时）的 Snapshot 副本执行，因此必须应用较少的事务日志。因此， RTO 会减少到几分钟，而不是传统单周期备份所需的几小时。</block>
-  <block id="e81a23c90bcd08439a9b2d05e1beb7e9" category="paragraph">Snapshot 副本备份与活动联机数据存储在同一磁盘系统上。因此， NetApp 建议使用 Snapshot 副本备份作为对备份到二级位置的补充，而不是替代。大多数还原和恢复操作都通过在主存储系统上使用卷还原操作来处理。只有当包含 Snapshot 副本的主存储系统损坏时，才需要从二级位置进行还原。如果需要还原 Snapshot 副本不再提供的备份，您可以使用二级位置。</block>
-  <block id="801c4dbc93a2380fd76a696d4d2cbaef" category="paragraph">您可以使用其他基于 HANA 文件的备份将数据备份到二级位置。这些基于文件的备份的计划频率可以低得多，因此对生产系统性能的影响更小。</block>
-  <block id="d12697a8436cf2e3a402762a77a048c0" category="paragraph">使用 Azure NetApp Files 跨区域复制进行灾难恢复时，所有 Snapshot 备份也会复制到灾难恢复站点，然后也可用作卸载的二级备份。另请参见 <block ref="740f3adf0802fd87853d8b9936383548" category="inline-link-macro-rx"></block>。</block>
-  <block id="7e3fab300f8b9c27df359d4f37143388" category="paragraph">此外，您还可以使用 Azure AzCopy 工具将 Snapshot 副本卸载到 Azure Blob 存储中，以便长期保留。这需要在 SnapCenter 服务之外编写其他脚本。</block>
-  <block id="68abaa409daa7276f9a376de2b9f6392" category="paragraph">下图显示了使用 Snapshot 备份和基于文件的备份的数据保护配置示例。</block>
-  <block id="603d9f91994411bb7967e675e77311ee" category="paragraph"><block ref="603d9f91994411bb7967e675e77311ee" category="inline-image-macro-rx" type="image"></block></block>
   <block id="923600a8a9a4e2aae6be8141e3fc623d" category="section-title">Snapshot 备份的运行时</block>
-  <block id="39d0292dad0b1a2340ddde83310663f0" category="paragraph">下图显示了在 NetApp 存储上运行 SAP HANA 的客户 HANA Studio 的屏幕截图。客户正在使用 NetApp Snapshot 副本备份 HANA 数据库。如图所示，使用 Snapshot 备份技术， HANA 数据库（大约 2.3 TB ）将在 2 分 11 秒内进行备份。</block>
-  <block id="0728953f27abcfcf0f5a48611f023e7b" category="paragraph">整个备份工作流运行时间的最大一部分是执行 HANA 备份保存点操作所需的时间，此步骤取决于 HANA 数据库上的负载。存储 Snapshot 备份本身始终会在几秒钟内完成。</block>
-  <block id="669ab851eeb3a8411d3d7ae76e96ee39" category="paragraph"><block ref="669ab851eeb3a8411d3d7ae76e96ee39" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="e5efbe10bb7701eb586ebee707440780" category="section-title">恢复时间目标比较</block>
   <block id="20225b7353738f995acfabb75d63c79e" category="paragraph">本节将对基于文件的 Snapshot 备份和基于存储的 Snapshot 备份进行 RTO 比较。RTO 由还原数据库所需时间与启动和恢复数据库所需时间之和定义。</block>
   <block id="3595bb49b6abd88938e481ccc0d97119" category="section-title">还原数据库所需的时间</block>
-  <block id="2086c34c5fcb78e99ca4048120bc7110" category="paragraph">对于基于文件的备份，还原时间取决于数据库和备份基础架构的大小，该基础架构定义了还原速度，以 MB/ 秒（ MBps ）为单位。例如，如果基础架构支持以 250 MBps 的速度执行还原操作，则还原大小为 1 TB 的数据库大约需要 1 小时 10 分钟。</block>
-  <block id="734c0257edd444ea4e4a4c7244dd3a70" category="paragraph">对于存储 Snapshot 副本备份，还原时间与数据库大小无关，并且在几秒内您可以从主存储执行还原。只有在主存储不再可用时发生灾难时，才需要从基于文件的备份进行还原。</block>
   <block id="9abaa35fafe6af9114d3f925f652af20" category="section-title">启动数据库所需的时间</block>
-  <block id="9401d20567357a55fcb926176c55cd2c" category="paragraph">数据库开始时间取决于行和列存储的大小。对于列存储，开始时间还取决于数据库启动期间预加载的数据量。在以下示例中，我们假定开始时间为 30 分钟。基于文件的还原和恢复以及基于 Snapshot 副本的还原和恢复的开始时间相同。</block>
   <block id="60ea11645c6193ef1631453b24f6f3ca" category="section-title">恢复数据库所需的时间</block>
   <block id="5cec17cdb7f328cdc9f69b7b0a90d673" category="paragraph">恢复时间取决于还原后必须应用的日志数量。此数字由执行数据备份的频率决定。</block>
-  <block id="9f2b4e5d673b11f5fdf4bcfddcf48a04" category="paragraph">对于基于文件的数据备份，备份计划通常每天执行一次。通常无法实现较高的备份频率，因为备份会降低生产性能。因此，在最坏的情况下，在该日写入的所有日志都必须在正向恢复期间应用。</block>
-  <block id="c8fc17a4b5cbe5712cf0e2c5646fab70" category="paragraph">通常， Storage Snapshot 副本数据备份的计划频率较高，因为它们不会影响 SAP HANA 数据库的性能。例如，如果 Snapshot 副本备份每六小时计划一次，则在最坏的情况下，恢复时间是基于文件的备份恢复时间的四分之一（ 6 小时 /24 小时 = 1/4 ）。</block>
   <block id="bd187d40a614fe4ea78dfa6fca960882" category="paragraph">下图显示了使用基于文件的数据备份时 1 TB 数据库的 RTO 示例。在此示例中，每天执行一次备份。RTO 因执行还原和恢复的时间而异。如果在创建备份后立即执行还原和恢复，则 RTO 主要基于还原时间，在示例中为 1 小时 10 分钟。在进行下次备份之前立即执行还原和恢复时，恢复时间增加到 2 小时 50 分钟，最大 RTO 为 4 小时 30 分钟。</block>
-  <block id="4b5d9b19b6c0f5b959bb24c931e6069d" category="paragraph"><block ref="4b5d9b19b6c0f5b959bb24c931e6069d" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="05aa3d0c2261d11a19a1f1c4213701ec" category="paragraph">下图显示了使用 Snapshot 备份时 1 TB 数据库的 RTO 示例。对于基于存储的 Snapshot 备份， RTO 仅取决于数据库开始时间和正向恢复时间，因为还原操作会在几秒钟内完成，而与数据库大小无关。根据还原和恢复的完成时间，正向恢复时间也会增加，但由于备份频率较高（在此示例中为每 6 小时），正向恢复时间最多为 43 分钟。在此示例中，最大 RTO 为 1 小时 13 分钟。</block>
-  <block id="bbe02f6f76f1d01967dd1f8c204911f8" category="paragraph"><block ref="bbe02f6f76f1d01967dd1f8c204911f8" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a61c800d17b38f8aa5ba586ab3ca9a7b" category="paragraph">下图显示了不同数据库大小和不同 Snapshot 备份频率下基于文件和基于存储的 Snapshot 备份的 RTO 比较。绿色条显示了基于文件的备份。其他条形显示备份频率不同的 Snapshot 副本备份。</block>
-  <block id="58f1809e35b97ffff67002917b1f346b" category="paragraph">与基于文件的数据备份相比，每天只需备份一个 Snapshot 副本数据， RTO 便可减少 40% 。如果每天执行四个 Snapshot 备份，则减少量将增加到 70% 。此图还显示，如果将 Snapshot 备份频率提高到每天四到六个以上的 Snapshot 备份，则此曲线将保持平稳。因此，我们的客户通常每天配置四到六个 Snapshot 备份。</block>
-  <block id="0468ca46027d9922a194531c6a1af892" category="paragraph"><block ref="0468ca46027d9922a194531c6a1af892" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="e646dcbc21c9386c4319fc66342eaed2" category="paragraph">此图显示了 HANA 服务器 RAM 大小。计算内存中的数据库大小等于服务器 RAM 大小的一半。</block>
-  <block id="27a5339355631306e0eeb66ec61f8aaf" category="paragraph">还原和恢复时间是根据以下假设计算的：数据库可以以 250 MBps 的速度进行还原；每天的日志文件数是数据库大小的 50% （例如， 1 TB 数据库每天创建 500 MB 的日志文件）； 并且可以在 100 Mbps 的速度下执行恢复。</block>
-  <block id="a06fe30236099001fb8865692c8ec7e3" category="paragraph">SnapCenter 服务会根据 SnapCenter 服务备份策略中定义的保留期限删除存储和 SnapCenter 服务存储库中的 Snapshot 副本，从而处理 SAP HANA 数据库备份和非数据卷备份的后台管理。</block>
   <block id="9146086648c59ec16c636f6376bdfd2e" category="paragraph">保留管理逻辑会对 SnapCenter 中的每个备份工作流执行。</block>
-  <block id="dbe479d1c7a378f616224ba6a3d956b0" category="paragraph"><block ref="dbe479d1c7a378f616224ba6a3d956b0" category="inline-image-macro-rx" type="image"></block></block>
   <block id="253e2318e8893b42b0160e70f2371673" category="summary">讨论 SAP 备份，还原和灾难恢复的系列博客</block>
   <block id="3c076a182be1751030f4612f09c54ab2" category="doc">SAP 备份，还原和灾难恢复博客</block>
   <block id="dcfb0772c9f2c9e98d41f5f0e799a89a" category="paragraph">重点介绍 SAP 备份，还原和灾难恢复的博客概述。</block>
@@ -2472,7 +2114,6 @@
   <block id="118abb1eac5a98e2067a4403636320af" category="paragraph">系统复制可以配置为使用异步复制，而不会在二级主机的内存中预加载任何表。此解决方案用于解决数据中心故障，故障转移操作通常是手动执行的。</block>
   <block id="6daa00da4eeb35d26853e03f23ef0546" category="paragraph">关于备份要求，您必须能够在数据中心 1 的正常运行期间以及数据中心 2 的灾难恢复期间创建备份。数据中心 1 和 2 中提供了一个单独的备份基础架构，备份操作会在灾难故障转移过程中激活。备份基础架构通常不会共享，无法对在另一数据中心创建的备份执行还原操作。</block>
   <block id="ff732da203a83da376d0205d280f1894" category="paragraph"><block ref="ff732da203a83da376d0205d280f1894" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="0d29acf224f492a80bc68566c1ad4948" category="paragraph"><block ref="0d29acf224f492a80bc68566c1ad4948" category="inline-link-macro-rx"></block></block>
   <block id="0844bd2427e754de1d07ca91d15284a5" category="cell">文档版本历史记录</block>
   <block id="77fce67ff1ced73f063cdd19c439b627" category="cell">2018 年 10 月</block>
   <block id="b9365bb9132d1eb8770275a763fc5d69" category="cell">2022 年 1 月</block>
@@ -4782,8 +4423,6 @@
   <block id="7205bef5fdf399d26803842e613171b9" category="paragraph">SnapCenter 负责管理由 NetApp 提供支持的 Data Fabric 中各个端点的数据。您可以使用 SnapCenter 在内部环境之间，内部环境与云之间以及私有云，混合云或公有 云之间复制数据。</block>
   <block id="99aee71b2e977cb3ae318b3974922009" category="paragraph">非数据卷的备份是SnapCenter 和SAP HANA插件的集成部分。</block>
   <block id="b9ddafc817b66c2009ab0b655b47ffdb" category="paragraph">保护数据库数据卷足以将SAP HANA数据库还原和恢复到给定时间点、前提是数据库安装资源和所需日志仍然可用。</block>
-  <block id="748f2d9387e22ee35bef7c7ea7edb1cc" category="summary">您应了解SnapCenter服务概念和最佳实践。例如、必须为备份操作配置各种策略。</block>
-  <block id="d9a740d20b793eff970ef7b38abbf713" category="paragraph">此外，使用 Snapshot 技术不会影响实时 SAP 系统的性能。因此，您可以计划创建 Snapshot 副本，而无需考虑对话峰值或批处理活动期间。基于 Azure NetApp Files 的 SAP 客户通常会在一天内计划多个联机 Snapshot 备份；例如，每四小时备份一次很常见。这些 Snapshot 备份通常会在主存储系统上保留三到五天，然后再被删除。</block>
   <block id="6f785e59ccbb0faf46940f1b40c97679" category="paragraph">SnapCenter 负责管理由 NetApp 提供支持的 Data Fabric 中各个端点的数据。您可以使用SnapCenter在内部环境之间、内部环境与云之间以及私有云、混合云或公共云之间复制数据。</block>
   <block id="e2922c15d6a12ab190ba48a18a884e5b" category="paragraph">只有具有故障转移功能的多主机环境才需要存储连接器。在多主机设置中， SAP HANA 可提供高可用性功能，以便 SAP HANA 数据库主机可以故障转移到备用主机。</block>
   <block id="e7e858cb5e5ec45f7483826c4922e4a2" category="paragraph">在这种情况下，备用主机将访问并使用故障主机的 LUN 。存储连接器用于确保一次只能由一个数据库主机主动访问存储分区。</block>
@@ -4793,7 +4432,6 @@
   <block id="d8535d2acd7e24f64c8caeb65fde3cad" category="paragraph">如上一节所述、SnapCenter 可以从任何现有Snapshot备份管理数据集的克隆、并可将这些数据集快速配置到任何目标系统。将生产数据配置到修复系统以解决逻辑损坏的速度至关重要、因为通常需要重置修复系统并选择其他生产数据集。</block>
   <block id="93f305eb7fa597fc876f2e0744abf06b" category="paragraph">这些系统刷新操作包括基础架构层、数据库层和应用程序层上的多个任务、它们可能需要数天时间、具体取决于自动化级别。</block>
   <block id="848bda1dea8289263932caf2d35de15b" category="paragraph">这些系统更新操作包括基础架构层、数据库层和应用程序层上的多个任务、它们可能需要数天时间、具体取决于自动化级别。</block>
-  <block id="c673a1530232358f588ada362c289d7f" category="sidebar">从何处查找追加信息</block>
   <block id="e08842ba37eacff4f1a5b7fcf9749dc3" category="paragraph">。<block ref="6f72acaebcb9a0de6696aaf3508a6144" prefix=" " category="inline-code"></block> 参数必须在中设置<block ref="8ad2bc27658297501e1a64bf77a1fd56" prefix=" " category="inline-code"></block>。如果此文件不存在，则必须先通过添加以下行来创建它：</block>
   <block id="b7de930c0dd2d22c43e147a8da62d970" category="admonition">性能测试表明了这一点<block ref="6ad27604f562c1a2600540bd7f1094d4" prefix=" " category="inline-code"></block> 可提供良好的读取结果、尤其是对数据卷。日志写入可能会因会话数较少而受益、例如<block ref="b3e16d81f1f84d087c55c1815a58a64c" prefix=" " category="inline-code"></block>。使用"nconnect"选项也可能有利于共享卷。请注意，从 NFS 服务器进行的首次挂载（ IP 地址）会定义所使用的会话量。即使nconnect使用不同的值、进一步挂载到同一IP地址也不会更改此设置。</block>
   <block id="d7d1e0b01aa98fdaaa388843234520d5" category="admonition">从ONTAP 9.8和SUSE SLES15SP2或RedHat RHEL 8.4或更高版本开始、NetApp也支持NFSv4.1的nconnect选项。</block>
@@ -4812,4 +4450,43 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
 会话插槽数量等于&lt;nconnect value&gt; x 64。
 在主机上、这将由进行配置<block ref="0e1f4d10d02df866bcbb3247ad4ee7bd" prefix=" " category="inline-code"></block>
 然后重新启动。此外、还必须调整服务器端值、并按照中所述设置会话插槽的数量 <block ref="f5e012a6f36bf833f75aec36ff8eee0f" category="inline-link-macro-rx"></block></block>
+  <block id="093a45d87b6b8692e6c9a73c1a04c137" category="doc">从何处查找追加信息和版本历史记录</block>
+  <block id="e66b5a3c6799dcc5dd4039a58085fb38" category="cell">2017年9月</block>
+  <block id="3258056add985fc8ba4192b41052b298" category="list-text">添加了 " 高级配置和调整 " 一节。</block>
+  <block id="0974990f1aa38ac1b1e2c8f4400eccac" category="list-text">轻微更正。</block>
+  <block id="74620215d33d2f9ad06a873cdf9e8acc" category="cell">2018年3月</block>
+  <block id="1a2873a5ec0a90d66c68fa26956cbcbd" category="list-text">SnapCenter 4.0更新：
+新的数据卷资源
+改进了单文件SnapRestore操作</block>
+  <block id="d835981d77534f5f20446d4648ad7e5b" category="cell">2020年1月</block>
+  <block id="26d5841054625c4dbc06dd193b24fcb1" category="list-text">添加了 SnapCenter 概念和最佳实践一节。</block>
+  <block id="bc72571f701d3a6cec52ab446894c3c2" category="list-text">SnapCenter 4.3更新：
+自动发现
+自动还原和恢复
+支持HANA多个租户的多个被租户
+单租户还原操作</block>
+  <block id="ca82c7bf0a12e1bd7623c916688916ff" category="cell">2020 年 7 月</block>
+  <block id="519da123e1e4d0cb2656dd6dc21b7cda" category="list-text">少量更新和更正：
+SnapCenter 4.3.1支持NFSv4
+配置SSL通信
+在IBM Power上为Linux集中部署插件</block>
+  <block id="0e347c50a0d60b8f46cb8c37cd3b5088" category="cell">2020年11月</block>
+  <block id="1ec08d2f146139e95c0cb9a18141800f" category="list-text">已为 HANA 2.0 SPS5 添加所需的数据库用户权限。</block>
+  <block id="0933d4dd2ad52707372be6b67b620890" category="cell">2021年5月</block>
+  <block id="e43d99222de98514f5024501d09b7a47" category="list-text">已更新 SSL hdbsql" 配置 " 部分。</block>
+  <block id="2e7bd301fd3aa711e492f5d75ba83f00" category="list-text">增加了对 Linux LVM 的支持。</block>
+  <block id="248f830b158797f9c038ea35ea266b89" category="cell">2021年8月</block>
+  <block id="0c8b3ad778d3f01ad1babbee4416272f" category="list-text">已添加禁用自动发现配置问题描述 。</block>
+  <block id="9209b4ae424c71673a607557c64f7eb8" category="cell">2022年2月</block>
+  <block id="4528f584aae52b626f3142db1586b578" category="list-text">对 SnapCenter 4.6 进行了少量更新，并支持对启用了 HANA 系统复制的 HANA 系统进行自动发现。</block>
+  <block id="b56a5394775a9f077c12cb3e770d913c" category="cell">2022年5月</block>
+  <block id="abb14d21829ba186172f6e1d0b64b55b" category="cell">2023年1月</block>
+  <block id="dfd02aef9802f4824ead7c08b8f81f1f" category="cell">初始版本。</block>
+  <block id="36098c0d1c3de71d8727b1543bace633" category="cell">2022年4月</block>
+  <block id="c7b0e86345062bedaccd6a5198bf3a08" category="section-title">版本历史记录</block>
+  <block id="95798f037b7bacec7599a19423a6bb64" category="cell">2018 年 2 月</block>
+  <block id="4a6be73b305b889cfd4f3834bd0f1680" category="cell">涵盖SnapCenter 4.3和改进的自动化脚本的完整重写。
+适用于系统刷新和系统克隆操作的新工作流问题描述。</block>
+  <block id="23bb02d00145cbbee811d75260628934" category="cell">已更新SnapCenter 4.6 P1的工作流。</block>
+  <block id="8e070ffcf4d959eabcd3559b9bb17ec6" category="sidebar">从何处查找追加信息 和版本历史记录</block>
 </blocks>

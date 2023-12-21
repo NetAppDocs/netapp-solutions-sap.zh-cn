@@ -4,7 +4,7 @@ permalink: lifecycle/sc-copy-clone-where-to-find-additional-information.html
 keywords:  
 summary:  
 ---
-= 从何处查找追加信息
+= 从何处查找追加信息和版本历史记录
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -41,3 +41,21 @@ https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_introducti
 http://www.netapp.com/us/solutions/applications/sap/index.aspx["http://www.netapp.com/us/solutions/applications/sap/index.aspx"^]
 
 
+
+
+
+== 版本历史记录
+
+|===
+| version | Date | 文档版本历史记录 
+
+
+| 版本 1.0 | 2018 年 2 月 | 初始版本。 
+
+
+| 版本 2.0 | 2021年2月 | 涵盖SnapCenter 4.3和改进的自动化脚本的完整重写。
+适用于系统刷新和系统克隆操作的新工作流问题描述。 
+
+
+| 版本 3.0 | 2022年5月 | 已更新SnapCenter 4.6 P1的工作流。 
+|===

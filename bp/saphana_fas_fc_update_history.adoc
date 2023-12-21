@@ -13,8 +13,6 @@ summary:
 :imagesdir: ./../media/
 
 
-link:saphana_fas_fc_where_to_find_additional_information.html["上一步：从何处查找追加信息。"]
-
 自此解决方案最初发布以来，已对其进行了以下技术更改。
 
 [cols="25,25,50"]

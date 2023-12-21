@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar 
-permalink: backup/saphana-backup-anf-version-history.html 
+permalink: backup/saphana-sr-scs-version-history.html 
 keywords:  
 summary:  
 ---
@@ -13,11 +13,12 @@ summary:
 :imagesdir: ./../media/
 
 
-link:saphana-backup-anf-additional-information.html["上一步：追加信息。"]
-
 |===
 | version | Date | 文档版本历史记录 
 
 
-| 版本 1.0 | 2021年10月 | 初始版本。 
+| 版本 1.0 | 2018 年 10 月 | 初始版本 
+
+
+| 版本 2.0 | 2022 年 1 月 | 更新以涵盖 SnapCenter 4.6 HANA 系统复制支持 
 |===

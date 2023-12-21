@@ -33,6 +33,8 @@ entries:
       url: "/bp/saphana_aff_fc_adding_additional_data_volume_partitions_for_sap_hana_single-host_systems.html"
   - title: 从何处查找追加信息
     url: "/bp/saphana_aff_fc_where_to_find_additional_information.html"
+  - title: 更新历史记录
+    url: "/bp/saphana_aff_fc_update_history.html"
 - title: "《采用 NFS 的 NetApp AFF 系统上的 SAP HANA 配置指南》"
   type: solutions
   entries:
@@ -64,6 +66,8 @@ entries:
       url: "/bp/saphana_aff_nfs_adding_additional_data_volume_partitions.html"
   - title: 从何处查找追加信息
     url: "/bp/saphana_aff_nfs_where_to_find_additional_information.html"
+  - title: 更新历史记录
+    url: "/bp/saphana_aff_nfs_update_history.html"
 - title: "《采用 NFS 的 NetApp FAS 系统上的 SAP HANA 配置指南》"
   type: solutions
   entries:
@@ -95,6 +99,8 @@ entries:
       url: "/bp/saphana-fas-nfs_adding_additional_data_volume_partitions.html"
   - title: 从何处查找追加信息
     url: "/bp/saphana-fas-nfs_where_to_find_additional_information.html"
+  - title: 更新历史记录
+    url: "/bp/saphana-fas-nfs_update_history.html"
 - title: "《采用 FCP 的 FAS 系统上的 SAP HANA 配置指南》"
   type: solutions
   entries:
@@ -126,6 +132,8 @@ entries:
       url: "/bp/saphana_fas_fc_adding_additional_data_volume_partitions_for_sap_hana_single-host_systems.html"
   - title: 从何处查找追加信息
     url: "/bp/saphana_fas_fc_where_to_find_additional_information.html"
+  - title: 更新历史记录
+    url: "/bp/saphana_fas_fc_update_history.html"
 - title: 基于 IBM Power Systems 的 SAP HANA 和采用 NFS 的 NetApp AFF 系统
   url: "/bp/saphana-ibm-aff-nfs_pdf_link.html"
 - title: SAP 与基于 UNIX 的 Oracle 以及 NFS 与 NetApp ONTAP
