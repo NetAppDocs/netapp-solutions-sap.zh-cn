@@ -1887,13 +1887,6 @@
   <block id="dd8cf04faf0e63219895ef355bac05f9" category="summary">讨论 SAP 生命周期管理的系列博客</block>
   <block id="ab6524564d590a2cf59d10dcc63ff99e" category="paragraph">重点介绍 SAP 生命周期管理的博客概述。</block>
   <block id="b45ecd3afcfa865514a59b475de3e93e" category="sidebar">FlexPod SAP 解决方案</block>
-  <block id="0500aa4516d90775e7cd20e0b45fa4ad" category="sidebar">配置最佳实践</block>
-  <block id="bb5dc731b06d417365e41cb2d0230213" category="sidebar">视频演示</block>
-  <block id="d6b9ea32b921a9f56de32062ba4b94f3" category="sidebar">博客</block>
-  <block id="8625e1de7be14c39b1d14dc03d822497" category="sidebar">工具</block>
-  <block id="1f934c6200615c74e6839ca55ae1e6cf" category="sidebar">备份，还原和灾难恢复</block>
-  <block id="d57e0763c47c99218375572fbdd307a1" category="sidebar">所有 SAP 解决方案</block>
-  <block id="91770f038cd944a1d3b9b347edeb2b10" category="sidebar">新增功能</block>
   <block id="cd0aa799857a204938b1d6cabb99618f" category="doc">SAP 的新增功能</block>
   <block id="243e854b0d7da6e16a4a87f0f9ea87ba" category="paragraph">要了解有关本文档中所述信息的更多信息，请参见以下文档：</block>
   <block id="b1cd4632a9cd8998e7a0017f528fcc5b" category="list-text">利用 SnapCenter 自动执行 SAP HANA 系统复制和克隆操作</block>
@@ -4489,4 +4482,196 @@ SnapCenter 4.3.1支持NFSv4
 适用于系统刷新和系统克隆操作的新工作流问题描述。</block>
   <block id="23bb02d00145cbbee811d75260628934" category="cell">已更新SnapCenter 4.6 P1的工作流。</block>
   <block id="8e070ffcf4d959eabcd3559b9bb17ec6" category="sidebar">从何处查找追加信息 和版本历史记录</block>
+  <block id="2c7a6a1ad3b3855b3dd5766cc2c1b15c" category="summary">本节介绍如何使用BlueXP还原SAP HANA备份。</block>
+  <block id="8513aa8ec75c0057744a444420581eac" category="doc">正在还原SAP HANA BlueXP备份</block>
+  <block id="630146410475bf00902dbc3588f48b64" category="paragraph">只能从备份还原到云中基于NetApp ONTAP的内部存储系统或NetApp CVO。可以通过执行以下步骤来执行还原：</block>
+  <block id="ae9c703fb18f8c682d52518823ea9112" category="list-text">在BlueXP用户界面中，单击  *保护*&gt; *备份和恢复  *&gt;*应用程序*，然后选择混合。</block>
+  <block id="16365f9a8d0b7866f7271510a28d1db2" category="list-text">在 *Filter by * 字段中，选择过滤器 *Type* ，然后从下拉列表中选择 *HARA*。</block>
+  <block id="7bff1872092b4daae129c007c84cd996" category="inline-image-macro">hana hycl-back-image38、宽度=624、高度=305</block>
+  <block id="14a2a4f505cd6a440ad11540cab0ac21" category="list-text">单击  与要还原的数据库对应的*查看详细信息*。+
+<block ref="6f8d75fb488649758851cccdb2cccf08" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5f61ef6ad90ff324226ee7a59e0654e9" category="inline-image-macro">Ein Bild、ds Text、Screenshot、Software、ComputerSymbol enthält。自动化通用Beschreirbeng、宽度= 624、高度= 308</block>
+  <block id="a8da112ff7dee33cb98f2529795ab713" category="list-text">选择所需的备份、然后选择存储导出。+
+<block ref="9aaddfa4a9aab7d77d4d5c4b41b52fa5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="25ea55983026f4468585a3cae84e6791" category="list-text">提供所需选项：+
+<block ref="e7942ad51c3862961e4d988dd1f7ab9f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="47abe672471325a3aa63fcd85f6e3367" category="list-text">对于NAS环境、指定要将从对象存储还原的卷导出到的主机的FQDN或IP地址。</block>
+  <block id="831b20d8b0ff4f1e50aecadcdcdc885d" category="list-text">对于SAN环境、指定从对象存储还原的卷的LUN要映射到的主机启动程序。</block>
+  <block id="eee7cd91c87d431eb526192fb8d8f8fa" category="list-text">如果快照位于归档存储中、请选择从归档存储还原数据的优先级。</block>
+  <block id="c309fef296cf37f3a835cb24529d8905" category="list-text">如果源存储上没有足够的空间或源存储已关闭，请选择 *更改存储位置*。</block>
+  <block id="7d7bd9e2f6791a41e19d3f4c2cfbd112" category="list-text">如果选择 *更改存储位置*，则可以在目标卷上附加后缀。如果未选中此复选框、则默认情况下  会将*_restore *附加到目标卷。单击 *Next*。</block>
+  <block id="09fbcde15932165bde251a10dbf240e4" category="list-text">如果选择了更改存储位置，请在存储映射页面中指定从对象存储还原的数据将存储在的备用存储位置详细信息，然后单击*Next*。</block>
+  <block id="c2dc9045e50399390c48484b265865e6" category="inline-image-macro">hana hycl-back-image41、宽度=624、高度=309</block>
+  <block id="4be067965fe33fc45487470a504acc33" category="list-text">查看详细信息，然后单击 *Restore*。+
+<block ref="3d53ce2d67869523c0b4d4e2b8793ead" category="inline-image-macro-rx" type="image"></block> +
+ +
+此操作仅会导出给定主机的已还原备份的存储。您必须在主机上手动挂载文件系统并启动数据库。使用此卷后、存储管理员可以从ONTAP 集群中删除此卷。</block>
+  <block id="e5c7ac753b7a6121d9687b3fc4c66f25" category="summary">本节介绍如何设置工作环境、如何配置SnapCenter以及如何在BlueXP中配置和激活SAP HANA备份。</block>
+  <block id="bba044fc5fd2c6b6b93f83b61a607e30" category="doc">为SAP HANA配置BlueXP备份和恢复</block>
+  <block id="84e76e0953f8a5f72d754729d1eaf1ae" category="section-title">为BlueXP创建工作环境</block>
+  <block id="851847077e55a1429d11ef6bceeb9643" category="paragraph">将内部部署存储系统添加到您的工作环境中。</block>
+  <block id="210e8952dc88c73e56d56a168cfe0616" category="list-text">在左侧菜单中选择*存储*-&gt;*帆布*-&gt;*我的工作*环境。</block>
+  <block id="6e0b32969c38b1fb3a586b9c8bca6d29" category="inline-image-macro">hana hycl-back-image2、宽度= 624、高度= 316</block>
+  <block id="32ae0c18f23bf987a305e455c9bf4aa0" category="list-text">按*+添加工作环境*。+
+<block ref="261aee93707d679c8ff49bd45c5fdb36" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="04c6fea5cff3e4aa7643ec678d204fdc" category="inline-image-macro">Ein Bild，ds text enthält。自动生成Beschreireng、宽度= 624、高度= 316</block>
+  <block id="39f551b5282050e99060de22a436c58a" category="list-text">选择*内部*。+
+<block ref="979960cde457e31c17b357bad0bff424" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f533acbef1172572a61dbd78994f609f" category="list-text">选择*发现内部部署ONTAP *。+
+<block ref="fcff6ce23c328c34a47627af2e770b21" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e67b31693fccd64a3bacc0e55452cae2" category="inline-image-macro">hana hycl-back-image5、宽度= 624、高度= 316</block>
+  <block id="c7be70f13b9e16d991fdbdcbd9c13aa3" category="list-text">添加ONTAP集群的IP地址和密码，然后按*Discover。+
+<block ref="d3f7db40d516cd6e5bc8ac0f9f7c0499" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="bea671570e246847e20efc713c53c69e" category="inline-image-macro">Ein Bild, ds Diagramm enthält自动生成Beschreireng、宽度= 624、高度= 316</block>
+  <block id="6f11afbe1eadae3cfe974f3dac60ace1" category="list-text">ONTAP集群现已可用。+
+<block ref="3fa4376934b792a48a60395e9737c899" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6689e50f5e4a08328fa676a7ebb07f17" category="section-title">在内部存储系统和对象存储分段之间创建关系</block>
+  <block id="eab79ca7fb49f80130fae7b1656f7ebc" category="inline-link">Amazon S3的网关端点- Amazon虚拟私有云</block>
+  <block id="53ab440b7f0ec4307a7446fefeb714d9" category="paragraph">内部存储与S3存储分段之间的关系是通过为卷创建备份或激活应用程序备份来实现的。如果要使用现有的站点到站点VPN将数据从内部传输到S3、则需要使用卷备份在内部存储和S3存储分段之间创建关系、因为需要使用VPC端点。+
+在创建本文档时、应用程序备份工作流不支持选择VPC端点来访问S3存储分段。+
+请参见<block ref="7f3b31b88f0e42104578f538777bc3e6" category="inline-link-rx"></block> 如何在VPC中为S3设置VPC端点。</block>
+  <block id="4513d4d932152177142c02ca2a383afc" category="paragraph">要创建第一个卷备份、请执行以下步骤：</block>
+  <block id="dd78ee4baa00b09244d3a2f25c867ae5" category="inline-image-macro">hana hycl-back-image7、宽度= 624、高度= 308</block>
+  <block id="e8467bba6a91bfb07a8de17e1fb2cd69" category="list-text">通过*保护*导航到*备份和恢复*并选择*卷*。+
+<block ref="11225c971b652ee3b6db7fe087c3aa5c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="271dec539afcefba0b81c99e084b109c" category="inline-image-macro">hana hycl-back-image8、宽度=624、高度=309</block>
+  <block id="2789767e88a7ffe9c50b702781a0ea67" category="list-text">按*激活备份*按钮。+
+<block ref="21f0cf6e7ffcc8ef5c72c49515645074" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b0ea90440a1c4c0ce85aa8e6a6798323" category="inline-image-macro">hana hycl-back-image9、宽度=624、高度=304</block>
+  <block id="1d5ec2816de19fe1e154731ece2a18c2" category="list-text">选择所需的内部存储系统，然后单击*激活备份*。+
+<block ref="ca1f10e2c0934df1cc8bd3f38035f292" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="16c981d74d1a7a65432b0b676f94b05d" category="inline-image-macro">hana hycl-back-image10、宽度= 624、高度= 307</block>
+  <block id="f11118f4d924111b34e3aa24dcf3a6c7" category="list-text">选择*Backup*。+
+<block ref="304f4799d1ba6c0574d1c6d6e8bac1d9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3fe7bd8162333cf5226079e598f88f63" category="inline-image-macro">hana hycl-back-image12、宽度=624、高度=305</block>
+  <block id="9853cba2a4b299bcb8180627181cd39d" category="list-text">选择与SAP HANA数据文件存储在同一SVM中的卷、然后按*下一步*。在此示例中、选择了/HAA/Shared的卷。+
+<block ref="a2dec4d3c1cfb1e66bf38e166a0ccbbc" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8de11028ada12771254470b000810e23" category="inline-image-macro">hana hycl-back-image11、宽度=624、高度=304</block>
+  <block id="d99dcd56dcb9bfa5a2be73d532bb75b9" category="list-text">*继续*(如果存在现有策略)。+
+<block ref="a6f49816c4334d116e033f526097271b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="eb54efc82bc89a6f6a8a311be7a01d24" category="inline-image-macro">Ein Bild、ds Text、Software、ComputerSymbol、Webseite enthält。自动生成Beschreirug、宽度=624、高度=306</block>
+  <block id="386e8a09b1074de806be0b2f336aad28" category="list-text">选中*备份选项*并选择所需的备份提供程序。在本示例中、AWS。+
+保持选中已有策略的选项。+
+取消选中不想使用的选项。+
+<block ref="e7bd64d80c923ffe89ab853777796206" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="75e71600dc8b519173f07bb53132cfea" category="inline-image-macro">hana hycl-back-image14、宽度=624、高度=306</block>
+  <block id="d32f8e0d0c2a754313935c326e667d2a" category="list-text">创建新存储分段或选择现有存储分段。请提供您的AWS帐户设置、配置、访问密钥和机密密钥。按*Next*。+
+<block ref="7ab51ec82c986777ece3aa7e7dd51a3b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="844815fed3e149f6fc8998b67459b8a9" category="inline-image-macro">hana hycl-back-image15、宽度=624、高度=304</block>
+  <block id="e7e7cef436617079061e00d3adade148" category="list-text">为内部存储系统选择正确的IP空间，选择*Privat Endpoint Configuration*，然后选择S3的VPC端点。按*Next*。+
+<block ref="d4748032644bb23292416ca8e3798ab6" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a8520b5a7e60b78ae1f8faf41e825735" category="inline-image-macro">hana hycl-back-image16、宽度=624、高度=304</block>
+  <block id="53f0db32002266ed051793d338134242" category="list-text">查看您的配置并按*激 活备份*。+
+<block ref="c6e8f010da631bcf99f948b0ec287f89" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="46694ff89d2e1049db53b085f808204b" category="inline-image-macro">hana hycl-back-image17、宽度=624、高度=304</block>
+  <block id="b17076bafc8f7c7433ee7a9ba697bdef" category="list-text">备份已成功启动。+
+<block ref="b8c64b043d8234c9a1901ca3cab2d202" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="690e7cac4bb20bc16d03d9e8c2976d36" category="section-title">在SnapCenter中配置SAP HANA系统资源</block>
+  <block id="6b1682473b222d2b053e1f829a4dfa26" category="inline-image-macro">图形用户界面，自动生成应用程序问题描述，宽度=604，高度=156</block>
+  <block id="ec949205c32b4dcbf3d33ae3d2653d23" category="list-text">检查是否已通过集群添加存储SAP HANA系统的SVM (在此示例中为HANA)。如果仅添加了SVM、请添加此集群。+
+<block ref="a21a8efefc66cab38c485ab2857055c4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fa2838d19a717f2eaaa40e2f1f725b14" category="inline-image-macro">图形用户界面，自动生成应用程序问题描述，宽度=604，高度=140</block>
+  <block id="015b0ff295262d8372bb8eaf0e7007fa" category="inline-image-macro">hana hycl-back-image20、宽度= 167、高度= 167</block>
+  <block id="25317da79c7424177b6fe7b2dd75dbe4" category="list-text">定义计划类型为每日、每周或每月的计划策略。+
+<block ref="4053c2b580ac63fbd3aca168d4d20e18" category="inline-image-macro-rx" type="image"></block>
+<block ref="4bafb2763ffed71cdbba1adf60ba7416" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fc770d11db32177599ce06cc7a281439" category="inline-image-macro">图形用户界面，自动生成应用程序问题描述，宽度=604，高度=215</block>
+  <block id="84c8d37516c033f0c33377c3d5233ad4" category="list-text">将新策略添加到SAP HANA系统并分配每日计划。+
+<block ref="7adbf922feb3d32be59867cb2db85d53" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f306bf0a63220090651328d0787ebdef" category="inline-image-macro">自动生成图形用户界面、应用程序、团队问题描述、宽度=604、高度=193</block>
+  <block id="8b7d9c683eee25ba85d1f605aa5bfc73" category="list-text">配置此策略后、在根据定义的计划执行此策略后、可以使用此策略进行新备份。
+<block ref="4cdd66955f0a12d8fd4b6c1593da46ce" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="522c073cfbc968ed21bb5b8292358b24" category="section-title">将SnapCenter添加到BlueXP工作环境</block>
+  <block id="63cebe46588c644def8c8d7ad33d7579" category="list-text">在左侧菜单中选择*保护*-&gt;*备份和恢复*-&gt;*应用程序*。</block>
+  <block id="9a74817b35b4d995ea09e91b80d35939" category="inline-image-macro">hana hycl-back-image23、宽度= 624、高度= 316</block>
+  <block id="6264d10e208ef10b481b09a42fe5a86f" category="list-text">从下拉菜单中选择*Hybrid。  +
+<block ref="fcf6021fe8ae5bbeb957a47b5d9b9c56" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8bb77bc23ab3ed07edf78138920094ec" category="list-text">在“设置”菜单中选择SnapCenter Server*。+
+<block ref="8902dcae1fb3265083b9eb7674b0b6be" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ae22ae0a7f45fd03327c250b60b315e5" category="list-text">注册SnapCenter服务器。+
+<block ref="30a1a24e8f5b2901c8651c4be47ed542" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f1fa07b4f7836783fffe714d5a32befc" category="inline-image-macro">hana hycl-back-image26、宽度= 624、高度= 315</block>
+  <block id="b99ce945467ef31e44140a5ce69f55c8" category="list-text">添加SnapCenter服务器凭据。+
+<block ref="fabd6e441ab3d52fb0678f20864f7565" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4d57087fb6eb4ef48dd81d74b0599e61" category="inline-image-macro">hana hycl-back-image27、宽度= 624、高度= 316</block>
+  <block id="176b8df3a4f7e0f5f93da577ced34744" category="list-text">已添加SnapCenter服务器、将发现数据。+
+<block ref="e01a765e34911c9cc45ebf375691f3ad" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f7080c828def0f5f421c804a6a9411cc" category="list-text">发现作业完成后、SAP HANA系统将可用。+
+<block ref="fc9d404e0e78b01038565097a3352a8e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5a367c49e14aa13d1f3d9dbbc659e2ae" category="section-title">为应用程序备份创建备份策略</block>
+  <block id="649a9b7aadbc8a5543b6a50f4b67635f" category="inline-image-macro">hana hycl-back-image29、宽度= 624、高度= 316</block>
+  <block id="ee896cd41eabe060c8688c8c3c1ee36c" category="list-text">在设置菜单中选择*Policies*。+
+<block ref="185326f0812872280f0adf0e04773ab1" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="349ab45b449e8c58be43aa51b5414b97" category="inline-image-macro">hana hycl-back-image30、宽度= 624、高度= 316</block>
+  <block id="ade97387220d3076bec4d7eac0ac1e25" category="list-text">如果需要，单击*Create Policy*创建新策略。+
+<block ref="8975d915951e905f053bb8fc4a552e7e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="62a3ac1a1f8d319fbc334f7bb626e92f" category="inline-image-macro">hana hycl-back-image31、宽度=624、高度=315</block>
+  <block id="8558fcfb15dbf7f72676ae9e31d472a0" category="list-text">提供策略名称和所需的SnapMirror标签、选择所需选项、然后按*创建*。+
+<block ref="c347360112b9c6b6f7e94dade1749c17" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="56a584207272fdc3949d5cfbeddc6890" category="inline-image-macro">hana hycl-back-image32、宽度=624、高度=315</block>
+  <block id="4f5cb79b576ac4420d5ab8df8d9b073f" category="list-text">新策略可用。+
+<block ref="2171b65bf9649c04f971325f1509e436" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="01f80398f488785a735c649b98cb461b" category="section-title">使用Cloud Backup for Applications保护SAP HANA数据库</block>
+  <block id="76e2dedbbcb80bd757e7f109e362eddf" category="inline-image-macro">宽=624、高=316</block>
+  <block id="5e0cc03833db7c0576f7d24096566189" category="list-text">为SAP HANA系统选择*激活备份*。+
+<block ref="2c48b27f819c1f6dce464959272cc8fe" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7f25f783d0e4d4d1fddc6c9c315fd2b5" category="list-text">选择先前创建的策略，然后单击*Next*。+
+<block ref="c0254b63c0fb085b036886dfba6ccb39" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="301e715cc01e45bb423cb6a66ee55bd7" category="list-text">存储系统和连接器已预先配置、备份将被激活。+
+<block ref="ad1fce9dd6ef995031c85dd49fe04071" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="659017308b6b80ebac0dc21912936c14" category="inline-image-macro">宽=624、高=337</block>
+  <block id="d9835ac927f5890b5c4fa24f03635dbf" category="list-text">作业完成后、系统将会列出。+
+<block ref="681e1ec310d70e08717a083b855d482a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a852f184953f796252263a558df2db56" category="inline-image-macro">hana hycl-back-image37、宽度=624、高度=316</block>
+  <block id="f8573bf4cb07bcf6ef97ab079e1bb247" category="list-text">一段时间后、备份将在SAP HANA系统的详细信息视图中列出。+
+将在第二天列出每日备份。+
+<block ref="dbaf7b11b6fc3181ec1d45bd0df20947" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a0e8aadf9440319ad134e14b8cd7944e" category="paragraph">在某些环境中、可能需要删除SnapMirror源的任何现有计划设置。为此，请在源ONTAP系统上执行以下命令：_SnapMirror修改-target-path &lt;hana-cloud-svm&gt;：napp_copy &lt;SID_data_mnt00001&gt;-Schedule ""_。</block>
+  <block id="3b6e263c9f3e6b5ae82e2961e7499aa8" category="summary">本技术报告介绍了使用适用于应用程序的NetApp BlueXP备份和恢复来保护SAP HANA数据的最佳实践。本文档介绍了一些概念、配置建议和操作工作流、包括配置、备份操作、 和还原操作。</block>
+  <block id="b9a6a76ee21e4b2e63f002e8171e92cb" category="doc">适用于SAP HANA的BlueXP备份和恢复—将Cloud Object存储用作备份目标</block>
+  <block id="b5810ff76e2c858c26eb34fd554d4cd5" category="paragraph">本文档介绍如何使用NetApp BlueXP设置和配置SAP HANA、以实现从内部到基于云的对象存储的数据保护。其中包括解决方案的BlueXP备份和恢复部分。此解决方案是使用NetApp Snap Center对内部SAP HANA备份解决方案的增强功能、可提供一种经济高效的方式将SAP HANA备份长期归档到基于云的对象存储、并可选择将对象存储分层到归档存储、例如AWS Glacier/deep Glacier. Microsoft Azure Blob Archive和GCP Archive Storage。</block>
+  <block id="efabc7b5ad8cc75eaf149a7744db8028" category="inline-link">TR-4614：《使用SnapCenter进行SAP HANA备份和恢复》(netapp.com)</block>
+  <block id="c321598c956cf1b8a4189a4449a0377e" category="paragraph">中介绍了内部SAP HANA备份和恢复解决方案的设置和配置<block ref="15efad3574df413724673ccbc14e9c64" category="inline-link-rx"></block>。</block>
+  <block id="a9b7843d32f728ea5c5677b7fc14faa1" category="paragraph">本技术报告仅介绍如何以AWS S3对象存储为例、通过适用于SAP HANA的BlueXP备份和恢复来增强基于SnapCenter的内部SAP HANA备份和恢复解决方案。使用Microsoft Azure和GCP对象存储而非AWS S3进行设置和配置的过程与此类似、但本文档不会对此进行介绍。</block>
+  <block id="c81a8bcb625915f9445bc27152702a6c" category="section-title">BlueXP备份和恢复架构</block>
+  <block id="51fb7f5abc70e4c20e599e9abea2bc67" category="paragraph">BlueXP备份和恢复是一种SaaS解决方案、可为在NetApp内部存储上运行的应用程序提供数据保护功能、并将其迁移到云。它使用NetApp存储为SAP HANA提供基于策略的应用程序一致的高效保护。此外、BlueXP备份和恢复可提供集中控制和监管、同时委派用户管理应用程序特定的备份和还原操作的能力。</block>
+  <block id="71e720aa42f761a270169d7e4f05cb68" category="paragraph">BlueXP备份和恢复在NetApp BlueXP中作为SaaS运行、并利用框架和UI。BlueXP工作环境框架用于配置和管理基于内部部署存储的NetApp ONTAP和NetApp SnapCenter服务器的凭据。</block>
+  <block id="cc9fcc0e20ed73ea1c801ee52f57a449" category="paragraph">需要在客户虚拟网络中部署BlueXP连接器。内部环境和云环境之间需要连接、例如站点到站点VPN连接。NetApp SaaS组件与客户环境之间的通信只能通过连接器完成。此连接器正在使用ONTAP和SnapCenter管理API执行存储操作。</block>
+  <block id="7335a187a88dba26e1d6b3eb60d0c796" category="paragraph">内部存储和云存储分段之间的数据传输通过AES 256位空闲加密、传输中的TLS/HTTPS加密和客户管理密钥(CMK)支持进行端到端保护。+
+备份的数据将以不可变和不可变的WORM状态存储。要从对象存储访问数据、唯一的方法是将其还原到基于NetApp ONTAP的存储(包括NetApp CVO)。</block>
+  <block id="41bb765509308cdc44c413e512e52e34" category="inline-image-macro">Ein Bild、dis text、Screenshot、Diagramm、Kreis enthält。自动生成Beschreirug、宽度=624、高度=450</block>
+  <block id="796b2f89ad255115d9dff26e3177a467" category="paragraph"><block ref="796b2f89ad255115d9dff26e3177a467" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b2bf2bbf7e6b4629b50b4af1483af0ba" category="section-title">安装和配置步骤概述</block>
+  <block id="f3cf1278a15cf0b578a48d8ef6a60523" category="inline-link">SnapCenter配置(netapp.com)</block>
+  <block id="ca4b776daf9a467ea504999e0a127287" category="paragraph">所需的安装和配置步骤可分为三个方面。+
+前提条件是已在NetApp Snap Center中配置SAP HANA备份配置。首先、要为SAP HANA设置Snap Center、请参阅<block ref="bc1347d79ab670cf5ad861e4a7cc0e9b" category="inline-link-rx"></block>。</block>
+  <block id="a63540c81089e8aba203a4ec3fca1e34" category="list-text">安装和配置NetApp BlueXP组件。</block>
+  <block id="60cb8be07c4c55cabf60de71b7a9b4b2" category="paragraph">需要在初始设置数据保护解决方案期间执行一次。</block>
+  <block id="d695b2f7d2eff56585ac33b59ae50cde" category="list-text">NetApp SnapCenter的准备步骤。</block>
+  <block id="6d95f48ab62edee63c2cc9fda6615760" category="paragraph">需要对每个SAP HANA数据库执行此操作、这些数据库应受到保护。</block>
+  <block id="c24f27d2fb45abb4ddc4c6dac6b3f9b9" category="list-text">BlueXP备份和恢复中的配置步骤。</block>
+  <block id="0e7839906008338e5f608eca614e1cc7" category="section-title">安装和配置NetApp BlueXP混合应用程序备份</block>
+  <block id="9293673edeb2321146de2dbe903787cc" category="inline-link">保护内部应用程序数据| NetApp文档</block>
+  <block id="1b21781469d6b56757c78d09d90f83be" category="paragraph">中介绍了NetApp BlueXP组件的安装和配置<block ref="36b413e5ecd6dd30fe4575aa917373d9" category="inline-link-rx"></block>。</block>
+  <block id="c3c6e6b1d05fc3c3c73b5ab9af3ea3ee" category="list-text">注册BlueXP并在设置NetApp帐户<block ref="7dd2072632295c5a9abd61523c46bd40" category="inline-link-rx"></block>。</block>
+  <block id="44de63d2b4a3805e8a143a8425e912c6" category="inline-link">了解连接器| NetApp文档</block>
+  <block id="bc9a4ad171b5071191568c8006c63dc6" category="list-text">在您的环境中部署BlueXP Connector。问题描述位于<block ref="a6131392110983029d1dff188cde678b" category="inline-link-rx"></block>。</block>
+  <block id="6691a23f272bb7c1d702c8963a326dc0" category="list-text">在BlueXP中添加/购买Cloud Backup许可证：<block ref="57c4a53c7a746551566c6506aa924ffc" category="inline-link-rx"></block>。</block>
+  <block id="9d76c9e4e9696688d77e71e00214424d" category="list-text">通过添加内部存储、在BlueXP中为NetApp内部环境和云目标创建工作环境。</block>
+  <block id="55c74f25e19f21b0e03e4642d0363930" category="list-text">为AWS S3存储分段中的本地存储创建新的对象存储关系。</block>
+  <block id="d497834786aa54c08eaf2f867588d576" category="list-text">在SnapCenter中配置SAP HANA系统资源。</block>
+  <block id="465f4a123cd3df663bb4b5d781e3755f" category="list-text">将Snap Center添加到您的工作环境中。</block>
+  <block id="87a323c396d1f0b11c5c63017a081d0a" category="list-text">为您的环境创建策略。</block>
+  <block id="a33d9e49823debc4eac9a3f6fed5ed4f" category="list-text">保护您的SAP HANA系统。</block>
+  <block id="2a4e61491419807845d0ce0d6f0b7d25" category="summary">本节´s在何处查找追加信息、并显示版本历史记录。</block>
+  <block id="b1708148488f2ff73841c4df62f35be1" category="doc">追加信息和版本历史记录</block>
+  <block id="5d2dace1bbb099eb2c0c668ec3e8c3b6" category="list-text">NetApp BlueXP备份和恢复产品文档+
+<block ref="2337d886e4f2f876275339e16f80eafd" category="inline-link-rx"></block></block>
+  <block id="b0e216a090ed7d12ab06af852f5fd176" category="list-text">使用SnapCenter +进行SAP HANA备份和恢复
+<block ref="94fe6fb839269f177c2cb625768421d4" category="inline-link-rx"></block></block>
+  <block id="d7a15f16d93378f9428254d47703abd2" category="cell">2024年3月</block>
+  <block id="c9dd6bad4c7d561872f2e2d498a990bf" category="inline-link">互操作性表工具（ IMT ）</block>
+  <block id="c5358f17fd6fd13a64169fc38a03495f" category="paragraph">请参见<block ref="2a186a9053db553d8a98e2d5f86d7002" category="inline-link-rx"></block> 在 NetApp 支持站点上，验证您的特定环境是否支持本文档中所述的确切产品和功能版本。NetApp IMT 定义了可用于构建 NetApp 支持的配置的产品组件和版本。具体结果取决于每个客户是否按照已发布的规格进行安装。</block>
+  <block id="ca996b238b1f32bd7d6b941eb3464b17" category="sidebar">适用于SAP HANA的BlueXP备份和恢复—概述</block>
+  <block id="deac54b4ceeb072a80124bd022d78294" category="sidebar">还原SAP HANA BlueXP备份</block>
 </blocks>
