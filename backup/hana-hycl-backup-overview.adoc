@@ -29,12 +29,12 @@ summary: 本技术报告介绍了使用适用于应用程序的NetApp BlueXP备�
 
 BlueXP备份和恢复是一种SaaS解决方案、可为在NetApp内部存储上运行的应用程序提供数据保护功能、并将其迁移到云。它使用NetApp存储为SAP HANA提供基于策略的应用程序一致的高效保护。此外、BlueXP备份和恢复可提供集中控制和监管、同时委派用户管理应用程序特定的备份和还原操作的能力。
 
-BlueXP备份和恢复在NetApp BlueXP中作为SaaS运行、并利用框架和UI。BlueXP工作环境框架用于配置和管理基于内部部署存储的NetApp ONTAP和NetApp SnapCenter服务器的凭据。
+BlueXP备份和恢复在NetApp BlueXP中作为SaaS运行、并利用框架和UI。BlueXP工作环境框架用于配置和管理基于内部存储的NetApp ONTAP和NetApp SnapCenter服务器的凭据。
 
 需要在客户虚拟网络中部署BlueXP连接器。内部环境和云环境之间需要连接、例如站点到站点VPN连接。NetApp SaaS组件与客户环境之间的通信只能通过连接器完成。此连接器正在使用ONTAP和SnapCenter管理API执行存储操作。
 
 内部存储和云存储分段之间的数据传输通过AES 256位空闲加密、传输中的TLS/HTTPS加密和客户管理密钥(CMK)支持进行端到端保护。+
-备份的数据将以不可变和不可变的WORM状态存储。要从对象存储访问数据、唯一的方法是将其还原到基于NetApp ONTAP的存储(包括NetApp CVO)。
+备份的数据可以存储在不可变和不可变的WORM状态。要从对象存储访问数据、唯一的方法是将其还原到基于NetApp ONTAP的存储(包括NetApp CVO)。
 
 image:hana-hycl-back-image1.png["Ein Bild、dis text、Screenshot、Diagramm、Kreis enthält。自动生成Beschreirug、宽度=624、高度=450"]
 
@@ -43,7 +43,7 @@ image:hana-hycl-back-image1.png["Ein Bild、dis text、Screenshot、Diagramm、K
 == 安装和配置步骤概述
 
 所需的安装和配置步骤可分为三个方面。+
-前提条件是已在NetApp Snap Center中配置SAP HANA备份配置。首先、要为SAP HANA设置Snap Center、请参阅 https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-snapcenter-configuration.html["SnapCenter配置(netapp.com)"]。
+前提条件是已在NetApp Snap Center中配置SAP HANA备份配置。有关首先为SAP HANA设置Snap Center的信息、请参见 https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-snapcenter-configuration.html["SnapCenter配置(netapp.com)"]。
 
 . 安装和配置NetApp BlueXP组件。
 +
@@ -69,7 +69,7 @@ image:hana-hycl-back-image1.png["Ein Bild、dis text、Screenshot、Diagramm、K
 . 在您的环境中部署BlueXP Connector。问题描述位于 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["了解连接器| NetApp文档"]。
 . 在BlueXP中添加/购买Cloud Backup许可证： https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-licensing-cloud-backup.html[]。
 . 通过添加内部存储、在BlueXP中为NetApp内部环境和云目标创建工作环境。
-. 为AWS S3存储分段中的本地存储创建新的对象存储关系。
+. 为内部存储创建一个新的对象存储关系、并将其加入AWS S3存储分段。
 . 在SnapCenter中配置SAP HANA系统资源。
 . 将Snap Center添加到您的工作环境中。
 . 为您的环境创建策略。

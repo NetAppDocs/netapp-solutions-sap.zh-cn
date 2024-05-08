@@ -4490,11 +4490,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="7bff1872092b4daae129c007c84cd996" category="inline-image-macro">hana hycl-back-image38、宽度=624、高度=305</block>
   <block id="14a2a4f505cd6a440ad11540cab0ac21" category="list-text">单击  与要还原的数据库对应的*查看详细信息*。+
 <block ref="6f8d75fb488649758851cccdb2cccf08" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="5f61ef6ad90ff324226ee7a59e0654e9" category="inline-image-macro">Ein Bild、ds Text、Screenshot、Software、ComputerSymbol enthält。自动化通用Beschreirbeng、宽度= 624、高度= 308</block>
-  <block id="a8da112ff7dee33cb98f2529795ab713" category="list-text">选择所需的备份、然后选择存储导出。+
-<block ref="9aaddfa4a9aab7d77d4d5c4b41b52fa5" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="25ea55983026f4468585a3cae84e6791" category="list-text">提供所需选项：+
-<block ref="e7942ad51c3862961e4d988dd1f7ab9f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="47abe672471325a3aa63fcd85f6e3367" category="list-text">对于NAS环境、指定要将从对象存储还原的卷导出到的主机的FQDN或IP地址。</block>
   <block id="831b20d8b0ff4f1e50aecadcdcdc885d" category="list-text">对于SAN环境、指定从对象存储还原的卷的LUN要映射到的主机启动程序。</block>
   <block id="eee7cd91c87d431eb526192fb8d8f8fa" category="list-text">如果快照位于归档存储中、请选择从归档存储还原数据的优先级。</block>
@@ -4509,7 +4504,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="e5c7ac753b7a6121d9687b3fc4c66f25" category="summary">本节介绍如何设置工作环境、如何配置SnapCenter以及如何在BlueXP中配置和激活SAP HANA备份。</block>
   <block id="bba044fc5fd2c6b6b93f83b61a607e30" category="doc">为SAP HANA配置BlueXP备份和恢复</block>
   <block id="84e76e0953f8a5f72d754729d1eaf1ae" category="section-title">为BlueXP创建工作环境</block>
-  <block id="851847077e55a1429d11ef6bceeb9643" category="paragraph">将内部部署存储系统添加到您的工作环境中。</block>
   <block id="210e8952dc88c73e56d56a168cfe0616" category="list-text">在左侧菜单中选择*存储*-&gt;*帆布*-&gt;*我的工作*环境。</block>
   <block id="6e0b32969c38b1fb3a586b9c8bca6d29" category="inline-image-macro">hana hycl-back-image2、宽度= 624、高度= 316</block>
   <block id="32ae0c18f23bf987a305e455c9bf4aa0" category="list-text">按*+添加工作环境*。+
@@ -4527,9 +4521,6 @@ SnapCenter 4.3.1支持NFSv4
 <block ref="3fa4376934b792a48a60395e9737c899" category="inline-image-macro-rx" type="image"></block></block>
   <block id="6689e50f5e4a08328fa676a7ebb07f17" category="section-title">在内部存储系统和对象存储分段之间创建关系</block>
   <block id="eab79ca7fb49f80130fae7b1656f7ebc" category="inline-link">Amazon S3的网关端点- Amazon虚拟私有云</block>
-  <block id="53ab440b7f0ec4307a7446fefeb714d9" category="paragraph">内部存储与S3存储分段之间的关系是通过为卷创建备份或激活应用程序备份来实现的。如果要使用现有的站点到站点VPN将数据从内部传输到S3、则需要使用卷备份在内部存储和S3存储分段之间创建关系、因为需要使用VPC端点。+
-在创建本文档时、应用程序备份工作流不支持选择VPC端点来访问S3存储分段。+
-请参见<block ref="7f3b31b88f0e42104578f538777bc3e6" category="inline-link-rx"></block> 如何在VPC中为S3设置VPC端点。</block>
   <block id="4513d4d932152177142c02ca2a383afc" category="paragraph">要创建第一个卷备份、请执行以下步骤：</block>
   <block id="dd78ee4baa00b09244d3a2f25c867ae5" category="inline-image-macro">hana hycl-back-image7、宽度= 624、高度= 308</block>
   <block id="e8467bba6a91bfb07a8de17e1fb2cd69" category="list-text">通过*保护*导航到*备份和恢复*并选择*卷*。+
@@ -4550,10 +4541,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="d99dcd56dcb9bfa5a2be73d532bb75b9" category="list-text">*继续*(如果存在现有策略)。+
 <block ref="a6f49816c4334d116e033f526097271b" category="inline-image-macro-rx" type="image"></block></block>
   <block id="eb54efc82bc89a6f6a8a311be7a01d24" category="inline-image-macro">Ein Bild、ds Text、Software、ComputerSymbol、Webseite enthält。自动生成Beschreirug、宽度=624、高度=306</block>
-  <block id="386e8a09b1074de806be0b2f336aad28" category="list-text">选中*备份选项*并选择所需的备份提供程序。在本示例中、AWS。+
-保持选中已有策略的选项。+
-取消选中不想使用的选项。+
-<block ref="e7bd64d80c923ffe89ab853777796206" category="inline-image-macro-rx" type="image"></block></block>
   <block id="75e71600dc8b519173f07bb53132cfea" category="inline-image-macro">hana hycl-back-image14、宽度=624、高度=306</block>
   <block id="d32f8e0d0c2a754313935c326e667d2a" category="list-text">创建新存储分段或选择现有存储分段。请提供您的AWS帐户设置、配置、访问密钥和机密密钥。按*Next*。+
 <block ref="7ab51ec82c986777ece3aa7e7dd51a3b" category="inline-image-macro-rx" type="image"></block></block>
@@ -4600,8 +4587,6 @@ SnapCenter 4.3.1支持NFSv4
 <block ref="fc9d404e0e78b01038565097a3352a8e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5a367c49e14aa13d1f3d9dbbc659e2ae" category="section-title">为应用程序备份创建备份策略</block>
   <block id="649a9b7aadbc8a5543b6a50f4b67635f" category="inline-image-macro">hana hycl-back-image29、宽度= 624、高度= 316</block>
-  <block id="ee896cd41eabe060c8688c8c3c1ee36c" category="list-text">在设置菜单中选择*Policies*。+
-<block ref="185326f0812872280f0adf0e04773ab1" category="inline-image-macro-rx" type="image"></block></block>
   <block id="349ab45b449e8c58be43aa51b5414b97" category="inline-image-macro">hana hycl-back-image30、宽度= 624、高度= 316</block>
   <block id="ade97387220d3076bec4d7eac0ac1e25" category="list-text">如果需要，单击*Create Policy*创建新策略。+
 <block ref="8975d915951e905f053bb8fc4a552e7e" category="inline-image-macro-rx" type="image"></block></block>
@@ -4631,20 +4616,11 @@ SnapCenter 4.3.1支持NFSv4
   <block id="b9a6a76ee21e4b2e63f002e8171e92cb" category="doc">适用于SAP HANA的BlueXP备份和恢复—将Cloud Object存储用作备份目标</block>
   <block id="b5810ff76e2c858c26eb34fd554d4cd5" category="paragraph">本文档介绍如何使用NetApp BlueXP设置和配置SAP HANA、以实现从内部到基于云的对象存储的数据保护。其中包括解决方案的BlueXP备份和恢复部分。此解决方案是使用NetApp Snap Center对内部SAP HANA备份解决方案的增强功能、可提供一种经济高效的方式将SAP HANA备份长期归档到基于云的对象存储、并可选择将对象存储分层到归档存储、例如AWS Glacier/deep Glacier. Microsoft Azure Blob Archive和GCP Archive Storage。</block>
   <block id="efabc7b5ad8cc75eaf149a7744db8028" category="inline-link">TR-4614：《使用SnapCenter进行SAP HANA备份和恢复》(netapp.com)</block>
-  <block id="c321598c956cf1b8a4189a4449a0377e" category="paragraph">中介绍了内部SAP HANA备份和恢复解决方案的设置和配置<block ref="15efad3574df413724673ccbc14e9c64" category="inline-link-rx"></block>。</block>
-  <block id="a9b7843d32f728ea5c5677b7fc14faa1" category="paragraph">本技术报告仅介绍如何以AWS S3对象存储为例、通过适用于SAP HANA的BlueXP备份和恢复来增强基于SnapCenter的内部SAP HANA备份和恢复解决方案。使用Microsoft Azure和GCP对象存储而非AWS S3进行设置和配置的过程与此类似、但本文档不会对此进行介绍。</block>
   <block id="c81a8bcb625915f9445bc27152702a6c" category="section-title">BlueXP备份和恢复架构</block>
-  <block id="51fb7f5abc70e4c20e599e9abea2bc67" category="paragraph">BlueXP备份和恢复是一种SaaS解决方案、可为在NetApp内部存储上运行的应用程序提供数据保护功能、并将其迁移到云。它使用NetApp存储为SAP HANA提供基于策略的应用程序一致的高效保护。此外、BlueXP备份和恢复可提供集中控制和监管、同时委派用户管理应用程序特定的备份和还原操作的能力。</block>
-  <block id="71e720aa42f761a270169d7e4f05cb68" category="paragraph">BlueXP备份和恢复在NetApp BlueXP中作为SaaS运行、并利用框架和UI。BlueXP工作环境框架用于配置和管理基于内部部署存储的NetApp ONTAP和NetApp SnapCenter服务器的凭据。</block>
-  <block id="cc9fcc0e20ed73ea1c801ee52f57a449" category="paragraph">需要在客户虚拟网络中部署BlueXP连接器。内部环境和云环境之间需要连接、例如站点到站点VPN连接。NetApp SaaS组件与客户环境之间的通信只能通过连接器完成。此连接器正在使用ONTAP和SnapCenter管理API执行存储操作。</block>
-  <block id="7335a187a88dba26e1d6b3eb60d0c796" category="paragraph">内部存储和云存储分段之间的数据传输通过AES 256位空闲加密、传输中的TLS/HTTPS加密和客户管理密钥(CMK)支持进行端到端保护。+
-备份的数据将以不可变和不可变的WORM状态存储。要从对象存储访问数据、唯一的方法是将其还原到基于NetApp ONTAP的存储(包括NetApp CVO)。</block>
   <block id="41bb765509308cdc44c413e512e52e34" category="inline-image-macro">Ein Bild、dis text、Screenshot、Diagramm、Kreis enthält。自动生成Beschreirug、宽度=624、高度=450</block>
   <block id="796b2f89ad255115d9dff26e3177a467" category="paragraph"><block ref="796b2f89ad255115d9dff26e3177a467" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b2bf2bbf7e6b4629b50b4af1483af0ba" category="section-title">安装和配置步骤概述</block>
   <block id="f3cf1278a15cf0b578a48d8ef6a60523" category="inline-link">SnapCenter配置(netapp.com)</block>
-  <block id="ca4b776daf9a467ea504999e0a127287" category="paragraph">所需的安装和配置步骤可分为三个方面。+
-前提条件是已在NetApp Snap Center中配置SAP HANA备份配置。首先、要为SAP HANA设置Snap Center、请参阅<block ref="bc1347d79ab670cf5ad861e4a7cc0e9b" category="inline-link-rx"></block>。</block>
   <block id="a63540c81089e8aba203a4ec3fca1e34" category="list-text">安装和配置NetApp BlueXP组件。</block>
   <block id="60cb8be07c4c55cabf60de71b7a9b4b2" category="paragraph">需要在初始设置数据保护解决方案期间执行一次。</block>
   <block id="d695b2f7d2eff56585ac33b59ae50cde" category="list-text">NetApp SnapCenter的准备步骤。</block>
@@ -4657,8 +4633,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="44de63d2b4a3805e8a143a8425e912c6" category="inline-link">了解连接器| NetApp文档</block>
   <block id="bc9a4ad171b5071191568c8006c63dc6" category="list-text">在您的环境中部署BlueXP Connector。问题描述位于<block ref="a6131392110983029d1dff188cde678b" category="inline-link-rx"></block>。</block>
   <block id="6691a23f272bb7c1d702c8963a326dc0" category="list-text">在BlueXP中添加/购买Cloud Backup许可证：<block ref="57c4a53c7a746551566c6506aa924ffc" category="inline-link-rx"></block>。</block>
-  <block id="9d76c9e4e9696688d77e71e00214424d" category="list-text">通过添加内部存储、在BlueXP中为NetApp内部环境和云目标创建工作环境。</block>
-  <block id="55c74f25e19f21b0e03e4642d0363930" category="list-text">为AWS S3存储分段中的本地存储创建新的对象存储关系。</block>
   <block id="d497834786aa54c08eaf2f867588d576" category="list-text">在SnapCenter中配置SAP HANA系统资源。</block>
   <block id="465f4a123cd3df663bb4b5d781e3755f" category="list-text">将Snap Center添加到您的工作环境中。</block>
   <block id="87a323c396d1f0b11c5c63017a081d0a" category="list-text">为您的环境创建策略。</block>
@@ -4674,4 +4648,30 @@ SnapCenter 4.3.1支持NFSv4
   <block id="c5358f17fd6fd13a64169fc38a03495f" category="paragraph">请参见<block ref="2a186a9053db553d8a98e2d5f86d7002" category="inline-link-rx"></block> 在 NetApp 支持站点上，验证您的特定环境是否支持本文档中所述的确切产品和功能版本。NetApp IMT 定义了可用于构建 NetApp 支持的配置的产品组件和版本。具体结果取决于每个客户是否按照已发布的规格进行安装。</block>
   <block id="ca996b238b1f32bd7d6b941eb3464b17" category="sidebar">适用于SAP HANA的BlueXP备份和恢复—概述</block>
   <block id="deac54b4ceeb072a80124bd022d78294" category="sidebar">还原SAP HANA BlueXP备份</block>
+  <block id="b6b16d136a508e7a2c84cb6653cb4095" category="paragraph">中介绍了内部SAP HANA备份和恢复解决方案的设置和配置<block ref="15efad3574df413724673ccbc14e9c64" category="inline-link-rx"></block>。</block>
+  <block id="1605c9a8e838f67f2b16a4053e1e045d" category="paragraph">本技术报告仅介绍如何以AWS S3对象存储为例、通过适用于SAP HANA的BlueXP备份和恢复来增强基于SnapCenter的内部SAP HANA备份和恢复解决方案。使用Microsoft Azure和GCP对象存储而非AWS S3进行设置和配置的过程与此类似、但本文档不会对此进行介绍。</block>
+  <block id="dce65a9e030d5dbde345a046d948f2bf" category="paragraph">BlueXP备份和恢复是一种SaaS解决方案、可为在NetApp内部存储上运行的应用程序提供数据保护功能、并将其迁移到云。它使用NetApp存储为SAP HANA提供基于策略的应用程序一致的高效保护。此外、BlueXP备份和恢复可提供集中控制和监管、同时委派用户管理应用程序特定的备份和还原操作的能力。</block>
+  <block id="ef7bad3edebf99f3bb50f4d8bbaa37d6" category="paragraph">BlueXP备份和恢复在NetApp BlueXP中作为SaaS运行、并利用框架和UI。BlueXP工作环境框架用于配置和管理基于内部存储的NetApp ONTAP和NetApp SnapCenter服务器的凭据。</block>
+  <block id="284528a6422c1ab87246e51dcb6b3ae5" category="paragraph">需要在客户虚拟网络中部署BlueXP连接器。内部环境和云环境之间需要连接、例如站点到站点VPN连接。NetApp SaaS组件与客户环境之间的通信只能通过连接器完成。此连接器正在使用ONTAP和SnapCenter管理API执行存储操作。</block>
+  <block id="3df2c2f8f80654c02cea27e8354aee2a" category="paragraph">内部存储和云存储分段之间的数据传输通过AES 256位空闲加密、传输中的TLS/HTTPS加密和客户管理密钥(CMK)支持进行端到端保护。+
+备份的数据可以存储在不可变和不可变的WORM状态。要从对象存储访问数据、唯一的方法是将其还原到基于NetApp ONTAP的存储(包括NetApp CVO)。</block>
+  <block id="0c335c284481ec782d9a7b2a63462276" category="paragraph">所需的安装和配置步骤可分为三个方面。+
+前提条件是已在NetApp Snap Center中配置SAP HANA备份配置。有关首先为SAP HANA设置Snap Center的信息、请参见<block ref="bc1347d79ab670cf5ad861e4a7cc0e9b" category="inline-link-rx"></block>。</block>
+  <block id="6cb139093b769a68f6abbb55400df4d8" category="list-text">通过添加内部存储、在BlueXP中为NetApp内部环境和云目标创建工作环境。</block>
+  <block id="49d37c51268190a8f072cf6f400be18f" category="list-text">为内部存储创建一个新的对象存储关系、并将其加入AWS S3存储分段。</block>
+  <block id="6cf9c506a56175d20b049edfdc810cec" category="paragraph">将内部存储系统添加到您的工作环境中。</block>
+  <block id="35fb81d7bc669beabd5887c5308a5374" category="paragraph">内部存储与S3存储分段之间的关系是通过为卷创建备份或激活应用程序备份来实现的。如果要使用现有的站点到站点VPN将数据从内部传输到S3、则需要使用卷备份在内部存储和S3存储分段之间创建关系、因为需要使用VPC端点。+
+在创建本文档时、应用程序备份工作流不支持选择VPC端点来访问S3存储分段。+
+请参见<block ref="7f3b31b88f0e42104578f538777bc3e6" category="inline-link-rx"></block> 如何在VPC中为S3设置VPC端点。</block>
+  <block id="e65dfed1df8f650235807ccb35c69140" category="list-text">选中*备份选项*并选择所需的备份提供程序。在本示例中、AWS。+
+保持已有策略的选项处于选中状态。+
+取消选中不想使用的选项。+
+<block ref="e7bd64d80c923ffe89ab853777796206" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="85c328360dc7dca3cde755a63dfc19da" category="list-text">在设置菜单中选择*Policies*。+
+<block ref="185326f0812872280f0adf0e04773ab1" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a50aa712257968ee6554358d180aeec3" category="inline-image-macro">宽度=624、高度=308</block>
+  <block id="25a498f9a461fac6930b9d847d3a31de" category="list-text">选择所需的备份、然后选择存储导出。+
+<block ref="7b0ca447499fc4df8de2cc9ab6e63840" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="75f1821bffac2198de5f906db81d5550" category="list-text">提供所需选项：+
+<block ref="498181ee050d357f4660daf5619ff189" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>

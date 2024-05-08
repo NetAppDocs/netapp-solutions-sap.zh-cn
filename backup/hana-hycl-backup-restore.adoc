@@ -21,9 +21,9 @@ summary: 本节介绍如何使用BlueXP还原SAP HANA备份。
 . 单击  与要还原的数据库对应的*查看详细信息*。+
 image:hana-hycl-back-image38.jpeg["hana hycl-back-image38、宽度=624、高度=305"]
 . 选择所需的备份、然后选择存储导出。+
-image:hana-hycl-back-image39.jpeg["Ein Bild、ds Text、Screenshot、Software、ComputerSymbol enthält。自动化通用Beschreirbeng、宽度= 624、高度= 308"]
+image:hana-hycl-back-image39.jpeg["宽度=624、高度=308"]
 . 提供所需选项：+
-image:hana-hycl-back-image40.jpeg["Ein Bild、ds Text、Screenshot、Software、ComputerSymbol enthält。自动化通用Beschreirbeng、宽度= 624、高度= 308"]
+image:hana-hycl-back-image40.jpeg["宽度=624、高度=308"]
 +
 .. 对于NAS环境、指定要将从对象存储还原的卷导出到的主机的FQDN或IP地址。
 .. 对于SAN环境、指定从对象存储还原的卷的LUN要映射到的主机启动程序。
