@@ -4,7 +4,7 @@ permalink: bp/saphana_aff_nfs_introduction.html
 keywords: introduction, certification, AFF A220, AFF A250, AFF A300, AFF A320, AFF A400, AFF A700s, AFF A700, AFF A800A, 
 summary: NetApp AFF 系统产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用。经过认证的企业级存储系统采用 NetApp ONTAP 软件的特征。 
 ---
-= TR-4435 ：《采用 NFS 的 NetApp AFF 系统上的 SAP HANA —配置指南》
+= 《采用NFS的NetApp AFF系统上的SAP HANA—配置指南》
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -13,13 +13,13 @@ summary: NetApp AFF 系统产品系列已通过认证，可在定制数据中心
 :imagesdir: ./../media/
 
 
-NetApp 公司 Nil Bauser 和 Marco schön
+Marco schön、NetApp
 
 NetApp AFF A系列和AFF C系列产品系列已通过认证、可在定制数据中心集成(TDI)项目中与SAP HANA结合使用。
 
 此认证适用于以下型号：
 
-* AFF A150、AFF A220、AFF A250、AFF A300、AFF A320、 AFF A400、AFF A700s、AFF A700、AFF A800、AFF A900
+* AFF A150、AFF A250、AFF A400、AFF A70、AFF A800、 AFF A900、AFF A90、AFF A1K
 * AFF C250、AFF C400、AFF C800
 +
 

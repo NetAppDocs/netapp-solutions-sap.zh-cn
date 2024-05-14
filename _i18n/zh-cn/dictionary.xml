@@ -1046,7 +1046,6 @@
   <block id="9b76b6c583544a2f5372da2ae89b54d5" category="list-text">对租户数据库执行以下 SQL 语句。每个附加 LUN 可以具有不同的路径。</block>
   <block id="02c3c24b1240e860b5773437fc8e6de8" category="paragraph"><block ref="02c3c24b1240e860b5773437fc8e6de8" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a1f3bfe21fa4a014b71cdb6f5c22ed48" category="summary">NetApp FAS 产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用。经过认证的企业级存储系统采用 NetApp ONTAP 软件的特征。</block>
-  <block id="ea2a5017e6cdb7eff470cc58152d6c96" category="doc">TR-4290 ：《采用 NFS 配置的 NetApp FAS 系统上的 SAP HANA 》指南</block>
   <block id="3ba2c0f2dd07fd36730e20b6bcba3d0a" category="paragraph">此认证目前仅适用于以下型号：</block>
   <block id="ae9c01e101eba86b0e6ff092df062fae" category="inline-link">经过认证并受支持的 SAP HANA 硬件目录</block>
   <block id="134a6ecca2c7d98e325ad00ee461d25a" category="admonition">要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采用本文所述的配置。更改任何设置或使用本文未列出的功能可能会导致发生原因性能下降或出现意外行为，只有在 NetApp 支持人员建议的情况下，才应执行此操作。</block>
@@ -4052,8 +4051,6 @@
   <block id="845479810e43d8fc64263c1a762de016" category="paragraph">要从源数据库执行基于Snapshot副本的自动备份并为新目标数据库创建克隆、所述的LSC与SnapCenter 集成使用中所述的配置选项和脚本 <block ref="6cb270d5a2712c948be937faf1cb1d50" category="inline-link-macro-rx"></block>。</block>
   <block id="66988e72fd271cabc6a7489ab70e1a4f" category="list-text"><block ref="66988e72fd271cabc6a7489ab70e1a4f" category="inline-link-rx"></block></block>
   <block id="5c427e461906a4b90dc3d5777ec58bfa" category="paragraph">虽然修复系统和灾难恢复测试系统通常使用SAP系统克隆(不需要执行大量后处理操作)来更新测试和培训系统、但要与源系统共存、必须应用这些后处理步骤。因此、本文档重点介绍SAP系统更新场景。有关不同使用情形的更多详细信息、请参见技术报告<block ref="d89e94a6aaf703375bdbc4104c3e8227" category="inline-link-rx"></block>。</block>
-  <block id="ecf911b27dfacab49658bef695c01f50" category="list-text">FAS2720、FAS2750、FAS8300、FAS8700、FAS9000、 和FAS9500。有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见<block ref="b94cf00a6e18ec3712e81f808581c042" category="inline-link-rx"></block>。</block>
-  <block id="9b340c29d45c75265853d640bc6a1e05" category="list-text">FAS2720、FAS2750、FAS8200、FAS8300、FAS8700、 FAS9000、FAS9500</block>
   <block id="8293eb8037b07e6a99273e0e69a21b6f" category="paragraph">从 SUSE Linux Enterprise Server 12 SP1 开始，必须在 ` /etc/sysctl.d` 目录的配置文件中设置内核参数。例如，您必须创建一个名为 `91-netapp-hana` 的配置文件。</block>
   <block id="6ed4f46c3f6437e250cb69f8684772f4" category="list-text"><block ref="6ed4f46c3f6437e250cb69f8684772f4" category="inline-link-rx"></block></block>
   <block id="24d3ef74df0d2ceedb42c4a4c33104d4" category="list-text"><block ref="24d3ef74df0d2ceedb42c4a4c33104d4" category="inline-link-rx"></block></block>
@@ -4386,7 +4383,6 @@
   <block id="cf485594ca520eaab221d7e9f1c35741" category="inline-image-macro">此图显示了主数据中心、本地灾难恢复数据中心和远程灾难恢复数据中心中的NetApp存储系统之间的关系。它们通过同步SnapMirror和异步SnapMirror关系进行连接。</block>
   <block id="8dda9dbd415a90ebdecd67562ff62647" category="paragraph"><block ref="8dda9dbd415a90ebdecd67562ff62647" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2e979feafadb9bbdb7932ab43f8d549c" category="sidebar">使用Ansible实现NetApp SAP Landscape Management集成</block>
-  <block id="17f31b52b49dfe7dec5229f7caf638c6" category="list-text">AFF A150、AFF A220、AFF A250、AFF A300、AFF A320、 AFF A400、AFF A700s、AFF A700、AFF A800、AFF A900</block>
   <block id="e2aad9960e8d21643cd0c96d6d0231cc" category="cell">nfsvers=3、无锁定、</block>
   <block id="9bb4ef49da8c49be50e8756f6e99e5fa" category="cell">nfsvers=4.1、锁定</block>
   <block id="dae81ce43b95196ee53c797d1ddda090" category="cell">nfsvers=3、无锁定</block>
@@ -4398,12 +4394,9 @@
   <block id="f7d09d43174d21d3203d6472d2543dc2" category="section-title">NetApp卷和聚合加密</block>
   <block id="381cfdf4e70ff7173296a764c78e97ae" category="paragraph">SAP HANA支持使用NetApp卷加密(NVE)和NetApp聚合加密(NAE)。</block>
   <block id="5d10dd356a9d8604eaed291a9dfeb67e" category="section-title">NetApp卷和聚合加密</block>
-  <block id="8e1ca12077e9e911e038655a0c678e91" category="paragraph">第一个磁盘架的最小NVMe SSD数量为12个、最多支持18个SAP HANA主机。完全填充的磁盘架最多可支持48个SAP HANA主机。</block>
-  <block id="664e3eacf73f74d7628f38588ee009f2" category="paragraph">第一个磁盘架的最小NVMe SSD数量为12个、最多支持18个SAP HANA主机。全填充磁盘架(24个SSD)最多支持48个SAP HANA主机。相同的适用场景是AFF A800系统的内部磁盘。</block>
   <block id="2976619a79e897d24427ec6796aa4a70" category="paragraph">如果使用具有主机自动故障转移功能的SAP HANA多主机系统、则需要在中调整故障转移参数<block ref="46649585ec21482ae2e5fcac30c7dcae" prefix=" " category="inline-code"></block> 如下表所示。
 在这些部分中、保持默认重试间隔10秒。</block>
   <block id="73d4ace7e434b8709f5a930ad845d6d6" category="paragraph">如果使用具有主机自动故障转移功能的SAP HANA多主机系统、则需要在中调整故障转移参数<block ref="46649585ec21482ae2e5fcac30c7dcae" prefix=" " category="inline-code"></block> 如下表所示。请在这些部分中保留默认重试间隔 10 秒。</block>
-  <block id="724e5b34aefa3c5cafe7d5d30b9a4beb" category="list-text">AFF A150、AFF A250、AFF A400、AFF A800、AFF A900</block>
   <block id="f24901db79bd7adbcfdc97deb6526be7" category="list-text">ASA A250、ASA A400、ASA A800、ASA A900</block>
   <block id="7165d8e624155bf7a4889b98927f605c" category="list-text">ASA C250、ASA C400、ASA C800</block>
   <block id="ba7dc8a883957fda819c429f468dc4d0" category="admonition">NetApp AFF和ASA C系列要求使用NetApp ONTAP 9.13.1.或更高版本</block>
@@ -4674,4 +4667,17 @@ SnapCenter 4.3.1支持NFSv4
 <block ref="7b0ca447499fc4df8de2cc9ab6e63840" category="inline-image-macro-rx" type="image"></block></block>
   <block id="75f1821bffac2198de5f906db81d5550" category="list-text">提供所需选项：+
 <block ref="498181ee050d357f4660daf5619ff189" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="da23b0ab6fe420fd37a4807b59fb7b31" category="paragraph">一个NVMe SSD (数据)最多支持5个SAP HANA主机。SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。
+相同的适用场景是AFF A800、AFF A70和AFF A90系统的内部NVMe磁盘。</block>
+  <block id="89579d729fbef030eb0080e68e88f112" category="paragraph">一个NVMe SSD (数据)最多支持5个SAP HANA主机。
+SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。
+相同的适用场景是AFF A800、AFF A70和AFF A90系统的内部NVMe磁盘。</block>
+  <block id="aa73ef84825182521094d3998757610f" category="list-text">AFF A150、AFF A250、AFF A400、AFF A70、AFF A800、 AFF A90、AFF A900、AFF A1K</block>
+  <block id="9c485d8d0a0f2d60633001b05d342eed" category="doc">《采用NFS的NetApp FAS系统上的SAP HANA配置指南》</block>
+  <block id="fca506837272f34f78a90c0996a60efd" category="list-text">FAS2750、FAS2820、FAS9300、FAS4700和FAS9500。有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见<block ref="b94cf00a6e18ec3712e81f808581c042" category="inline-link-rx"></block>。</block>
+  <block id="b7bda169ccba06e8cbcf02ba0fab5928" category="doc">《采用光纤通道协议的NetApp FAS系统上的SAP HANA配置指南》</block>
+  <block id="73961a76af53f6ae0a515ec774963fc8" category="list-text">FAS2750、FAS2820、FAS9300、FAS8700、FAS9500</block>
+  <block id="a56f5f8ccd94f38be4e8a0f1faf81823" category="doc">《采用NFS的NetApp AFF系统上的SAP HANA—配置指南》</block>
+  <block id="ef6ac0da06e1bd8eabd965442ae5668d" category="paragraph">Marco schön、NetApp</block>
+  <block id="47e4a9a1322865b7fd49caaf0207408a" category="list-text">AFF A150、AFF A250、AFF A400、AFF A70、AFF A800、 AFF A900、AFF A90、AFF A1K</block>
 </blocks>
