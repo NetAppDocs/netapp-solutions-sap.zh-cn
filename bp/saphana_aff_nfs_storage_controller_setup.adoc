@@ -24,6 +24,12 @@ summary: 本节介绍 NetApp 存储系统的配置。您必须根据相应的 ON
 
 
 
+== NetApp FlexGroup卷
+
+SAP HANA不支持使用NetApp FlexGroup卷。由于SAP HANA的架构、使用FlexGroup卷不会带来任何优势、可能会导致性能问题。
+
+
+
 == NetApp卷和聚合加密
 
 SAP HANA支持使用NetApp卷加密(NVE)和NetApp聚合加密(NAE)。
