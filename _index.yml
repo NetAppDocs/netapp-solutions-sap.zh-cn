@@ -1,0 +1,39 @@
+---
+indexpage:
+  title: SAP 业务应用程序和 SAP HANA 数据库解决方案
+  summary: NetApp 提供了大量针对 SAP 和 SAP HANA 的技术报告，经验证的设计，视频，博客和解决方案简介。
+  keywords: netapp, solutions, sap, hana
+  lead: NetApp 提供了大量针对 SAP 和 SAP HANA 的技术报告，经验证的设计，视频，博客和解决方案简介。
+  tiles:
+  - title: 配置最佳实践
+    links:
+    - title: 视频和演示
+      url: sap-bp-videos.html
+    - title: 博客
+      url: sap-bp-blogs.html
+    - title: 工具
+      url: sap-bp-tools.html
+  - title: 备份，还原和灾难恢复
+    links:
+    - title: 视频和演示
+      url: sap-dr-videos.html
+    - title: 博客
+      url: sap-dr-blogs.html
+    - title: 工具
+      url: sap-dr-tools.html
+  - title: 生命周期管理
+    links:
+    - title: 视频和演示
+      url: sap-lcm-videos.html
+    - title: 博客
+      url: sap-lcm-blogs.html
+    - title: 工具
+      url: sap-lcm-tools.html
+  - title: 所有 SAP 解决方案
+    links:
+    - title: 新增功能
+      url: sap-whatsnew.html
+    - title: 视频和演示
+      url: sap-videos.html
+    - title: 博客
+      url: sap-blogs.html
