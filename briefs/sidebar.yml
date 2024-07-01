@@ -8,3 +8,9 @@ entries:
   url: https://www.netapp.com/us/media/sb-3965.pdf
 - title: SAP HANA 灾难恢复
   url: https://www.netapp.com/us/media/sb-3968.pdf
+- title: 借助Ans还是NetApp SnapCenter实现SAP自动化
+  url: "/briefs/sap-lama-ansible.html"
+- title: 采用羊驼和NetApp SnapCenter的SAP自动化
+  url: "/briefs/sap-alpaca-automation.html"
+- title: 借助Avantra和NetApp SnapCenter实现SAP自动化
+  url: "/briefs/sap-avantra-automation.html"

@@ -1,0 +1,129 @@
+---
+sidebar: sidebar 
+permalink: briefs/sap-lama-ansible.html 
+keywords: sb-4292, pdf, sap, hana, provisioning, lifecycle, management, automation, LaMa, landscape 
+summary: '本文档重点介绍如何使用NetApp Playbooks和自定义脚本将SAP®存储系统集成到SAP Landscape Management (LAMA)中，无论这些系统是在内部、公共云基础架构即服务(IaaS)环境中运行，还是在混合云中运行。' 
+---
+= SB-4292：使用Ansfailed实现SAP自动化
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./../media/
+
+
+[role="lead"]
+本文档重点介绍如何使用NetApp Playbooks和自定义脚本将SAP®存储系统集成到SAP Landscape Management (LAMA)中，无论这些系统是在内部、公共云基础架构即服务(IaaS)环境中运行，还是在混合云中运行。
+
+
+
+== 解决方案概述
+
+SAP系统非常复杂。但是、对于使用SAP的公司来说、这些系统是其业务流程的核心。通过自动执行重复的日常运营任务、SAP系统管理员可以轻松管理更多系统、生成可重复的结果并减少人为错误。
+
+本文档重点介绍如何使用NetApp Playbooks和自定义脚本将SAP®存储系统集成到SAP Landscape Management (LAMA)中，无论这些系统是在内部、公共云基础架构即服务(IaaS)环境中运行，还是在混合云中运行。通过这种集成，SAP管理员可以使用NetApp SnapSnapshot™和NetApp FlexClone®技术加快SAP系统刷新任务的速度。
+
+
+
+=== 目标受众
+
+本文档面向在使用Ans得 自动化方面没有太多(或任何)经验的SAP系统管理员。它应有助于您开始使用Ans得、运行第一本操作手册、配置和运行第一个基于SAP Laama的系统刷新操作。
+
+
+
+=== SAP系统克隆、复制和刷新场景
+
+术语SAP系统副本通常用作三个不同过程的同义词：SAP系统克隆、SAP系统副本和SAP系统刷新。区分不同的操作非常重要、因为工作流和用例不同。
+
+* *SAP系统克隆*。SAP系统克隆是源SAP系统的相同克隆。SAP系统克隆通常用于解决逻辑损坏或测试灾难恢复场景。对于系统克隆操作、主机名、实例编号和安全标识符(SID)保持不变。因此、必须为目标系统建立适当的网络隔离、以确保与生产环境之间不存在通信。
+* *SAP系统副本*。SAP系统副本是使用源SAP系统中的数据对新目标SAP系统进行的设置。例如、新的目标系统可以是一个额外的测试系统、其中包含来自生产系统的数据。源系统和目标系统的主机名、实例编号和SID不同。
+* *SAP系统更新*。SAP系统刷新是使用源SAP系统中的数据对现有目标SAP系统进行的刷新。目标系统通常是SAP传输环境(例如、质量保证系统)的一部分、该系统会使用生产系统中的数据进行刷新。源系统和目标系统的主机名、实例编号和SID不同。
+
+
+下图显示了与NetApp存储相关的SAP系统克隆、复制和刷新Laama工作流步骤。
+
+image:sap-lama-image1.png["此图显示了与NetApp存储相关的SAP系统克隆、复制和刷新Laama工作流步骤"]
+
+
+
+=== 解决方案技术
+
+整个解决方案包括以下主要组件：
+
+* SAP Laama系统
+* NetApp存储系统
+* 安装了SAP Host Agent的可变控制节点。我们建议使用Red Hat Ans得 自动化平台、因为它具有其他优势、例如：
++
+** 使用AI为自动化任务生成代码建议
+** 利用事件驱动型自动化减少手动任务
+** 定义明确、一致且可移植
+** 跨环境扩展自动化
+** 利用预打包的内容加快自动化速度
+** 利用丰富的报告和可观察性指标跟踪和管理自动化
+** 创建任务、模块和操作手册
+
+
+
+
+下图显示了SAP Laama和NetApp存储系统如何通过《溶入手册》在专用的溶入主机上进行集成、该主机是由从SAP主机代理执行的Shell脚本触发的。
+
+image:sap-lama-image2.png["此图显示了SAP Laama和NetApp存储系统如何通过《安可通操作手册》在专用的安可通主机上集成、该主机是由从SAP主机代理执行的Shell脚本触发的"]
+
+
+
+=== 使用情形摘要
+
+在多种情况下、必须将源系统中的数据提供给目标系统、以便进行测试或培训。必须使用源系统中的数据定期更新这些测试和训练系统、以确保使用当前数据集执行测试和训练。这些系统刷新操作包括基础架构层、数据库层和应用程序层上的多个任务、这些任务可能需要几天时间、具体取决于自动化级别。
+
+要在基础架构和数据库层加快并自动执行所需任务、您可以使用SAP Laama和NetApp克隆工作流。SAP Laama不是将备份从源系统还原到目标系统、而是使用NetApp Snapshot和FlexClone技术、这样启动数据库所需的任务只需几分钟而不是几小时即可完成、如下图所示。克隆过程所需的时间与数据库大小无关；因此、即使是非常大的系统、也可以在几分钟内创建完成。您可以通过自动执行操作系统和数据库层以及SAP后处理端的任务来进一步缩短运行时间。
+
+下图显示了使用自动化时可能会提高的运营效率。
+
+image:sap-lama-image3.png["此图显示了使用自动化时可能会提高的运营效率"]
+
+
+
+=== 集成不同的技术组件
+
+要使用NetApp将SAP Laama与SAP存储系统集成、您需要一个可运行Ans得 虚拟手册的节点。我们建议使用"Ans还是 自动化平台"。要在此主机(从SAP Lama启动)上运行shell脚本和Andsent Playbooks、您需要在此服务器上运行一个正在运行的SAP Host Agent。SAP Host Agent接管与SAP Laama的双向通信、并执行Shell脚本、这些脚本将触发实际的操作手册。
+
+这种松散耦合的架构让您可以自由地从SAP Lama启动工作流、也可以在SAP Lama外部启动工作流。只需配置一次操作手册和相应逻辑、即可用于不同的场景和使用情形。
+
+
+
+== 结论
+
+NetApp、SAP Laama和Ans得 自动化平台相结合、提供了一个功能强大的解决方案、可以显著减少与SAP系统管理相关的最复杂、最耗时的任务所需的时间和工作量。这种组合还有助于避免人为错误可能导致系统之间的配置偏离。
+
+由于系统更新、副本、克隆和灾难恢复测试是非常敏感的过程、因此实施此类解决方案可以节省宝贵的管理时间。它还可以增强组织其他成员对SAP系统管理员的信任：他们将看到复制系统以用于测试或其他目的是多么容易、以及可以节省多少故障排除时间。
+
+
+
+== 从何处查找追加信息
+
+要了解有关本文档所述信息的更多信息，请查看以下文档和网站：
+
+* link:https://github.com/sap-linuxlab/demo.netapp_ontap/blob/main/netapp_ontap.md["通过使用适用于NetApp ONTAP®的Ans得 可操作手册自动执行日常的第1天和第2天操作"]
+* link:https://netapp.io/2018/10/08/getting-started-with-netapp-and-ansible-install-ansible/["NetApp专用的Ans｝文档"]
+* link:https://docs.ansible.com/ansible/latest/collections/netapp/ontap/index.html["NetApp ONTAP的"Ands还是"模块和完整文档"]
+* link:https://www.redhat.com/en/technologies/management/ansible/features["Red Hat Ans授 人自动化平台"]
+
+
+
+
+== 版本历史记录
+
+[cols="25,25,50"]
+|===
+| version | Date | 更新摘要 
+
+
+| 版本0.1 | 03.2023 | 初稿。 
+
+
+| 版本0.2 | 01.2024 | 请查看并进行一些小的更正 
+
+
+| 版本0.3 | 06.2024 | 已转换为html格式 
+|===

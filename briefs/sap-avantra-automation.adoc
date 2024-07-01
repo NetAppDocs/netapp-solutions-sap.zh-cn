@@ -1,0 +1,140 @@
+---
+sidebar: sidebar 
+permalink: briefs/sap-avantra-automation.html 
+keywords: sb-4294, sap, avantra, provisioning, lifecycle, management, automation, landscape 
+summary: 本文档介绍了Avantra如何与NetApp SnapCenter®平台集成。 
+---
+= SB-4294：借助Avantra和NetApp SnapCenter自动执行SAP系统复制、刷新和克隆工作流
+:allow-uri-read: 
+
+
+[role="lead"]
+本文档介绍了Avantra如何与NetApp SnapCenter®平台集成。
+
+
+
+== 解决方案概述
+
+SAP系统和解决方案的操作非常复杂。但是、对于使用SAP的公司、这些系统和服务是其业务流程的核心。通过自动执行重复的日常操作任务(如系统复制和更新操作)、SAP系统管理员可以轻松管理更多系统、生成可重复的结果并减少人为错误。
+
+本文档重点介绍如何将NetApp®Snapshot™和FlexClone®技术集成到Avantra自动化工作流中。Avantra是一个IT管理平台、专注于IT运营和服务的自动化管理。它提供了用于监控、自动化和管理IT基础架构的解决方案、以提高IT系统的效率和可靠性。Avantra支持企业主动监控其IT环境、及早发现问题、并执行自动化操作来排除故障或优化系统性能。该平台通常可与其他IT管理工具集成、并可部署在各种环境中、例如云、内部和混合基础架构。
+
+本文档介绍了Avantra如何与NetApp SnapCenter®平台集成。NetApp SnapCenter是一款用于编排基于Snapshot的备份、执行还原和创建FlexClone卷的工具。通过这种集成、SAP管理员可以使用NetApp技术显著加快SAP系统的日常运营任务。Snapshot、FlexClone和NetApp SnapRestore®软件可加快备份、还原和克隆操作的速度，因为NetApp存储技术是基于指针的。这种方法很快。此外、它还可以降低克隆操作期间的存储开销、因为无论存储介质是内部NetApp存储系统还是三大云提供商之一的NetApp存储解决方案、都只会向存储介质写入新数据和更改过的数据。
+
+
+
+=== 目标受众
+
+本文档面向以前手动执行过SAP系统副本并希望使用Avantra自动执行此活动的SAP系统管理员。将NetApp快照和FlexClone技术(由NetApp SnapCenter协调)与Avantra工作流相结合的预期目标是、通过完全自动化来加快SAP系统副本的速度。
+
+
+
+=== SAP系统克隆、复制和刷新场景
+
+术语SAP系统副本通常用作三个不同流程的统称：SAP系统克隆、SAP系统副本和SAP系统刷新。区分不同的操作非常重要、因为工作流和用例不同。
+
+* *SAP系统克隆*。SAP系统克隆是源SAP系统的相同克隆。SAP系统克隆通常用于解决逻辑损坏或测试灾难恢复场景。对于系统克隆操作、主机名、实例编号和安全标识符(SID)保持不变。因此、必须为目标系统建立适当的网络隔离、以确保与生产环境之间不存在通信。
+
+
+image:sap-avantra-image1.png["显示SAP系统克隆的图像"]
+
+* *SAP系统副本*。SAP系统副本是使用源SAP系统中的数据对新目标SAP系统进行的设置。例如、目标系统可以是一个额外的测试系统、其中包含来自生产系统的数据。源系统和目标系统的主机名、实例编号和SID不同。 新系统不会与源系统隔离。
+
+
+image:sap-avantra-image2.png["显示SAP系统副本的图像"]
+
+* *SAP系统更新。*SAP系统刷新是使用源SAP系统中的数据对现有目标SAP系统进行的刷新。目标系统通常是SAP传输环境(例如沙盒系统)的一部分、该系统会使用生产系统中的数据进行刷新。源系统和目标系统的主机名、实例编号和SID不同。
+
+
+image:sap-avantra-image3.png["显示SAP系统刷新的图像"]
+
+尽管我们有三种不同的用例、但数据管理流程保持不变。所有这三种使用情形都在利用相同的底层数据管理技术：NetApp Snapshot和FlexClone。
+
+
+
+=== 解决方案技术
+
+整个解决方案包括以下主要组件：
+
+* 安装了SnapCenter代理和SnapCenter数据库插件的SAP源系统
+* 安装了SnapCenter代理和SnapCenter数据库插件的SAP目标系统
+* 已配置SAP源系统和SAP目标系统的Avantra系统
+* NetApp SnapCenter服务器
+* NetApp存储系统：
++
+** 物理内部部署硬件：NetApp AFF A系列、AFF C系列、ASA A系列、ASA C系列或FAS系列
+** 内部软件定义的存储：NetApp ONTAP®Select
+** NetApp云存储：
++
+*** AWS、Google Cloud或Azure中的NetApp Cloud Volumes ONTAP®
+*** Azure NetApp Files
+*** Amazon FSx for NetApp ONTAP (AWS)
+
+
+
+
+
+
+下图显示了Avantra服务器、NetApp SnapCenter服务器、NetApp存储系统、SAP源系统和SAP目标系统、以及所有内容的集成方式。其目标是、通过使用SnapCenter REST API最大限度地重复使用现有组件中已完成的配置工作、使集成尽可能灵活。
+
+image:sap-avantra-image4.png["显示Avantra服务器、NetApp SnapCenter服务器、NetApp存储系统、SAP源系统和SAP目标系统以及一切集成方式的图像"]
+
+
+
+=== 使用情形摘要
+
+在多种情况下、必须将源系统中的数据提供给目标系统、以便进行测试或培训。必须使用源系统中的数据定期更新这些测试和训练系统、以确保使用当前数据集执行测试和训练。这些系统刷新操作包括基础架构层、数据库层和应用程序层上的多个任务、这些任务可能需要几天时间、具体取决于自动化级别。
+
+为了缩短时间、自动执行运营任务并消除基础架构、数据库和应用程序级别的人为错误、您可以使用Avantra工作流。此集成使用NetApp Snapshot和FlexClone技术、而不是将备份从源系统还原到目标系统、这不仅耗时、而且会占用大量资源。启动数据库所需的所有任务只需几分钟而不是几小时即可完成。克隆过程所需的时间与数据库大小无关；因此、即使是非常大的系统、也只需几分钟即可创建完毕。Avantra可自动执行操作系统和数据库级别以及SAP后处理端的任务、从而进一步缩短运行时间。
+
+下图显示了使用自动化时可能会提高的运营效率。
+
+image:sap-avantra-image5.png["此图显示了使用自动化时可能会提高的运营效率"]
+
+
+
+=== 集成不同的技术组件
+
+SnapCenter在Avantra工作流中的实际集成包括使用JavaScript访问NetApp SnapCenter REST API。这种基于REST API的集成可创建SAP源系统的Snapshot副本、创建FlexClone卷并将其挂载到SAP目标系统上。
+
+存储和SAP管理员已投入大量时间和专业知识来开发由SnapCenter触发并由SnapCenter代理执行的脚本、以便自动执行重复的日常操作任务。这种松散耦合的架构使用JavaScript触发SnapCenter任务、使他们能够重复使用现有自动化过程、使用Avantra作为端到端自动化的工作流引擎、更快地实现所需结果。
+
+
+
+== 结论
+
+Avantra和NetApp数据管理技术相结合、提供了一个功能强大的解决方案、可以显著减少执行与SAP系统管理相关的最复杂、最耗时的任务所需的时间和精力。这种组合还有助于避免人为错误可能导致系统之间的配置偏离。
+
+由于系统更新、副本、克隆和灾难恢复测试都是非常敏感的过程、因此实施此类解决方案可以节省宝贵的管理时间。它还可以增强业务部门员工对SAP系统管理员的信任：他们将看到可以节省多少故障排除时间、以及复制系统以用于测试或其他目的有多容易。无论源系统和目标系统运行在内部环境、公有云还是混合或混合多云环境中、该解决方案都能提供这些优势。
+
+
+
+== 从何处查找追加信息
+
+要了解有关本文档所述信息的更多信息，请查看以下文档和网站：
+
+* link:https://www.avantra.com/["Avantra"]
+* link:https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html["利用 SnapCenter 自动执行 SAP HANA 系统复制和克隆操作"]
+* link:https://docs.netapp.com/us-en/snapcenter/sc-automation/reference_supported_rest_apis.html["SnapCenter 服务器和插件支持的REST API"]
+
+
+
+
+== 版本历史记录
+
+[cols="25,25,50"]
+|===
+| version | Date | 更新摘要 
+
+
+| 版本0.1 | 03.2024 | 初稿。 
+
+
+| 版本0.2 | 03.2024 | 整合NetApp同事的反馈。 
+
+
+| 版本0.3 | 04.2024 | 已集成请求的更改、以符合NetApp品牌要求 
+
+
+| 0.4版 | 06.2024 | 已转换为html格式 
+|===
