@@ -32,6 +32,9 @@ NOTE: NetApp AFF C系列需要使用NetApp ONTAP 9.13.1.或更高版本
 本文档介绍了 NFS 协议版本 3 （ NFSv3 ）或 NFS 协议版本 4 （ NFSv4.1 ）的 ONTAP 配置要求。
 
 
+NOTE: 仅支持NFS版本3或4.1。不支持NFS版本1、2、4.0和4.2。
+
+
 NOTE: 要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采用本文所述的配置。更改此处未列出的任何设置或使用的功能可能会导致发生原因性能下降或出现意外行为，只有在 NetApp 支持人员建议的情况下，才应执行此操作。
 
 有关使用 FCP 的 NetApp AFF 系统以及使用 NFS 或 FCP 的 FAS 系统的配置指南，请访问以下链接：
