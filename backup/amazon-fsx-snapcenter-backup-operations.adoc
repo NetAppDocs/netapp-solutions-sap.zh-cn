@@ -28,21 +28,21 @@ summary: 本节介绍如何创建按需Snapshot备份和按需块完整性检查
 
 . 在顶部行中，选择立即备份图标以启动按需备份。
 +
-image:amazon-fsx-image48.png["错误：缺少图形映像"]
+image::amazon-fsx-image48.png[错误：缺少图形映像]
 
 . 从下拉列表中、选择备份策略`LocalSnap`、然后单击备份以启动按需备份。
 +
-image:amazon-fsx-image49.png["错误：缺少图形映像"]
+image::amazon-fsx-image49.png[错误：缺少图形映像]
 
 +
-image:amazon-fsx-image50.png["错误：缺少图形映像"]
+image::amazon-fsx-image50.png[错误：缺少图形映像]
 
 +
 拓扑视图底部的活动区域将显示前五个作业的日志。
 
 . 单击活动区域中作业的活动行时，将显示作业详细信息。您可以单击查看日志来打开详细的作业日志
 +
-image:amazon-fsx-image51.png["错误：缺少图形映像"]
+image::amazon-fsx-image51.png[错误：缺少图形映像]
 
 +
 备份完成后，拓扑视图中将显示一个新条目。备份名称遵循与一节中定义的 Snapshot 名称相同的命名约定 link:amazon-fsx-snapcenter-configuration.html#configure-and-protect-a-hana-resource[""配置和保护HANA资源"。"]
@@ -51,16 +51,16 @@ image:amazon-fsx-image51.png["错误：缺少图形映像"]
 您必须关闭并重新打开拓扑视图才能查看更新后的备份列表。
 
 +
-image:amazon-fsx-image52.png["错误：缺少图形映像"]
+image::amazon-fsx-image52.png[错误：缺少图形映像]
 
 +
 在 SAP HANA 备份目录中， SnapCenter 备份名称存储为 `Comment` 字段以及 `外部备份 ID （ EBID ）` 。下图显示了系统数据库和租户数据库PFX。
 
 +
-image:amazon-fsx-image53.png["错误：缺少图形映像"]
+image::amazon-fsx-image53.png[错误：缺少图形映像]
 
 +
-image:amazon-fsx-image54.png["错误：缺少图形映像"]
+image::amazon-fsx-image54.png[错误：缺少图形映像]
 
 
 
@@ -82,19 +82,19 @@ sapcc-hana-svm::>
 
 通过选择策略BlockIntegrityCheck、可以按与Snapshot备份作业相同的方式执行按需块完整性检查操作。使用此策略计划备份时， SnapCenter 会为系统和租户数据库创建标准 SAP HANA 文件备份。
 
-image:amazon-fsx-image55.png["错误：缺少图形映像"]
+image::amazon-fsx-image55.png[错误：缺少图形映像]
 
-image:amazon-fsx-image56.png["错误：缺少图形映像"]
+image::amazon-fsx-image56.png[错误：缺少图形映像]
 
 SnapCenter 显示块完整性检查的方式与基于 Snapshot 副本的备份不同。而是在摘要卡中显示基于文件的备份数以及上一个备份的状态。
 
-image:amazon-fsx-image57.png["错误：缺少图形映像"]
+image::amazon-fsx-image57.png[错误：缺少图形映像]
 
 SAP HANA 备份目录会显示系统数据库和租户数据库的条目。下图显示了系统和租户数据库的备份目录中的SnapCenter 块完整性检查。
 
-image:amazon-fsx-image58.png["错误：缺少图形映像"]
+image::amazon-fsx-image58.png[错误：缺少图形映像]
 
-image:amazon-fsx-image59.png["错误：缺少图形映像"]
+image::amazon-fsx-image59.png[错误：缺少图形映像]
 
 成功的块完整性检查可创建标准 SAP HANA 数据备份文件。SnapCenter 使用已为HANA数据库配置的备份路径执行基于文件的数据备份操作。
 

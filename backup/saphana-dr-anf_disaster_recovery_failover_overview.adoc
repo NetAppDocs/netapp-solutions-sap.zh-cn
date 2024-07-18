@@ -32,4 +32,4 @@ summary: 根据日志备份复制是否属于灾难恢复设置的一部分，�
 
 以下各小节详细介绍了这些步骤，下图介绍了灾难故障转移测试。
 
-image:saphana-dr-anf_image26.png["错误：缺少图形映像"]
+image::saphana-dr-anf_image26.png[错误：缺少图形映像]

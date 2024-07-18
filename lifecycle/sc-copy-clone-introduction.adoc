@@ -31,7 +31,7 @@ NetApp 公司 Nil Bauser
 
 用于优化SAP生命周期管理的NetApp解决方案已集成到SAP HANA数据库和生命周期管理工具中、将高效的应用程序集成数据保护与灵活配置SAP测试系统相结合、如下图所示。这些解决方案适用于在内部环境中运行的SAP HANA或在云中运行的Azure NetApp Files (ANF)或Amazon FSx for NetApp ONTAP (FSx for ONTAP)。
 
-image:sc-copy-clone-image1.png[""]
+image::sc-copy-clone-image1.png[SC副本克隆image1]
 
 
 

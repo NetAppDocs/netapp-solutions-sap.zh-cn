@@ -28,4 +28,4 @@ SnapCenter 包括 SnapCenter 服务器，适用于 Windows 的 SnapCenter 插件
 
 下图显示了 SnapCenter 组件。
 
-image:saphana-br-scs-image6.png["错误：缺少图形映像"]
+image::saphana-br-scs-image6.png[错误：缺少图形映像]

@@ -59,4 +59,4 @@ SnapCenter 服务器用作 HANA 系统 MS1 和 SS2 的中央 HANA 插件主机�
 
 下图显示了实验室设置。
 
-image:saphana-br-scs-image21.png["错误：缺少图形映像"]
+image::saphana-br-scs-image21.png[错误：缺少图形映像]

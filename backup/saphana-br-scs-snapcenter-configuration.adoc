@@ -22,7 +22,7 @@ SnapCenter 配置可以分为两个主要方面：
 
 下图概述了配置组件及其依赖关系。绿色框显示了必须在 SnapCenter 之外完成的配置步骤；蓝色框显示了使用 SnapCenter 图形用户界面完成的步骤。
 
-image:saphana-br-scs-image22.png["错误：缺少图形映像"]
+image::saphana-br-scs-image22.png[错误：缺少图形映像]
 
 在初始配置中，将安装和配置以下组件：
 

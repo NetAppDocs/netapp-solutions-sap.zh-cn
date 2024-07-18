@@ -44,7 +44,7 @@ Snapshot 副本备份与活动联机数据存储在同一磁盘系统上。因�
 
 解决方案 还可以无缝扩展到混合云操作模式。可以从内部 NetApp ONTAP 系统到云中运行的 Cloud Volumes ONTAP 实例进行数据复制，以实现灾难恢复或异地备份。无论 SAP HANA 系统是在内部还是在云中运行，您都可以使用 SnapCenter 作为一个中央工具来管理数据保护和数据复制。下图显示了备份解决方案 的概述。
 
-image:saphana-br-scs-image1.png["错误：缺少图形映像"]
+image::saphana-br-scs-image1.png[错误：缺少图形映像]
 
 
 
@@ -55,7 +55,7 @@ image:saphana-br-scs-image1.png["错误：缺少图形映像"]
 
 NOTE: 整个备份工作流运行时间的最大一部分是执行 HANA 备份保存点操作所需的时间，此步骤取决于 HANA 数据库上的负载。存储 Snapshot 备份本身始终会在几秒钟内完成。
 
-image:saphana-br-scs-image2.png["错误：缺少图形映像"]
+image::saphana-br-scs-image2.png[错误：缺少图形映像]
 
 
 
@@ -89,17 +89,17 @@ image:saphana-br-scs-image2.png["错误：缺少图形映像"]
 
 下图显示了使用基于文件的数据备份时 1 TB 数据库的 RTO 示例。在此示例中，每天执行一次备份。RTO 因执行还原和恢复的时间而异。如果在创建备份后立即执行还原和恢复，则 RTO 主要基于还原时间，在示例中为 1 小时 10 分钟。在进行下次备份之前立即执行还原和恢复时，恢复时间增加到 2 小时 50 分钟，最大 RTO 为 4 小时 30 分钟。
 
-image:saphana-br-scs-image3.png["错误：缺少图形映像"]
+image::saphana-br-scs-image3.png[错误：缺少图形映像]
 
 下图显示了使用 Snapshot 备份时 1 TB 数据库的 RTO 示例。对于基于存储的 Snapshot 备份， RTO 仅取决于数据库开始时间和正向恢复时间，因为还原操作会在几秒钟内完成，而与数据库大小无关。根据还原和恢复的完成时间，正向恢复时间也会增加，但由于备份频率较高（在此示例中为每六小时一次），正向恢复时间最多为 43 分钟。在此示例中，最大 RTO 为 1 小时 13 分钟。
 
-image:saphana-br-scs-image4.png["错误：缺少图形映像"]
+image::saphana-br-scs-image4.png[错误：缺少图形映像]
 
 下图显示了不同数据库大小和不同 Snapshot 备份频率下基于文件和基于存储的 Snapshot 备份的 RTO 比较。绿色条显示了基于文件的备份。其他条形显示备份频率不同的 Snapshot 副本备份。
 
 与基于文件的数据备份相比，每天只需备份一个 Snapshot 副本数据， RTO 便可减少 40% 。如果每天执行四个 Snapshot 备份，则减少量将增加到 70% 。此图还显示，如果将 Snapshot 备份频率提高到每天四到六个以上的 Snapshot 备份，则此曲线将保持平稳。因此，我们的客户通常每天配置四到六个 Snapshot 备份。
 
-image:saphana-br-scs-image5.png["错误：缺少图形映像"]
+image::saphana-br-scs-image5.png[错误：缺少图形映像]
 
 
 NOTE: 此图显示了 HANA 服务器 RAM 大小。计算内存中的数据库大小等于服务器 RAM 大小的一半。

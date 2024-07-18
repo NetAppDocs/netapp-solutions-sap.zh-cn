@@ -18,11 +18,11 @@ summary: 在多种情况下、必须将源系统中的数据提供给目标系�
 
 这些系统刷新操作包括基础架构层、数据库层和应用程序层上的多个任务、它们可能需要数天时间、具体取决于自动化级别。
 
-image:lama-ansible-image2.png["此图展示了从主要开发环境到临时项目拆分、修复系统、培训系统和SANbox系统的环境工作流。它显示了用于这些不同目的的系统刷新、系统副本和系统克隆的位置。"]
+image::lama-ansible-image2.png[此图展示了从主要开发环境到临时项目拆分、修复系统、培训系统和SANbox系统的环境工作流。它显示了用于这些不同目的的系统刷新、系统副本和系统克隆的位置。]
 
 SAP Lama和NetApp克隆工作流可用于加速和自动化基础架构和数据库层的所需任务。SAP Lama不会将备份从源系统还原到目标系统、而是使用NetApp Snapshot副本和NetApp FlexClone技术、以便在几分钟内即可完成启动的HANA数据库所需的任务、而不是像下图所示的几小时内完成。克隆过程所需的时间与数据库大小无关；因此、即使是非常大的系统也只需几分钟即可创建完毕。通过自动执行操作系统和数据库层以及SAP后处理端的任务、可以进一步缩短运行时间。
 
-image:lama-ansible-image3.png["此图显示了使用和不使用NetApp Snapshot副本的克隆过程与NetApp FlexClone技术之间的比较、从而显著加快了该过程的运行速度。"]
+image::lama-ansible-image3.png[此图显示了使用和不使用NetApp Snapshot副本的克隆过程与NetApp FlexClone技术之间的比较、从而显著加快了该过程的运行速度。]
 
 
 
@@ -36,7 +36,7 @@ image:lama-ansible-image3.png["此图显示了使用和不使用NetApp Snapshot�
 
 设置修复系统时、灵活性和速度至关重要。借助基于NetApp存储的Snapshot备份、可以使用NetApp FlexClone技术使用多个一致的数据库映像来创建生产系统的克隆。如果使用基于文件的备份的重定向还原来设置修复系统、则只需几秒钟即可创建FlexClone卷、而不是多小时。
 
-image:lama-ansible-image4.png["此图显示了使用FlexClone技术从克隆系统创建修复系统的分步过程。"]
+image::lama-ansible-image4.png[此图显示了使用FlexClone技术从克隆系统创建修复系统的分步过程。]
 
 
 
@@ -48,4 +48,4 @@ image:lama-ansible-image4.png["此图显示了使用FlexClone技术从克隆系�
 
 SAP Lama可用于编排整个测试操作步骤 、还负责网络隔离、目标主机维护等。
 
-image:lama-ansible-image5.png["此图显示了主数据中心、本地灾难恢复数据中心和远程灾难恢复数据中心中的NetApp存储系统之间的关系。它们通过同步SnapMirror和异步SnapMirror关系进行连接。"]
+image::lama-ansible-image5.png[此图显示了主数据中心、本地灾难恢复数据中心和远程灾难恢复数据中心中的NetApp存储系统之间的关系。它们通过同步SnapMirror和异步SnapMirror关系进行连接。]

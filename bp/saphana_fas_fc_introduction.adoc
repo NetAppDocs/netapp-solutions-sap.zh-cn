@@ -39,7 +39,7 @@ NOTE: 要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采�
 
 NetApp FAS 存储控制器已通过使用 NFS （ NAS ）和光纤通道（ SAN ）协议的 SAP HANA 定制数据中心集成（ TDI ）计划的认证。它们可以部署在任何 SAP HANA 方案中，例如采用单主机或多主机配置的基于 HANA 的 SAP Business Suite ， S/4HANA ， BB/4HANA 或基于 HANA 的 SAP Business Warehouse 。任何经认证可与 SAP HANA 结合使用的服务器均可与经过认证的存储解决方案结合使用。有关架构概述，请参见下图。
 
-image:saphana_fas_fc_image1.png["错误：缺少图形映像"]
+image::saphana_fas_fc_image1.png[错误：缺少图形映像]
 
 有关高效SAP HANA系统的前提条件和建议的详细信息、请参见以下资源：
 

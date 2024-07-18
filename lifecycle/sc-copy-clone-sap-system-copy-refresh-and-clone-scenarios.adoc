@@ -22,4 +22,4 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA
 
 下图说明了在系统刷新、系统复制或系统克隆操作期间必须执行的主要步骤。蓝色框表示可以使用SnapCenter自动执行的步骤、灰色框表示必须在SnapCenter外部手动或使用第三方工具执行的步骤。
 
-image:sc-copy-clone-image2.png[""]
+image::sc-copy-clone-image2.png[SC副本克隆image2.]

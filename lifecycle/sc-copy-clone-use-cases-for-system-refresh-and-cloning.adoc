@@ -19,9 +19,11 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA
 
 在多种情况下、必须将源系统中的数据提供给目标系统、以便用于测试或培训目的。必须定期使用源系统中的数据更新这些测试和培训系统、以确保使用当前数据集执行测试和培训。这些系统刷新操作包括基础架构层、数据库层和应用程序层上的多个任务、它们可能需要数天时间、具体取决于自动化级别。
 
-image:sc-copy-clone-image3.png[""] SnapCenter克隆工作流可用于在基础架构层和数据库层加快和自动执行所需任务。SnapCenter不会将备份从源系统还原到目标系统、而是使用NetApp Snapshot副本和NetApp FlexClone技术、这样、直到启动SAP HANA数据库所需的任务都可以在几分钟内完成、而不是几小时。克隆过程所需的时间与数据库大小无关、因此即使是非常大的系统也可以在几分钟内创建完毕。启动时间仅取决于数据库大小以及数据库服务器和存储系统之间的连接。
+image::sc-copy-clone-image3.png[SC副本克隆image3.]
 
-image:sc-copy-clone-image4.png[""]
+SnapCenter 克隆工作流可用于加速和自动化基础架构层和数据库层上的所需任务。SnapCenter不会将备份从源系统还原到目标系统、而是使用NetApp Snapshot副本和NetApp FlexClone技术、这样、直到启动SAP HANA数据库所需的任务都可以在几分钟内完成、而不是几小时。克隆过程所需的时间与数据库大小无关、因此即使是非常大的系统也可以在几分钟内创建完毕。启动时间仅取决于数据库大小以及数据库服务器和存储系统之间的连接。
+
+image::sc-copy-clone-image4.png[SC副本克隆image4.]
 
 一节介绍了系统刷新操作的工作流 link:sc-copy-clone-sap-hana-system-refresh-with-snapcenter.html["《使用SnapCenter 更新SAP HANA系统》。"]
 
@@ -37,7 +39,7 @@ image:sc-copy-clone-image4.png[""]
 
 在设置修复系统时、灵活性和敏捷性至关重要。使用基于NetApp存储的Snapshot备份时、可以使用多个一致的数据库映像来使用NetApp FlexClone技术创建生产系统的克隆。如果使用基于文件的备份的重定向还原来设置修复系统、则只需几秒钟即可创建FlexClone卷、而不是多小时。
 
-image:sc-copy-clone-image5.png[""]
+image::sc-copy-clone-image5.png[SC副本克隆image5.]
 
 一节介绍了修复系统创建的工作流 link:sc-copy-clone-sap-system-clone-with-snapcenter.html[""使用SnapCenter 克隆SAP系统。""]
 
@@ -51,7 +53,9 @@ image:sc-copy-clone-image5.png[""]
 
 异步和同步SnapMirror的灾难恢复测试会在灾难恢复目标上使用Snapshot备份和FlexClone卷。
 
-image:sc-copy-clone-image6.png[""] 详细的分步说明可在技术报告中找到
+image::sc-copy-clone-image6.png[SC副本克隆image6.]
+
+详细的分步说明可在技术报告中找到
 
 https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-dr-sr_pdf_link.html["TR-4646：《采用存储复制的SAP HANA灾难恢复》(netapp.com)"]
 

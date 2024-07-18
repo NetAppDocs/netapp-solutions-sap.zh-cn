@@ -22,10 +22,10 @@ summary: 备份操作始终在主 SAP HANA 主机上执行。无法在二级 SAP
 
 每个 SAP HANA 主机都有自己的存储卷。使用基于存储的 Snapshot 执行备份时，系统会在主 SAP HANA 主机的存储卷上创建数据库一致的 Snapshot 。
 
-image:saphana-sr-scs-image3.png["错误：缺少图形映像"]
+image::saphana-sr-scs-image3.png[错误：缺少图形映像]
 
 执行到主机 2 的故障转移时，主机 2 将成为主主机，备份在主机 2 上执行， Snapshot 备份在主机 2 的存储卷上创建。
 
 在主机 2 上创建的备份可以直接在存储层进行还原。如果必须使用在主机 1 上创建的备份，则必须将备份从主机 1 存储卷复制到主机 2 存储卷。正向恢复使用两个主机的日志备份。
 
-image:saphana-sr-scs-image4.png["错误：缺少图形映像"]
+image::saphana-sr-scs-image4.png[错误：缺少图形映像]

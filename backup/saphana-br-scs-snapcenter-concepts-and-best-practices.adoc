@@ -34,7 +34,7 @@ summary: 本节介绍与 SAP HANA 资源配置和部署相关的 SnapCenter 概�
 
 下图总结了这些依赖关系。有关 HANA 部署选项的详细信息，请参见 " SAP HANA 插件的部署选项 " 一节。
 
-image:saphana-br-scs-image9.png["错误：缺少图形映像"]
+image::saphana-br-scs-image9.png[错误：缺少图形映像]
 
 
 NOTE: HANA 和 Linux 插件当前仅适用于基于 Intel 的系统。如果 HANA 数据库运行在 IBM Power Systems 上，则必须使用中央 HANA 插件主机。
@@ -101,7 +101,7 @@ NOTE: 在 HANA 数据库主机上部署 HANA 插件时，默认情况下会自�
 
 SnapCenter 服务器通过 SAP HANA 插件与 SAP HANA 数据库进行通信。SAP HANA 插件使用 SAP HANA hdbsql 客户端软件对 SAP HANA 数据库执行 SQL 命令。SAP HANA hdbuserstore 用于提供用户凭据，主机名和端口信息以访问 SAP HANA 数据库。
 
-image:saphana-br-scs-image10.png["错误：缺少图形映像"]
+image::saphana-br-scs-image10.png[错误：缺少图形映像]
 
 
 NOTE: SAP HANA 插件和 SAP hdbsql. 客户端软件（包括 hdbuserstore 配置工具）必须安装在同一主机上。
@@ -122,7 +122,7 @@ NOTE: SAP HANA 插件和 SAP hdbsql. 客户端软件（包括 hdbuserstore 配�
 
 下图显示了使用 SnapCenter 服务器作为中央插件主机的配置。SAP HANA 插件和 SAP hdbsql. 客户端软件安装在 SnapCenter 服务器上。
 
-image:saphana-br-scs-image11.png["错误：缺少图形映像"]
+image::saphana-br-scs-image11.png[错误：缺少图形映像]
 
 由于 HANA 插件可以通过网络使用 hdbclient 与受管 HANA 数据库进行通信，因此您无需在各个 HANA 数据库主机上安装任何 SnapCenter 组件。SnapCenter 可以使用中央 HANA 插件主机来保护 HANA 数据库，在该主机上为受管数据库配置所有用户存储密钥。
 
@@ -139,7 +139,7 @@ image:saphana-br-scs-image11.png["错误：缺少图形映像"]
 
 NOTE: 单独的中央插件主机也可以是 Windows 主机。
 
-image:saphana-br-scs-image12.png["错误：缺少图形映像"]
+image::saphana-br-scs-image12.png[错误：缺少图形映像]
 
 上一节所述的功能可用性限制也适用于单独的中央插件主机。
 
@@ -151,7 +151,7 @@ image:saphana-br-scs-image12.png["错误：缺少图形映像"]
 
 下图显示了在每个 SAP HANA 数据库主机上安装 SAP HANA 插件的配置。
 
-image:saphana-br-scs-image13.png["错误：缺少图形映像"]
+image::saphana-br-scs-image13.png[错误：缺少图形映像]
 
 当 HANA 插件安装在每个 HANA 数据库主机上时，所有功能都可用，例如自动发现以及自动还原和恢复。此外，还可以在 HA 配置中设置 SnapCenter 服务器。
 
@@ -165,9 +165,9 @@ NetApp 建议您在 HANA 数据库主机上为支持自动发现的所有 HANA �
 
 以下两个图显示了混合插件部署，其中 SnapCenter 服务器或单独的 Linux 主机作为中央插件主机。这两种部署之间的唯一区别是可选的 HA 配置。
 
-image:saphana-br-scs-image14.png["错误：缺少图形映像"]
+image::saphana-br-scs-image14.png[错误：缺少图形映像]
 
-image:saphana-br-scs-image15.png["错误：缺少图形映像"]
+image::saphana-br-scs-image15.png[错误：缺少图形映像]
 
 
 
@@ -299,7 +299,7 @@ NOTE: 当一个或多个租户停止时， SAP 不支持对 MDC 系统执行 Sna
 
 下图显示了备份工作流的概述。
 
-image:saphana-br-scs-image16.png["错误：缺少图形映像"]
+image::saphana-br-scs-image16.png[错误：缺少图形映像]
 
 
 
@@ -365,7 +365,7 @@ NOTE: 只有在未禁用日志备份管理的情况下，才会执行此步骤�
 
 下图概述了不同的工作流以及每个操作的依赖关系。以下各节将详细介绍不同的操作。
 
-image:saphana-br-scs-image17.png["错误：缺少图形映像"]
+image::saphana-br-scs-image17.png[错误：缺少图形映像]
 
 
 
@@ -534,7 +534,7 @@ NOTE: 即使在策略配置中为按需备份定义了保留，但只有在执�
 * * 使用手动恢复完成资源。 * 如果选择 " 无恢复 " ， SnapCenter 将停止 HANA 数据库并执行所需的文件系统（卸载，挂载）和还原操作。您必须手动恢复系统和租户数据库。
 
 
-image:saphana-br-scs-image18.png["错误：缺少图形映像"]
+image::saphana-br-scs-image18.png[错误：缺少图形映像]
 
 
 
@@ -548,7 +548,7 @@ image:saphana-br-scs-image18.png["错误：缺少图形映像"]
 
 这些工作流与上一节所述相同。
 
-image:saphana-br-scs-image19.png["错误：缺少图形映像"]
+image::saphana-br-scs-image19.png[错误：缺少图形映像]
 
 
 
@@ -558,7 +558,7 @@ image:saphana-br-scs-image19.png["错误：缺少图形映像"]
 
 对于手动配置的 HANA 资源， SnapCenter 仅支持手动恢复，如下图所示。手动恢复的工作流与前面几节所述的工作流相同。
 
-image:saphana-br-scs-image20.png["错误：缺少图形映像"]
+image::saphana-br-scs-image20.png[错误：缺少图形映像]
 
 
 

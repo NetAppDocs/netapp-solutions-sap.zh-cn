@@ -48,7 +48,7 @@ NOTE: HANA 2.0 SPS5 版本更改了所需权限：备份管理员，目录读取
 
 NOTE: 对于 SAP HANA MDC 系统，必须在系统数据库中创建用户，因为系统和租户数据库的所有备份命令都使用系统数据库执行。
 
-image:saphana-br-scs-image53.png["错误：缺少图形映像"]
+image::saphana-br-scs-image53.png[错误：缺少图形映像]
 
 在安装了 SAP HANA 插件和 SAP hdbsql. 客户端的 HANA 插件主机上，必须配置用户存储密钥。
 
@@ -163,7 +163,7 @@ C:\Program Files\sap\hdbclient>
 
 NOTE: 此关系的计划必须设置为无，因为 SnapCenter 会触发 SnapVault 更新。
 
-image:saphana-br-scs-image54.png["错误：缺少图形映像"]
+image::saphana-br-scs-image54.png[错误：缺少图形映像]
 
 下图显示了保护策略。用于保护关系的保护策略用于定义 SnapMirror 标签以及在二级存储上保留备份。在我们的示例中，已用标签为 `Daily` ，保留设置为 5 。
 
@@ -173,7 +173,7 @@ NOTE: 要创建的策略中的 SnapMirror 标签必须与 SnapCenter 策略配�
 
 NOTE: 异地备份存储上的备份保留在策略中定义，并由 ONTAP 控制。
 
-image:saphana-br-scs-image55.png["错误：缺少图形映像"]
+image::saphana-br-scs-image55.png[错误：缺少图形映像]
 
 
 
@@ -203,18 +203,18 @@ NOTE: 对于 HANA 单个容器系统，必须选择资源类型单个容器。�
 hdbuserstore 密钥必须与为 HANA 数据库 SS2 配置的密钥匹配。在我们的示例中，它是 SS2KEY 。
 
 +
-image:saphana-br-scs-image56.png["错误：缺少图形映像"]
+image::saphana-br-scs-image56.png[错误：缺少图形映像]
 
 +
 
 NOTE: 对于 SAP HANA 多主机系统，必须包括所有主机的 hdbuserstore 密钥，如下图所示。SnapCenter 将尝试使用列表中的第一个密钥进行连接，如果第一个密钥不起作用，则继续使用另一个密钥。要在具有辅助主机和备用主机的多主机系统中支持 HANA 故障转移，需要执行此操作。
 
 +
-image:saphana-br-scs-image57.png["错误：缺少图形映像"]
+image::saphana-br-scs-image57.png[错误：缺少图形映像]
 
 .. 为存储系统（ SVM ）和卷名称选择所需的数据。
 +
-image:saphana-br-scs-image58.png["错误：缺少图形映像"]
+image::saphana-br-scs-image58.png[错误：缺少图形映像]
 
 +
 
@@ -225,14 +225,14 @@ NOTE: 对于光纤通道 SAN 配置，还需要选择 LUN 。
 NOTE: 对于 SAP HANA 多主机系统，必须选择 SAP HANA 系统的所有数据卷，如下图所示。
 
 +
-image:saphana-br-scs-image59.png["错误：缺少图形映像"]
+image::saphana-br-scs-image59.png[错误：缺少图形映像]
 
 +
 此时将显示资源配置的摘要屏幕。
 
 .. 单击完成以添加 SAP HANA 数据库。
 +
-image:saphana-br-scs-image60.png["错误：缺少图形映像"]
+image::saphana-br-scs-image60.png[错误：缺少图形映像]
 
 .. 完成资源配置后，请按照 " " 一节中所述配置资源保护<<资源保护配置>>。 "
 
@@ -251,17 +251,17 @@ NOTE: SAP HANA 插件需要 Java 64 位版本 1.8 。在部署 SAP HANA 插件�
 . 在主机选项卡中，单击添加。
 . 提供主机信息并选择要安装的 SAP HANA 插件。单击提交。
 +
-image:saphana-br-scs-image61.png["错误：缺少图形映像"]
+image::saphana-br-scs-image61.png[错误：缺少图形映像]
 
 . 确认指纹。
 +
-image:saphana-br-scs-image62.png["错误：缺少图形映像"]
+image::saphana-br-scs-image62.png[错误：缺少图形映像]
 
 +
 HANA 插件和 Linux 插件的安装会自动启动。安装完成后，主机的状态列将显示正在运行。此屏幕还会显示 Linux 插件与 HANA 插件一起安装。
 
 +
-image:saphana-br-scs-image63.png["错误：缺少图形映像"]
+image::saphana-br-scs-image63.png[错误：缺少图形映像]
 
 +
 安装此插件后， HANA 资源的自动发现过程将自动启动。在资源屏幕中，将创建一个新资源，该资源将标记为已锁定，并带有红色挂锁图标。
@@ -272,21 +272,21 @@ image:saphana-br-scs-image63.png["错误：缺少图形映像"]
 NOTE: 您也可以通过单击刷新资源在资源屏幕中手动触发自动发现过程。
 
 +
-image:saphana-br-scs-image64.png["错误：缺少图形映像"]
+image::saphana-br-scs-image64.png[错误：缺少图形映像]
 
 . 提供 HANA 数据库的用户存储密钥。
 +
-image:saphana-br-scs-image65.png["错误：缺少图形映像"]
+image::saphana-br-scs-image65.png[错误：缺少图形映像]
 
 +
 第二级自动发现过程从发现租户数据和存储占用空间信息开始。
 
 . 单击详细信息以查看资源拓扑视图中的 HANA 资源配置信息。
 +
-image:saphana-br-scs-image66.png["错误：缺少图形映像"]
+image::saphana-br-scs-image66.png[错误：缺少图形映像]
 
 +
-image:saphana-br-scs-image67.png["错误：缺少图形映像"]
+image::saphana-br-scs-image67.png[错误：缺少图形映像]
 
 +
 资源配置完成后，必须按照下一节所述执行资源保护配置。
@@ -318,41 +318,41 @@ NOTE: NetApp 建议使用自定义 Snapshot 副本名称来轻松确定使用哪
 NOTE: 即使在策略配置中为按需备份定义了保留，但只有在执行另一个按需备份时，才会执行内务管理。因此，通常必须在 SnapCenter 中手动删除按需备份，以确保这些备份也会在 SAP HANA 备份目录中删除，并且日志备份整理不会基于旧的按需备份。
 
 +
-image:saphana-br-scs-image68.png["错误：缺少图形映像"]
+image::saphana-br-scs-image68.png[错误：缺少图形映像]
 
 
 
 . 无需在 " 应用程序设置 " 页面上进行任何特定设置。单击下一步。
 +
-image:saphana-br-scs-image69.png["错误：缺少图形映像"]
+image::saphana-br-scs-image69.png[错误：缺少图形映像]
 
 . 选择要添加到资源中的策略。
 +
-image:saphana-br-scs-image70.png["错误：缺少图形映像"]
+image::saphana-br-scs-image70.png[错误：缺少图形映像]
 
 . 定义 LocalSnap 策略的计划（在此示例中，每四小时一次）。
 +
-image:saphana-br-scs-image71.png["错误：缺少图形映像"]
+image::saphana-br-scs-image71.png[错误：缺少图形映像]
 
 . 定义 LocalSnapAndSnapVault 策略的计划（在此示例中，每天一次）。
 +
-image:saphana-br-scs-image72.png["错误：缺少图形映像"]
+image::saphana-br-scs-image72.png[错误：缺少图形映像]
 
 . 定义块完整性检查策略的计划（在此示例中，每周一次）。
 +
-image:saphana-br-scs-image73.png["错误：缺少图形映像"]
+image::saphana-br-scs-image73.png[错误：缺少图形映像]
 
 . 提供有关电子邮件通知的信息。
 +
-image:saphana-br-scs-image74.png["错误：缺少图形映像"]
+image::saphana-br-scs-image74.png[错误：缺少图形映像]
 
 . 在摘要页面上，单击完成。
 +
-image:saphana-br-scs-image75.png["错误：缺少图形映像"]
+image::saphana-br-scs-image75.png[错误：缺少图形映像]
 
 . 现在，可以在拓扑页面上创建按需备份。计划的备份会根据配置设置执行。
 +
-image:saphana-br-scs-image76.png["错误：缺少图形映像"]
+image::saphana-br-scs-image76.png[错误：缺少图形映像]
 
 
 
@@ -396,4 +396,4 @@ Exit /b 0
 
 下图显示了资源保护配置屏幕中的 POST Quiesce 命令。
 
-image:saphana-br-scs-image77.png["错误：缺少图形映像"]
+image::saphana-br-scs-image77.png[错误：缺少图形映像]

@@ -34,6 +34,6 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA
 
 NOTE: 如果必须将系统重置为其他Snapshot备份、则步骤6和步骤4就足以满足要求。不需要刷新SAP HANA共享卷。
 
-image:sc-copy-clone-image9.png[""]
+image::sc-copy-clone-image9.png[SC副本克隆image9.]
 
 部分 link:sc-copy-clone-sap-system-clone-with-snapcenter.html[""使用SnapCenter 克隆SAP系统""] 提供系统克隆工作流的详细分步问题描述。

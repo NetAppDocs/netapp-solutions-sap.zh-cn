@@ -217,4 +217,4 @@ NetApp 进行了性能测试以定义最佳值。下表列出了必须在 SAP �
 
 下图总结了规模估算过程。
 
-image:saphana_aff_fc_image8.jpg["错误：缺少图形映像"]
+image::saphana_aff_fc_image8.jpg[错误：缺少图形映像]

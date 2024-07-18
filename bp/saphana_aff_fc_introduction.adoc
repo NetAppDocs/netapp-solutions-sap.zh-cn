@@ -55,7 +55,7 @@ NOTE: 要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采�
 
 NetApp AFF 存储系统已通过 SAP HANA TDI 计划的认证，该计划同时使用 NFS （ NAS ）和 FC （ SAN ）协议。它们可以部署在任何当前 SAP HANA 方案中，例如采用单主机或多主机配置的基于 HANA 的 SAP Business Suite ， S/4HANA ， BB/4HANA 或基于 HANA 的 SAP Business Warehouse 。任何经认证可与 SAP HANA 结合使用的服务器均可与 NetApp 认证的存储解决方案结合使用。下图显示了一个架构概述。
 
-image:saphana_aff_fc_image1.png["错误：缺少图形映像"]
+image::saphana_aff_fc_image1.png[错误：缺少图形映像]
 
 有关高效SAP HANA系统的前提条件和建议的详细信息、请参见以下资源：
 

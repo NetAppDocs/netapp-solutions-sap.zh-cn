@@ -88,7 +88,7 @@ FabricPool 是将日志备份移动到另一存储层的理想选择。移动备
 
 NOTE: 对于 DS224C 磁盘架，也可以使用四路径 SAS 布线，但这并不是必需的。
 
-image:saphana_aff_nfs_image13.png["错误：缺少图形映像"]
+image::saphana_aff_nfs_image13.png[错误：缺少图形映像]
 
 
 
@@ -96,7 +96,7 @@ image:saphana_aff_nfs_image13.png["错误：缺少图形映像"]
 
 每个 NS224 NVMe 磁盘架使用每个控制器的两个 100GbE 端口进行连接。每个磁盘架中的磁盘必须平均分布到 HA 对的两个控制器。聚合配置一章中所述的 ADPv2 也用于 NS224 磁盘架。下图显示了磁盘架与 NVMe 驱动器的连接。
 
-image:saphana_aff_nfs_image14.jpg["错误：缺少图形映像"]
+image::saphana_aff_nfs_image14.jpg[错误：缺少图形映像]
 
 
 
@@ -106,7 +106,7 @@ image:saphana_aff_nfs_image14.jpg["错误：缺少图形映像"]
 
 下图显示了在配置了 ADPv2 的 12 Gb SAS 磁盘架上运行的 12 个 SAP HANA 主机的配置。每个存储控制器连接六个 SAP HANA 主机。配置了四个单独的聚合，每个存储控制器两个。每个聚合都配置有 11 个磁盘，其中包含九个数据分区和两个奇偶校验磁盘分区。每个控制器都有两个备用分区。
 
-image:saphana_aff_nfs_image15.jpg["错误：缺少图形映像"]
+image::saphana_aff_nfs_image15.jpg[错误：缺少图形映像]
 
 
 
@@ -154,7 +154,7 @@ NOTE: 如果 SAP HANA 系统仅使用 HA 对中的一个存储控制器，则数
 
 NOTE: 如果数据卷和日志卷存储在同一控制器上，则必须使用两个不同的 LIF 从服务器访问存储：一个 LIF 用于访问数据卷，另一个 LIF 用于访问日志卷。
 
-image:saphana_aff_nfs_image16.jpg["错误：缺少图形映像"]
+image::saphana_aff_nfs_image16.jpg[错误：缺少图形映像]
 
 对于每个 SAP HANA 主机，都会为 ` 或 HANA 或 Shared` 配置一个数据卷，一个日志卷和一个卷。下表显示了单主机 SAP HANA 系统的配置示例。
 
@@ -199,7 +199,7 @@ NOTE: 如果 SAP HANA 系统仅使用 HA 对的一个存储控制器，则数据
 
 NOTE: 如果数据卷和日志卷存储在同一控制器上，则必须使用两个不同的 LIF 从服务器访问存储：一个 LIF 用于访问数据卷，一个 LIF 用于访问日志卷。
 
-image:saphana_aff_nfs_image17.jpg["错误：缺少图形映像"]
+image::saphana_aff_nfs_image17.jpg[错误：缺少图形映像]
 
 对于每个 SAP HANA 主机，系统会创建一个数据卷和一个日志卷。` HANA 系统的所有主机都使用` /hana / 共享 卷。下表显示了具有四个活动主机的多主机 SAP HANA 系统的配置示例。
 

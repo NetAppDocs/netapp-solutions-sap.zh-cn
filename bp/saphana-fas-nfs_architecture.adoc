@@ -20,11 +20,11 @@ SAP HANA 主机通过使用冗余 10GbE 或速度更快的网络基础架构连�
 
 FAS 系统产品系列的不同型号可以在存储层混用并匹配，以满足增长以及不同的性能和容量需求。可以连接到存储系统的最大 SAP HANA 主机数由 SAP HANA 性能要求和所用 NetApp 控制器型号定义。所需磁盘架的数量仅取决于 SAP HANA 系统的容量和性能要求。下图显示了一个配置示例，其中八个 SAP HANA 主机连接到一个存储高可用性（ HA ）对。
 
-image:saphana-fas-nfs_image2.png["错误：缺少图形映像"]
+image::saphana-fas-nfs_image2.png[错误：缺少图形映像]
 
 下图显示了使用 VMware vSphere 作为虚拟化层的示例。
 
-image:saphana-fas-nfs_image3.jpg["错误：缺少图形映像"]
+image::saphana-fas-nfs_image3.jpg[错误：缺少图形映像]
 
 该架构可扩展到两个方面：
 
@@ -34,11 +34,11 @@ image:saphana-fas-nfs_image3.jpg["错误：缺少图形映像"]
 
 下图显示了一个配置示例，其中，更多 SAP HANA 主机连接到存储控制器。在此示例中，要满足 16 个 SAP HANA 主机的容量和性能要求，需要更多磁盘架。根据总吞吐量要求，必须添加到存储控制器的额外 10GbE （或更快）连接。
 
-image:saphana-fas-nfs_image4.png["错误：缺少图形映像"]
+image::saphana-fas-nfs_image4.png[错误：缺少图形映像]
 
 无论部署的 FAS 系统如何， SAP HANA 环境也可以通过添加任何经过认证的存储控制器来进行扩展，以满足所需的节点密度（下图）。
 
-image:saphana-fas-nfs_image5.png["错误：缺少图形映像"]
+image::saphana-fas-nfs_image5.png[错误：缺少图形映像]
 
 
 
@@ -52,7 +52,7 @@ image:saphana-fas-nfs_image5.png["错误：缺少图形映像"]
 
 可以使用 NFS 挂载将数据库日志直接备份到二级存储，如下图所示。
 
-image:saphana-fas-nfs_image6.jpg["错误：缺少图形映像"]
+image::saphana-fas-nfs_image6.jpg[错误：缺少图形映像]
 
 与基于文件的传统备份相比，基于存储的 Snapshot 备份具有显著优势。这些优势包括但不限于：
 
@@ -88,7 +88,7 @@ SAP HANA 灾难恢复既可以使用 SAP HANA 系统复制在数据库层执行�
 
 这两种复制方法均允许您执行灾难恢复工作流测试，而不会影响 RPO 和 RTO 。FlexClone 卷在存储上创建并连接到灾难恢复测试服务器。
 
-image:saphana-fas-nfs_image7.png["错误：缺少图形映像"]
+image::saphana-fas-nfs_image7.png[错误：缺少图形映像]
 
 同步复制提供 StrictSync 模式。如果由于任何原因未完成对二级存储的写入，则应用程序 I/O 将失败，从而确保主存储系统和二级存储系统完全相同。只有在 SnapMirror 关系恢复为 InSync 状态后，主系统的应用程序 I/O 才会恢复。如果主存储发生故障，则可以在故障转移后在二级存储上恢复应用程序 I/O ，而不会丢失数据。在 StrictSync 模式下， RPO 始终为零。
 
@@ -98,4 +98,4 @@ image:saphana-fas-nfs_image7.png["错误：缺少图形映像"]
 
 下图简要展示了解决方案。每个站点上的存储集群可提供本地高可用性，并用于生产工作负载。每个站点的数据会同步复制到另一个位置，如果发生灾难故障转移，这些数据将可用。
 
-image:saphana-fas-nfs_image8.png["错误：缺少图形映像"]
+image::saphana-fas-nfs_image8.png[错误：缺少图形映像]

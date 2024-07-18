@@ -36,7 +36,7 @@ NOTE: 示例脚本按原样提供、NetApp不支持。您可以通过电子邮�
 
 NOTE: 此脚本的当前版本支持单主机系统的单租户模式(即、单租户模式)或多租户模式(即、多租户模式)。它不支持SAP HANA多主机系统。
 
-image:sc-copy-clone-image14.png[""]
+image::sc-copy-clone-image14.png[SC副本克隆image14.]
 
 
 
@@ -68,7 +68,7 @@ image:sc-copy-clone-image14.png[""]
 
 NOTE: 该脚本支持使用NFS作为存储协议的SAP HANA系统。
 
-image:sc-copy-clone-image15.png[""]
+image::sc-copy-clone-image15.png[SC副本克隆image15.]
 
 
 

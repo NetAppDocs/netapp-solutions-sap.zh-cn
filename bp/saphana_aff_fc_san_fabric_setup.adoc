@@ -18,6 +18,6 @@ summary: 每个 SAP HANA 服务器都必须具有一个冗余 FCP SAN 连接，�
 
 下图显示了一个示例，其中四个 SAP HANA 主机连接到两个存储控制器。每个 SAP HANA 主机都有两个 FCP 端口连接到冗余网络结构。在存储层，配置了四个 FCP 端口，可为每个 SAP HANA 主机提供所需的吞吐量。
 
-image:saphana_aff_fc_image9.png["错误：缺少图形映像"]
+image::saphana_aff_fc_image9.png[错误：缺少图形映像]
 
 除了交换机层上的分区之外，您还必须将存储系统上的每个 LUN 映射到连接到此 LUN 的主机。使交换机上的分区保持简单，即定义一个分区集，使所有主机 HBA 都可以查看所有控制器 HBA 。

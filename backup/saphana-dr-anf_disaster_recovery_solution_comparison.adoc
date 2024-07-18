@@ -22,7 +22,7 @@ summary: 全面的灾难恢复解决方案必须能够使客户从主站点的�
 
 本文档讨论了双区域灾难恢复解决方案的不同实施选项。
 
-image:saphana-dr-anf_image3.png["错误：缺少图形映像"]
+image::saphana-dr-anf_image3.png[错误：缺少图形映像]
 
 
 
@@ -52,7 +52,7 @@ SAP HANA 系统复制可在以下两种模式之一下运行：
 
 下图显示了 SAP HANA 系统复制。
 
-image:saphana-dr-anf_image4.png["错误：缺少图形映像"]
+image::saphana-dr-anf_image4.png[错误：缺少图形映像]
 
 
 
@@ -86,7 +86,7 @@ RTO 主要取决于在灾难恢复站点启动 HANA 数据库以及将数据加�
 
 通过 ANF 跨区域复制，您可以在不影响 RPO 和 RTO 的情况下测试灾难恢复工作流。这是通过创建卷克隆并将其附加到灾难恢复测试服务器来实现的。
 
-image:saphana-dr-anf_image5.png["错误：缺少图形映像"]
+image::saphana-dr-anf_image5.png[错误：缺少图形映像]
 
 
 

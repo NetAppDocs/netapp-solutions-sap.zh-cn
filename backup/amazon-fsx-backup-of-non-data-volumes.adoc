@@ -30,46 +30,46 @@ summary: 非数据卷的备份是SnapCenter 和SAP HANA插件的集成部分。�
 
 . 从资源选项卡中、选择非数据卷、然后单击添加SAP HANA数据库。
 +
-image:amazon-fsx-image60.png["错误：缺少图形映像"]
+image::amazon-fsx-image60.png[错误：缺少图形映像]
 
 . 在添加SAP HANA数据库对话框的第1步中的资源类型列表中、选择非数据卷。指定要用于资源的资源以及关联SID和SAP HANA插件主机的名称、然后单击下一步。
 +
-image:amazon-fsx-image61.png["错误：缺少图形映像"]
+image::amazon-fsx-image61.png[错误：缺少图形映像]
 
 . 将 SVM 和存储卷添加为存储占用空间，然后单击下一步。
 +
-image:amazon-fsx-image62.png["错误：缺少图形映像"]
+image::amazon-fsx-image62.png[错误：缺少图形映像]
 
 . 要保存设置、请在摘要步骤中单击完成。
 +
-image:amazon-fsx-image63.png["错误：缺少图形映像"]
+image::amazon-fsx-image63.png[错误：缺少图形映像]
 
 +
 此时、新的非数据卷将添加到SnapCenter 中。双击新资源以执行资源保护。
 
 +
-image:amazon-fsx-image64.png["错误：缺少图形映像"]
+image::amazon-fsx-image64.png[错误：缺少图形映像]
 
 +
 资源保护与以前使用HANA数据库资源时所述的方式相同。
 
 . 现在、您可以单击立即备份来执行备份。
 +
-image:amazon-fsx-image65.png["错误：缺少图形映像"]
+image::amazon-fsx-image65.png[错误：缺少图形映像]
 
 . 选择策略并启动备份操作。
 +
-image:amazon-fsx-image66.png["错误：缺少图形映像"]
+image::amazon-fsx-image66.png[错误：缺少图形映像]
 
 
 
 SnapCenter 作业日志显示了各个工作流步骤。
 
-image:amazon-fsx-image67.png["错误：缺少图形映像"]
+image::amazon-fsx-image67.png[错误：缺少图形映像]
 
 此时、新备份将显示在非数据卷资源的资源视图中。
 
-image:amazon-fsx-image68.png["错误：缺少图形映像"]
+image::amazon-fsx-image68.png[错误：缺少图形映像]
 
 
 
@@ -119,38 +119,38 @@ image:amazon-fsx-image68.png["错误：缺少图形映像"]
 
 . 在 SnapCenter 中选择要用于还原操作的备份。
 +
-image:amazon-fsx-image69.png["错误：缺少图形映像"]
+image::amazon-fsx-image69.png[错误：缺少图形映像]
 
 . 选择还原范围和类型。
 +
 HANA MDC单租户系统的标准方案是、在卷还原中使用完整资源。对于包含多个租户的HANA MDC系统、您可能只需要还原一个租户。有关单租户还原的详细信息、请参见 https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-restore-and-recovery.html["还原和恢复(netapp.com)"^]。
 
 +
-image:amazon-fsx-image70.png["错误：缺少图形映像"]
+image::amazon-fsx-image70.png[错误：缺少图形映像]
 
 . 选择恢复范围并提供日志备份和目录备份的位置。
 +
 SnapCenter 使用HANA global.ini文件中的默认路径或更改后的路径来预填充日志和目录备份位置。
 
 +
-image:amazon-fsx-image71.png["错误：缺少图形映像"]
+image::amazon-fsx-image71.png[错误：缺少图形映像]
 
 . 输入可选的还原前命令。
 +
-image:amazon-fsx-image72.png["错误：缺少图形映像"]
+image::amazon-fsx-image72.png[错误：缺少图形映像]
 
 . 输入可选的还原后命令。
 +
-image:amazon-fsx-image73.png["错误：缺少图形映像"]
+image::amazon-fsx-image73.png[错误：缺少图形映像]
 
 . 要启动还原和恢复操作、请单击完成。
 +
-image:amazon-fsx-image74.png["错误：缺少图形映像"]
+image::amazon-fsx-image74.png[错误：缺少图形映像]
 
 +
 SnapCenter 执行还原和恢复操作。此示例显示了还原和恢复作业的作业详细信息。
 
 +
-image:amazon-fsx-image75.png["错误：缺少图形映像"]
+image::amazon-fsx-image75.png[错误：缺少图形映像]
 
 

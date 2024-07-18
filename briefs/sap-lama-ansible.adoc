@@ -43,7 +43,7 @@ SAP系统非常复杂。但是、对于使用SAP的公司来说、这些系统�
 
 下图显示了与NetApp存储相关的SAP系统克隆、复制和刷新Laama工作流步骤。
 
-image:sap-lama-image1.png["此图显示了与NetApp存储相关的SAP系统克隆、复制和刷新Laama工作流步骤"]
+image::sap-lama-image1.png[此图显示了与NetApp存储相关的SAP系统克隆、复制和刷新Laama工作流步骤]
 
 
 
@@ -68,7 +68,7 @@ image:sap-lama-image1.png["此图显示了与NetApp存储相关的SAP系统克�
 
 下图显示了SAP Laama和NetApp存储系统如何通过《溶入手册》在专用的溶入主机上进行集成、该主机是由从SAP主机代理执行的Shell脚本触发的。
 
-image:sap-lama-image2.png["此图显示了SAP Laama和NetApp存储系统如何通过《安可通操作手册》在专用的安可通主机上集成、该主机是由从SAP主机代理执行的Shell脚本触发的"]
+image::sap-lama-image2.png[此图显示了SAP Laama和NetApp存储系统如何通过《安可通操作手册》在专用的安可通主机上集成、该主机是由从SAP主机代理执行的Shell脚本触发的]
 
 
 
@@ -80,7 +80,7 @@ image:sap-lama-image2.png["此图显示了SAP Laama和NetApp存储系统如何�
 
 下图显示了使用自动化时可能会提高的运营效率。
 
-image:sap-lama-image3.png["此图显示了使用自动化时可能会提高的运营效率"]
+image::sap-lama-image3.png[此图显示了使用自动化时可能会提高的运营效率]
 
 
 

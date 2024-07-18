@@ -66,27 +66,27 @@ NOTE: 可以根据容量要求设置卷的配额，因为卷性能不会影响�
 
 NOTE: 如果已为容量池配置手动 QoS ，则除了容量要求之外，您还可以配置吞吐量。与上述相同，您可以在正常操作期间将吞吐量配置为低值，并在发生灾难恢复故障转移时增加吞吐量。
 
-image:saphana-dr-anf_image10.png["错误：缺少图形映像"]
+image::saphana-dr-anf_image10.png[错误：缺少图形映像]
 
 在协议选项卡中，您必须提供网络协议，网络路径和导出策略。
 
 
 NOTE: 此协议必须与源卷使用的协议相同。
 
-image:saphana-dr-anf_image11.png["错误：缺少图形映像"]
+image::saphana-dr-anf_image11.png[错误：缺少图形映像]
 
 在复制选项卡中，您必须配置源卷 ID 和复制计划。对于数据卷复制，我们为实验室设置配置了每日复制计划。
 
 
 NOTE: 可以从源卷的属性屏幕复制源卷 ID 。
 
-image:saphana-dr-anf_image12.png["错误：缺少图形映像"]
+image::saphana-dr-anf_image12.png[错误：缺少图形映像]
 
 最后一步是，您必须提供目标卷的 ID 来在源卷上授权复制。
 
 
 NOTE: 您可以从目标卷的属性屏幕复制目标卷 ID 。
 
-image:saphana-dr-anf_image13.png["错误：缺少图形映像"]
+image::saphana-dr-anf_image13.png[错误：缺少图形映像]
 
 必须对 HANA 共享卷和日志备份卷执行相同的步骤。

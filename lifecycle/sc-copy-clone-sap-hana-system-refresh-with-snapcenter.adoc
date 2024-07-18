@@ -15,7 +15,7 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA
 
 下一节将为SAP HANA数据库的不同系统刷新操作选项提供分步问题描述。
 
-image:sc-copy-clone-image7.png[""]
+image::sc-copy-clone-image7.png[SC副本克隆image7.]
 
 根据SAP HANA数据库配置、系统会执行或需要准备其他步骤。下表提供了一个摘要。
 
@@ -105,7 +105,7 @@ MDC多租户
 
 所有SAP HANA系统都必须根据配置指南进行配置 https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_introduction.html["采用NFS的NetApp AFF 系统上的SAP HANA"]。SnapCenter和SAP HANA资源是根据最佳实践指南进行配置的 https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html["使用 SnapCenter 实现 SAP HANA 备份和恢复"]。
 
-image:sc-copy-clone-image16.png[""]
+image::sc-copy-clone-image16.png[SC副本克隆image16.]
 
 
 
@@ -145,7 +145,7 @@ hana-7:/opt/NetApp/snapcenter/scc/etc #
 
 本节介绍了SAP HANA系统刷新工作流、其中、源系统和目标系统的租户名称与SID相同。存储克隆在主存储上执行，并使用脚本自动执行恢复 `sc-system-refresh.sh`。
 
-image:sc-copy-clone-image17.png[""]
+image::sc-copy-clone-image17.png[SC副本克隆image17.]
 
 此工作流包括以下步骤：
 
@@ -180,7 +180,7 @@ image:sc-copy-clone-image17.png[""]
 . 从源系统SS1中选择Snapshot备份、然后单击克隆。
 
 
-image:sc-copy-clone-image18.png[""]
+image::sc-copy-clone-image18.png[sc copy克隆image18.]
 
 . 选择安装目标系统QS1的主机。输入QS1作为目标SID。NFS导出IP地址必须是目标主机的存储网络接口。
 +
@@ -193,28 +193,28 @@ NOTE: 在启动克隆工作流之前、请务必在SnapCenter中配置目标系�
 
 
 
-image:sc-copy-clone-image19.png[""]
+image::sc-copy-clone-image19.png[SC副本克隆image19.]
 
 在光纤通道SAN设置中、不需要导出IP地址、但您需要在下一屏幕中提供使用的协议。
 
 
 NOTE: 屏幕截图显示了使用光纤通道连接的不同实验室设置。
 
-image:sc-copy-clone-image20.png[""]
+image::sc-copy-clone-image20.png[SC副本克隆image20]
 
-image:sc-copy-clone-image21.png[""]
+image::sc-copy-clone-image21.png[sc copy克隆image21.]
 
 如果使用Azure NetApp Files和手动QoS容量池、则需要为新卷提供最大吞吐量。请确保容量池具有足够的性能余量、否则克隆工作流将失败。
 
 
 NOTE: 屏幕截图显示了在Microsoft Azure中使用Azure NetApp Files运行的另一个实验室设置。
 
-image:sc-copy-clone-image22.png[""]
+image::sc-copy-clone-image22.png[SC副本克隆image22.]
 
 . 输入可选的克隆后脚本以及所需的命令行选项。在本示例中、我们使用克隆后脚本执行SAP HANA数据库恢复。
 
 
-image:sc-copy-clone-image23.png[""]
+image::sc-copy-clone-image23.png[SC副本克隆image23.]
 
 
 NOTE: 如前文所述、使用恢复脚本是可选的。也可以在SnapCenter克隆工作流完成后手动执行恢复。
@@ -225,7 +225,7 @@ NOTE: 用于恢复操作的脚本会使用清除日志操作将SAP HANA数据库
 . SnapCenter 中的"作业详细信息"屏幕显示操作的进度。作业详细信息还显示、包括数据库恢复在内的整个运行时间不到3分钟。
 
 
-image:sc-copy-clone-image24.png[""]
+image::sc-copy-clone-image24.png[SC副本克隆image24]
 
 . 该脚本的日志文件 `sc-system-refresh` 显示了为恢复操作执行的不同步骤。该脚本从系统数据库中读取租户列表、并对所有现有租户执行恢复。
 
@@ -266,21 +266,21 @@ hana-7:/mnt/sapcc-share/SAP-System-Refresh
 . SnapCenter 作业完成后、克隆将显示在源系统的拓扑视图中。
 
 
-image:sc-copy-clone-image25.png[""]
+image::sc-copy-clone-image25.png[SC副本克隆image25.]
 
 . SAP HANA数据库现在正在运行。
 . 如果要保护目标SAP HANA系统、则需要单击目标系统资源来运行自动发现。
 
 
-image:sc-copy-clone-image26.png[""]
+image::sc-copy-clone-image26.png[SC副本克隆image26.]
 
 自动发现过程完成后、新克隆的卷将列在存储占用空间部分中。
 
-image:sc-copy-clone-image27.png[""]
+image::sc-copy-clone-image27.png[sc copy克隆image27.]
 
 通过再次单击该资源、可以为刷新的QS1系统配置数据保护。
 
-image:sc-copy-clone-image28.png[""]
+image::sc-copy-clone-image28.png[sc copy克隆image28]
 
 
 
@@ -288,13 +288,15 @@ image:sc-copy-clone-image28.png[""]
 
 本节介绍了SAP HANA系统刷新工作流、其中、源系统和目标系统的租户名称与SID相同。存储克隆在异地备份存储执行、并使用脚本sc-system-refresh .sh进一步实现自动化。
 
-image:sc-copy-clone-image29.png[""] 主备份存储克隆与异地备份存储克隆之间的SAP HANA系统刷新工作流的唯一区别是在SnapCenter中选择Snapshot备份。对于异地备份存储克隆、必须先选择二级备份、然后再选择Snapshot备份。
+image::sc-copy-clone-image29.png[sc copy克隆image29.]
 
-image:sc-copy-clone-image30.png[""]
+主备份存储克隆与异地备份存储克隆之间的SAP HANA系统刷新工作流的唯一区别是在SnapCenter中选择Snapshot备份。对于异地备份存储克隆、必须先选择二级备份、然后再选择Snapshot备份。
+
+image::sc-copy-clone-image30.png[SC副本克隆image30]
 
 如果选定备份有多个二级存储位置、则需要选择所需的目标卷。
 
-image:sc-copy-clone-image31.png[""]
+image::sc-copy-clone-image31.png[SC副本克隆image31]
 
 所有后续步骤均与从主存储克隆的工作流相同。
 
@@ -304,7 +306,7 @@ image:sc-copy-clone-image31.png[""]
 
 本节介绍使用多个租户的SAP HANA系统刷新工作流。存储克隆在主存储上执行，并使用脚本进一步实现自动化 `sc-system-refresh.sh`。
 
-image:sc-copy-clone-image32.png[""]
+image::sc-copy-clone-image32.png[SC副本克隆image32.]
 
 SnapCenter中所需的步骤与"从租户名称等于SID的主存储克隆"一节中所述的步骤相同。唯一的区别是脚本中的租户恢复操作 `sc-system-refresh.sh`，所有租户都将恢复。
 
@@ -375,17 +377,17 @@ TENANT1) and starting recovery
 . 在源系统的拓扑视图中选择克隆、然后单击删除。
 
 
-image:sc-copy-clone-image33.png[""]
+image::sc-copy-clone-image33.png[sc copy克隆image33]
 
 . 使用所需的命令行选项输入克隆前和卸载脚本。
 
 
-image:sc-copy-clone-image34.png[""]
+image::sc-copy-clone-image34.png[SC副本克隆image34]
 
 . SnapCenter 中的作业详细信息屏幕将显示操作进度。
 
 
-image:sc-copy-clone-image35.png[""]
+image::sc-copy-clone-image35.png[SC副本克隆image35]
 
 . 该脚本的日志文件 `sc-system-refresh` 显示了关闭和卸载操作步骤。
 
@@ -428,21 +430,21 @@ NOTE: 使用Azure NetApp Files时、克隆拆分操作不可用、因为Azure Ne
 
 SnapCenter 中的克隆拆分工作流可通过选择克隆并单击克隆拆分在源系统的拓扑视图中启动。
 
-image:sc-copy-clone-image36.png[""]
+image::sc-copy-clone-image36.png[sc copy克隆image36]
 
 下一屏幕将显示一个预览、其中提供了有关拆分卷所需容量的信息。
 
-image:sc-copy-clone-image37.png[""]
+image::sc-copy-clone-image37.png[sc copy克隆image37]
 
 SnapCenter 作业日志显示克隆拆分操作的进度。
 
-image:sc-copy-clone-image38.png[""]
+image::sc-copy-clone-image38.png[sc copy克隆image38]
 
 现在、在SnapCenter的资源视图中、目标系统QS1不再标记为克隆的资源。返回到源系统的拓扑视图时、克隆不再可见。现在、拆分的卷独立于源系统的Snapshot备份。
 
-image:sc-copy-clone-image39.png[""]
+image::sc-copy-clone-image39.png[sc copy克隆image39]
 
-image:sc-copy-clone-image40.png[""]
+image::sc-copy-clone-image40.png[SC副本克隆image40]
 
 克隆拆分操作后的刷新工作流看起来与不执行克隆拆分操作的刷新工作流略有不同。执行克隆拆分操作后、无需执行克隆删除操作、因为目标数据卷不再是FlexClone卷。
 
