@@ -21,8 +21,8 @@ keywords: netapp, solutions, SAP, lifecycle, management, lcm, videos, demos
 
 == SAP 生命周期管理视频和演示
 
-* link:https://www.netapp.tv/details/25588["降低 SAP 项目的风险并提高项目质量"]
-* link:https://www.netapp.tv/details/25595["在发生意外事件时确保业务部门的连续性"]
-* link:https://www.netapp.tv/details/28400["SnapCenter 用例"]
-* link:https://www.netapp.tv/details/28401["采用 Libelle 和 SnapCenter 的 SAP 系统副本"]
+* link:https://media.netapp.com/video-detail/eae1f74b-6a01-5021-9d3f-96987aa08600/decrease-risk-and-increase-quality-of-sap-projects["降低 SAP 项目的风险并提高项目质量"^]
+* link:https://media.netapp.com/video-detail/c1229d10-fe84-58f1-9cdf-ca3c0f9d9104/ensure-continuity-for-lines-of-business-in-the-face-of-unexpected-events["在发生意外事件时确保业务部门的连续性"^]
+* link:https://media.netapp.com/video-detail/1c753169-f70d-5f2b-b798-cd09a604541c/snapcenter-use-cases["SnapCenter 用例"^]
+* link:https://media.netapp.com/video-detail/5ed450f9-d66b-53d9-99de-d763ea44566c/sap-system-copy-with-libelle-and-snapcenter["采用 Libelle 和 SnapCenter 的 SAP 系统副本"^]
 

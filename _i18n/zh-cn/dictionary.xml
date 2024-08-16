@@ -1715,33 +1715,22 @@
   <block id="18c100c6d8f14819ac80ee276eb251a6" category="doc">SAP 生命周期管理视频和演示</block>
   <block id="1e36c812f9450a024b52c0b4085d0776" category="paragraph">重点介绍 SAP 生命周期管理的视频和演示概述。</block>
   <block id="d67e81d44a24d3d9987a4b28774f0464" category="inline-link-macro">降低 SAP 项目的风险并提高项目质量</block>
-  <block id="99cd49471231b4760684c16c9efdf186" category="list-text"><block ref="99cd49471231b4760684c16c9efdf186" category="inline-link-macro-rx"></block></block>
   <block id="5673b57ca1dc3ec2a9c2adcc115e3718" category="inline-link-macro">在发生意外事件时确保业务部门的连续性</block>
-  <block id="36c65cf1e1133dcc86194501c946173e" category="list-text"><block ref="36c65cf1e1133dcc86194501c946173e" category="inline-link-macro-rx"></block></block>
   <block id="5fb4ff4d48cdc2aa80ff2d0945e1a23c" category="inline-link-macro">SnapCenter 用例</block>
-  <block id="f7134e3fe8e51815ce1f2311d62c2501" category="list-text"><block ref="f7134e3fe8e51815ce1f2311d62c2501" category="inline-link-macro-rx"></block></block>
   <block id="36276bf8617d4835834e31d796e6e917" category="inline-link-macro">采用 Libelle 和 SnapCenter 的 SAP 系统副本</block>
-  <block id="ad89086c301777770abecf557a90299d" category="list-text"><block ref="ad89086c301777770abecf557a90299d" category="inline-link-macro-rx"></block></block>
   <block id="c54076227bebe4b120f17a0f5a22ce81" category="summary">NetApp 提供了大量针对 SAP 和 SAP HANA 的技术报告，经验证的设计，视频，博客和解决方案简介。</block>
   <block id="824aec17cb9bd27843cf6addb92b57fc" category="summary">重点介绍 SAP 解决方案的一系列视频和演示</block>
   <block id="293e9d744a4c2a3dfc4088f7b8aa25d5" category="doc">SAP 解决方案视频和演示</block>
   <block id="2259bdd472d4d2949e3eea23b5e4ef34" category="paragraph">重点介绍 SAP 解决方案的视频和演示概述。</block>
   <block id="aa5b0840e871ca382a477398de4a7243" category="section-title">SAP 配置最佳实践视频和演示</block>
   <block id="c482c0b5b51f55ba9a7c2dcdee1f4339" category="inline-link-macro">SAP HANA 在 NetApp 基础架构上运行最佳</block>
-  <block id="1075e5efe982b7b963d04bf347c70828" category="list-text"><block ref="1075e5efe982b7b963d04bf347c70828" category="inline-link-macro-rx"></block></block>
   <block id="442aae40221b985ca5667a9e47a977f6" category="inline-link-macro">SAP on Azure NetApp Files ：概述和更新</block>
-  <block id="4081a5d960769b62df19b7b2d85d97ce" category="list-text"><block ref="4081a5d960769b62df19b7b2d85d97ce" category="inline-link-macro-rx"></block></block>
   <block id="b3c2b25543d55b6202de3f9de0d4f7ab" category="inline-link-macro">使用 NetApp 块和对象存储实现 SAP 数据智能</block>
-  <block id="cb5a2e1895e5b5fdd2fa4ca3c1fcdcbf" category="list-text"><block ref="cb5a2e1895e5b5fdd2fa4ca3c1fcdcbf" category="inline-link-macro-rx"></block></block>
   <block id="ed2640c6c02db4ce182af25c797097d8" category="section-title">SAP 备份，还原和灾难恢复视频和演示</block>
   <block id="e96d40a0320cf0061a3275c5aeda86d9" category="inline-link-macro">确保 SAP 应用程序可用性并最大限度地减少停机时间</block>
-  <block id="b9866c90c2cb78ad6026a4030e7ffb9c" category="list-text"><block ref="b9866c90c2cb78ad6026a4030e7ffb9c" category="inline-link-macro-rx"></block></block>
   <block id="84ead1de39ae75908e5ae205b8846191" category="inline-link-macro">优化基于 Azure NetApp Files 的 SAP HANA 的数据保护</block>
-  <block id="6d846c272e002c4456952b49ec920c99" category="list-text"><block ref="6d846c272e002c4456952b49ec920c99" category="inline-link-macro-rx"></block></block>
   <block id="eabc448bcef35b3d5eb92882f22f6f0c" category="inline-link-macro">适用于 SAP HANA 的灾难恢复选项</block>
-  <block id="5821d6a1665e7444f03bfc5b38497072" category="list-text"><block ref="5821d6a1665e7444f03bfc5b38497072" category="inline-link-macro-rx"></block></block>
   <block id="a6c0b9b2156c13772cbe82711c8b07b9" category="inline-link-macro">使用 ANF 和跨区域复制实现 SAP HANA 灾难恢复</block>
-  <block id="63c6ad8a920d440690086fc463cb53e1" category="list-text"><block ref="63c6ad8a920d440690086fc463cb53e1" category="inline-link-macro-rx"></block></block>
   <block id="dd39ffa36b8ed682c45520c7d7dc8517" category="summary">SAP 生命周期管理工具和提示</block>
   <block id="9ed86ffbd478752ccf2baab032a8e364" category="doc">SAP 生命周期管理工具</block>
   <block id="08fc5b32a35c491189156ebd21b39ecf" category="paragraph">SAP 生命周期管理解决方案和解决方案宣传材料工具概述。</block>
@@ -4264,4 +4253,15 @@ SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。
   <block id="d8d0cb0916cf7da8496d1f2620d2ee90" category="image-alt">SC副本克隆image5.</block>
   <block id="8302a6667cb8ff0d8296da1e8fed81c3" category="image-alt">SC副本克隆image6.</block>
   <block id="3011dd9126a94f9a666a7fd4dc5610ae" category="paragraph">详细的分步说明可在技术报告中找到</block>
+  <block id="0a93e03f240cb8b42069573a99818021" category="list-text"><block ref="0a93e03f240cb8b42069573a99818021" category="inline-link-macro-rx"></block></block>
+  <block id="77b50001f65f6144e393afa83a9d4e21" category="list-text"><block ref="77b50001f65f6144e393afa83a9d4e21" category="inline-link-macro-rx"></block></block>
+  <block id="ac94faeb4f3a2c19cbff27de5edf7c3d" category="list-text"><block ref="ac94faeb4f3a2c19cbff27de5edf7c3d" category="inline-link-macro-rx"></block></block>
+  <block id="769a56e6a2d7cc689b61d13a608afdcf" category="list-text"><block ref="769a56e6a2d7cc689b61d13a608afdcf" category="inline-link-macro-rx"></block></block>
+  <block id="34132f76907288db0e5acc88b699349f" category="list-text"><block ref="34132f76907288db0e5acc88b699349f" category="inline-link-macro-rx"></block></block>
+  <block id="a5cf81e748f3b3e6fad26b2e3470f879" category="list-text"><block ref="a5cf81e748f3b3e6fad26b2e3470f879" category="inline-link-macro-rx"></block></block>
+  <block id="3a45e49c1772de2900939131e021fa41" category="list-text"><block ref="3a45e49c1772de2900939131e021fa41" category="inline-link-macro-rx"></block></block>
+  <block id="4d95a1c44f1bef40694360da5b9a600b" category="list-text"><block ref="4d95a1c44f1bef40694360da5b9a600b" category="inline-link-macro-rx"></block></block>
+  <block id="87c8349f2562b9df828a79206981328c" category="list-text"><block ref="87c8349f2562b9df828a79206981328c" category="inline-link-macro-rx"></block></block>
+  <block id="20a0dcae2f540339bbf69dbaa7f0050a" category="list-text"><block ref="20a0dcae2f540339bbf69dbaa7f0050a" category="inline-link-macro-rx"></block></block>
+  <block id="bdd953fb1656612c27158a06dfa9be52" category="list-text"><block ref="bdd953fb1656612c27158a06dfa9be52" category="inline-link-macro-rx"></block></block>
 </blocks>
