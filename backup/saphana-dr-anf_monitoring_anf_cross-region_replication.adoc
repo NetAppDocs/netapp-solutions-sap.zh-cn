@@ -22,15 +22,15 @@ summary: 以下三个屏幕截图显示了数据，日志备份和共享卷的�
 
 以下屏幕截图显示了 HANA 数据卷的复制状态。
 
-image::saphana-dr-anf_image14.png[错误：缺少图形映像]
+image::saphana-dr-anf_image14.png[saphanadrf image14.]
 
 以下屏幕截图显示了 HANA 日志备份卷的复制状态。
 
-image::saphana-dr-anf_image15.png[错误：缺少图形映像]
+image::saphana-dr-anf_image15.png[saphanadrf image15.]
 
 以下屏幕截图显示了 HANA 共享卷的复制状态。
 
-image::saphana-dr-anf_image16.png[错误：缺少图形映像]
+image::saphana-dr-anf_image16.png[saphanadrf image16.]
 
 
 
@@ -41,4 +41,4 @@ image::saphana-dr-anf_image16.png[错误：缺少图形映像]
 
 NOTE: 在源卷和目标卷中，还会创建 SnapMirror Snapshot 副本，用于重新同步和复制更新操作。从 HANA 数据库角度来看，这些 Snapshot 副本的应用程序不一致；只有通过 AzaCSnap 创建的应用程序一致的快照才能用于 HANA 恢复操作。
 
-image::saphana-dr-anf_image17.png[错误：缺少图形映像]
+image::saphana-dr-anf_image17.png[saphanadran anf image17.]

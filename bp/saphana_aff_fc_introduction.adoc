@@ -55,7 +55,7 @@ NOTE: 要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采�
 
 NetApp AFF 存储系统已通过 SAP HANA TDI 计划的认证，该计划同时使用 NFS （ NAS ）和 FC （ SAN ）协议。它们可以部署在任何当前 SAP HANA 方案中，例如采用单主机或多主机配置的基于 HANA 的 SAP Business Suite ， S/4HANA ， BB/4HANA 或基于 HANA 的 SAP Business Warehouse 。任何经认证可与 SAP HANA 结合使用的服务器均可与 NetApp 认证的存储解决方案结合使用。下图显示了一个架构概述。
 
-image::saphana_aff_fc_image1.png[错误：缺少图形映像]
+image::saphana_aff_fc_image1.png[saph单AFF fc image1.]
 
 有关高效SAP HANA系统的前提条件和建议的详细信息、请参见以下资源：
 
@@ -66,14 +66,13 @@ image::saphana_aff_fc_image1.png[错误：缺少图形映像]
 
 = 使用 VMware vSphere 的 SAP HANA
 
-可以通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。中介绍了此选项 link:https://review.docs.netapp.com/us-en/netapp-solutions-sap_main/bp/saphana_aff_nfs_introduction.html["基于采用 NFS 的 NetApp AFF 系统的 SAP HANA"]。
+可以通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。link:https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_introduction.html["基于采用 NFS 的 NetApp AFF 系统的 SAP HANA"]有关此选项的说明，请参见。
 
 此外，还支持原始设备映射（ RDM ）， FCP 数据存储库或具有 FCP 的 VVol 数据存储库。对于这两个数据存储库选项，数据存储库中只能存储一个 SAP HANA 数据或日志卷，以便在高效使用情形下使用。此外，无法实施由 SnapCenter 和基于此的解决方案协调的基于 Snapshot 的备份和恢复，例如 SAP 系统克隆。
 
 有关将 vSphere 与 SAP HANA 结合使用的详细信息，请参见以下链接：
 
 * https://wiki.scn.sap.com/wiki/display/VIRTUALIZATION/SAP+HANA+on+VMware+vSphere["基于 VMware vSphere 的 SAP HANA —虚拟化—社区 Wiki"^]
-* http://www.vmware.com/files/pdf/SAP_HANA_on_vmware_vSphere_best_practices_guide.pdf["在 VMware vSphere 上纵向扩展 SAP HANA 的最佳实践和建议"^]
-* http://www.vmware.com/files/pdf/sap-hana-scale-out-deployments-on-vsphere.pdf["在 VMware vSphere 上横向扩展 SAP HANA 的最佳实践和建议"^]
+* https://core.vmware.com/resource/sap-hana-vmware-vsphere-best-practices-and-reference-architecture-guide#introduction["《基于VMware vSphere的SAP HANA最佳实践和参考架构指南》"^]
 * https://launchpad.support.sap.com/["2161991 — VMware vSphere 配置准则— SAP One Support Launchpad （需要登录）"^]
 

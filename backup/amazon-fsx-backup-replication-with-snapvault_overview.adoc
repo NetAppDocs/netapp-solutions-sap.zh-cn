@@ -18,7 +18,7 @@ summary: 在我们的实验室设置中、我们会在第二个AWS可用性区�
 
 如第章所述 link:amazon-fsx-snapcenter-architecture.html#data-protection-strategy[""数据保护策略""]、复制目标必须是另一个可用性区域中ONTAP 文件系统的第二个FSx、才能防止ONTAP 文件系统的主FSx发生故障。此外、应将HANA共享卷复制到二级FSX for ONTAP 文件系统。
 
-image::amazon-fsx-image8.png[错误：缺少图形映像]
+image::amazon-fsx-image8.png[Amazon FSx版本8.]
 
 
 

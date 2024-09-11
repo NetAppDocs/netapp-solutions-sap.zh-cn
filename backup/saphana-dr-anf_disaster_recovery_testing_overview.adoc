@@ -37,4 +37,4 @@ ANF 跨区域复制支持灾难恢复测试，而不会使 RTO 和 RPO 面临风
 
 以下各小节详细介绍了这些步骤。
 
-image::saphana-dr-anf_image18.png[错误：缺少图形映像]
+image::saphana-dr-anf_image18.png[saphanadrf image18.]

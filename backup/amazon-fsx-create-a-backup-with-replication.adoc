@@ -18,11 +18,11 @@ summary: 本节介绍如何使用复制创建备份。
 
 要使用复制创建备份、请选择包含备份复制的策略、然后单击备份。
 
-image::amazon-fsx-image88.png[错误：缺少图形映像]
+image::amazon-fsx-image88.png[Amazon FSx image88]
 
 在SnapCenter 作业日志中、您可以看到二级更新步骤、该步骤将启动SnapVault 更新操作。将更改的块从源卷复制到目标卷。
 
-image::amazon-fsx-image89.png[错误：缺少图形映像]
+image::amazon-fsx-image89.png[Amazon FSx image89]
 
 在适用于ONTAP 的FSX文件系统上、使用SnapCenter 策略中配置的SnapMirror标签`SnapCenter`在源卷上创建Snapshot。
 
@@ -52,8 +52,8 @@ FsxId05f7f00af49dc7a3e::>
 ....
 新的Snapshot备份也会列在HANA备份目录中。
 
-image::amazon-fsx-image90.png[错误：缺少图形映像]
+image::amazon-fsx-image90.png[Amazon FSx image90]
 
 在SnapCenter 中、您可以通过单击拓扑视图中的存储副本来列出复制的备份。
 
-image::amazon-fsx-image91.png[错误：缺少图形映像]
+image::amazon-fsx-image91.png[Amazon FSx image91]

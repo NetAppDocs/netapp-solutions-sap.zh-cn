@@ -30,7 +30,7 @@ Snapshot副本备份是在备份策略中按需或定期创建的、随后可以
 
 然后、该系统可用作测试或QA系统。请求新的系统刷新后、工作流将在步骤2中重新启动。必须手动删除所有剩余的克隆卷。
 
-image::libelle-sc-image23.png[错误：缺少图形映像]
+image::libelle-sc-image23.png[limelleSC 23.]
 
 
 
@@ -44,7 +44,7 @@ image::libelle-sc-image23.png[错误：缺少图形映像]
 
 通常、AzAcSnap有两个部署选项、如下图所示。
 
-image::libelle-sc-image24.png[错误：缺少图形映像]
+image::libelle-sc-image24.png[limelleSC 24.]
 
 可以在中央Linux VM上安装和运行AzAcSnap、所有数据库配置文件均集中存储在该VM上、AzAcSnap可通过hdbsql客户端访问所有数据库以及所有这些数据库的已配置HANA用户存储密钥。通过分散式部署、AzAcSnap会单独安装在通常仅存储本地数据库的数据库配置的每个数据库主机上。LSC集成支持这两种部署选项。但是、我们在本文档的实验室设置中采用了一种混合方法。AzAcSnap与所有数据库配置文件一起安装在一个中央NFS共享上。此中央安装共享已挂载到`/mnt/software/AZACSNAP/snapshot-tool`下的所有VM上。然后、在DB VM上本地执行该工具。
 
@@ -54,7 +54,7 @@ image::libelle-sc-image24.png[错误：缺少图形映像]
 
 Libelle SystemCopy部署包括以下组件：
 
-image::libelle-sc-image25.png[错误：缺少图形映像]
+image::libelle-sc-image25.png[limelleSC 25.]
 
 * * LSC主系统。*顾名思义、这是一个主组件、用于控制基于Lible的系统副本的自动工作流。
 * * LSC Worker*。LSC员工通常在目标SAP系统上运行、并执行自动系统复制所需的脚本。
@@ -65,7 +65,7 @@ image::libelle-sc-image25.png[错误：缺少图形映像]
 
 安装LSC后、必须根据LSC准则执行源数据库和目标数据库的基本配置。下图显示了本文档中实验室环境的配置。有关源SAP系统和目标SAP系统及数据库的详细信息、请参见下一节。
 
-image::libelle-sc-image26.png[错误：缺少图形映像]
+image::libelle-sc-image26.png[limelleSC 26.]
 
 您还应为SAP系统配置合适的标准任务列表。有关LSC安装和配置的详细信息、请参见LSC安装包中的LSC用户手册。
 
@@ -85,7 +85,7 @@ SAP系统刷新集成始终使用源系统的最新成功Snapshot副本执行目
 
 下图显示了实验室设置。
 
-image::libelle-sc-image27.png[错误：缺少图形映像]
+image::libelle-sc-image27.png[limelleSC 27.]
 
 它包含以下系统、软件版本和Azure NetApp Files 卷：
 
@@ -107,7 +107,7 @@ image::libelle-sc-image27.png[错误：缺少图形映像]
 
 在执行首次SAP系统刷新之前、您必须集成由AzAcSnap执行的基于Azure NetApp Files Snapshot副本和克隆的存储操作。此外、还必须执行辅助脚本来启动和停止数据库以及挂载或卸载Azure NetApp Files 卷。在复制阶段、所有必需的任务都会在LSC中作为自定义任务执行。下图显示了LSC任务列表中的自定义任务。
 
-image::libelle-sc-image28.png[错误：缺少图形映像]
+image::libelle-sc-image28.png[limelleSC 28]
 
 此处将详细介绍所有五个复制任务。在其中某些任务中、使用示例脚本`sc-system-refresh.sh`进一步自动执行所需的SAP HANA数据库恢复操作以及数据卷的挂载和卸载。该脚本会在系统输出中使用`LSC：success`消息来指示已成功执行LSC。有关自定义任务和可用参数的详细信息、请参见LSC用户手册和LSC开发人员指南。此实验室环境中的所有任务都会在目标DB VM上执行。
 
@@ -144,7 +144,7 @@ sudo /mnt/software/scripts/sc-system-refresh/sc-system-refresh.sh shutdown $_sys
 ....
 脚本`sc-system-refresh.sh`采用两个参数`shutdown`命令和DB SID、使用sapcontrol停止SAP HANA数据库。系统输出将重定向到标准LSC日志文件。如前所述、系统会使用`LSC：success`消息指示执行成功。
 
-image::libelle-sc-image29.png[错误：缺少图形映像]
+image::libelle-sc-image29.png[limelleSC 29.]
 
 
 
@@ -175,7 +175,7 @@ NOTE: 由于无法更改AzAcSnap命令的输出、因此无法使用默认的`LS
 
 下图显示了AzAcSnap还原到新卷成功消息。
 
-image::libelle-sc-image30.png[错误：缺少图形映像]
+image::libelle-sc-image30.png[limeimp国家 机关30.]
 
 
 
@@ -209,34 +209,34 @@ sudo /mnt/software/scripts/sc-system-refresh/sc-system-refresh.sh recover $_syst
 
 已为备份目录中列出的P01源数据库创建常规和按需Snapshot副本。
 
-image::libelle-sc-image31.jpg[错误：缺少图形映像]
+image::libelle-sc-image31.jpg[limelleSC 31]
 
 在刷新操作中、使用了3月12日起的最新备份。在备份详细信息部分中、列出了此备份的外部备份ID (EBID)。这是Azure NetApp Files 数据卷上相应Snapshot副本备份的Snapshot副本名称、如下图所示。
 
-image::libelle-sc-image32.jpg[错误：缺少图形映像]
+image::libelle-sc-image32.jpg[limelleSC 32.]
 
 要启动刷新操作、请在LSC图形用户界面中选择正确的配置、然后单击开始执行。
 
-image::libelle-sc-image33.jpg[错误：缺少图形映像]
+image::libelle-sc-image33.jpg[limelleSC]
 
 LSC将开始执行检查阶段的任务、然后执行预阶段的已配置任务。
 
-image::libelle-sc-image34.jpg[错误：缺少图形映像]
+image::libelle-sc-image34.jpg[利布利SC的印象34]
 
 作为预阶段的最后一步、目标SAP系统将停止。在以下复制阶段、将执行上一节中所述的步骤。首先、目标SAP HANA数据库将停止、而旧的Azure NetApp Files 卷将从操作系统中卸载。
 
-image::libelle-sc-image35.jpg[错误：缺少图形映像]
+image::libelle-sc-image35.jpg[limelleSC 35]
 
 然后、ZAZACSNAPRESTORE任务将从P01系统的现有Snapshot副本创建一个新卷作为克隆。以下两张图片显示了LSC图形用户界面中的任务日志以及Azure门户中克隆的Azure NetApp Files 卷。
 
-image::libelle-sc-image36.jpg[错误：缺少图形映像]
+image::libelle-sc-image36.jpg[limelleSC的影响]
 
-image::libelle-sc-image37.jpg[错误：缺少图形映像]
+image::libelle-sc-image37.jpg[limelleSC 37]
 
 然后、此新卷将挂载到目标数据库主机上、系统数据库和租户数据库将使用包含的Snapshot副本进行恢复。成功恢复后、SAP HANA数据库将自动启动。SAP HANA数据库的启动占用复制阶段的大部分时间。无论数据库大小如何、其余步骤通常只需几秒到几分钟即可完成。下图显示了如何使用SAP提供的python恢复脚本恢复系统数据库。
 
-image::libelle-sc-image38.jpg[错误：缺少图形映像]
+image::libelle-sc-image38.jpg[limelleSC]
 
 复制阶段结束后、LSC将继续执行后阶段中定义的所有步骤。系统刷新过程完全完成后、目标系统将重新启动并运行并完全可用。使用此实验室系统时、SAP系统刷新的总运行时间约为25分钟、其中复制阶段占用的时间仅不到5分钟。
 
-image::libelle-sc-image39.jpg[错误：缺少图形映像]
+image::libelle-sc-image39.jpg[limeimp国家 体育理事会]

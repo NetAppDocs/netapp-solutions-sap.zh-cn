@@ -82,11 +82,11 @@ FabricPool 是将日志备份移动到另一存储层的理想选择。移动备
 
 对于 HDD ，最多可以将两个 DS2246 磁盘架或四个 DS224C 磁盘架连接到一个 SAS 堆栈，以提供 SAP HANA 主机所需的性能，如下图所示。每个磁盘架中的磁盘必须平均分布到 HA 对的两个控制器。
 
-image::saphana_fas_fc_image10.png[错误：缺少图形映像]
+image::saphana_fas_fc_image10.png[saphade FAS fc image10.]
 
 使用 SSD 时，最多可以将一个磁盘架连接到一个 SAS 堆栈，以提供 SAP HANA 主机所需的性能，如下图所示。每个磁盘架中的磁盘必须平均分布到 HA 对的两个控制器。对于 DS224C 磁盘架，也可以使用四路径 SAS 布线，但这并不是必需的。
 
-image::saphana_fas_fc_image11.png[错误：缺少图形映像]
+image::saphana_fas_fc_image11.png[saphade FAS fc image11.]
 
 
 
@@ -100,7 +100,7 @@ image::saphana_fas_fc_image11.png[错误：缺少图形映像]
 
 下图显示了八个 SAP HANA 主机的配置。每个存储控制器连接四个 SAP HANA 主机。配置了两个单独的聚合，每个存储控制器一个。每个聚合都配置有 4 × 10 = 40 个数据磁盘（ HDD ）。
 
-image::saphana_fas_fc_image12.png[错误：缺少图形映像]
+image::saphana_fas_fc_image12.png[saphade FAS fc image12.]
 
 
 
@@ -110,7 +110,7 @@ image::saphana_fas_fc_image12.png[错误：缺少图形映像]
 
 下图显示了在配置了 ADPv2 的 12 Gb SAS 磁盘架上运行的 12 个 SAP HANA 主机的配置。每个存储控制器连接六个 SAP HANA 主机。配置了四个单独的聚合，每个存储控制器两个。每个聚合都配置有 11 个磁盘，其中包含九个数据分区和两个奇偶校验磁盘分区。每个控制器都有两个备用分区。
 
-image::saphana_fas_fc_image13.jpg[错误：缺少图形映像]
+image::saphana_fas_fc_image13.jpg[saphade FAS fc image13.]
 
 
 
@@ -124,13 +124,13 @@ image::saphana_fas_fc_image13.jpg[错误：缺少图形映像]
 
 在存储集群配置中，必须创建一个网络接口（ LIF ）并将其分配给一个专用 FCP 端口。例如，如果出于性能原因需要四个 FCP 端口，则必须创建四个 LIF 。下图显示了在 `HANA` SVM 上配置的四个 LIF （名为 `fc_* ）` 的屏幕截图。
 
-image::saphana_fas_fc_image14.jpeg[错误：缺少图形映像]
+image::saphana_fas_fc_image14.jpeg[saphade FAS fc image14.]
 
 在使用 ONTAP 9.8 System Manager 创建 SVM 期间，可以选择所有必需的物理 FCP 端口，并自动为每个物理端口创建一个 LIF 。
 
 下图展示了使用 ONTAP 9.8 System Manager 创建 SVM 和 LIF 的过程。
 
-image::saphana_fas_fc_image15.jpeg[错误：缺少图形映像]
+image::saphana_fas_fc_image15.jpeg[saphade FAS fc image15.]
 
 
 
@@ -138,7 +138,7 @@ image::saphana_fas_fc_image15.jpeg[错误：缺少图形映像]
 
 FCP 端口集用于定义特定 igroup 要使用的 LIF 。通常，为 HANA 系统创建的所有 LIF 都置于同一端口集中。下图显示了一个名为 32g 的端口集的配置，其中包括已创建的四个 LIF 。
 
-image::saphana_fas_fc_image16.jpeg[错误：缺少图形映像]
+image::saphana_fas_fc_image16.jpeg[saphade FAS fc image16.]
 
 
 NOTE: 在 ONTAP 9.8 中，不需要端口集，但可以通过命令行创建和使用该端口集。
@@ -164,7 +164,7 @@ NOTE: `sanlun` 工具是 NetApp Host Utilities 的一部分，必须安装在每
 
 下图显示了 SS3_HANA 的启动程序列表。igroup 包含服务器的所有 WWPN ，并分配给存储控制器的端口集。
 
-image::saphana_fas_fc_image17.jpeg[错误：缺少图形映像]
+image::saphana_fas_fc_image17.jpeg[saphade FAS fc image17.]
 
 
 
@@ -175,7 +175,7 @@ image::saphana_fas_fc_image17.jpeg[错误：缺少图形映像]
 
 NOTE: 如果 SAP HANA 系统仅使用高可用性（ HA ）对中的一个存储控制器，则数据卷和日志卷也可以存储在同一个存储控制器上。
 
-image::saphana_fas_fc_image18.jpg[错误：缺少图形映像]
+image::saphana_fas_fc_image18.jpg[saphade FAS fc image18.]
 
 对于每个 SAP HANA 主机，都会为 ` 或 HANA 或 Shared` 配置一个数据卷，一个日志卷和一个卷。下表显示了一个使用四个 SAP HANA 单主机系统的配置示例。
 
@@ -254,7 +254,7 @@ NOTE: 按照所述配置，存储用户 SID1adm 默认主目录的 ` /usr/sap/SI
 
 NOTE: 如果 SAP HANA 系统仅使用 HA 对中的一个存储控制器，则数据和日志卷也可以存储在同一个存储控制器上。
 
-image::saphana_fas_fc_image19.jpg[错误：缺少图形映像]
+image::saphana_fas_fc_image19.jpg[saphade FAS fc image19.]
 
 对于每个 SAP HANA 主机，系统会创建一个数据卷和一个日志卷。` HANA 系统的所有主机都使用` /hana / 共享 卷。下图显示了 4+1 多主机 SAP HANA 系统的配置示例。
 
@@ -380,38 +380,38 @@ NOTE: 在所述配置中，存储用户 SIDadm 默认主目录的 ` /usr/sap/SID
 
 . 在 NetApp ONTAP 系统管理器中启动创建 LUN 向导。
 +
-image::saphana_fas_fc_image20.jpeg[错误：缺少图形映像]
+image::saphana_fas_fc_image20.jpeg[saphade FAS fc image20.]
 
 . 输入 LUN 名称，选择 LUN 类型，然后输入 LUN 的大小。
 +
-image::saphana_fas_fc_image21.jpeg[错误：缺少图形映像]
+image::saphana_fas_fc_image21.jpeg[saphade FAS fc image21.]
 
 . 输入卷名称和托管聚合。
 +
-image::saphana_fas_fc_image22.jpeg[错误：缺少图形映像]
+image::saphana_fas_fc_image22.jpeg[saphade FAS fc image22.]
 
 . 选择 LUN 应映射到的 igroup 。
 +
-image::saphana_fas_fc_image23.jpeg[错误：缺少图形映像]
+image::saphana_fas_fc_image23.jpeg[saphade FAS fc image23.]
 
 . 提供 QoS 设置。
 +
-image::saphana_fas_fc_image24.jpeg[错误：缺少图形映像]
+image::saphana_fas_fc_image24.jpeg[saphade FAS fc image24.]
 
 . 单击摘要页面上的下一步。
 +
-image::saphana_fas_fc_image25.jpeg[错误：缺少图形映像]
+image::saphana_fas_fc_image25.jpeg[saph走过FAS fc image25.]
 
 . 单击完成页面上的完成。
 +
-image::saphana_fas_fc_image26.jpeg[错误：缺少图形映像]
+image::saphana_fas_fc_image26.jpeg[saphade FAS fc image26.]
 
 . 对每个 LUN 重复步骤 2 到 7 。
 +
 下图显示了 2+1 多主机设置需要创建的所有 LUN 的摘要。
 
 +
-image::saphana_fas_fc_image27.jpeg[错误：缺少图形映像]
+image::saphana_fas_fc_image27.jpeg[saphade FAS fc image27.]
 
 
 

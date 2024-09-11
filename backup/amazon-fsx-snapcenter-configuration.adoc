@@ -42,7 +42,7 @@ NetApp 建议在 HANA 数据库中配置一个专用数据库用户，以便使�
 
 对于SAP HANA MDC系统、您必须在系统数据库中创建用户、因为系统和租户数据库的所有备份命令均使用系统数据库执行。
 
-image::amazon-fsx-image9.png[错误：缺少图形映像]
+image::amazon-fsx-image9.png[Amazon FSx image9.]
 
 以下命令用于使用`<sid>adm` user的用户存储配置：
 
@@ -90,31 +90,31 @@ hdbsql SYSTEMDB=>
 
 . 在SnapCenter UI中、选择存储系统。
 +
-image::amazon-fsx-image10.png[错误：缺少图形映像]
+image::amazon-fsx-image10.png[Amazon FSx image10]
 
 +
 您可以选择存储系统类型、可以是ONTAP SVM或ONTAP 集群。在以下示例中、选择了SVM管理。
 
 +
-image::amazon-fsx-image11.png[错误：缺少图形映像]
+image::amazon-fsx-image11.png[Amazon FSx image11.]
 
 . 要添加存储系统并提供所需的主机名和凭据、请单击新建。
 +
 SVM用户不需要是vsadmin用户、如下图所示。通常，在 SVM 上配置用户并为其分配执行备份和还原操作所需的权限。有关所需权限的信息、请参见 http://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-isg%2Fhome.html["《 SnapCenter 安装指南》"^] 在标题为 " 所需的最小 ONTAP 权限 " 一节中。
 
 +
-image::amazon-fsx-image12.png[错误：缺少图形映像]
+image::amazon-fsx-image12.png[Amazon FSx image12.]
 
 . 要配置存储平台、请单击更多选项。
 . 选择全闪存FAS 作为存储系统、以确保SnapCenter 可以使用作为适用于ONTAP 的FSX一部分的许可证。
 +
-image::amazon-fsx-image13.png[错误：缺少图形映像]
+image::amazon-fsx-image13.png[Amazon FSx image13.]
 
 +
 SVM `sAPCP-HANA—SVM`现在已在SnapCenter 中配置。
 
 +
-image::amazon-fsx-image14.png[错误：缺少图形映像]
+image::amazon-fsx-image14.png[Amazon FSx image14.]
 
 
 
@@ -126,11 +126,11 @@ image::amazon-fsx-image14.png[错误：缺少图形映像]
 
 . 转到 " 设置 " ，选择 " 凭据 " ，然后单击 " 新建 " 。
 +
-image::amazon-fsx-image15.png[错误：缺少图形映像]
+image::amazon-fsx-image15.png[Amazon FSx image15.]
 
 . 在实验室设置中、我们在用于插件部署的HANA主机上配置了一个新用户`SnapCenter`。您必须启用sudo prvileges、如下图所示。
 +
-image::amazon-fsx-image16.png[错误：缺少图形映像]
+image::amazon-fsx-image16.png[Amazon FSx image16.]
 
 
 
@@ -164,15 +164,15 @@ SnapCenter 支持OpenJDK或Oracle Java。
 
 . 在主机选项卡中，单击添加。
 +
-image::amazon-fsx-image17.png[错误：缺少图形映像]
+image::amazon-fsx-image17.png[Amazon FSx image17.]
 
 . 提供主机信息并选择要安装的 SAP HANA 插件。单击提交。
 +
-image::amazon-fsx-image18.png[错误：缺少图形映像]
+image::amazon-fsx-image18.png[Amazon FSx image18.]
 
 . 确认指纹。
 +
-image::amazon-fsx-image19.png[错误：缺少图形映像]
+image::amazon-fsx-image19.png[Amazon FSx image19.]
 
 +
 HANA和Linux插件的安装会自动启动。安装完成后、主机的状态列将显示配置VMware插件。SnapCenter 会检测 SAP HANA 插件是否安装在虚拟化环境中。这可能是VMware环境、也可能是公有 云提供商的环境。在这种情况下、SnapCenter 会显示一条警告来配置虚拟机管理程序。
@@ -181,19 +181,19 @@ HANA和Linux插件的安装会自动启动。安装完成后、主机的状态�
 您可以使用以下步骤删除此警告消息。
 
 +
-image::amazon-fsx-image20.png[错误：缺少图形映像]
+image::amazon-fsx-image20.png[Amazon FSx image20]
 
 +
 .. 从设置选项卡中，选择全局设置。
 .. 对于虚拟机管理程序设置，请为所有主机选择虚拟机具有 iSCSI 直连磁盘或 NFS 并更新设置。
 +
-image::amazon-fsx-image21.png[错误：缺少图形映像]
+image::amazon-fsx-image21.png[Amazon FSx image21.]
 
 +
 此时、屏幕将显示状态为"running"的Linux插件和HANA插件。
 
 +
-image::amazon-fsx-image22.png[错误：缺少图形映像]
+image::amazon-fsx-image22.png[Amazon FSx image22.]
 
 
 
@@ -221,35 +221,35 @@ image::amazon-fsx-image22.png[错误：缺少图形映像]
 
 . 转到 " 设置 ">" 策略 " ，然后单击 " 新建 " 。
 +
-image::amazon-fsx-image23.png[错误：缺少图形映像]
+image::amazon-fsx-image23.png[Amazon FSx image23.]
 
 . 输入策略名称和问题描述。单击下一步。
 +
-image::amazon-fsx-image24.png[错误：缺少图形映像]
+image::amazon-fsx-image24.png[Amazon FSx image24]
 
 . 选择基于 Snapshot 的备份类型，并选择每小时作为计划频率。
 +
 计划本身稍后会配置HANA资源保护配置。
 
 +
-image::amazon-fsx-image25.png[错误：缺少图形映像]
+image::amazon-fsx-image25.png[Amazon FSx image25]
 
 . 配置按需备份的保留设置。
 +
-image::amazon-fsx-image26.png[错误：缺少图形映像]
+image::amazon-fsx-image26.png[Amazon FSx image26.]
 
 . 配置复制选项。在这种情况下，不会选择 SnapVault 或 SnapMirror 更新。
 +
-image::amazon-fsx-image27.png[错误：缺少图形映像]
+image::amazon-fsx-image27.png[Amazon FSx image27.]
 
 +
-image::amazon-fsx-image28.png[错误：缺少图形映像]
+image::amazon-fsx-image28.png[Amazon FSx image28]
 
 
 
 此时将配置新策略。
 
-image::amazon-fsx-image29.png[错误：缺少图形映像]
+image::amazon-fsx-image29.png[Amazon FSx image29.]
 
 
 
@@ -260,22 +260,22 @@ image::amazon-fsx-image29.png[错误：缺少图形映像]
 . 转到 " 设置 ">" 策略 " ，然后单击 " 新建 " 。
 . 输入策略名称和问题描述。单击下一步。
 +
-image::amazon-fsx-image30.png[错误：缺少图形映像]
+image::amazon-fsx-image30.png[Amazon FSx image30]
 
 . 将备份类型设置为基于文件，并将计划频率设置为每周。计划本身稍后会配置HANA资源保护配置。
 +
-image::amazon-fsx-image31.png[错误：缺少图形映像]
+image::amazon-fsx-image31.png[Amazon FSx image31]
 
 . 配置按需备份的保留设置。
 +
-image::amazon-fsx-image32.png[错误：缺少图形映像]
+image::amazon-fsx-image32.png[Amazon FSx image32.]
 
 . 在摘要页面上，单击完成。
 +
-image::amazon-fsx-image33.png[错误：缺少图形映像]
+image::amazon-fsx-image33.png[Amazon FSx image33]
 
 +
-image::amazon-fsx-image34.png[错误：缺少图形映像]
+image::amazon-fsx-image34.png[Amazon FSx image34]
 
 
 
@@ -290,63 +290,63 @@ image::amazon-fsx-image34.png[错误：缺少图形映像]
 您也可以通过单击刷新资源在资源屏幕中手动触发自动发现过程。
 
 +
-image::amazon-fsx-image35.png[错误：缺少图形映像]
+image::amazon-fsx-image35.png[Amazon FSx image35]
 
 . 提供 HANA 数据库的用户存储密钥。
 +
-image::amazon-fsx-image36.png[错误：缺少图形映像]
+image::amazon-fsx-image36.png[Amazon FSx image36]
 
 +
 第二级自动发现过程从发现租户数据和存储占用空间信息开始。
 
 +
-image::amazon-fsx-image37.png[错误：缺少图形映像]
+image::amazon-fsx-image37.png[Amazon FSx image37]
 
 . 在资源选项卡中、双击资源以配置资源保护。
 +
-image::amazon-fsx-image38.png[错误：缺少图形映像]
+image::amazon-fsx-image38.png[Amazon FSx image38]
 
 . 为 Snapshot 副本配置自定义名称格式。
 +
 NetApp 建议使用自定义 Snapshot 副本名称来轻松确定使用哪个策略和计划类型创建了哪些备份。通过在 Snapshot 副本名称中添加计划类型，您可以区分计划备份和按需备份。按需备份的 `schedule name` 字符串为空，而计划备份包括字符串 `hourly` ， `Daily` ， `或 Weekly` 。
 
 +
-image::amazon-fsx-image39.png[错误：缺少图形映像]
+image::amazon-fsx-image39.png[Amazon FSx image39]
 
 . 无需在 " 应用程序设置 " 页面上进行任何特定设置。单击下一步。
 +
-image::amazon-fsx-image40.png[错误：缺少图形映像]
+image::amazon-fsx-image40.png[Amazon FSx image40]
 
 . 选择要添加到资源中的策略。
 +
-image::amazon-fsx-image41.png[错误：缺少图形映像]
+image::amazon-fsx-image41.png[Amazon FSx image41]
 
 . 定义块完整性检查策略的计划。
 +
 在此示例中、此值设置为每周一次。
 
 +
-image::amazon-fsx-image42.png[错误：缺少图形映像]
+image::amazon-fsx-image42.png[Amazon FSx image42]
 
 . 定义本地Snapshot策略的计划。
 +
 在此示例中、此值设置为每6小时一次。
 
 +
-image::amazon-fsx-image43.png[错误：缺少图形映像]
+image::amazon-fsx-image43.png[Amazon FSx image43]
 
 +
-image::amazon-fsx-image44.png[错误：缺少图形映像]
+image::amazon-fsx-image44.png[Amazon FSx image44]
 
 . 提供有关电子邮件通知的信息。
 +
-image::amazon-fsx-image45.png[错误：缺少图形映像]
+image::amazon-fsx-image45.png[Amazon FSx image45]
 
 +
-image::amazon-fsx-image46.png[错误：缺少图形映像]
+image::amazon-fsx-image46.png[Amazon FSx image46]
 
 
 
 HANA资源配置现已完成、您可以执行备份。
 
-image::amazon-fsx-image47.png[错误：缺少图形映像]
+image::amazon-fsx-image47.png[Amazon FSx image47]

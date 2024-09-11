@@ -34,7 +34,7 @@ Snapshot 副本备份与活动联机数据存储在同一磁盘系统上。因�
 
 整个备份工作流运行时间的最大一部分是执行HANA备份保存点操作所需的时间、此步骤取决于HANA数据库上的负载。存储 Snapshot 备份本身始终会在几秒钟内完成。
 
-image::amazon-fsx-image1.png[错误：缺少图形映像]
+image::amazon-fsx-image1.png[Amazon FSx image1]
 
 
 
@@ -72,7 +72,7 @@ image::amazon-fsx-image1.png[错误：缺少图形映像]
 
 下图还显示、每天有四到六个Snapshot备份最有意义、因为更高的频率不再对整体运行时间产生重大影响。
 
-image::amazon-fsx-image2.png[错误：缺少图形映像]
+image::amazon-fsx-image2.png[Amazon FSx image2.]
 
 
 
@@ -84,7 +84,7 @@ SAP HANA系统升级就是一个示例、其中、升级前的按需备份以及
 
 另一个用例示例是典型的测试周期、在此周期中、必须使用不同的数据集或参数通过多个迭代执行测试。在利用快速备份和还原操作时、您可以轻松地在测试周期内创建保存点、并在测试失败或需要重复时将系统重置为上述任一保存点。这样可以提前完成测试、也可以同时完成更多测试、并提高测试结果。
 
-image::amazon-fsx-image3.png[错误：缺少图形映像]
+image::amazon-fsx-image3.png[Amazon FSx image3.]
 
 实施Snapshot备份后、可以使用这些备份来解决其他多种使用情形、这些使用情形需要一个HANA数据库的副本。使用适用于ONTAP 的FSX、您可以根据任何可用Snapshot备份的内容创建新卷。此操作的运行时间为几秒、与卷大小无关。
 
@@ -94,4 +94,4 @@ image::amazon-fsx-image3.png[错误：缺少图形映像]
 
 最后一个使用情形是、能够在不停止复制的情况下运行灾难恢复故障转移测试、从而不影响灾难恢复设置的RTO和恢复点目标(RPO)。当使用适用于ONTAP 的FSX NetApp SnapMirror复制将数据复制到灾难恢复站点时、生产Snapshot备份也可在灾难恢复站点上使用、然后可用于创建新卷以进行灾难恢复测试。
 
-image::amazon-fsx-image4.png[错误：缺少图形映像]
+image::amazon-fsx-image4.png[Amazon FSx image4.]

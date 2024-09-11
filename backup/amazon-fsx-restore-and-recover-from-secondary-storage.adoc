@@ -18,10 +18,10 @@ summary: 本节介绍如何从二级存储进行还原和恢复。
 
 要检索二级存储上所有备份的列表、请在SnapCenter 拓扑视图中单击存储副本、然后选择一个备份并单击还原。
 
-image::amazon-fsx-image92.png[错误：缺少图形映像]
+image::amazon-fsx-image92.png[Amazon FSx image92]
 
 还原对话框将显示二级位置。
 
-image::amazon-fsx-image93.png[错误：缺少图形映像]
+image::amazon-fsx-image93.png[Amazon FSx image93]
 
 进一步的还原和恢复步骤与先前在主存储上对Snapshot备份所述的步骤相同。

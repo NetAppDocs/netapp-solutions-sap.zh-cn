@@ -35,7 +35,7 @@ summary: 本节介绍初始 SnapCenter 配置，包括存储系统，凭据，�
 
 . 登录到 SnapCenter 服务器图形用户界面。
 +
-image::saphana-br-scs-image23.png[错误：缺少图形映像]
+image::saphana-br-scs-image23.png[saphA br sCS image23.]
 
 . 选择存储系统。
 +
@@ -43,7 +43,7 @@ image::saphana-br-scs-image23.png[错误：缺少图形映像]
 NOTE: 在屏幕中，您可以选择存储系统类型，可以是 ONTAP SVM 或 ONTAP 集群。如果在 SVM 级别配置存储系统，则需要为每个 SVM 配置一个管理 LIF 。或者，您也可以在集群级别使用 SnapCenter 管理访问。以下示例将使用 SVM 管理。
 
 +
-image::saphana-br-scs-image24.png[错误：缺少图形映像]
+image::saphana-br-scs-image24.png[saphA br sCS image24.]
 
 . 单击 New 以添加存储系统并提供所需的主机名和凭据。
 +
@@ -51,7 +51,7 @@ image::saphana-br-scs-image24.png[错误：缺少图形映像]
 NOTE: SVM 用户不需要是 vsadmin 用户，如屏幕截图所示。通常，在 SVM 上配置用户并为其分配执行备份和还原操作所需的权限。有关所需权限的详细信息，请参见 http://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-isg%2Fhome.html["《 SnapCenter 安装指南》"^] 在标题为 " 所需的最小 ONTAP 权限 " 一节中。
 
 +
-image::saphana-br-scs-image25.png[错误：缺少图形映像]
+image::saphana-br-scs-image25.png[saphA br sCS image25.]
 
 . 单击更多选项以配置存储平台。
 +
@@ -62,11 +62,11 @@ image::saphana-br-scs-image25.png[错误：缺少图形映像]
 NOTE: 对于用作 SnapVault 或 SnapMirror 目标的系统，选择二级图标。
 
 +
-image::saphana-br-scs-image26.png[错误：缺少图形映像]
+image::saphana-br-scs-image26.png[saphA br sCS image26.]
 
 . 根据需要添加其他存储系统。在我们的示例中，添加了一个额外的异地备份存储和一个灾难恢复存储。
 +
-image::saphana-br-scs-image27.png[错误：缺少图形映像]
+image::saphana-br-scs-image27.png[saphA br sCS image27.]
 
 
 
@@ -76,22 +76,22 @@ image::saphana-br-scs-image27.png[错误：缺少图形映像]
 
 . 转到 " 设置 " ，选择 " 凭据 " ，然后单击 " 新建 " 。
 +
-image::saphana-br-scs-image28.png[错误：缺少图形映像]
+image::saphana-br-scs-image28.png[saphA br sCS image28]
 
 . 提供用于在 Linux 系统上安装插件的用户凭据。
 +
-image::saphana-br-scs-image29.png[错误：缺少图形映像]
+image::saphana-br-scs-image29.png[saphA br sCS image29.]
 
 . 提供用于在 Windows 系统上安装插件的用户凭据。
 +
-image::saphana-br-scs-image30.png[错误：缺少图形映像]
+image::saphana-br-scs-image30.png[saphA br sCS image30.]
 
 +
 下图显示了已配置的凭据。
 
 
 
-image::saphana-br-scs-image31.png[错误：缺少图形映像]
+image::saphana-br-scs-image31.png[saphA br sCS image31]
 
 
 
@@ -104,17 +104,17 @@ NOTE: SAP HANA 插件需要 Java 64 位版本 1.8 。在部署 SAP HANA 插件�
 
 . 转到主机，然后单击添加。
 +
-image::saphana-br-scs-image32.png[错误：缺少图形映像]
+image::saphana-br-scs-image32.png[saphA br sCS image32.]
 
 . 提供所需的主机信息。单击提交。
 +
-image::saphana-br-scs-image33.png[错误：缺少图形映像]
+image::saphana-br-scs-image33.png[saphA br sCS image33]
 
 +
 下图显示了部署 HANA 插件后配置的所有主机。
 
 +
-image::saphana-br-scs-image34.png[错误：缺少图形映像]
+image::saphana-br-scs-image34.png[saphA br sCS image34]
 
 
 
@@ -161,31 +161,31 @@ HANA_HDBSQL_CMD=/usr/sap/hdbclient/hdbsql
 
 . 转到 " 设置 ">" 策略 " ，然后单击 " 新建 " 。
 +
-image::saphana-br-scs-image35.png[错误：缺少图形映像]
+image::saphana-br-scs-image35.png[saphA br sCS image35]
 
 . 输入策略名称和问题描述。单击下一步。
 +
-image::saphana-br-scs-image36.png[错误：缺少图形映像]
+image::saphana-br-scs-image36.png[saphA br sCS image36]
 
 . 选择基于 Snapshot 的备份类型，并选择每小时作为计划频率。
 +
-image::saphana-br-scs-image37.png[错误：缺少图形映像]
+image::saphana-br-scs-image37.png[saphA br sCS image37]
 
 . 配置按需备份的保留设置。
 +
-image::saphana-br-scs-image38.png[错误：缺少图形映像]
+image::saphana-br-scs-image38.png[saph需 纳br sCS image38]
 
 . 配置计划备份的保留设置。
 +
-image::saphana-br-scs-image39.png[错误：缺少图形映像]
+image::saphana-br-scs-image39.png[saphA br sCS image39]
 
 . 配置复制选项。在这种情况下，不会选择 SnapVault 或 SnapMirror 更新。
 +
-image::saphana-br-scs-image40.png[错误：缺少图形映像]
+image::saphana-br-scs-image40.png[saphA br sCS image40]
 
 . 在摘要页面上，单击完成。
 +
-image::saphana-br-scs-image41.png[错误：缺少图形映像]
+image::saphana-br-scs-image41.png[saphA br sCS image41]
 
 
 
@@ -196,19 +196,19 @@ image::saphana-br-scs-image41.png[错误：缺少图形映像]
 . 转到 " 设置 ">" 策略 " ，然后单击 " 新建 " 。
 . 输入策略名称和问题描述。单击下一步。
 +
-image::saphana-br-scs-image42.png[错误：缺少图形映像]
+image::saphana-br-scs-image42.png[saphA br sCS image42]
 
 . 将备份类型设置为基于 Snapshot ，并将计划频率设置为每日。
 +
-image::saphana-br-scs-image43.png[错误：缺少图形映像]
+image::saphana-br-scs-image43.png[saphA br sCS image43]
 
 . 配置按需备份的保留设置。
 +
-image::saphana-br-scs-image44.png[错误：缺少图形映像]
+image::saphana-br-scs-image44.png[saphA br sCS image44]
 
 . 配置计划备份的保留设置。
 +
-image::saphana-br-scs-image45.png[错误：缺少图形映像]
+image::saphana-br-scs-image45.png[saphA br sCS image45]
 
 . 创建本地 Snapshot 副本后，选择 Update SnapVault 。
 +
@@ -216,11 +216,11 @@ image::saphana-br-scs-image45.png[错误：缺少图形映像]
 NOTE: 二级策略标签必须与存储层上数据保护配置中的 SnapMirror 标签相同。请参见一节 link:saphana-br-scs-snapcenter-resource-specific-configuration-for-sap-hana-database-backups.html#configuration-of-data-protection-to-off-site-backup-storage["" 将数据保护配置为异地备份存储。 ""]
 
 +
-image::saphana-br-scs-image46.png[错误：缺少图形映像]
+image::saphana-br-scs-image46.png[saphA br sCS image46]
 
 . 在摘要页面上，单击完成。
 +
-image::saphana-br-scs-image47.png[错误：缺少图形映像]
+image::saphana-br-scs-image47.png[saphA br sCS image47]
 
 
 
@@ -231,28 +231,28 @@ image::saphana-br-scs-image47.png[错误：缺少图形映像]
 . 转到 " 设置 ">" 策略 " ，然后单击 " 新建 " 。
 . 输入策略名称和问题描述。单击下一步。
 +
-image::saphana-br-scs-image48.png[错误：缺少图形映像]
+image::saphana-br-scs-image48.png[saphA br sCS image48]
 
 . 将备份类型设置为基于文件，并将计划频率设置为每周。
 +
-image::saphana-br-scs-image49.png[错误：缺少图形映像]
+image::saphana-br-scs-image49.png[saphA br sCS image49]
 
 . 配置按需备份的保留设置。
 +
-image::saphana-br-scs-image50.png[错误：缺少图形映像]
+image::saphana-br-scs-image50.png[saphA br sCS image50]
 
 . 配置计划备份的保留设置。
 +
-image::saphana-br-scs-image50.png[错误：缺少图形映像]
+image::saphana-br-scs-image50.png[saphA br sCS image50]
 
 . 在摘要页面上，单击完成。
 +
-image::saphana-br-scs-image51.png[错误：缺少图形映像]
+image::saphana-br-scs-image51.png[saphA br sCS image51.]
 
 +
 下图显示了已配置策略的摘要。
 
 +
-image::saphana-br-scs-image52.png[错误：缺少图形映像]
+image::saphana-br-scs-image52.png[saphA br sCS image52]
 
 

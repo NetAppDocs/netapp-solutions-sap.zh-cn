@@ -28,15 +28,15 @@ summary: 非数据卷的备份是 SAP HANA 插件的集成部分。保护数据�
 
 . 从资源选项卡中，选择非数据卷，然后单击添加 SAP HANA 数据库。
 +
-image::saphana-br-scs-image78.png[错误：缺少图形映像]
+image::saphana-br-scs-image78.png[saphA br sCS image78]
 
 . 在添加 SAP HANA 数据库对话框的第 1 步中的资源类型列表中，选择非数据卷。指定资源的名称以及要用于该资源的关联 SID 和 SAP HANA 插件主机，然后单击下一步。
 +
-image::saphana-br-scs-image79.png[错误：缺少图形映像]
+image::saphana-br-scs-image79.png[sapha br sCS image79]
 
 . 将 SVM 和存储卷添加为存储占用空间，然后单击下一步。
 +
-image::saphana-br-scs-image80.png[错误：缺少图形映像]
+image::saphana-br-scs-image80.png[saphA br sCS image80]
 
 . 在摘要步骤中，单击完成以保存设置。
 . 对所有所需的非数据卷重复上述步骤。
@@ -49,7 +49,7 @@ NOTE: 非数据卷资源的数据保护与 SAP HANA 数据库资源的工作流�
 下图显示了已配置的非数据卷资源的列表。
 
 +
-image::saphana-br-scs-image81.png[错误：缺少图形映像]
+image::saphana-br-scs-image81.png[saphA br sCS image81.]
 
 
 

@@ -18,14 +18,14 @@ summary: 本节介绍如何将备份SVM添加到SnapCenter。
 
 . 在SnapCenter 中配置SnapVault 目标卷所在的SVM。
 +
-image::amazon-fsx-image76.png[错误：缺少图形映像]
+image::amazon-fsx-image76.png[Amazon FSx image76]
 
 . 在更多选项窗口中、选择全闪存FAS 作为平台、然后选择二级。
 +
-image::amazon-fsx-image77.png[错误：缺少图形映像]
+image::amazon-fsx-image77.png[Amazon FSx image77]
 
 
 
 SVM现在可在SnapCenter 中使用。
 
-image::amazon-fsx-image78.png[错误：缺少图形映像]
+image::amazon-fsx-image78.png[Amazon FSx image78]

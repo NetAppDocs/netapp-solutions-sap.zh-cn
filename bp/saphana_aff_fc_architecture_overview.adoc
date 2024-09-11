@@ -19,7 +19,7 @@ AFF 系统产品系列的不同型号可以在存储层混用并匹配，以满�
 
 下图显示了一个配置示例，其中八个 SAP HANA 主机连接到一个存储 HA 对。
 
-image::saphana_aff_fc_image2.png[错误：缺少图形映像]
+image::saphana_aff_fc_image2.png[saphade AFF fc image2.]
 
 此架构可扩展到两个方面：
 
@@ -29,8 +29,8 @@ image::saphana_aff_fc_image2.png[错误：缺少图形映像]
 
 下图显示了一个配置示例，其中，更多 SAP HANA 主机连接到存储控制器。在此示例中，需要更多磁盘架来满足 16 个 SAP HANA 主机的容量和性能要求。根据总吞吐量要求，您必须为存储控制器添加额外的 FC 连接。
 
-image::saphana_aff_fc_image3.png[错误：缺少图形映像]
+image::saphana_aff_fc_image3.png[saphade AFF fc image3.]
 
 除了已部署的 AFF 系统之外，还可以通过添加任何经过认证的存储控制器来扩展 SAP HANA 环境，以满足所需的节点密度，如下图所示。
 
-image::saphana_aff_fc_image4.png[错误：缺少图形映像]
+image::saphana_aff_fc_image4.png[saphade AFF fc image4.]

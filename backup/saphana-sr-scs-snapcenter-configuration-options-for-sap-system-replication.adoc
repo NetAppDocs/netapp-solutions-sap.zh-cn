@@ -20,7 +20,7 @@ summary: 此页面介绍 SAP 系统复制的配置选项。
 * 使用虚拟 IP 地址为两个 SAP HANA 主机提供一个 SnapCenter 资源。
 
 
-image::saphana-sr-scs-image5.png[错误：缺少图形映像]
+image::saphana-sr-scs-image5.png[saphA SR增补程序的印象5.]
 
 从 SnapCenter 4.6 开始， SnapCenter 支持自动发现在 HANA 系统复制关系中配置的 HANA 系统。每个主机都使用其物理 IP 地址（主机名）及其存储层上的单个数据卷进行配置。这两个 SnapCenter 资源将组合在一个资源组中， SnapCenter 会自动确定主主机或二级主机，并相应地执行所需的备份操作。对 SnapCenter 创建的 Snapshot 备份和基于文件的备份执行保留管理，以确保旧备份也会在当前二级主机上被删除。
 

@@ -16,7 +16,7 @@ NetApp Ralf Klahr Nil Baucer ， Microsoft
 
 要制定全面的灾难恢复策略，客户必须了解数据保护和灾难恢复所需的业务应用程序要求和技术功能。下图概述了数据保护。
 
-image::saphana-dr-anf_image2.png[错误：缺少图形映像]
+image::saphana-dr-anf_image2.png[saphanadrf image2.]
 
 
 

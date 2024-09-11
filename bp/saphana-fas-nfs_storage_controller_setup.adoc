@@ -83,11 +83,11 @@ FabricPool 是将日志备份移动到另一存储层的理想选择。移动备
 
 对于 HDD ，最多可以将两个 DS2246 磁盘架或四个 DS224C 磁盘架连接到一个 SAS 堆栈，以提供 SAP HANA 主机所需的性能，如下图所示。每个磁盘架中的磁盘必须平均分布到 HA 对的两个控制器。
 
-image::saphana-fas-nfs_image13.png[错误：缺少图形映像]
+image::saphana-fas-nfs_image13.png[saphNAS FAS NFS image13.]
 
 使用 SSD 时，最多可以将一个磁盘架连接到一个 SAS 堆栈，以提供 SAP HANA 主机所需的性能，如下图所示。每个磁盘架中的磁盘必须平均分布到 HA 对的两个控制器。对于 DS224C 磁盘架，也可以使用四路径 SAS 布线，但这不是必需的。
 
-image::saphana-fas-nfs_image14.png[错误：缺少图形映像]
+image::saphana-fas-nfs_image14.png[saphNAS FAS NFS image14.]
 
 
 
@@ -101,7 +101,7 @@ image::saphana-fas-nfs_image14.png[错误：缺少图形映像]
 
 下图显示了八个 SAP HANA 主机的配置。每个存储控制器连接四个 SAP HANA 主机。配置了两个单独的聚合，每个存储控制器一个。每个聚合都配置有 4 × 10 = 40 个数据磁盘（ HDD ）。
 
-image::saphana-fas-nfs_image15.png[错误：缺少图形映像]
+image::saphana-fas-nfs_image15.png[saphNAS FAS NFS image15.]
 
 
 
@@ -111,7 +111,7 @@ image::saphana-fas-nfs_image15.png[错误：缺少图形映像]
 
 下图显示了在配置了 ADPv2 的 12 Gb SAS 磁盘架上运行的 12 个 SAP HANA 主机的配置。每个存储控制器连接六个 SAP HANA 主机。配置了四个单独的聚合，每个存储控制器两个。每个聚合都配置有 11 个磁盘，其中包含九个数据分区和两个奇偶校验磁盘分区。每个控制器都有两个备用分区。
 
-image::saphana-fas-nfs_image16.jpg[错误：缺少图形映像]
+image::saphana-fas-nfs_image16.jpg[saphNAS FAS NFS image16.]
 
 
 
@@ -159,7 +159,7 @@ NOTE: 如果 SAP HANA 系统仅使用 HA 对中的一个存储控制器，则数
 
 NOTE: 如果数据卷和日志卷存储在同一控制器上，则必须使用两个不同的 LIF 从服务器访问存储：一个 LIF 用于访问数据卷，一个 LIF 用于访问日志卷。
 
-image::saphana-fas-nfs_image17.jpg[错误：缺少图形映像]
+image::saphana-fas-nfs_image17.jpg[saphNAS FAS NFS image17.]
 
 对于每个 SAP HANA DB 主机，都会为 ` 或 HANA 或 Shared` 配置一个数据卷，一个日志卷和一个卷。下表显示了单主机 SAP HANA 系统的配置示例。
 
@@ -204,7 +204,7 @@ NOTE: 如果 SAP HANA 系统仅使用 HA 对的一个存储控制器，则数据
 
 NOTE: 如果数据卷和日志卷存储在同一控制器上，则必须使用两个不同的 LIF 从服务器访问存储：一个用于访问数据卷，一个用于访问日志卷。
 
-image::saphana-fas-nfs_image18.jpg[错误：缺少图形映像]
+image::saphana-fas-nfs_image18.jpg[saphNAS FAS NFS image18.]
 
 对于每个 SAP HANA 主机，系统会创建一个数据卷和一个日志卷。` HANA 系统的所有主机都使用` /hana / 共享 卷。下表显示了具有四个活动主机的多主机 SAP HANA 系统的配置示例。
 
