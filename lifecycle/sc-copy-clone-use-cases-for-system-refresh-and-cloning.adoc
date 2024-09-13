@@ -57,6 +57,6 @@ image::sc-copy-clone-image6.png[SC副本克隆image6.]
 
 详细的分步说明可在技术报告中找到
 
-https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-dr-sr_pdf_link.html["TR-4646：《采用存储复制的SAP HANA灾难恢复》(netapp.com)"]
+https://www.netapp.com/pdf.html?item=/media/8584-tr4646pdf.pdf["TR-4646：《采用存储复制的SAP HANA灾难恢复》(netapp.com)"]
 
 https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-dr-anf_data_protection_overview_overview.html["TR-4891 ：《使用 Azure NetApp Files 实现 SAP HANA 灾难恢复》"]

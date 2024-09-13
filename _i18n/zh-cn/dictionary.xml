@@ -807,8 +807,6 @@
   <block id="9282f2106e2ecc166cf241e78c58163e" category="list-text"><block ref="9282f2106e2ecc166cf241e78c58163e" category="inline-link-rx"></block></block>
   <block id="0efd230d120bc177f0918dac852f2cf2" category="list-text">适用于 SAP HANA 的 SAP 认证企业存储硬件</block>
   <block id="3710f13cc62644ea40b0af38f0b1198e" category="paragraph"><block ref="3710f13cc62644ea40b0af38f0b1198e" category="inline-link-rx"></block></block>
-  <block id="62658c7987e92cf3967ab8bdd1e66d18" category="paragraph"><block ref="62658c7987e92cf3967ab8bdd1e66d18" category="inline-link-rx"></block></block>
-  <block id="026a8e661ca1c91258a93024c126a529" category="paragraph"><block ref="026a8e661ca1c91258a93024c126a529" category="inline-link-rx"></block></block>
   <block id="c54847a2046020d06d345fd8b61fc169" category="list-text">NetApp 文档中心</block>
   <block id="1f97b7a68d0268791593f9152a2471f4" category="list-text">SAP HANA 软件解决方案</block>
   <block id="02e9c064fb16f4d7c921173e0ea3e1d4" category="summary">SAP HANA 主机通过使用冗余 10GbE 或速度更快的网络基础架构连接到存储控制器。SAP HANA 主机和存储控制器之间的数据通信基于 NFS 协议。如果交换机或网络接口卡（ Network Interface Card ， NIC ）发生故障，则需要一个冗余交换基础架构来提供容错 SAP HANA 主机到存储连接。</block>
@@ -1680,7 +1678,6 @@
   <block id="b39fd9047d2089b24c418d3512b8c903" category="paragraph">SnapCenter 4.6 支持对配置有 HANA 系统复制的 HANA 系统进行自动发现。SnapCenter 4.6 包含一个逻辑，用于在备份操作期间识别主和二级 HANA 主机，并处理两个 HANA 主机之间的保留管理。此外，自动还原和恢复现在也可用于 HANA 系统复制环境。</block>
   <block id="6a24c6a18054ecbcf8919b90f4ff5eb8" category="section-title">HANA 系统复制环境的 SnapCenter 4.6 配置</block>
   <block id="ef7979296ea2465331699c64e5450ad0" category="paragraph">下图显示了本章使用的实验室设置。两个 HANA 主机 HANA 3 和 HANA 4 配置了 HANA 系统复制。</block>
-  <block id="3ca4a9c5f67351b7924bb2876dc1e870" category="paragraph">为 HANA 系统数据库创建了一个数据库用户 SnapCenter ，该用户具有执行备份和恢复操作所需的权限（请参见<block ref="ec9daba0660d1e2512cb8193f8c16297" category="inline-link-rx"></block>）。必须使用上述数据库用户在两台主机上配置 HANA 用户存储密钥。</block>
   <block id="3719dabf545d56e27391b4c1bb73b944" category="paragraph">从较高的角度来看，您必须执行以下步骤在 SnapCenter 中设置 HANA 系统复制。</block>
   <block id="bc1873525b8d9ae5c49626cd6b47592c" category="list-text">在主主机和二级主机上安装 HANA 插件。系统将对每个主主机或二级主机执行自动发现并检测到 HANA 系统复制状态。</block>
   <block id="3b7407b92790f4d78d820c6ebd3e159d" category="list-text">执行 SnapCenter `configure database` 并提供 `hdbuserstore` 密钥。将执行更多自动发现操作。</block>
@@ -1714,7 +1711,6 @@
   <block id="dc89ca90a524118bdb23dfe95009d16c" category="paragraph">SnapCenter 4.6 可管理两个 HANA 主机中 Snapshot 备份，块完整性检查操作， HANA 备份目录条目和日志备份（如果未禁用）的保留，因此，无论当前是主主机还是二级主机，都无关紧要。无论当前主主机还是二级主机上是否需要执行删除操作， HANA 目录中的备份（数据和日志）和条目都会根据定义的保留时间进行删除。换言之，如果执行接管操作和 / 或在另一方向配置复制，则无需手动交互。</block>
   <block id="b622880d7effd20d409afc8f9d337338" category="paragraph">如果 SnapVault 复制是数据保护策略的一部分，则在特定情形下需要手动交互，如一节所述 <block ref="d418ccf14dbb0e729818939bd00e84be" category="inline-xref-macro-rx"></block>。</block>
   <block id="6db8f8c174516b1dc5a1f3305fe43190" category="paragraph">下图显示了在两个站点上执行了多个接管并创建了 Snapshot 备份的情形。在当前状态下，主机 HANA 为主主机，最新备份为 T4 ，该备份已在主机 HANA 3 上创建。如果需要执行还原和恢复操作，可以在 SnapCenter 中使用备份 T1 和 T4 进行还原和恢复。在主机 HANA 4 （ t2 ， t3 ）上创建的备份无法使用 SnapCenter 进行还原。必须手动将这些备份复制到 HANA 3 的数据卷以进行恢复。</block>
-  <block id="801b7a55bf3ed44abb2d821602e1c449" category="paragraph">SnapCenter 4.6 资源组配置的还原和恢复操作与自动发现的非系统复制设置相同。所有还原和自动恢复选项均可用。有关更多详细信息，请参见技术报告<block ref="f91ad5f72ca89ecac47641fa01cbfa5f" category="inline-link-rx"></block>。</block>
   <block id="50ff1d24fad3646f6fdf9aea77002929" category="inline-link-macro">从在另一主机上创建的备份还原和恢复</block>
   <block id="6f14e8618cb532fa598b498e9c3fc455" category="paragraph">一节介绍了从另一主机上创建的备份执行的还原操作 <block ref="383e6e7e7573de7f2a0f06e6daaee412" category="inline-link-macro-rx"></block>。</block>
   <block id="1fd25d525832cdf3655a067856ae6010" category="summary">SnapCenter 资源使用 HANA 系统复制环境的虚拟 IP 地址（主机名）进行配置。通过这种方法，无论主机 1 还是主机 2 是主主机， SnapCenter 始终与主主机进行通信。</block>
@@ -1733,7 +1729,6 @@
   <block id="32423786e97f4f83fdc90f030727503b" category="paragraph">下图显示了实验室设置以及所需 SnapCenter 配置的概述。</block>
   <block id="c1968668fc5cbc2c5e8b49c18c362b55" category="paragraph">要执行备份操作，而无论哪个 SAP HANA 主机是主主机，甚至在一个主机关闭时也是如此，必须在中央插件主机上部署 SnapCenter SAP HANA 插件。在实验室设置中，我们使用 SnapCenter 服务器作为中央插件主机，并在 SnapCenter 服务器上部署 SAP HANA 插件。</block>
   <block id="bd5c6333eef324e59a3de18aa6e29173" category="paragraph">在 HANA 数据库中创建了一个用户来执行备份操作。在安装了 SAP HANA 插件的 SnapCenter 服务器上配置了用户存储密钥。用户存储密钥包括 SAP HANA 系统复制主机的虚拟 IP 地址（ `sSR-VIP` ）。</block>
-  <block id="5a2cdf3fb46c8f521d96d7e7bc4c9b2f" category="paragraph">有关 SAP HANA 插件部署选项和用户存储配置的详细信息，请参见技术报告 TR-4614 ：<block ref="ec9daba0660d1e2512cb8193f8c16297" category="inline-link-rx"></block>。</block>
   <block id="d7e2061a39f4790783431f1963349b9b" category="paragraph">在 SnapCenter 中，使用之前配置的用户存储密钥和 SnapCenter 服务器作为 `hdbsql` 通信主机来配置资源，如下图所示。</block>
   <block id="2a64b18e126555fa2ca4e7fb0bf3bc37" category="paragraph">两个 SAP HANA 主机的数据卷都包含在存储占用空间配置中，如下图所示。</block>
   <block id="90323af735fbe3861cb8bc49a36914b1" category="paragraph">如前文所述， SnapCenter 不知道备份的创建位置。因此， NetApp 建议您在 SnapCenter 备份工作流中添加备份前脚本，以确定哪个主机当前是主 SAP HANA 主机。您可以使用添加到备份工作流中的 SQL 语句执行此标识，如下图所示。</block>
@@ -2320,7 +2315,6 @@
   <block id="e990b5c5b90ded5db7b3ca93365a81e5" category="list-text">使用 SnapCenter 删除在资源组级别创建的资源的备份时，该资源组中所有资源的此备份都将被删除。删除备份包括从 SnapCenter 存储库中删除备份以及删除存储 Snapshot 副本。</block>
   <block id="b565830d52dbf51243943462fb70fe59" category="list-text">资源组的主要使用情形是，客户希望使用通过 SnapCenter 创建的备份与 SAP Landscape Management 进行系统克隆。下一节将对此进行介绍。</block>
   <block id="ba5da7a68f8cd5eca48e3df6086a98c0" category="section-title">将 SnapCenter 与 SAP 环境管理结合使用</block>
-  <block id="2a728bce1ee3f9b0668ed8945b2f39dd" category="paragraph">借助 SAP Landscape Management （ SAP LaMa ），客户可以管理内部数据中心以及在云中运行的系统中的复杂 SAP 系统环境。SAP LaMa 与 NetApp 存储服务连接器（ SSC ）可以使用 Snapshot 和 FlexClone 技术为 SAP 系统克隆，复制和刷新用例执行克隆和复制等存储操作。这样，您就可以根据存储克隆技术完全自动执行 SAP 系统副本，同时还可以执行所需的 SAP 后处理。有关 NetApp SAP Lama 解决方案的详细信息，请参见<block ref="0fb87918d74d379028390fd706baf741" category="inline-link-rx"></block>。</block>
   <block id="35e271fbf0a1d067faf29bb2e12cf833" category="paragraph">NetApp SSC 和 SAP Lama 可以直接使用 NetApp SSC 创建按需 Snapshot 副本，但也可以利用使用 SnapCenter 创建的 Snapshot 副本。要使用 SnapCenter 备份作为 SAP LaMa 执行系统克隆和复制操作的基础，必须满足以下前提条件：</block>
   <block id="55fb179ba0dbaef14f4ae67701ba967c" category="list-text">SAP Lama 要求备份中包含所有卷；这包括 SAP HANA 数据，日志和共享卷。</block>
   <block id="a45b79d50cacf7594adf94e98d02fe12" category="list-text">所有存储 Snapshot 名称必须相同。</block>
@@ -2381,7 +2375,6 @@
   <block id="5b969ece692bee20925041517740d2fc" category="list-text">SAP HANA 多租户数据库容器（ MDc ）多租户： SAP HANA 2.0 SPS4 及更高版本</block>
   <block id="6c176e9f73681cb91e72213cd5479748" category="section-title">SnapCenter 4.6 增强功能</block>
   <block id="04c675594bfdb975329fb2cae491292b" category="inline-link">TR-4719 采用 SnapCenter 的 SAP HANA 系统复制，备份和恢复</block>
-  <block id="aae76d22bc3f2bf6ef22eac2524e307a" category="paragraph">从 4.6 版开始， SnapCenter 支持自动发现在 HANA 系统复制关系中配置的 HANA 系统。每个主机都使用其物理 IP 地址（主机名）及其存储层上的单个数据卷进行配置。这两个 SnapCenter 资源组合在一个资源组中， SnapCenter 会自动标识主主机或二级主机，然后相应地执行所需的备份操作。对于使用 SnapCenter 创建的 Snapshot 备份和基于文件的备份，系统会在两台主机上执行保留管理，以确保当前二级主机上也会删除旧备份。下图简要概述了这一情况。有关在 SnapCenter 中配置和运行启用了 HANA 系统复制的 HANA 系统的详细问题描述 ，请参见<block ref="38177f415a52ec30f36bcda7961c5014" category="inline-link-rx"></block>。</block>
   <block id="72180d0307c0939e956b5a3f8f96bbcb" category="summary">本节介绍与 SAP HANA 资源配置和部署相关的 SnapCenter 概念和最佳实践。</block>
   <block id="50414ea6d37e50fb2a4f48ddf4085157" category="doc">SnapCenter 概念和最佳实践</block>
   <block id="d14a18b64c59033d7b1fea72542be464" category="section-title">SAP HANA 资源配置选项和概念</block>
@@ -4054,7 +4047,6 @@ SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。
   <block id="862c3e3761bf683136ee838de2c0c203" category="paragraph">在设置修复系统时、灵活性和敏捷性至关重要。使用基于NetApp存储的Snapshot备份时、可以使用多个一致的数据库映像来使用NetApp FlexClone技术创建生产系统的克隆。如果使用基于文件的备份的重定向还原来设置修复系统、则只需几秒钟即可创建FlexClone卷、而不是多小时。</block>
   <block id="2792124a69a48ece7030f9b29701007b" category="paragraph">有效的灾难恢复策略需要测试所需的工作流。测试可证明该策略是否有效、以及内部文档是否足以满足要求。它还允许管理员培训所需的过程。</block>
   <block id="0ca7de0d8a3d9d654f0a2d183f1c4aef" category="inline-link">TR-4646：《采用存储复制的SAP HANA灾难恢复》(netapp.com)</block>
-  <block id="80020ad1d665e32a8c5ddfadfd1c3415" category="paragraph"><block ref="80020ad1d665e32a8c5ddfadfd1c3415" category="inline-link-rx"></block></block>
   <block id="acbd601ce9bb8719c9759926bade423c" category="paragraph"><block ref="acbd601ce9bb8719c9759926bade423c" category="inline-link-rx"></block></block>
   <block id="4b3309d5f0ac80977c53b53f174cf02b" category="inline-link">SAP业务应用程序和SAP HANA数据库解决方案(netapp.com)</block>
   <block id="3726ec9ff4cd44edb2e6ef5e5bb1d348" category="list-text"><block ref="3726ec9ff4cd44edb2e6ef5e5bb1d348" category="inline-link-rx"></block></block>
@@ -4659,4 +4651,12 @@ SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。
   <block id="6395037f7750d6be6aff988267257e55" category="image-alt">limelleSC 20.</block>
   <block id="bfdb49dd2a171da3c1e099a90033ad1a" category="image-alt">limelleSC 21.</block>
   <block id="5c20e498e2f91b0f0ef90fcd469db559" category="image-alt">limelleSC 22.</block>
+  <block id="292ed8e9851502aa4feb9eef4c6dbb13" category="paragraph">借助 SAP Landscape Management （ SAP LaMa ），客户可以管理内部数据中心以及在云中运行的系统中的复杂 SAP 系统环境。SAP LaMa 与 NetApp 存储服务连接器（ SSC ）可以使用 Snapshot 和 FlexClone 技术为 SAP 系统克隆，复制和刷新用例执行克隆和复制等存储操作。这样，您就可以根据存储克隆技术完全自动执行 SAP 系统副本，同时还可以执行所需的 SAP 后处理。有关NetApp针对SAP Laama的解决方案的详细信息，请参见<block ref="f5cd59812ce597d8b57d775862213a16" category="inline-link-rx"></block>。</block>
+  <block id="d5e4b2586a8501ff7c2a392297c5cd32" category="paragraph">从 4.6 版开始， SnapCenter 支持自动发现在 HANA 系统复制关系中配置的 HANA 系统。每个主机都使用其物理 IP 地址（主机名）及其存储层上的单个数据卷进行配置。这两个 SnapCenter 资源组合在一个资源组中， SnapCenter 会自动标识主主机或二级主机，然后相应地执行所需的备份操作。对于使用 SnapCenter 创建的 Snapshot 备份和基于文件的备份，系统会在两台主机上执行保留管理，以确保当前二级主机上也会删除旧备份。下图简要概述了这一情况。有关在SnapCenter中配置和操作已启用HANA系统复制的HANA系统的详细说明<block ref="cfe50e5b56f8a98ece306a69e546da3e" category="inline-link-rx"></block>，请参见。</block>
+  <block id="327e1549c6e9c105d7e59532ef1fba1f" category="paragraph">为HANA系统数据库创建了一个数据库用户“SnapCenter”，该用户具有执行备份和恢复操作所需的Privileges (请参见<block ref="f70d28502828defa3eb13d3b730673fb" category="inline-link-rx"></block>)。必须使用上述数据库用户在两台主机上配置 HANA 用户存储密钥。</block>
+  <block id="b6bdc022b54b8889f22ced290e380f7f" category="paragraph">SnapCenter 4.6 资源组配置的还原和恢复操作与自动发现的非系统复制设置相同。所有还原和自动恢复选项均可用。有关详细信息，请参见技术报告<block ref="7d612f806d1e07d1f3292801524311f8" category="inline-link-rx"></block>。</block>
+  <block id="b28e30b0b029ff7eb11d8b2655e78dba" category="paragraph">有关SAP HANA插件部署选项和用户存储配置的详细信息，请参见技术报告TR-4614：<block ref="f70d28502828defa3eb13d3b730673fb" category="inline-link-rx"></block>。</block>
+  <block id="74aaeb9485407660c737f5870ea94649" category="paragraph"><block ref="74aaeb9485407660c737f5870ea94649" category="inline-link-rx"></block></block>
+  <block id="e5e2a6bf28307550240d9ed91bbb0fa0" category="paragraph"><block ref="e5e2a6bf28307550240d9ed91bbb0fa0" category="inline-link-rx"></block></block>
+  <block id="bc83c6be4c9eaece698b7eb18b8517a0" category="paragraph"><block ref="bc83c6be4c9eaece698b7eb18b8517a0" category="inline-link-rx"></block></block>
 </blocks>

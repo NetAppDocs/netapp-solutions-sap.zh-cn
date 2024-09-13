@@ -73,7 +73,7 @@ image::saphana-br-scs-image81.png[saphA br sCS image81.]
 
 == 将 SnapCenter 与 SAP 环境管理结合使用
 
-借助 SAP Landscape Management （ SAP LaMa ），客户可以管理内部数据中心以及在云中运行的系统中的复杂 SAP 系统环境。SAP LaMa 与 NetApp 存储服务连接器（ SSC ）可以使用 Snapshot 和 FlexClone 技术为 SAP 系统克隆，复制和刷新用例执行克隆和复制等存储操作。这样，您就可以根据存储克隆技术完全自动执行 SAP 系统副本，同时还可以执行所需的 SAP 后处理。有关 NetApp SAP Lama 解决方案的详细信息，请参见 https://www.netapp.com/us/media/tr-4018.pdf["TR-4018 ：《将 NetApp ONTAP 系统与 SAP Landscape Management 集成》"^]。
+借助 SAP Landscape Management （ SAP LaMa ），客户可以管理内部数据中心以及在云中运行的系统中的复杂 SAP 系统环境。SAP LaMa 与 NetApp 存储服务连接器（ SSC ）可以使用 Snapshot 和 FlexClone 技术为 SAP 系统克隆，复制和刷新用例执行克隆和复制等存储操作。这样，您就可以根据存储克隆技术完全自动执行 SAP 系统副本，同时还可以执行所需的 SAP 后处理。有关NetApp针对SAP Laama的解决方案的详细信息，请参见 https://www.netapp.com/pdf.html?item=/media/17195-tr4018pdf.pdf["TR-4018 ：《将 NetApp ONTAP 系统与 SAP Landscape Management 集成》"^]。
 
 NetApp SSC 和 SAP Lama 可以直接使用 NetApp SSC 创建按需 Snapshot 副本，但也可以利用使用 SnapCenter 创建的 Snapshot 副本。要使用 SnapCenter 备份作为 SAP LaMa 执行系统克隆和复制操作的基础，必须满足以下前提条件：
 

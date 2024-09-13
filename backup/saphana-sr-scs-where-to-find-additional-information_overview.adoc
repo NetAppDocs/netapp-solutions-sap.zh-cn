@@ -18,7 +18,7 @@ summary:
 
 * 使用 SnapCenter 实现 SAP HANA 备份和恢复
 +
-https://www.netapp.com/us/media/tr-4614.pdf["https://www.netapp.com/us/media/tr-4614.pdf"^]
+https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html["https://www.netapp.com/us/media/tr-4614.pdf"^]
 
 * 利用 SnapCenter 自动执行 SAP HANA 系统复制和克隆操作
 +
@@ -26,6 +26,6 @@ https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-intro
 
 * 使用存储复制实现 SAP HANA 灾难恢复
 +
-https://www.netapp.com/us/media/tr-4646.pdf["https://www.netapp.com/us/media/tr-4646.pdf"^]
+https://www.netapp.com/pdf.html?item=/media/8584-tr4646pdf.pdf["https://www.netapp.com/us/media/tr-4646.pdf"^]
 
 
