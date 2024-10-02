@@ -10,9 +10,10 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
+[role="lead"]
 SnapCenter提供的工作流允许您从任何现有Snapshot备份管理数据集的克隆。此克隆数据集是一个FlexClone卷、可用于从源系统快速配置HANA数据卷并将其连接到目标系统。因此、它非常适合对QA、测试、沙盒或培训系统执行系统刷新操作。
 
 SnapCenter 克隆工作流可处理存储层上的所有必需操作、并可使用脚本进行扩展以执行主机特定操作和HANA数据库特定操作。在本文档中、我们将使用脚本执行HANA数据库恢复和关闭操作。使用脚本实现进一步自动化的SnapCenter 工作流可处理所有必需的HANA数据库操作、但不包括任何所需的SAP后处理步骤。SAP后处理必须手动执行或使用第三方工具执行。
@@ -45,7 +46,7 @@ SnapCenter 克隆工作流可处理存储层上的所有必需操作、并可使
 
 
 
-image::sc-copy-clone-image7.png[SC副本克隆image7.]
+image:sc-copy-clone-image7.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 在大多数情况下、目标测试/QA系统的使用时间至少为几周。由于FlexClone卷会阻止源系统卷的Snapshot、因此根据源系统卷上的块更改率、此Snapshot将需要额外的容量。如果生产源系统的平均变更率为每天20%、则被阻止的Snapshot将在5天后达到100%。因此、如果克隆基于生产源系统、NetApp建议立即或几天后拆分FlexClone卷。克隆拆分操作不会阻止使用克隆的卷、因此、可以在使用HANA数据库时随时执行。
 
@@ -87,6 +88,6 @@ NOTE: 必须在存储系统上手动删除先前拆分的旧数据卷。
 
 
 
-image::sc-copy-clone-image8.png[SC副本克隆image8.]
+image:sc-copy-clone-image8.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 部分 link:sc-copy-clone-sap-hana-system-refresh-with-snapcenter.html["《使用SnapCenter 更新SAP HANA系统》"] 提供两个系统刷新工作流的详细分步问题描述。

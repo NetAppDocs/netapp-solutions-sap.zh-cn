@@ -10,12 +10,13 @@ summary: 本技术报告介绍了在适用于NetApp ONTAP 和NetApp SnapCenter �
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
-NetApp 公司 Nil Bauser
-
+[role="lead"]
 本技术报告介绍了在适用于NetApp ONTAP 和NetApp SnapCenter 的Amazon FSX上保护SAP HANA数据的最佳实践。本文档介绍 SnapCenter 概念，配置建议和操作工作流，包括配置，备份操作， 以及还原和恢复操作。
+
+作者：Nils Bauer、NetApp
 
 如今，企业需要为其 SAP 应用程序提供持续，无中断的可用性。面对不断增加的数据量和对系统备份等日常维护任务的需求、他们希望获得一致的性能。执行SAP数据库备份是一项关键任务、可能会对生产SAP系统的性能产生重大影响。
 

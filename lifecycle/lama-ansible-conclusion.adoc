@@ -10,7 +10,7 @@ summary: 通过将Ansible等现代自动化框架集成到SAP Lama配置工作�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -8,9 +8,10 @@ summary: NetApp FAS 产品系列已通过认证，可在定制数据中心集成
 :allow-uri-read: 
 
 
-NetApp 公司 Nil Bauser 和 Marco schön
-
+[role="lead"]
 NetApp FAS 产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用。经过认证的企业级存储系统采用 NetApp ONTAP 软件的特征。
+
+NetApp 公司 Nil Bauser 和 Marco schön
 
 此认证目前仅适用于以下型号：
 
@@ -67,7 +68,7 @@ NOTE: 有关操作系统配置准则和特定于 HANA 的 Linux 内核依赖关�
 
 NetApp FAS 存储控制器已通过 SAP HANA TDI 计划的认证，并同时使用 NFS （ NAS ）和 FC （ SAN ）协议。它们可以部署在任何当前 SAP HANA 方案中，例如采用单主机或多主机配置的基于 HANA 的 SAP Business Suite ， S/4HANA ， BB/4HANA 或基于 HANA 的 SAP Business Warehouse 。任何经认证可与 SAP HANA 结合使用的服务器均可与 NetApp 认证的存储解决方案结合使用。有关架构概述，请参见下图。
 
-image::saphana-fas-nfs_image1.png[saphNAS FAS NFS image1]
+image:saphana-fas-nfs_image1.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 有关生产SAP HANA系统的前提条件和建议的详细信息、请参见以下SAP资源：
 

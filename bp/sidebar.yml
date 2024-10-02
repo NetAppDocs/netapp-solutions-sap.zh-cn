@@ -3,7 +3,6 @@ section: bp
 title: 最佳实践
 entries:
 - title: "《采用 FCP 的 NetApp AFF 系统上的 SAP HANA 配置指南》"
-  type: solutions
   entries:
   - title: 简介
     url: "/bp/saphana_aff_fc_introduction.html"
@@ -36,7 +35,6 @@ entries:
   - title: 更新历史记录
     url: "/bp/saphana_aff_fc_update_history.html"
 - title: "《采用 NFS 的 NetApp AFF 系统上的 SAP HANA 配置指南》"
-  type: solutions
   entries:
   - title: 简介
     url: "/bp/saphana_aff_nfs_introduction.html"
@@ -69,7 +67,6 @@ entries:
   - title: 更新历史记录
     url: "/bp/saphana_aff_nfs_update_history.html"
 - title: "《采用 NFS 的 NetApp FAS 系统上的 SAP HANA 配置指南》"
-  type: solutions
   entries:
   - title: 简介
     url: "/bp/saphana-fas-nfs_introduction.html"
@@ -102,7 +99,6 @@ entries:
   - title: 更新历史记录
     url: "/bp/saphana-fas-nfs_update_history.html"
 - title: "《采用 FCP 的 FAS 系统上的 SAP HANA 配置指南》"
-  type: solutions
   entries:
   - title: 简介
     url: "/bp/saphana_fas_fc_introduction.html"

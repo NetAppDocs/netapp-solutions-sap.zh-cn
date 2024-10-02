@@ -10,9 +10,10 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
+[role="lead"]
 如上一节所述、SnapCenter 可以从任何现有Snapshot备份管理数据集的克隆、并可将这些数据集快速配置到任何目标系统。灵活灵活地将生产数据配置到修复系统以解决逻辑损坏至关重要、因为通常需要重置修复系统并选择不同的生产数据集。FlexClone技术可实现快速配置过程、并可显著节省容量、因为修复系统通常只能在短时间内使用。
 
 下图总结了使用SnapCenter执行SAP系统克隆操作所需的步骤。
@@ -34,6 +35,6 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA
 
 NOTE: 如果必须将系统重置为其他Snapshot备份、则步骤6和步骤4就足以满足要求。不需要刷新SAP HANA共享卷。
 
-image::sc-copy-clone-image9.png[SC副本克隆image9.]
+image:sc-copy-clone-image9.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 部分 link:sc-copy-clone-sap-system-clone-with-snapcenter.html[""使用SnapCenter 克隆SAP系统""] 提供系统克隆工作流的详细分步问题描述。

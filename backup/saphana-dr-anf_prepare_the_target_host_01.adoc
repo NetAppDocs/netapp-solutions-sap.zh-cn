@@ -10,7 +10,7 @@ summary: 本节介绍用于灾难恢复故障转移的服务器所需的准备�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]

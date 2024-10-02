@@ -10,7 +10,7 @@ summary: 本节介绍在单主机和多主机系统上安装 SAP HANA 所需的�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]

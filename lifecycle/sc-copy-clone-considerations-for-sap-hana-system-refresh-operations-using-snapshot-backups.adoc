@@ -10,8 +10,11 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
+
+[role="lead"]
+用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA数据库和生命周期管理工具中、将高效的应用程序集成数据保护与SAP测试系统的灵活配置相结合。
 
 
 
@@ -26,9 +29,9 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA
 
 NOTE: 一旦在源系统上执行任何租户创建、重命名或删除操作、SAP HANA数据库就会删除此配置标志。因此、即使已将配置恢复为租户= SID、此标志也不再可用、并且无法再使用工作流3进行租户恢复。在这种情况下、所需的工作流为选项2。
 
-image::sc-copy-clone-image10.png[SC副本克隆image10]
+image:sc-copy-clone-image10.png["图中显示了输入/输出对话框或表示已写入内容"]
 
-image::sc-copy-clone-image11.png[SC副本克隆image11.]
+image:sc-copy-clone-image11.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 
 
@@ -46,7 +49,7 @@ image::sc-copy-clone-image11.png[SC副本克隆image11.]
 
 如果对根密钥进行了任何更改、则始终需要备份根密钥。backup命令需要使用DBID作为CLI参数。可以使用以下SQL语句来标识DBID。
 
-image::sc-copy-clone-image12.png[SC副本克隆image12.]
+image:sc-copy-clone-image12.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 《SAP HANA管理指南》中提供了SQL语句和其他文档、 https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/b1e7562e2c704c19bd86f2f9f4feedc4.html["备份根密钥| SAP帮助门户"] 步骤如下展示了具有单个租户SS1的HANA系统所需的操作、并在源系统上执行。
 
@@ -126,6 +129,6 @@ qs1adm@hana-7:/usr/sap/QS1/HDB11>
 
 如上一章所述、要导入系统和所有租户数据库的根密钥、需要使用DBID。虽然系统数据库始终为DBID=0、但租户数据库可以具有不同的DBID。
 
-image::sc-copy-clone-image13.png[SC副本克隆image13.]
+image:sc-copy-clone-image13.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 以上输出显示了两个租户、其中DBID=3和DBID=4。如果目标系统尚未托管DBID=4的租户、则根密钥导入将失败。在这种情况下、您需要先恢复系统数据库、然后使用DBID=4导入租户的密钥。

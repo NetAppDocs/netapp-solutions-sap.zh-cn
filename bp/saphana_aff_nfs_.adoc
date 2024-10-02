@@ -8,7 +8,10 @@ summary:
 :allow-uri-read: 
 
 
-= ： hardbress ：：： nod页 脚：：： icons ：字体： linkattrs ：：： imagesdir ： ./../media/
+=:hard休息:::noofootter::ICONES: font :linkattrs::imagesdir:../media/
+
+[role="lead"]
+基于采用NFS协议的NetApp AFF的SAP HANA。
 
 |===
 |  |  |  

@@ -10,8 +10,11 @@ summary: 本节介绍如何设置工作环境、如何配置SnapCenter以及如�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
+
+[role="lead"]
+本节介绍如何设置工作环境、如何配置SnapCenter以及如何在BlueXP中配置和激活SAP HANA备份。
 
 
 
@@ -20,11 +23,11 @@ summary: 本节介绍如何设置工作环境、如何配置SnapCenter以及如�
 将内部存储系统添加到您的工作环境中。
 
 . 在左侧菜单中选择*存储*->*帆布*->*我的工作*环境。
-. 按*+添加工作环境*。+ image：：hana-hycl-back-image2.jpeg[hana-hycl-back-image2,width=624,height=316]
-. 选择*内部*。+ image:: hana-hycl-back-image3.jpeg[Ein图片, ds文本enthält自动化总线、宽度= 624、高度= 316]
-. 选择*发现内部部署ONTAP *。+ image:: hana-hycl-back-image4.jpeg[Ein图片, ds文本enthält自动化总线、宽度= 624、高度= 316]
-. 添加ONTAP集群的IP地址和密码，然后按*Discover。+ image：：hana-hycl-back-image5.jpeg[hana-hycl-back-image5,width=624,height=316]
-. ONTAP集群现已可用。+ image:: hana-hycl-back-image6.jpeg[Ein Bild, dasDiagramm enthält自动化总线、宽度= 624、高度= 316]
+. 按*+添加工作环境*。+image:hana-hycl-back-image2.jpeg["hana hycl-back-image2、宽度=624、高度=316"]
+. 选择*内部*。+image:hana-hycl-back-image3.jpeg["Ein Bild，ds text enthält。自动生成Beschreirug、宽度=624、高度=316"]
+. 选择*发现内部部署ONTAP *。+image:hana-hycl-back-image4.jpeg["Ein Bild，ds text enthält。自动生成Beschreirug、宽度=624、高度=316"]
+. 添加ONTAP集群的IP地址和密码，然后按*Discover。+image:hana-hycl-back-image5.jpeg["hana hycl-back-image5、宽度=624、高度=316"]
+. ONTAP集群现已可用。+image:hana-hycl-back-image6.jpeg["Ein Bild, ds Diagramm enthält自动生成Beschreirug、宽度=624、高度=316"]
 
 
 
@@ -37,27 +40,27 @@ summary: 本节介绍如何设置工作环境、如何配置SnapCenter以及如�
 
 要创建第一个卷备份、请执行以下步骤：
 
-. 通过*保护*导航到*备份和恢复*并选择*卷*。+ image：：hana-hycl-back-image7.jpeg[hana-hycl-back-image7,width=624,height=308]
-. 按*激活备份*按钮。+ image：：hana-hycl-back-image8.jpeg[hana-hycl-back-image8,width=624,height=309]
-. 选择所需的内部存储系统，然后单击*激活备份*。+ image：：hana-hycl-back-image9.jpeg[hana-hycl-back-image9,width=624,height=304]
-. 选择*Backup*。+ image：：hana-hycl-back-image10.jpeg[hana-hycl-back-image10,width=624,height=307]
-. 选择与SAP HANA数据文件存储在同一SVM中的卷、然后按*下一步*。在此示例中、选择了/HAA/Shared的卷。+ image：：hana-hycl-back-image12.jpeg[hana-hycl-back-image12,width=624,height=305]
-. *继续*(如果存在现有策略)。+ image：：hana-hycl-back-image11.jpeg[hana-hycl-back-image11,width=624,height=304]
-. 选中*备份选项*并选择所需的备份提供程序。在本示例中、AWS。+保持选中已有策略的选项。+取消选中不想使用的选项。+ image:: hana-hycl-back-image13.jpeg[Ein Bild, ds text, Software, ComputersSymbol , Webseite enthält自动化总线、宽度= 624、高度= 306
-. 创建新存储分段或选择现有存储分段。请提供您的AWS帐户设置、配置、访问密钥和机密密钥。按*Next*。+ image：：hana-hycl-back-image14.jpeg[hana-hycl-back-image14,width=624,height=306]
-. 为内部存储系统选择正确的IP空间，选择*Privat Endpoint Configuration*，然后选择S3的VPC端点。按*Next*。+ image：：hana-hycl-back-image15.jpeg[hana-hycl-back-image15,width=624,height=304]
-. 查看您的配置并按*激 活备份*。+ image：：hana-hycl-back-image16.jpeg[hana-hycl-back-image16,width=624,height=304]
-. 备份已成功启动。+ image：：hana-hycl-back-image17.jpeg[hana-hycl-back-image17,width=624,height=304]
+. 通过*保护*导航到*备份和恢复*并选择*卷*。+image:hana-hycl-back-image7.jpeg["hana hycl-back-image7、宽度=624、高度=308"]
+. 按*激活备份*按钮。+image:hana-hycl-back-image8.jpeg["hana hycl-back-image8、宽度=624、高度=309"]
+. 选择所需的内部存储系统，然后单击*激活备份*。+image:hana-hycl-back-image9.jpeg["hana hycl-back-image9、宽度=624、高度=304"]
+. 选择*Backup*。+image:hana-hycl-back-image10.jpeg["hana hycl-back-image10、宽度=624、高度=307"]
+. 选择与SAP HANA数据文件存储在同一SVM中的卷、然后按*下一步*。在此示例中、选择了/HAA/Shared的卷。+image:hana-hycl-back-image12.jpeg["hana hycl-back-image12、宽度=624、高度=305"]
+. *继续*(如果存在现有策略)。+image:hana-hycl-back-image11.jpeg["hana hycl-back-image11、宽度=624、高度=304"]
+. 选中*备份选项*并选择所需的备份提供程序。在本示例中、AWS。+保持选中已有策略的选项。+取消选中不想使用的选项。+image:hana-hycl-back-image13.jpeg["Ein Bild、ds Text、Software、ComputerSymbol、Webseite enthält。自动生成Beschreirug、宽度=624、高度=306"]
+. 创建新存储分段或选择现有存储分段。请提供您的AWS帐户设置、配置、访问密钥和机密密钥。按*Next*。+image:hana-hycl-back-image14.jpeg["hana hycl-back-image14、宽度=624、高度=306"]
+. 为内部存储系统选择正确的IP空间，选择*Privat Endpoint Configuration*，然后选择S3的VPC端点。按*Next*。+image:hana-hycl-back-image15.jpeg["hana hycl-back-image15、宽度=624、高度=304"]
+. 查看您的配置并按*激 活备份*。+image:hana-hycl-back-image16.jpeg["hana hycl-back-image16、宽度=624、高度=304"]
+. 备份已成功启动。+image:hana-hycl-back-image17.jpeg["hana hycl-back-image17、宽度=624、高度=304"]
 
 
 
 
 == 在SnapCenter中配置SAP HANA系统资源
 
-. 检查是否已通过集群添加存储SAP HANA系统的SVM (在此示例中为HANA)。如果仅添加了SVM、请添加此集群。+ image：：hana hycl-back-image18.png[图形用户界面、自动生成应用程序说明、宽度=604、高度=156]
-. 定义计划类型为每日、每周或每月的计划策略。+ image：：hana hycl-back-image19.png[图形用户界面、自动生成应用程序说明、宽度=604、高度=140] image：：：hana-hycl-back-image20.jpeg[hana-hycl-back-image20,width=167,height=167]
-. 将新策略添加到SAP HANA系统并分配每日计划。+ image：：hana hycl-back-image21.png[图形用户界面、自动生成应用程序说明、宽度=604、高度=215]
-. 配置此策略后、在根据定义的计划执行此策略后、可以使用此策略进行新备份。 图像：hana－hycl-back-image22.png[自动生成图形用户界面、应用程序、团队说明、宽度=604、高度=193]
+. 检查是否已通过集群添加存储SAP HANA系统的SVM (在此示例中为HANA)。如果仅添加了SVM、请添加此集群。+image:hana-hycl-back-image18.png["图形用户界面，自动生成应用程序问题描述，宽度=604，高度=156"]
+. 定义计划类型为每日、每周或每月的计划策略。+image:hana-hycl-back-image19.png["图形用户界面，自动生成应用程序问题描述，宽度=604，高度=140"] image:hana-hycl-back-image20.jpeg["hana hycl-back-image20、宽度= 167、高度= 167"]
+. 将新策略添加到SAP HANA系统并分配每日计划。+image:hana-hycl-back-image21.png["图形用户界面，自动生成应用程序问题描述，宽度=604，高度=215"]
+. 配置此策略后、在根据定义的计划执行此策略后、可以使用此策略进行新备份。image:hana-hycl-back-image22.png["自动生成图形用户界面、应用程序、团队问题描述、宽度=604、高度=193"]
 
 
 
@@ -65,33 +68,33 @@ summary: 本节介绍如何设置工作环境、如何配置SnapCenter以及如�
 == 将SnapCenter添加到BlueXP工作环境
 
 . 在左侧菜单中选择*保护*->*备份和恢复*->*应用程序*。
-. 从下拉菜单中选择*Hybrid。+ image：：hana-hycl-back-image23.jpeg[hana-hycl-back-image23,width=624,height=316]
-. 在“设置”菜单中选择SnapCenter Server*。+ image:: hana-hycl-back-image24.jpeg[Ein图片, ds文本enthält自动化总线、宽度= 624、高度= 316]
-. 注册SnapCenter服务器。+ image:: hana-hycl-back-image25.jpeg[Ein图片, ds文本enthält自动化总线、宽度= 624、高度= 316]
-. 添加SnapCenter服务器凭据。+ image：：hana-hycl-back-image26.jpeg[hana-hycl-back-image26,width=624,height=315]
-. 已添加SnapCenter服务器、将发现数据。+ image：：hana-hycl-back-image27.jpeg[hana-hycl-back-image27,width=624,height=316]
-. 发现作业完成后、SAP HANA系统将可用。+ image:: hana-hycl-back-image28.jpeg[Ein图片, ds文本enthält自动化总线、宽度= 624、高度= 316]
+. 从下拉菜单中选择*Hybrid。+image:hana-hycl-back-image23.jpeg["hana hycl-back-image23、宽度=624、高度=316"]
+. 在“设置”菜单中选择SnapCenter Server*。+image:hana-hycl-back-image24.jpeg["Ein Bild，ds text enthält。自动生成Beschreirug、宽度=624、高度=316"]
+. 注册SnapCenter服务器。+image:hana-hycl-back-image25.jpeg["Ein Bild，ds text enthält。自动生成Beschreirug、宽度=624、高度=316"]
+. 添加SnapCenter服务器凭据。+image:hana-hycl-back-image26.jpeg["hana hycl-back-image26、宽度=624、高度=315"]
+. 已添加SnapCenter服务器、将发现数据。+image:hana-hycl-back-image27.jpeg["hana hycl-back-image27、宽度=624、高度=316"]
+. 发现作业完成后、SAP HANA系统将可用。+image:hana-hycl-back-image28.jpeg["Ein Bild，ds text enthält。自动生成Beschreirug、宽度=624、高度=316"]
 
 
 
 
 == 为应用程序备份创建备份策略
 
-. 在设置菜单中选择*Policies*。+ image：：hana-hycl-back-image29.jpeg[hana-hycl-back-image29,width=624,height=316]
-. 如果需要，单击*Create Policy*创建新策略。+ image：：hana-hycl-back-image30.jpeg[hana-hycl-back-image30,width=624,height=316]
-. 提供策略名称和所需的SnapMirror标签、选择所需选项、然后按*创建*。+ image：：hana-hycl-back-image31.jpeg[hana-hycl-back-image31,width=624,height=315]
-. 新策略可用。+ image：：hana-hycl-back-image32.jpeg[hana-hycl-back-image32,width=624,height=315]
+. 在设置菜单中选择*Policies*。+image:hana-hycl-back-image29.jpeg["hana hycl-back-image29、宽度=624、高度=316"]
+. 如果需要，单击*Create Policy*创建新策略。+image:hana-hycl-back-image30.jpeg["hana hycl-back-image30、宽度=624、高度=316"]
+. 提供策略名称和所需的SnapMirror标签、选择所需选项、然后按*创建*。+image:hana-hycl-back-image31.jpeg["hana hycl-back-image31、宽度=624、高度=315"]
+. 新策略可用。+image:hana-hycl-back-image32.jpeg["hana hycl-back-image32、宽度=624、高度=315"]
 
 
 
 
 == 使用Cloud Backup for Applications保护SAP HANA数据库
 
-. 为SAP HANA系统选择*激活备份*。+ image：：hana-hycl-back-image33.jpeg[width=624,height=316]
-. 选择先前创建的策略，然后单击*Next*。+ image：：hana-hycl-back-image34.jpeg[width=624,height=316]
-. 存储系统和连接器已预先配置、备份将被激活。+ image：：hana-hycl-back-image35.jpeg[width=624,height=316]
-. 作业完成后、系统将会列出。+ image：：hana-hycl-back-image36.jpeg[width=624,height=337]
-. 一段时间后、备份将在SAP HANA系统的详细信息视图中列出。+第二天将列出每日备份。+ image：：hana-hycl-back-image37.jpeg[hana-hycl-back-image37,width=624,height=316]
+. 为SAP HANA系统选择*激活备份*。+image:hana-hycl-back-image33.jpeg["宽度=624、高度=316"]
+. 选择先前创建的策略，然后单击*Next*。+image:hana-hycl-back-image34.jpeg["宽度=624、高度=316"]
+. 存储系统和连接器已预先配置、备份将被激活。+image:hana-hycl-back-image35.jpeg["宽度=624、高度=316"]
+. 作业完成后、系统将会列出。+image:hana-hycl-back-image36.jpeg["宽度=624、高度=337"]
+. 一段时间后、备份将在SAP HANA系统的详细信息视图中列出。+第二天将列出每日备份。+image:hana-hycl-back-image37.jpeg["hana hycl-back-image37、宽度=624、高度=316"]
 
 
 在某些环境中、可能需要删除SnapMirror源的任何现有计划设置。为此，请在源ONTAP系统上执行以下命令：_SnapMirror修改-target-path <hana-cloud-svm>：napp_copy <SID_data_mnt00001>-Schedule ""_。

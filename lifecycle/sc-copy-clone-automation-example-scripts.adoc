@@ -10,9 +10,10 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
+[role="lead"]
 在本文档中、使用了两个脚本进一步自动执行SnapCenter 克隆创建和克隆删除操作。
 
 * 脚本 `sc-system-refresh`.sh用于系统刷新和系统克隆工作流、以执行SAP HANA数据库的恢复和关闭操作。
@@ -36,7 +37,7 @@ NOTE: 示例脚本按原样提供、NetApp不支持。您可以通过电子邮�
 
 NOTE: 此脚本的当前版本支持单主机系统的单租户模式(即、单租户模式)或多租户模式(即、多租户模式)。它不支持SAP HANA多主机系统。
 
-image::sc-copy-clone-image14.png[SC副本克隆image14.]
+image:sc-copy-clone-image14.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 
 
@@ -68,7 +69,7 @@ image::sc-copy-clone-image14.png[SC副本克隆image14.]
 
 NOTE: 该脚本支持使用NFS作为存储协议的SAP HANA系统。
 
-image::sc-copy-clone-image15.png[SC副本克隆image15.]
+image:sc-copy-clone-image15.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 
 

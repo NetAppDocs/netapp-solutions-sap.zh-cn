@@ -10,7 +10,7 @@ summary: 本节介绍服务器上所需的准备步骤，这些步骤用于灾�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]

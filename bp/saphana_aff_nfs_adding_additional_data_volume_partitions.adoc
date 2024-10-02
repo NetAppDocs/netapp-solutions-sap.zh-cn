@@ -10,7 +10,7 @@ summary: 从 SAP HANA 2.0 SPS4 开始，可以配置其他数据卷分区。这�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -217,4 +217,4 @@ NOTE: 使用不同的存储虚拟接口连接每个数据卷，以确保每个�
 ....
 ALTER SYSTEM ALTER DATAVOLUME ADD PARTITION PATH '/hana/data2/SID/';
 ....
-image::saphana_aff_nfs_image18.jpg[saphNAS AFF NFS image18.]
+image:saphana_aff_nfs_image18.jpg["图中显示了输入/输出对话框或表示已写入内容"]

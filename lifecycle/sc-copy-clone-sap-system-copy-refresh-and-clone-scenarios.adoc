@@ -10,9 +10,10 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
+[role="lead"]
 术语SAP系统副本通常用作三个不同流程的同义词：SAP系统刷新、SAP系统副本或SAP系统克隆操作。请务必区分不同的操作、因为每个操作的工作流和用例都不同。
 
 * * SAP系统刷新。* SAP系统刷新是使用源SAP系统中的数据刷新现有目标SAP系统。目标系统通常是SAP传输环境的一部分、例如质量保证系统、该系统会使用生产系统中的数据进行更新。源系统和目标系统的主机名、实例编号和SID不同。
@@ -22,4 +23,4 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA
 
 下图说明了在系统刷新、系统复制或系统克隆操作期间必须执行的主要步骤。蓝色框表示可以使用SnapCenter自动执行的步骤、灰色框表示必须在SnapCenter外部手动或使用第三方工具执行的步骤。
 
-image::sc-copy-clone-image2.png[SC副本克隆image2.]
+image:sc-copy-clone-image2.png["图中显示了输入/输出对话框或表示已写入内容"]

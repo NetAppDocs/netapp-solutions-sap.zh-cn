@@ -10,7 +10,7 @@ summary: SnapCenter 是一个统一的可扩展平台，可实现应用程序一
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -28,4 +28,4 @@ SnapCenter 包括 SnapCenter 服务器，适用于 Windows 的 SnapCenter 插件
 
 下图显示了 SnapCenter 组件。
 
-image::saphana-br-scs-image6.png[saphA br增补程序image6.]
+image:saphana-br-scs-image6.png["图中显示了输入/输出对话框或表示已写入内容"]

@@ -10,9 +10,10 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
+[role="lead"]
 本文档介绍了在内部NetApp系统、适用于NetApp ONTAP系统的Amazon FSx和Azure NetApp Files上运行的SAP HANA系统的SAP系统更新和克隆方案。但是、并非所有功能和方案都可在每个存储平台上使用。下表总结了支持的配置。
 
 在本文档中、我们使用的是在采用NFS作为存储协议的内部NetApp系统上运行的SAP HANA环境。大多数工作流步骤在不同平台上是相同的、如果存在差异、本文档将重点介绍这些步骤。

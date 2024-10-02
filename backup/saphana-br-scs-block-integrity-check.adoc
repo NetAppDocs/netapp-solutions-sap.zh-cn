@@ -10,7 +10,7 @@ summary: SAP 建议将基于存储的 Snapshot 备份与每周基于文件的备
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -20,7 +20,7 @@ SAP 建议将基于存储的 Snapshot 备份与每周基于文件的备份相结
 
 SnapCenter 显示块完整性检查的方式与基于 Snapshot 副本的备份不同。而是在摘要卡中显示基于文件的备份数以及上一个备份的状态。
 
-image::saphana-br-scs-image94.png[saphA br sCS image94]
+image:saphana-br-scs-image94.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 无法使用 SnapCenter UI 删除块完整性检查备份，但可以使用 PowerShell 命令将其删除。
 
@@ -70,7 +70,7 @@ PS C:\Users\scadmin>
 ....
 SAP HANA 备份目录会显示系统数据库和租户数据库的条目。下图显示了系统数据库备份目录中的 SnapCenter 块完整性检查。
 
-image::saphana-br-scs-image95.png[saphA br sCS image95]
+image:saphana-br-scs-image95.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 成功的块完整性检查可创建标准 SAP HANA 数据备份文件。SnapCenter 使用 HANA 数据库中配置的备份路径执行基于文件的数据备份操作。
 

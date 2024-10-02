@@ -10,20 +10,21 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 :firstname: ---
 :author: ---
 :authorinitials: -
 :authors: ---
 
 
-NetApp 公司 Nil Bauser
+[role="lead"]
+在当今瞬息万变的业务环境中、企业必须不断创新、并对不断变化的市场做出快速响应。在这种竞争环境下、在工作流程中实施更大灵活性的公司可以更有效地适应市场需求。
+
+作者：Nils Bauer、NetApp
 
 
 
 == 简介
-
-在当今瞬息万变的业务环境中、企业必须不断创新、并对不断变化的市场做出快速响应。在这种竞争环境下、在工作流程中实施更大灵活性的公司可以更有效地适应市场需求。
 
 不断变化的市场需求还会影响公司的SAP环境、因此需要定期集成、更改和更新。IT部门必须以更少的资源和更短的时间实施这些变更。要在部署这些变更时最大程度地降低风险、需要进行全面的测试和培训、这就需要使用生产中的实际数据创建更多的SAP系统。
 
@@ -31,7 +32,7 @@ NetApp 公司 Nil Bauser
 
 用于优化SAP生命周期管理的NetApp解决方案已集成到SAP HANA数据库和生命周期管理工具中、将高效的应用程序集成数据保护与灵活配置SAP测试系统相结合、如下图所示。这些解决方案适用于在内部环境中运行的SAP HANA或在云中运行的Azure NetApp Files (ANF)或Amazon FSx for NetApp ONTAP (FSx for ONTAP)。
 
-image::sc-copy-clone-image1.png[SC副本克隆image1]
+image:sc-copy-clone-image1.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 
 

@@ -10,7 +10,7 @@ summary: 从 SAP HANA 1.0 SPS10 开始， SAP 引入了一些参数来调整 IO 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]

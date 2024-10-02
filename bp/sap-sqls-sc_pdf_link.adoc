@@ -8,8 +8,9 @@ summary: 本文档为客户和合作伙伴提供了部署 NetApp ONTAP 以支持
 :allow-uri-read: 
 
 
-NetApp 公司 Marco Schoen
-
+[role="lead"]
 本文档为客户和合作伙伴提供了部署 NetApp ONTAP 以支持在 Windows 环境中的 Microsoft SQL Server 中运行 SAP 业务套件解决方案的最佳实践。
+
+NetApp 公司 Marco Schoen
 
 link:https://www.netapp.com/media/16865-tr-4467.pdf["https://www.netapp.com/media/16865-tr-4467.pdf"]

@@ -10,7 +10,7 @@ summary: SnapCenter 是一个统一的可扩展平台，可实现应用程序一
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -24,7 +24,7 @@ SnapCenter 负责管理由 NetApp 提供支持的 Data Fabric 中各个端点的
 
 SnapCenter 包括SnapCenter 服务器、适用于Windows的SnapCenter 插件软件包和适用于Linux的SnapCenter 插件软件包。每个软件包都包含适用于各种应用程序和基础架构组件的 SnapCenter 插件。
 
-image::amazon-fsx-image5.png[Amazon FSx image5.]
+image:amazon-fsx-image5.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 
 
@@ -66,7 +66,7 @@ SnapCenter 负责主存储上的保留、而FSX for ONTAP 负责管理二级备�
 
 下图显示了SnapCenter 备份和保留管理操作的概述。
 
-image::amazon-fsx-image6.png[Amazon FSx image6.]
+image:amazon-fsx-image6.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 在对 SAP HANA 数据库执行基于存储的 Snapshot 备份时， SnapCenter 将执行以下任务：
 
@@ -94,7 +94,7 @@ image::amazon-fsx-image6.png[Amazon FSx image6.]
 
 下图显示了基于适用于ONTAP 的FSX的SAP HANA的典型备份架构。HANA系统位于AWS可用性区域1中、并在同一可用性区域中使用适用于ONTAP 文件系统的FSX。对HANA数据库的数据和共享卷执行Snapshot备份操作。除了保留3-5天的本地Snapshot备份之外、还会将备份复制到异地存储以供长期保留。异地备份存储是位于不同AWS可用性区域的第二个ONTAP 文件系统FSX。HANA数据和共享卷的备份通过SnapVault 复制到第二个FSX for ONTAP 文件系统、并保留2-3周。
 
-image::amazon-fsx-image7.png[Amazon FSx image7.]
+image:amazon-fsx-image7.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 在配置SnapCenter 之前、必须根据各种SAP系统的RTO和RPO要求定义数据保护策略。
 
@@ -201,4 +201,4 @@ SnapCenter ：
 * 已将HANA数据卷复制到第二个FSX for ONTAP 文件系统
 
 
-image::amazon-fsx-image8.png[Amazon FSx版本8.]
+image:amazon-fsx-image8.png["图中显示了输入/输出对话框或表示已写入内容"]

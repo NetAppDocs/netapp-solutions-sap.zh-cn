@@ -10,7 +10,7 @@ summary: 本节介绍 SAP HANA 主机的专用存储网络设置。
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -33,7 +33,7 @@ summary: 本节介绍 SAP HANA 主机的专用存储网络设置。
 
 在存储层，将配置 MTU 大小为 9000 的广播域，并将所有必需的物理接口添加到此广播域。此方法会自动将这些物理接口分配给同一故障转移组。分配给这些物理接口的所有逻辑接口（ LIF ）都会添加到此故障转移组中。
 
-image::saphana_aff_nfs_image10.png[saphNAS AFF NFS image10]
+image:saphana_aff_nfs_image10.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 通常，也可以在服务器（绑定）和存储系统（例如链路聚合控制协议（ Link Aggregation Control Protocol ， LACP ）和 ifgroups ）上使用 HA 接口组。使用 HA 接口组，验证负载是否在组内的所有接口之间平均分布。负载分布取决于网络交换机基础架构的功能。
 
@@ -46,11 +46,11 @@ NOTE: 根据 SAP HANA 主机的数量和使用的连接速度，需要不同数�
 
 正确的网络设计和配置至关重要，因为 SAP HANA 实例的所有数据，包括数据库的性能关键型数据和日志卷，均通过此解决方案中的 NFS 提供。专用存储网络用于将 NFS 流量与 SAP HANA 节点之间的通信和用户访问流量分开。每个 SAP HANA 节点都需要一个冗余专用网络连接，带宽至少为 10 Gb 。此外，还支持更高的带宽。此网络必须通过网络交换和计算从存储层端扩展到端，直到 VMware vSphere 上托管的子操作系统为止。除了物理交换基础架构之外，还可以使用 VMware 分布式交换机（ VDS ）在虚拟机管理程序层为网络流量提供足够的性能和易管理性。
 
-image::saphana_aff_nfs_image11.png[saphNAS AFF NFS image11.]
+image:saphana_aff_nfs_image11.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 如上图所示，每个 SAP HANA 节点都会在 VMware 分布式交换机上使用一个专用端口组。通过此端口组，可以在 ESX 主机上增强服务质量（ QoS ）并专用分配物理网络接口卡（ NIC ）。要在发生 NIC 故障时使用专用物理 NIC 并保留 HA 功能，专用物理 NIC 将配置为活动上行链路。其他 NIC 会在 SAP HANA 端口组的绑定和故障转移设置中配置为备用上行链路。此外，物理和虚拟交换机上必须端到端启用巨型帧（ MTU 9 ， 000 ）。此外，关闭服务器，交换机和存储系统上用于存储流量的所有以太网端口上的流量控制。下图显示了此类配置的一个示例。
 
 
 NOTE: 对于用于 NFS 流量的接口，必须关闭 LRO （大型接收卸载）。有关所有其他网络配置准则，请参见相应的适用于 SAP HANA 的 VMware 最佳实践指南。
 
-image::saphana_aff_nfs_image12.png[saphNAS AFF NFS image12.]
+image:saphana_aff_nfs_image12.png["图中显示了输入/输出对话框或表示已写入内容"]

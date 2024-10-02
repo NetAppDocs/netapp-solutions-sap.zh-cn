@@ -8,15 +8,18 @@ summary: 研究表明，业务应用程序停机对企业业务产生了重大�
 :allow-uri-read: 
 
 
-NetApp Ralf Klahr Nil Baucer ， Microsoft
+[role="lead"]
+研究表明，业务应用程序停机对企业业务产生了重大负面影响。
 
-研究表明，业务应用程序停机对企业业务产生了重大负面影响。除了财务影响之外，停机还会损害公司的声誉，员工士气和客户忠诚度。令人惊讶的是，并非所有公司都制定了全面的灾难恢复策略。
+作者：Nils Bauer、NetApp Ralf Klhr、Microsoft
+
+除了财务影响之外，停机还会损害公司的声誉，员工士气和客户忠诚度。令人惊讶的是，并非所有公司都制定了全面的灾难恢复策略。
 
 通过在 Azure NetApp Files 上运行 SAP HANA （ ANF ），客户可以访问其他功能，这些功能可以扩展和改进 SAP HANA 的内置数据保护和灾难恢复功能。本概述部分介绍了这些选项，以帮助客户选择支持其业务需求的选项。
 
 要制定全面的灾难恢复策略，客户必须了解数据保护和灾难恢复所需的业务应用程序要求和技术功能。下图概述了数据保护。
 
-image::saphana-dr-anf_image2.png[saphanadrf image2.]
+image:saphana-dr-anf_image2.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 
 

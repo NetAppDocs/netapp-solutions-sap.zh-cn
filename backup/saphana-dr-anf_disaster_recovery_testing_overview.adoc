@@ -10,7 +10,7 @@ summary: 要实施有效的灾难恢复策略，您必须测试所需的工作�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -37,4 +37,4 @@ ANF 跨区域复制支持灾难恢复测试，而不会使 RTO 和 RPO 面临风
 
 以下各小节详细介绍了这些步骤。
 
-image::saphana-dr-anf_image18.png[saphanadrf image18.]
+image:saphana-dr-anf_image18.png["图中显示了输入/输出对话框或表示已写入内容"]

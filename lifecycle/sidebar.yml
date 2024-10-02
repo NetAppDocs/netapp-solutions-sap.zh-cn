@@ -3,7 +3,6 @@ section: lifecycle
 title: 生命周期管理
 entries:
 - title: 使用Ansible实现NetApp SAP Landscape Management集成
-  type: solutions
   entries:
   - title: 简介
     url: "/lifecycle/lama-ansible-introduction.html"
@@ -28,7 +27,6 @@ entries:
   - title: 结论
     url: "/lifecycle/lama-ansible-conclusion.html"
 - title: 利用 SnapCenter 自动执行 SAP HANA 系统复制和克隆操作
-  type: solutions
   entries:
   - title: 简介
     url: "/lifecycle/sc-copy-clone-introduction.html"
@@ -53,7 +51,6 @@ entries:
   - title: 从何处查找追加信息和版本历史记录
     url: "/lifecycle/sc-copy-clone-where-to-find-additional-information.html"
 - title: 利用Libelle SystemCopy自动执行SAP系统副本操作
-  type: solutions
   entries:
   - title: 概述
     url: "/lifecycle/libelle-sc-overview.html"

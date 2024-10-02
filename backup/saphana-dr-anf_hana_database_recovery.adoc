@@ -10,7 +10,7 @@ summary: 下面显示了 HANA 数据库恢复的步骤
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]

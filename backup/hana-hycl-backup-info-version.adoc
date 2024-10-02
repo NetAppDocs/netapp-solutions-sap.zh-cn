@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: backup/hana-hycl-backup-info-version.html 
 keywords: BlueXP, SAP HANA, restore 
-summary: 本节´s在何处查找追加信息、并显示版本历史记录。 
+summary: 此部分列出了可从何处查找其他信息并显示版本历史记录。 
 ---
 = 追加信息和版本历史记录
 :hardbreaks:
@@ -10,8 +10,11 @@ summary: 本节´s在何处查找追加信息、并显示版本历史记录。
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
+
+[role="lead"]
+此部分列出了可从何处查找其他信息并显示版本历史记录。
 
 
 

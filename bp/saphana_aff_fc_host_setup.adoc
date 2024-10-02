@@ -10,7 +10,7 @@ summary: 在设置主机之前，必须从 NetApp 支持站点下载 NetApp SAN 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]

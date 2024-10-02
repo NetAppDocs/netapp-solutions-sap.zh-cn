@@ -10,8 +10,10 @@ summary: 有关跨区域复制的应用程序无关信息，请访问以下位�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]
-有关跨区域复制的应用程序无关信息，请参见 https://docs.microsoft.com/en-us/azure/azure-netapp-files/["Azure NetApp Files 文档 | Microsoft 文档"^] 在概念和操作指南部分。
+有关跨区域复制的不受应用程序限制的信息、请访问以下位置。
+
+link:https://docs.microsoft.com/en-us/azure/azure-netapp-files/["Azure NetApp Files 文档 | Microsoft 文档"^]在概念和操作指南部分。

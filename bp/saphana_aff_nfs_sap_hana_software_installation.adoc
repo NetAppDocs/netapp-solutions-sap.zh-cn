@@ -10,7 +10,7 @@ summary: 本节介绍如何配置系统，以便在单主机和多主机系统�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]

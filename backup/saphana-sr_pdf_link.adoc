@@ -10,11 +10,12 @@ summary: TR-4719 介绍了如何在 SAP HANA 系统复制环境中使用 NetApp 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
+
+[role="lead"]
+TR-4719 介绍了如何在 SAP HANA 系统复制环境中使用 NetApp SnapCenter 技术和 SAP HANA 插件进行备份和恢复。
 
 NetApp 公司 Nil Bauser
-
-TR-4719 介绍了如何在 SAP HANA 系统复制环境中使用 NetApp SnapCenter 技术和 SAP HANA 插件进行备份和恢复。
 
 link:https://www.netapp.com/pdf.html?item=/media/17030-tr4719pdf.pdf["https://www.netapp.com/pdf.html?item=/media/17030-tr4719pdf.pdf"]

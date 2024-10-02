@@ -10,12 +10,13 @@ summary: 本技术报告介绍了使用 NetApp SnapCenter 服务和 Azure NetApp
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
-NetApp 公司 Nil Bauser
-
+[role="lead"]
 本技术报告介绍了使用 NetApp SnapCenter 服务和 Azure NetApp Files 保护 SAP HANA 数据的最佳实践。其中包括 SnapCenter 服务概念，配置建议和操作工作流，包括备份，还原和恢复操作。
+
+作者：Nils Bauer、NetApp
 
 如今，企业需要为其 SAP 应用程序提供持续，无中断的可用性。面对不断增加的数据量以及系统备份等日常维护任务的需求，他们希望性能水平保持一致。执行 SAP 数据库备份是一项关键任务，可能会对生产 SAP 系统产生显著的性能影响。
 

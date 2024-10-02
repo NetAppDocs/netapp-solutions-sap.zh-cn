@@ -10,8 +10,11 @@ summary: 本技术报告介绍了使用适用于应用程序的NetApp BlueXP备�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
+
+[role="lead"]
+本技术报告介绍了使用适用于应用程序的NetApp BlueXP备份和恢复来保护SAP HANA数据的最佳实践。本文档介绍了一些概念、配置建议和操作工作流、包括配置、备份操作、 和还原操作。
 
 
 
@@ -36,7 +39,7 @@ BlueXP备份和恢复在NetApp BlueXP中作为SaaS运行、并利用框架和UI�
 内部存储和云存储分段之间的数据传输通过AES 256位空闲加密、传输中的TLS/HTTPS加密和客户管理密钥(CMK)支持进行端到端保护。+
 备份的数据可以存储在不可变和不可变的WORM状态。要从对象存储访问数据、唯一的方法是将其还原到基于NetApp ONTAP的存储(包括NetApp CVO)。
 
-image::hana-hycl-back-image1.png[Ein Bild.,624,450]
+image:hana-hycl-back-image1.png["Ein Bild、dis text、Screenshot、Diagramm、Kreis enthält。自动生成Beschreirug、宽度=624、高度=450"]
 
 
 

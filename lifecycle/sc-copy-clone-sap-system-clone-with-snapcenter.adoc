@@ -10,9 +10,10 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
+[role="lead"]
 本节提供了SAP系统克隆操作的分步问题描述 、可用于设置修复系统以解决逻辑损坏问题。
 
 下图总结了使用SnapCenter执行SAP系统克隆操作所需的步骤。
@@ -34,7 +35,7 @@ NOTE: 如果必须将系统重置为其他Snapshot备份、则步骤6和步骤4�
 . 适用于SAP HANA共享卷的SnapCenter克隆删除工作流。
 
 
-image::sc-copy-clone-image9.png[SC副本克隆image9.]
+image:sc-copy-clone-image9.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 
 
@@ -64,7 +65,7 @@ image::sc-copy-clone-image9.png[SC副本克隆image9.]
 
 所有SAP HANA系统都必须根据配置指南进行配置 https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_introduction.html["采用NFS的NetApp AFF 系统上的SAP HANA"]。SnapCenter和SAP HANA资源是根据最佳实践指南进行配置的 https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html["使用 SnapCenter 实现 SAP HANA 备份和恢复"]。
 
-image::sc-copy-clone-image41.png[sc copy克隆image41]
+image:sc-copy-clone-image41.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 
 
@@ -172,26 +173,26 @@ hana-7:/opt/NetApp/snapcenter/scc/etc #
 . 从源系统SS1共享卷中选择一个Snapshot备份、然后单击克隆。
 
 
-image::sc-copy-clone-image42.png[sc copy克隆image42]
+image:sc-copy-clone-image42.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 . 选择已准备好目标修复系统的主机。NFS导出IP地址必须是目标主机的存储网络接口。作为目标SID、与源系统保持相同的SID。在我们的示例SS1中。
 
 
-image::sc-copy-clone-image43.png[SC副本克隆image43]
+image:sc-copy-clone-image43.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 . 使用所需的命令行选项输入挂载脚本。
 +
 
-NOTE: SAP HANA系统会使用一个卷作为 `/hana/shared` 和作为 `/usr/sap/SS1`，并按照配置指南中的建议在子目录中分隔 https://www.netapp.com/media/17238-tr4435.pdf["采用NFS的NetApp AFF 系统上的SAP HANA"]。该脚本 `sc-mount-volume.sh` 使用一个特殊的命令行选项对挂载路径支持此配置。如果挂载路径命令行选项等于usr－sap-and-shared，则该脚本会相应地将共享的子目录和usr－sap挂载到卷中。
+NOTE: SAP HANA系统会使用一个卷作为 `/hana/shared`和作为 `/usr/sap/SS1`，并按照配置指南中的建议在子目录中分隔link:../bp/saphana_aff_nfs_introduction.html["采用NFS的NetApp AFF 系统上的SAP HANA"]。该脚本 `sc-mount-volume.sh` 使用一个特殊的命令行选项对挂载路径支持此配置。如果挂载路径命令行选项等于usr－sap-and-shared，则该脚本会相应地将共享的子目录和usr－sap挂载到卷中。
 
 
 
-image::sc-copy-clone-image44.png[sc copy克隆image44]
+image:sc-copy-clone-image44.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 . SnapCenter 中的"作业详细信息"屏幕显示操作的进度。
 
 
-image::sc-copy-clone-image45.png[SC副本克隆image45]
+image:sc-copy-clone-image45.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 . sc-mount-volume.sh脚本的日志文件显示了为挂载操作执行的不同步骤。
 
@@ -220,7 +221,7 @@ Filesystem 1K-blocks Used Available Use% Mounted on
 . 在SnapCenter 中、可以看到克隆卷的新资源。
 
 
-image::sc-copy-clone-image46.png[SC副本克隆image46]
+image:sc-copy-clone-image46.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 . 现在、可以使用/HAA/Shared卷、从而启动SAP HANA服务。
 
@@ -259,12 +260,12 @@ hana-1:/mnt/sapcc-share/SAP-System-Refresh #
 . 从源系统SS1中选择SAP HANA Snapshot备份。
 
 
-image::sc-copy-clone-image47.png[sc copy克隆image47]
+image:sc-copy-clone-image47.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 . 选择已准备好目标修复系统的主机。NFS导出IP地址必须是目标主机的存储网络接口。作为目标SID、与源系统保持相同的SID。在我们的示例SS1中
 
 
-image::sc-copy-clone-image48.png[SC副本克隆image48]
+image:sc-copy-clone-image48.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 . 输入克隆后脚本以及所需的命令行选项。
 +
@@ -273,11 +274,11 @@ NOTE: 用于恢复操作的脚本会将SAP HANA数据库恢复到Snapshot操作�
 
 
 
-image::sc-copy-clone-image23.png[SC副本克隆image23.]
+image:sc-copy-clone-image23.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 SnapCenter 中的作业详细信息屏幕将显示操作进度。
 
-image::sc-copy-clone-image49.png[SC副本克隆image49]
+image:sc-copy-clone-image49.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 该脚本的日志文件 `sc-system-refresh` 显示了为挂载和恢复操作执行的不同步骤。
 

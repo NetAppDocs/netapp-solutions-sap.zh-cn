@@ -10,7 +10,7 @@ summary: 在本文档中的示例部署和工作流执行期间、我们将使�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 以下各节提供了 SAP HANA 基础架构设置和配置准则。
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]

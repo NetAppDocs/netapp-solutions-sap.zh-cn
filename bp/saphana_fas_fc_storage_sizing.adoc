@@ -10,7 +10,7 @@ summary: 下一节概述了为 SAP HANA 估算存储系统规模时的性能和�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -215,4 +215,4 @@ NetApp 进行了性能测试，以定义最佳值。下表列出了必须在 SAP
 
 下图总结了规模估算过程。
 
-image::saphana_fas_fc_image8.jpg[saphade FAS fc image8.]
+image:saphana_fas_fc_image8.jpg["图中显示了输入/输出对话框或表示已写入内容"]

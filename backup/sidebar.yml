@@ -3,7 +3,6 @@ section: backup
 title: 备份，还原和灾难恢复
 entries:
 - title: 基于Amazon FSX的SAP HANA for NetApp ONTAP —使用SnapCenter 进行备份和恢复
-  type: solutions
   entries:
   - title: 概述
     url: "/backup/amazon-fsx-overview.html"
@@ -36,7 +35,6 @@ entries:
   - title: 从何处查找追加信息
     url: "/backup/amazon-fsx-where-to-find-additional-information.html"
 - title: 使用 SnapCenter 进行 SAP HANA 备份和恢复
-  type: solutions
   entries:
   - title: 概述
     url: "/backup/saphana-br-scs-overview.html"
@@ -67,7 +65,6 @@ entries:
   - title: 从何处查找追加信息和版本历史记录
     url: "/backup/saphana-br-scs-where-to-find-additional-information.html"
 - title: 适用于SAP HANA的BlueXP备份和恢复—将Cloud Object存储用作备份目标
-  type: solutions
   entries:
   - title: 适用于SAP HANA的BlueXP备份和恢复—概述
     url: "/backup/hana-hycl-backup-overview.html"
@@ -78,7 +75,6 @@ entries:
   - title: 追加信息和版本历史记录
     url: "/backup/hana-hycl-backup-info-version.html"
 - title: 使用 SnapCenter 备份和恢复 SAP HANA 系统复制
-  type: solutions
   entries:
   - title: SAP HANA 系统复制概述
     url: "/backup/saphana-sr-scs-sap-hana-system-replication-overview.html"
@@ -97,7 +93,6 @@ entries:
   - title: 版本历史记录
     url: "/backup/saphana-sr-scs-version-history.html"
 - title: 使用 Azure NetApp Files 实现 SAP HANA 灾难恢复
-  type: solutions
   entries:
   - title: 数据保护概述
     url: "/backup/saphana-dr-anf_data_protection_overview_overview.html"

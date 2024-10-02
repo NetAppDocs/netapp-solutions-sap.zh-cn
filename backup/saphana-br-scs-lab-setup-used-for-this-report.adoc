@@ -10,7 +10,7 @@ summary: 本技术报告使用的实验室设置包括五种不同的 SAP HANA �
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -59,4 +59,4 @@ SnapCenter 服务器用作 HANA 系统 MS1 和 SS2 的中央 HANA 插件主机�
 
 下图显示了实验室设置。
 
-image::saphana-br-scs-image21.png[saphA br sCS image21.]
+image:saphana-br-scs-image21.png["图中显示了输入/输出对话框或表示已写入内容"]

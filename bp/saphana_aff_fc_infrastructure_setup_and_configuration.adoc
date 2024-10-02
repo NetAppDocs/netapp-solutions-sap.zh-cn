@@ -10,6 +10,8 @@ summary:
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
+[role="lead"]
+本文档讨论NetApp AFF系统和光纤通道的基础架构设置和配置。

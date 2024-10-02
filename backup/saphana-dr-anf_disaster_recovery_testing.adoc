@@ -10,6 +10,8 @@ summary:
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
+[role="lead"]
+本节概述了在Azure NetApp Files中对SAP HANA进行灾难恢复测试(ANF)。

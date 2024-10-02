@@ -10,8 +10,13 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案已集成到SAP A
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
+
+[role="lead"]
+用于优化SAP生命周期管理的NetApp解决方案已集成到SAP AnyDB和SAP HANA数据库中。此外、NetApp还集成到SAP生命周期管理工具中、将高效的应用程序集成数据保护与灵活的SAP测试系统配置相结合。
+
+作者：
 
 Holger Zecha、Tobias BRANDL、NetApp Franz Dieggruber、Libelle
 

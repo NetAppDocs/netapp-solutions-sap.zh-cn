@@ -10,13 +10,12 @@ summary: TR-4711 介绍了适用于 SAP HANA 的 NetApp 和 Commvault 解决方�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
-NetApp 公司 Marco Schoen
-
-博士Tristan Daude ， Commvault Systems
-
+[role="lead"]
 TR-4711 介绍了适用于 SAP HANA 的 NetApp 和 Commvault 解决方案的设计，其中包括 Commvault IntelliSnap 快照管理技术和 NetApp Snapshot 技术。解决方案基于 NetApp 存储和 Commvault 数据保护套件。
+
+作者：NetApp公司Marco主持；CommvaultSystems公司的Tristan Daude博士
 
 link:https://www.netapp.com/pdf.html?item=/media/17050-tr4711pdf.pdf["https://www.netapp.com/pdf.html?item=/media/17050-tr4711pdf.pdf"]

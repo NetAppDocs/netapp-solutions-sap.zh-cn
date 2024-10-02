@@ -10,7 +10,7 @@ summary: 本节所述的所有主机设置步骤对物理服务器上的 SAP HAN
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]

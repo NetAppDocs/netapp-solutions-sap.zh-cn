@@ -10,7 +10,7 @@ summary: 全面的灾难恢复解决方案必须能够使客户从主站点的�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -22,7 +22,7 @@ summary: 全面的灾难恢复解决方案必须能够使客户从主站点的�
 
 本文档讨论了双区域灾难恢复解决方案的不同实施选项。
 
-image::saphana-dr-anf_image3.png[saphanadrf image3.]
+image:saphana-dr-anf_image3.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 
 
@@ -52,7 +52,7 @@ SAP HANA 系统复制可在以下两种模式之一下运行：
 
 下图显示了 SAP HANA 系统复制。
 
-image::saphana-dr-anf_image4.png[saphanadrf image4.]
+image:saphana-dr-anf_image4.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 
 
@@ -80,13 +80,13 @@ ANF 跨区域复制内置在 ANF 中，作为使用异步数据复制的灾难�
 
 RTO 主要取决于在灾难恢复站点启动 HANA 数据库以及将数据加载到内存所需的时间。假设数据的读取吞吐量为 1000 MB/ 秒，则加载 1 TB 数据大约需要 18 分钟。根据复制配置的不同，还需要进行正向恢复，并会增加总 RTO 值。
 
-有关不同配置选项的更多详细信息，请参见第节 link:ent-apps-db/saphana-dr-anf_anf_cross-region_replication_with_sap_hana_overview.html["使用 SAP HANA 跨区域复制的配置选项"]。
+有关不同配置选项的详细信息，请参见第章link:saphana-dr-anf_anf_cross-region_replication_with_sap_hana_overview.html["使用 SAP HANA 跨区域复制的配置选项"]。
 
 正常运行期间，灾难恢复站点上的服务器可用作开发 / 测试系统。发生灾难时，必须关闭开发 / 测试系统并将其作为灾难恢复生产服务器启动。
 
 通过 ANF 跨区域复制，您可以在不影响 RPO 和 RTO 的情况下测试灾难恢复工作流。这是通过创建卷克隆并将其附加到灾难恢复测试服务器来实现的。
 
-image::saphana-dr-anf_image5.png[saphanadrf image5.]
+image:saphana-dr-anf_image5.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 
 

@@ -10,7 +10,7 @@ summary: 您必须同步存储控制器与 SAP HANA 数据库主机之间的时�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]

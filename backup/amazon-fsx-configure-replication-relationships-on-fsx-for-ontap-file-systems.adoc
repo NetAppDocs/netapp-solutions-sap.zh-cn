@@ -10,7 +10,7 @@ summary: 本节介绍如何为ONTAP 文件系统的FSX建立对等关系、如�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]

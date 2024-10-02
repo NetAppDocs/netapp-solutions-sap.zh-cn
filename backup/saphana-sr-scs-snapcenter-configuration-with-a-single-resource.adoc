@@ -10,7 +10,7 @@ summary: SnapCenter 资源使用 HANA 系统复制环境的虚拟 IP 地址（�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -23,13 +23,13 @@ NOTE: 我们假定虚拟 IP 地址始终绑定到主 SAP HANA 主机。在 HANA 
 
 SAP HANA 备份目录和 SnapCenter 资源包括在主机 1 上创建的备份。
 
-image::saphana-sr-scs-image27.png[saphA SR增补程序影27.]
+image:saphana-sr-scs-image27.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 下图显示了故障转移到主机 2 以及从主机 2 复制到主机 1 后的备份操作。SnapCenter 会使用 SnapCenter 资源中配置的虚拟 IP 地址自动与主机 2 通信。现在，备份会在主机 2 上创建。SnapCenter 会创建两个 Snapshot 副本：主机 2 的数据卷上的数据库一致备份和主机 1 的数据卷上的崩溃映像 Snapshot 副本。SAP HANA 备份目录和 SnapCenter 资源现在包括在主机 1 上创建的备份以及在主机 2 上创建的备份。
 
 数据和日志备份的管理是根据定义的 SnapCenter 保留策略进行的，无论主主机还是二级主机，备份都将被删除。
 
-image::saphana-sr-scs-image28.png[saphA SR增补程序影28]
+image:saphana-sr-scs-image28.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 如本节所述 link:saphana-sr-scs-storage-snapshot-backups-and-sap-system-replication.html["存储 Snapshot 备份和 SAP 系统复制"]，使用基于存储的 Snapshot 备份执行的还原操作有所不同，具体取决于必须还原的备份。请务必确定在哪个主机上创建备份，以确定是否可以在本地存储卷上执行还原，或者是否必须在另一主机的存储卷上执行还原。
 
@@ -37,7 +37,7 @@ image::saphana-sr-scs-image28.png[saphA SR增补程序影28]
 
 下图显示了备份主机的标识。
 
-image::saphana-sr-scs-image29.png[saphA SR增补程序image29.]
+image:saphana-sr-scs-image29.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 
 
@@ -45,7 +45,7 @@ image::saphana-sr-scs-image29.png[saphA SR增补程序image29.]
 
 下图显示了实验室设置以及所需 SnapCenter 配置的概述。
 
-image::saphana-sr-scs-image30.png[saphA SR增补程序image30.]
+image:saphana-sr-scs-image30.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 要执行备份操作，而无论哪个 SAP HANA 主机是主主机，甚至在一个主机关闭时也是如此，必须在中央插件主机上部署 SnapCenter SAP HANA 插件。在实验室设置中，我们使用 SnapCenter 服务器作为中央插件主机，并在 SnapCenter 服务器上部署 SAP HANA 插件。
 
@@ -58,18 +58,18 @@ hdbuserstore.exe -u SYSTEM set SSRKEY ssr-vip:31013 SNAPCENTER <password>
 
 在 SnapCenter 中，使用之前配置的用户存储密钥和 SnapCenter 服务器作为 `hdbsql` 通信主机来配置资源，如下图所示。
 
-image::saphana-sr-scs-image31.png[saphA SR增补程序image31]
+image:saphana-sr-scs-image31.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 两个 SAP HANA 主机的数据卷都包含在存储占用空间配置中，如下图所示。
 
-image::saphana-sr-scs-image32.png[saphA SR增补程序image32.]
+image:saphana-sr-scs-image32.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 如前文所述， SnapCenter 不知道备份的创建位置。因此， NetApp 建议您在 SnapCenter 备份工作流中添加备份前脚本，以确定哪个主机当前是主 SAP HANA 主机。您可以使用添加到备份工作流中的 SQL 语句执行此标识，如下图所示。
 
 ....
 Select host from “SYS”.M_DATABASE
 ....
-image::saphana-sr-scs-image33.png[saphA SR增补程序image33]
+image:saphana-sr-scs-image33.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 
 
@@ -81,18 +81,18 @@ image::saphana-sr-scs-image33.png[saphA SR增补程序image33]
 
 下图显示了将主机 1 作为主主机的备份作业日志。
 
-image::saphana-sr-scs-image34.png[SAPCHA SR增补程序的印象34]
+image:saphana-sr-scs-image34.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 此图显示了将主机 2 作为主主机的备份作业日志。
 
-image::saphana-sr-scs-image35.png[SAPCHA SR增补器的影印版35]
+image:saphana-sr-scs-image35.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 下图显示了 SAP HANA Studio 中的 SAP HANA 备份目录。当 SAP HANA 数据库处于联机状态时，创建备份的 SAP HANA 主机将显示在 SAP HANA Studio 中。
 
 
 NOTE: 还原和恢复操作期间使用的文件系统上的 SAP HANA 备份目录不包含创建备份的主机名。在数据库关闭时识别主机的唯一方法是，将备份目录条目与两个 SAP HANA 主机的 `backup.log` 文件结合使用。
 
-image::saphana-sr-scs-image36.png[saphA SR增补程序image36]
+image:saphana-sr-scs-image36.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 
 
@@ -106,7 +106,7 @@ image::saphana-sr-scs-image36.png[saphA SR增补程序image36]
 
 如果您需要使用在主机 2 （ t2 ）上创建的备份进行还原，该备份是主机 2 存储卷上的 Snapshot 副本，则需要使该备份可供主机 1 使用。您可以通过从备份创建 NetApp FlexClone 副本，将 FlexClone 副本挂载到主机 1 以及将数据复制到原始位置来使此备份可用。
 
-image::saphana-sr-scs-image37.png[saphA SR增补程序image37]
+image:saphana-sr-scs-image37.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 使用单个 SnapCenter 资源配置时，会在两个 SAP HANA 系统复制主机的两个存储卷上创建 Snapshot 副本。只有在主 SAP HANA 主机的存储卷上创建的 Snapshot 备份才可用于正向恢复。在二级 SAP HANA 主机的存储卷上创建的 Snapshot 副本是一个崩溃映像，不能用于正向恢复。
 
@@ -120,7 +120,7 @@ image::saphana-sr-scs-image37.png[saphA SR增补程序image37]
 
 下图显示了使用单个 SnapCenter 资源配置执行的还原操作。
 
-image::saphana-sr-scs-image38.png[saph需SR增补器的印版38]
+image:saphana-sr-scs-image38.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 
 
@@ -137,33 +137,33 @@ image::saphana-sr-scs-image38.png[saph需SR增补器的印版38]
 . 主机 2 已启动，主机 2 的系统复制重新同步将自动启动。
 
 
-image::saphana-sr-scs-image39.png[saphA SR增补程序image39]
+image:saphana-sr-scs-image39.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 下图显示了 SAP HANA Studio 中的 SAP HANA 备份目录。突出显示的备份显示了在主机 1 的 T1 上创建的备份。
 
-image::saphana-sr-scs-image40.png[saphA SR增补程序image40]
+image:saphana-sr-scs-image40.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 在 SAP HANA Studio 中启动还原和恢复操作。如下图所示，在还原和恢复工作流中看不到创建备份的主机的名称。
 
 
 NOTE: 在我们的测试场景中，我们能够在数据库仍处于联机状态时在 SAP HANA Studio 中确定正确的备份（在主机 1 上创建的备份）。如果数据库不可用，则必须检查 SnapCenter 备份作业日志以确定正确的备份。
 
-image::saphana-sr-scs-image41.png[saphA SR增补程序影41]
+image:saphana-sr-scs-image41.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 在 SnapCenter 中，选择备份并执行文件级还原操作。在文件级还原屏幕上，仅选择主机 1 卷，以便仅还原有效的备份。
 
-image::saphana-sr-scs-image42.png[saphA SR增补程序影]
+image:saphana-sr-scs-image42.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 还原操作完成后，备份将在 SAP HANA Studio 中以绿色突出显示。您无需输入其他日志备份位置，因为主机 1 和主机 2 的日志备份的文件路径包含在备份目录中。
 
-image::saphana-sr-scs-image43.png[saphA SR增补程序的印象43]
+image:saphana-sr-scs-image43.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 完成正向恢复后，将启动二级主机（主机 2 ），并启动 SAP HANA 系统复制重新同步。
 
 
 NOTE: 即使二级主机是最新的（未对主机 2 执行还原操作）， SAP HANA 也会对所有数据执行完全复制。在使用 SAP HANA 系统复制执行还原和恢复操作后，此行为是标准行为。
 
-image::saphana-sr-scs-image44.png[saphA SR增补程序image44]
+image:saphana-sr-scs-image44.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 
 
@@ -180,14 +180,14 @@ image::saphana-sr-scs-image44.png[saphA SR增补程序image44]
 . 主机 2 已启动，主机 2 的系统复制重新同步将自动启动。
 
 
-image::saphana-sr-scs-image45.png[saphA SR增补程序的印象45]
+image:saphana-sr-scs-image45.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 SAP HANA Studio 的还原和恢复操作与一节中所述的步骤相同 link:saphana-sr-scs-snapcenter-configuration-with-a-single-resource.html#snapcenter-restore-of-the-valid-backup-only["仅对有效备份执行 SnapCenter 还原"]。
 
 要执行还原操作，请在 SnapCenter 中选择 Complete Resource 。两台主机的卷均已还原。
 
-image::saphana-sr-scs-image46.png[saphA SR增补程序影]
+image:saphana-sr-scs-image46.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 完成正向恢复后，将启动二级主机（主机 2 ），并启动 SAP HANA 系统复制重新同步。执行所有数据的完全复制。
 
-image::saphana-sr-scs-image47.png[saphA SR增补程序image47]
+image:saphana-sr-scs-image47.png["图中显示了输入/输出对话框或表示已写入内容"]

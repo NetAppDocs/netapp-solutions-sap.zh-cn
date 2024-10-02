@@ -10,7 +10,7 @@ summary: '现在，可以根据之前创建的 ` /etc/fstab` 文件将卷挂载�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]

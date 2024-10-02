@@ -10,7 +10,7 @@ summary: NFS 版本 4 及更高版本需要用户身份验证。可以使用轻�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 本节列出了此解决方案 中使用的组件，支持的 SAP HANA 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -81,7 +81,7 @@ NOTE: SnapCenter 负责主存储上的保留，而 ONTAP 负责管理二级备�
 
 下图简要显示了数据库和日志备份配置，其中，日志备份会写入异地备份存储的 NFS 挂载。
 
-image::saphana-br-scs-image7.png[saphA br sCS image7.]
+image:saphana-br-scs-image7.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 在对非数据卷执行基于存储的 Snapshot 备份时， SnapCenter 将执行以下任务：
 
@@ -121,4 +121,4 @@ SnapCenter 支持以下 SAP HANA 架构和版本：
 
 从 4.6 版开始， SnapCenter 支持自动发现在 HANA 系统复制关系中配置的 HANA 系统。每个主机都使用其物理 IP 地址（主机名）及其存储层上的单个数据卷进行配置。这两个 SnapCenter 资源组合在一个资源组中， SnapCenter 会自动标识主主机或二级主机，然后相应地执行所需的备份操作。对于使用 SnapCenter 创建的 Snapshot 备份和基于文件的备份，系统会在两台主机上执行保留管理，以确保当前二级主机上也会删除旧备份。下图简要概述了这一情况。有关在SnapCenter中配置和操作已启用HANA系统复制的HANA系统的详细说明 https://www.netapp.com/pdf.html?item=/media/17030-tr4719pdf.pdf["TR-4719 采用 SnapCenter 的 SAP HANA 系统复制，备份和恢复"^]，请参见。
 
-image::saphana-br-scs-image8.png[saphA br sCS image8.]
+image:saphana-br-scs-image8.png["图中显示了输入/输出对话框或表示已写入内容"]
