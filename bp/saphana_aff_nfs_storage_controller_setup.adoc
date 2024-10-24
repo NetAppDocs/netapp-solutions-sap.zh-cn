@@ -299,11 +299,11 @@ image:saphana_aff_nfs_image17.jpg["图中显示了输入/输出对话框或表�
 | 启用 NFSv3 ： | NFS modify -vserver <vserver-name> v3.0 已启用 
 
 
-| ONTAP 9 ：将 NFS TCP 最大传输大小设置为 1 MB | 设置 advanced nfs modify -vserver <vserver_name> -tcp-max-xfer-size 1048576 set admin 
-
-
-| ONTAP 8 ：将 NFS 读取和写入大小设置为 64 KB | 设置 advanced nfs modify -vserver <vserver-name> -v3-tcp-max-read-size 65536 nfs modify -vserver <vserver-name> -v3-tcp-max-write-size 65536 set admin 
+| 将NFS TCP最大传输大小设置为1MB | 设置 advanced nfs modify -vserver <vserver_name> -tcp-max-xfer-size 1048576 set admin 
 |===
+
+NOTE: 在工作负载不同的共享环境中、将最大NFS TCP传输大小设置为262144
+
 
 
 == NFSv4 的 NFS 配置
@@ -319,10 +319,7 @@ image:saphana_aff_nfs_image17.jpg["图中显示了输入/输出对话框或表�
 | 启用 NFSv4 ： | NFS modify -vserver <vserver-name> -v4.1 已启用 
 
 
-| ONTAP 9 ：将 NFS TCP 最大传输大小设置为 1 MB | 设置 advanced nfs modify -vserver <vserver_name> -tcp-max-xfer-size 1048576 set admin 
-
-
-| ONTAP 8 ：将 NFS 读取和写入大小设置为 64 KB | 设置 advanced nfs modify -vserver <vserver_name> -tcp-max-xfer-size 65536 set admin 
+| 将NFS TCP最大传输大小设置为1MB | 设置 advanced nfs modify -vserver <vserver_name> -tcp-max-xfer-size 1048576 set admin 
 
 
 | 禁用 NFSv4 访问控制列表（ ACL ） | nfs modify -vserver <vserver_name> -v4.1-acl 已禁用 
@@ -346,13 +343,16 @@ nf修改-vserver hana -v4.x-sSession-num-sports <value>
 设置admin 
 |===
 
+NOTE: 在工作负载不同的共享环境中、将最大NFS TCP传输大小设置为262144
+
+
 NOTE: 请注意、禁用数字ID需要用户管理、如一节所述 link:saphana_aff_nfs_sap_hana_installation_preparations_for_nfsv4.html["《 NFSv4 的 SAP HANA 安装准备工作》。"]
 
 
 NOTE: 在所有 Linux 服务器（` /etc/idmapd.conf` ）和 SVM 上，必须将 NFSv4 域 ID 设置为相同的值，如一节所述 link:saphana_aff_nfs_sap_hana_installation_preparations_for_nfsv4.html["《 NFSv4 的 SAP HANA 安装准备工作》。"]
 
 
-NOTE: 如果使用的是 NFSv4.1 ，则可以启用和使用 pNFS 。
+NOTE: 可以启用和使用pNFS。
 
 如果使用具有主机自动故障转移功能的SAP HANA多主机系统、则需要在中调整故障转移参数 `nameserver.ini` 如下表所示。
 在这些部分中、保持默认重试间隔10秒。
