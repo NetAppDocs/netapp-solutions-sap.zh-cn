@@ -96,7 +96,6 @@
   <block id="3daf48572816497403ca0d7b3ca79c5c" category="list-text">添加数据分区和日志分区的 WWID 。WWID 必须与 ` /etc/multipath.conf` 文件中配置的别名匹配。</block>
   <block id="c5e7e01683b04809035115f6c4c7e4aa" category="paragraph">以下输出显示了 2+1 多主机设置示例，其中系统标识符（ SID ）为 SS3 。</block>
   <block id="f206fb31ca322606be1acbaecf34f9fa" category="paragraph">如果使用的是 Linux LVM ，则所需的配置会有所不同。以下示例显示了一个 2+1 多主机设置，其中 SID 为 FC5 。</block>
-  <block id="0eb184ead31411795a6c716a0d38caf4" category="admonition">存储已准备的 `global.ini` 文件的目录包含在 `storage_cfg` CLI 选项（` - storage_cfg=/has/shared` ）中。</block>
   <block id="e698d9fadd050973bab2f9f855248cca" category="admonition">根据所使用的操作系统版本，可能需要先安装 Python 2.7 ，然后再安装 SAP HANA 数据库。</block>
   <block id="9659639598149d1609e9fcde405a759f" category="list-text">验证安装工具是否已在所有工作主机和备用主机上安装所有选定组件。</block>
   <block id="6f9f0e834814d7ad77b7ef8666f24988" category="summary">下一节概述了为 SAP HANA 估算存储系统规模所需的性能和容量注意事项。</block>
@@ -207,7 +206,6 @@
   <block id="bb69fd52b05309d22618c8df73c8950e" category="admonition">以下安装操作步骤基于 SAP HANA 1.0 SPS12 或更高版本。</block>
   <block id="89a99a898a74d4f2ff80a5aa417e1639" category="paragraph">开始安装之前，请创建一个 `global.ini` 文件，以便在安装过程中使用 SAP 存储连接器。在安装过程中， SAP 存储连接器会在工作主机上挂载所需的文件系统。`global.ini` 文件必须位于可从所有主机访问的文件系统中，例如， ` /ha/shared/SID` 文件系统。</block>
   <block id="0e0c950ebceebc20ac07965f3d63f754" category="paragraph">如果使用 LVM ，则所需的配置会有所不同。以下示例显示了一个 2+1 多主机设置，其中 SID 为 FC5 。</block>
-  <block id="617127e0171267994816fcd2ebf41ca9" category="paragraph">使用 SAP `hdblcm` 安装工具，在其中一个工作主机上运行以下命令以启动安装。使用 `addhosts` 选项添加第二个工作主机（ sapcc-han-TST-04 ）和备用主机（ sapcc-han-TST-05 ）。存储已准备好的 `global.ini` 文件的目录包含在 `storage_cfg` CLI 选项（` -storage_cfg=/has/shared` ）中。根据所使用的操作系统版本，可能需要先安装 phyton 2.7 ，然后再安装 SAP HANA 数据库。</block>
   <block id="912023f4eba0bf223e908e20d22ff92f" category="paragraph">以下各节提供了 SAP HANA 基础架构设置和配置准则，并介绍了设置 SAP HANA 系统所需的所有步骤。在这些部分中，使用了以下示例配置：</block>
   <block id="4bb047f8c530785002e490ef17fa725e" category="doc">从何处查找追加信息</block>
   <block id="345245c83d2b2c4c2a5eb9f2887da627" category="paragraph">要了解有关本文档中所述信息的更多信息，请参见以下文档和 / 或网站：</block>
@@ -572,7 +570,6 @@
   <block id="22b91f6553e0cbb7685f9eb877cf188d" category="section-title">在单主机系统上安装</block>
   <block id="8e74883ab7ca2d81b61cfaad2ddf19d2" category="section-title">在多主机系统上安装</block>
   <block id="2c5a7a5ceaf9ad774a81a7201b4dd250" category="paragraph">要在多主机系统上安装 SAP HANA ，请完成以下步骤：</block>
-  <block id="5a5457353a8426b7deea1f3ab1b9725a" category="list-text">使用 SAP `hdbclm` 安装工具，在其中一个工作主机上运行以下命令以启动安装。使用 `addhosts` 选项添加第二个工作主机（ `sAPCP-HANA TST-07` ）和备用主机（ `sAPCP-HANA TST-08` ）。</block>
   <block id="ae2868fd55605b6107ba93c6890a3b53" category="summary">从 SAP HANA 1.0 SPS10 开始， SAP 引入了一些参数来调整 IO 行为并针对所使用的文件和存储系统优化数据库。</block>
   <block id="1bd81531313378d0d4283de4cbbc35d1" category="doc">SAP HANA 的 I/O 堆栈配置</block>
   <block id="67844e82ab322c50575db48293bd0359" category="paragraph">从 SAP HANA 1.0 SPS10 开始， SAP 引入了一些参数来调整 I/O 行为并针对所使用的文件和存储系统优化数据库。</block>
@@ -4769,4 +4766,7 @@ SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。
   <block id="cae93577fd94d0fe06d63305e6bfbe50" category="admonition">可以启用和使用pNFS。</block>
   <block id="924eac7fb01f1080c8a2e57261e50702" category="admonition">如果将nconnect与NFSv4.x结合使用、则应根据以下规则调整NFSv4.x会话插槽的数量：会话插槽的数量等于&lt;nconnect value&gt; x 64。在主机上、此操作将经过重新启动后进行处理<block ref="1f544d9bef8ddb99793e0436d6362920" prefix=" " category="inline-code"></block>。此外、还必须调整服务器端值、并按照中所述设置会话插槽的数量 <block ref="f5e012a6f36bf833f75aec36ff8eee0f" category="inline-link-macro-rx"></block></block>
   <block id="dface3e0fc3485feea995027b8e0fd8a" category="cell">设置 advanced nfs modify -vserver &lt;vserver_name&gt; -tcp-max-xfer-size 1048576 set admin</block>
+  <block id="9adaadfddff33c2daa546229f2809747" category="list-text">使用SAP<block ref="b0aa3e7cad7b6222087aedbd4c799832" prefix=" " category="inline-code"></block>安装工具、通过在一个工作主机上运行以下命令来启动安装。使用<block ref="9676c5ff8ed94e9d3ceba55f16dde62f" prefix=" " category="inline-code"></block>选项添加第二个工作<block ref="d6075976fde6718b25d21e4894d5d07d" prefix="(" category="inline-code"></block>台()和备用主机<block ref="7e4282317c0dcc7ce1f24f047b09f466" prefix="(" category="inline-code"></block>()。</block>
+  <block id="dc6dd758c7cbed933fdee36ba03835f9" category="admonition">命令行界面选项中包含了用于存储准备文件的<block ref="09c9689230344c41364f0fa22da928c6" prefix=" " category="inline-code"></block>目录<block ref="1611b9881f1a590d33bbbcfdd9c55ca7" prefix=" " category="inline-code"></block><block ref="1b723e0f23eac7863dadd5b0b02436e4" prefix="(" category="inline-code"></block>)。</block>
+  <block id="b5b2eafc66ebc94cfb50a26c15cf1f52" category="paragraph">使用SAP<block ref="e57381f2a2aa941f8d88ba956c77d978" prefix=" " category="inline-code"></block>安装工具、通过在一个工作主机上运行以下命令来启动安装。使用<block ref="9676c5ff8ed94e9d3ceba55f16dde62f" prefix=" " category="inline-code"></block>选项添加第二个工作空间(sapcc-hana TST-06)和备用主机(sapcc-hana TST-07)。CLI选项中包含了已准备文件的存储<block ref="09c9689230344c41364f0fa22da928c6" prefix=" " category="inline-code"></block>目录<block ref="1611b9881f1a590d33bbbcfdd9c55ca7" prefix=" " category="inline-code"></block><block ref="1b723e0f23eac7863dadd5b0b02436e4" prefix="(" category="inline-code"></block>)。根据所使用的操作系统版本，可能需要先安装 phyton 2.7 ，然后再安装 SAP HANA 数据库。</block>
 </blocks>
