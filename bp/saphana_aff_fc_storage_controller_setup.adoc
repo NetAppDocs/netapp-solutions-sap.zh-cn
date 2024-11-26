@@ -369,17 +369,6 @@ host1 ...... WWPN:2100000e1e163701
 
 NOTE: `sanlun` 工具是 NetApp Host Utilities 的一部分，必须安装在每个 SAP HANA 主机上。有关详细信息，请参见 "host_setup" 一节。
 
-以下步骤显示了使用 SID SS3 配置 2+1 多主机 HANA 系统的过程：
-
-. 在 System Manager 中启动适用于 SAP HANA 的应用程序配置向导并提供所需信息。必须添加所有主机中的所有启动程序（ WWPN ）。
-+
-image:saphana_aff_fc_image18.jpeg["图中显示了输入/输出对话框或表示已写入内容"]
-
-. 确认已成功配置存储。
-
-
-image:saphana_aff_fc_image19.jpeg["图中显示了输入/输出对话框或表示已写入内容"]
-
 
 
 == 使用 CLI 创建 LUN ，卷并将 LUN 映射到启动程序组
@@ -396,7 +385,8 @@ vol create -volume FC5_data_mnt00002  -aggregate aggr2_2 -size 1200g -snapshot-p
 vol create -volume FC5_data2_mnt00001 -aggregate aggr1_2 -size 1200g -snapshot-policy none -foreground true -encrypt false -space-guarantee none
 vol create -volume FC5_log2_mnt00002  -aggregate aggr2_2 -size 280g -snapshot-policy none -foreground true -encrypt false -space-guarantee none
 vol create -volume FC5_log2_mnt00001  -aggregate aggr1_1 -size 280g -snapshot-policy none -foreground true -encrypt false  -space-guarantee none
-vol create -volume FC5_data2_mnt00002  -aggregate aggr2_1 -size 1200g -snapshot-policy none -foreground true -encrypt false -space-guarantee nonevol create -volume FC5_shared -aggregate aggr1_1 -size 512g -state online -policy default -snapshot-policy none -junction-path /FC5_shared -encrypt false  -space-guarantee none
+vol create -volume FC5_data2_mnt00002  -aggregate aggr2_1 -size 1200g -snapshot-policy none -foreground true -encrypt false -space-guarantee none
+vol create -volume FC5_shared -aggregate aggr1_1 -size 512g -state online -policy default -snapshot-policy none -junction-path /FC5_shared -encrypt false  -space-guarantee none
 ....
 . 创建所有 LUN 。
 +

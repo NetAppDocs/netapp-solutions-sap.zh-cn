@@ -777,7 +777,6 @@
   <block id="02fb0663b2b25ed3058835e1a2db5762" category="paragraph">这将在达到 8 ， 000 GB 限制后创建一个新的数据卷。<block ref="0d7b59f229b453865b91c5e952a7b217" category="inline-link-rx"></block> 提供了更多信息。</block>
   <block id="0f41d05d80faf4e3a75a6b4e2292f1c0" category="summary">NetApp AFF 产品系列已通过认证，可在 TDI 项目中与 SAP HANA 结合使用。经过认证的企业级存储平台采用 NetApp ONTAP 软件。</block>
   <block id="0db6b81db5bd35e1eef1e83e154c3cb5" category="doc">TR-4436 ：《基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA 》</block>
-  <block id="3582e9217fbd3de24b2e5ecfb0fc97b4" category="paragraph">NetApp 公司 Nil Bauser 和 Marco Schoen</block>
   <block id="0b79795d3efc95b9976c7c5b933afce2" category="section-title">简介</block>
   <block id="e4509a748ae3ce7cb528662f2f9f7e10" category="paragraph">此认证适用于以下型号：</block>
   <block id="130c9ce9d2909449cb229a98c66f9d29" category="inline-link">经过认证并受支持的 SAP HANA 硬件目录</block>
@@ -1001,9 +1000,6 @@
   <block id="092e6a6bc4923c6cfc72d214ce390535" category="paragraph">NetApp 在 ONTAP System Manager 9.7 及更早版本中为 SAP HANA 提供了自动化应用程序向导，从而显著简化了卷和 LUN 配置过程。它会根据适用于 SAP HANA 的 NetApp 最佳实践自动创建和配置卷和 LUN 。</block>
   <block id="0c71c668e5ae926e6d75aa8bbbc09dd2" category="paragraph">使用 `sanlun` 工具，运行以下命令以获取每个 SAP HANA 主机的全球通用端口名称（ WWPN ）：</block>
   <block id="a86be254d15f1254d56b97c8755a5b77" category="admonition">`sanlun` 工具是 NetApp Host Utilities 的一部分，必须安装在每个 SAP HANA 主机上。有关详细信息，请参见 "host_setup" 一节。</block>
-  <block id="3b02abc3a7dd4095cd8ef946e6bd6dd0" category="paragraph">以下步骤显示了使用 SID SS3 配置 2+1 多主机 HANA 系统的过程：</block>
-  <block id="ce30bd2bdaee34467dfdf55ea753e7ba" category="list-text">在 System Manager 中启动适用于 SAP HANA 的应用程序配置向导并提供所需信息。必须添加所有主机中的所有启动程序（ WWPN ）。</block>
-  <block id="16307583508372b498160c0e90dba4d0" category="list-text">确认已成功配置存储。</block>
   <block id="8c4751bd2d7d17062a8b536388ba69bc" category="section-title">使用 CLI 创建 LUN ，卷并将 LUN 映射到启动程序组</block>
   <block id="6204c72c80408db453e7fea0b62d2e36" category="paragraph">本节显示了一个使用命令行和 ONTAP 9.8 的示例配置，该配置适用于 2+1 SAP HANA 多主机系统，其中 SID 为 FC5 ，使用 LVM ，每个 LVM 卷组具有两个 LUN ：</block>
   <block id="c48caf1c739d7975abd91d926cd56982" category="list-text">创建所有必要的卷。</block>
@@ -3441,7 +3437,6 @@
   <block id="75bdc4f45cfc79b09fa1f15e1cd83b33" category="admonition">请注意、禁用编号ID需要进行用户管理、如中所述 <block ref="7cbf1992917906c8f8c329ad679d4886" category="inline-link-macro-rx"></block></block>
   <block id="a548c9345f858c0926b5fa0db82b1d29" category="admonition">请注意、禁用数字ID需要用户管理、如一节所述 <block ref="19618adae76246007b68ca646cc14e2b" category="inline-link-macro-rx"></block></block>
   <block id="fcb7778cf38a196128c87d1b6e20281e" category="paragraph">NetApp AFF A系列和AFF C系列产品系列已通过认证、可在定制数据中心集成(TDI)项目中与SAP HANA结合使用。</block>
-  <block id="7c3d41bb91a832b194d140ed72b101e7" category="list-text">AFF C250、AFF C400、AFF C800</block>
   <block id="326f77b6d7cda2b57e0f8e89a8f89959" category="admonition">NetApp AFF C系列需要使用NetApp ONTAP 9.13.1.或更高版本</block>
   <block id="f7d09d43174d21d3203d6472d2543dc2" category="section-title">NetApp卷和聚合加密</block>
   <block id="381cfdf4e70ff7173296a764c78e97ae" category="paragraph">SAP HANA支持使用NetApp卷加密(NVE)和NetApp聚合加密(NAE)。</block>
@@ -3588,12 +3583,10 @@ SnapCenter 4.3.1支持NFSv4
   <block id="89579d729fbef030eb0080e68e88f112" category="paragraph">一个NVMe SSD (数据)最多支持5个SAP HANA主机。
 SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。
 相同的适用场景是AFF A800、AFF A70和AFF A90系统的内部NVMe磁盘。</block>
-  <block id="aa73ef84825182521094d3998757610f" category="list-text">AFF A150、AFF A250、AFF A400、AFF A70、AFF A800、 AFF A90、AFF A900、AFF A1K</block>
   <block id="9c485d8d0a0f2d60633001b05d342eed" category="doc">《采用NFS的NetApp FAS系统上的SAP HANA配置指南》</block>
   <block id="b7bda169ccba06e8cbcf02ba0fab5928" category="doc">《采用光纤通道协议的NetApp FAS系统上的SAP HANA配置指南》</block>
   <block id="a56f5f8ccd94f38be4e8a0f1faf81823" category="doc">《采用NFS的NetApp AFF系统上的SAP HANA—配置指南》</block>
   <block id="ef6ac0da06e1bd8eabd965442ae5668d" category="paragraph">Marco schön、NetApp</block>
-  <block id="47e4a9a1322865b7fd49caaf0207408a" category="list-text">AFF A150、AFF A250、AFF A400、AFF A70、AFF A800、 AFF A900、AFF A90、AFF A1K</block>
   <block id="a004afbb2c9ff596c570f05cacd1d651" category="section-title">NetApp FlexGroup卷</block>
   <block id="cfb6b0dd52bfc75b4646448807e41154" category="paragraph">SAP HANA不支持使用NetApp FlexGroup卷。由于SAP HANA的架构、使用FlexGroup卷不会带来任何优势、可能会导致性能问题。</block>
   <block id="0500aa4516d90775e7cd20e0b45fa4ad" category="sidebar">配置最佳实践</block>
@@ -4525,8 +4518,6 @@ SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。
   <block id="03595684b4248a265a5f7e534bd92c49" category="paragraph"><block ref="03595684b4248a265a5f7e534bd92c49" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ade510803f2b9aad765372451fd52da2" category="paragraph"><block ref="ade510803f2b9aad765372451fd52da2" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b2bc3f5a45ad0103150eddb5c0947895" category="paragraph"><block ref="b2bc3f5a45ad0103150eddb5c0947895" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="faa4100dbfa2cef1a0c4e0c3db26e5fc" category="paragraph"><block ref="faa4100dbfa2cef1a0c4e0c3db26e5fc" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="c464883cb94a3fba7db930a07cb34811" category="paragraph"><block ref="c464883cb94a3fba7db930a07cb34811" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4cd082d270e30712a5d973de884f7b9f" category="paragraph"><block ref="4cd082d270e30712a5d973de884f7b9f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="017e522349a0ff07067400d6b880e9df" category="paragraph">=:hard休息:::noofootter::ICONES: font :linkattrs::imagesdir:../media/</block>
   <block id="2267b0943e951c31d5f31c288b6bfbe6" category="paragraph">基于采用NFS协议的NetApp AFF的SAP HANA。</block>
@@ -4769,4 +4760,7 @@ SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。
   <block id="9adaadfddff33c2daa546229f2809747" category="list-text">使用SAP<block ref="b0aa3e7cad7b6222087aedbd4c799832" prefix=" " category="inline-code"></block>安装工具、通过在一个工作主机上运行以下命令来启动安装。使用<block ref="9676c5ff8ed94e9d3ceba55f16dde62f" prefix=" " category="inline-code"></block>选项添加第二个工作<block ref="d6075976fde6718b25d21e4894d5d07d" prefix="(" category="inline-code"></block>台()和备用主机<block ref="7e4282317c0dcc7ce1f24f047b09f466" prefix="(" category="inline-code"></block>()。</block>
   <block id="dc6dd758c7cbed933fdee36ba03835f9" category="admonition">命令行界面选项中包含了用于存储准备文件的<block ref="09c9689230344c41364f0fa22da928c6" prefix=" " category="inline-code"></block>目录<block ref="1611b9881f1a590d33bbbcfdd9c55ca7" prefix=" " category="inline-code"></block><block ref="1b723e0f23eac7863dadd5b0b02436e4" prefix="(" category="inline-code"></block>)。</block>
   <block id="b5b2eafc66ebc94cfb50a26c15cf1f52" category="paragraph">使用SAP<block ref="e57381f2a2aa941f8d88ba956c77d978" prefix=" " category="inline-code"></block>安装工具、通过在一个工作主机上运行以下命令来启动安装。使用<block ref="9676c5ff8ed94e9d3ceba55f16dde62f" prefix=" " category="inline-code"></block>选项添加第二个工作空间(sapcc-hana TST-06)和备用主机(sapcc-hana TST-07)。CLI选项中包含了已准备文件的存储<block ref="09c9689230344c41364f0fa22da928c6" prefix=" " category="inline-code"></block>目录<block ref="1611b9881f1a590d33bbbcfdd9c55ca7" prefix=" " category="inline-code"></block><block ref="1b723e0f23eac7863dadd5b0b02436e4" prefix="(" category="inline-code"></block>)。根据所使用的操作系统版本，可能需要先安装 phyton 2.7 ，然后再安装 SAP HANA 数据库。</block>
+  <block id="1a808aae97e904d2d0d8b853c60fa475" category="list-text">AFF A150、AFF A20、AFF A250、AFF A30、AFF A400、AFF A50、AFF A900、AFF A1K、AFF A90、AFF A70、AFF A800</block>
+  <block id="19fe8eb256f35b3d5110d29e652ce432" category="list-text">AFF C250、AFF C30、AFF C400、AFF C60、AFF C800、AFF C80</block>
+  <block id="968cad2bf5c711dad5ccd0efa3e1ff9f" category="list-text">AFF A150、AFF A20、AFF A250、AFF A30、AFF A400、AFF A50、AFF A90、AFF A1K、AFF A900、AFF A70、AFF A800</block>
 </blocks>
