@@ -11,7 +11,7 @@ summary: NetApp FAS 产品系列已通过认证，可在定制数据中心集成
 [role="lead"]
 NetApp FAS 产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用。经过认证的企业级存储系统采用 NetApp ONTAP 软件的特征。
 
-NetApp 公司 Nil Bauser 和 Marco schön
+Marco schön、NetApp
 
 此认证目前仅适用于以下型号：
 
@@ -81,7 +81,7 @@ image:saphana-fas-nfs_image1.png["图中显示了输入/输出对话框或表示
 
 可以通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。使用此选项时，物理主机和 VM 之间的主机和存储配置不会有所不同。
 
-此外，还支持 NFS 数据存储库或采用 NFS 的 VVol 数据存储库。对于这两个选项，数据存储库中只能存储一个 SAP HANA 数据或日志卷，以用于生产用例。此外，无法实施由 SnapCenter 协调的基于 Snapshot 副本的备份和恢复，以及基于此操作的解决方案，例如 SAP 系统克隆。
+此外，还支持 NFS 数据存储库或采用 NFS 的 VVol 数据存储库。对于这两个选项，数据存储库中只能存储一个 SAP HANA 数据或日志卷，以用于生产用例。
 
 本文档介绍了从子操作系统直接挂载 NFS 的建议设置。
 

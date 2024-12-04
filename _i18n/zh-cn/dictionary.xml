@@ -809,7 +809,6 @@
   <block id="d8c167d8f4fbaa19b28b96b8f9830293" category="paragraph">正常运行期间，灾难恢复站点上的服务器可用作开发 / 测试系统。发生灾难时，需要关闭开发 / 测试系统并将其作为灾难恢复生产服务器启动。</block>
   <block id="5a19cb1f3722bd59393efe7cbc853747" category="summary">NetApp AFF 系统产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用。经过认证的企业级存储系统采用 NetApp ONTAP 软件的特征。</block>
   <block id="8290e539e87b39f4743f2a941a37d00d" category="doc">TR-4435 ：《采用 NFS 的 NetApp AFF 系统上的 SAP HANA —配置指南》</block>
-  <block id="ccc35786789b66e9752e6f8cde933754" category="paragraph">NetApp 公司 Nil Bauser 和 Marco schön</block>
   <block id="af01ac16ca42b9b924b834a3199131e9" category="paragraph">此认证适用于以下型号：</block>
   <block id="793f62e70c31f71a93161db091bea2c0" category="paragraph">有关使用 FCP 的 NetApp AFF 系统以及使用 NFS 或 FCP 的 FAS 系统的配置指南，请访问以下链接：</block>
   <block id="fd645c3ffaeed1c3efb140082b037a69" category="inline-link">基于采用光纤通道协议的 NetApp FAS 系统的 SAP HANA</block>
@@ -833,7 +832,6 @@
   <block id="e0f43a4c6e28079f6afdc78865b7782e" category="admonition">有关操作系统配置准则和特定于 HANA 的 Linux 内核依赖关系，请参见相关 SAP 注释。有关详细信息，请参见 SAP 注释 2235581 ： SAP HANA 支持的操作系统。</block>
   <block id="5d75848b6169b06c4cd7d6a8c2ec2337" category="paragraph">NetApp AFF 存储控制器已通过 SAP HANA TDI 计划的认证，并同时使用 NFS （ NAS ）和 FC （ SAN ）协议。它们可以部署在任何当前 SAP HANA 方案中，例如采用单主机或多主机配置的基于 HANA 的 SAP Business Suite ， S/4HANA ， BB/4HANA 或基于 HANA 的 SAP Business Warehouse 。任何经认证可与 SAP HANA 结合使用的服务器均可与 NetApp 认证的存储解决方案结合使用。有关 SAP HANA TDI 的架构概述，请参见下图。</block>
   <block id="4769b140b92a70ffdab406be16d30122" category="paragraph">可通过多种方法将存储连接到虚拟机（ VM ）。首选选项是直接从子操作系统中连接具有 NFS 的存储卷。使用此选项时，物理主机和 VM 的主机和存储配置不会有所不同。</block>
-  <block id="35eb3c62d099b5d5e6334b74d5b2bcff" category="paragraph">此外，还支持 NFS 数据存储库和采用 NFS 的 VVol 数据存储库。对于这两个选项，数据存储库中只能存储一个 SAP HANA 数据或日志卷，以用于生产用例。此外，无法实施由 NetApp SnapCenter 和基于此的解决方案协调的基于 Snapshot 的备份和恢复，例如 SAP 系统克隆。</block>
   <block id="f7fbf8be79b2dbbf7cca7d63ea2aaa3e" category="paragraph">本文档介绍了从子操作系统直接挂载 NFS 的建议设置。</block>
   <block id="181fc43b08ba57214c4bbd2448ec470d" category="list-text"><block ref="181fc43b08ba57214c4bbd2448ec470d" category="inline-link-macro-rx"></block></block>
   <block id="302092b20c647fa4f675ff96913675f9" category="list-text"><block ref="302092b20c647fa4f675ff96913675f9" category="inline-link-macro-rx"></block></block>
@@ -845,7 +843,6 @@
   <block id="b33f6954e7bec0569d3be6ef5cea4d1d" category="paragraph">有关使用 NFS 和 NetApp AFF 系统的 FAS 系统的配置指南，请访问以下链接：</block>
   <block id="1800d8919a8de7dbf0bdd4d4ef0a94f4" category="paragraph">在 SAP HANA 多主机环境中，标准 SAP HANA 存储连接器用于在发生 SAP HANA 主机故障转移时提供隔离。有关操作系统配置准则和 HANA 专用 Linux 内核依赖关系的信息，请参见相关 SAP 注释。有关详细信息，请参见<block ref="362348e4aadbc3b1dc4fa3ddcce8fb65" category="inline-link-rx"></block>。</block>
   <block id="324c1541e14a4687bde362da7f340662" category="paragraph">NetApp FAS 存储控制器已通过使用 NFS （ NAS ）和光纤通道（ SAN ）协议的 SAP HANA 定制数据中心集成（ TDI ）计划的认证。它们可以部署在任何 SAP HANA 方案中，例如采用单主机或多主机配置的基于 HANA 的 SAP Business Suite ， S/4HANA ， BB/4HANA 或基于 HANA 的 SAP Business Warehouse 。任何经认证可与 SAP HANA 结合使用的服务器均可与经过认证的存储解决方案结合使用。有关架构概述，请参见下图。</block>
-  <block id="2119e51f96366de40a69723f79096b89" category="paragraph">此外，还支持原始设备映射（ RDM ）， FCP 数据存储库或具有 FCP 的 VVol 数据存储库。对于这两个数据存储库选项，数据存储库中只能存储一个 SAP HANA 数据或日志卷，以便在高效使用情形下使用。此外，无法实施由 SnapCenter 和基于此的解决方案协调的基于 Snapshot 的备份和恢复，例如 SAP 系统克隆。</block>
   <block id="3823dde38e881edb5563cdd3b64099ba" category="summary">以下是 SAP HANA 软件安装的要求。</block>
   <block id="d62e297e0f46d31deba4b84efdfafc32" category="paragraph">安装 SAP HANA 软件不需要为单主机系统做任何其他准备。</block>
   <block id="07f50886cb51dc3f90123d42cf009896" category="summary">SAP HANA 主机使用冗余 FCP 基础架构和多路径软件连接到存储控制器。</block>
@@ -916,7 +913,6 @@
   <block id="fdb63fa26dfca812f4f453ca18a829c7" category="section-title">SAP HANA 量身定制的数据中心集成</block>
   <block id="c2798d82f6c464fd30d247919005bc5b" category="paragraph">NetApp FAS 存储控制器已通过 SAP HANA TDI 计划的认证，并同时使用 NFS （ NAS ）和 FC （ SAN ）协议。它们可以部署在任何当前 SAP HANA 方案中，例如采用单主机或多主机配置的基于 HANA 的 SAP Business Suite ， S/4HANA ， BB/4HANA 或基于 HANA 的 SAP Business Warehouse 。任何经认证可与 SAP HANA 结合使用的服务器均可与 NetApp 认证的存储解决方案结合使用。有关架构概述，请参见下图。</block>
   <block id="cd67947f6f1984974a5e507afaa2222d" category="paragraph">可以通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。使用此选项时，物理主机和 VM 之间的主机和存储配置不会有所不同。</block>
-  <block id="3e0badc46d16811661a7977c8991b3ea" category="paragraph">此外，还支持 NFS 数据存储库或采用 NFS 的 VVol 数据存储库。对于这两个选项，数据存储库中只能存储一个 SAP HANA 数据或日志卷，以用于生产用例。此外，无法实施由 SnapCenter 协调的基于 Snapshot 副本的备份和恢复，以及基于此操作的解决方案，例如 SAP 系统克隆。</block>
   <block id="a3bc23f60d8778684d75db7b4d688fae" category="summary">本节介绍 NetApp 存储系统的配置。您必须根据相应的 Data ONTAP 设置和配置指南完成主安装和设置。</block>
   <block id="429f30a2f19f5542c01260900f1268d8" category="paragraph">QoS 可用于限制共享控制器上特定 SAP HANA 系统或非 SAP 应用程序的存储吞吐量。其中一个使用情形是，限制开发和测试系统的吞吐量，使其不会影响混合环境中的生产系统。</block>
   <block id="dc8101343408623d860369896b9691df" category="paragraph">您可以在 FabricPool 或 SnapMirror 目标等备份目标上使用仅 Snapshot 分层策略和 SnapVault 。</block>
@@ -1606,8 +1602,6 @@
   <block id="293e9d744a4c2a3dfc4088f7b8aa25d5" category="doc">SAP 解决方案视频和演示</block>
   <block id="2259bdd472d4d2949e3eea23b5e4ef34" category="paragraph">重点介绍 SAP 解决方案的视频和演示概述。</block>
   <block id="aa5b0840e871ca382a477398de4a7243" category="section-title">SAP 配置最佳实践视频和演示</block>
-  <block id="c482c0b5b51f55ba9a7c2dcdee1f4339" category="inline-link-macro">SAP HANA 在 NetApp 基础架构上运行最佳</block>
-  <block id="442aae40221b985ca5667a9e47a977f6" category="inline-link-macro">SAP on Azure NetApp Files ：概述和更新</block>
   <block id="ed2640c6c02db4ce182af25c797097d8" category="section-title">SAP 备份，还原和灾难恢复视频和演示</block>
   <block id="eabc448bcef35b3d5eb92882f22f6f0c" category="inline-link-macro">适用于 SAP HANA 的灾难恢复选项</block>
   <block id="dd39ffa36b8ed682c45520c7d7dc8517" category="summary">SAP 生命周期管理工具和提示</block>
@@ -3990,8 +3984,6 @@ SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。
   <block id="30dac510a408bf8be8dd4336d96b482f" category="cell">适应SnapCenter 4.6 P1中变更的工作流</block>
   <block id="f66bc2df80ac37f354b591907be92e18" category="cell">2024年7月</block>
   <block id="17fb9a63c15de98fb13578ff5b945b03" category="paragraph">文档涵盖内部部署的NetApp系统、 FSx for ONTAP和Azure NetApp Files +新的SnapCenter 5.0操作在克隆创建和删除工作流期间挂载和卸载+为光纤通道SAN添加了特定步骤+为Azure NetApp Files添加了特定步骤+经过调整和简化的<block ref="d8eec050302627350eb082c264bec8f6" prefix=" " category="inline-code"></block> 脚本+为已启用的SAP HANA提供了所需步骤 卷加密</block>
-  <block id="0a93e03f240cb8b42069573a99818021" category="list-text"><block ref="0a93e03f240cb8b42069573a99818021" category="inline-link-macro-rx"></block></block>
-  <block id="77b50001f65f6144e393afa83a9d4e21" category="list-text"><block ref="77b50001f65f6144e393afa83a9d4e21" category="inline-link-macro-rx"></block></block>
   <block id="a5cf81e748f3b3e6fad26b2e3470f879" category="list-text"><block ref="a5cf81e748f3b3e6fad26b2e3470f879" category="inline-link-macro-rx"></block></block>
   <block id="87c8349f2562b9df828a79206981328c" category="list-text"><block ref="87c8349f2562b9df828a79206981328c" category="inline-link-macro-rx"></block></block>
   <block id="20a0dcae2f540339bbf69dbaa7f0050a" category="list-text"><block ref="20a0dcae2f540339bbf69dbaa7f0050a" category="inline-link-macro-rx"></block></block>
@@ -4763,4 +4755,7 @@ SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。
   <block id="1a808aae97e904d2d0d8b853c60fa475" category="list-text">AFF A150、AFF A20、AFF A250、AFF A30、AFF A400、AFF A50、AFF A900、AFF A1K、AFF A90、AFF A70、AFF A800</block>
   <block id="19fe8eb256f35b3d5110d29e652ce432" category="list-text">AFF C250、AFF C30、AFF C400、AFF C60、AFF C800、AFF C80</block>
   <block id="968cad2bf5c711dad5ccd0efa3e1ff9f" category="list-text">AFF A150、AFF A20、AFF A250、AFF A30、AFF A400、AFF A50、AFF A90、AFF A1K、AFF A900、AFF A70、AFF A800</block>
+  <block id="54652d040ebb810c360684ca8e231a52" category="paragraph">此外，还支持 NFS 数据存储库或采用 NFS 的 VVol 数据存储库。对于这两个选项，数据存储库中只能存储一个 SAP HANA 数据或日志卷，以用于生产用例。</block>
+  <block id="7d631f41ea82e4581ac749b6874d885a" category="paragraph">此外，还支持原始设备映射（ RDM ）， FCP 数据存储库或具有 FCP 的 VVol 数据存储库。对于这两个数据存储库选项，数据存储库中只能存储一个 SAP HANA 数据或日志卷，以便在高效使用情形下使用。</block>
+  <block id="efd1d0d586a27578c98f10496d441cd4" category="paragraph">此外，还支持 NFS 数据存储库和采用 NFS 的 VVol 数据存储库。对于这两个选项，数据存储库中只能存储一个 SAP HANA 数据或日志卷，以用于生产用例。</block>
 </blocks>

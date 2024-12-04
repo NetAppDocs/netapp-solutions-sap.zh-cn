@@ -20,10 +20,6 @@ keywords: netapp, solutions, SAP, videos, demos
 
 == SAP 配置最佳实践视频和演示
 
-* link:https://media.netapp.com/video-detail/71853836-ac06-50bf-a579-01ff36851580/sap-hana-runs-best-on-netapp-infrastructure-brk-1114-2["SAP HANA 在 NetApp 基础架构上运行最佳"^]
-* link:https://media.netapp.com/video-detail/60bf8c7c-d14d-5463-b839-4e1c8daca1a3/sap-on-azure-netapp-files-overview-and-updates-brk-1453-2["SAP on Azure NetApp Files ：概述和更新"^]
-
-
 
 
 === SAP 备份，还原和灾难恢复视频和演示
