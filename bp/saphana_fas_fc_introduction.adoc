@@ -15,7 +15,7 @@ NetApp 公司 Marco Schoen
 
 此认证适用于以下型号：
 
-* FAS2750、FAS2820、FAS8300、FAS8700、FAS70、 FAS9500、FAS90
+* FAS2750、FAS2820、FAS8300、FAS50、FAS8700、 FAS70、FAS9500、FAS90
 
 
 有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见 https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:13["经过认证并受支持的 SAP HANA 硬件目录"^]。

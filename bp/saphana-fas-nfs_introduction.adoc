@@ -15,7 +15,7 @@ Marco schön、NetApp
 
 此认证目前仅适用于以下型号：
 
-* FAS2750、FAS2820、FAS8300、FAS8700、FAS70、FAS9500、FAS90有关适用于SAP HANA的NetApp认证存储解决方案的完整列表，请访问 https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:13["经过认证并受支持的 SAP HANA 硬件目录"^]。
+* FAS2750、FAS2820、FAS8300、FAS50、FAS8700、FAS70、FAS9500、FAS90有关适用于SAP HANA的NetApp认证存储解决方案的完整列表，请访问 https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:13["经过认证并受支持的 SAP HANA 硬件目录"^]。
 
 
 本文档介绍了 NFS 版本 3 （ NFSv3 ）协议或 NFS 版本 4 （ NFSv4.1 ）协议的 ONTAP 配置要求。

@@ -933,9 +933,6 @@
   <block id="9edbcb82e27829dd83ad8ddf87b121c5" category="paragraph">如果在创建新 SVM 时自动创建和分配了 QoS 配置文件，请从 SVM 中删除此自动创建的配置文件，以确保 SAP HANA 具有所需的性能：</block>
   <block id="5d32d4572d40717acaf8b9ef008f4901" category="paragraph">在存储集群配置中，必须创建一个网络接口（ LIF ）并将其分配给一个专用 FCP 端口。例如，如果出于性能原因需要四个 FCP 端口，则必须创建四个 LIF 。下图显示了在 `HANA` SVM 上配置的八个 LIF （名为 `fc_*` ）的屏幕截图。</block>
   <block id="ad0e46aa05fcef2f37453adf0ef136ec" category="paragraph">在使用 ONTAP 9.8 System Manager 创建 SVM 期间，您可以选择所有所需的物理 FCP 端口，并自动为每个物理端口创建一个 LIF 。</block>
-  <block id="fd32c02d4b7251741240b397ff65496a" category="section-title">FCP 端口集</block>
-  <block id="934baa69e76d9725b7833c87e6c67cba" category="paragraph">FCP 端口集用于定义特定启动程序组要使用的 LIF 。通常，为 HANA 系统创建的所有 LIF 都置于同一端口集中。下图显示了一个名为 32g 的端口集的配置，其中包括已创建的四个 LIF 。</block>
-  <block id="ba21da193047a8b196b8513f3735ad5c" category="admonition">在 ONTAP 9.8 中，不需要端口集，但可以通过命令行创建和使用该端口集。</block>
   <block id="3dc0bb550ffeb410b2cbe908abda2020" category="section-title">SAP HANA 单主机系统的卷和 LUN 配置</block>
   <block id="2cd30dd459c96f8423572cfd0315dd72" category="paragraph">下图显示了四个单主机 SAP HANA 系统的卷配置。每个 SAP HANA 系统的数据卷和日志卷会分布到不同的存储控制器。例如，在控制器 A 上配置了卷 `SID1_data_mnt00001` ，在控制器 B 上配置了卷 `SID1_log_mnt00001`在每个卷中，会配置一个 LUN 。</block>
   <block id="a2ab47e506561509501f3015dfd353bb" category="admonition">如果 SAP HANA 系统仅使用 HA 对中的一个存储控制器，则数据卷和日志卷也可以存储在同一个存储控制器上。</block>
@@ -1028,8 +1025,6 @@
   <block id="e9fc49c5c730458783a8ccd4b98a94c5" category="paragraph">在存储集群配置中，必须创建一个网络接口（ LIF ）并将其分配给一个专用 FCP 端口。例如，如果出于性能原因需要四个 FCP 端口，则必须创建四个 LIF 。下图显示了在 `HANA` SVM 上配置的四个 LIF （名为 `fc_* ）` 的屏幕截图。</block>
   <block id="34cf3cce20e89b361817cb8171e434a6" category="paragraph">在使用 ONTAP 9.8 System Manager 创建 SVM 期间，可以选择所有必需的物理 FCP 端口，并自动为每个物理端口创建一个 LIF 。</block>
   <block id="d5b418c423bd08ad0961e2eb57962d5a" category="paragraph">下图展示了使用 ONTAP 9.8 System Manager 创建 SVM 和 LIF 的过程。</block>
-  <block id="1031bd6cfd51714668c70d35fdf12489" category="paragraph">FCP 端口集用于定义特定 igroup 要使用的 LIF 。通常，为 HANA 系统创建的所有 LIF 都置于同一端口集中。下图显示了一个名为 32g 的端口集的配置，其中包括已创建的四个 LIF 。</block>
-  <block id="825d239e42d5cc598eb01f3b672bc521" category="admonition">在 ONTAP 9.8 中，不需要端口集，但可以通过命令行创建和使用该端口集。</block>
   <block id="6651fd2f7a600a31e0103b2ff23752ca" category="section-title">启动程序组</block>
   <block id="517f95ae0c03c21432632bd009cdff0d" category="paragraph">可以为每个服务器或需要访问 LUN 的一组服务器配置 igroup 。igroup 配置需要服务器的全球通用端口名称（ Worldwide Port Name ， WWPN ）。</block>
   <block id="3f87e8b9731d5a43155ef27ca0b567af" category="paragraph">使用 `sanlun` 工具，运行以下命令以获取每个 SAP HANA 主机的 WWPN ：</block>
@@ -3438,7 +3433,6 @@
   <block id="2976619a79e897d24427ec6796aa4a70" category="paragraph">如果使用具有主机自动故障转移功能的SAP HANA多主机系统、则需要在中调整故障转移参数<block ref="46649585ec21482ae2e5fcac30c7dcae" prefix=" " category="inline-code"></block> 如下表所示。
 在这些部分中、保持默认重试间隔10秒。</block>
   <block id="73d4ace7e434b8709f5a930ad845d6d6" category="paragraph">如果使用具有主机自动故障转移功能的SAP HANA多主机系统、则需要在中调整故障转移参数<block ref="46649585ec21482ae2e5fcac30c7dcae" prefix=" " category="inline-code"></block> 如下表所示。请在这些部分中保留默认重试间隔 10 秒。</block>
-  <block id="7165d8e624155bf7a4889b98927f605c" category="list-text">ASA C250、ASA C400、ASA C800</block>
   <block id="ba7dc8a883957fda819c429f468dc4d0" category="admonition">NetApp AFF和ASA C系列要求使用NetApp ONTAP 9.13.1.或更高版本</block>
   <block id="b5816060ccee493fc8a2946c9d33de20" category="paragraph">您可以使用NetApp Snapshot技术在几分钟内创建数据库备份。</block>
   <block id="5cd519503ff0d358e76b5be6e9b7d14e" category="paragraph">创建 Snapshot 副本所需的时间与数据库大小无关，因为 Snapshot 副本不会移动存储平台上的任何物理数据块。此外，使用 Snapshot 技术不会影响实时 SAP 系统的性能。因此，您可以计划创建 Snapshot 副本，而无需考虑对话峰值或批处理活动期间。SAP和NetApp客户通常会在一天内计划多个联机Snapshot备份；例如、每六小时备份一次很常见。这些Snapshot备份通常会在主存储系统上保留三到五天、然后再被删除或分层到更便宜的存储中以供长期保留。</block>
@@ -4024,11 +4018,8 @@ SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。
   <block id="74aaeb9485407660c737f5870ea94649" category="paragraph"><block ref="74aaeb9485407660c737f5870ea94649" category="inline-link-rx"></block></block>
   <block id="e5e2a6bf28307550240d9ed91bbb0fa0" category="paragraph"><block ref="e5e2a6bf28307550240d9ed91bbb0fa0" category="inline-link-rx"></block></block>
   <block id="bc83c6be4c9eaece698b7eb18b8517a0" category="paragraph"><block ref="bc83c6be4c9eaece698b7eb18b8517a0" category="inline-link-rx"></block></block>
-  <block id="43f4de9c790b46b4e976d930374377ea" category="list-text">FAS2750、FAS2820、FAS8300、FAS8700、FAS70、FAS9500、FAS90有关适用于SAP HANA的NetApp认证存储解决方案的完整列表，请访问<block ref="b94cf00a6e18ec3712e81f808581c042" category="inline-link-rx"></block>。</block>
   <block id="a36cfc2690f8671748f584abb16bdd04" category="cell">新存储系统</block>
-  <block id="df23cd28bc74a571210f66246272e69f" category="list-text">ASA A250、ASA A400、ASA A70、ASA A800、ASA A900、ASA A90、ASA A1K</block>
   <block id="0fba9f2a3fbb4cfbaed44806cd9933a2" category="cell">新存储系统(ASA A系列)</block>
-  <block id="6b31c1796a51111b23246e86a060d273" category="list-text">FAS2750、FAS2820、FAS8300、FAS8700、FAS70、 FAS9500、FAS90</block>
   <block id="5e8f0f670e38fbdf628b0883f946934f" category="inline-image-macro">图中显示了输入/输出对话框或表示已写入内容</block>
   <block id="085efbf60b3725eeb0ee8ff55a22a221" category="paragraph"><block ref="085efbf60b3725eeb0ee8ff55a22a221" category="inline-image-macro-rx" type="image"></block></block>
   <block id="07d652acdae0a73446e157f933c39530" category="paragraph"><block ref="07d652acdae0a73446e157f933c39530" category="inline-image-macro-rx" type="image"></block></block>
@@ -4507,7 +4498,6 @@ SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。
   <block id="5a053d099bd71f6622608db75861b1e5" category="paragraph"><block ref="5a053d099bd71f6622608db75861b1e5" category="inline-image-macro-rx" type="image"></block></block>
   <block id="98388228afa94a728226d844929284de" category="paragraph"><block ref="98388228afa94a728226d844929284de" category="inline-image-macro-rx" type="image"></block></block>
   <block id="cfd97e0a15391e975214c5503e96d423" category="paragraph"><block ref="cfd97e0a15391e975214c5503e96d423" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="03595684b4248a265a5f7e534bd92c49" category="paragraph"><block ref="03595684b4248a265a5f7e534bd92c49" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ade510803f2b9aad765372451fd52da2" category="paragraph"><block ref="ade510803f2b9aad765372451fd52da2" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b2bc3f5a45ad0103150eddb5c0947895" category="paragraph"><block ref="b2bc3f5a45ad0103150eddb5c0947895" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4cd082d270e30712a5d973de884f7b9f" category="paragraph"><block ref="4cd082d270e30712a5d973de884f7b9f" category="inline-image-macro-rx" type="image"></block></block>
@@ -4552,7 +4542,6 @@ SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。
   <block id="17170cd9736b0e2a3d8f78d16953b327" category="paragraph"><block ref="17170cd9736b0e2a3d8f78d16953b327" category="inline-image-macro-rx" type="image"></block></block>
   <block id="09f7121854e4295fd6f96bdc2d4acb8c" category="paragraph"><block ref="09f7121854e4295fd6f96bdc2d4acb8c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="9a54eb14eb1b0ca1cf8ecb90dd6622cf" category="paragraph"><block ref="9a54eb14eb1b0ca1cf8ecb90dd6622cf" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="6746b37c7a3b79f38aca9f144e491303" category="paragraph"><block ref="6746b37c7a3b79f38aca9f144e491303" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b1c9f17a28c7142387820fd5a82c9b6e" category="paragraph"><block ref="b1c9f17a28c7142387820fd5a82c9b6e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="333255d2c26de498b8eb10dcfa6381fb" category="paragraph"><block ref="333255d2c26de498b8eb10dcfa6381fb" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0f4ac82fd0de794eae50e4e7545b6b84" category="paragraph"><block ref="0f4ac82fd0de794eae50e4e7545b6b84" category="inline-image-macro-rx" type="image"></block></block>
@@ -4758,4 +4747,12 @@ SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。
   <block id="54652d040ebb810c360684ca8e231a52" category="paragraph">此外，还支持 NFS 数据存储库或采用 NFS 的 VVol 数据存储库。对于这两个选项，数据存储库中只能存储一个 SAP HANA 数据或日志卷，以用于生产用例。</block>
   <block id="7d631f41ea82e4581ac749b6874d885a" category="paragraph">此外，还支持原始设备映射（ RDM ）， FCP 数据存储库或具有 FCP 的 VVol 数据存储库。对于这两个数据存储库选项，数据存储库中只能存储一个 SAP HANA 数据或日志卷，以便在高效使用情形下使用。</block>
   <block id="efd1d0d586a27578c98f10496d441cd4" category="paragraph">此外，还支持 NFS 数据存储库和采用 NFS 的 VVol 数据存储库。对于这两个选项，数据存储库中只能存储一个 SAP HANA 数据或日志卷，以用于生产用例。</block>
+  <block id="cb1774d583cd49c1e7fc03a9172f09d9" category="list-text">FAS2750、FAS2820、FAS8300、FAS50、FAS8700、FAS70、FAS9500、FAS90有关适用于SAP HANA的NetApp认证存储解决方案的完整列表，请访问<block ref="b94cf00a6e18ec3712e81f808581c042" category="inline-link-rx"></block>。</block>
+  <block id="68a4c90b9b4251c2e6c62854e0f0e383" category="cell">新存储系统和次要更新</block>
+  <block id="6cc5c9e930ea3d3b8bff4367c60ceea4" category="cell">2025年2月</block>
+  <block id="15cd132980dad32e9c3c529955721df9" category="cell">新存储系统</block>
+  <block id="4433e4b3b7ec2b20f062036b1b011af7" category="list-text">ASA A250、ASA A20、ASA A30、ASA A400、ASA A50、ASA A70、ASA A800、ASA A900、ASA A90、ASA A1K</block>
+  <block id="2134d42f2b0f54791bb238214fdc5110" category="list-text">ASA C250、ASA C30、ASA C400、ASA C60、ASA C800、ASA C80</block>
+  <block id="a10922577a9bcbf85b1a7a9d8e7de5aa" category="cell">2024年11月</block>
+  <block id="53bab281b7eb6692b17a4b65d99e2188" category="list-text">FAS2750、FAS2820、FAS8300、FAS50、FAS8700、 FAS70、FAS9500、FAS90</block>
 </blocks>

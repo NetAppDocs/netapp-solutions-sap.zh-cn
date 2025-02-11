@@ -134,17 +134,6 @@ image:saphana_fas_fc_image15.jpeg["图中显示了输入/输出对话框或表�
 
 
 
-== FCP 端口集
-
-FCP 端口集用于定义特定 igroup 要使用的 LIF 。通常，为 HANA 系统创建的所有 LIF 都置于同一端口集中。下图显示了一个名为 32g 的端口集的配置，其中包括已创建的四个 LIF 。
-
-image:saphana_fas_fc_image16.jpeg["图中显示了输入/输出对话框或表示已写入内容"]
-
-
-NOTE: 在 ONTAP 9.8 中，不需要端口集，但可以通过命令行创建和使用该端口集。
-
-
-
 == 启动程序组
 
 可以为每个服务器或需要访问 LUN 的一组服务器配置 igroup 。igroup 配置需要服务器的全球通用端口名称（ Worldwide Port Name ， WWPN ）。

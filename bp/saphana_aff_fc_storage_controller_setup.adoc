@@ -69,7 +69,7 @@ FabricPool 是将日志备份移动到另一存储层的理想选择。移动备
 . 创建并配置所需的聚合，如 "<<聚合配置>>。 "
 . 创建 Storage Virtual Machine （ SVM ），如 "<<Storage Virtual Machine 配置>>。 "
 . 创建逻辑接口（ LIF ），如 "<<逻辑接口配置>>。 "
-. 创建端口集，如 "<<FCP 端口集>>。 "
+. 创建端口集，如 "<<FCP port sets>>。 "
 . 在聚合中创建启动程序组、卷和LUN、如创建""中所述<<Creating LUNs,卷、并将LUN映射到启动程序组>>。
 
 
@@ -128,17 +128,6 @@ image:saphana_aff_fc_image13.jpeg["图中显示了输入/输出对话框或表�
 在使用 ONTAP 9.8 System Manager 创建 SVM 期间，您可以选择所有所需的物理 FCP 端口，并自动为每个物理端口创建一个 LIF 。
 
 image:saphana_aff_fc_image14.jpeg["图中显示了输入/输出对话框或表示已写入内容"]
-
-
-
-== FCP 端口集
-
-FCP 端口集用于定义特定启动程序组要使用的 LIF 。通常，为 HANA 系统创建的所有 LIF 都置于同一端口集中。下图显示了一个名为 32g 的端口集的配置，其中包括已创建的四个 LIF 。
-
-image:saphana_aff_fc_image15.jpeg["图中显示了输入/输出对话框或表示已写入内容"]
-
-
-NOTE: 在 ONTAP 9.8 中，不需要端口集，但可以通过命令行创建和使用该端口集。
 
 
 
