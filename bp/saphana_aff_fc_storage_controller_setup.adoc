@@ -69,7 +69,6 @@ FabricPool 是将日志备份移动到另一存储层的理想选择。移动备
 . 创建并配置所需的聚合，如 "<<聚合配置>>。 "
 . 创建 Storage Virtual Machine （ SVM ），如 "<<Storage Virtual Machine 配置>>。 "
 . 创建逻辑接口（ LIF ），如 "<<逻辑接口配置>>。 "
-. 创建端口集，如 "<<FCP port sets>>。 "
 . 在聚合中创建启动程序组、卷和LUN、如创建""中所述<<Creating LUNs,卷、并将LUN映射到启动程序组>>。
 
 
@@ -81,30 +80,33 @@ FabricPool 是将日志备份移动到另一存储层的理想选择。移动备
 
 === SAS-based 磁盘架
 
-最多可以将一个磁盘架连接到一个 SAS 堆栈，以提供 SAP HANA 主机所需的性能，如下图所示。每个磁盘架中的磁盘必须在 HA 对的两个控制器之间平均分布。ADPv2 可用于 ONTAP 9 和新的 DS224C 磁盘架。
+最多可以将一个磁盘架连接到一个 SAS 堆栈，以提供 SAP HANA 主机所需的性能，如下图所示。每个磁盘架中的磁盘必须在 HA 对的两个控制器之间平均分布。ADPv2 可用于 ONTAP 9 和 DS224C 磁盘架。
 
 
 NOTE: 对于 DS224C 磁盘架，也可以使用四路径 SAS 布线，但这并不是必需的。
 
-image:saphana_aff_fc_image10.png["图中显示了输入/输出对话框或表示已写入内容"]
+image:saphana_aff_fc_image10.png["DS224C磁盘架连接"]
 
 
 
 === 基于 NVMe （ 100GbE ）的磁盘架
 
-每个 NS224 NVMe 桌面架都通过每个控制器的两个 100GbE 端口进行连接，如下图所示。每个磁盘架中的磁盘必须平均分布到 HA 对的两个控制器。NS224 磁盘架也使用 ADPv2 。
+每个NS224 NVMe磁盘架都通过每个控制器两个100GbE端口进行连接、如下图所示。每个磁盘架中的磁盘必须平均分布到 HA 对的两个控制器。NS224 磁盘架也使用 ADPv2 。
 
-image:saphana_aff_fc_image11.png["图中显示了输入/输出对话框或表示已写入内容"]
+image:saphana_aff_fc_image11a.png["NS224 NVMe磁盘架连接"]
 
 
 
 == 聚合配置
 
-通常，您必须为每个控制器配置两个聚合，而与使用的磁盘架或磁盘技术（ SSD 或 HDD ）无关。要使用所有可用的控制器资源，必须执行此步骤。对于 AFF A200 系列系统，一个数据聚合就足以满足要求。
+通常，您必须为每个控制器配置两个聚合，而与使用的磁盘架或磁盘技术（ SSD 或 HDD ）无关。要使用所有可用的控制器资源，必须执行此步骤。
+
+
+NOTE: 2024年8月之后发布的ASA系统不需要执行此步骤、因为它会自动完成
 
 下图显示了在配置了 ADPv2 的 12 Gb SAS 磁盘架上运行的 12 个 SAP HANA 主机的配置。每个存储控制器连接六个 SAP HANA 主机。配置了四个单独的聚合，每个存储控制器两个。每个聚合都配置有 11 个磁盘，其中包含九个数据分区和两个奇偶校验磁盘分区。每个控制器都有两个备用分区。
 
-image:saphana_aff_fc_image12.jpg["图中显示了输入/输出对话框或表示已写入内容"]
+image:saphana_aff_fc_image12a.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 
 
@@ -123,11 +125,14 @@ vserver modify -vserver <svm-name> -qos-policy-group none
 
 在存储集群配置中，必须创建一个网络接口（ LIF ）并将其分配给一个专用 FCP 端口。例如，如果出于性能原因需要四个 FCP 端口，则必须创建四个 LIF 。下图显示了在 `HANA` SVM 上配置的八个 LIF （名为 `fc_*` ）的屏幕截图。
 
-image:saphana_aff_fc_image13.jpeg["图中显示了输入/输出对话框或表示已写入内容"]
+image:saphana_aff_fc_image13a.png["逻辑接口覆盖"]
 
-在使用 ONTAP 9.8 System Manager 创建 SVM 期间，您可以选择所有所需的物理 FCP 端口，并自动为每个物理端口创建一个 LIF 。
+在使用ONTAP系统管理器创建SVM期间、您可以选择所有必需的物理FCP端口、系统会自动为每个物理端口创建一个LIF。
 
-image:saphana_aff_fc_image14.jpeg["图中显示了输入/输出对话框或表示已写入内容"]
+image:saphana_aff_fc_image14a.png["创建 SVM"]
+
+
+NOTE: 2024年8月之后发布的ASA系统不需要执行此步骤、因为它会自动完成
 
 
 
@@ -138,7 +143,7 @@ image:saphana_aff_fc_image14.jpeg["图中显示了输入/输出对话框或表�
 
 NOTE: 如果 SAP HANA 系统仅使用 HA 对中的一个存储控制器，则数据卷和日志卷也可以存储在同一个存储控制器上。
 
-image:saphana_aff_fc_image16.jpg["图中显示了输入/输出对话框或表示已写入内容"]
+image:saphana_aff_fc_image16a.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 对于每个 SAP HANA 主机，都会为 ` 或 HANA 或 Shared` 配置一个数据卷，一个日志卷和一个卷。下表显示了一个使用四个 SAP HANA 单主机系统的配置示例。
 
@@ -220,7 +225,7 @@ NOTE: 如果 SAP HANA 系统仅使用 HA 对中的一个存储控制器，则数
 
 NOTE: NetApp ASA AFF 系统不支持 NFS 协议。NetApp 建议为 ` /ha/shared` 文件系统使用额外的 AFF 或 FAS 系统。
 
-image:saphana_aff_fc_image17.jpg["图中显示了输入/输出对话框或表示已写入内容"]
+image:saphana_aff_fc_image17a.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 对于每个 SAP HANA 主机，系统会创建一个数据卷和一个日志卷。` HANA 系统的所有主机都使用` /hana / 共享 卷。下表显示了 4+1 多主机 SAP HANA 系统的配置示例。
 
@@ -377,6 +382,10 @@ vol create -volume FC5_log2_mnt00001  -aggregate aggr1_1 -size 280g -snapshot-po
 vol create -volume FC5_data2_mnt00002  -aggregate aggr2_1 -size 1200g -snapshot-policy none -foreground true -encrypt false -space-guarantee none
 vol create -volume FC5_shared -aggregate aggr1_1 -size 512g -state online -policy default -snapshot-policy none -junction-path /FC5_shared -encrypt false  -space-guarantee none
 ....
++
+
+NOTE: 2024年8月之后发布的ASA系统不需要执行此步骤、因为它会在_LUN cre同时 自动完成
+
 . 创建所有 LUN 。
 +
 ....
@@ -389,6 +398,10 @@ lun create -path /vol/FC5_log2_mnt00001/FC5_log2_mnt00001 -size 260g -ostype lin
 lun create -path /vol/FC5_log_mnt00002/FC5_log_mnt00002 -size 260g -ostype linux -space-reserve disabled -space-allocation disabled -class regular
 lun create -path /vol/FC5_log2_mnt00002/FC5_log2_mnt00002 -size 260g -ostype linux -space-reserve disabled -space-allocation disabled -class regular
 ....
++
+
+NOTE: 请仅提供LUN名称作为2024年8月之后启动的ASA系统的路径。这也适用于下面的_LUN map_命令。此外、选项--space-re储备_和--space-分配_不可用。
+
 . 为属于系统 FC5 的所有服务器创建启动程序组。
 +
 ....

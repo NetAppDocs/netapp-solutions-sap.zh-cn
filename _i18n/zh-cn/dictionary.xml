@@ -440,10 +440,7 @@
   <block id="d577a779ffdacd409ec756e191be8c6b" category="cell">40GbE</block>
   <block id="797c6d8f4bdab58ccf0409871daa900d" category="cell">100 个地理位置</block>
   <block id="29350e56cf985cc1c3055886a585be16" category="cell">每个物理端口的最大日志或数据卷挂载数</block>
-  <block id="c81e728d9d4c2f636f067f89cc14862c" category="cell">2.</block>
-  <block id="1679091c5a880faf6fb5e6087eb1b2dc" category="cell">6.</block>
   <block id="c20ad4d76fe97759aa27a0c99bff6710" category="cell">12</block>
-  <block id="1ff1de774005f8da13f42943881c655f" category="cell">24</block>
   <block id="4f405e1a75e4b7b8ec6f50946f0734fc" category="admonition">在不同 SAP HANA 主机之间共享一个 LIF 可能需要将数据或日志卷重新挂载到其他 LIF 。如果将卷移动到其他存储控制器，此更改可避免性能降低。</block>
   <block id="ea4399c89609128e15e361a718a71f5a" category="paragraph">开发和测试系统可以在物理网络接口上使用更多的数据和卷挂载或 LIF 。</block>
   <block id="93dc7819b20008ad7611ec3405b515ef" category="paragraph">对于生产，开发和测试系统， ` /ha/shared` 文件系统可以使用与数据或日志卷相同的 LIF 。</block>
@@ -624,7 +621,6 @@
   <block id="03ec21b0d762028e928e8b7603d1b5a0" category="admonition">对于 DS224C 磁盘架，也可以使用四路径 SAS 布线，但这并不是必需的。</block>
   <block id="bdf2df4b25ef7731104da665fef6a0bc" category="section-title">NVMe （ 100GbE ）磁盘架</block>
   <block id="c95631e026846b434e73e4f8b624c435" category="paragraph">每个 NS224 NVMe 磁盘架使用每个控制器的两个 100GbE 端口进行连接。每个磁盘架中的磁盘必须平均分布到 HA 对的两个控制器。聚合配置一章中所述的 ADPv2 也用于 NS224 磁盘架。下图显示了磁盘架与 NVMe 驱动器的连接。</block>
-  <block id="03513f35519e245e0d372c52a62dc871" category="paragraph">通常，您必须为每个控制器配置两个聚合，而不受所使用的磁盘架或驱动器技术（ SAS SSD 或 NVMe SSD ）的影响。要使用所有可用的控制器资源，必须执行此步骤。对于 AFF A200 系列系统，一个数据聚合就足够了。</block>
   <block id="f1c8039bfd9034e917c3ee25c37b6e80" category="paragraph">下图显示了在配置了 ADPv2 的 12 Gb SAS 磁盘架上运行的 12 个 SAP HANA 主机的配置。每个存储控制器连接六个 SAP HANA 主机。配置了四个单独的聚合，每个存储控制器两个。每个聚合都配置有 11 个磁盘，其中包含九个数据分区和两个奇偶校验磁盘分区。每个控制器都有两个备用分区。</block>
   <block id="99897c39b8224cf5a25fe9c6f599b3a7" category="section-title">SVM 配置</block>
   <block id="b37f183111116179ae8b8190b10de385" category="paragraph">使用 SAP HANA 数据库的多个 SAP 环境可以使用一个 SVM 。如果需要，还可以为每个 SAP 环境分配一个 SVM ，以防这些 SVM 由公司内的不同团队管理。</block>
@@ -689,7 +685,6 @@
   <block id="27cd945eb6d2a58787f658282dc8c114" category="admonition">这两种配置都使用高级磁盘分区（ Advanced Disk Partitioning ， ADPv2 ）。半负载磁盘架最多可支持九个 SAP HANA 主机，而满载磁盘架最多可在一个磁盘架中支持 14 个主机。SAP HANA 主机必须在两个存储控制器之间平均分布。相同的适用场景 AFF A700s 系统的内部磁盘。必须使用 12 Gb SAS 连接 DS224C 磁盘架，以支持 SAP HANA 主机的数量。</block>
   <block id="7168b6fab3d1fdb1f905b5d9064d3a24" category="paragraph">6 Gb SAS 磁盘架（ DS2246 ）最多支持四个 SAP HANA 主机。SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。</block>
   <block id="f1ae15f6fd143c9e1276af68c06658c7" category="cell">12 GB SAS 磁盘架（ DS224C ），半个装有 12 个 SSD 和 ADPv2</block>
-  <block id="336d2fc2904f8210c02f37eb24f92eca" category="admonition">添加更多磁盘架不会增加存储控制器可以支持的 SAP HANA 主机的最大数量。</block>
   <block id="fac3c55a3cdc98c6d08b96c048885f29" category="section-title">配置性能测试工具</block>
   <block id="918724fe4fec0578cd9e798f8152194e" category="paragraph">从 SAP HANA 1.0 SPS10 开始， SAP 引入了一些参数来调整 I/O 行为并针对所用文件和存储系统优化数据库。使用 SAP 性能测试工具测试存储性能时，还必须为 SAP 的性能测试工具设置这些参数。</block>
   <block id="c2cbcc154a82de8081d9414e0f5a0e72" category="paragraph">有关配置不同 SAP 测试工具的详细信息，请参见<block ref="ec90a615c6d378fa60ba8e7f2e7592b2" category="inline-link-rx"></block> 适用于 HWCCT （ SAP HANA 1.0 ）和<block ref="2912abb2c0271a2912b6a4a94888e0ec" category="inline-link-rx"></block> 适用于 HCMT/HCOT （ SAP HANA 2.0 ）。</block>
@@ -741,9 +736,7 @@
   <block id="8e07acfd1437feec339a101261f3d33e" category="list-text">在 VMware 设置中，必须为每个正在运行的虚拟机分配专用 VMXNET3 网络适配器。有关更多要求，请查看 " 简介 " 中提及的相关文章。</block>
   <block id="ba1e4c91d87d340db9164d860b5fae70" category="list-text">为避免彼此干扰，请在日志和数据区域使用单独的网络 /IO 路径。</block>
   <block id="faee62bb79701f4ef71263923314ff62" category="paragraph">下图显示了一个示例，其中四个 SAP HANA 主机使用 10GbE 网络连接到一个存储控制器 HA 对。每个 SAP HANA 主机都与冗余网络结构建立主动 - 被动连接。</block>
-  <block id="44597b05bc198603e6227f2548462391" category="paragraph">在存储层，配置了四个活动连接，可为每个 SAP HANA 主机提供 10 Gb 吞吐量。此外，还会在每个存储控制器上配置一个备用接口。</block>
   <block id="1efc1e7690d351bfed1ced8c36c4ee03" category="paragraph">在存储层，将配置 MTU 大小为 9000 的广播域，并将所有必需的物理接口添加到此广播域。此方法会自动将这些物理接口分配给同一故障转移组。分配给这些物理接口的所有逻辑接口（ LIF ）都会添加到此故障转移组中。</block>
-  <block id="3054a5405dd4f286779b953b08fbeacf" category="paragraph">通常，也可以在服务器（绑定）和存储系统（例如链路聚合控制协议（ Link Aggregation Control Protocol ， LACP ）和 ifgroups ）上使用 HA 接口组。使用 HA 接口组，验证负载是否在组内的所有接口之间平均分布。负载分布取决于网络交换机基础架构的功能。</block>
   <block id="0e9b7a6bc69692a6125fb9b457a42e62" category="admonition">根据 SAP HANA 主机的数量和使用的连接速度，需要不同数量的活动物理端口。有关详细信息，请参见一节 <block ref="53f775602a3eaa10214452e4a87da1ea" category="inline-link-macro-rx"></block>。</block>
   <block id="283bdd66e3d6ab214e33d303e668536e" category="section-title">VMware 专用网络设置</block>
   <block id="970db5841ccfee51a6e5d4efea5c84f3" category="paragraph">正确的网络设计和配置至关重要，因为 SAP HANA 实例的所有数据，包括数据库的性能关键型数据和日志卷，均通过此解决方案中的 NFS 提供。专用存储网络用于将 NFS 流量与 SAP HANA 节点之间的通信和用户访问流量分开。每个 SAP HANA 节点都需要一个冗余专用网络连接，带宽至少为 10 Gb 。此外，还支持更高的带宽。此网络必须通过网络交换和计算从存储层端扩展到端，直到 VMware vSphere 上托管的子操作系统为止。除了物理交换基础架构之外，还可以使用 VMware 分布式交换机（ VDS ）在虚拟机管理程序层为网络流量提供足够的性能和易管理性。</block>
@@ -798,7 +791,6 @@
   <block id="02e9c064fb16f4d7c921173e0ea3e1d4" category="summary">SAP HANA 主机通过使用冗余 10GbE 或速度更快的网络基础架构连接到存储控制器。SAP HANA 主机和存储控制器之间的数据通信基于 NFS 协议。如果交换机或网络接口卡（ Network Interface Card ， NIC ）发生故障，则需要一个冗余交换基础架构来提供容错 SAP HANA 主机到存储连接。</block>
   <block id="9ebc0606dc606ba3c824288cbcec4b6a" category="paragraph">这些交换机可能会将各个端口的性能与端口通道进行聚合，以便在主机级别显示为一个逻辑实体。</block>
   <block id="ec7778649625767bca80e5172b3215f8" category="paragraph">下图显示了一个配置示例，其中八个 SAP HANA 主机连接到一个存储高可用性（ HA ）对。</block>
-  <block id="b2ff8e71e9e5aa43773ccdafa2b95737" category="paragraph">下图显示了使用 VMware vSphere 作为虚拟化层的示例。</block>
   <block id="f000fef8626763ce732cc75182f80de1" category="list-text">如果存储控制器提供的性能足以满足当前 SAP HANA 主要性能指标（ KPI ）的要求，则可以将更多的 SAP HANA 主机和存储容量附加到现有存储。</block>
   <block id="af0b30d5f97bb5800d0d429f5f501e85" category="paragraph">下图显示了一个配置示例，其中，更多 SAP HANA 主机连接到存储控制器。在此示例中，要满足 16 个 SAP HANA 主机的容量和性能要求，需要更多的磁盘架。根据总吞吐量要求，您必须向存储控制器添加更多 10GbE 或更快的连接。</block>
   <block id="014f96dd954f0cad52c8dd1e4a0f6c0c" category="paragraph">无论部署的 AFF 系统如何， SAP HANA 环境也可以通过添加任何经过认证的存储控制器来进行扩展，以满足所需的节点密度，如下图所示。</block>
@@ -924,15 +916,10 @@
   <block id="5ed0e891e8b990c7168739eb02edd6a3" category="list-text">创建并配置所需的聚合，如 "<block ref="19f0aba2b822910f53ba3966ee7c8d59" category="inline-xref-macro-rx"></block>。 "</block>
   <block id="f9a28c46fbd1f4dfd78367e2b160714f" category="list-text">创建 Storage Virtual Machine （ SVM ），如 "<block ref="7c58f6887f41bcea1635c2c18a7a4529" category="inline-xref-macro-rx"></block>。 "</block>
   <block id="9629532b191c2dfd3156fe8e116bbe3b" category="list-text">创建逻辑接口（ LIF ），如 "<block ref="fc903155b67a1626f9032f79a26da71f" category="inline-xref-macro-rx"></block>。 "</block>
-  <block id="a8d79b07ead85e8a39ae801f57769490" category="list-text">创建端口集，如 "<block ref="8a161b601c7edc91c1d11775d753aa89" category="inline-xref-macro-rx"></block>。 "</block>
   <block id="2630ee9d2d6404a0be197b5cefef0514" category="section-title">SAS-based 磁盘架</block>
-  <block id="678c0ed398bb044c2e5a9c21044b8bf5" category="paragraph">最多可以将一个磁盘架连接到一个 SAS 堆栈，以提供 SAP HANA 主机所需的性能，如下图所示。每个磁盘架中的磁盘必须在 HA 对的两个控制器之间平均分布。ADPv2 可用于 ONTAP 9 和新的 DS224C 磁盘架。</block>
   <block id="dd253c07b5e479b9a57c4dff19990513" category="section-title">基于 NVMe （ 100GbE ）的磁盘架</block>
-  <block id="ffd4979e43c842f7c83880611de780c8" category="paragraph">每个 NS224 NVMe 桌面架都通过每个控制器的两个 100GbE 端口进行连接，如下图所示。每个磁盘架中的磁盘必须平均分布到 HA 对的两个控制器。NS224 磁盘架也使用 ADPv2 。</block>
-  <block id="825e04b1728be563d50e2a0cc23bf6ca" category="paragraph">通常，您必须为每个控制器配置两个聚合，而与使用的磁盘架或磁盘技术（ SSD 或 HDD ）无关。要使用所有可用的控制器资源，必须执行此步骤。对于 AFF A200 系列系统，一个数据聚合就足以满足要求。</block>
   <block id="9edbcb82e27829dd83ad8ddf87b121c5" category="paragraph">如果在创建新 SVM 时自动创建和分配了 QoS 配置文件，请从 SVM 中删除此自动创建的配置文件，以确保 SAP HANA 具有所需的性能：</block>
   <block id="5d32d4572d40717acaf8b9ef008f4901" category="paragraph">在存储集群配置中，必须创建一个网络接口（ LIF ）并将其分配给一个专用 FCP 端口。例如，如果出于性能原因需要四个 FCP 端口，则必须创建四个 LIF 。下图显示了在 `HANA` SVM 上配置的八个 LIF （名为 `fc_*` ）的屏幕截图。</block>
-  <block id="ad0e46aa05fcef2f37453adf0ef136ec" category="paragraph">在使用 ONTAP 9.8 System Manager 创建 SVM 期间，您可以选择所有所需的物理 FCP 端口，并自动为每个物理端口创建一个 LIF 。</block>
   <block id="3dc0bb550ffeb410b2cbe908abda2020" category="section-title">SAP HANA 单主机系统的卷和 LUN 配置</block>
   <block id="2cd30dd459c96f8423572cfd0315dd72" category="paragraph">下图显示了四个单主机 SAP HANA 系统的卷配置。每个 SAP HANA 系统的数据卷和日志卷会分布到不同的存储控制器。例如，在控制器 A 上配置了卷 `SID1_data_mnt00001` ，在控制器 B 上配置了卷 `SID1_log_mnt00001`在每个卷中，会配置一个 LUN 。</block>
   <block id="a2ab47e506561509501f3015dfd353bb" category="admonition">如果 SAP HANA 系统仅使用 HA 对中的一个存储控制器，则数据卷和日志卷也可以存储在同一个存储控制器上。</block>
@@ -3566,11 +3553,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="35fb81d7bc669beabd5887c5308a5374" category="paragraph">内部存储与S3存储分段之间的关系是通过为卷创建备份或激活应用程序备份来实现的。如果要使用现有的站点到站点VPN将数据从内部传输到S3、则需要使用卷备份在内部存储和S3存储分段之间创建关系、因为需要使用VPC端点。+
 在创建本文档时、应用程序备份工作流不支持选择VPC端点来访问S3存储分段。+
 请参见<block ref="7f3b31b88f0e42104578f538777bc3e6" category="inline-link-rx"></block> 如何在VPC中为S3设置VPC端点。</block>
-  <block id="da23b0ab6fe420fd37a4807b59fb7b31" category="paragraph">一个NVMe SSD (数据)最多支持5个SAP HANA主机。SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。
-相同的适用场景是AFF A800、AFF A70和AFF A90系统的内部NVMe磁盘。</block>
-  <block id="89579d729fbef030eb0080e68e88f112" category="paragraph">一个NVMe SSD (数据)最多支持5个SAP HANA主机。
-SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。
-相同的适用场景是AFF A800、AFF A70和AFF A90系统的内部NVMe磁盘。</block>
   <block id="9c485d8d0a0f2d60633001b05d342eed" category="doc">《采用NFS的NetApp FAS系统上的SAP HANA配置指南》</block>
   <block id="b7bda169ccba06e8cbcf02ba0fab5928" category="doc">《采用光纤通道协议的NetApp FAS系统上的SAP HANA配置指南》</block>
   <block id="a56f5f8ccd94f38be4e8a0f1faf81823" category="doc">《采用NFS的NetApp AFF系统上的SAP HANA—配置指南》</block>
@@ -4489,40 +4471,20 @@ SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。
   <block id="d8e5cd74c27d4d7983b9d2c8bdeca1a1" category="paragraph"><block ref="d8e5cd74c27d4d7983b9d2c8bdeca1a1" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b7842d6a27abd5170ad4d41cb2353297" category="paragraph">本文档讨论NetApp AFF系统和光纤通道的基础架构设置和配置。</block>
   <block id="265ae4ad07ae6dd3140cd976e6e96a15" category="paragraph"><block ref="265ae4ad07ae6dd3140cd976e6e96a15" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="5eb58939cb873509ebfcc65c7adea6d4" category="paragraph"><block ref="5eb58939cb873509ebfcc65c7adea6d4" category="inline-image-macro-rx" type="image"></block></block>
   <block id="df25c29fe304d621328adc844c5cd0b3" category="paragraph">可以通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。<block ref="f5dc5aad2d2f4cc08999d09836f8c4b2" category="inline-link-macro-rx"></block>有关此选项的说明，请参见。</block>
   <block id="d15ad4b07c5673286f82b8c9b4fccc92" category="inline-xref">卷、并将LUN映射到启动程序组</block>
   <block id="1b04aaa74da094dd7c2677d2996e8bc4" category="list-text">在聚合中创建启动程序组、卷和LUN、如创建""中所述<block ref="c8187094a239e1291b967555c8a5ba6c" category="inline-xref-macro-rx"></block>。</block>
-  <block id="f44ac0aaf36d976691573c32c1579d56" category="paragraph"><block ref="f44ac0aaf36d976691573c32c1579d56" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="b889efa45187481da0b584b1f08b611d" category="paragraph"><block ref="b889efa45187481da0b584b1f08b611d" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="5a053d099bd71f6622608db75861b1e5" category="paragraph"><block ref="5a053d099bd71f6622608db75861b1e5" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="98388228afa94a728226d844929284de" category="paragraph"><block ref="98388228afa94a728226d844929284de" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="cfd97e0a15391e975214c5503e96d423" category="paragraph"><block ref="cfd97e0a15391e975214c5503e96d423" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="ade510803f2b9aad765372451fd52da2" category="paragraph"><block ref="ade510803f2b9aad765372451fd52da2" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="b2bc3f5a45ad0103150eddb5c0947895" category="paragraph"><block ref="b2bc3f5a45ad0103150eddb5c0947895" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="4cd082d270e30712a5d973de884f7b9f" category="paragraph"><block ref="4cd082d270e30712a5d973de884f7b9f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="017e522349a0ff07067400d6b880e9df" category="paragraph">=:hard休息:::noofootter::ICONES: font :linkattrs::imagesdir:../media/</block>
   <block id="2267b0943e951c31d5f31c288b6bfbe6" category="paragraph">基于采用NFS协议的NetApp AFF的SAP HANA。</block>
   <block id="a0988dbd97f9cd1d119f39a16c3e8fe2" category="paragraph"><block ref="a0988dbd97f9cd1d119f39a16c3e8fe2" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="0c36eb3b2e8bcf854cb838cadf16d690" category="paragraph"><block ref="0c36eb3b2e8bcf854cb838cadf16d690" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="f85ec47d30c38b9521054a2e1dd01d54" category="paragraph"><block ref="f85ec47d30c38b9521054a2e1dd01d54" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="f14fa4ed2f8cc9f02e0f0bc794bbc9db" category="paragraph"><block ref="f14fa4ed2f8cc9f02e0f0bc794bbc9db" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="4a40cf994804509601c31a8fabe7487f" category="paragraph"><block ref="4a40cf994804509601c31a8fabe7487f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="168753ba1c857224e6d2c4d6e7832d22" category="paragraph"><block ref="168753ba1c857224e6d2c4d6e7832d22" category="inline-image-macro-rx" type="image"></block></block>
   <block id="80d1a2a3304ad91fb33c08a071649f65" category="paragraph"><block ref="80d1a2a3304ad91fb33c08a071649f65" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b9dfea2f38da456216fb821bdace0099" category="paragraph"><block ref="b9dfea2f38da456216fb821bdace0099" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1061c8a586da3d6a249f18df930dc33a" category="paragraph">本文档讨论NetApp AFF系统和NFS的基础架构设置和配置。</block>
   <block id="c0c285f4d23d22653eba8dc9a75078b0" category="paragraph"><block ref="c0c285f4d23d22653eba8dc9a75078b0" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="2b7898e27791b39210843e42a3af13e3" category="paragraph"><block ref="2b7898e27791b39210843e42a3af13e3" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5238942ad77c3b1f94a61d3640c23e97" category="paragraph"><block ref="5238942ad77c3b1f94a61d3640c23e97" category="inline-image-macro-rx" type="image"></block></block>
   <block id="bc6f4f64c41295649568c9b08222f2c3" category="paragraph"><block ref="bc6f4f64c41295649568c9b08222f2c3" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c55f68c7fa3064bc905d3ae3a6a0a59d" category="list-text">在聚合中创建卷、如"和"<block ref="886d8674ea6944dd32bd390cb48bc80e" category="inline-xref-macro-rx"></block>中所述<block ref="7f2f76d537cb5c15ae301f069af9489f" category="inline-xref-macro-rx"></block>。</block>
-  <block id="a7d4e198585e99565ae20fd5e1e25648" category="paragraph"><block ref="a7d4e198585e99565ae20fd5e1e25648" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1e564b5720d139afce5fbfa4d8305102" category="paragraph"><block ref="1e564b5720d139afce5fbfa4d8305102" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="220d6df1b080b254062b992d2864257d" category="paragraph"><block ref="220d6df1b080b254062b992d2864257d" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="b13f29a99399127f7c53673ae7d83d6e" category="paragraph"><block ref="b13f29a99399127f7c53673ae7d83d6e" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="4c4c735b4b06f5c8b4f22ab089500abe" category="paragraph"><block ref="4c4c735b4b06f5c8b4f22ab089500abe" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="6e663089bc56d8ba3af7495ef74018db" category="paragraph"><block ref="6e663089bc56d8ba3af7495ef74018db" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0f067126ab39c0af9790685c5bc83bf3" category="paragraph"><block ref="0f067126ab39c0af9790685c5bc83bf3" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b726daf8a2adf210c59b7ef834090339" category="paragraph"><block ref="b726daf8a2adf210c59b7ef834090339" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c8ad86db51ea3fec014b3b92b80c4f2e" category="paragraph"><block ref="c8ad86db51ea3fec014b3b92b80c4f2e" category="inline-image-macro-rx" type="image"></block></block>
@@ -4755,4 +4717,63 @@ SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。
   <block id="2134d42f2b0f54791bb238214fdc5110" category="list-text">ASA C250、ASA C30、ASA C400、ASA C60、ASA C800、ASA C80</block>
   <block id="a10922577a9bcbf85b1a7a9d8e7de5aa" category="cell">2024年11月</block>
   <block id="53bab281b7eb6692b17a4b65d99e2188" category="list-text">FAS2750、FAS2820、FAS8300、FAS50、FAS8700、 FAS70、FAS9500、FAS90</block>
+  <block id="eccbc87e4b5ce2fe28308fd9f2a7baf3" category="cell">3</block>
+  <block id="c9f0f895fb98ab9159f51fd0297e236d" category="cell">8</block>
+  <block id="34173cb38f07f89ddbebc2ac9128303f" category="cell">30</block>
+  <block id="c2be09c4548a0a3d6590431051156ecc" category="inline-image-macro">八个连接到一个存储HA对的SAP HANA主机</block>
+  <block id="57b2c63155fecfb21c53a82e0a192a2b" category="paragraph"><block ref="57b2c63155fecfb21c53a82e0a192a2b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="445dc01d838477256a3f7c6ec4051a70" category="inline-image-macro">连接到存储HA对的其他SAP HANA主机</block>
+  <block id="2aeef15c3419fd9cc9d6690eb125715e" category="paragraph"><block ref="2aeef15c3419fd9cc9d6690eb125715e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6119ba4f9580ccfa3f0a3d3f871870ff" category="inline-image-macro">正在添加其他存储HA对</block>
+  <block id="0349c380e002d982103ec0fc460cd07f" category="paragraph"><block ref="0349c380e002d982103ec0fc460cd07f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c4d3f7817a7843faa1dc4bee9f2303ff" category="list-text">SID=SS3的HANA系统</block>
+  <block id="d6b8648b9a763d4fa670f413b105dec7" category="list-text">使用Linux逻辑卷管理器(LVM)的SID=FC5的HANA系统</block>
+  <block id="238ec08371f09e874d0f1002aee0caeb" category="inline-image-macro">连接到两个存储控制器的SAP HANA主机</block>
+  <block id="74f3ad2825ea13022492793fb7f63a79" category="paragraph"><block ref="74f3ad2825ea13022492793fb7f63a79" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="15e40c72ba936fd4cbb64210e15725a1" category="paragraph">最多可以将一个磁盘架连接到一个 SAS 堆栈，以提供 SAP HANA 主机所需的性能，如下图所示。每个磁盘架中的磁盘必须在 HA 对的两个控制器之间平均分布。ADPv2 可用于 ONTAP 9 和 DS224C 磁盘架。</block>
+  <block id="2f4edbf818ed882e067d16f9f1c932da" category="inline-image-macro">DS224C磁盘架连接</block>
+  <block id="ddb7d2fa5d4fd45c1a6001d8cbba792c" category="paragraph"><block ref="ddb7d2fa5d4fd45c1a6001d8cbba792c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f8c9ad3e9065af52a42b05407f475c98" category="paragraph">每个NS224 NVMe磁盘架都通过每个控制器两个100GbE端口进行连接、如下图所示。每个磁盘架中的磁盘必须平均分布到 HA 对的两个控制器。NS224 磁盘架也使用 ADPv2 。</block>
+  <block id="39b270995b65c0f50a8535f49f84aa61" category="inline-image-macro">NS224 NVMe磁盘架连接</block>
+  <block id="dac87f657c075eb6a448486fda4b18e4" category="paragraph"><block ref="dac87f657c075eb6a448486fda4b18e4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0dee623c3a47708547aff95df6dc16df" category="paragraph">通常，您必须为每个控制器配置两个聚合，而与使用的磁盘架或磁盘技术（ SSD 或 HDD ）无关。要使用所有可用的控制器资源，必须执行此步骤。</block>
+  <block id="6f1ace73b19ea95862049cef5bc4fabb" category="admonition">2024年8月之后发布的ASA系统不需要执行此步骤、因为它会自动完成</block>
+  <block id="f4c9620796b063803a52bf4cb0bdc63b" category="paragraph"><block ref="f4c9620796b063803a52bf4cb0bdc63b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c63c34bc75852acd26eac087d69564e1" category="inline-image-macro">逻辑接口覆盖</block>
+  <block id="442b4694b4e23c4c8aab5817606d4a8f" category="paragraph"><block ref="442b4694b4e23c4c8aab5817606d4a8f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="775282e39d26408a21d5eaa1c485e361" category="paragraph">在使用ONTAP系统管理器创建SVM期间、您可以选择所有必需的物理FCP端口、系统会自动为每个物理端口创建一个LIF。</block>
+  <block id="ca4b4ab28b402042c5530cc0059c6af3" category="inline-image-macro">创建 SVM</block>
+  <block id="bc0b4db5e6b23fdaed6f5246d05d6ef8" category="paragraph"><block ref="bc0b4db5e6b23fdaed6f5246d05d6ef8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0c2fd995ece5cfe7704d5109986e3b0e" category="paragraph"><block ref="0c2fd995ece5cfe7704d5109986e3b0e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2376775a32e0fa313efe0917b1bd9cfc" category="paragraph"><block ref="2376775a32e0fa313efe0917b1bd9cfc" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="062ce9ed8e9b3c25669e46aba83faa4c" category="admonition">2024年8月之后发布的ASA系统不需要执行此步骤、因为它会在_LUN cre同时 自动完成</block>
+  <block id="962f559368bb8c770c0eb510490d6a70" category="admonition">请仅提供LUN名称作为2024年8月之后启动的ASA系统的路径。这也适用于下面的_LUN map_命令。此外、选项--space-re储备_和--space-分配_不可用。</block>
+  <block id="871d39fd458463703004f24c503c7812" category="paragraph">一个NVMe SSD (数据)最多支持2/5个SAP HANA主机、具体取决于所使用的特定NVMe磁盘。SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。这同样适用于AFF和ASA系统的内部NVMe磁盘。</block>
+  <block id="b80edeac5a9d51784b1a139f183acc83" category="inline-image-macro">SAP HANA大小评估流程</block>
+  <block id="4bb4fae3b6ea53d3f376bbd619714543" category="paragraph"><block ref="4bb4fae3b6ea53d3f376bbd619714543" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f2ed1b2a99c0f64ca0cfcd6111d7ec4c" category="inline-image-macro">八个连接到存储高可用性(HA)对的SAP HANA主机</block>
+  <block id="831843b9e12aadd42880c9ec56bd509a" category="paragraph"><block ref="831843b9e12aadd42880c9ec56bd509a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d788d47338c59792d717e9540a6664ef" category="inline-image-macro">将其他SAP HANA主机连接到现有存储控制器HA对</block>
+  <block id="1630763019d92de5939da85faf4ad16c" category="paragraph"><block ref="1630763019d92de5939da85faf4ad16c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4f056ce2074ba16ee637d64fdef647a7" category="inline-image-macro">已添加其他HA对</block>
+  <block id="afd2c3367e4b9e93007759798ae8b0c0" category="paragraph"><block ref="afd2c3367e4b9e93007759798ae8b0c0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4d9c2ddc20521fa24e033c096807f43d" category="paragraph">下图显示了一个示例，其中四个 SAP HANA 主机使用 10GbE 网络连接到一个存储控制器 HA 对。每个SAP HANA主机都与冗余网络结构建立了主动-主动连接。</block>
+  <block id="e7c118cc09590a9a288c67a4b302b904" category="paragraph">在存储层，配置了四个活动连接，可为每个 SAP HANA 主机提供 10 Gb 吞吐量。在存储层，将配置 MTU 大小为 9000 的广播域，并将所有必需的物理接口添加到此广播域。此方法会自动将这些物理接口分配给同一故障转移组。分配给这些物理接口的所有逻辑接口（ LIF ）都会添加到此故障转移组中。</block>
+  <block id="fa9e73ef22bb3dbfc0d7dfadf5b21281" category="inline-image-macro">网络概述</block>
+  <block id="1f4afde3d41b82108694e4fb06f46b87" category="paragraph"><block ref="1f4afde3d41b82108694e4fb06f46b87" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5cc69351dc44fc813914fdaa909dbc3e" category="paragraph">通常、建议在服务器(绑定)和存储系统上使用HA接口组(例如链路聚合控制协议[LACP]和ifgroups)。使用 HA 接口组，验证负载是否在组内的所有接口之间平均分布。负载分布取决于网络交换机基础架构的功能。</block>
+  <block id="6c3a3847a37cd097bd01d4da5604f5ec" category="inline-image-macro">SAS磁盘架连接</block>
+  <block id="9a0eda3f9d8233b1fa9f3da649f3f69a" category="paragraph"><block ref="9a0eda3f9d8233b1fa9f3da649f3f69a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ad5e5ab57510595b28c8e0eccf58ded8" category="inline-image-macro">MVMe磁盘架连接</block>
+  <block id="a1868e70c540a5e45ad58185a99b3769" category="paragraph"><block ref="a1868e70c540a5e45ad58185a99b3769" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="06622e356c3be6dc8c45370761d20660" category="paragraph">通常，您必须为每个控制器配置两个聚合，而不受所使用的磁盘架或驱动器技术（ SAS SSD 或 NVMe SSD ）的影响。</block>
+  <block id="91e0d52ee3c1820ee8386d18f6a91bd0" category="inline-image-macro">聚合配置</block>
+  <block id="da814dd6671cb64a7483f4c29eac56a3" category="paragraph"><block ref="da814dd6671cb64a7483f4c29eac56a3" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d63145bc3309abf0009436530805ac13" category="inline-image-macro">卷配置SAP HANA单个主机</block>
+  <block id="4e37fc2061f3eb4a5c883256f7abd270" category="paragraph"><block ref="4e37fc2061f3eb4a5c883256f7abd270" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2f57ad2489363e64804b354244f0c7b8" category="inline-image-macro">卷配置SAP HANA多个主机</block>
+  <block id="67723885e8b8dec5641fd9b65c05a445" category="paragraph"><block ref="67723885e8b8dec5641fd9b65c05a445" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="de3a0b5c28d9158410e205fdf4dd72f2" category="paragraph">一个NVMe SSD (数据)最多支持2/5个SAP HANA主机、具体取决于使用的NVMe磁盘。SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。这同样适用于AFF系统的内部NVMe磁盘。</block>
+  <block id="a1498fba486158dfd616e2bc1f205275" category="admonition">添加更多磁盘架不会增加存储控制器可支持的最大SAP HANA主机数量。</block>
+  <block id="57c187411855aa330625e6e0331a74b7" category="paragraph"><block ref="57c187411855aa330625e6e0331a74b7" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>

@@ -64,9 +64,7 @@ NOTE: 此计算与所使用的存储控制器无关。添加更多磁盘架不�
 
 === NS224 NVMe 磁盘架
 
-一个NVMe SSD (数据)最多支持5个SAP HANA主机。
-SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。
-相同的适用场景是AFF A800、AFF A70和AFF A90系统的内部NVMe磁盘。
+一个NVMe SSD (数据)最多支持2/5个SAP HANA主机、具体取决于所使用的特定NVMe磁盘。SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。这同样适用于AFF和ASA系统的内部NVMe磁盘。
 
 
 NOTE: 添加更多磁盘架不会增加存储控制器可以支持的 SAP HANA 主机的最大数量。
@@ -217,4 +215,4 @@ NetApp 进行了性能测试以定义最佳值。下表列出了必须在 SAP �
 
 下图总结了规模估算过程。
 
-image:saphana_aff_fc_image8.jpg["图中显示了输入/输出对话框或表示已写入内容"]
+image:saphana_aff_fc_image8a.png["SAP HANA大小评估流程"]

@@ -16,13 +16,13 @@ summary:
 [role="lead"]
 以下各节提供了 SAP HANA 基础架构设置和配置准则，并介绍了设置 SAP HANA 系统所需的所有步骤。在这些部分中，使用了以下示例配置：
 
-* 使用 SID=SS3 和 ONTAP 9.7 或更早版本的 HANA 系统
+* SID=SS3的HANA系统
 +
 ** SAP HANA 单主机和多主机
 ** 使用 SAP HANA 多个分区的 SAP HANA 单个主机
 
 
-* 使用 Linux 逻辑卷管理器（ LVM ）且 SID=FC5 和 ONTAP 9.8 的 HANA 系统
+* 使用Linux逻辑卷管理器(LVM)的SID=FC5的HANA系统
 +
 ** SAP HANA 单主机和多主机
 
