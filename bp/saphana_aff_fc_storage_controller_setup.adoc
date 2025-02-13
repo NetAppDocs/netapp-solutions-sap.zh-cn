@@ -65,11 +65,13 @@ FabricPool 是将日志备份移动到另一存储层的理想选择。移动备
 
 以下概述总结了所需的存储配置步骤。后续章节将更详细地介绍每个步骤。在本节中，我们假定已设置存储硬件，并且已安装 ONTAP 软件。此外，必须已将存储 FCP 端口连接到 SAN 网络结构。
 
-. 检查磁盘架配置是否正确，如 "<<磁盘架连接>>。 "
-. 创建并配置所需的聚合，如 "<<聚合配置>>。 "
-. 创建 Storage Virtual Machine （ SVM ），如 "<<Storage Virtual Machine 配置>>。 "
-. 创建逻辑接口（ LIF ），如 "<<逻辑接口配置>>。 "
-. 在聚合中创建启动程序组、卷和LUN、如创建""中所述<<Creating LUNs,卷、并将LUN映射到启动程序组>>。
+. 检查磁盘架配置是否正确，如中所述<<磁盘架连接>>。
+. 创建和配置所需的聚合，如中所述<<聚合配置>>。
+. 创建Storage Virtual Machine (SVM)，如中所述<<Storage Virtual Machine 配置>>。
+. 创建逻辑接口(Lif)，如中所述<<逻辑接口配置>>。
+. 按照链接：saphana FAS _fc_storage_controller_setup.html#user-groups一节所述<<启动程序组>>、使用HANA服务器的全球通用名称(Worldwide Name、WWN)创建启动程序组(igroup)。
+. 在聚合中创建卷和LUN、如和一节所述<<SAP HANA 单主机系统的卷和 LUN 配置>><<SAP HANA 多主机系统的卷和 LUN 配置>>
+. 在聚合中创建启动程序组、卷和LUN，如中所述<<#lun_create,创建 LUN ，卷并将 LUN 映射到启动程序组>>。
 
 
 
@@ -123,9 +125,9 @@ vserver modify -vserver <svm-name> -qos-policy-group none
 
 == 逻辑接口配置
 
-在存储集群配置中，必须创建一个网络接口（ LIF ）并将其分配给一个专用 FCP 端口。例如，如果出于性能原因需要四个 FCP 端口，则必须创建四个 LIF 。下图显示了在 `HANA` SVM 上配置的八个 LIF （名为 `fc_*` ）的屏幕截图。
+在存储集群配置中，必须创建一个网络接口（ LIF ）并将其分配给一个专用 FCP 端口。例如，如果出于性能原因需要四个 FCP 端口，则必须创建四个 LIF 。下图显示了在SVM上配置的八个SVM的屏幕截图。
 
-image:saphana_aff_fc_image13a.png["逻辑接口覆盖"]
+image:saphana_aff_fc_image13a.png["逻辑接口概述"]
 
 在使用ONTAP系统管理器创建SVM期间、您可以选择所有必需的物理FCP端口、系统会自动为每个物理端口创建一个LIF。
 
@@ -134,6 +136,30 @@ image:saphana_aff_fc_image14a.png["创建 SVM"]
 
 NOTE: 2024年8月之后发布的ASA系统不需要执行此步骤、因为它会自动完成
 
+
+
+== 启动程序组
+
+可以为每个服务器或需要访问 LUN 的一组服务器配置 igroup 。igroup 配置需要服务器的全球通用端口名称（ Worldwide Port Name ， WWPN ）。
+
+使用 `sanlun` 工具，运行以下命令以获取每个 SAP HANA 主机的 WWPN ：
+
+....
+stlrx300s8-6:~ # sanlun fcp show adapter
+/sbin/udevadm
+/sbin/udevadm
+
+host0 ...... WWPN:2100000e1e163700
+host1 ...... WWPN:2100000e1e163701
+....
+
+NOTE: 该 `sanlun`工具是NetApp Host Utilities的一部分、必须安装在每个SAP HANA主机上。有关详细信息、请参见第节link:saphana_aff_fc_host_setup.html["主机设置。"]
+
+可以使用ONTAP集群的命令行界面创建启动程序组。
+
+....
+lun igroup create -igroup <igroup name> -protocol fcp -ostype linux -initiator <list of initiators> -vserver <SVM name>
+....
 
 
 == SAP HANA 单主机系统的卷和 LUN 配置
@@ -330,7 +356,7 @@ NOTE: 在所述配置中，存储用户 SIDadm 默认主目录的 ` /usr/sap/SID
 
 
 
-== 卷选项
+=== 卷选项
 
 下表中列出的卷选项必须在所有 SVM 上进行验证和设置。
 
@@ -345,27 +371,16 @@ NOTE: 在所述配置中，存储用户 SIDadm 默认主目录的 ` /usr/sap/SID
 |===
 
 
-=== 创建 LUN ，卷并将 LUN 映射到启动程序组
+== 创建 LUN ，卷并将 LUN 映射到启动程序组
 
-您可以使用 NetApp ONTAP System Manager 创建存储卷和 LUN 并将其映射到服务器。
+您可以使用NetApp ONTAP系统管理器创建存储卷和LUN、并将其映射到服务器的igrou和ONTAP命令行界面。本指南介绍命令行界面的用法。
 
-NetApp 在 ONTAP System Manager 9.7 及更早版本中为 SAP HANA 提供了自动化应用程序向导，从而显著简化了卷和 LUN 配置过程。它会根据适用于 SAP HANA 的 NetApp 最佳实践自动创建和配置卷和 LUN 。
-
-使用 `sanlun` 工具，运行以下命令以获取每个 SAP HANA 主机的全球通用端口名称（ WWPN ）：
-
-....
-stlrx300s8-6:~ # sanlun fcp show adapter
-/sbin/udevadm
-/sbin/udevadm
-host0 ...... WWPN:2100000e1e163700
-host1 ...... WWPN:2100000e1e163701
-....
 
 NOTE: `sanlun` 工具是 NetApp Host Utilities 的一部分，必须安装在每个 SAP HANA 主机上。有关详细信息，请参见 "host_setup" 一节。
 
 
 
-== 使用 CLI 创建 LUN ，卷并将 LUN 映射到启动程序组
+=== 使用 CLI 创建 LUN ，卷并将 LUN 映射到启动程序组
 
 本节显示了一个使用命令行和 ONTAP 9.8 的示例配置，该配置适用于 2+1 SAP HANA 多主机系统，其中 SID 为 FC5 ，使用 LVM ，每个 LVM 卷组具有两个 LUN ：
 

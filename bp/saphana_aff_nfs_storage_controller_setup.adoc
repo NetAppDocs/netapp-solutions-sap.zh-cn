@@ -94,7 +94,7 @@ image:saphana_aff_nfs_image13.png["SAS磁盘架连接"]
 
 === NVMe （ 100GbE ）磁盘架
 
-每个 NS224 NVMe 磁盘架使用每个控制器的两个 100GbE 端口进行连接。每个磁盘架中的磁盘必须平均分布到 HA 对的两个控制器。聚合配置一章中所述的 ADPv2 也用于 NS224 磁盘架。下图显示了磁盘架与 NVMe 驱动器的连接。
+每个NS224 NVMe磁盘架都通过每个控制器两个100GbE端口进行连接、如下图所示。每个磁盘架中的磁盘必须平均分布到 HA 对的两个控制器。聚合配置一章中所述的 ADPv2 也用于 NS224 磁盘架。
 
 image:saphana_aff_nfs_image14a.png["MVMe磁盘架连接"]
 
