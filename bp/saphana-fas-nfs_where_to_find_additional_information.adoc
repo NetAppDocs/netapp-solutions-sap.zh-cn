@@ -28,7 +28,7 @@ https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-dr-sr_pdf_link
 +
 https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html["https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html"^]
 
-* TR-4667：使用SnapCenter 4.0 SAP HANA插件自动执行SAP系统副本
+* TR-4667：《使用SnapCenter SAP HANA插件自动执行SAP系统副本》
 +
 https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html["https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html"^]
 
@@ -48,8 +48,12 @@ https://www.sap.com/documents/2024/03/146274d3-ae7e-0010-bca6-c68f7e60039b.html[
 +
 https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html["https://www.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html"^]
 
-* 《基于VMware vSphere的SAP HANA最佳实践和参考架构指南》
+* 基于VMware vSphere的SAP HANA维基
 +
-https://core.vmware.com/resource/sap-hana-vmware-vsphere-best-practices-and-reference-architecture-guide#introduction["https://core.vmware.com/resource/sap-hana-vmware-vsphere-best-practices-and-reference-architecture-guide#introduction"^]
+https://help.sap.com/docs/SUPPORT_CONTENT/virtualization/3362185751.html["https://help.sap.com/docs/SUPPORT_CONTENT/virtualization/3362185751.html"^]
+
+* 《基于VMware vSphere的SAP HANA最佳实践指南》
++
+https://www.vmware.com/docs/sap_hana_on_vmware_vsphere_best_practices_guide-white-paper["https://www.vmware.com/docs/sap_hana_on_vmware_vsphere_best_practices_guide-white-paper"^]
 
 
