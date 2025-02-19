@@ -382,7 +382,7 @@ NOTE: `sanlun` 工具是 NetApp Host Utilities 的一部分，必须安装在每
 
 === 使用 CLI 创建 LUN ，卷并将 LUN 映射到启动程序组
 
-本节显示了一个使用命令行和 ONTAP 9.8 的示例配置，该配置适用于 2+1 SAP HANA 多主机系统，其中 SID 为 FC5 ，使用 LVM ，每个 LVM 卷组具有两个 LUN ：
+本节显示了一个使用命令行和 ONTAP 9 的示例配置，该配置适用于 2+1 SAP HANA 多主机系统，其中 SID 为 FC5 ，使用 LVM ，每个 LVM 卷组具有两个 LUN ：
 
 . 创建所有必要的卷。
 +

@@ -99,7 +99,7 @@ image:saphana_aff_nfs_image1.png["图中显示了输入/输出对话框或表示
 
 有关将 vSphere 与 SAP HANA 结合使用的详细信息，请参见以下链接：
 
-* link:https://wiki.scn.sap.com/wiki/display/VIRTUALIZATION/SAP+HANA+on+VMware+vSphere["基于 VMware vSphere 的 SAP HANA —虚拟化—社区 Wiki"^]
-* https://core.vmware.com/resource/sap-hana-vmware-vsphere-best-practices-and-reference-architecture-guide#introduction["《基于VMware vSphere的SAP HANA最佳实践和参考架构指南》"^]
-* link:https://launchpad.support.sap.com/#/notes/2161991["2161991 — VMware vSphere 配置准则— SAP One Support Launchpad （需要登录）"^]
+* https://help.sap.com/docs/SUPPORT_CONTENT/virtualization/3362185751.html["基于 VMware vSphere 的 SAP HANA —虚拟化—社区 Wiki"^]
+* https://www.vmware.com/docs/sap_hana_on_vmware_vsphere_best_practices_guide-white-paper["《基于VMware vSphere的SAP HANA最佳实践指南》"^]
+* https://launchpad.support.sap.com/["2161991 — VMware vSphere 配置准则— SAP One Support Launchpad （需要登录）"^]
 

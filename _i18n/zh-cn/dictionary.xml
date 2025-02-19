@@ -821,8 +821,6 @@
   <block id="5d75848b6169b06c4cd7d6a8c2ec2337" category="paragraph">NetApp AFF 存储控制器已通过 SAP HANA TDI 计划的认证，并同时使用 NFS （ NAS ）和 FC （ SAN ）协议。它们可以部署在任何当前 SAP HANA 方案中，例如采用单主机或多主机配置的基于 HANA 的 SAP Business Suite ， S/4HANA ， BB/4HANA 或基于 HANA 的 SAP Business Warehouse 。任何经认证可与 SAP HANA 结合使用的服务器均可与 NetApp 认证的存储解决方案结合使用。有关 SAP HANA TDI 的架构概述，请参见下图。</block>
   <block id="4769b140b92a70ffdab406be16d30122" category="paragraph">可通过多种方法将存储连接到虚拟机（ VM ）。首选选项是直接从子操作系统中连接具有 NFS 的存储卷。使用此选项时，物理主机和 VM 的主机和存储配置不会有所不同。</block>
   <block id="f7fbf8be79b2dbbf7cca7d63ea2aaa3e" category="paragraph">本文档介绍了从子操作系统直接挂载 NFS 的建议设置。</block>
-  <block id="181fc43b08ba57214c4bbd2448ec470d" category="list-text"><block ref="181fc43b08ba57214c4bbd2448ec470d" category="inline-link-macro-rx"></block></block>
-  <block id="302092b20c647fa4f675ff96913675f9" category="list-text"><block ref="302092b20c647fa4f675ff96913675f9" category="inline-link-macro-rx"></block></block>
   <block id="4f0141ecc04bee7dc293f8992542b4bd" category="summary">NetApp FAS 产品系列已通过认证，可在 TDI 项目中与 SAP HANA 结合使用。经过认证的企业级存储平台采用 NetApp ONTAP 操作系统。</block>
   <block id="088c8c258db90c09658a39d2839f52b0" category="doc">TR-4384 ：《采用光纤通道协议的 NetApp FAS 系统上的 SAP HANA 配置指南》</block>
   <block id="42eb56ae1e83db3afce70f056a668205" category="inline-link">经过认证并受支持的 SAP HANA 硬件目录</block>
@@ -969,7 +967,6 @@
   <block id="b9c48200eb9eba714e3c88803e97b4ce" category="section-title">创建 LUN ，卷并将 LUN 映射到启动程序组</block>
   <block id="a86be254d15f1254d56b97c8755a5b77" category="admonition">`sanlun` 工具是 NetApp Host Utilities 的一部分，必须安装在每个 SAP HANA 主机上。有关详细信息，请参见 "host_setup" 一节。</block>
   <block id="8c4751bd2d7d17062a8b536388ba69bc" category="section-title">使用 CLI 创建 LUN ，卷并将 LUN 映射到启动程序组</block>
-  <block id="6204c72c80408db453e7fea0b62d2e36" category="paragraph">本节显示了一个使用命令行和 ONTAP 9.8 的示例配置，该配置适用于 2+1 SAP HANA 多主机系统，其中 SID 为 FC5 ，使用 LVM ，每个 LVM 卷组具有两个 LUN ：</block>
   <block id="c48caf1c739d7975abd91d926cd56982" category="list-text">创建所有必要的卷。</block>
   <block id="8e5c1549db5f0e31853b6809f7049388" category="list-text">创建所有 LUN 。</block>
   <block id="d595b9142c1fd0d3ea19c8cd10165661" category="list-text">为属于系统 FC5 的所有服务器创建启动程序组。</block>
@@ -3921,8 +3918,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="20a0dcae2f540339bbf69dbaa7f0050a" category="list-text"><block ref="20a0dcae2f540339bbf69dbaa7f0050a" category="inline-link-macro-rx"></block></block>
   <block id="b0be0a2f6c57f7c66aa9ab049763af3a" category="paragraph">有关使用SnapCenter的SAP HANA备份和恢复解决方案的详细信息，请参见<block ref="7d612f806d1e07d1f3292801524311f8" category="inline-link-rx"></block>。</block>
   <block id="c2107d876323ca6269d87dd4ef892a8a" category="paragraph">有关SAP HANA灾难恢复解决方案的详细信息，请参见<block ref="22d31f63af3553980c791e5bf538fbdd" category="inline-link-rx"></block>。</block>
-  <block id="78439f11ea8c9762eac371e8475447aa" category="inline-link">《基于VMware vSphere的SAP HANA最佳实践和参考架构指南》</block>
-  <block id="52d5e1f1eef3e549b479feffef1c376c" category="list-text"><block ref="52d5e1f1eef3e549b479feffef1c376c" category="inline-link-rx"></block></block>
   <block id="1b70ac0a972fddf1e1a33e6ed9df49c7" category="cell">2022年9月</block>
   <block id="3c3691e44e6ff923dc83662b2f7e1001" category="cell">新的操作系统版本</block>
   <block id="6d6bbe0ff14c220c87649b72d24ad927" category="cell">2023年8月</block>
@@ -4748,4 +4743,7 @@ SnapCenter 4.3.1支持NFSv4
   <block id="c9f801c3b76e183b280276e75a8ebaea" category="list-text">《基于VMware vSphere的SAP HANA最佳实践指南》</block>
   <block id="838491807b9e9689bc796a7e547fe188" category="inline-link"><block ref="838491807b9e9689bc796a7e547fe188" category="inline-link-rx"></block></block>
   <block id="b61d59281011f2681050ce1756929d77" category="paragraph"><block ref="b61d59281011f2681050ce1756929d77" category="inline-link-rx"></block></block>
+  <block id="22c7eb5619fc26c433125aab7cfd57af" category="list-text"><block ref="22c7eb5619fc26c433125aab7cfd57af" category="inline-link-rx"></block></block>
+  <block id="d8cb082280c9ef193a28bdb60d8e9779" category="list-text"><block ref="d8cb082280c9ef193a28bdb60d8e9779" category="inline-link-rx"></block></block>
+  <block id="147a64bd742e2d54a7d7a7f133c3561c" category="paragraph">本节显示了一个使用命令行和 ONTAP 9 的示例配置，该配置适用于 2+1 SAP HANA 多主机系统，其中 SID 为 FC5 ，使用 LVM ，每个 LVM 卷组具有两个 LUN ：</block>
 </blocks>
