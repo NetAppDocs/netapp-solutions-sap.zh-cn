@@ -1,0 +1,121 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-sc-vmware-smas-smas-config.html 
+keywords: SAP HANA, VMware, SnapMirror active sync, SnapCenter, backup and recovery 
+summary:  
+---
+= SnapMirror主动同步配置
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:firstname: ---
+:author: ---
+:authorinitials: -
+:authors: ---
+
+
+
+
+== 前提条件
+
+存储集群和相关SVM必须建立对等关系。
+
+两个存储集群都必须具有可用的ONTAP调解器并已进行配置。
+
+image:sc-saphana-vmware-smas-image10.png[""]
+
+image:sc-saphana-vmware-smas-image11.png[""]
+
+
+
+== 存储布局和一致性组配置
+
+在ONTAP文档中 https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html#key-concepts["ONTAP中的SnapMirror主动同步概述"]、使用SnapMirror主动同步创建一致性组的概念如下所述：
+
+一致性组是一组FlexVol卷、可为必须保护以确保业务连续性的应用程序工作负载提供一致性保证。
+
+一致性组的目的是同时为多个卷创建Snapshot映像、从而确保在某个时间点为一组卷创建崩溃状态一致的副本。一致性组可确保数据集的所有卷先处于静音状态、然后在完全相同的时间点进行对等。这样可以在支持数据集的卷之间提供数据一致的还原点。因此、一致性组可以保持依赖写入顺序的一致性。如果您决定保护应用程序以实现业务连续性、则必须将与此应用程序对应的一组卷添加到一致性组中、以便在源一致性组和目标一致性组之间建立数据保护关系。源和目标一致性必须包含相同数量和类型的卷。
+
+要复制HANA系统、一致性组必须包括单个HANA系统使用的所有卷(数据、日志和共享)。应属于一致性组的卷必须存储在同一个SVM中。操作系统映像可以存储在具有自己一致性组的单独卷中。下图展示了一个使用两个HANA系统的配置示例。
+
+image:sc-saphana-vmware-smas-image12.png[""]
+
+
+
+== 启动程序组配置
+
+在实验室设置中、我们创建了一个启动程序组、其中包括用于SnapMirror活动同步复制的两个存储SVM。在后面介绍的SnapMirror活动同步配置中、我们将定义启动程序组将成为复制的一部分。
+
+通过使用邻近设置、我们可以定义哪个ESX主机与哪个存储集群接近。在我们的案例中、A700接近ESS-1、而A800接近ESS-2。
+
+image:sc-saphana-vmware-smas-image13.png[""]
+
+image:sc-saphana-vmware-smas-image14.png[""]
+
+
+NOTE: 在非一致访问设置中、主存储集群(A700)上的启动程序组只能包含ESX-1主机的启动程序、因为与ESX-2之间没有SAN连接。此外、您还需要在第二个存储集群(A800)上配置另一个启动程序组、该存储集群仅包含ESX-2主机的启动程序。不需要进行邻近配置和启动程序组复制。
+
+
+
+== 使用ONTAP System Manager配置保护
+
+image:sc-saphana-vmware-smas-image15.png[""]
+
+
+
+=== 一致性组和启动程序组复制
+
+必须创建新的一致性组、并且必须将HANA系统的所有三个LUN添加到此一致性组中。
+
+已启用"重复启动程序组"。然后、在进行更改的位置、启动器组将保持同步。
+
+
+NOTE: 在非一致访问设置中、不能复制启动程序组、因为必须在第二个存储集群上配置单独的启动程序组。
+
+image:sc-saphana-vmware-smas-image16.png[""]
+
+通过单击邻近设置、您可以查看之前在启动程序组设置中完成的配置。
+
+image:sc-saphana-vmware-smas-image17.png[""]
+
+必须配置目标存储集群并启用"初始化关系"。
+
+
+
+=== 同步
+
+现在、在A700存储集群(源)中、将列出新关系。
+
+image:sc-saphana-vmware-smas-image18.png[""]
+
+在A800存储集群(目标)中、将列出新关系和复制状态。
+
+image:sc-saphana-vmware-smas-image19.png[""]
+
+
+
+== 基础架构数据存储库
+
+存储HANA系统、SnapCenter和vSphere插件的操作系统映像的数据存储库将采用与HANA数据库数据存储库相同的方式进行复制。
+
+
+
+== 主站点
+
+SnapMirror主动同步行为是对称的、但有一个重要例外-主站点配置。
+
+SnapMirror主动同步会将一个站点视为"源"、而将另一个站点视为"目标"。这意味着单向复制关系、但这不适用于IO行为。复制是双向的、对称的、镜像两端的IO响应时间相同。
+
+如果复制链路丢失、则源副本上的LUN路径将继续提供数据、而目标副本上的LUN路径将变得不可用、直到重新建立复制并使SnapMirror重新进入同步状态为止。然后、这些路径将恢复提供数据。
+
+将一个集群指定为源集群的效果只是控制在复制链路丢失时哪个集群作为读写存储系统继续存在。
+
+SnapCenter会检测到主站点、并将其用于执行备份、还原和克隆操作。
+
+
+NOTE: 请注意、源和目标不会与SVM或存储集群绑定在一起、但每个复制关系可能会有所不同。
+
+image:sc-saphana-vmware-smas-image20.png[""]

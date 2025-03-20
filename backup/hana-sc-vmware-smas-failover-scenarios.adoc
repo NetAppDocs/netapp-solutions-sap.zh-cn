@@ -1,0 +1,87 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-sc-vmware-smas-failover-scenarios.html 
+keywords: SAP HANA, VMware, SnapMirror active sync, SnapCenter, backup and recovery 
+summary:  
+---
+= 故障转移场景
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:firstname: ---
+:author: ---
+:authorinitials: -
+:authors: ---
+
+
+
+
+== 统一访问设置
+
+在统一访问配置中、光纤通道SAN会延伸到两个站点。两个站点的ESX主机均可访问数据集的两个副本。在正常操作期间、运行HANA系统的ESX主机将根据启动程序组配置中的邻近设置访问数据的本地副本。每个ESX主机都有一条指向本地副本的活动优化路径和一条指向镜像副本的活动非优化路径。
+
+
+
+=== 正常运行
+
+在正常操作期间、HANA系统会根据ESX主机ESY-1中的活动优化路径、从本地副本读取数据或向本地副本写入数据。每次执行备份操作时、SnapCenter都会检测复制关系的当前主站点、并对主站点执行备份操作。快照会复制到镜像副本、并可在两个站点上使用。SnapCenter还原操作将在主站点上执行。
+
+image:sc-saphana-vmware-smas-image42.png[""]
+
+
+
+=== 存储故障
+
+如果站点1的存储系统发生故障、则HANA系统将访问站点2的镜像副本并继续运行。此时、主站点将切换到二级站点、SnapCenter将在新的主站点上执行备份和还原操作。
+
+image:sc-saphana-vmware-smas-image43.png[""]
+
+
+
+=== 站点故障
+
+如果某个站点发生故障、则HANA VM以及SnapCenter和适用于VMware的SnapCenter插件VM将使用vSphere HA故障转移到二级站点上的ESX主机。HANA数据库需要启动、然后才能访问第二个站点上的镜像副本。此时、主站点将切换到二级站点、SnapCenter将在新的主站点上执行备份和还原操作。
+
+image:sc-saphana-vmware-smas-image44.png[""]
+
+
+
+== 非一致访问设置
+
+在非一致访问配置中、光纤通道SAN不会在两个站点之间延伸。每个站点的每个ESX主机只能访问数据集的本地副本。
+
+
+
+=== 正常运行
+
+在正常操作期间、HANA系统会从本地副本读取数据或向本地副本写入数据。每次执行备份操作时、SnapCenter都会检测复制关系的当前主站点、并对主站点执行备份操作。快照会复制到镜像副本、并可在两个站点上使用。SnapCenter还原操作将在主站点上执行。
+
+image:sc-saphana-vmware-smas-image45.png[""]
+
+
+
+=== 存储故障
+
+如果发生存储故障、则HANA VM以及SnapCenter和适用于VMware的SnapCenter插件VM将使用vSphere HA故障转移到二级站点上的ESX主机。HANA数据库需要启动、然后才能访问第二个站点上的镜像副本。此时、主站点将切换到二级站点、SnapCenter将在新的主站点上执行备份和还原操作。
+
+image:sc-saphana-vmware-smas-image46.png[""]
+
+
+
+=== 站点故障
+
+与存储故障相同。
+
+image:sc-saphana-vmware-smas-image47.png[""]
+
+
+
+=== 重新定位HANA VM或主站点
+
+如果将HANA VM重新定位到另一个ESX主机、并且存储的主站点保持不变、则使用SnapCenter执行还原操作将失败。由于SnapCenter使用主站点执行还原操作、因此克隆将在左侧创建、而HANA VM则在右侧运行。由于站点之间没有数据路径、因此SnapCenter不会复制数据。
+
+解决方法是、您需要确保虚拟机和主站点的重新定位同时完成、或者您需要在使用SnapCenter执行还原操作之前对主站点进行故障转移。
+
+image:sc-saphana-vmware-smas-image48.png[""]

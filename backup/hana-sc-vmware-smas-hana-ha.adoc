@@ -1,0 +1,123 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-sc-vmware-smas-hana-ha.html 
+keywords: SAP HANA, VMware, SnapMirror active sync, SnapCenter, backup and recovery 
+summary:  
+---
+= 概述SAP HANA高可用性
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:firstname: ---
+:author: ---
+:authorinitials: -
+:authors: ---
+
+
+[role="lead"]
+本章概述SAP HANA的高可用性选项、将应用层复制与存储复制进行比较。
+
+
+
+== SAP HANA系统复制(HSR)
+
+SAP HANA系统复制提供了一种操作模式、在此模式下、数据会同步复制、预加载到内存中并在二级主机上持续更新。此模式可启用极低的RTO值(大约1分钟或更短)、但它还需要一个专用服务器、该服务器仅用于从源系统接收复制数据。由于故障转移时间较短、因此SAP HANA系统复制通常也用于几乎零停机时间的维护操作、例如HANA软件升级。Linux PacMaker集群解决方案通常用于自动执行故障转移操作。
+
+如果主站点、存储、主机或整个站点发生任何故障、HANA系统会自动故障转移到由Linux PacMaker集群控制的二级站点。
+
+有关所有配置选项和复制方案的完整说明，请参见 https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/afac7100bc6d47729ae8eae32da5fdec.html["SAP HANA系统复制++|++ SAP帮助门户"]。
+
+image:sc-saphana-vmware-smas-image2.png[""]
+
+
+
+== NetApp SnapMirror活动同步
+
+通过SnapMirror主动同步、即使在整个站点发生故障时、业务服务也可以继续运行、从而支持应用程序使用二级副本透明地进行故障转移。使用SnapMirror活动同步触发故障转移无需手动干预或自定义脚本。AFF集群、全闪存SAN阵列(ASA)集群和C系列(AFF或ASA)均支持SnapMirror主动同步。SnapMirror主动同步可通过iSCSI或FCP LUN保护应用程序。
+
+从ONTAP 9.151开始、SnapMirror主动同步支持对称主动/主动功能。对称主动/主动允许通过双向同步复制从受保护LUN的两个副本执行读写I/O操作、以便两个LUN副本都可以在本地处理I/O操作。
+
+有关详细信息，请参见 https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html["ONTAP中的SnapMirror主动同步概述"]。
+
+
+
+=== HANA裸机
+
+在裸机服务器上运行SAP HANA时、您可以使用SnapMirror主动同步提供高可用性存储解决方案。数据会同步复制、因此RPO为0。
+
+如果发生存储故障、则HANA系统将使用提供RTO=0的第二个FCP路径透明地访问二级站点上的镜像副本。
+
+如果主机或整个站点发生故障、则需要在二级站点上提供一台新服务器、以便从故障主机访问数据。这通常是与生产规模相同的测试或QA系统、现在将关闭并用于运行生产系统。二级站点的LUN连接到新主机后、需要启动HANA数据库。因此、总的RTO取决于配置主机所需的时间以及HANA数据库的启动时间。
+
+image:sc-saphana-vmware-smas-image3.png[""]
+
+
+
+=== vSphere Metro Storage Cluster (VMSC)
+
+在使用FCP连接的数据存储库在VMware环境中运行SAP HANA时、您可以使用SnapMirror主动同步构建VMware Metro存储集群。在这种设置中、HANA系统使用的数据存储库会同步复制到二级站点。
+
+如果发生存储故障、ESX主机将自动访问二级站点上的镜像副本、但此处的RTO=0。
+
+如果某个主机或整个站点发生故障、则会使用vSphere HA在二级ESX主机上启动HANA VM。当HANA VM运行时、需要启动HANA数据库。因此、总的RTO主要取决于HANA数据库的启动时间。
+
+image:sc-saphana-vmware-smas-image4.png[""]
+
+
+
+== 解决方案比较
+
+下表总结了上述解决方案的主要特征。
+
+[cols="25%,^25%,^25%,^25%"]
+|===
+|  | HANA 系统复制 | SnapMirror主动同步—裸机 | SnapMirror活动同步—VMware VMSC 
+
+
+| 出现任何故障时的RPO | RPO = 0 +同步复制 |  |  
+
+
+| 存在存储故障的RTO | RTO ++<++ 1分钟 | RTO=0 +透明存储故障转移 |  
+
+
+| 存在站点或主机故障的RTO + | RTO ++<++ 1分钟 | RTO：具体取决于服务器准备和HANA数据库启动所需的时间。 | RTO：具体取决于HANA数据库启动所需的时间。 
+
+
+| 故障转移自动化  a| 
+是、
+
+自动故障转移到二级HSR主机
+
+由起搏器集群控制。
+ a| 
+是、对于存储故障
+
+否、表示主机或站点故障
+
+(配置主机、连接存储资源、启动HANA数据库)
+ a| 
+是、对于存储故障
+
+是、适用于主机或站点故障
+
+(通过vSphere HA自动将VM故障转移到其他站点、并启动HANA数据库)
+
+
+
+| 需要在二级站点上配置专用服务器  a| 
+是、
+
+需要将数据预加载到内存中并在不启动数据库的情况下实现快速故障转移。
+ a| 
+否、
+
+只有在发生故障转移时才需要服务器。通常、用于QA的服务器将用于生产环境。
+ a| 
+否、
+
+只有在发生故障转移时、才需要使用ESX主机上的资源。通常、QA资源将用于生产。
+
+|===

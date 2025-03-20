@@ -4746,4 +4746,275 @@ SnapCenter 4.3.1支持NFSv4
   <block id="22c7eb5619fc26c433125aab7cfd57af" category="list-text"><block ref="22c7eb5619fc26c433125aab7cfd57af" category="inline-link-rx"></block></block>
   <block id="d8cb082280c9ef193a28bdb60d8e9779" category="list-text"><block ref="d8cb082280c9ef193a28bdb60d8e9779" category="inline-link-rx"></block></block>
   <block id="147a64bd742e2d54a7d7a7f133c3561c" category="paragraph">本节显示了一个使用命令行和 ONTAP 9 的示例配置，该配置适用于 2+1 SAP HANA 多主机系统，其中 SID 为 FC5 ，使用 LVM ，每个 LVM 卷组具有两个 LUN ：</block>
+  <block id="f98d4399781d823eb7dd788ef59bcb51" category="doc">其他信息和版本历史记录</block>
+  <block id="5d8eb824543a169aa4059561be8e65e4" category="paragraph"><block ref="5d8eb824543a169aa4059561be8e65e4" category="inline-link-rx"></block></block>
+  <block id="47bbb1593ebf37dae91b08bde7e949f0" category="paragraph"><block ref="47bbb1593ebf37dae91b08bde7e949f0" category="inline-link-rx"></block></block>
+  <block id="766ba9dc44e7046f7c6af47344e24026" category="paragraph"><block ref="766ba9dc44e7046f7c6af47344e24026" category="inline-link-rx"></block></block>
+  <block id="591670018ee25ae8b5625ed98cb5ff81" category="paragraph"><block ref="591670018ee25ae8b5625ed98cb5ff81" category="inline-link-rx"></block></block>
+  <block id="ef1fb8d9c97217ef2fbf941299c08adf" category="paragraph">SnapMirror活动同步：</block>
+  <block id="32e3115035ed1831322c88ce03af5c52" category="inline-link">ONTAP中的SnapMirror主动同步概述</block>
+  <block id="9f090056bc76628ad2a8b94b102aa48c" category="paragraph"><block ref="9f090056bc76628ad2a8b94b102aa48c" category="inline-link-rx"></block></block>
+  <block id="e4004172088b034dfe07abe579273b06" category="inline-link">使用NetApp SnapMirror的NetApp ONTAP与VMware vSphere Metro Storage Cluster (VMSC)进行活动同步。</block>
+  <block id="44d0d1ca42daaecc86f8bb55519f9ec5" category="paragraph"><block ref="44d0d1ca42daaecc86f8bb55519f9ec5" category="inline-link-rx"></block></block>
+  <block id="34fd97d0487efaacb8dc98024d287c11" category="inline-link">具有SnapMirror活动同步的VMware vSphere Metro存储集群</block>
+  <block id="d5ad3267276646604ba509767a3d16f2" category="paragraph"><block ref="d5ad3267276646604ba509767a3d16f2" category="inline-link-rx"></block></block>
+  <block id="58486898b4fe52f80d7a134d74186a4c" category="inline-link">VMware vSphere 城域存储集群（ VMSC ）</block>
+  <block id="f6bdc6a297299619f269bf3a556799d4" category="paragraph"><block ref="f6bdc6a297299619f269bf3a556799d4" category="inline-link-rx"></block></block>
+  <block id="8866e8de2efa7275a5dc8e942c1613c2" category="paragraph">版本历史记录：</block>
+  <block id="0be8406951cdfda82f00f79328cf4efc" category="cell">注释</block>
+  <block id="88c55c9f00e518db40a6c680728b787f" category="cell">2025年3月</block>
+  <block id="578debbebf489f0ea51e1904091b28c6" category="doc">示例配置概述</block>
+  <block id="b1d89f1cd61a86148770f4782f718ee1" category="paragraph">在实验设置中、我们使用的是统一访问配置、其中两个ESX主机都可以访问这两个存储集群。在接下来的几节中、我们将介绍统一访问配置、但也会重点介绍非统一设置的差异。</block>
+  <block id="bda60fd55001f0b523d1bf959086d104" category="paragraph"><block ref="bda60fd55001f0b523d1bf959086d104" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6d29d2542a6a2e3e81746082b1d99b07" category="section-title">软件版本</block>
+  <block id="719d067b229178f03bcfa1da4ac4dede" category="cell">软件</block>
+  <block id="253b40ae359ba25b56231803430c4873" category="cell">ONTAP</block>
+  <block id="23db331427e32cc94e52e42ba8759f19" category="cell">A700：9.15.1P7、A800 9.16.1RC1</block>
+  <block id="612b02d3b61adaee87995431641689c5" category="cell">vSphere客户端</block>
+  <block id="75809dde56e3fe2c2fb740f1b55807ac" category="cell">8.0.3</block>
+  <block id="1aa66ef3a8e34a7a538960a80d2e1e31" category="cell">ESXi</block>
+  <block id="d5c7c08072d4efb56a83ee0c785a4627" category="cell">适用于vSphere的SnapCenter插件</block>
+  <block id="a24cb0112e51902b6b3ed4606a7cd727" category="cell">6.0.1</block>
+  <block id="793d284bad68b41cca09ce8e8b200352" category="cell">Linux操作系统</block>
+  <block id="6ac3d422e6f335ad57542e8a44dd55b3" category="cell">SLES for SAP 15 SP5</block>
+  <block id="cdfd3aaedd2f1ca4bb0a69bf5258b295" category="cell">2.0 SPS8</block>
+  <block id="5c014f8939a89da0166a347a0237cf4f" category="cell">SnapCenter</block>
+  <block id="e5aba9e63a96cac40d6e5f986a9079f3" category="doc">故障转移场景</block>
+  <block id="de57ed1e494e5095dc962512b691ba8f" category="section-title">统一访问设置</block>
+  <block id="f0debbf74e1e275c8a3ccb2444ac73f6" category="paragraph">在统一访问配置中、光纤通道SAN会延伸到两个站点。两个站点的ESX主机均可访问数据集的两个副本。在正常操作期间、运行HANA系统的ESX主机将根据启动程序组配置中的邻近设置访问数据的本地副本。每个ESX主机都有一条指向本地副本的活动优化路径和一条指向镜像副本的活动非优化路径。</block>
+  <block id="86bcf99dbc3944da56f06b48074d09f6" category="section-title">正常运行</block>
+  <block id="92b59c2bf70b9fdba2c059aee44eb044" category="paragraph">在正常操作期间、HANA系统会根据ESX主机ESY-1中的活动优化路径、从本地副本读取数据或向本地副本写入数据。每次执行备份操作时、SnapCenter都会检测复制关系的当前主站点、并对主站点执行备份操作。快照会复制到镜像副本、并可在两个站点上使用。SnapCenter还原操作将在主站点上执行。</block>
+  <block id="ae6ff75fb17252ab700fd3829a86fd1c" category="paragraph"><block ref="ae6ff75fb17252ab700fd3829a86fd1c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="48ff58405bb19fe5bfc8e9d56eed6a27" category="section-title">存储故障</block>
+  <block id="0b863d48b2762e9a065bb6609efb0e39" category="paragraph">如果站点1的存储系统发生故障、则HANA系统将访问站点2的镜像副本并继续运行。此时、主站点将切换到二级站点、SnapCenter将在新的主站点上执行备份和还原操作。</block>
+  <block id="077c1d5ab6f962f891099b9210a13b12" category="paragraph"><block ref="077c1d5ab6f962f891099b9210a13b12" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1163a74136e40a05bc320e61f567a4df" category="section-title">站点故障</block>
+  <block id="09e49506e92274d793e041a080d932ac" category="paragraph">如果某个站点发生故障、则HANA VM以及SnapCenter和适用于VMware的SnapCenter插件VM将使用vSphere HA故障转移到二级站点上的ESX主机。HANA数据库需要启动、然后才能访问第二个站点上的镜像副本。此时、主站点将切换到二级站点、SnapCenter将在新的主站点上执行备份和还原操作。</block>
+  <block id="53078ab54ba7ebd9dcf9b549903d0067" category="paragraph"><block ref="53078ab54ba7ebd9dcf9b549903d0067" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0a6e902e89c3df722cf20de93024e4c2" category="section-title">非一致访问设置</block>
+  <block id="0912a0ba8a9214fedc7c2bedb6ed636d" category="paragraph">在非一致访问配置中、光纤通道SAN不会在两个站点之间延伸。每个站点的每个ESX主机只能访问数据集的本地副本。</block>
+  <block id="36830e760ac989938c2390fabd803283" category="paragraph">在正常操作期间、HANA系统会从本地副本读取数据或向本地副本写入数据。每次执行备份操作时、SnapCenter都会检测复制关系的当前主站点、并对主站点执行备份操作。快照会复制到镜像副本、并可在两个站点上使用。SnapCenter还原操作将在主站点上执行。</block>
+  <block id="d82e6994523253847e1b50175e2dc7a6" category="paragraph"><block ref="d82e6994523253847e1b50175e2dc7a6" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="9b73a2b8924460a1304567cee49f45b6" category="paragraph">如果发生存储故障、则HANA VM以及SnapCenter和适用于VMware的SnapCenter插件VM将使用vSphere HA故障转移到二级站点上的ESX主机。HANA数据库需要启动、然后才能访问第二个站点上的镜像副本。此时、主站点将切换到二级站点、SnapCenter将在新的主站点上执行备份和还原操作。</block>
+  <block id="8cc83bb8eec7bc571bd9ca6b3ee14ab7" category="paragraph"><block ref="8cc83bb8eec7bc571bd9ca6b3ee14ab7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="9ec38366f0f4b942de78f96e3cba6091" category="paragraph">与存储故障相同。</block>
+  <block id="a19167957b85d342503cb693d3fc10d5" category="paragraph"><block ref="a19167957b85d342503cb693d3fc10d5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="bf619fead7f757b3eab618cd1c3a0135" category="section-title">重新定位HANA VM或主站点</block>
+  <block id="7f1a3b4bfc6d6488712d1783304ab09b" category="paragraph">如果将HANA VM重新定位到另一个ESX主机、并且存储的主站点保持不变、则使用SnapCenter执行还原操作将失败。由于SnapCenter使用主站点执行还原操作、因此克隆将在左侧创建、而HANA VM则在右侧运行。由于站点之间没有数据路径、因此SnapCenter不会复制数据。</block>
+  <block id="489a7f9a78df7b4cf3e62a41e3245bc0" category="paragraph">解决方法是、您需要确保虚拟机和主站点的重新定位同时完成、或者您需要在使用SnapCenter执行还原操作之前对主站点进行故障转移。</block>
+  <block id="4bdbcf3ab81e5334c21c5e847d722cb4" category="paragraph"><block ref="4bdbcf3ab81e5334c21c5e847d722cb4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b1e25e0a3cd6e9de63eb75f1fd3dd032" category="doc">概述SAP HANA高可用性</block>
+  <block id="987809e37ad70a5df332e23a704d0bd7" category="paragraph">本章概述SAP HANA的高可用性选项、将应用层复制与存储复制进行比较。</block>
+  <block id="08eceef12e3967caaaf54cccf0ce111c" category="section-title">SAP HANA系统复制(HSR)</block>
+  <block id="74c978e5230861321ac16b0a627d3342" category="paragraph">SAP HANA系统复制提供了一种操作模式、在此模式下、数据会同步复制、预加载到内存中并在二级主机上持续更新。此模式可启用极低的RTO值(大约1分钟或更短)、但它还需要一个专用服务器、该服务器仅用于从源系统接收复制数据。由于故障转移时间较短、因此SAP HANA系统复制通常也用于几乎零停机时间的维护操作、例如HANA软件升级。Linux PacMaker集群解决方案通常用于自动执行故障转移操作。</block>
+  <block id="20ced194a2fd3c612748e5e51b3387c4" category="paragraph">如果主站点、存储、主机或整个站点发生任何故障、HANA系统会自动故障转移到由Linux PacMaker集群控制的二级站点。</block>
+  <block id="9e7336ba5e4ed2d09c7228c55e0ba47b" category="inline-link">SAP HANA系统复制++|++ SAP帮助门户</block>
+  <block id="7b34b1ed03b63bf2bd159a5a676652e8" category="paragraph">有关所有配置选项和复制方案的完整说明，请参见<block ref="17cc660648cb4616470c61fbc9c06824" category="inline-link-rx"></block>。</block>
+  <block id="4e170df3e248822a256cb7a56e2ee615" category="paragraph"><block ref="4e170df3e248822a256cb7a56e2ee615" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b5466376aeff587b72e99e54a02714fd" category="section-title">NetApp SnapMirror活动同步</block>
+  <block id="b368e1e8268c5ee114e5ada04591b1a2" category="paragraph">通过SnapMirror主动同步、即使在整个站点发生故障时、业务服务也可以继续运行、从而支持应用程序使用二级副本透明地进行故障转移。使用SnapMirror活动同步触发故障转移无需手动干预或自定义脚本。AFF集群、全闪存SAN阵列(ASA)集群和C系列(AFF或ASA)均支持SnapMirror主动同步。SnapMirror主动同步可通过iSCSI或FCP LUN保护应用程序。</block>
+  <block id="120ac4512006f78bceb0b59765a5b470" category="paragraph">从ONTAP 9.151开始、SnapMirror主动同步支持对称主动/主动功能。对称主动/主动允许通过双向同步复制从受保护LUN的两个副本执行读写I/O操作、以便两个LUN副本都可以在本地处理I/O操作。</block>
+  <block id="ca3627c50535cf86d223e94a7157a787" category="paragraph">有关详细信息，请参见<block ref="90f942fd5a37ab4e29fced42177889a8" category="inline-link-rx"></block>。</block>
+  <block id="e363c476652ac6172b97433ad80c2842" category="section-title">HANA裸机</block>
+  <block id="77e01c1ae4414449514e53b334b3a5ee" category="paragraph">在裸机服务器上运行SAP HANA时、您可以使用SnapMirror主动同步提供高可用性存储解决方案。数据会同步复制、因此RPO为0。</block>
+  <block id="371cc3ec4651f24f9520e71b61d120c3" category="paragraph">如果发生存储故障、则HANA系统将使用提供RTO=0的第二个FCP路径透明地访问二级站点上的镜像副本。</block>
+  <block id="902f4e9206ee07d7ed42ee4916c973a1" category="paragraph">如果主机或整个站点发生故障、则需要在二级站点上提供一台新服务器、以便从故障主机访问数据。这通常是与生产规模相同的测试或QA系统、现在将关闭并用于运行生产系统。二级站点的LUN连接到新主机后、需要启动HANA数据库。因此、总的RTO取决于配置主机所需的时间以及HANA数据库的启动时间。</block>
+  <block id="5117fd6090a066bc48afdff23d072244" category="paragraph"><block ref="5117fd6090a066bc48afdff23d072244" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3ba147cc4fab7ba888332037f78a8985" category="section-title">vSphere Metro Storage Cluster (VMSC)</block>
+  <block id="394ce32240e819d6d95dd2af28c53973" category="paragraph">在使用FCP连接的数据存储库在VMware环境中运行SAP HANA时、您可以使用SnapMirror主动同步构建VMware Metro存储集群。在这种设置中、HANA系统使用的数据存储库会同步复制到二级站点。</block>
+  <block id="9a140f89434439219a1b6faf5ba97e2b" category="paragraph">如果发生存储故障、ESX主机将自动访问二级站点上的镜像副本、但此处的RTO=0。</block>
+  <block id="f91492c7d389cf5d440994259ad203e2" category="paragraph">如果某个主机或整个站点发生故障、则会使用vSphere HA在二级ESX主机上启动HANA VM。当HANA VM运行时、需要启动HANA数据库。因此、总的RTO主要取决于HANA数据库的启动时间。</block>
+  <block id="ba6dc9fe67f1354333b3009840c86114" category="paragraph"><block ref="ba6dc9fe67f1354333b3009840c86114" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="86a805d84ce5e32e6ca13c56154a4a15" category="section-title">解决方案比较</block>
+  <block id="9b5696f15b1d5f7a47f618da3b7853e9" category="paragraph">下表总结了上述解决方案的主要特征。</block>
+  <block id="dc6074de0b3772ead0e64c076f8d2259" category="cell">SnapMirror主动同步—裸机</block>
+  <block id="0a5b3c6f53c4a5accd866a909b4d52fd" category="cell">SnapMirror活动同步—VMware VMSC</block>
+  <block id="27897ffb9e4044ade7a4bc86ad509a6c" category="cell">出现任何故障时的RPO</block>
+  <block id="d67cedb462ee91d060fd85274a5e7494" category="cell">RPO = 0 +同步复制</block>
+  <block id="009368507a7a4c26b10de28891aa0dd4" category="cell">存在存储故障的RTO</block>
+  <block id="7763ad19cdccf617d43e749a80bfc602" category="cell">RTO ++&lt;++ 1分钟</block>
+  <block id="dc181842fcb13b2256a35d267096561d" category="cell">RTO=0 +透明存储故障转移</block>
+  <block id="6ea829e5a5696c9681eeef3604b2bd76" category="cell">存在站点或主机故障的RTO +</block>
+  <block id="902a9f83cb07726e2582e114a6b7abbe" category="cell">RTO：具体取决于服务器准备和HANA数据库启动所需的时间。</block>
+  <block id="0dbc0fdf45131a87daee08d81ebf33e1" category="cell">RTO：具体取决于HANA数据库启动所需的时间。</block>
+  <block id="284fc674eaa83c3b11ce1e98d5a052d3" category="cell">故障转移自动化</block>
+  <block id="6fb294e3702956a16cc26ebc2f652861" category="paragraph">是、</block>
+  <block id="dd2116922c73d7f2168d2fc912702614" category="paragraph">自动故障转移到二级HSR主机</block>
+  <block id="7f575b7087101c4d9cc428f57e5dd059" category="paragraph">由起搏器集群控制。</block>
+  <block id="06c3156d8fb5cf2d45d241378819a628" category="paragraph">是、对于存储故障</block>
+  <block id="990f3e8714b8c5011ab8a20df2d7ea91" category="paragraph">否、表示主机或站点故障</block>
+  <block id="6a1e3724a3082939243ab3f91a946da8" category="paragraph">(配置主机、连接存储资源、启动HANA数据库)</block>
+  <block id="91704d15c2f156721d2e44204c22af5f" category="paragraph">是、适用于主机或站点故障</block>
+  <block id="d359c0689ae33e3e1dfb405310903f04" category="paragraph">(通过vSphere HA自动将VM故障转移到其他站点、并启动HANA数据库)</block>
+  <block id="c6b937a7b4e92d57fb3a35462485bdaa" category="cell">需要在二级站点上配置专用服务器</block>
+  <block id="c47e796859dbedadcae3ab34dfa80d5a" category="paragraph">需要将数据预加载到内存中并在不启动数据库的情况下实现快速故障转移。</block>
+  <block id="dadf8968c911f87cc532e4805e90f855" category="paragraph">否、</block>
+  <block id="ad10577dd6419029ccf490373173660d" category="paragraph">只有在发生故障转移时才需要服务器。通常、用于QA的服务器将用于生产环境。</block>
+  <block id="fcfd78cf2bc94c041ed6fe1e45b63b84" category="paragraph">只有在发生故障转移时、才需要使用ESX主机上的资源。通常、QA资源将用于生产。</block>
+  <block id="22cb9440d63d06a4ae448103a8862dd9" category="doc">HANA系统配置和安装</block>
+  <block id="4cc1e6d21efe7635f94370fbfe981517" category="paragraph">本章介绍如何使用VMFS安装和配置特定于VMware设置的SAP HANA系统。有关其他通用最佳实践，请参见<block ref="c4aea835339de8cfde34f3337daee2de" category="inline-link-rx"></block>。</block>
+  <block id="82fb8604ddd023efcdc1007567ae6eef" category="paragraph">下图显示了HANA系统的存储和数据存储库配置。您必须为HANA系统的每个文件系统配置一个专用卷、LUN和数据存储库。不能在多个HANA系统或其他工作负载之间共享数据存储库。</block>
+  <block id="82f7e2441c1fe3cddcf55e57b026a729" category="paragraph"><block ref="82f7e2441c1fe3cddcf55e57b026a729" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c3f1f40cd03b3f9d165d7c485614a8dd" category="paragraph">已在A700存储集群中配置HANA系统的所有三个LUN (HAA++_++data++++++++-SMA、HAA+++++++++++++++SAM和HAA+++++++++++++++shared +++++++++++SMA)以及用于操作系统映像和SnapCenter组件的LUN。</block>
+  <block id="6abb836197119043e7e3a204cb912a67" category="admonition">必须在同一个SVM中配置HANA系统的所有卷。在后面介绍的SnapMirror主动同步配置中、我们将在所有三个HANA卷之间创建一致性组、这要求这些卷位于同一个SVM中。基础架构卷将位于不同的一致性组中、因此可能位于不同的SVM中。</block>
+  <block id="7c0e8cc99c344ccf72c2ee5f6b2deff0" category="paragraph"><block ref="7c0e8cc99c344ccf72c2ee5f6b2deff0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6f858092d3c8c8c59ec9e6092fe629b6" category="paragraph">必须配置启动程序组、并且必须将上述LUN映射到EST-1主机、在我们的实验室设置中、该主机与A700存储系统非常接近。</block>
+  <block id="d4764807004a9c2e57acdb1113dadddb" category="section-title">数据存储库配置</block>
+  <block id="fe52842ccaad661581071086ded46232" category="paragraph">我们使用之前配置的三个LUN为HANA系统创建了三个数据存储库。此外、我们还使用基础架构LUN创建了一个基础架构数据存储库。</block>
+  <block id="a7117a80d56406d5a698b8a18c1e5495" category="paragraph"><block ref="a7117a80d56406d5a698b8a18c1e5495" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="edbd77647e9fe471212a09f06fcef5be" category="section-title">VM配置和操作系统安装</block>
+  <block id="5a6fb9ce0c23d1ac64afe3983e1668f0" category="paragraph">在实验室设置中、我们部署了一个新VM、并将适用于Linux操作系统的VMDK放置在基础架构数据存储库中。</block>
+  <block id="a42168c386dcef152a0e7c885d464760" category="section-title">VM磁盘配置</block>
+  <block id="67e533b552471df92b12c97ce87b3cd5" category="paragraph">向HANA VM添加了三个新磁盘、每个磁盘都位于为HANA系统创建的一个数据存储库中。</block>
+  <block id="edcb775c8403d042b80f0e30b26f76f6" category="paragraph"><block ref="edcb775c8403d042b80f0e30b26f76f6" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e3ab7c7e24f43d25f78e863f781e03de" category="section-title">VM参数设置</block>
+  <block id="0bd6ffb9e904b280022c803fc521ca0a" category="paragraph">必须添加参数disk.enableUUID并将其设置为true。SnapCenter需要参数。如果未设置、SnapCenter的"Discover virtual resource"(发现虚拟资源)操作将失败。</block>
+  <block id="890d55a7561d8f4fdc612a5495be0cda" category="paragraph">必须先停止VM、然后才能添加参数。</block>
+  <block id="5d1df9bba7ffc4e5ebd9f46da5bbd544" category="paragraph"><block ref="5d1df9bba7ffc4e5ebd9f46da5bbd544" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e9033ec94d923384ee4a9d664fa0d7ef" category="paragraph">可以使用以下命令检查此功能。</block>
+  <block id="fbd86477dc5ddc7e08bef7e21d85dd74" category="section-title">在Linux主机上准备文件系统</block>
+  <block id="f9a1aed2a171ffa40e1f0bfdfceab787" category="section-title">在新磁盘上创建xfs文件系统</block>
+  <block id="01f87746bc9a85efb16048c2bfed76b9" category="paragraph">可以使用以下命令检查新磁盘的设备名称。</block>
+  <block id="cd6174e52b01f5084087e5097afa84b5" category="paragraph">在三个新磁盘中的每个磁盘上都创建了一个xfs文件系统。</block>
+  <block id="5e21ca9a47d763f1547a6e8da87b48aa" category="section-title">创建挂载点</block>
+  <block id="364d059aeff423f2a53df3b500a50ee4" category="section-title">配置/etc/fstab</block>
+  <block id="a07e777a6c16b677430f0a4f8d2eb265" category="section-title">HANA安装</block>
+  <block id="ed64580d8bc363a7c8503100764a1e22" category="paragraph">现在可以执行HANA安装。</block>
+  <block id="bdcdc8dec084298d3d7b407e5e24db1b" category="admonition">根据所述配置、/usr/sap/SMA目录将位于操作系统VMDK上。如果要将/usr/SAP/SMA存储在共享VMDK中、则可以对HANA共享磁盘进行分区、以便为/usr/SAP/SMA提供另一个文件系统。</block>
+  <block id="0f3fb56539f10acb82eb70a4ab370556" category="section-title">SnapCenter的用户存储密钥</block>
+  <block id="7de31858198e16e10678a5b4f1d04243" category="paragraph">必须为系统数据库用户创建用户存储、SnapCenter应使用该存储。必须为通信端口相应地设置HANA实例编号。在我们的设置实例中、使用的是数字"00"。</block>
+  <block id="1d64057640fe99faeff8fad48888f242" category="paragraph">有关更详细的说明、请参见<block ref="a61aa91eab8ccb67ae058f889851f71d" category="inline-link-rx"></block></block>
+  <block id="b13ad7abcf30db767678239fb1e3a606" category="paragraph">可以使用以下命令检查连接。</block>
+  <block id="ef6002cb57423b3807e1a4481d6b4b90" category="paragraph">对于每个备份操作、SnapCenter都会在VMware端执行发现以及主站点检测。如果发生存储故障转移、则在对资源执行备份后、SnapCenter将立即检测到新的主站点。</block>
+  <block id="bf8c40e460a4a06b36836429a25c2d09" category="paragraph"><block ref="bf8c40e460a4a06b36836429a25c2d09" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="04a44e5a8097fa18ecddaa90763d6135" category="section-title">拓扑视图</block>
+  <block id="05db403414edc672fd35cc5a3f1975ec" category="paragraph">在拓扑视图中、SnapCenter会显示源存储集群和目标存储集群的备份。</block>
+  <block id="031c531b119950c87336ac22c43a2e3f" category="paragraph"><block ref="031c531b119950c87336ac22c43a2e3f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7027dc8972f1b99113bc768aac0c2670" category="paragraph"><block ref="7027dc8972f1b99113bc768aac0c2670" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c4e92cfd61ef8f4f63779913c6e9f675" category="paragraph">通过单击二级存储上的计数、将显示当前关系和复制方向。源站点始终为当前主站点。存储故障转移后、主站点将发生更改、并相应地调整显示内容。所有备份始终具有相同的关系、具体取决于哪个存储系统当前是主站点。</block>
+  <block id="1ccc39ba0459fe5183c80dac48af4af3" category="paragraph"><block ref="1ccc39ba0459fe5183c80dac48af4af3" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="49e456be1e3c0ed447947f11c58565ce" category="section-title">存储系统上的快照</block>
+  <block id="5819d1ff9bd305eabaf945b6544c23ef" category="paragraph">SnapCenter创建的Snapshot备份可在两个存储系统的两个HANA数据卷上使用。ONTAP会在一致性组级别创建其他快照、所有其他HANA卷也可使用这些快照。</block>
+  <block id="f7838da54113152cd818d6baa44190f5" category="paragraph">下图显示了A700集群中HANA数据卷的Snapshot。</block>
+  <block id="cab33f27313d345c6cb0b8c11273ccde" category="paragraph"><block ref="cab33f27313d345c6cb0b8c11273ccde" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b0e04e841e6578b57fe061057d48d4e4" category="paragraph">下图显示了A800集群中HANA数据卷的Snapshot。</block>
+  <block id="88dfb516540a0b79c065a6e74facf5f9" category="paragraph"><block ref="88dfb516540a0b79c065a6e74facf5f9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="150e7e66bd7d0560b632e6db10807aa0" category="paragraph">如本文档开头所述、本文档旨在为使用VMware和VMFS以及SnapMirror主动同步的HANA环境提供最佳实践。我们仅介绍与此特定解决方案相关的详细信息和重要步骤、不会介绍常规SnapCenter概念。有关SnapCenter的这些概念和其他附加信息、请参见：</block>
+  <block id="e11da9afe91d381489a365c86cc614ab" category="section-title">前提条件</block>
+  <block id="1a1399efb6ec09d6f1bcbf7e237aca09" category="paragraph">通常、在将受保护资源添加到SnapCenter之前、应先设置SnapMirror主动同步。如果在设置SnapMirror活动同步之前创建了备份、则这些备份将仅存在于原始主存储中、之后不会进行复制。</block>
+  <block id="4f16119d47772a6a75fba710b3edec5b" category="section-title">必须自动发现SnapCenter HANA资源</block>
+  <block id="8adbe6d9d7496fa5a303471e887c8889" category="paragraph">使用VMware VMFS配置的资源或使用SnapMirror活动同步保护的资源必须由SnapCenter自动发现、以支持这些配置所需的特定操作。</block>
+  <block id="b16aa39a4f385ea2fba7969bf806fa8d" category="paragraph">由于HANA非数据卷在SnapCenter中始终是手动配置的资源、因此SnapCenter不支持即装即用。我们将在本文档后面讨论非数据卷的选项和解决方法。</block>
+  <block id="6ad909fad35f1c46ac8d0a52be8a3d72" category="paragraph">SAP HANA多主机系统必须使用中央HANA插件进行配置、因此默认情况下是手动配置的资源。使用VMware VMFS或SnapMirror主动同步时、SnapCenter不支持此类HANA系统。</block>
+  <block id="f3b371d385ca5da7a8a691a87cd0550e" category="section-title">适用于VMware vSphere的SnapCenter插件</block>
+  <block id="369f86eddeb3128a82721885894de95d" category="paragraph">适用于VMware vSphere的SnapCenter插件必须部署在VMware环境中。</block>
+  <block id="f8840e34a497d5c17cb94149c2d5a54d" category="section-title">托管卷的SVM上的管理IP地址</block>
+  <block id="163c4a344b405e61b7739029378e12d0" category="paragraph">即使集群将添加到SnapCenter中、托管源卷和目标卷的SVM也必须配置管理IP地址。</block>
+  <block id="c41142e8389e6d50aa7ca70768ab6dad" category="section-title">用于存储通信的REST API</block>
+  <block id="feb49cee6d9d3ee76b226fb03b3d79d6" category="paragraph">管理和监控SnapMirror活动同步需要访问REST API。因此、必须将SnapCenter配置为使用REST API进行存储通信。必须将配置文件+ C：++\++Program Files++\++SMCore++\+++SMCore++\+++SMCoreServiceHost.dll.config中的参数"IsRestEnableForStorageConnection" NetApp设置为true。</block>
+  <block id="0181b55ff54ec406a7a0cc37316b2419" category="paragraph"><block ref="0181b55ff54ec406a7a0cc37316b2419" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1ebc543a4f05ada62a5956f69c8cc3d6" category="paragraph">参数更改后、必须重新启动SnapCenter SMCore服务。</block>
+  <block id="c4833502ae178bb2566e2f4c312313f0" category="paragraph"><block ref="c4833502ae178bb2566e2f4c312313f0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="787d250b4622b9b1f34f52b01f5768aa" category="section-title">添加存储系统</block>
+  <block id="3112d21712c36ecc48176c64678e718e" category="paragraph">在为SnapCenter启用REST API后、可以添加存储系统。需要同时添加两个存储集群、而不是单个SVM。</block>
+  <block id="c3f1649cad0dd2dcceadde937be6c21b" category="paragraph"><block ref="c3f1649cad0dd2dcceadde937be6c21b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="923d4459c371511d945b82eaf0a1b2d8" category="paragraph"><block ref="923d4459c371511d945b82eaf0a1b2d8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b46b76cab7f6f6afb52ebc4c10768224" category="section-title">添加主机—适用于VMware vSphere的SnapCenter插件</block>
+  <block id="c35f3eb2b8da88a46acb4aa82928ce31" category="paragraph">如果SnapCenter中的某个资源正在虚拟化VMware环境中运行、则SnapCenter会利用适用于VMware vSphere的SnapCenter插件来扩展SnapCenter备份、还原和克隆工作流、并在VMware层执行所需的步骤。</block>
+  <block id="cbb0594c4acc29f0e3fcb2963999fe73" category="paragraph">要在SnapCenter中添加主机、必须先在VMware环境中部署适用于VMware vSphere的SnapCenter插件。</block>
+  <block id="8cc3230c5a466c86bb7d8f7af94952a5" category="admonition">必须在主机添加工作流期间设置凭据、在此工作流中、可以选择vSphere作为主机类型。</block>
+  <block id="8a233717862ad8f931eec704237189b0" category="paragraph"><block ref="8a233717862ad8f931eec704237189b0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="096db71fd0e7f6e67ff883276e3c2b3d" category="paragraph"><block ref="096db71fd0e7f6e67ff883276e3c2b3d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fa2faddb92f7f2a081a5e8d3b4c634e0" category="paragraph"><block ref="fa2faddb92f7f2a081a5e8d3b4c634e0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5ff52055959ad44e98f86e109ac72ca5" category="admonition">无需在适用于vSphere的SnapCenter插件本身进行其他配置。</block>
+  <block id="c426bd2997293154277f7c4e50310c96" category="section-title">添加主机—HANA系统</block>
+  <block id="b21232e9394cd4fb5e214660bb77db10" category="admonition">无特定要求。插件部署和自动发现照常进行。</block>
+  <block id="d1cdcf983bdd554e375ccec8432ef82e" category="paragraph">通过自动发现过程、SnapCenter可检测到HANA资源正在使用VMS/VMDK进行虚拟化运行。SnapCenter还会检测SnapMirror活动同步设置并确定当前主站点。</block>
+  <block id="95da28886abec665f2782fd7547431eb" category="paragraph">自动发现资源后、当前主站点将显示在资源视图的存储占用空间部分中。检测哪个存储系统为主存储系统取决于SnapCenter使用的ONTAP命令的输出。</block>
+  <block id="f082ae0a3101216bbe5a2cb95c9356e6" category="paragraph"><block ref="f082ae0a3101216bbe5a2cb95c9356e6" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="05bc6c382ea061de5b4f6fea203aa45a" category="paragraph">使用SnapMirror活动同步保护的资源所使用的策略必须使用SnapMirror复制进行配置、即使SnapCenter不会触发任何SnapMirror更新操作也是如此。</block>
+  <block id="4e41710c592daaa8d956dd05b9a7c011" category="paragraph"><block ref="4e41710c592daaa8d956dd05b9a7c011" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="9e673b65c6e6499189fc0aa877745378" category="paragraph"><block ref="9e673b65c6e6499189fc0aa877745378" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="daf49724608610d815cd0eb3781425af" category="section-title">HANA资源保护配置</block>
+  <block id="43b663b9d6082168b84bee7d40564e67" category="paragraph">无特定要求。资源保护配置照常执行。</block>
+  <block id="7a0344025c16d96cd8df0619b2218fce" category="doc">SnapCenter非数据卷</block>
+  <block id="9132feb6160cedf47a36155f2f3ad5ff" category="paragraph">如果在SnapCenter中手动配置了资源、但未自动发现资源、则SnapCenter无法识别VMware和SnapMirror活动同步。因此、SnapCenter本机不支持它们。</block>
+  <block id="5de17fd2a6b98e5056ac1e5633611b30" category="paragraph">对于HANA共享等非数据卷、在考虑执行其他手动步骤时、仍可使用SnapCenter执行备份和还原操作。</block>
+  <block id="61ebc8147fe58d3b86dae6344e91b60e" category="section-title">在SnapCenter中配置的存储系统出现故障</block>
+  <block id="c346d6fc87098f9a21d3525ee76139b3" category="paragraph">如果在SnapCenter中配置的存储系统发生故障、SnapCenter不会自动切换到另一个存储系统。必须手动调整非数据卷资源、以便将卷的镜像副本用于备份和还原操作。</block>
+  <block id="500fc97f0288596ec90d509cb258340f" category="paragraph"><block ref="500fc97f0288596ec90d509cb258340f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4395ad4a2825b1a9b23561463c8deff8" category="paragraph">即使SnapCenter无法识别HANA共享卷的SnapMirror活动同步配置、Snapshot也会同时复制到这两个站点。</block>
+  <block id="175066e70e2d47fc384d34a47e028ea9" category="paragraph"><block ref="175066e70e2d47fc384d34a47e028ea9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="26ce94e574712db28e7fbd25d64e3058" category="paragraph"><block ref="26ce94e574712db28e7fbd25d64e3058" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="184c7acf475738503d79cb9ce937a858" category="paragraph">在执行还原时、SnapCenter只会执行卷还原、而不会执行任何VMware专用步骤。通常、您需要在Linux主机上卸载HANA共享卷、断开数据存储库的连接、然后执行卷还原、再次连接数据存储库、然后在Linux主机上挂载文件系统。作为手动操作、您可以停止HANA VM、使用SnapCenter还原HANA共享卷、然后重新启动VM。</block>
+  <block id="093062b6c8b9821496cd9be5e55a9acc" category="doc">SnapCenter还原和恢复</block>
+  <block id="a2966cfcc80f04bdf1206e8297c175cd" category="paragraph">如果虚拟资源存储在VMS/VMDK的上、则SnapCenter还原操作始终通过克隆、挂载、复制操作来完成。</block>
+  <block id="98eff08afbe785093d01ce969a164a0d" category="list-text">SnapCenter会根据选定Snapshot创建卷克隆</block>
+  <block id="87dd4fb19c3e2e97b8cc1aa03edb4e4e" category="list-text">SnapCenter会将克隆卷中的LUN作为新数据存储库挂载到ESX主机</block>
+  <block id="55bbc9eff8d3848a5cbab7456469a3b2" category="list-text">SnapCenter会将数据存储库中的VMDK作为新磁盘添加到HANA VM中</block>
+  <block id="caeb5b140d6bab5426d94c1606851042" category="list-text">SnapCenter会将新磁盘挂载到Linux操作系统</block>
+  <block id="da49051afcb3436b0342559c9148ab9c" category="list-text">SnapCenter会将数据从新磁盘复制回原始位置</block>
+  <block id="eb8196a21b8b5e09eed40015d4a94457" category="list-text">复制操作完成后、所有上述资源将再次删除</block>
+  <block id="4aeeccb722fe371e69d0a28c56314dda" category="list-text">HANA恢复照常执行</block>
+  <block id="778611a24fc532e45b1c02dd89308306" category="paragraph">因此、还原操作的整体运行时间取决于数据库大小以及存储集群和ESX主机之间FC连接的吞吐量。</block>
+  <block id="e94b0328ba32f80357a5f27967929904" category="paragraph">此外、如果为资源配置了SnapMirror活动同步、则只能在当前主站点上选择SnapCenter还原操作。</block>
+  <block id="5f35033b3e56e00e68892ec016ea328f" category="paragraph"><block ref="5f35033b3e56e00e68892ec016ea328f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d598a9665b7df364f57687a1e235a0b1" category="paragraph">在运行还原和恢复操作时、您可以看到在当前主站点上创建的新克隆卷。</block>
+  <block id="6f06150d9d62fe339c9d504278327de4" category="paragraph"><block ref="6f06150d9d62fe339c9d504278327de4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="abd74d957000391d94ad15a09a0818bd" category="paragraph">在HANA Linux主机上、您可以看到已挂载到主机的新磁盘。还原操作完成后、SnapCenter将再次删除磁盘、数据存储库和卷。</block>
+  <block id="c2cb902b1e10d6b860fdcf4e986baf3b" category="doc">SAP系统刷新操作</block>
+  <block id="9b1c81d3df7f6bed2a839959b4477971" category="paragraph">克隆操作可以在主站点或二级存储上执行。</block>
+  <block id="a020ae3097508c9c92639348111abaae" category="paragraph">克隆的卷不会属于HANA一致性组、也不会使用SnapMirror主动同步进行复制。</block>
+  <block id="63635d57ffdde74dea50ef94c88f196f" category="paragraph">有关系统刷新工作流的详细信息、请参见：<block ref="6c08dc4f79105734ee7967f4cc273b9b" category="inline-link-rx"></block></block>
+  <block id="956128d9b9faae13b3100c9e174d475d" category="doc">借助SnapCenter、SnapMirror Active Sync和VMware城域存储集群实现SAP HANA数据保护和高可用性</block>
+  <block id="4a83948efff6fc2ff209b47d361b2ba8" category="paragraph">本文档介绍了在VMware环境中使用SnapCenter以及SnapMirror主动同步作为HANA存储资源的高可用性解决方案进行数据保护的最佳实践。</block>
+  <block id="63d06e5f1c9dbc6680e4643fd422c092" category="paragraph">本文档并不是对如何设置整个环境的分步说明、而是将介绍与以下各项相关的概念和相关详细信息：</block>
+  <block id="8949e3ca351483f6af273cac76bb01df" category="list-text">使用VMware VMFS设置SAP HANA系统</block>
+  <block id="972b18efcd39876d95d7b83050a71880" category="list-text">适用于SAP HANA的SnapMirror主动同步配置</block>
+  <block id="01a0a94ba05bcf19aa61e14480717d02" category="list-text">使用VMFS在VMware上为HANA配置SnapCenter</block>
+  <block id="cb79b071d2a08f1ee0cb1f1849ef0748" category="list-text">用于SnapMirror主动同步的SnapCenter配置</block>
+  <block id="7b018d7eff3dddf3b625b56e1ae5723e" category="list-text">在VMware上使用HANA和SnapMirror主动同步执行SnapCenter操作</block>
+  <block id="2c0b72f10b5b508ac2650ddce956a926" category="paragraph">我们将重点介绍使用SnapMirror活动同步的统一访问设置的VMware Metro Storage Cluster (VMSC)配置、如下图所示、但我们也将简要介绍裸机和非统一访问配置。</block>
+  <block id="d7583eff84af6f74a44a9ca5b5afc2fd" category="doc">SnapMirror主动同步配置</block>
+  <block id="f593c2db6d8f1128bf7bffe9f0f5580e" category="paragraph">存储集群和相关SVM必须建立对等关系。</block>
+  <block id="7b429c86f8caabbaec0c4187faeadf63" category="paragraph">两个存储集群都必须具有可用的ONTAP调解器并已进行配置。</block>
+  <block id="c8fb8235e330b668c2655f610ef83ed2" category="paragraph"><block ref="c8fb8235e330b668c2655f610ef83ed2" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="598ab88ed28fb47cc6fed84769cfe7b7" category="paragraph"><block ref="598ab88ed28fb47cc6fed84769cfe7b7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e7928a4a03ebe9a5e393d034b995de4b" category="section-title">存储布局和一致性组配置</block>
+  <block id="6b27256a76151ab9083e0dc68667e62c" category="paragraph">在ONTAP文档中<block ref="aea06cb1202b4252a4dc47ff101356e1" category="inline-link-rx"></block>、使用SnapMirror主动同步创建一致性组的概念如下所述：</block>
+  <block id="8baeb3ed17a72a05bb00b270d3defc83" category="paragraph">一致性组是一组FlexVol卷、可为必须保护以确保业务连续性的应用程序工作负载提供一致性保证。</block>
+  <block id="dab303185fbc9318833ee627f5c8c590" category="paragraph">一致性组的目的是同时为多个卷创建Snapshot映像、从而确保在某个时间点为一组卷创建崩溃状态一致的副本。一致性组可确保数据集的所有卷先处于静音状态、然后在完全相同的时间点进行对等。这样可以在支持数据集的卷之间提供数据一致的还原点。因此、一致性组可以保持依赖写入顺序的一致性。如果您决定保护应用程序以实现业务连续性、则必须将与此应用程序对应的一组卷添加到一致性组中、以便在源一致性组和目标一致性组之间建立数据保护关系。源和目标一致性必须包含相同数量和类型的卷。</block>
+  <block id="d6680c06d2f114bd8fd0e1a1098c0529" category="paragraph">要复制HANA系统、一致性组必须包括单个HANA系统使用的所有卷(数据、日志和共享)。应属于一致性组的卷必须存储在同一个SVM中。操作系统映像可以存储在具有自己一致性组的单独卷中。下图展示了一个使用两个HANA系统的配置示例。</block>
+  <block id="c9dd8223c3031c560e7fcb534fe72d4c" category="paragraph"><block ref="c9dd8223c3031c560e7fcb534fe72d4c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="dce719a9aac895b223304c1967dcde5c" category="section-title">启动程序组配置</block>
+  <block id="b55a0f5977724be33def42dfcc7d795f" category="paragraph">在实验室设置中、我们创建了一个启动程序组、其中包括用于SnapMirror活动同步复制的两个存储SVM。在后面介绍的SnapMirror活动同步配置中、我们将定义启动程序组将成为复制的一部分。</block>
+  <block id="d153ab00a9fc79e0afc040330080db50" category="paragraph">通过使用邻近设置、我们可以定义哪个ESX主机与哪个存储集群接近。在我们的案例中、A700接近ESS-1、而A800接近ESS-2。</block>
+  <block id="dd184cbed7494681add4cd0923c35ad1" category="paragraph"><block ref="dd184cbed7494681add4cd0923c35ad1" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b4a120e73887d5a1feaea990b4106840" category="paragraph"><block ref="b4a120e73887d5a1feaea990b4106840" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="42b0c96fbf8b9fed561a31ee0cb9388f" category="admonition">在非一致访问设置中、主存储集群(A700)上的启动程序组只能包含ESX-1主机的启动程序、因为与ESX-2之间没有SAN连接。此外、您还需要在第二个存储集群(A800)上配置另一个启动程序组、该存储集群仅包含ESX-2主机的启动程序。不需要进行邻近配置和启动程序组复制。</block>
+  <block id="fd262c56f1ba70fe1aa70d1a3c3d8afd" category="section-title">使用ONTAP System Manager配置保护</block>
+  <block id="758fcf827d91f970ad0a1968238ccc5a" category="paragraph"><block ref="758fcf827d91f970ad0a1968238ccc5a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="409d8f4e43dfcf06670ff533559e8ca6" category="section-title">一致性组和启动程序组复制</block>
+  <block id="642a6ec5ac1c3d086a24286f621914c3" category="paragraph">必须创建新的一致性组、并且必须将HANA系统的所有三个LUN添加到此一致性组中。</block>
+  <block id="1928ce6903f987c46c44a15bac630260" category="paragraph">已启用"重复启动程序组"。然后、在进行更改的位置、启动器组将保持同步。</block>
+  <block id="2bfcebfaa972add5e7bffefdb11ffd67" category="admonition">在非一致访问设置中、不能复制启动程序组、因为必须在第二个存储集群上配置单独的启动程序组。</block>
+  <block id="b8f1a75a3e7bc6e3bf261fe7ffa1e0e2" category="paragraph"><block ref="b8f1a75a3e7bc6e3bf261fe7ffa1e0e2" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e5d385b6e94519336cb178d80995ad5a" category="paragraph">通过单击邻近设置、您可以查看之前在启动程序组设置中完成的配置。</block>
+  <block id="e8be19aa85b20704bd5c66e8456b6d5f" category="paragraph"><block ref="e8be19aa85b20704bd5c66e8456b6d5f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6a89dc487882b1a714475c4cd768dffe" category="paragraph">必须配置目标存储集群并启用"初始化关系"。</block>
+  <block id="7338ec41a2eba15da2de14082c9d6c96" category="section-title">同步</block>
+  <block id="57703da2b711e4517a8228d88144ec56" category="paragraph">现在、在A700存储集群(源)中、将列出新关系。</block>
+  <block id="3bb42e3344ae4570152ebb388eb1227f" category="paragraph"><block ref="3bb42e3344ae4570152ebb388eb1227f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="417cc32b404ca22e52687ab1ca77d265" category="paragraph">在A800存储集群(目标)中、将列出新关系和复制状态。</block>
+  <block id="c331b637cb55698b7f98fcf2419d792e" category="paragraph"><block ref="c331b637cb55698b7f98fcf2419d792e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="cdfec31f4e0bb93abda71e2ebb065125" category="section-title">基础架构数据存储库</block>
+  <block id="a3501ac57e175c684d21dc319eb358b9" category="paragraph">存储HANA系统、SnapCenter和vSphere插件的操作系统映像的数据存储库将采用与HANA数据库数据存储库相同的方式进行复制。</block>
+  <block id="c7412e6f20979f19bfc91ee363a8559f" category="section-title">主站点</block>
+  <block id="2fb52e630dac927698fdcc612a54fca1" category="paragraph">SnapMirror主动同步行为是对称的、但有一个重要例外-主站点配置。</block>
+  <block id="09dc3c4ee13414b279f947b7358d2155" category="paragraph">SnapMirror主动同步会将一个站点视为"源"、而将另一个站点视为"目标"。这意味着单向复制关系、但这不适用于IO行为。复制是双向的、对称的、镜像两端的IO响应时间相同。</block>
+  <block id="2c39175ecb307b16c8de8a41647fb350" category="paragraph">如果复制链路丢失、则源副本上的LUN路径将继续提供数据、而目标副本上的LUN路径将变得不可用、直到重新建立复制并使SnapMirror重新进入同步状态为止。然后、这些路径将恢复提供数据。</block>
+  <block id="88ccc2de61e6ab40dc9696595403d671" category="paragraph">将一个集群指定为源集群的效果只是控制在复制链路丢失时哪个集群作为读写存储系统继续存在。</block>
+  <block id="d0a5fb67845de44dc08ab4ba0fd5ddfe" category="paragraph">SnapCenter会检测到主站点、并将其用于执行备份、还原和克隆操作。</block>
+  <block id="58bdb7c81650e9b1e6991cf0a8697ad0" category="admonition">请注意、源和目标不会与SVM或存储集群绑定在一起、但每个复制关系可能会有所不同。</block>
+  <block id="fb53c1d7bdf219623e37eb225d8e1cb5" category="paragraph"><block ref="fb53c1d7bdf219623e37eb225d8e1cb5" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>

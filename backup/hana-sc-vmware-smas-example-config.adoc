@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-sc-vmware-smas-example-config.html 
+keywords: SAP HANA, VMware, SnapMirror active sync, SnapCenter, backup and recovery 
+summary:  
+---
+= 示例配置概述
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:firstname: ---
+:author: ---
+:authorinitials: -
+:authors: ---
+
+
+[role="lead"]
+在实验设置中、我们使用的是统一访问配置、其中两个ESX主机都可以访问这两个存储集群。在接下来的几节中、我们将介绍统一访问配置、但也会重点介绍非统一设置的差异。
+
+image:sc-saphana-vmware-smas-image1.png[""]
+
+
+
+== 软件版本
+
+[cols="50%,50%"]
+|===
+| 软件 | version 
+
+
+| ONTAP | A700：9.15.1P7、A800 9.16.1RC1 
+
+
+| vSphere客户端 | 8.0.3 
+
+
+| ESXi | 8.0.3 
+
+
+| 适用于vSphere的SnapCenter插件 | 6.0.1 
+
+
+| Linux操作系统 | SLES for SAP 15 SP5 
+
+
+| SAP HANA | 2.0 SPS8 
+
+
+| SnapCenter | 6.0.1 
+|===

@@ -64,6 +64,32 @@ entries:
     url: "/backup/saphana-br-scs-advanced-configuration-and-tuning.html"
   - title: 从何处查找追加信息和版本历史记录
     url: "/backup/saphana-br-scs-where-to-find-additional-information.html"
+- title: 借助SnapCenter、SnapMirror Active Sync和VMware城域存储集群实现SAP HANA数据保护和高可用性
+  entries:
+  - title: 本文档的范围
+    url: "/backup/hana-sc-vmware-smas-scope.html"
+  - title: 概述SAP HANA高可用性
+    url: "/backup/hana-sc-vmware-smas-hana-ha.html"
+  - title: 示例配置概述
+    url: "/backup/hana-sc-vmware-smas-example-config.html"
+  - title: HANA系统配置和安装
+    url: "/backup/hana-sc-vmware-smas-hana-install.html"
+  - title: SnapMirror主动同步配置
+    url: "/backup/hana-sc-vmware-smas-smas-config.html"
+  - title: SnapCenter 配置
+    url: "/backup/hana-sc-vmware-smas-sc-config.html"
+  - title: SnapCenter 备份操作
+    url: "/backup/hana-sc-vmware-smas-sc-backup.html"
+  - title: SnapCenter还原和恢复
+    url: "/backup/hana-sc-vmware-smas-sc-restore.html"
+  - title: SAP系统刷新操作
+    url: "/backup/hana-sc-vmware-smas-sc-system-refresh.html"
+  - title: SnapCenter非数据卷
+    url: "/backup/hana-sc-vmware-smas-sc-non-data-vols.html"
+  - title: 故障转移场景
+    url: "/backup/hana-sc-vmware-smas-failover-scenarios.html"
+  - title: 其他信息和版本历史记录
+    url: "/backup/hana-sc-vmware-smas-additional-info.html"
 - title: 适用于SAP HANA的BlueXP备份和恢复—将Cloud Object存储用作备份目标
   entries:
   - title: 适用于SAP HANA的BlueXP备份和恢复—概述

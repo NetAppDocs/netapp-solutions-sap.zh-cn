@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-sc-vmware-smas-sc-non-data-vols.html 
+keywords: SAP HANA, VMware, SnapMirror active sync, SnapCenter, backup and recovery, non-data volumes 
+summary:  
+---
+= SnapCenter非数据卷
+:allow-uri-read: 
+
+
+'''
+如果在SnapCenter中手动配置了资源、但未自动发现资源、则SnapCenter无法识别VMware和SnapMirror活动同步。因此、SnapCenter本机不支持它们。
+
+对于HANA共享等非数据卷、在考虑执行其他手动步骤时、仍可使用SnapCenter执行备份和还原操作。
+
+
+
+== 在SnapCenter中配置的存储系统出现故障
+
+如果在SnapCenter中配置的存储系统发生故障、SnapCenter不会自动切换到另一个存储系统。必须手动调整非数据卷资源、以便将卷的镜像副本用于备份和还原操作。
+
+image:sc-saphana-vmware-smas-image39.png[""]
+
+
+
+== 备份操作
+
+即使SnapCenter无法识别HANA共享卷的SnapMirror活动同步配置、Snapshot也会同时复制到这两个站点。
+
+image:sc-saphana-vmware-smas-image40.png[""]
+
+image:sc-saphana-vmware-smas-image41.png[""]
+
+
+
+== 还原操作
+
+在执行还原时、SnapCenter只会执行卷还原、而不会执行任何VMware专用步骤。通常、您需要在Linux主机上卸载HANA共享卷、断开数据存储库的连接、然后执行卷还原、再次连接数据存储库、然后在Linux主机上挂载文件系统。作为手动操作、您可以停止HANA VM、使用SnapCenter还原HANA共享卷、然后重新启动VM。

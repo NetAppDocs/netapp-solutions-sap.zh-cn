@@ -1,0 +1,50 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-sc-vmware-smas-sc-backup.html 
+keywords: SAP HANA, VMware, SnapMirror active sync, SnapCenter, backup and recovery 
+summary:  
+---
+= SnapCenter 备份操作
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:firstname: ---
+:author: ---
+:authorinitials: -
+:authors: ---
+
+
+对于每个备份操作、SnapCenter都会在VMware端执行发现以及主站点检测。如果发生存储故障转移、则在对资源执行备份后、SnapCenter将立即检测到新的主站点。
+
+image:sc-saphana-vmware-smas-image31.png[""]
+
+
+
+== 拓扑视图
+
+在拓扑视图中、SnapCenter会显示源存储集群和目标存储集群的备份。
+
+image:sc-saphana-vmware-smas-image32.png[""]
+
+image:sc-saphana-vmware-smas-image33.png[""]
+
+通过单击二级存储上的计数、将显示当前关系和复制方向。源站点始终为当前主站点。存储故障转移后、主站点将发生更改、并相应地调整显示内容。所有备份始终具有相同的关系、具体取决于哪个存储系统当前是主站点。
+
+image:sc-saphana-vmware-smas-image34.png[""]
+
+
+
+== 存储系统上的快照
+
+SnapCenter创建的Snapshot备份可在两个存储系统的两个HANA数据卷上使用。ONTAP会在一致性组级别创建其他快照、所有其他HANA卷也可使用这些快照。
+
+下图显示了A700集群中HANA数据卷的Snapshot。
+
+image:sc-saphana-vmware-smas-image35.png[""]
+
+下图显示了A800集群中HANA数据卷的Snapshot。
+
+image:sc-saphana-vmware-smas-image36.png[""]
