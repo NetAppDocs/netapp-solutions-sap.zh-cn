@@ -900,7 +900,6 @@
   <block id="c2798d82f6c464fd30d247919005bc5b" category="paragraph">NetApp FAS 存储控制器已通过 SAP HANA TDI 计划的认证，并同时使用 NFS （ NAS ）和 FC （ SAN ）协议。它们可以部署在任何当前 SAP HANA 方案中，例如采用单主机或多主机配置的基于 HANA 的 SAP Business Suite ， S/4HANA ， BB/4HANA 或基于 HANA 的 SAP Business Warehouse 。任何经认证可与 SAP HANA 结合使用的服务器均可与 NetApp 认证的存储解决方案结合使用。有关架构概述，请参见下图。</block>
   <block id="cd67947f6f1984974a5e507afaa2222d" category="paragraph">可以通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。使用此选项时，物理主机和 VM 之间的主机和存储配置不会有所不同。</block>
   <block id="a3bc23f60d8778684d75db7b4d688fae" category="summary">本节介绍 NetApp 存储系统的配置。您必须根据相应的 Data ONTAP 设置和配置指南完成主安装和设置。</block>
-  <block id="429f30a2f19f5542c01260900f1268d8" category="paragraph">QoS 可用于限制共享控制器上特定 SAP HANA 系统或非 SAP 应用程序的存储吞吐量。其中一个使用情形是，限制开发和测试系统的吞吐量，使其不会影响混合环境中的生产系统。</block>
   <block id="dc8101343408623d860369896b9691df" category="paragraph">您可以在 FabricPool 或 SnapMirror 目标等备份目标上使用仅 Snapshot 分层策略和 SnapVault 。</block>
   <block id="0b70acc9e842036e1675b7fd08e43ff6" category="admonition">使用 FabricPool 在主存储上分层 Snapshot 副本或在备份目标上使用 FabricPool 会更改还原和恢复数据库或执行其他任务（例如创建系统克隆或修复系统）所需的时间。在规划整个生命周期管理策略时，请考虑此因素，并检查以确保在使用此功能时仍符合 SLA 。</block>
   <block id="2ac3f8b0b798078f242ae9b0249081bc" category="paragraph">FabricPool 是将日志备份移动到另一存储层的理想选择。移动备份会影响恢复 SAP HANA 数据库所需的时间。因此，选项 `tiering-minimum-cooling-days` 应设置为一个值，用于在本地快速存储层上放置恢复所需的日志备份。</block>
@@ -974,9 +973,6 @@
   <block id="47c97f5b5374f82578ea21329859f8cb" category="summary">只有具有故障转移功能的多主机环境才需要存储连接器。</block>
   <block id="7a22a81622f7d339ee9037f01614a95e" category="paragraph">在采用 NetApp 存储的 SAP HANA 多主机配置中，使用 SAP 提供的标准存储连接器。《 SAP HANA FC 存储连接器管理指南》可作为的附件找到<block ref="fb03c315acf5bdf850546480c01e7306" category="inline-link-rx"></block>。</block>
   <block id="0d3eab0b9e96ff06837e191b39218d16" category="paragraph">不支持在 HDD 配置中启用存储效率功能。</block>
-  <block id="e2a82c831a3a4651879482e858053e83" category="paragraph">QoS 可用于限制特定 SAP HANA 系统的存储吞吐量。其中一个使用情形是，限制开发和测试系统的吞吐量，使其不会影响混合环境中的生产系统。</block>
-  <block id="6897ebb03b24bb6d57001cdf55ad2d30" category="paragraph">在规模估算过程中，必须确定非生产系统的性能要求。开发和测试系统的规模可以使用较低的性能值进行调整，通常在生产系统的 20% 到 50% 范围内。</block>
-  <block id="8469b8e3a88a77acf02664f233b3cb72" category="paragraph">从 ONTAP 9 开始， QoS 会在存储卷级别进行配置，并使用最大吞吐量值（ MBps ）和 I/O 数（ IOPS ）。</block>
   <block id="0df676e828d9cc9486e1b8e0aaf1b692" category="paragraph">可以使用 " 仅快照 " 分层策略，也可以在 SnapVault 或 SnapMirror 目标等备份目标上使用 FabricPool 。</block>
   <block id="5a5237a6a98f8795e5ef541300be3602" category="admonition">使用 FabricPool 在主存储上分层 Snapshot 副本或在备份目标上使用 FabricPool 会更改还原和恢复数据库或执行其他任务（例如创建系统克隆或修复系统）所需的时间。在规划整个生命周期管理策略时，请考虑这一点，并检查以确保在使用此功能时仍符合 SLA 要求。</block>
   <block id="562283819997e7573d7ef1bcd25f02e9" category="paragraph">以下概述总结了所需的存储配置步骤。后续章节将更详细地介绍每个步骤。在启动这些步骤之前，请完成存储硬件设置， ONTAP 软件安装以及存储 FCP 端口与 SAN 网络结构的连接。</block>
@@ -5017,4 +5013,15 @@ SnapCenter 4.3.1支持NFSv4
   <block id="d0a5fb67845de44dc08ab4ba0fd5ddfe" category="paragraph">SnapCenter会检测到主站点、并将其用于执行备份、还原和克隆操作。</block>
   <block id="58bdb7c81650e9b1e6991cf0a8697ad0" category="admonition">请注意、源和目标不会与SVM或存储集群绑定在一起、但每个复制关系可能会有所不同。</block>
   <block id="fb53c1d7bdf219623e37eb225d8e1cb5" category="paragraph"><block ref="fb53c1d7bdf219623e37eb225d8e1cb5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f1ba28b4c958ea815882c3f5ff27adbe" category="paragraph">QoS可用于限制共享控制器上特定SAP HANA系统或非SAP应用程序的存储吞吐量。</block>
+  <block id="e79e5867f76c82c725b17c2a238d1a04" category="section-title">生产和开发/测试</block>
+  <block id="14d1ab0e9152cc07d91da931d21d1efc" category="paragraph">其中一个使用情形是，限制开发和测试系统的吞吐量，使其不会影响混合环境中的生产系统。在规模估算过程中，您应确定非生产系统的性能要求。开发和测试系统的规模可以采用较低的性能值进行调整，通常在 SAP 定义的生产系统 KPI 的 20% 到 50% 范围内。大型写入 I/O 对存储系统的性能影响最大。因此，应将 QoS 吞吐量限制设置为数据卷和日志卷中相应写入 SAP HANA 存储性能 KPI 值的百分比。</block>
+  <block id="fa82b7d1d3929ac3284e96228b5b5293" category="section-title">共享环境</block>
+  <block id="3f8bdc2c229f5f61cf4dbe32d9824fdf" category="paragraph">另一个使用情形是限制写入负载繁重的吞吐量、尤其是避免这些工作负载对其他延迟敏感型写入工作负载产生影响。在这种环境下、最佳做法是对每个Storage Virtual Machine (SVM)中的每个LUN应用非共享吞吐量上限QoS组策略、以将每个存储对象的最大吞吐量限制为给定值。这样可以减少单个工作负载对其他工作负载产生负面影响的可能性。</block>
+  <block id="2d8c78443540c2f552c7dc84ed09567d" category="paragraph">为此、需要使用ONTAP集群的命令行界面为每个SVM创建一个组策略：</block>
+  <block id="55a97a03f64e996d2644eceb8eb6280b" category="paragraph">并应用于SVM中的每个LUN。以下示例显示了如何将策略组应用于SVM中的所有现有LUN：</block>
+  <block id="9dd8c51508454aadf24832dfd8927250" category="paragraph">需要对每个SVM执行此操作。每个SVM的QoS警察组名称必须不同。对于新LUN、可以直接应用此策略：</block>
+  <block id="1b1a359afcdc7d3b5156dabdbc04c722" category="inline-link">主机设置</block>
+  <block id="322630da5c020002ea6c6dfc2396c673" category="paragraph">建议使用1000 MB/秒作为给定LUN的最大吞吐量。如果应用程序需要更多吞吐量、则应使用多个具有LUN条带化的LUN来提供所需的带宽。本指南第节提供了基于Linux LVM的SAP HANA示例<block ref="7f291c93e7fce14b4b50c2889ae65744" category="inline-link-rx"></block>。</block>
+  <block id="c0aedfa1d11f1ac6604f6074cceedad5" category="paragraph">建议使用1000 MB/秒作为给定LUN的最大吞吐量。如果应用程序需要更多吞吐量、则应使用多个具有LUN条带化的LUN来提供所需的带宽。本指南第节提供了基于Linux LVM的SAP HANA示例<block ref="0de73849e815beed4975575411863ee0" category="inline-link-rx"></block>。</block>
 </blocks>

@@ -40,13 +40,36 @@ SAP HANA支持使用NetApp卷加密(NVE)和NetApp聚合加密(NAE)。
 
 == Quality of service
 
-QoS 可用于限制特定 SAP HANA 系统的存储吞吐量。其中一个使用情形是，限制开发和测试系统的吞吐量，使其不会影响混合环境中的生产系统。
+QoS可用于限制共享控制器上特定SAP HANA系统或非SAP应用程序的存储吞吐量。
 
-在规模估算过程中，必须确定非生产系统的性能要求。开发和测试系统的规模可以使用较低的性能值进行调整，通常在生产系统的 20% 到 50% 范围内。
 
-从 ONTAP 9 开始， QoS 会在存储卷级别进行配置，并使用最大吞吐量值（ MBps ）和 I/O 数（ IOPS ）。
 
-大型写入 I/O 对存储系统的性能影响最大。因此，应将 QoS 吞吐量限制设置为数据卷和日志卷中相应写入 SAP HANA 存储性能 KPI 值的百分比。
+=== 生产和开发/测试
+
+其中一个使用情形是，限制开发和测试系统的吞吐量，使其不会影响混合环境中的生产系统。在规模估算过程中，您应确定非生产系统的性能要求。开发和测试系统的规模可以采用较低的性能值进行调整，通常在 SAP 定义的生产系统 KPI 的 20% 到 50% 范围内。大型写入 I/O 对存储系统的性能影响最大。因此，应将 QoS 吞吐量限制设置为数据卷和日志卷中相应写入 SAP HANA 存储性能 KPI 值的百分比。
+
+
+
+=== 共享环境
+
+另一个使用情形是限制写入负载繁重的吞吐量、尤其是避免这些工作负载对其他延迟敏感型写入工作负载产生影响。在这种环境下、最佳做法是对每个Storage Virtual Machine (SVM)中的每个LUN应用非共享吞吐量上限QoS组策略、以将每个存储对象的最大吞吐量限制为给定值。这样可以减少单个工作负载对其他工作负载产生负面影响的可能性。
+
+为此、需要使用ONTAP集群的命令行界面为每个SVM创建一个组策略：
+
+....
+qos policy-group create -policy-group <policy-name> -vserver <vserver name> -max-throughput 1000MB/s -is-shared false
+....
+并应用于SVM中的每个LUN。以下示例显示了如何将策略组应用于SVM中的所有现有LUN：
+
+....
+lun modify -vserver <vserver name>  -path * -qos-policy-group  <policy-name>
+....
+需要对每个SVM执行此操作。每个SVM的QoS警察组名称必须不同。对于新LUN、可以直接应用此策略：
+
+....
+lun create -vserver <vserver_name> -path  /vol/<volume_name>/<lun_name>   -size <size> -ostype <e.g. linux>  -qos-policy-group <policy-name>
+....
+建议使用1000 MB/秒作为给定LUN的最大吞吐量。如果应用程序需要更多吞吐量、则应使用多个具有LUN条带化的LUN来提供所需的带宽。本指南第节提供了基于Linux LVM的SAP HANA示例 https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_fas_fc_host_setup.html#create-lvm-volume-groups-and-logical-volumes["主机设置"]。
 
 
 
