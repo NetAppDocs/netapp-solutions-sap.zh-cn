@@ -10,12 +10,9 @@ summary:
 :icons: font
 :linkattrs: 
 :imagesdir: ../media/
-:firstname: ---
-:author: ---
-:authorinitials: -
-:authors: ---
 
 
+[role="lead"]
 克隆操作可以在主站点或二级存储上执行。
 
 克隆的卷不会属于HANA一致性组、也不会使用SnapMirror主动同步进行复制。

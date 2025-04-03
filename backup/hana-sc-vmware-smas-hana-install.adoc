@@ -26,14 +26,14 @@ summary:
 
 下图显示了HANA系统的存储和数据存储库配置。您必须为HANA系统的每个文件系统配置一个专用卷、LUN和数据存储库。不能在多个HANA系统或其他工作负载之间共享数据存储库。
 
-image:sc-saphana-vmware-smas-image5.png[""]
+image:sc-saphana-vmware-smas-image5.png["图显示了所讨论的内容"]
 
 已在A700存储集群中配置HANA系统的所有三个LUN (HAA++_++data++++++++-SMA、HAA+++++++++++++++SAM和HAA+++++++++++++++shared +++++++++++SMA)以及用于操作系统映像和SnapCenter组件的LUN。
 
 
 NOTE: 必须在同一个SVM中配置HANA系统的所有卷。在后面介绍的SnapMirror主动同步配置中、我们将在所有三个HANA卷之间创建一致性组、这要求这些卷位于同一个SVM中。基础架构卷将位于不同的一致性组中、因此可能位于不同的SVM中。
 
-image:sc-saphana-vmware-smas-image6.png[""]
+image:sc-saphana-vmware-smas-image6.png["图显示了所讨论的内容"]
 
 必须配置启动程序组、并且必须将上述LUN映射到EST-1主机、在我们的实验室设置中、该主机与A700存储系统非常接近。
 
@@ -43,7 +43,7 @@ image:sc-saphana-vmware-smas-image6.png[""]
 
 我们使用之前配置的三个LUN为HANA系统创建了三个数据存储库。此外、我们还使用基础架构LUN创建了一个基础架构数据存储库。
 
-image:sc-saphana-vmware-smas-image7.png[""]
+image:sc-saphana-vmware-smas-image7.png["图显示了所讨论的内容"]
 
 
 
@@ -57,7 +57,7 @@ image:sc-saphana-vmware-smas-image7.png[""]
 
 向HANA VM添加了三个新磁盘、每个磁盘都位于为HANA系统创建的一个数据存储库中。
 
-image:sc-saphana-vmware-smas-image8.png[""]
+image:sc-saphana-vmware-smas-image8.png["图显示了所讨论的内容"]
 
 
 
@@ -67,7 +67,7 @@ image:sc-saphana-vmware-smas-image8.png[""]
 
 必须先停止VM、然后才能添加参数。
 
-image:sc-saphana-vmware-smas-image9.png[""]
+image:sc-saphana-vmware-smas-image9.png["图显示了所讨论的内容"]
 
 可以使用以下命令检查此功能。
 

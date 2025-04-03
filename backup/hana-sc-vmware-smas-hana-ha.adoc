@@ -30,7 +30,7 @@ SAP HANA系统复制提供了一种操作模式、在此模式下、数据会同
 
 有关所有配置选项和复制方案的完整说明，请参见 https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/afac7100bc6d47729ae8eae32da5fdec.html["SAP HANA系统复制++|++ SAP帮助门户"]。
 
-image:sc-saphana-vmware-smas-image2.png[""]
+image:sc-saphana-vmware-smas-image2.png["图显示了所讨论的内容"]
 
 
 
@@ -52,7 +52,7 @@ image:sc-saphana-vmware-smas-image2.png[""]
 
 如果主机或整个站点发生故障、则需要在二级站点上提供一台新服务器、以便从故障主机访问数据。这通常是与生产规模相同的测试或QA系统、现在将关闭并用于运行生产系统。二级站点的LUN连接到新主机后、需要启动HANA数据库。因此、总的RTO取决于配置主机所需的时间以及HANA数据库的启动时间。
 
-image:sc-saphana-vmware-smas-image3.png[""]
+image:sc-saphana-vmware-smas-image3.png["图显示了所讨论的内容"]
 
 
 
@@ -64,7 +64,7 @@ image:sc-saphana-vmware-smas-image3.png[""]
 
 如果某个主机或整个站点发生故障、则会使用vSphere HA在二级ESX主机上启动HANA VM。当HANA VM运行时、需要启动HANA数据库。因此、总的RTO主要取决于HANA数据库的启动时间。
 
-image:sc-saphana-vmware-smas-image4.png[""]
+image:sc-saphana-vmware-smas-image4.png["图显示了所讨论的内容"]
 
 
 

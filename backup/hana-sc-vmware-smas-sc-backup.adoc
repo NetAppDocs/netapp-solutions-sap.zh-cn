@@ -11,15 +11,12 @@ summary:
 :icons: font
 :linkattrs: 
 :imagesdir: ../media/
-:firstname: ---
-:author: ---
-:authorinitials: -
-:authors: ---
 
 
+[role="lead"]
 对于每个备份操作、SnapCenter都会在VMware端执行发现以及主站点检测。如果发生存储故障转移、则在对资源执行备份后、SnapCenter将立即检测到新的主站点。
 
-image:sc-saphana-vmware-smas-image31.png[""]
+image:sc-saphana-vmware-smas-image31.png["图显示了所讨论的内容"]
 
 
 
@@ -27,13 +24,13 @@ image:sc-saphana-vmware-smas-image31.png[""]
 
 在拓扑视图中、SnapCenter会显示源存储集群和目标存储集群的备份。
 
-image:sc-saphana-vmware-smas-image32.png[""]
+image:sc-saphana-vmware-smas-image32.png["图显示了所讨论的内容"]
 
-image:sc-saphana-vmware-smas-image33.png[""]
+image:sc-saphana-vmware-smas-image33.png["图显示了所讨论的内容"]
 
 通过单击二级存储上的计数、将显示当前关系和复制方向。源站点始终为当前主站点。存储故障转移后、主站点将发生更改、并相应地调整显示内容。所有备份始终具有相同的关系、具体取决于哪个存储系统当前是主站点。
 
-image:sc-saphana-vmware-smas-image34.png[""]
+image:sc-saphana-vmware-smas-image34.png["图显示了所讨论的内容"]
 
 
 
@@ -43,8 +40,8 @@ SnapCenter创建的Snapshot备份可在两个存储系统的两个HANA数据卷�
 
 下图显示了A700集群中HANA数据卷的Snapshot。
 
-image:sc-saphana-vmware-smas-image35.png[""]
+image:sc-saphana-vmware-smas-image35.png["图显示了所讨论的内容"]
 
 下图显示了A800集群中HANA数据卷的Snapshot。
 
-image:sc-saphana-vmware-smas-image36.png[""]
+image:sc-saphana-vmware-smas-image36.png["图显示了所讨论的内容"]

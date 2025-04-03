@@ -11,12 +11,9 @@ summary:
 :icons: font
 :linkattrs: 
 :imagesdir: ../media/
-:firstname: ---
-:author: ---
-:authorinitials: -
-:authors: ---
 
 
+[role="lead"]
 如本文档开头所述、本文档旨在为使用VMware和VMFS以及SnapMirror主动同步的HANA环境提供最佳实践。我们仅介绍与此特定解决方案相关的详细信息和重要步骤、不会介绍常规SnapCenter概念。有关SnapCenter的这些概念和其他附加信息、请参见：
 
 https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html["TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》"]
@@ -62,11 +59,11 @@ SAP HANA多主机系统必须使用中央HANA插件进行配置、因此默认�
 ....
 <add key="IsRestEnabledForStorageConnection" value="true">
 ....
-image:sc-saphana-vmware-smas-image21.png[""]
+image:sc-saphana-vmware-smas-image21.png["图显示了所讨论的内容"]
 
 参数更改后、必须重新启动SnapCenter SMCore服务。
 
-image:sc-saphana-vmware-smas-image22.png[""]
+image:sc-saphana-vmware-smas-image22.png["图显示了所讨论的内容"]
 
 
 
@@ -74,9 +71,9 @@ image:sc-saphana-vmware-smas-image22.png[""]
 
 在为SnapCenter启用REST API后、可以添加存储系统。需要同时添加两个存储集群、而不是单个SVM。
 
-image:sc-saphana-vmware-smas-image23.png[""]
+image:sc-saphana-vmware-smas-image23.png["图显示了所讨论的内容"]
 
-image:sc-saphana-vmware-smas-image24.png[""]
+image:sc-saphana-vmware-smas-image24.png["图显示了所讨论的内容"]
 
 
 
@@ -89,11 +86,11 @@ image:sc-saphana-vmware-smas-image24.png[""]
 
 NOTE: 必须在主机添加工作流期间设置凭据、在此工作流中、可以选择vSphere作为主机类型。
 
-image:sc-saphana-vmware-smas-image25.png[""]
+image:sc-saphana-vmware-smas-image25.png["图显示了所讨论的内容"]
 
-image:sc-saphana-vmware-smas-image26.png[""]
+image:sc-saphana-vmware-smas-image26.png["图显示了所讨论的内容"]
 
-image:sc-saphana-vmware-smas-image27.png[""]
+image:sc-saphana-vmware-smas-image27.png["图显示了所讨论的内容"]
 
 
 NOTE: 无需在适用于vSphere的SnapCenter插件本身进行其他配置。
@@ -112,7 +109,7 @@ NOTE: 无特定要求。插件部署和自动发现照常进行。
 ....
 volume show -vserver <vs> -volume <vol> -fields smbc-consensus,is-smbc-master
 ....
-image:sc-saphana-vmware-smas-image28.png[""]
+image:sc-saphana-vmware-smas-image28.png["图显示了所讨论的内容"]
 
 
 
@@ -120,9 +117,9 @@ image:sc-saphana-vmware-smas-image28.png[""]
 
 使用SnapMirror活动同步保护的资源所使用的策略必须使用SnapMirror复制进行配置、即使SnapCenter不会触发任何SnapMirror更新操作也是如此。
 
-image:sc-saphana-vmware-smas-image29.png[""]
+image:sc-saphana-vmware-smas-image29.png["图显示了所讨论的内容"]
 
-image:sc-saphana-vmware-smas-image30.png[""]
+image:sc-saphana-vmware-smas-image30.png["图显示了所讨论的内容"]
 
 
 

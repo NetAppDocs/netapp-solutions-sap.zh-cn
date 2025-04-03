@@ -20,7 +20,7 @@ summary:
 [role="lead"]
 在实验设置中、我们使用的是统一访问配置、其中两个ESX主机都可以访问这两个存储集群。在接下来的几节中、我们将介绍统一访问配置、但也会重点介绍非统一设置的差异。
 
-image:sc-saphana-vmware-smas-image1.png[""]
+image:sc-saphana-vmware-smas-image1.png["图显示了所讨论的内容"]
 
 
 

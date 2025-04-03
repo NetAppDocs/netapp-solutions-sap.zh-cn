@@ -11,11 +11,10 @@ summary:
 :icons: font
 :linkattrs: 
 :imagesdir: ../media/
-:firstname: ---
-:author: ---
-:authorinitials: -
-:authors: ---
 
+
+[role="lead"]
+本文介绍此解决方案所需的配置步骤。
 
 
 
@@ -25,9 +24,9 @@ summary:
 
 两个存储集群都必须具有可用的ONTAP调解器并已进行配置。
 
-image:sc-saphana-vmware-smas-image10.png[""]
+image:sc-saphana-vmware-smas-image10.png["图显示了所讨论的内容"]
 
-image:sc-saphana-vmware-smas-image11.png[""]
+image:sc-saphana-vmware-smas-image11.png["图显示了所讨论的内容"]
 
 
 
@@ -41,7 +40,7 @@ image:sc-saphana-vmware-smas-image11.png[""]
 
 要复制HANA系统、一致性组必须包括单个HANA系统使用的所有卷(数据、日志和共享)。应属于一致性组的卷必须存储在同一个SVM中。操作系统映像可以存储在具有自己一致性组的单独卷中。下图展示了一个使用两个HANA系统的配置示例。
 
-image:sc-saphana-vmware-smas-image12.png[""]
+image:sc-saphana-vmware-smas-image12.png["图显示了所讨论的内容"]
 
 
 
@@ -51,9 +50,9 @@ image:sc-saphana-vmware-smas-image12.png[""]
 
 通过使用邻近设置、我们可以定义哪个ESX主机与哪个存储集群接近。在我们的案例中、A700接近ESS-1、而A800接近ESS-2。
 
-image:sc-saphana-vmware-smas-image13.png[""]
+image:sc-saphana-vmware-smas-image13.png["图显示了所讨论的内容"]
 
-image:sc-saphana-vmware-smas-image14.png[""]
+image:sc-saphana-vmware-smas-image14.png["图显示了所讨论的内容"]
 
 
 NOTE: 在非一致访问设置中、主存储集群(A700)上的启动程序组只能包含ESX-1主机的启动程序、因为与ESX-2之间没有SAN连接。此外、您还需要在第二个存储集群(A800)上配置另一个启动程序组、该存储集群仅包含ESX-2主机的启动程序。不需要进行邻近配置和启动程序组复制。
@@ -62,7 +61,7 @@ NOTE: 在非一致访问设置中、主存储集群(A700)上的启动程序组�
 
 == 使用ONTAP System Manager配置保护
 
-image:sc-saphana-vmware-smas-image15.png[""]
+image:sc-saphana-vmware-smas-image15.png["图显示了所讨论的内容"]
 
 
 
@@ -75,11 +74,11 @@ image:sc-saphana-vmware-smas-image15.png[""]
 
 NOTE: 在非一致访问设置中、不能复制启动程序组、因为必须在第二个存储集群上配置单独的启动程序组。
 
-image:sc-saphana-vmware-smas-image16.png[""]
+image:sc-saphana-vmware-smas-image16.png["图显示了所讨论的内容"]
 
 通过单击邻近设置、您可以查看之前在启动程序组设置中完成的配置。
 
-image:sc-saphana-vmware-smas-image17.png[""]
+image:sc-saphana-vmware-smas-image17.png["图显示了所讨论的内容"]
 
 必须配置目标存储集群并启用"初始化关系"。
 
@@ -89,11 +88,11 @@ image:sc-saphana-vmware-smas-image17.png[""]
 
 现在、在A700存储集群(源)中、将列出新关系。
 
-image:sc-saphana-vmware-smas-image18.png[""]
+image:sc-saphana-vmware-smas-image18.png["图显示了所讨论的内容"]
 
 在A800存储集群(目标)中、将列出新关系和复制状态。
 
-image:sc-saphana-vmware-smas-image19.png[""]
+image:sc-saphana-vmware-smas-image19.png["图显示了所讨论的内容"]
 
 
 
@@ -118,4 +117,4 @@ SnapCenter会检测到主站点、并将其用于执行备份、还原和克隆�
 
 NOTE: 请注意、源和目标不会与SVM或存储集群绑定在一起、但每个复制关系可能会有所不同。
 
-image:sc-saphana-vmware-smas-image20.png[""]
+image:sc-saphana-vmware-smas-image20.png["图显示了所讨论的内容"]

@@ -8,7 +8,7 @@ summary:
 :allow-uri-read: 
 
 
-'''
+[role="lead"]
 如果在SnapCenter中手动配置了资源、但未自动发现资源、则SnapCenter无法识别VMware和SnapMirror活动同步。因此、SnapCenter本机不支持它们。
 
 对于HANA共享等非数据卷、在考虑执行其他手动步骤时、仍可使用SnapCenter执行备份和还原操作。
@@ -19,7 +19,7 @@ summary:
 
 如果在SnapCenter中配置的存储系统发生故障、SnapCenter不会自动切换到另一个存储系统。必须手动调整非数据卷资源、以便将卷的镜像副本用于备份和还原操作。
 
-image:sc-saphana-vmware-smas-image39.png[""]
+image:sc-saphana-vmware-smas-image39.png["图显示了所讨论的内容"]
 
 
 
@@ -27,9 +27,9 @@ image:sc-saphana-vmware-smas-image39.png[""]
 
 即使SnapCenter无法识别HANA共享卷的SnapMirror活动同步配置、Snapshot也会同时复制到这两个站点。
 
-image:sc-saphana-vmware-smas-image40.png[""]
+image:sc-saphana-vmware-smas-image40.png["图显示了所讨论的内容"]
 
-image:sc-saphana-vmware-smas-image41.png[""]
+image:sc-saphana-vmware-smas-image41.png["图显示了所讨论的内容"]
 
 
 
