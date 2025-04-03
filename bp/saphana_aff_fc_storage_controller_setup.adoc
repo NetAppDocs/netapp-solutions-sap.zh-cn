@@ -70,6 +70,9 @@ lun create -vserver <vserver_name> -path  /vol/<volume_name>/<lun_name>   -size 
 建议使用1000 MB/秒作为给定LUN的最大吞吐量。如果应用程序需要更多吞吐量、则应使用多个具有LUN条带化的LUN来提供所需的带宽。本指南第节提供了基于Linux LVM的SAP HANA示例 https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_fc_host_setup.html#create-lvm-volume-groups-and-logical-volumes["主机设置"]。
 
 
+NOTE: 此限制也适用于读取。因此、请使用足够的LUN来满足SAP HANA数据库启动时间和备份所需的SLA。
+
+
 
 == NetApp FabricPool
 
