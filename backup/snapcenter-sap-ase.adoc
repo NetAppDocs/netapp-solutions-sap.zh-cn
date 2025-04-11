@@ -1,0 +1,458 @@
+---
+sidebar: sidebar 
+permalink: backup/snapcenter-sap-ase.html 
+keywords: SAP, snapcenter, SAP ASE, database, backup, restore 
+summary: 本文档介绍了在SAP环境中使用的SAP ASE数据库的SnapCenter集成细节。 
+---
+= 适用于SAP ASE数据库的SnapCenter集成
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+本文档介绍了在SAP环境中使用的SAP ASE数据库的SnapCenter集成细节。
+
+
+
+== 简介
+
+本文档并不是对如何设置整个环境的分步说明、而是将介绍与以下各项相关的概念和相关详细信息：
+
+* 示例配置概述
+* 布局示例
+* 保护SAP ASE实例
+* 还原和恢复SAP ASE实例
+
+
+作者：Michael Schloss、NetApp
+
+
+
+=== 示例配置概述
+
+适用于在Azure平台上运行的SAP系统的SnapCenter ASE插件实施示例。
+
+
+NOTE: 此实施说明了所需的最低卷配置。数据转储备份和日志转储备份是根据SAP注释1588316进行配置的。
+
+或者、也可以使用此处所述的卷结构link:https://techcommunity.microsoft.com/blog/sapapplications/sap-ase-16-0-on-azure-netapp-files-for-sap-workloads-on-sles15/3729496["MS技术社区博客"]。
+
+
+
+=== 演示环境
+
+image:sc-sap-ase-image01.png["图中突出显示了所使用的演示环境"]
+
+
+
+=== 软件版本
+
+[cols="50%, 50%"]
+|===
+| *软件* | * 版本 * 
+
+
+| Linux操作系统 | SLES for SAP 15 SP5 
+
+
+| SAP | SAP NetWeaver 7.5 
+
+
+| SAP ASE | 16.0 SP04 PL06手持遥控器 
+
+
+| SnapCenter | 6.1 
+|===
+
+
+=== ASE卷设计
+
+必须使用以下最小卷布局为SAP ASE数据库启用备份/恢复和克隆用例。示例配置使用<SID>：
+
+[cols="20%, 20%, 30%, 30%"]
+|===
+| *卷名* | *卷上的目录(qtree)* | *服务器上的挂载点* | * 注释 * 
+
+
+| <SID>皂酶 | Sybase | /Sybase | ASE相关文件的父目录 
+
+
+|  |  | /Sybase/Sybase/backups/backups <SID> | 数据转储备份(可能放置在其他卷上) 
+
+
+|  |  | /Sybase/sybase/log_Archives <SID> | 日志转储备份(可能放置在其他卷上) 
+
+
+|  | <sid> | <sid> | 用户<sid>的主目录 
+
+
+|  | usrsaptrans | /usr/sap/trans | 传输目录 
+
+
+|  | <SID> | <SID> | USR SAP 
+
+
+|  | <SID> | /sapmnt/sapmnt <SID> | SAP全局主机主管 
+
+
+| <SID>数据日志 | sapdata_1 | /Sybase/sybase/sapdata_1 <SID> | 数据库数据(SID) 
+
+
+|  | saplog_1 | /Sybase/sybase/saplog_1 <SID> | 数据库日志(SID) 
+
+
+|  | saptemp | /Sybase/sybase/saptemp <SID> | PSAP溫 度 
+
+
+|  | 系统安全性 | /Sybase/sybsecure/sybsecurity <SID> | Sybase安全数据库 
+
+
+|  | 系统 | /Sybase/Sybase/sybsystem/sybsystem <SID> | Sybase系统数据库 
+
+
+|  | 系统温度 | /Sybase/sybtemp/sybtemp <SID> | Sybase系统数据库-临时 
+
+
+|  | sapdiag | /Sybase/sybase/sapdiag <SID> | "sptools"数据库 
+|===
+
+
+=== 保护数据库的步骤A1.
+
+* 根据示例布局检查文件分发
+* 检查主机的前提条件(VM-出)
+* 检查数据库的前提条件(A出)
+* 在主机上部署/安装SnapCenter代理(VM-高级 版)
+* 创建SnapCenter实例资源配置
+
+
+
+
+=== 主机上的前提条件
+
+可以获得更多最新信息link:https://docs.netapp.com/us-en/snapcenter/protect-scu/reference_prerequisites_for_adding_hosts_and_installing_snapcenter_plug_ins_package_for_linux.html["此处"]。
+
+在添加主机并安装适用于Linux的插件软件包之前、您必须满足所有要求。
+
+* 如果使用的是 iSCSI ，则 iSCSI 服务必须正在运行。
+* 您可以对root用户或非root用户使用基于密码的身份验证、也可以使用基于SSH密钥的身份验证。
+* 非root用户可以安装适用于Unix文件系统的SnapCenter插件。但是，您应该为非 root 用户配置 sudo 权限，以便安装和启动插件过程。安装此插件后、这些进程将以有效的非root用户身份运行。
+* 为安装用户创建身份验证模式为Linux的凭据。
+* 您必须已在Linux主机上安装Java 11。
+* 确保在Linux主机上仅安装Java 11的认证版本
+* 有关下载Java的信息、请参见：适用于所有操作系统的Java下载
+* 您应将bash作为插件安装的默认shell。
+
+
+
+
+=== 数据库的前提条件—启用日志记录和备份
+
+* 为备份和log_Archives创建目录(/Sybase/An1/备份、/Sybase/An1/ log_Archives)
+* 连接到数据库901 (作为操作系统用户syba01)
++
+** ISQL -S a1 -U sapsa -X -w 1024
+
+
+* 根据SAP注释1588316为数据(A01DB)创建转储配置
++
+** 使用主
+** 开始
+** 执行SP config_dump @config_name='A01DB'、@stripe_dir ='/Sybase/A01/backups'、@压缩='101'、@verify"='header'
+** 开始
+
+
+* 根据SAP注释1588316为日志(A01LOG)创建转储配置
++
+** 使用主
+** 开始
+** SP _config_dump @config_name='A01LOG'、@strip_dir ='/Sybase/A01/log_Archives'、@压缩='101'、@verify ='header'
+** 开始
+
+
+* 为数据库A01.启用完整日志记录
++
+** SP dboption A1_'trunc log on Chkpt'，false
+** 开始
+** SP dboption A0a、'Full Logging for All'、'TRUES'
+** 开始
+** SP dboption A1_"强制转储事务序列"、"TRUe"
+** 开始
+
+
+* 数据库转储备份以启用日志转储备份
++
+** 使用config ='A01DB'的转储数据库A01
+** 开始
+** 日志转储
+** 转储事务A01、使用config ='A01LOG'
+** 开始
+
+
+* 确保已根据SAP注释1588316配置常规日志备份
+
+
+
+
+=== 可选—创建专用数据库用户
+
+对于SAP环境、可以使用用户sapsa。
+
+* 连接到数据库901 (作为操作系统用户syba01)
++
+** ISQL -S a1 -U sapsa -X -w 1024
+
+
+* 创建用户
++
+** 使用密码<password>创建登录备份
+** 开始
+
+
+* 为用户分配权限/角色
++
+** 授予角色sa_Role、sso_Role、oper_Role、sybase_ts_Role备份
+** 开始
+
+
+
+
+
+
+=== 将SnapCenter代理部署到主机VM-高级 管理器
+
+有关详细信息，请参见link:https://docs.netapp.com/us-en/snapcenter/protect-scu/task_add_hosts_and_install_the_snapcenter_plug_ins_package_for_linux.html["SnapCenter 文档"]。
+
+选择SAP ASE和Unix文件系统插件。
+
+image:sc-sap-ase-image02.png["添加主机对话框的屏幕截图"]
+
+
+
+=== 为数据库A1.创建SnapCenter实例资源配置
+
+资源-> SAP ASE ->添加资源
+
+image:sc-sap-ase-image03.png["添加主机资源详细信息对话框的屏幕截图"]
+
+
+NOTE: 如果密码包含特殊字符、则必须使用反斜杠屏蔽这些字符。例如Test!123! ->测试\!123\!
+
+image:sc-sap-ase-image04.png["添加主机资源详细信息对话框的屏幕截图"] image:sc-sap-ase-image05.png["添加主机资源详细信息对话框的屏幕截图"]
+
+
+NOTE: 如果您使用的是外的卷设计link:https://techcommunity.microsoft.com/blog/sapapplications/sap-ase-16-0-on-azure-netapp-files-for-sap-workloads-on-sles15/3729496["MS技术社区博客"]。
+
+卷<SID>/ 、<SID>、i 1/i、i 1/i <SID>要配置为存储占用空间
+
+必须至少创建以下资源设置自定义键值对。
+
+image:sc-sap-ase-image06.png["资源设置自定义键值对对话框的屏幕截图"]
+
+下表列出了 Sybase 插件参数，提供了这些参数的设置并对其进行了说明：
+
+[cols="25%, 25%, 50%"]
+|===
+| * 参数 * | *设置* | * 问题描述 * 
+
+
+| Sybase ISQL_CMD | 示例：/opt/sybase/OS-15__0/bin/isql -X | 定义 isql 命令的路径。可用选项： https://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc34237.1500/html/mvsinst/CIHHFDGC.htm[] 
+
+
+| sybase_user | user_name | 指定可以运行 isql 命令的操作系统用户。UNIX 需要此参数。如果运行 Snap Creator Agentstart 和 stop 命令的用户（通常为 root 用户）与运行 isql 命令的用户不同，则需要此参数。 
+
+
+| Sybase 服务器 | data_server_name | 指定Sybase数据服务器名称(isql命令上的-S选项)。例如 
+
+
+| Sybase 数据库 | DB_name ： user_name/ 密码 | 列出实例中要备份的数据库。添加主数据库；例如：DBAttest2：sa/53616c7405351e.If a database named +all is used、and database Automatic discovery, and the sybsyn此后、sybsystemdb、sybsystemprocp和tempdb数据库将被排除。例如：如果设置了NTap_PWD_protection参数、则支持+all：sa/53616c71a6351e加密密码。 
+
+
+| Sybase 数据库排除 | 数据库名称 | 允许在使用 +all 构造时排除数据库。您可以使用分号分隔的列表指定多个数据库。例如、pubs2；test_db1 
+
+
+| Sybase Tran 转储 | DB_name ： directory_path | 用于在创建Snapshot副本后执行Sybase事务转储。例如：pubs2：/sybasedumps/pubs2您必须指定需要事务转储的每个数据库。 
+
+
+| Sybase Tran 转储格式 | %S_%D_%T.CMN | 用于指定转储命名约定。可以指定以下密钥：%S =来自Sybase_Server的实例名称%D =来自Sybase_database的数据库%T =唯一时间戳此处是一个示例：%S_%D_%T.log 
+
+
+| Sybase Tran 转储压缩 | (是/否) | 启用或禁用原生 Sybase 事务转储压缩。 
+
+
+| Sybase | 示例：/Sybase | 指定 Sybase 安装的位置。 
+
+
+| Sybase 清单 | 示例：｛\f151、｝｛\f151、｝｛\f151、｝｛\f151、｝｛\f151 /Sybase/ | 指定应创建清单文件的数据库以及应放置清单文件的位置。 
+
+
+| Sybase 清单格式 | %S_%D_。清单示例：%S_%D_。清单 | 用于指定清单文件命名约定。可以指定以下密钥：%S = Sybase中的实例名称%D = Sybase数据库中的数据库 
+
+
+| sybase_manifest_delete | (是/否) | 允许在创建 Snapshot 副本后删除清单。清单文件应捕获到 Snapshot 副本中，以便始终可用于备份。 
+
+
+| sybase_exclude_tempdb | (是/否) | 自动排除用户创建的临时数据库。 
+|===
+
+
+=== 系统的恢复顺序为
+
+. 停止SAP系统(包括数据库)、停止sapinit
+. 卸载文件系统
+. 还原卷会先访问数据(使用SnapCenter)
+. 挂载文件系统
+. 启动Database A01(使用选项–q,以避免自动联机并使数据库向前可恢复–根据SAP Note 1887068)
+. 启动备份服务器的处理器
+. 联机数据库saptools、sybsecurity、sybmgmdb
+. 恢复数据库A1(使用isql)
+. 联机数据库
+. 启动sapinit、SAP System唤醒
+
+
+
+
+=== 恢复实例程为起来
+
+* 停止主机VM-A1.上的SAP系统+ DB A1.
++
+** 用户a01adm：stopsap
+** 用户root：/etc/init.d/sapinit stop
+** 用户root：umount -a -t NFS
+
+
+* 还原备份
++
+** SnapCenter图形用户界面：选择所需的备份以进行还原
++
+image:sc-sap-ase-image07.png["\"选择所需的备份以进行还原\"对话框的屏幕截图"]
+
+** 对于ANF部署—仅提供完整资源
++
+image:sc-sap-ase-image08.png["\"选择所需的备份以进行还原\"对话框的屏幕截图"]
+
+
+
+
+
+
+NOTE: 选择"Complete Resource (完整资源)"将触发基于卷的Snap Restore (VBSR)。在Azure中称为link:https://learn.microsoft.com/en-us/azure/azure-netapp-files/snapshots-revert-volume["卷还原"]。
+
+image:sc-sap-ase-image09.png["有关快照的重要消息的屏幕截图"]
+
+
+NOTE: 对于其他部署类型(例如、"内置ANF")、可以协调单文件Snap Restore (SFSR)操作。选择File Level (文件级别)和相应的Volume (卷)、并选中All (全部)-请参见以下屏幕截图。
+
+image:sc-sap-ase-image10.png["选择文件级快照的屏幕截图"]
+
+此时将显示摘要、单击完成将启动实际还原。
+
+image:sc-sap-ase-image11.png["快照还原摘要的屏幕截图"]
+
+* 挂载文件系统(VM-原因1)
++
+** 用户root：mount -a -t NFS
+
+
+* 启动Database A1+备份服务器
++
+** 修改run_解答 并添加-q \(根据SAP Note 1887068)
+** 用户syba01：run_901 &
+** 用户syba01：run_A01_bs&
+
+
+* 联机数据库saptools、sybsecurity、sybmgmdb
++
+** 用户系统01：isQL -S 01/U sapsa -X -w 1024
+** 联机数据库saptools
+** 开始
+** 联机数据库系统安全性
+** 开始
+** 联机数据库sybmgmdb
+** 开始
+
+
+* 恢复数据库A1.
++
+** SP转储历史记录(显示事务日志转储)
+** 开始
+** 根据需要加载事务日志转储—有关详细信息、请参见文档： https://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc36272.1572/html/commands/X75212.htm[]
+** 示例：从"/sybase/A01/log_Archives/A01.Tran.20250207.140248.6.000"加载Tran A01
+** 开始
+** 联机数据库
+** 开始
+
+
+* 从run_出-q
+* 启动SAP系统
++
+** 用户root：/etc/init.d/sapinit start
+** 用户a01adm：开始映射
+
+
+
+
+
+
+== 其他信息和版本历史记录
+
+
+
+=== 静噪与准备
+
+请参见链接上的文档：https://help.sap.com/docs/SAP_ASE/4e870f06a15b4bbeb237cca890000421/d9d3ce996bdd415693cdb17663bfc0e3.html?locale=en-US&version=16.0.2.0[SAP帮助页面]。
+
+image:sc-sap-ase-image12.png["SAP帮助页面内容的屏幕截图"]
+
+SnapCenter SAP ASE插件使用quieses database命令、但它可以替换为prep命令。如果需要、必须在sybase.pm中的第473、475、479、481、473、675行中进行更改、例如
+
+image:sc-sap-ase-image13.png["quiece. database命令的屏幕截图"]
+
+
+
+=== 录制的演示
+
+可通过以下经过记录的演示来支持文档。
+
+.安装和配置ASE插件、ASE数据库备份
+video::079554d1-452c-42e5-95f6-b2b900c1fa86[panopto,width=360]
+.还原和恢复ASE数据库
+video::0aba8433-e0d0-4c40-be0a-b2b900c1fb54[panopto,width=360]
+
+
+=== 外部文档
+
+要了解有关本文档中所述信息的更多信息，请查看以下文档和 / 或网站：
+
+* link:https://techcommunity.microsoft.com/blog/sapapplications/sap-ase-16-0-on-azure-netapp-files-for-sap-workloads-on-sles15/3729496["基于ANF的SAP安装Azure"]
+* link:https://docs.netapp.com/us-en/snapcenter/protect-scu/reference_prerequisites_for_adding_hosts_and_installing_snapcenter_plug_ins_package_for_linux.html["插件的SnapCenter前提条件"]
+* link:https://docs.netapp.com/us-en/snapcenter/protect-scu/task_add_hosts_and_install_the_snapcenter_plug_ins_package_for_linux.html["SnapCenter安装插件"]
+* link:https://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc34237.1500/html/mvsinst/CIHHFDGC.htm["Sybase InfoCenter - isql"]
+* link:https://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc36272.1572/html/commands/X75212.htm["Sybase InfoCenter—加载事务日志转储"]
+* SAP Notes (需要登录)
++
+** 1887068 - Syb：将外部备份和还原与SAP ASE结合使用： https://me.sap.com/notes/1887068/E[]
+** 1618817 - Syb：如何还原SAP ASE数据库服务器(UNIX)： https://me.sap.com/notes/1618817/E[]
+** 1585981 - Syb：确保SAP ASE的可恢复性： https://me.sap.com/notes/1585981/E[]
+** 1588316 - Syb：配置自动数据库和日志备份： https://me.sap.com/notes/1588316/E[]
+** NetApp产品文档： https://www.netapp.com/support-and-training/documentation/[]
+** NetApp SAP解决方案—有关用例、最佳实践和优势的信息： https://docs.netapp.com/us-en/netapp-solutions-sap[]
+
+
+
+
+
+
+=== 版本历史记录
+
+[cols="30%, 30%, 40%"]
+|===
+| * 版本 * | * 日期 * | *文档版本历史* 
+
+
+| 版本 1.0 | 2025年4月 | 初始版本—备份/恢复ASE数据库 
+|===

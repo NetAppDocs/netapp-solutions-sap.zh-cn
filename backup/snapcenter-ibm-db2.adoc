@@ -1,0 +1,341 @@
+---
+sidebar: sidebar 
+permalink: backup/snapcenter-ibm-db2.html 
+keywords: SAP, snapcenter, IBM DB2, database, backup, restore 
+summary: 本文档介绍了在SAP环境中使用的IBM DB2数据库的SnapCenter集成细节。 
+---
+= IBM DB2数据库的SnapCenter集成
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+本文档介绍了在SAP环境中使用的IBM DB2数据库的SnapCenter集成细节。
+
+
+
+== 简介
+
+本文档并不是对如何设置整个环境的分步说明、而是将介绍与以下各项相关的概念和相关详细信息：
+
+* 示例配置概述
+* 布局示例
+* 保护DB2数据库
+* 还原和恢复DB2数据库
+
+
+作者：Michael Schloss、NetApp
+
+
+
+== 示例配置概述
+
+适用于在Azure平台上运行的SAP系统的SnapCenter DB2插件实施示例。
+
+
+NOTE: 此实施说明了所需的最低卷配置。
+
+或者、也可以使用此处所述的卷结构link:https://techcommunity.microsoft.com/blog/sapapplications/db2-installation-guide-on-anf/3709437["MS技术社区博客"]。
+
+image:sc-ibm-db2-image01.png["IBM DB2实施示例示意图"]
+
+
+
+== 演示环境
+
+
+
+=== 软件版本
+
+[cols="50%, 50%"]
+|===
+| *软件* | * 版本 * 
+
+
+| Linux操作系统 | SLES for SAP 15 SP5 
+
+
+| SAP | SAP NetWeaver 7.5 
+
+
+| DB2 | 10.5.0.7 
+
+
+| SnapCenter | 6.1 
+|===
+
+
+=== DB2卷设计
+
+必须使用"最小卷布局"为DB2数据库启用备份/恢复和克隆用例。示例配置使用<SID>：d01。
+
+[cols="20%, 20%, 30%, 30%"]
+|===
+| *卷名* | *卷上的目录(qtree)* | *服务器上的挂载点* | * 注释 * 
+
+
+| <SID>—sapdb2 | db2 | /db2 |  
+
+
+|  |  | /DB2/DB2 <SID> | DB2相关文件的父目录 
+
+
+|  |  | /db2/db2 <sid> | 用户db2 <sid>和DB2软件的主目录 
+
+
+|  |  | /DB2/DBS/db2dump <SID> | DB2诊断日志和转储文件 
+
+
+|  |  | /DB2/DBC/BACKUP <SID> | 备份位置(可能放置在其他卷上) 
+
+
+|  |  | /DB2/DBC/LOG_ARCH <SID> | 脱机重做日志(可能放置在其他卷上—将触发快照) 
+
+
+|  |  | /DB2/DB/log_dir <SID> | 联机重做日志(可能放置在其他卷上—将触发快照) 
+
+
+|  | <sid> | <sid> | 用户<sid>的主目录 
+
+
+|  | <sid> | <sid> | 用户<sid>的主目录 
+
+
+|  | usrsaptrans | /usr/sap/trans | 传输目录 
+
+
+|  | <SID> | <SID> | USR SAP 
+
+
+|  | <SID> | /sapmnt/sapmnt <SID> | SAP全局主机主管 
+
+
+| <SID>数据 | sapdata1 | /db2/sapdata1 <SID> | 数据库数据 
+
+
+|  | sapdata2 | /DB2/SAP/sapdata2 <SID> | 数据库数据 
+
+
+|  | sapdata3 | /DB2/SAP/sapdata3 <SID> | 数据库数据 
+
+
+|  | sapdata4 | /DB2/SAP/sapdata4 <SID> | 数据库数据 
+
+
+|  | saptmp1 | /DB2/SAptmp1/saptmp1 <SID> | 数据库临时文件 
+
+
+|  | saptmp2 | /DB2/SAptmp2/saptmp2 <SID> | 数据库临时文件 
+
+
+|  | saptmp3 | /DB2/SAptmp3/saptmp3 <SID> | 数据库临时文件 
+
+
+|  | saptmp4 | /DB2/SAptmp4/saptmp4 <SID> | 数据库临时文件 
+
+
+|  | db2 <sid> | /DB2/DBS/db2 <SID><sid> | 实例文件 
+|===
+由于DB2插件默认启用自动发现、因此会为与以下文件路径匹配的卷创建快照。
+
+image:sc-ibm-db2-image02.png["数据库文件路径的屏幕截图"]
+
+
+
+=== 保护数据库D01的步骤
+
+* 根据示例布局检查文件分发
+* 检查主机的前提条件(VM-D01)
+* 检查数据库的前提条件(D01)
+* 在主机上部署/安装SnapCenter代理(VM-D01)
+* 创建SnapCenter实例资源配置
+
+
+
+
+=== 主机上的前提条件
+
+有关更多最新信息、请访问：
+
+* https://docs.netapp.com/us-en/snapcenter/protect-scu/reference_prerequisites_for_adding_hosts_and_installing_snapcenter_plug_ins_package_for_linux.html[]
+* https://docs.netapp.com/us-en/snapcenter/protect-db2/prerequisites-for-using-snapcenter-plug-in-for-ibm-db2.html[]
+
+
+在添加主机并安装适用于Linux的插件软件包之前、您必须满足所有要求。
+
+* 如果使用的是 iSCSI ，则 iSCSI 服务必须正在运行。
+* 您可以对root用户或非root用户使用基于密码的身份验证、也可以使用基于SSH密钥的身份验证。
+* 非root用户可以安装适用于Unix文件系统的SnapCenter插件。但是，您应该为非 root 用户配置 sudo 权限，以便安装和启动插件过程。安装此插件后、这些进程将以有效的非root用户身份运行。
+* 为安装用户创建身份验证模式为Linux的凭据。
+* 您必须已在Linux主机上安装Java 11。
+* 确保在Linux主机上仅安装Java 11的认证版本
+* 有关下载Java的信息、请参见：适用于所有操作系统的Java下载
+* 您应将bash作为插件安装的默认shell。
+
+
+
+
+=== 数据库的前提条件—启用日志记录和备份
+
+
+NOTE: 要启用脱机日志、需要对数据库进行脱机完整备份。通常、它已用于生产系统。
+
+* 创建备份目录和log_arch(/db2/d01/backup、/sybase/d01/log_arch)
+* 启用logarcheth1 (作为操作系统用户db2d01)
++
+** 使用logarcheth1 disk：/db2/d01/log_arch/为D01配置DB2 update db cfg
+
+
+* 创建脱机备份(以操作系统用户db2d01的身份)
++
+** db2stop force
+** db2start管理模式受限访问
+** DB2备份数据库D01到/DB2/D01/backup
+** DB2激活数据库D01
+
+
+
+
+
+
+=== 将SnapCenter代理部署到主机VM-D01
+
+有关详细信息，请参见link:https://docs.netapp.com/us-en/snapcenter/protect-scu/task_add_hosts_and_install_the_snapcenter_plug_ins_package_for_linux.html["SnapCenter 文档"]。
+
+选择IBM DB2和Unix文件系统插件。
+
+image:sc-ibm-db2-image03.png["添加IBM DB2和Unix文件系统插件的屏幕截图"]
+
+
+NOTE: 安装完成后、系统将在主机上触发数据库发现。
+
+image:sc-ibm-db2-image04.png["在主机上发现数据库的屏幕截图"]
+
+
+
+=== 为数据库D01创建资源配置
+
+选择已发现资源D01
+
+image:sc-ibm-db2-image05.png["在主机上发现数据库的屏幕截图"]
+
+配置Snapshot名称
+
+image:sc-ibm-db2-image06.png["配置快照名称对话框的屏幕截图"]
+
+不需要特定应用程序设置、请根据需要配置策略和通知设置。
+
+image:sc-ibm-db2-image07.png["配置策略和通知设置的屏幕截图"]
+
+并完成配置。
+
+
+
+==== 系统D01的恢复顺序
+
+. 停止SAP系统D01 (包括数据库)
+. 还原SnapCenter备份(卷d01-data)
++
+.. 卸载文件系统
+.. 还原卷
+.. 挂载文件系统
+.. 将数据库作为镜像数据库初始化
+
+
+. 恢复数据库D01 (使用DB2前滚)
+. 启动SAP系统D01
+
+
+
+
+=== 恢复数据库D01
+
+* 停止主机VM-D01上的SAP系统+ DB D01
++
+** 用户d01adm：stopsap
+
+
+* 还原备份
++
+** SnapCenter图形用户界面：选择所需的备份以进行还原
++
+image:sc-ibm-db2-image08.png["SnapCenter图形用户界面的屏幕截图、用于选择要还原的备份"]
+
+** 对于ANF部署—仅提供完整资源
++
+image:sc-ibm-db2-image09.png["SnapCenter图形用户界面的屏幕截图、用于选择要还原的备份"]
+
+
+
+
+
+此时将显示摘要、单击完成将启动实际还原。
+
+image:sc-ibm-db2-image10.png["要还原的备份摘要的屏幕截图"]
+
+
+NOTE: "db2inidb D01作为镜像"是SnapCenter还原工作流的一部分。
+
+* 检查恢复状态Database d01 (作为用户db2d01)
++
+** DB2前滚数据库D01查询状态
+
+
+* 根据需要恢复数据库—在此启动无损失恢复(作为用户db2d01)
++
+** DB2将数据库D01前滚到日志末尾
+
+
+* 停止数据库恢复和联机数据库d01 (作为用户db2d01)
++
+** DB2前滚数据库D01停止
+
+
+* 启动SAP系统(以用户d01adm的身份)
++
+** 开始
+
+
+
+
+
+
+== 其他信息和版本历史记录
+
+可通过以下经过记录的演示来支持文档。
+
+.安装和配置DB2插件、备份DB2数据库
+video::66c87afd-ca53-4af1-8bd8-b2b900c1fb0f[panopto,width=360]
+.恢复和恢复DB2数据库
+video::3a82e561-e5a2-4a23-9465-b2b900c1fac5[panopto,width=360]
+要了解有关本文档中所述信息的更多信息，请查看以下文档和 / 或网站：
+
+* link:https://techcommunity.microsoft.com/blog/sapapplications/db2-installation-guide-on-anf/3709437["SAP on DB2 Installation Azure on ANF"]
+* link:https://docs.netapp.com/us-en/snapcenter/protect-scu/reference_prerequisites_for_adding_hosts_and_installing_snapcenter_plug_ins_package_for_linux.html["插件的SnapCenter前提条件"]
+* link:https://docs.netapp.com/us-en/snapcenter/protect-scu/task_add_hosts_and_install_the_snapcenter_plug_ins_package_for_linux.html["SnapCenter安装插件"]
+* link:https://docs.netapp.com/us-en/snapcenter/protect-db2/snapcenter-plug-in-for-ibm-db2-overview.html["SnapCenter DB2插件文档"]
+* SAP Notes (需要登录)
++
+** 83000 - DB2/390：备份和恢复选项： https://me.sap.com/notes/83000[]
+** 594301 - DB6：管理工具和拆分镜像： https://me.sap.com/notes/594301[]
+
+
+* NetApp产品文档： https://www.netapp.com/support-and-training/documentation/[]
+* NetApp SAP解决方案—有关用例、最佳实践和优势的信息： https://docs.netapp.com/us-en/netapp-solutions-sap[]
+
+
+
+
+=== 版本历史记录
+
+[cols="25 %, 25%, 50%"]
+|===
+| * 版本 * | * 日期 * | *文档版本历史* 
+
+
+| 版本 1.0 | 2025年4月 | 初始版本—备份/恢复DB2数据库 
+|===

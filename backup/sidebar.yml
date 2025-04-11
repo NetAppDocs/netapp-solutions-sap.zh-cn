@@ -172,3 +172,7 @@ entries:
   url: "/backup/saphana-commvault_pdf_link.html"
 - title: 基于 NetApp 全 SAN 阵列的 SAP HANA —现代 SAN ，数据保护和灾难恢复
   url: "/backup/saphana-san_pdf_link.html"
+- title: 适用于SAP ASE数据库的SnapCenter集成
+  url: "/backup/snapcenter-sap-ase.html"
+- title: IBM DB2数据库的SnapCenter集成
+  url: "/backup/snapcenter-ibm-db2.html"
