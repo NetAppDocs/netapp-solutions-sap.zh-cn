@@ -70,10 +70,8 @@
   <block id="5ab9c3d59a0ecc9e30a1f938039d0ecf" category="summary">NFS 版本 4 及更高版本需要用户身份验证。可以使用轻型目录访问协议（ Lightweight Directory Access Protocol ， LDAP ）服务器等中央用户管理工具或使用本地用户帐户来完成此身份验证。</block>
   <block id="e3a77a70624c57f3f0e2fc7075e4f75f" category="doc">NFSv4 的 SAP HANA 安装准备</block>
   <block id="7f5e79baae33aa1aca5c990882a844cb" category="paragraph">NFS 版本 4 及更高版本需要用户身份验证。可以使用轻型目录访问协议（ Lightweight Directory Access Protocol ， LDAP ）服务器等中央用户管理工具或使用本地用户帐户来完成此身份验证。以下各节介绍如何配置本地用户帐户。</block>
-  <block id="3e0be3ed453ef480d348366ac9692e0b" category="paragraph">在开始安装 SAP HANA 软件之前，必须在 SAP HANA 主机和存储控制器上手动创建管理用户 ` &lt;sidadm&gt;` 和 `sapsys` 组。</block>
   <block id="cbec60dce8dfbeca522952f14d38d3b1" category="section-title">SAP HANA 主机</block>
   <block id="6f99ed415d7b5330cfe770dc1088f66b" category="paragraph">如果不存在，则必须在 SAP HANA 主机上创建 `sapsys` 组。必须选择一个不与存储控制器上的现有组 ID 冲突的唯一组 ID 。</block>
-  <block id="7bafe155f78e1791271552be40c162f4" category="paragraph">已在 SAP HANA 主机上创建用户 ` &lt;sidadm&gt;` 。必须选择一个与存储控制器上的现有用户 ID 不冲突的唯一 ID 。</block>
   <block id="8f35838ad2fe64a0c17ff23449515d26" category="paragraph">对于多主机 SAP HANA 系统，所有 SAP HANA 主机上的用户和组 ID 必须相同。通过将 ` /etc/group` 和 ` /etc/passwd` 中的受影响行从源系统复制到所有其他 SAP HANA 主机，可以在其他 SAP HANA 主机上创建组和用户。</block>
   <block id="2fa0eba92353ea7e1816fcc916b31030" category="admonition">在所有 Linux 服务器（` /etc/idmapd.conf` ）和 SVM 上， NFSv4 域必须设置为相同的值。在文件 ` /etc/idmapd.conf` 中为 Linux 主机设置域参数 "Domain = &lt;domain-name&gt; " 。</block>
   <block id="c16fea4c59b7f6d7ce28e4f656eb58f6" category="paragraph">启用并启动 NFS idmapd 服务。</block>
@@ -847,7 +845,6 @@
   <block id="3228fe22c23747656168738709bc6bd1" category="paragraph">SAP HANA 灾难恢复可以通过 SAP 系统复制在数据库层执行，也可以通过存储复制技术在存储层执行。下一节概述了基于存储复制的灾难恢复解决方案。</block>
   <block id="ad3b35bfc8ee4f5dee91390584d5b8cd" category="paragraph">下图显示了一个三站点灾难恢复解决方案，它使用同步 SnapMirror 复制到本地灾难恢复数据中心，并使用异步 SnapMirror 将数据复制到远程灾难恢复数据中心。</block>
   <block id="c3a14b2b8a8f3abd4f577b36ff5a89d7" category="paragraph">下图简要展示了解决方案。每个站点上的存储集群均可提供本地高可用性，并用于生产工作负载。每个站点上的数据会同步复制到另一位置，并可在发生灾难故障转移时使用。</block>
-  <block id="766c3ec7b91d6121d225b55cf37f9e60" category="paragraph">如果尚未创建，则必须在 SAP HANA 主机上创建 `sapsys` 组。选择一个不与存储控制器上现有组 ID 冲突的唯一组 ID 。</block>
   <block id="96affa74630cd326f32e3a646b2bf9ad" category="admonition">所有 Linux 服务器和 SVM 上的 NFSv4 域必须设置为相同的值。在文件 ` /etc/idmapd.conf` 中为 Linux 主机设置域参数 `Domain = &lt;domain_name&gt;` 。</block>
   <block id="90c5b46276106ab7121fe824091fdfde" category="paragraph">启用并启动 NFS idmapd 服务：</block>
   <block id="82d9f02aa4638adac22e7bc4604d9e25" category="admonition">最新的 Linux 内核不需要执行此步骤。您可以安全地忽略警告消息。</block>
@@ -5409,4 +5406,8 @@ SnapCenter 4.3.1支持NFSv4
   <block id="649c133bd78c9a4db2ae6b6cc125afc9" category="list-text">NetApp SAP解决方案—有关用例、最佳实践和优势的信息：<block ref="275e41234bd9820755d1021988b4d48e" category="inline-link-rx"></block></block>
   <block id="ebbef4ff98690d25d6060ddc932670b0" category="cell">初始版本—备份/恢复ASE数据库</block>
   <block id="7b4b03f44ad3853577dba2a8cb0ea413" category="video-title">安装ASE插件、配置ASE插件、ASE数据库备份</block>
+  <block id="6d6e2198d3b7635ccb9480a805db5475" category="paragraph">管理用户<block ref="f1770ad185fb295659ec2c9813d05f31" prefix=" " category="inline-code"></block><block ref="45a97e94fe5e2d9ac461ae04e25474ab" prefix="," category="inline-code"></block>开始安装SAP HANA软件之前、必须在SAP HANA主机和存储控制器上手动创建和<block ref="d2c4ba56a16c77e9f8b02c0e67ddab49" prefix=" " category="inline-code"></block>组。</block>
+  <block id="0c8bebe236646d373f29581e17ec5c73" category="paragraph">用户<block ref="f1770ad185fb295659ec2c9813d05f31" prefix=" " category="inline-code"></block>和<block ref="45a97e94fe5e2d9ac461ae04e25474ab" prefix=" " category="inline-code"></block>将在SAP HANA主机上创建。必须选择不与存储控制器上的现有用户ID冲突的唯一ID。</block>
+  <block id="c3edf19e9cb8e20c8545cc3279f2d388" category="paragraph">对于多主机SAP HANA系统、所有SAP HANA主机上的用户ID和组ID必须相同。组和用户是通过将源系统中的受影响行复制到其他所有SAP HANA主机以及<block ref="c5068b7c2b1707f8939b283a2758a691" prefix=" " category="inline-code"></block>从源系统复制到其他所有SAP HANA主机来在其他SAP HANA主机上创建<block ref="8cd4f87abbd9addd26d3a8c86730f48b" prefix=" " category="inline-code"></block>的。</block>
+  <block id="176e74803d5c3f1e178b5783467512c1" category="paragraph">SAP HANA主机和存储控制器上的用户ID和组ID必须相同。可通过在存储集群上输入以下命令来创建组和用户：</block>
 </blocks>
