@@ -166,12 +166,8 @@ entries:
       url: "/backup/saphana-dr-anf_update_history.html"
 - title: 使用存储复制实现 SAP HANA 灾难恢复
   url: "/backup/saphana-dr-sr_pdf_link.html"
-- title: 使用 Snap Creator 备份和恢复 SAP HANA
-  url: "/backup/saphana-bandr-sc_pdf_link.html"
 - title: 使用 NetApp 存储和 Commvault 软件进行 SAP HANA 备份和恢复
   url: "/backup/saphana-commvault_pdf_link.html"
-- title: 基于 NetApp 全 SAN 阵列的 SAP HANA —现代 SAN ，数据保护和灾难恢复
-  url: "/backup/saphana-san_pdf_link.html"
 - title: 适用于SAP ASE数据库的SnapCenter集成
   url: "/backup/snapcenter-sap-ase.html"
 - title: IBM DB2数据库的SnapCenter集成

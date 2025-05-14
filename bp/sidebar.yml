@@ -130,9 +130,3 @@ entries:
     url: "/bp/saphana_fas_fc_where_to_find_additional_information.html"
   - title: 更新历史记录
     url: "/bp/saphana_fas_fc_update_history.html"
-- title: 基于 IBM Power Systems 的 SAP HANA 和采用 NFS 的 NetApp AFF 系统
-  url: "/bp/saphana-ibm-aff-nfs_pdf_link.html"
-- title: SAP 与基于 UNIX 的 Oracle 以及 NFS 与 NetApp ONTAP
-  url: "/bp/sap-oracle-snapman_pdf_link.html"
-- title: SAP 与使用 ONTAP 的 Windows 上的 Microsoft SQL Server
-  url: "/bp/sap-sqls-sc_pdf_link.html"
