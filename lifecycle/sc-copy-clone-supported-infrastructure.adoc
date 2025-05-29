@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: lifecycle/sc-copy-clone-supported-infrastructure.html 
+keywords: tr4667, 4667, SAP HANA, cloning, system refresh 
+summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA数据库和生命周期管理工具中、将高效的应用程序集成数据保护与SAP测试系统的灵活配置相结合。 
+---
+= 支持的基础架构和方案
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+本文档介绍了在内部NetApp系统、适用于NetApp ONTAP系统的Amazon FSx和Azure NetApp Files上运行的SAP HANA系统的SAP系统更新和克隆方案。但是、并非所有功能和方案都可在每个存储平台上使用。下表总结了支持的配置。
+
+在本文档中、我们使用的是在采用NFS作为存储协议的内部NetApp系统上运行的SAP HANA环境。大多数工作流步骤在不同平台上是相同的、如果存在差异、本文档将重点介绍这些步骤。
+
+[cols="25%,25%,25%,25%"]
+|===
+|  | *内部NetApp系统* | *AWS FSx for NetApp ONTAP * | * Azure NetApp Files * 
+
+
+| 存储协议 | NFS、光纤通道 | NFS | NFS 
+
+
+| 精简克隆(FlexClone) | 是的。 | 是的。 | 不会、使用当前ANF版本时、克隆的卷始终会拆分 
+
+
+| 克隆拆分操作 | 是的。 | 是的。 | 不适用 
+
+
+| 从主系统克隆 | 是的。 | 是的。 | 是的。 
+
+
+| 从异地备份克隆 | 是的。 | 是的。 | 否 
+
+
+| 在灾难恢复站点克隆 | 是的。 | 是的。 | 是、但未集成到SnapCenter中 
+|===

@@ -1,0 +1,162 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-sr-scs-4.6-config-using-resource-group.html 
+keywords: resource group, configuration, discovery, retention management 
+summary: SnapCenter 4.6 支持对配置有 HANA 系统复制的 HANA 系统进行自动发现。SnapCenter 4.6 包含一个逻辑，用于在备份操作期间识别主和二级 HANA 主机，并处理两个 HANA 主机之间的保留管理。 
+---
+= 使用资源组的 SnapCenter 4.6 配置
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapCenter 4.6 支持对配置有 HANA 系统复制的 HANA 系统进行自动发现。SnapCenter 4.6 包含一个逻辑，用于在备份操作期间识别主和二级 HANA 主机，并处理两个 HANA 主机之间的保留管理。此外，自动还原和恢复现在也可用于 HANA 系统复制环境。
+
+
+
+== HANA 系统复制环境的 SnapCenter 4.6 配置
+
+下图显示了本章使用的实验室设置。两个 HANA 主机 HANA 3 和 HANA 4 配置了 HANA 系统复制。
+
+为HANA系统数据库创建了一个数据库用户“SnapCenter”，该用户具有执行备份和恢复操作所需的Privileges (请参见link:hana-br-scs-overview.html["使用 SnapCenter 实现 SAP HANA 备份和恢复"^])。必须使用上述数据库用户在两台主机上配置 HANA 用户存储密钥。
+
+....
+ss2adm@hana- 3: / > hdbuserstore set SS2KEY hana- 3:33313 SNAPCENTER <password>
+....
+....
+ss2adm@hana- 4:/ > hdbuserstore set SS2KEY hana-4:33313 SNAPCENTER <password>
+....
+从较高的角度来看，您必须执行以下步骤在 SnapCenter 中设置 HANA 系统复制。
+
+. 在主主机和二级主机上安装 HANA 插件。系统将对每个主主机或二级主机执行自动发现并检测到 HANA 系统复制状态。
+. 执行 SnapCenter `configure database` 并提供 `hdbuserstore` 密钥。将执行更多自动发现操作。
+. 创建一个资源组，包括两个主机并配置保护。
+
+
+image:saphana-sr-scs-image6.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+在两台 HANA 主机上安装 SnapCenter HANA 插件后， HANA 系统将以与其他自动发现的资源相同的方式显示在 SnapCenter 资源视图中。从 SnapCenter 4.6 开始，将显示一个附加列，其中显示 HANA 系统复制的状态（已启用 / 已禁用，主 / 二级）。
+
+image:saphana-sr-scs-image7.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+通过单击资源， SnapCenter 请求 HANA 系统的 HANA 用户存储密钥。
+
+image:saphana-sr-scs-image8.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+此时将执行其他自动发现步骤， SnapCenter 将显示资源详细信息。在 SnapCenter 4.6 中，系统复制状态和二级服务器将在此视图中列出。
+
+image:saphana-sr-scs-image9.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+对第二个 HANA 资源执行相同步骤后，自动发现过程完成，两个 HANA 资源均在 SnapCenter 中配置。
+
+image:saphana-sr-scs-image10.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+对于启用了 HANA 系统复制的系统，您必须配置 SnapCenter 资源组，包括两个 HANA 资源。
+
+image:saphana-sr-scs-image11.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+NetApp 建议对 Snapshot 名称使用自定义名称格式，其中应包括主机名，策略和计划。
+
+image:saphana-sr-scs-image12.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+您必须将这两个 HANA 主机添加到资源组中。
+
+image:saphana-sr-scs-image13.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+已为资源组配置策略和计划。
+
+
+NOTE: 策略中定义的保留将在两个 HANA 主机上使用。例如，如果在策略中定义了保留 10 ，则会将两个主机的备份总数用作备份删除的标准。如果最旧的备份是在当前主主机或二级主机上创建的，则 SnapCenter 会单独删除该备份。
+
+image:saphana-sr-scs-image14.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+现在，资源组配置已完成，可以执行备份。
+
+image:saphana-sr-scs-image15.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+image:saphana-sr-scs-image16.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+
+
+== Snapshot 备份操作
+
+执行资源组的备份操作时， SnapCenter 会确定哪个主机为主主机，并且仅会在主主机上触发备份。这意味着，只会对主主机的数据卷进行快照。在我们的示例中， HANA 3 是当前主主机，并在此主机上执行备份。
+
+image:saphana-sr-scs-image17.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+SnapCenter 作业日志显示了当前主主机 HANA — 3 上的标识操作和备份执行情况。
+
+image:saphana-sr-scs-image18.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+现在，已在主 HANA 资源上创建 Snapshot 备份。备份名称中包含的主机名显示 HANA — 3 。
+
+image:saphana-sr-scs-image19.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+同一 Snapshot 备份也会显示在 HANA 备份目录中。
+
+image:saphana-sr-scs-image20.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+如果执行接管操作，则现在，进一步的 SnapCenter 备份会将以前的二级主机（ HANA 4 ）标识为主主机，并在 HANA 4 上执行备份操作。同样，只有新主主机（ HANA 4 ）的数据卷才会进行快照。
+
+
+NOTE: SnapCenter 标识逻辑仅涵盖 HANA 主机处于主 - 二级关系或其中一个 HANA 主机脱机的情形。
+
+image:saphana-sr-scs-image21.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+SnapCenter 作业日志显示了当前主主机 HANA — 4 上的标识操作和备份执行情况。
+
+image:saphana-sr-scs-image22.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+现在，已在主 HANA 资源上创建 Snapshot 备份。备份名称中包含的主机名显示 HANA 。
+
+image:saphana-sr-scs-image23.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+同一 Snapshot 备份也会显示在 HANA 备份目录中。
+
+image:saphana-sr-scs-image24.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+
+
+== 使用基于文件的备份执行块完整性检查操作
+
+SnapCenter 4.6 使用的逻辑与基于文件的备份对块完整性检查操作执行 Snapshot 备份操作时所述的逻辑相同。SnapCenter 可识别当前的主 HANA 主机，并为此主机执行基于文件的备份。保留管理也会在这两个主机上执行，因此，无论哪个主机当前是主主机，都将删除最旧的备份。
+
+
+
+== SnapVault 复制
+
+要在发生接管时无需手动交互即可执行透明备份操作，并且与当前主主机是哪个 HANA 主机无关，您必须为这两个主机的数据卷配置 SnapVault 关系。每次运行备份时， SnapCenter 都会对当前主主机执行 SnapVault 更新操作。
+
+
+NOTE: 如果接管到二级主机的时间较长，则二级主机上首次 SnapVault 更新所更改的块数将较高。
+
+由于 SnapVault 目标上的保留管理由 ONTAP 在 SnapCenter 外部进行管理，因此无法在两个 HANA 主机上处理保留。因此，在接管之前创建的备份不会随前一个二级系统上的备份操作一起删除。这些备份会一直保留，直到以前的主备份重新成为主备份为止。为了使这些备份不会阻止日志备份的保留管理，必须在 SnapVault 目标或 HANA 备份目录中手动删除它们。
+
+
+NOTE: 无法清理所有 SnapVault Snapshot 副本，因为一个 Snapshot 副本会被阻止作为同步点。如果也需要删除最新的 Snapshot 副本，则必须删除 SnapVault 复制关系。在这种情况下， NetApp 建议删除 HANA 备份目录中的备份，以解除日志备份保留管理的阻止。
+
+image:saphana-sr-scs-image25.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+
+
+== 保留管理
+
+SnapCenter 4.6 可管理两个 HANA 主机中 Snapshot 备份，块完整性检查操作， HANA 备份目录条目和日志备份（如果未禁用）的保留，因此，无论当前是主主机还是二级主机，都无关紧要。无论当前主主机还是二级主机上是否需要执行删除操作， HANA 目录中的备份（数据和日志）和条目都会根据定义的保留时间进行删除。换言之，如果执行接管操作和 / 或在另一方向配置复制，则无需手动交互。
+
+如果SnapVault复制是数据保护策略的一部分、则在特定场景下需要手动交互、如一节所述link:#snapvault-replication["SnapVault复制"]
+
+
+
+== 还原和恢复
+
+下图显示了在两个站点上执行了多个接管并创建了 Snapshot 备份的情形。在当前状态下，主机 HANA 为主主机，最新备份为 T4 ，该备份已在主机 HANA 3 上创建。如果需要执行还原和恢复操作，可以在 SnapCenter 中使用备份 T1 和 T4 进行还原和恢复。在主机 HANA 4 （ t2 ， t3 ）上创建的备份无法使用 SnapCenter 进行还原。必须手动将这些备份复制到 HANA 3 的数据卷以进行恢复。
+
+image:saphana-sr-scs-image26.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+SnapCenter 4.6 资源组配置的还原和恢复操作与自动发现的非系统复制设置相同。所有还原和自动恢复选项均可用。有关详细信息，请参见技术报告link:hana-br-scs-overview.html["TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》"^]。
+
+一节介绍了从在另一台主机上创建的备份执行还原操作link:hana-sr-scs-restore-recovery-other-host-backup.html["从在另一主机上创建的备份还原和恢复"]。

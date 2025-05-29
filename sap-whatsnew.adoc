@@ -16,10 +16,10 @@ keywords: 'netapp, solutions, SAP, what"s new'
 [role="lead"]
 最新 SAP 解决方案和解决方案宣传材料概述。
 
-* link:backup/saphana-backup-anf-overview.html["TR-4905 ：《使用 SnapCenter 服务在 Azure NetApp Files 上备份和恢复 SAP HANA 》"]
-* link:backup/saphana-dr-anf_data_protection_overview_overview.html["TR-4891 ：《使用 Azure NetApp Files 实现 SAP HANA 灾难恢复》"]
-* link:bp/saphana_aff_nfs_introduction.html["TR-4435 ：《采用 NFS 的 NetApp AFF 系统上的 SAP HANA —配置指南》"]
-* link:bp/saphana-fas-nfs_introduction.html["TR-4290 ：《采用 NFS 配置的 NetApp FAS 系统上的 SAP HANA 》指南"]
-* link:bp/saphana_fas_fc_introduction.html["TR-4384 ：《采用光纤通道协议的 NetApp FAS 系统上的 SAP HANA 配置指南》"]
-* link:bp/saphana_aff_fc_introduction.html["TR-4436 ：《基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA 》"]
+* link:backup/hana-backup-anf-overview.html["TR-4905 ：《使用 SnapCenter 服务在 Azure NetApp Files 上备份和恢复 SAP HANA 》"]
+* link:backup/hana-dr-anf-data-protection-overview.html["TR-4891 ：《使用 Azure NetApp Files 实现 SAP HANA 灾难恢复》"]
+* link:bp/hana-aff-nfs-introduction.html["TR-4435 ：《采用 NFS 的 NetApp AFF 系统上的 SAP HANA —配置指南》"]
+* link:bp/hana-fas-nfs-introduction.html["TR-4290 ：《采用 NFS 配置的 NetApp FAS 系统上的 SAP HANA 》指南"]
+* link:bp/hana-fas-fc-introduction.html["TR-4384 ：《采用光纤通道协议的 NetApp FAS 系统上的 SAP HANA 配置指南》"]
+* link:bp/hana-aff-fc-introduction.html["TR-4436 ：《基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA 》"]
 

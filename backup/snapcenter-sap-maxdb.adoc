@@ -1,0 +1,419 @@
+---
+sidebar: sidebar 
+permalink: backup/snapcenter-sap-maxdb.html 
+keywords: SAP, snapcenter, SAP, maxdb, database, backup, restore 
+summary: 本文档介绍了在SAP环境中使用的SAP MaxDB数据库的SnapCenter集成细节。 
+---
+= 适用于SAP MaxDB数据库的SnapCenter集成
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+本文档介绍了在SAP环境中使用的SAP MaxDB数据库的SnapCenter集成细节。
+
+
+
+== 简介
+
+本文档并不是对如何设置整个环境的分步说明、而是将介绍与以下各项相关的概念和相关详细信息：
+
+* 示例配置概述
+* 布局示例
+* 保护SAP MaxDB实例
+* 还原和恢复SAP MaxDB实例
+
+
+
+
+== 示例配置概述
+
+演示中心运行的SAP系统的SnapCenter MaxDB插件实施示例。
+
+
+NOTE: 此实施说明了所需的最低卷配置。数据转储备份和日志转储备份、备份模板等均根据SAP注释"1928060 -使用文件系统备份进行数据备份和恢复"进行配置、并在此处引用注释。
+
+或者、也可以使用中所述的卷结构link:https://techcommunity.microsoft.com/blog/sapapplications/sap-netweaver-7-5-with-maxdb-7-9-on-azure-using-azure-netapp-files-anf/3905041["MS TechCommunity博客"]。
+
+
+
+== 演示环境
+
+image:sc-sap-maxdb-image01.png["图中突出显示了所使用的演示环境"]
+
+
+
+== 软件版本
+
+[cols="50%, 50%"]
+|===
+| *软件* | * 版本 * 
+
+
+| Linux操作系统 | SLES for SAP 15 SP5 
+
+
+| SAP | SAP NetWeaver 7.5 
+
+
+| SAP MaxDB | 7.9.10内部版本004-123-365-969 
+
+
+| SnapCenter | 6.1 
+|===
+
+
+== MaxDB卷设计
+
+要为SAP MaxDB数据库启用备份/恢复和克隆用例、必须使用以下最小卷布局。示例配置使用<SID>：M02。
+
+[cols="20%, 20%, 20%, 40%"]
+|===
+| *卷名* | *卷上的目录(qtree)* | *服务器上的挂载点* | * 注释 * 
+
+
+| sapmaxdb <SID> | sapdb | /sapdb | MaxDB相关文件的父目录 
+
+
+|  |  | /sapdb/saplog/saplog <SID> | 重做日志(可能放置在其他卷上) 
+
+
+|  |  | /sapdb/sapdb/backup <SID> | 转储备份(数据+日志)(可能放置在其他卷上) 
+
+
+|  | <sid> | <sid> | 用户<sid>的主目录 
+
+
+|  | 数据库 | /HOME/sdb | 用户sdb的主目录 
+
+
+|  | Sqd <sid> | /HOME/sqd <sid> | 用户qd <sid>的主目录 
+
+
+|  | usrsaptrans | /usr/sap/trans | 传输目录 
+
+
+|  | <SID> | <SID> | USR SAP 
+
+
+|  | <SID> | /sapmnt/sapmnt <SID> | SAP全局主机主管 
+
+
+| <SID>数据 | sapdata | /sapdb/sapdata/sapdata <SID> | 数据库数据文件(SID) 
+|===
+
+
+== 保护数据库M02的步骤
+
+* 根据示例布局检查文件分发
+* 检查主机的前提条件(sap-lnx25)
+* 检查数据库的前提条件(M02)
+* 在主机上部署/安装SnapCenter代理(SAP-lnx25)
+* 创建SnapCenter实例资源配置
+
+
+
+
+== 主机上的前提条件
+
+可以获得更多最新信息link:https://docs.netapp.com/us-en/snapcenter/protect-scu/reference_prerequisites_for_adding_hosts_and_installing_snapcenter_plug_ins_package_for_linux.html["此处"]。
+
+在添加主机并安装适用于Linux的插件软件包之前、您必须满足所有要求。
+
+* 如果使用的是 iSCSI ，则 iSCSI 服务必须正在运行。
+* 您可以对root用户或非root用户使用基于密码的身份验证、也可以使用基于SSH密钥的身份验证。
+* 非root用户可以安装适用于Unix文件系统的SnapCenter插件。但是，您应该为非 root 用户配置 sudo 权限，以便安装和启动插件过程。安装此插件后、这些进程将以有效的非root用户身份运行。
+* 为安装用户创建身份验证模式为Linux的凭据。
+* 您必须已在Linux主机上安装Java 11。
+* 确保在Linux主机上仅安装Java 11的认证版本
+* 有关下载Java的信息、请参见：适用于所有操作系统的Java下载
+* 您应将bash作为插件安装的默认shell。
+
+
+
+
+== 数据库的前提条件—创建备份模板、启用日志备份
+
+* 为数据和日志备份创建目录(/sapdb/m02/backup/data、/sapdb/m02/backup/log—所有者sdb：sdba—权限755)
+* 连接到数据库M02 (作为操作系统用户sqldm02)
++
+** dbmcli -d M02 -u控制、<password>
+
+
+* 根据SAP注释1928060创建数据文件备份模板(M02_data)
++
+** backup_temple_create M02_data到文件/sapdb/m02/backup/data/m02_data内容数据
+
+
+* 根据SAP注释1928060创建数据备份模板(M02_log)
++
+** backup_temple_create M02_log到文件/sapdb/m02/backup/log/m02_log内容日志
+
+
+* 根据SAP注释1928060创建数据快照备份模板(M02_SNAP)
++
+** backup_temple_create M02_snapto External snapSnapshot
+
+
+* 创建伪备份以启用日志备份
++
+** util_connect
+** backup_start M02_snap
+** backup_Finish M02_Snap外部备份ID first_full_fake_backup
+
+
+* 交换机数据库日志记录模式
++
+** autolog_off
+** autolog_on M02_log interval" 300
+** autolog_show
+
+
+
+
+
+
+== 将SnapCenter代理部署到主机SAP-lnx25
+
+有关详细信息，请参见link:https://docs.netapp.com/us-en/snapcenter/protect-scu/task_add_hosts_and_install_the_snapcenter_plug_ins_package_for_linux.html["SnapCenter 文档"]。
+
+选择SAP MaxDB和Unix文件系统插件。
+
+image:sc-sap-maxdb-image02.png["添加主机用户界面的屏幕截图"]
+
+
+
+== 为数据库M02创建SnapCenter资源配置
+
+资源-> SAP MaxDB ->添加资源
+
+image:sc-sap-maxdb-image03.png["添加SAP MaxDB资源用户界面的屏幕截图"]
+
+
+NOTE: 如果密码包含特殊字符、则必须使用反斜杠(例如Test！123！->测试\!123\!)。
+
+image:sc-sap-maxdb-image04.png["添加SAP MaxDB资源详细信息用户界面的屏幕截图"]
+
+image:sc-sap-maxdb-image05.png["提供存储占用空间详细信息用户界面的屏幕截图"]
+
+必须至少创建以下资源设置自定义键值对。
+
+image:sc-sap-maxdb-image06.png["资源设置用户界面的屏幕截图"]
+
+下表列出了 MaxDB 插件参数，提供了这些参数的设置并对其进行了说明：
+
+[cols="25%, 25%, 50%"]
+|===
+| * 参数 * | *设置* | * 问题描述 * 
+
+
+| Handle_LOGWRITER | (是/否) | 执行暂停日志写入程序（ N ）或恢复日志写入程序（ Y ）操作。 
+
+
+| DBMCLICMD | path_to_dbmcli_cmd | 指定 MaxDB dbmcli 命令的路径。如果未设置，则使用搜索路径上的 dbmcli 。 
+
+
+| SQLCLICMD | path_to_sqlcli_cmd | 指定 MaxDB sqlcli 命令的路径。如果未设置，则在搜索路径上使用 sqlcli 。 
+
+
+| MaxDB_update_HIST_LOG | (是/否) | 指示 MaxDB 备份程序是否更新 MaxDB 历史记录日志。 
+
+
+| MaxDB_backup_templates | 模板名称(例如 `M02_SNAP`) | 为每个数据库指定一个备份模板。此模板必须已存在，并且是外部类型的备份模板。要为 MaxDB 7.8 及更高版本启用 Snapshot 副本集成，您必须具有 MaxDB 后台服务器功能并已配置 MaxDB 备份模板。 
+
+
+| MaxDB_BG_SERVER_PREFIX | bG_server_prefix (例如 `na_bg`) | 指定后台服务器名称的前缀。如果设置了 MaxDB_backup_templates 参数，则还必须设置 MaxDB_BG_SERVER_PREFIXP参数 。如果未设置前缀、则会使用默认值na_bg_database。 
+|===
+image:sc-sap-maxdb-image07.png["添加MaxDB资源用户界面的屏幕截图"]
+
+现在、可以根据整体保护概念完成配置并计划备份。
+
+image:sc-sap-maxdb-image08.png["添加MaxDB资源用户界面的屏幕截图"]
+
+image:sc-sap-maxdb-image09.png["添加MaxDB资源用户界面的屏幕截图"]
+
+image:sc-sap-maxdb-image10.png["添加MaxDB资源用户界面的屏幕截图"]
+
+image:sc-sap-maxdb-image11.png["添加MaxDB资源用户界面的屏幕截图"]
+
+image:sc-sap-maxdb-image12.png["添加MaxDB资源用户界面的屏幕截图"]
+
+image:sc-sap-maxdb-image13.png["添加MaxDB资源用户界面的屏幕截图"]
+
+
+
+== 系统M02的恢复顺序
+
+. 停止SAP System M02 (包括数据库)、停止sapinit
+. 卸载文件系统/sapdb/m02/sapdata
+. 还原卷m02_data (使用SnapCenter)
+. 挂载文件系统/sapdb/m02/sapdata
+. 启动Database M02并连接(管理模式)
+. 收集备份信息
+. 恢复数据库数据备份
+. 恢复数据库日志备份
+. 停止数据库
+. 启动sapinit、SAP System M02
+
+
+
+
+== 恢复实例M02
+
+* 在主机sap-lnx25上停止SAP System + DB M02
++
+** 用户m02adm：stopsap
+** 可选—如果数据库未成功停止—用户：sqdm02
+** dbmcli -d M02 -u控制、<password>
++
+*** db_Offline
+
+
+** 用户root：/etc/init.d/sapinit stop
+** 用户root：umount /sapdb/m02/sapdata
+
+
+* 还原备份
++
+** SnapCenter图形用户界面：选择所需的还原块
+
+
+
+
+image:sc-sap-maxdb-image14.png["管理副本用户界面的屏幕截图"]
+
+
+NOTE: 选择"Complete Resource (完整资源)"将触发基于卷的Snap Restore (VBSR)。在Azure中称为link:https://learn.microsoft.com/en-us/azure/azure-netapp-files/snapshots-revert-volume["卷还原"]。对于ANF部署*仅提供完整的资源*。
+
+image:sc-sap-maxdb-image15.png["上述过程中显示的消息的屏幕截图"]
+
+
+NOTE: 对于其他部署类型(例如、在本机ANF)、可以编排单文件Snap Restore (SFSR)操作。选择File Level (文件级别)和相应的Volume (卷)、并选中All (全部)-请参见以下屏幕截图。
+
+image:sc-sap-maxdb-image16.png["从资源用户界面还原的屏幕截图"]
+
+此时将显示摘要、单击完成将启动实际还原。
+
+image:sc-sap-maxdb-image17.png["从资源用户界面还原的屏幕截图"]
+
+* 挂载文件系统(sap-lnx25)
++
+** 用户root：mount /sapdb/m02/sapdata
+
+
+* 在管理模式和连接下启动Database M02
++
+** 用户：sqdm02：dbmcli -d M02 -u control、<password>
++
+*** db_admin
+*** db_connect
+
+
+
+
+* 收集备份信息
++
+** backup_histal_open
+** backup_histal_list -c标签、操作、页面、停止、介质-r最后
++
+image:sc-sap-maxdb-image21.png["命令输出的屏幕截图"]
+
+
+
+* 恢复数据库
++
+** 恢复数据备份
++
+*** recover _start M02_SNAP data外部备份ID DAT_000000008
++
+image:sc-sap-maxdb-image18.png["命令输出的屏幕截图"]
+
+
+
+** 根据需要恢复日志备份
++
+*** 例如recover启动M02_log 147
++
+image:sc-sap-maxdb-image19.png["命令输出的屏幕截图"]
+
+
+
+** 可选信息—自动恢复到特定时间戳(无需指定专用数据/日志备份)
++
+*** 例如、在20250520200000之前自动恢复
++
+image:sc-sap-maxdb-image20.png["命令输出的屏幕截图"]
+
+
+
+
+
+* 结束恢复并停止数据库
++
+** db_Offline
++
+
+NOTE: 有关恢复的详细信息、请参见link:https://help.sap.com/docs/SUPPORT_CONTENT/maxdb/3362174129.html["MaxDB文档"]
+
+
+
+* 启动SAP系统
++
+** 用户root：/etc/init.d/sapinit start
+** 用户m02adm：开始映射
+
+
+
+
+
+
+== 其他信息和版本历史记录
+
+
+
+=== 录制的演示
+
+可通过以下经过记录的演示来支持文档。
+
+.安装MaxDB插件、配置MaxDB插件、备份MaxDB数据库
+video::4b9ca452-d282-44c1-82ab-b2e501188b0f[panopto,width=360]
+.还原和恢复MaxDB数据库
+video::ecd66443-637f-4e67-90a0-b2e501188acf[panopto,width=360]
+
+
+=== 外部文档
+
+要了解有关本文档中所述信息的更多信息，请查看以下文档和 / 或网站：
+
+* link:https://techcommunity.microsoft.com/blog/sapapplications/sap-netweaver-7-5-with-maxdb-7-9-on-azure-using-azure-netapp-files-anf/3905041["基于ANF的SAP安装Azure"]
+* link:https://docs.netapp.com/us-en/snapcenter/protect-scu/reference_prerequisites_for_adding_hosts_and_installing_snapcenter_plug_ins_package_for_linux.html["插件的SnapCenter前提条件"]
+* link:https://docs.netapp.com/us-en/snapcenter/protect-scu/task_add_hosts_and_install_the_snapcenter_plug_ins_package_for_linux.html["SnapCenter安装插件"]
+* link:https://help.sap.com/docs/SUPPORT_CONTENT/maxdb/3362174129.html["MaxDB Recovery文档"]
+* SAP Notes (需要登录)
++
+** link:https://me.sap.com/notes/1928060/E["1928060—使用文件系统备份进行数据备份和恢复"]
+** link:https://me.sap.com/notes/2282954/E["2282054-后台DBM服务器"]
+** link:https://me.sap.com/notes/616814/E["616818-暂停用于拆分镜像或快照的日志写入程序"]
+
+
+* link:https://help.sap.com/docs/SUPPORT_CONTENT/maxdb/3362174112.html["操作方法—使用数据库管理器CLI进行SAP MaxDB备份"]
+* link:https://help.sap.com/docs/SUPPORT_CONTENT/maxdb/3362174129.html["操作方法—使用数据库管理器CLI执行SAP MaxDB恢复"]
+* link:https://www.netapp.com/support-and-training/documentation/["NetApp 产品文档"]
+* link:https://docs.netapp.com/us-en/netapp-solutions-sap["NetApp SAP解决方案—有关使用情形、最佳实践和优势的信息"]
+
+
+
+
+=== 版本历史记录
+
+[cols="25%, 25%, 50%"]
+|===
+| * 版本 * | * 日期 * | *文档版本历史* 
+
+
+| 版本 1.0 | 2025年5月 | 初始版本—备份/恢复MaxDB数据库 
+|===

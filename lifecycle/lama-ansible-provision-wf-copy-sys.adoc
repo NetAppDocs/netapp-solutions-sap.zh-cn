@@ -1,0 +1,57 @@
+---
+sidebar: sidebar 
+permalink: lifecycle/lama-ansible-provision-wf-copy-sys.html 
+keywords: system copy, timeline, storage workflow 
+summary: 在本章中、我们将简要讨论系统克隆工作流和输入屏幕的不同之处。 
+---
+= SAP Lama配置工作流—复制系统
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+下图突出显示了使用系统副本工作流执行的主要步骤。
+
+image:lama-ansible-image40.png["此图提供了系统副本工作流的时间表。其中包含存储克隆、准备系统、激活隔离、系统重命名、启动系统、导入配置、复制后自动化和停用系统。"]
+
+在本章中、我们将简要讨论系统克隆工作流和输入屏幕的不同之处。如下图所示、存储工作流不会发生任何变化。
+
+image:lama-ansible-image41.png["此图提供了一个架构图、其中包含多个叠加步骤、显示了工作流中每个步骤的执行位置。"]
+
+. 系统副本工作流可以在系统准备就绪后启动。这不是此配置的特定任务、我们也不会对此进行详细说明。如果您需要更多信息、请查看SAP Lama文档。
++
+image:lama-ansible-image42.png["此屏幕截图显示了\"系统\"选项卡下的\"配置系统\"视图。此时将列出两个系统、并且\"Copy System\"下拉列表已突出显示。"]
+
+. 在复制工作流期间、系统将根据第一个屏幕中的指定进行重命名。
++
+image:lama-ansible-image43.png["此屏幕截图显示了复制系统页面、其中突出显示了系统ID和HANA SID框。"]
+
+. 在工作流期间、您可以更改实例编号。
++
+image:lama-ansible-image44.png["此屏幕截图显示了SAP实例编号选项卡、其中包含三个数据框。"]
+
++
+
+NOTE: 更改实例编号尚未经过测试、可能需要在提供程序脚本中进行更改。
+
+. 如上所述、*自定义克隆*屏幕与克隆工作流并无不同、如下所示。
++
+image:lama-ansible-image45.png["此屏幕截图显示了复制系统页面、其中包含自定义克隆信息和操作参数。"]
+
+. 如我们所述、其余输入掩码不会与标准有所偏差、我们不会在此处进一步介绍这些掩码。最后一个屏幕将显示摘要、现在可以开始执行。
++
+image:lama-ansible-image46.png["此屏幕截图显示了复制系统屏幕、其中包含基本信息和主机列表。右下角是\"Execute\"按钮。"]
+
+
+
+复制过程完成后、不会为自定义克隆过程启用目标实例。
+
+image:lama-ansible-image47.png["此屏幕截图显示了Lama Systems屏幕以及系统详细信息。"]
+
+在系统销毁过程中、必须手动采用预挂步骤、因为已设置限制并会阻止执行。
+
+image:lama-ansible-image48.png["此屏幕截图显示了Lama Systems屏幕以及系统详细信息、并选中了Use Custom Processing Process复选框。"]

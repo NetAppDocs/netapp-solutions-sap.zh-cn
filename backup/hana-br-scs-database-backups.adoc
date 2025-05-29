@@ -1,0 +1,116 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-br-scs-database-backups.html 
+keywords: sap hana studio, on-demand backup, replication 
+summary: 在 SnapCenter 中，数据库备份通常使用在每个 HANA 数据库的资源保护配置中定义的计划来执行。可以使用 SnapCenter 图形用户界面， PowerShell 命令行或 REST API 执行按需数据库备份。 
+---
+= 数据库备份
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 SnapCenter 中，数据库备份通常使用在每个 HANA 数据库的资源保护配置中定义的计划来执行。
+
+可以使用 SnapCenter 图形用户界面， PowerShell 命令行或 REST API 执行按需数据库备份。
+
+
+
+== 在 SAP HANA Studio 中确定 SnapCenter 备份
+
+SnapCenter 资源拓扑显示了使用 SnapCenter 创建的备份列表。下图显示了主存储上的可用备份，并突出显示了最新的备份。
+
+image:saphana-br-scs-image82.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+在对 SAP HANA MDC 系统使用存储 Snapshot 副本执行备份时，系统会为数据卷创建 Snapshot 副本。此数据卷包含系统数据库的数据以及所有租户数据库的数据。为了反映此物理架构，每当 SnapCenter 触发 Snapshot 备份时， SAP HANA 都会在内部对系统数据库以及所有租户数据库执行组合备份。这会导致 SAP HANA 备份目录中有多个单独的备份条目：一个用于系统数据库，一个用于每个租户数据库。
+
+
+NOTE: 对于 SAP HANA 单容器系统，数据库卷仅包含单个数据库， SAP HANA 备份目录中只有一个条目。
+
+在 SAP HANA 备份目录中， SnapCenter 备份名称存储为 `Comment` 字段以及 `外部备份 ID （ EBID ）` 。此信息显示在系统数据库的以下屏幕截图中，之后显示在租户数据库 SS1 的屏幕截图中。这两个图都突出显示了备注字段和 EBID 中存储的 SnapCenter 备份名称。
+
+
+NOTE: 对于基于 Snapshot 的备份， HANA 2.0 SPS4 （修订版 40 和 41 ）版本始终显示备份大小为零。修订版 42 已修复此问题。有关详细信息，请参见 SAP 注释 https://launchpad.support.sap.com/["https://launchpad.support.sap.com/#/notes/2795010"^]。
+
+image:saphana-br-scs-image83.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+image:saphana-br-scs-image84.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+
+NOTE: SnapCenter 只能识别自己的备份。例如，使用 SAP HANA Studio 创建的其他备份会显示在 SAP HANA 目录中，但不会显示在 SnapCenter 中。
+
+
+
+== 确定存储系统上的 SnapCenter 备份
+
+要查看存储层上的备份，请使用 NetApp OnCommand 系统管理器并在 SVM —卷视图中选择数据库卷。下部 Snapshot 副本选项卡将显示卷的 Snapshot 副本。以下屏幕截图显示了主存储上数据库卷 `SS1_data_mnt00001` 的可用备份。突出显示的备份是之前映像中 SnapCenter 和 SAP HANA Studio 中显示的备份，其命名约定相同。
+
+image:saphana-br-scs-image85.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+以下屏幕截图显示了二级存储系统上复制目标卷 `hana SA1_data_mnt00001_dest` 的可用备份。
+
+image:saphana-br-scs-image86.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+
+
+== 主存储上的按需数据库备份
+
+. 在资源视图中，选择资源并双击相应行以切换到拓扑视图。
++
+资源拓扑视图概述了使用 SnapCenter 创建的所有可用备份。此视图的顶部区域显示备份拓扑，其中显示了主存储（本地副本）上以及异地备份存储（存储副本）上的备份（如果可用）。
+
++
+image:saphana-br-scs-image86.5.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 在顶部行中，选择立即备份图标以启动按需备份。从下拉列表中，选择备份策略 `LocalSnap` ，然后单击备份启动按需备份。
++
+image:saphana-br-scs-image87.png["图中显示了输入/输出对话框或表示已写入内容"]
+
++
+此操作将启动备份作业。拓扑视图下方的活动区域将显示前五个作业的日志。备份完成后，拓扑视图中将显示一个新条目。备份名称遵循与一节中定义的Snapshot名称相同的命名约定link:hana-br-scs-resource-config-hana-database-backups.html#resource-protection["" 资源保护配置 " 。"]
+
++
+
+NOTE: 您必须关闭并重新打开拓扑视图才能查看更新后的备份列表。
+
++
+image:saphana-br-scs-image88.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 单击活动区域中作业的活动行时，将显示作业详细信息。您可以单击查看日志来打开详细的作业日志。
++
+image:saphana-br-scs-image89.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 在 SAP HANA Studio 中，新备份会显示在备份目录中。备份目录中的注释和 EBID 字段也会使用 SnapCenter 中的相同备份名称。
+
+
+
+
+== 通过 SnapVault 复制实现按需数据库备份
+
+. 在资源视图中，选择资源并双击相应行以切换到拓扑视图。
+. 在顶部行中，选择立即备份图标以启动按需备份。从下拉列表中，选择备份策略 `LocalSnapAndSnapVault` ，然后单击备份启动按需备份。
++
+image:saphana-br-scs-image90.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 单击活动区域中作业的活动行时，将显示作业详细信息。
++
+image:saphana-br-scs-image91.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 备份完成后，拓扑视图中将显示一个新条目。备份名称遵循与一节中定义的Snapshot名称相同的命名约定link:hana-br-scs-resource-config-hana-database-backups.html#resource-protection["" 资源保护配置 " 。"]
++
+
+NOTE: 您必须关闭并重新打开拓扑视图才能查看更新后的备份列表。
+
++
+image:saphana-br-scs-image92.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 通过选择存储副本，将显示二级存储上的备份。复制的备份名称与主存储上的备份名称相同。
++
+image:saphana-br-scs-image93.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 在 SAP HANA Studio 中，新备份会显示在备份目录中。备份目录中的注释和 EBID 字段也会使用 SnapCenter 中的相同备份名称。
+

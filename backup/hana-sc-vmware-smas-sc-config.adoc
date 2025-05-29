@@ -16,11 +16,11 @@ summary:
 [role="lead"]
 如本文档开头所述、本文档旨在为使用VMware和VMFS以及SnapMirror主动同步的HANA环境提供最佳实践。我们仅介绍与此特定解决方案相关的详细信息和重要步骤、不会介绍常规SnapCenter概念。有关SnapCenter的这些概念和其他附加信息、请参见：
 
-https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html["TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》"]
+link:hana-br-scs-overview.html["TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》"]
 
-https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-sr-scs-sap-hana-system-replication-overview.html["TR-4719 ： SAP HANA 系统复制—使用 SnapCenter 进行备份和恢复"]
+link:hana-sr-scs-system-replication-overview.html["TR-4719 ： SAP HANA 系统复制—使用 SnapCenter 进行备份和恢复"]
 
-https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html["TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作"]
+link:../lifecycle/sc-copy-clone-introduction.html["TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作"]
 
 
 

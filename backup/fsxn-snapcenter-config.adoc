@@ -1,0 +1,352 @@
+---
+sidebar: sidebar 
+permalink: backup/fsxn-snapcenter-config.html 
+keywords: configuration, hdbuserstore, credentials, plugin deployment, host, 
+summary: 您必须对基本SnapCenter 配置和HANA资源保护执行本节中的步骤。 
+---
+= SnapCenter 配置
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须对基本SnapCenter 配置和HANA资源保护执行本节中的步骤。
+
+
+
+== 概述配置步骤
+
+您必须对基本SnapCenter 配置和HANA资源保护执行以下步骤。以下各章将详细介绍每个步骤。
+
+. 配置SAP HANA备份用户和hdbuserstore密钥。用于使用hdbsql.客户端访问HANA数据库。
+. 在SnapCenter 中配置存储。用于从SnapCenter 访问适用于ONTAP SVM的FSX的凭据
+. 配置插件部署的凭据。用于在HANA数据库主机上自动部署和安装所需的SnapCenter 插件。
+. 将HANA主机添加到SnapCenter。部署和安装所需的SnapCenter 插件。
+. 配置策略。定义备份操作类型(Snapshot、文件)、保留以及可选的Snapshot备份复制。
+. 配置HANA资源保护。提供hdbuserstore密钥并将策略和计划附加到HANA资源。
+
+
+
+
+== SAP HANA 备份用户和 hdbuserstore 配置
+
+NetApp 建议在 HANA 数据库中配置一个专用数据库用户，以便使用 SnapCenter 运行备份操作。在第二步中，为此备份用户配置了 SAP HANA 用户存储密钥，并在配置 SnapCenter SAP HANA 插件时使用此用户存储密钥。
+
+下图显示了可用于创建备份用户的SAP HANA Studio
+
+所需权限随HANA 2.0 SPS5版本一起更改：备份管理员、目录读取、数据库备份管理员和数据库恢复操作员。对于早期版本，备份管理员和目录读取已足够。
+
+对于SAP HANA MDC系统、您必须在系统数据库中创建用户、因为系统和租户数据库的所有备份命令均使用系统数据库执行。
+
+image:amazon-fsx-image9.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+以下命令用于使用`<sid>adm` user的用户存储配置：
+
+....
+hdbuserstore set <key> <host>:<port> <database user> <password>
+....
+SnapCenter 使用 ` <sid>adm` 用户与 HANA 数据库进行通信。因此、您必须在数据库主机上使用`sid>adm`用户来配置用户存储密钥。通常， SAP HANA hdbsql 客户端软件会与数据库服务器安装一起安装。否则、必须先安装hdbclient。
+
+在SAP HANA MDC设置中、端口`3<instanceNo>13`是用于通过SQL访问系统数据库的标准端口、必须在hdbuserstore配置中使用。
+
+对于 SAP HANA 多主机设置，您必须为所有主机配置用户存储密钥。SnapCenter 会尝试使用提供的每个密钥连接到数据库、因此可以独立于将SAP HANA服务故障转移到其他主机运行。在我们的实验室设置中、我们为系统PFX的用户`pfxadm`配置了用户存储密钥、PFX是一个具有单个租户的主机HANA MDC系统。
+
+....
+pfxadm@hana-1:/usr/sap/PFX/home> hdbuserstore set PFXKEY hana-1:30013 SNAPCENTER <password>
+Operation succeed.
+....
+....
+pfxadm@hana-1:/usr/sap/PFX/home> hdbuserstore list
+DATA FILE       : /usr/sap/PFX/home/.hdb/hana-1/SSFS_HDB.DAT
+KEY FILE        : /usr/sap/PFX/home/.hdb/hana-1/SSFS_HDB.KEY
+ACTIVE RECORDS  : 7
+DELETED RECORDS : 0
+KEY PFXKEY
+  ENV : hana-1:30013
+  USER: SNAPCENTER
+KEY PFXSAPDBCTRL
+  ENV : hana-1:30013
+  USER: SAPDBCTRL
+Operation succeed.
+....
+您可以使用`hdbsql`命令检查对使用密钥的HANA系统数据库的访问权限。
+
+....
+pfxadm@hana-1:/usr/sap/PFX/home> hdbsql -U PFXKEY
+Welcome to the SAP HANA Database interactive terminal.
+Type:  \h for help with commands
+       \q to quit
+hdbsql SYSTEMDB=>
+....
+
+
+== 配置存储
+
+按照以下步骤在SnapCenter 中配置存储。
+
+. 在SnapCenter UI中、选择存储系统。
++
+image:amazon-fsx-image10.png["图中显示了输入/输出对话框或表示已写入内容"]
+
++
+您可以选择存储系统类型、可以是ONTAP SVM或ONTAP 集群。在以下示例中、选择了SVM管理。
+
++
+image:amazon-fsx-image11.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 要添加存储系统并提供所需的主机名和凭据、请单击新建。
++
+SVM用户不需要是vsadmin用户、如下图所示。通常，在 SVM 上配置用户并为其分配执行备份和还原操作所需的权限。有关所需权限的信息、请参见 http://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-isg%2Fhome.html["《 SnapCenter 安装指南》"^] 在标题为 " 所需的最小 ONTAP 权限 " 一节中。
+
++
+image:amazon-fsx-image12.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 要配置存储平台、请单击更多选项。
+. 选择全闪存FAS 作为存储系统、以确保SnapCenter 可以使用作为适用于ONTAP 的FSX一部分的许可证。
++
+image:amazon-fsx-image13.png["图中显示了输入/输出对话框或表示已写入内容"]
+
++
+SVM `sAPCP-HANA—SVM`现在已在SnapCenter 中配置。
+
++
+image:amazon-fsx-image14.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+
+
+
+
+=== 为插件部署创建凭据
+
+要使SnapCenter 能够在HANA主机上部署所需插件、您必须配置用户凭据。
+
+. 转到 " 设置 " ，选择 " 凭据 " ，然后单击 " 新建 " 。
++
+image:amazon-fsx-image15.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 在实验室设置中、我们在用于插件部署的HANA主机上配置了一个新用户`SnapCenter`。您必须启用sudo prvileges、如下图所示。
++
+image:amazon-fsx-image16.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+
+
+....
+hana-1:/etc/sudoers.d # cat /etc/sudoers.d/90-cloud-init-users
+# Created by cloud-init v. 20.2-8.48.1 on Mon, 14 Feb 2022 10:36:40 +0000
+# User rules for ec2-user
+ec2-user ALL=(ALL) NOPASSWD:ALL
+# User rules for snapcenter user
+snapcenter ALL=(ALL) NOPASSWD:ALL
+hana-1:/etc/sudoers.d #
+....
+
+
+== 添加SAP HANA主机
+
+添加SAP HANA主机时、SnapCenter 会在数据库主机上部署所需的插件并执行自动发现操作。
+
+SAP HANA 插件需要 Java 64 位版本 1.8 。在将主机添加到SnapCenter 之前、必须在主机上安装Java。
+
+....
+hana-1:/etc/ssh # java -version
+openjdk version "1.8.0_312"
+OpenJDK Runtime Environment (IcedTea 3.21.0) (build 1.8.0_312-b07 suse-3.61.3-x86_64)
+OpenJDK 64-Bit Server VM (build 25.312-b07, mixed mode)
+hana-1:/etc/ssh #
+....
+SnapCenter 支持OpenJDK或Oracle Java。
+
+要添加SAP HANA主机、请执行以下步骤：
+
+. 在主机选项卡中，单击添加。
++
+image:amazon-fsx-image17.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 提供主机信息并选择要安装的 SAP HANA 插件。单击提交。
++
+image:amazon-fsx-image18.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 确认指纹。
++
+image:amazon-fsx-image19.png["图中显示了输入/输出对话框或表示已写入内容"]
+
++
+HANA和Linux插件的安装会自动启动。安装完成后、主机的状态列将显示配置VMware插件。SnapCenter 会检测 SAP HANA 插件是否安装在虚拟化环境中。这可能是VMware环境、也可能是公有 云提供商的环境。在这种情况下、SnapCenter 会显示一条警告来配置虚拟机管理程序。
+
++
+您可以使用以下步骤删除此警告消息。
+
++
+image:amazon-fsx-image20.png["图中显示了输入/输出对话框或表示已写入内容"]
+
++
+.. 从设置选项卡中，选择全局设置。
+.. 对于虚拟机管理程序设置，请为所有主机选择虚拟机具有 iSCSI 直连磁盘或 NFS 并更新设置。
++
+image:amazon-fsx-image21.png["图中显示了输入/输出对话框或表示已写入内容"]
+
++
+此时、屏幕将显示状态为"running"的Linux插件和HANA插件。
+
++
+image:amazon-fsx-image22.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+
+
+
+
+
+
+== 配置策略
+
+策略通常独立于资源进行配置、可供多个SAP HANA数据库使用。
+
+典型的最低配置包含以下策略：
+
+* 无复制的每小时备份策略：`LocalSnap`。
+* 使用基于文件的备份执行每周块完整性检查的策略：`BlockIntegrityCheck`。
+
+
+以下各节将介绍这些策略的配置。
+
+
+
+=== Snapshot备份策略
+
+请按照以下步骤配置Snapshot备份策略。
+
+. 转到 " 设置 ">" 策略 " ，然后单击 " 新建 " 。
++
+image:amazon-fsx-image23.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 输入策略名称和问题描述。单击下一步。
++
+image:amazon-fsx-image24.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 选择基于 Snapshot 的备份类型，并选择每小时作为计划频率。
++
+计划本身稍后会配置HANA资源保护配置。
+
++
+image:amazon-fsx-image25.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 配置按需备份的保留设置。
++
+image:amazon-fsx-image26.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 配置复制选项。在这种情况下，不会选择 SnapVault 或 SnapMirror 更新。
++
+image:amazon-fsx-image27.png["图中显示了输入/输出对话框或表示已写入内容"]
+
++
+image:amazon-fsx-image28.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+
+
+此时将配置新策略。
+
+image:amazon-fsx-image29.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+
+
+=== 用于块完整性检查的策略
+
+按照以下步骤配置块完整性检查策略。
+
+. 转到 " 设置 ">" 策略 " ，然后单击 " 新建 " 。
+. 输入策略名称和问题描述。单击下一步。
++
+image:amazon-fsx-image30.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 将备份类型设置为基于文件，并将计划频率设置为每周。计划本身稍后会配置HANA资源保护配置。
++
+image:amazon-fsx-image31.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 配置按需备份的保留设置。
++
+image:amazon-fsx-image32.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 在摘要页面上，单击完成。
++
+image:amazon-fsx-image33.png["图中显示了输入/输出对话框或表示已写入内容"]
+
++
+image:amazon-fsx-image34.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+
+
+
+
+== 配置和保护HANA资源
+
+安装此插件后， HANA 资源的自动发现过程将自动启动。在资源屏幕中，将创建一个新资源，该资源将标记为已锁定，并带有红色挂锁图标。要配置和保护新的HANA资源、请执行以下步骤：
+
+. 选择并单击资源以继续配置。
++
+您也可以通过单击刷新资源在资源屏幕中手动触发自动发现过程。
+
++
+image:amazon-fsx-image35.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 提供 HANA 数据库的用户存储密钥。
++
+image:amazon-fsx-image36.png["图中显示了输入/输出对话框或表示已写入内容"]
+
++
+第二级自动发现过程从发现租户数据和存储占用空间信息开始。
+
++
+image:amazon-fsx-image37.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 在资源选项卡中、双击资源以配置资源保护。
++
+image:amazon-fsx-image38.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 为 Snapshot 副本配置自定义名称格式。
++
+NetApp 建议使用自定义 Snapshot 副本名称来轻松确定使用哪个策略和计划类型创建了哪些备份。通过在 Snapshot 副本名称中添加计划类型，您可以区分计划备份和按需备份。按需备份的 `schedule name` 字符串为空，而计划备份包括字符串 `hourly` ， `Daily` ， `或 Weekly` 。
+
++
+image:amazon-fsx-image39.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 无需在 " 应用程序设置 " 页面上进行任何特定设置。单击下一步。
++
+image:amazon-fsx-image40.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 选择要添加到资源中的策略。
++
+image:amazon-fsx-image41.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 定义块完整性检查策略的计划。
++
+在此示例中、此值设置为每周一次。
+
++
+image:amazon-fsx-image42.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 定义本地Snapshot策略的计划。
++
+在此示例中、此值设置为每6小时一次。
+
++
+image:amazon-fsx-image43.png["图中显示了输入/输出对话框或表示已写入内容"]
+
++
+image:amazon-fsx-image44.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+. 提供有关电子邮件通知的信息。
++
+image:amazon-fsx-image45.png["图中显示了输入/输出对话框或表示已写入内容"]
+
++
+image:amazon-fsx-image46.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+
+
+HANA资源配置现已完成、您可以执行备份。
+
+image:amazon-fsx-image47.png["图中显示了输入/输出对话框或表示已写入内容"]

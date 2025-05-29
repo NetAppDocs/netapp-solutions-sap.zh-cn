@@ -1,0 +1,75 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-br-scs-snapcenter-config.html 
+keywords: configuration, resource-specific, dependencies, storage system, credentials, hosts, policies 
+summary: SnapCenter 配置可以分为两个主要方面：初始配置和特定于资源的配置。 
+---
+= SnapCenter 配置
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapCenter 配置可以分为两个主要方面：
+
+* * 初始配置。 * 包括通用配置，与单个 SAP HANA 数据库无关。执行资源专用配置时选择的配置，例如存储系统，中央 HANA 插件主机和策略。
+* * 资源专用配置。 * 包括 SAP HANA 系统专用配置，必须对每个 SAP HANA 数据库执行此操作。
+
+
+下图概述了配置组件及其依赖关系。绿色框显示了必须在 SnapCenter 之外完成的配置步骤；蓝色框显示了使用 SnapCenter 图形用户界面完成的步骤。
+
+image:saphana-br-scs-image22.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+在初始配置中，将安装和配置以下组件：
+
+* * 存储系统。 * SAP HANA 系统所使用的所有 SVM 的凭据配置：通常为主存储，异地备份和灾难恢复存储。
+
+
+
+NOTE: 也可以配置存储集群凭据，而不是配置单个 SVM 凭据。
+
+* * 凭据。 * 用于在主机上部署 SAP HANA 插件的凭据配置。
+* * 主机（用于中央 HANA 插件主机）。 * 部署 SAP HANA 插件。在主机上安装 SAP HANA hdbclient 软件。必须手动安装 SAP hdbclient 软件。
+* * 策略。 * 备份类型，保留和复制的配置。通常，至少需要一个策略用于本地 Snapshot 副本，一个策略用于 SnapVault 复制，一个策略用于基于文件的备份。
+
+
+必须对每个 SAP HANA 数据库执行资源专用配置，其中包括以下配置：
+
+* SAP HANA 非数据卷资源配置：
++
+** 存储系统和卷
+
+
+* SAP hdbuserstore 密钥配置：
++
+** 必须在中央插件主机或 HANA 数据库主机上为特定 SAP HANA 数据库执行 SAP hdbuserstore 密钥配置，具体取决于 HANA 插件的部署位置。
+
+
+* 自动发现的 SAP HANA 数据库资源：
++
+** 在数据库主机上部署 SAP HANA 插件
+** 提供 hdbuserstore 密钥
+
+
+* 手动配置 SAP HANA 数据库资源：
++
+** SAP HANA 数据库 SID ，插件主机， hdbuserstore 密钥，存储系统和卷
+
+
+* 资源保护配置：
++
+** 选择所需策略
+** 为每个策略定义计划
+
+
+* ONTAP 数据保护配置：
++
+** 仅当应将备份复制到异地备份存储时才需要。
+** 关系和保留的定义。
+
+
+

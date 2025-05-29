@@ -1,0 +1,204 @@
+---
+sidebar: sidebar 
+permalink: backup/fsxn-snapcenter-architecture.html 
+keywords: snapcenter, scope, data protection strategy, example lab setup 
+summary: SnapCenter 是一个统一的可扩展平台，可实现应用程序一致的数据保护。SnapCenter 提供集中控制和监管，同时委派用户管理应用程序专用的备份，还原和克隆作业。借助 SnapCenter ，数据库和存储管理员可以通过一种工具来管理各种应用程序和数据库的备份，还原和克隆操作。SnapCenter 负责管理由 NetApp 提供支持的 Data Fabric 中各个端点的数据。 
+---
+= SnapCenter 架构
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapCenter 是一个统一的可扩展平台，可实现应用程序一致的数据保护。SnapCenter 提供集中控制和监管，同时委派用户管理应用程序专用的备份，还原和克隆作业。借助 SnapCenter ，数据库和存储管理员可以通过一种工具来管理各种应用程序和数据库的备份，还原和克隆操作。
+
+SnapCenter 负责管理由 NetApp 提供支持的 Data Fabric 中各个端点的数据。您可以使用SnapCenter在内部环境之间、内部环境与云之间以及私有云、混合云或公共云之间复制数据。
+
+
+
+== SnapCenter 组件
+
+SnapCenter 包括SnapCenter 服务器、适用于Windows的SnapCenter 插件软件包和适用于Linux的SnapCenter 插件软件包。每个软件包都包含适用于各种应用程序和基础架构组件的 SnapCenter 插件。
+
+image:amazon-fsx-image5.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+
+
+== SnapCenter SAP HANA 备份解决方案
+
+适用于 SAP HANA 的 SnapCenter 备份解决方案 涵盖以下方面：
+
+* 备份操作、计划和保留管理
++
+** 使用基于存储的Snapshot副本进行SAP HANA数据备份
+** 使用基于存储的Snapshot副本进行非数据卷备份(例如、`/ha/shared`)
+** 使用基于文件的备份检查数据库块完整性
+** 复制到异地备份或灾难恢复位置
+
+
+* 维护 SAP HANA 备份目录
++
+** HANA数据备份(Snapshot和基于文件)
+** 用于HANA日志备份
+
+
+* 还原和恢复操作
++
+** 自动还原和恢复
+** SAP HANA (MDC)系统的单租户还原操作
+
+
+
+
+数据库数据文件备份由 SnapCenter 与适用于 SAP HANA 的插件一起执行。此插件将触发SAP HANA数据库备份保存点、以便在主存储系统上创建的Snapshot副本基于SAP HANA数据库的一致映像。
+
+通过SnapCenter 、可以使用SnapVault 或SnapMirror功能将一致的数据库映像复制到异地备份或灾难恢复位置。通常，为主备份和异地备份存储上的备份定义不同的保留策略。SnapCenter 处理主存储上的保留，而 ONTAP 处理异地备份存储上的保留。
+
+为了能够对所有SAP HANA相关资源进行完整备份、SnapCenter 您还可以使用SAP HANA插件和基于存储的Snapshot副本来备份所有非数据卷。您可以独立于数据库数据备份计划非数据卷，以启用单个保留和保护策略。
+
+SAP 建议将基于存储的 Snapshot 备份与每周基于文件的备份相结合，以执行块完整性检查。您可以从 SnapCenter 中执行块完整性检查。根据您配置的保留策略、SnapCenter 负责管理主存储、日志文件备份和SAP HANA备份目录中的数据文件备份管理。
+
+SnapCenter 负责主存储上的保留、而FSX for ONTAP 负责管理二级备份保留。
+
+下图显示了SnapCenter 备份和保留管理操作的概述。
+
+image:amazon-fsx-image6.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+在对 SAP HANA 数据库执行基于存储的 Snapshot 备份时， SnapCenter 将执行以下任务：
+
+. 创建SAP HANA备份保存点、以便在持久性层上创建一致的映像。
+. 为数据卷创建基于存储的Snapshot副本。
+. 在SAP HANA备份目录中注册基于存储的Snapshot备份。
+. 释放SAP HANA备份保存点。
+. 对数据卷执行SnapVault 或SnapMirror更新(如果已配置)。
+. 根据定义的保留策略删除主存储上的存储Snapshot副本。
+. 如果备份不再位于主备份存储或异地备份存储中、则删除SAP HANA备份目录条目。
+. 无论何时根据保留策略删除备份或手动删除备份、SnapCenter 都将删除早于最旧数据备份的所有日志备份。日志备份会在文件系统和 SAP HANA 备份目录中删除。
+
+
+
+
+== 本文档的范围
+
+本文档介绍了在适用于ONTAP 的FSx上使用单个租户的SAP HANA MDC单主机系统的最常见SnapCenter 配置选项。其他配置选项也是可行的、在某些情况下、对于特定SAP HANA系统也是必需的、例如、对于多主机系统。有关其他配置选项的详细说明，请参见link:hana-br-scs-concepts-best-practices.html["SnapCenter 概念和最佳实践(netapp.com)"^]。
+
+在本文档中、我们使用Amazon Web Services (AWS)控制台和适用于ONTAP 的FSX命令行界面在存储层上执行所需的配置步骤。您也可以使用NetApp Cloud Manager管理适用于ONTAP 的FSX、但本文档不会讨论此问题。有关使用适用于ONTAP 的NetApp Cloud Manager for FSX的信息、请参见 https://docs.netapp.com/us-en/occm/concept_fsx_aws.html["了解适用于ONTAP 的Amazon FSx (netapp.com)"^]。
+
+
+
+== 数据保护策略
+
+下图显示了基于适用于ONTAP 的FSX的SAP HANA的典型备份架构。HANA系统位于AWS可用性区域1中、并在同一可用性区域中使用适用于ONTAP 文件系统的FSX。对HANA数据库的数据和共享卷执行Snapshot备份操作。除了保留3-5天的本地Snapshot备份之外、还会将备份复制到异地存储以供长期保留。异地备份存储是位于不同AWS可用性区域的第二个ONTAP 文件系统FSX。HANA数据和共享卷的备份通过SnapVault 复制到第二个FSX for ONTAP 文件系统、并保留2-3周。
+
+image:amazon-fsx-image7.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+在配置SnapCenter 之前、必须根据各种SAP系统的RTO和RPO要求定义数据保护策略。
+
+一种常见方法是定义系统类型，例如生产，开发，测试或沙盒系统。所有系统类型相同的 SAP 系统通常具有相同的数据保护参数。
+
+必须定义以下参数：
+
+* Snapshot 备份应多久执行一次？
+* Snapshot 副本备份应在主存储系统上保留多长时间？
+* 应多久执行一次块完整性检查？
+* 是否应将主备份复制到异地备份站点？
+* 备份应保留在异地备份存储上多长时间？
+
+
+下表显示了以下系统类型的数据保护参数示例：生产、开发和测试。对于生产系统，已定义了高备份频率，并且备份每天复制到异地备份站点一次。测试系统的要求较低，并且不会复制备份。
+
+|===
+| Parameters | 生产系统 | 开发系统 | 测试系统 
+
+
+| 备份频率 | 每 6 小时 | 每 6 小时 | 每 6 小时 
+
+
+| 主保留 | 3 天 | 3 天 | 3 天 
+
+
+| 块完整性检查 | 每周一次 | 每周一次 | 否 
+
+
+| 复制到异地备份站点 | 每天一次 | 每天一次 | 否 
+
+
+| 异地备份保留 | 2 周 | 2 周 | 不适用 
+|===
+下表显示了必须为数据保护参数配置的策略。
+
+|===
+| Parameters | 策略LocalSnap | 策略LocalSnapAndSnapVault | 策略块集成检查 
+
+
+| 备份类型 | 基于 Snapshot | 基于 Snapshot | 基于文件 
+
+
+| 计划频率 | 每小时 | 每天 | 每周 
+
+
+| 主保留 | 计数 = 12 | 计数 = 3 | 计数 = 1 
+
+
+| SnapVault 复制 | 否 | 是的。 | 不适用 
+|===
+生产，开发和测试系统可使用策略 `LocalSnapshot` 来涵盖本地 Snapshot 备份，保留两天。
+
+在资源保护配置中，系统类型的计划定义有所不同：
+
+* 生产：每4小时计划一次。
+* 开发：每4小时计划一次。
+* 测试：计划每4小时执行一次。
+
+
+生产和开发系统可使用策略 `LocalSnapAndSnapVault` 来执行每日复制到异地备份存储的操作。
+
+在资源保护配置中，计划是为生产和开发定义的：
+
+* 生产：每天计划。
+* 开发：每天计划。策略`BlockIntegrityCheck`用于生产和开发系统、以使用基于文件的备份完成每周块完整性检查。
+
+
+在资源保护配置中，计划是为生产和开发定义的：
+
+* 生产：每周计划一次。
+* 开发：每周计划一次。
+
+
+对于使用异地备份策略的每个SAP HANA数据库、您必须在存储层上配置一个保护关系。此保护关系定义了要复制的卷以及在异地备份存储上保留备份的情况。
+
+在以下示例中、对于每个生产和开发系统、异地备份存储的保留期限定义为两周。
+
+在此示例中、SAP HANA数据库资源和非数据卷资源的保护策略和保留期限没有区别。
+
+
+
+== 示例实验室设置
+
+以下实验室设置用作本文档其余部分的配置示例。
+
+HANA系统PFX：
+
+* 具有单个租户的单主机MDC系统
+* HANA 2.0 sps 6修订版60
+* 适用于SAP 15SP3的SLES
+
+
+SnapCenter ：
+
+* 版本4.6
+* HANA和Linux插件部署在HANA数据库主机上
+
+
+适用于ONTAP 文件系统的FSX：
+
+* 两个FSX、用于具有单个Storage Virtual Machine (SVM)的ONTAP 文件系统
+* 位于不同AWS可用性区域中的每个ONTAP 系统FSX
+* 已将HANA数据卷复制到第二个FSX for ONTAP 文件系统
+
+
+image:amazon-fsx-image8.png["图中显示了输入/输出对话框或表示已写入内容"]

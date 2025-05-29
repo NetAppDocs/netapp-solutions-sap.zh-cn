@@ -65,10 +65,10 @@ NOTE: 内部NetApp系统和Amazon FSx for NetApp ONTAP均支持从异地备份�
 
 可以使用第三方工具和集成的NetApp功能来执行完全自动化的SAP测试系统端到端配置。有关更多详细信息、请访问：
 
-https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/lama-ansible-introduction.html["TR-4953：《使用Ansible实现NetApp SAP Landscape Management集成》"]
+link:lama-ansible-introduction.html["TR-4953：《使用Ansible实现NetApp SAP Landscape Management集成》"]
 
-https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/libelle-sc-overview.html["TR-4929：《使用L运营 效率系统复制自动化SAP系统复制操作》(netapp.com)"]
+link:libelle-sc-overview.html["TR-4929：《使用L运营 效率系统复制自动化SAP系统复制操作》(netapp.com)"]
 
-https://docs.netapp.com/us-en/netapp-solutions-sap/briefs/sap-alpaca-automation.html#solution-overview["利用羊驼和NetApp SnapCenter自动执行SAP系统复制和放大器；44；刷新和放大器；44；以及克隆工作流"]
+link:../briefs/sap-alpaca-automation.html#solution-overview["利用羊驼和NetApp SnapCenter自动执行SAP系统复制和放大器；44；刷新和放大器；44；以及克隆工作流"]
 
-https://docs.netapp.com/us-en/netapp-solutions-sap/briefs/sap-avantra-automation.html#solution-overview["借助Avantra和NetApp SnapCenter自动执行SAP系统复制和放大器；#44；刷新和放大器；#44；以及克隆工作流"]
+link:../briefs/sap-avantra-automation.html#solution-overview["借助Avantra和NetApp SnapCenter自动执行SAP系统复制和放大器；#44；刷新和放大器；#44；以及克隆工作流"]

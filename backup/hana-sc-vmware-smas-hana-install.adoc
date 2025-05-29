@@ -18,7 +18,7 @@ summary:
 
 
 [role="lead"]
-本章介绍如何使用VMFS安装和配置特定于VMware设置的SAP HANA系统。有关其他通用最佳实践，请参见 https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_fc_introduction.html#sap-hana-tailored-data-center-integration["基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA"]。
+本章介绍如何使用VMFS安装和配置特定于VMware设置的SAP HANA系统。有关其他通用最佳实践，请参见link:../bp/hana-aff-fc-introduction.html#sap-hana-tailored-data-center-integration["基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA"]。
 
 
 
@@ -234,7 +234,7 @@ NOTE: 根据所述配置、/usr/sap/SMA目录将位于操作系统VMDK上。如�
 
 必须为系统数据库用户创建用户存储、SnapCenter应使用该存储。必须为通信端口相应地设置HANA实例编号。在我们的设置实例中、使用的是数字"00"。
 
-有关更详细的说明、请参见 https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-snapcenter-resource-specific-configuration-for-sap-hana-database-backups.html#sap-hana-backup-user-and-hdbuserstore-configuration["用于 SAP HANA 数据库备份的 SnapCenter 资源专用配置"]
+有关更详细的说明、请参见link:hana-br-scs-resource-config-hana-database-backups.html#sap-hana-backup-user-and-hdbuserstore-configuration["用于 SAP HANA 数据库备份的 SnapCenter 资源专用配置"]
 
 ....
 smaadm@hana-1:/usr/sap/SMA/HDB00> hdbuserstore set SMAKEY hana-1:30013 SNAPCENTER <password>

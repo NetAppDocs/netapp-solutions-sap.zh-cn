@@ -1,0 +1,518 @@
+---
+sidebar: sidebar 
+permalink: lifecycle/lama-ansible-appendix.html 
+keywords: appendix, script, ansible playbook, directory 
+summary: 在本文档中的示例部署和工作流执行期间、我们将使用以下提供程序配置文件、执行脚本和Ansible攻略手册。 
+---
+= 提供程序脚本配置和Ansible攻略手册
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+在本文档中的示例部署和工作流执行期间、我们将使用以下提供程序配置文件、执行脚本和Ansible攻略手册。
+
+
+NOTE: 示例脚本按原样提供、NetApp不支持。您可以通过电子邮件发送电子邮件至：mailto：ng-sapcc@netapp.com ng-sapcc@netapp.com^请求最新版本的脚本。
+
+
+
+== 提供程序配置文件netapp_clone.conf
+
+此时将按照中所述创建配置文件 https://help.sap.com/doc/700f9a7e52c7497cad37f7c46023b7ff/3.0.11.0/en-US/250dfc5eef4047a38bab466c295d3a49.html["SAP Lama文档—配置SAP Host Agent注册脚本"^]。此配置文件必须位于安装了SAP主机代理的Ansible控制节点上。
+
+已配置的操作系统用户 `sapuser` 必须具有执行脚本和所调用的Ansible攻略手册的适当权限。您可以将脚本放置在通用脚本目录中。SAP Lama可以在调用脚本时提供多个参数。
+
+除了自定义参数之外、 `PARAM_ClonePostFix`， `PROP_ClonePostFix`， `PARAM_ClonePostFix`，和 `PROP_ClonePostFix`、可以移交许多其他人、如中所示 https://help.sap.com/doc/700f9a7e52c7497cad37f7c46023b7ff/3.0.11.0/en-US/0148e495174943de8c1c3ee1b7c9cc65.html["SAP Lama文档"^]。
+
+....
+root@sap-jump:~# cat /usr/sap/hostctrl/exe/operations.d/netapp_clone.conf
+Name: netapp_clone
+Username: sapuser
+Description: NetApp Clone for Custom Provisioning
+Command: /usr/sap/scripts/netapp_clone.sh --HookOperationName=$[HookOperationName] --SAPSYSTEMNAME=$[SAPSYSTEMNAME] --SAPSYSTEM=$[SAPSYSTEM] --MOUNT_XML_PATH=$[MOUNT_XML_PATH] --PARAM_ClonePostFix=$[PARAM-ClonePostFix] --PARAM_SnapPostFix=$[PARAM-SnapPostFix] --PROP_ClonePostFix=$[PROP-ClonePostFix] --PROP_SnapPostFix=$[PROP-SnapPostFix] --SAP_LVM_SRC_SID=$[SAP_LVM_SRC_SID] --SAP_LVM_TARGET_SID=$[SAP_LVM_TARGET_SID]
+ResulConverter: hook
+Platform: Unix
+....
+
+
+== 提供程序脚本netapp_clone.sh
+
+提供程序脚本必须存储在中 `/usr/sap/scripts` 在提供程序配置文件中进行配置。
+
+
+
+=== 变量
+
+以下变量在脚本中进行了硬编码、必须进行相应调整。
+
+* `PRIMARY_CLUSTER=`<hostname of netapp cluster>
+* `PRIMARY_SVM=`<SVM name where source system volumes are stored>
+
+
+证书文件 `PRIMARY_KEYFILE=/usr/sap/scripts/ansible/certs/ontap.key` 和 `PRIMARY_CERTFILE=/usr/sap/scripts/ansible/certs/ontap.pem` 必须按照中所述提供 https://github.com/sap-linuxlab/demo.netapp_ontap/blob/main/netapp_ontap.md["NetApp Ansible模块—准备ONTAP"^]。
+
+
+NOTE: 如果不同的SAP系统需要不同的集群或SVM、则可以在SAP Lama提供程序定义中将这些变量作为参数添加。
+
+
+
+=== 功能：创建清单文件
+
+要使Ansible攻略手册的执行更具动态性、请使用 `inventory. yml` 文件会即时创建。在变量部分中配置了一些静态值、而在执行期间动态创建了一些静态值。
+
+
+
+=== 功能：运行Ansible攻略手册
+
+此功能用于将Ansible攻略手册与动态创建的一起执行 `inventory.yml` 文件攻略手册的命名约定为 `netapp_lama_${HookOperationName}.yml`。的值 `${HookOperationName}` 依赖于Lama操作、并由Lama作为命令行参数进行移交。
+
+
+
+=== 主部分
+
+本节包含主要执行计划。变量 `${HookOperationName}` 包含Lama替换步骤的名称、由Lama在调用该脚本时提供。
+
+* 系统克隆和系统副本配置工作流的值：
++
+** 克隆卷
+** PostCloneVolumes
+
+
+* 系统销毁工作流的价值：
++
+** ServiceConfigRemoval
+
+
+* 系统刷新工作流的价值：
++
+** ClearMountConfig
+
+
+
+
+
+
+=== HookOperationName =克隆卷
+
+执行此步骤后、将执行Ansible攻略手册、从而触发Snapshot副本和克隆操作。卷名称和挂载配置由SAP Lama通过变量中定义的XML文件传递 `$MOUNT_XML_PATH`。此文件已保存、因为此文件将在步骤的稍后部分使用 `FinalizeCloneVolumes` 以创建新的挂载点配置。卷名称将从XML文件中提取、并对每个卷执行Ansible克隆攻略手册。
+
+
+NOTE: 在此示例中、作为实例和中央服务共享同一个卷。因此、只有在使用SAP实例编号时才会执行卷克隆 (`$SAPSYSTEM`)不是 `01`。在其他环境中、这可能有所不同、必须相应地进行更改。
+
+
+
+=== HookOperationName = PostCloneVolumes
+
+在此步骤中、将显示自定义属性 `ClonePostFix` 和 `SnapPostFix` 并维护目标系统的挂载点配置。
+
+在期间停用系统时、自定义属性稍后会用作输入 `ServiceConfigRemoval` 或 `ClearMountConfig` 阶段。系统用于保留在系统配置工作流期间指定的自定义参数设置。
+
+此示例中使用的值为 `ClonePostFix=_clone_20221115` 和 `SnapPostFix=_snap_20221115`。
+
+卷 `HN9_sap`、动态创建的Ansible文件包括以下值： `datavolumename`： `HN9_sap`， `snapshotpostfix: _snap_20221115`，和 `clonepostfix: _clone_20221115`。
+
+这将导致卷HN9_SAP上的快照名称 `HN9_sap_snap_20221115` 以及创建的卷克隆名称 `HN9_sap_clone_20221115`。
+
+
+NOTE: 可以使用任何自定义属性来保留配置过程中使用的参数。
+
+挂载点配置将从中的Lama移交的XML文件中提取 `CloneVolume` 步骤。。 `ClonePostFix` 添加到卷名称中、并通过默认脚本输出发送回Lama。中介绍了此功能 https://launchpad.support.sap.com/["SAP注释1889590"^]。
+
+
+NOTE: 在此示例中、存储系统上的qtree是在单个卷上放置不同数据的常用方法。例如： `HN9_sap` 保存的挂载点 `/usr/sap/HN9`， `/sapmnt/HN9`，和 `/home/hn9adm`。子目录的工作方式相同。在其他环境中、这可能有所不同、必须相应地进行更改。
+
+
+
+=== HookOperationName = ServiceConfigRemoval
+
+在此步骤中、负责删除卷克隆的Ansible攻略手册正在运行。
+
+卷名称由SAP Lama通过挂载配置文件和自定义属性进行传递 `ClonePostFix` 和 `SnapPostFix` 用于传递系统配置工作流期间最初指定的参数值(请参见上的注释 `HookOperationName = PostCloneVolumes`）。
+
+卷名称将从xml文件中提取、并对每个卷执行Ansible克隆攻略手册。
+
+
+NOTE: 在此示例中、作为实例和中央服务共享同一个卷。因此、只有在使用SAP实例编号时才会执行卷删除 (`$SAPSYSTEM`)不是 `01`。在其他环境中、这可能有所不同、必须相应地进行更改。
+
+
+
+=== HookOperationName = ClearMountConfig
+
+在此步骤中、负责在系统刷新工作流期间删除卷克隆的Ansible攻略手册正在运行。
+
+卷名称由SAP Lama通过挂载配置文件和自定义属性进行传递 `ClonePostFix` 和 `SnapPostFix` 用于传递系统配置工作流期间最初指定的参数值。
+
+卷名称将从XML文件中提取、并对每个卷执行Ansible克隆攻略手册。
+
+
+NOTE: 在此示例中、作为实例和中央服务共享同一个卷。因此、只有在使用SAP实例编号时才会执行卷删除 (`$SAPSYSTEM`)不是 `01`。在其他环境中、这可能有所不同、必须相应地进行更改。
+
+....
+root@sap-jump:~# cat /usr/sap/scripts/netapp_clone.sh
+#!/bin/bash
+#Section - Variables
+#########################################
+VERSION="Version 0.9"
+#Path for ansible play-books
+ANSIBLE_PATH=/usr/sap/scripts/ansible
+#Values for Ansible Inventory File
+PRIMARY_CLUSTER=grenada
+PRIMARY_SVM=svm-sap01
+PRIMARY_KEYFILE=/usr/sap/scripts/ansible/certs/ontap.key
+PRIMARY_CERTFILE=/usr/sap/scripts/ansible/certs/ontap.pem
+#Default Variable if PARAM ClonePostFix / SnapPostFix is not maintained in LaMa
+DefaultPostFix=_clone_1
+#TMP Files - used during execution
+YAML_TMP=/tmp/inventory_ansible_clone_tmp_$$.yml
+TMPFILE=/tmp/tmpfile.$$
+MY_NAME="`basename $0`"
+BASE_SCRIPT_DIR="`dirname $0`"
+#Sendig Script Version and run options to LaMa Log
+echo "[DEBUG]: Running Script $MY_NAME $VERSION"
+echo "[DEBUG]: $MY_NAME $@"
+#Command declared in the netapp_clone.conf Provider definition
+#Command: /usr/sap/scripts/netapp_clone.sh --HookOperationName=$[HookOperationName] --SAPSYSTEMNAME=$[SAPSYSTEMNAME] --SAPSYSTEM=$[SAPSYSTEM] --MOUNT_XML_PATH=$[MOUNT_XML_PATH] --PARAM_ClonePostFix=$[PARAM-ClonePostFix] --PARAM_SnapPostFix=$[PARAM-SnapPostFix] --PROP_ClonePostFix=$[PROP-ClonePostFix] --PROP_SnapPostFix=$[PROP-SnapPostFix] --SAP_LVM_SRC_SID=$[SAP_LVM_SRC_SID] --SAP_LVM_TARGET_SID=$[SAP_LVM_TARGET_SID]
+#Reading Input Variables hand over by LaMa
+for i in "$@"
+do
+case $i in
+--HookOperationName=*)
+HookOperationName="${i#*=}";shift;;
+--SAPSYSTEMNAME=*)
+SAPSYSTEMNAME="${i#*=}";shift;;
+--SAPSYSTEM=*)
+SAPSYSTEM="${i#*=}";shift;;
+--MOUNT_XML_PATH=*)
+MOUNT_XML_PATH="${i#*=}";shift;;
+--PARAM_ClonePostFix=*)
+PARAM_ClonePostFix="${i#*=}";shift;;
+--PARAM_SnapPostFix=*)
+PARAM_SnapPostFix="${i#*=}";shift;;
+--PROP_ClonePostFix=*)
+PROP_ClonePostFix="${i#*=}";shift;;
+--PROP_SnapPostFix=*)
+PROP_SnapPostFix="${i#*=}";shift;;
+--SAP_LVM_SRC_SID=*)
+SAP_LVM_SRC_SID="${i#*=}";shift;;
+--SAP_LVM_TARGET_SID=*)
+SAP_LVM_TARGET_SID="${i#*=}";shift;;
+*)
+# unknown option
+;;
+esac
+done
+#If Parameters not provided by the User - defaulting to DefaultPostFix
+if [ -z $PARAM_ClonePostFix ]; then PARAM_ClonePostFix=$DefaultPostFix;fi
+if [ -z $PARAM_SnapPostFix ]; then PARAM_SnapPostFix=$DefaultPostFix;fi
+#Section - Functions
+#########################################
+#Function Create (Inventory) YML File
+#########################################
+create_yml_file()
+{
+echo "ontapservers:">$YAML_TMP
+echo " hosts:">>$YAML_TMP
+echo "  ${PRIMARY_CLUSTER}:">>$YAML_TMP
+echo "   ansible_host: "'"'$PRIMARY_CLUSTER'"'>>$YAML_TMP
+echo "   keyfile: "'"'$PRIMARY_KEYFILE'"'>>$YAML_TMP
+echo "   certfile: "'"'$PRIMARY_CERTFILE'"'>>$YAML_TMP
+echo "   svmname: "'"'$PRIMARY_SVM'"'>>$YAML_TMP
+echo "   datavolumename: "'"'$datavolumename'"'>>$YAML_TMP
+echo "   snapshotpostfix: "'"'$snapshotpostfix'"'>>$YAML_TMP
+echo "   clonepostfix: "'"'$clonepostfix'"'>>$YAML_TMP
+}
+#Function run ansible-playbook
+#########################################
+run_ansible_playbook()
+{
+echo "[DEBUG]: Running ansible playbook netapp_lama_${HookOperationName}.yml on Volume $datavolumename"
+ansible-playbook -i $YAML_TMP $ANSIBLE_PATH/netapp_lama_${HookOperationName}.yml
+}
+#Section - Main
+#########################################
+#HookOperationName – CloneVolumes
+#########################################
+if [ $HookOperationName = CloneVolumes ] ;then
+#save mount xml for later usage - used in Section FinalizeCloneVolues to generate the mountpoints
+echo "[DEBUG]: saving mount config...."
+cp $MOUNT_XML_PATH /tmp/mount_config_${SAPSYSTEMNAME}_${SAPSYSTEM}.xml
+#Instance 00 + 01 share the same volumes - clone needs to be done once
+if [ $SAPSYSTEM != 01 ]; then
+#generating Volume List - assuming usage of qtrees - "IP-Adress:/VolumeName/qtree"
+xmlFile=/tmp/mount_config_${SAPSYSTEMNAME}_${SAPSYSTEM}.xml
+if [ -e $TMPFILE ];then rm $TMPFILE;fi
+numMounts=`xml_grep --count "/mountconfig/mount" $xmlFile | grep "total: " | awk '{ print $2 }'`
+i=1
+while [ $i -le $numMounts ]; do
+     xmllint --xpath "/mountconfig/mount[$i]/exportpath/text()" $xmlFile |awk -F"/" '{print $2}' >>$TMPFILE
+i=$((i + 1))
+done
+DATAVOLUMES=`cat  $TMPFILE |sort -u`
+#Create yml file and rund playbook for each volume
+for I in $DATAVOLUMES; do
+datavolumename="$I"
+snapshotpostfix="$PARAM_SnapPostFix"
+clonepostfix="$PARAM_ClonePostFix"
+create_yml_file
+run_ansible_playbook
+done
+else
+echo "[DEBUG]: Doing nothing .... Volume cloned in different Task"
+fi
+fi
+#HookOperationName – PostCloneVolumes
+#########################################
+if [ $HookOperationName = PostCloneVolumes] ;then
+#Reporting Properties back to LaMa Config for Cloned System
+echo "[RESULT]:Property:ClonePostFix=$PARAM_ClonePostFix"
+echo "[RESULT]:Property:SnapPostFix=$PARAM_SnapPostFix"
+#Create MountPoint Config for Cloned Instances and report back to LaMa according to SAP Note: https://launchpad.support.sap.com/#/notes/1889590
+echo "MountDataBegin"
+echo '<?xml version="1.0" encoding="UTF-8"?>'
+echo "<mountconfig>"
+xmlFile=/tmp/mount_config_${SAPSYSTEMNAME}_${SAPSYSTEM}.xml
+numMounts=`xml_grep --count "/mountconfig/mount" $xmlFile | grep "total: " | awk '{ print $2 }'`
+i=1
+while [ $i -le $numMounts ]; do
+MOUNTPOINT=`xmllint --xpath "/mountconfig/mount[$i]/mountpoint/text()" $xmlFile`;
+        EXPORTPATH=`xmllint --xpath "/mountconfig/mount[$i]/exportpath/text()" $xmlFile`;
+        OPTIONS=`xmllint --xpath "/mountconfig/mount[$i]/options/text()" $xmlFile`;
+#Adopt Exportpath and add Clonepostfix - assuming usage of qtrees - "IP-Adress:/VolumeName/qtree"
+TMPFIELD1=`echo $EXPORTPATH|awk -F":/" '{print $1}'`
+TMPFIELD2=`echo $EXPORTPATH|awk -F"/" '{print $2}'`
+TMPFIELD3=`echo $EXPORTPATH|awk -F"/" '{print $3}'`
+EXPORTPATH=$TMPFIELD1":/"${TMPFIELD2}$PARAM_ClonePostFix"/"$TMPFIELD3
+echo -e '\t<mount fstype="nfs" storagetype="NETFS">'
+echo -e "\t\t<mountpoint>${MOUNTPOINT}</mountpoint>"
+echo -e "\t\t<exportpath>${EXPORTPATH}</exportpath>"
+echo -e "\t\t<options>${OPTIONS}</options>"
+echo -e "\t</mount>"
+i=$((i + 1))
+done
+echo "</mountconfig>"
+echo "MountDataEnd"
+#Finished MountPoint Config
+#Cleanup Temporary Files
+rm $xmlFile
+fi
+#HookOperationName – ServiceConfigRemoval
+#########################################
+if [ $HookOperationName = ServiceConfigRemoval ] ;then
+#Assure that Properties ClonePostFix and SnapPostfix has been configured through the provisioning process
+if [ -z $PROP_ClonePostFix ]; then echo "[ERROR]: Propertiy ClonePostFix is not handed over - please investigate";exit 5;fi
+if [ -z $PROP_SnapPostFix ]; then echo "[ERROR]: Propertiy SnapPostFix is not handed over - please investigate";exit 5;fi
+#Instance 00 + 01 share the same volumes - clone delete needs to be done once
+if [ $SAPSYSTEM != 01 ]; then
+#generating Volume List - assuming usage of qtrees - "IP-Adress:/VolumeName/qtree"
+xmlFile=$MOUNT_XML_PATH
+if [ -e $TMPFILE ];then rm $TMPFILE;fi
+numMounts=`xml_grep --count "/mountconfig/mount" $xmlFile | grep "total: " | awk '{ print $2 }'`
+i=1
+while [ $i -le $numMounts ]; do
+     xmllint --xpath "/mountconfig/mount[$i]/exportpath/text()" $xmlFile |awk -F"/" '{print $2}' >>$TMPFILE
+i=$((i + 1))
+done
+DATAVOLUMES=`cat  $TMPFILE |sort -u| awk -F $PROP_ClonePostFix '{ print $1 }'`
+#Create yml file and rund playbook for each volume
+for I in $DATAVOLUMES; do
+datavolumename="$I"
+snapshotpostfix="$PROP_SnapPostFix"
+clonepostfix="$PROP_ClonePostFix"
+create_yml_file
+run_ansible_playbook
+done
+else
+echo "[DEBUG]: Doing nothing .... Volume deleted in different Task"
+fi
+#Cleanup Temporary Files
+rm $xmlFile
+fi
+#HookOperationName - ClearMountConfig
+#########################################
+if [ $HookOperationName = ClearMountConfig ] ;then
+        #Assure that Properties ClonePostFix and SnapPostfix has been configured through the provisioning process
+        if [ -z $PROP_ClonePostFix ]; then echo "[ERROR]: Propertiy ClonePostFix is not handed over - please investigate";exit 5;fi
+        if [ -z $PROP_SnapPostFix ]; then echo "[ERROR]: Propertiy SnapPostFix is not handed over - please investigate";exit 5;fi
+        #Instance 00 + 01 share the same volumes - clone delete needs to be done once
+        if [ $SAPSYSTEM != 01 ]; then
+                #generating Volume List - assuming usage of qtrees - "IP-Adress:/VolumeName/qtree"
+                xmlFile=$MOUNT_XML_PATH
+                if [ -e $TMPFILE ];then rm $TMPFILE;fi
+                numMounts=`xml_grep --count "/mountconfig/mount" $xmlFile | grep "total: " | awk '{ print $2 }'`
+                i=1
+                while [ $i -le $numMounts ]; do
+                        xmllint --xpath "/mountconfig/mount[$i]/exportpath/text()" $xmlFile |awk -F"/" '{print $2}' >>$TMPFILE
+                        i=$((i + 1))
+                done
+                DATAVOLUMES=`cat  $TMPFILE |sort -u| awk -F $PROP_ClonePostFix '{ print $1 }'`
+                #Create yml file and rund playbook for each volume
+                for I in $DATAVOLUMES; do
+                        datavolumename="$I"
+                        snapshotpostfix="$PROP_SnapPostFix"
+                        clonepostfix="$PROP_ClonePostFix"
+                        create_yml_file
+                        run_ansible_playbook
+                done
+        else
+                echo "[DEBUG]: Doing nothing .... Volume deleted in different Task"
+        fi
+        #Cleanup Temporary Files
+        rm $xmlFile
+fi
+#Cleanup
+#########################################
+#Cleanup Temporary Files
+if [ -e $TMPFILE ];then rm $TMPFILE;fi
+if [ -e $YAML_TMP ];then rm $YAML_TMP;fi
+exit 0
+....
+
+
+== Ansible攻略手册NetApp_Lam_CloneVolumes.yml
+
+在Lama系统克隆工作流的CloneVolumes步骤中执行的攻略手册是的组合 `create_snapshot.yml` 和 `create_clone.yml` (请参见 https://github.com/sap-linuxlab/demo.netapp_ontap/blob/main/netapp_ontap.md["NetApp Ansible模块—YAML文件"^]）。本攻略手册可轻松扩展、以涵盖从二级克隆操作和克隆拆分操作等其他使用情形。
+
+....
+root@sap-jump:~# cat /usr/sap/scripts/ansible/netapp_lama_CloneVolumes.yml
+---
+- hosts: ontapservers
+  connection: local
+  collections:
+    - netapp.ontap
+  gather_facts: false
+  name: netapp_lama_CloneVolumes
+  tasks:
+  - name: Create SnapShot
+    na_ontap_snapshot:
+      state: present
+      snapshot: "{{ datavolumename }}{{ snapshotpostfix }}"
+      use_rest: always
+      volume: "{{ datavolumename }}"
+      vserver: "{{ svmname }}"
+      hostname: "{{ inventory_hostname }}"
+      cert_filepath: "{{ certfile }}"
+      key_filepath: "{{ keyfile }}"
+      https: true
+      validate_certs: false
+  - name: Clone Volume
+    na_ontap_volume_clone:
+      state: present
+      name: "{{ datavolumename }}{{ clonepostfix }}"
+      use_rest: always
+      vserver: "{{ svmname }}"
+      junction_path: '/{{ datavolumename }}{{ clonepostfix }}'
+      parent_volume: "{{ datavolumename }}"
+      parent_snapshot: "{{ datavolumename }}{{ snapshotpostfix }}"
+      hostname: "{{ inventory_hostname }}"
+      cert_filepath: "{{ certfile }}"
+      key_filepath: "{{ keyfile }}"
+      https: true
+      validate_certs: false
+....
+
+
+== Ansible攻略手册NetApp_Lam_ServiceConfigRemove.yml
+
+在中执行的攻略手册 `ServiceConfigRemoval` Lama系统销毁工作流的阶段是的组合 `delete_clone.yml` 和 `delete_snapshot.yml` (请参见 https://github.com/sap-linuxlab/demo.netapp_ontap/blob/main/netapp_ontap.md["NetApp Ansible模块—YAML文件"^]）。它必须与的执行步骤一致 `netapp_lama_CloneVolumes` 攻略手册。
+
+....
+root@sap-jump:~# cat /usr/sap/scripts/ansible/netapp_lama_ServiceConfigRemoval.yml
+---
+- hosts: ontapservers
+  connection: local
+  collections:
+    - netapp.ontap
+  gather_facts: false
+  name: netapp_lama_ServiceConfigRemoval
+  tasks:
+  - name: Delete Clone
+    na_ontap_volume:
+      state: absent
+      name: "{{ datavolumename }}{{ clonepostfix }}"
+      use_rest: always
+      vserver: "{{ svmname }}"
+      wait_for_completion: True
+      hostname: "{{ inventory_hostname }}"
+      cert_filepath: "{{ certfile }}"
+      key_filepath: "{{ keyfile }}"
+      https: true
+      validate_certs: false
+  - name: Delete SnapShot
+    na_ontap_snapshot:
+      state: absent
+      snapshot: "{{ datavolumename }}{{ snapshotpostfix }}"
+      use_rest: always
+      volume: "{{ datavolumename }}"
+      vserver: "{{ svmname }}"
+      hostname: "{{ inventory_hostname }}"
+      cert_filepath: "{{ certfile }}"
+      key_filepath: "{{ keyfile }}"
+      https: true
+      validate_certs: false
+root@sap-jump:~#
+....
+
+
+== Ansible攻略手册NetApp_Lama _ClearMountConfig.yml
+
+攻略手册、在中执行 `netapp_lama_ClearMountConfig` Lama系统刷新工作流的阶段是的组合 `delete_clone.yml` 和 `delete_snapshot.yml` (请参见 https://github.com/sap-linuxlab/demo.netapp_ontap/blob/main/netapp_ontap.md["NetApp Ansible模块—YAML文件"^]）。它必须与的执行步骤一致 `netapp_lama_CloneVolumes` 攻略手册。
+
+....
+root@sap-jump:~# cat /usr/sap/scripts/ansible/netapp_lama_ServiceConfigRemoval.yml
+---
+- hosts: ontapservers
+  connection: local
+  collections:
+    - netapp.ontap
+  gather_facts: false
+  name: netapp_lama_ServiceConfigRemoval
+  tasks:
+  - name: Delete Clone
+    na_ontap_volume:
+      state: absent
+      name: "{{ datavolumename }}{{ clonepostfix }}"
+      use_rest: always
+      vserver: "{{ svmname }}"
+      wait_for_completion: True
+      hostname: "{{ inventory_hostname }}"
+      cert_filepath: "{{ certfile }}"
+      key_filepath: "{{ keyfile }}"
+      https: true
+      validate_certs: false
+  - name: Delete SnapShot
+    na_ontap_snapshot:
+      state: absent
+      snapshot: "{{ datavolumename }}{{ snapshotpostfix }}"
+      use_rest: always
+      volume: "{{ datavolumename }}"
+      vserver: "{{ svmname }}"
+      hostname: "{{ inventory_hostname }}"
+      cert_filepath: "{{ certfile }}"
+      key_filepath: "{{ keyfile }}"
+      https: true
+      validate_certs: false
+root@sap-jump:~#
+....
+
+
+== Ansible inventory.yml示例
+
+此清单文件是在工作流执行期间动态构建的、此处仅显示用于说明。
+
+....
+ontapservers:
+ hosts:
+  grenada:
+   ansible_host: "grenada"
+   keyfile: "/usr/sap/scripts/ansible/certs/ontap.key"
+   certfile: "/usr/sap/scripts/ansible/certs/ontap.pem"
+   svmname: "svm-sap01"
+   datavolumename: "HN9_sap"
+   snapshotpostfix: " _snap_20221115"
+   clonepostfix: "_clone_20221115"
+....

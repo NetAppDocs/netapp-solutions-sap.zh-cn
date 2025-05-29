@@ -114,7 +114,7 @@ Avantra和NetApp数据管理技术相结合、提供了一个功能强大的解�
 要了解有关本文档所述信息的更多信息，请查看以下文档和网站：
 
 * link:https://www.avantra.com/["Avantra"]
-* link:https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html["利用 SnapCenter 自动执行 SAP HANA 系统复制和克隆操作"]
+* link:../lifecycle/sc-copy-clone-introduction.html["利用 SnapCenter 自动执行 SAP HANA 系统复制和克隆操作"]
 * link:https://docs.netapp.com/us-en/snapcenter/sc-automation/reference_supported_rest_apis.html["SnapCenter 服务器和插件支持的REST API"]
 
 

@@ -22,7 +22,7 @@ summary: 本技术报告介绍了使用适用于应用程序的NetApp BlueXP备�
 
 本文档介绍如何使用NetApp BlueXP设置和配置SAP HANA、以实现从内部到基于云的对象存储的数据保护。其中包括解决方案的BlueXP备份和恢复部分。此解决方案是使用NetApp Snap Center对内部SAP HANA备份解决方案的增强功能、可提供一种经济高效的方式将SAP HANA备份长期归档到基于云的对象存储、并可选择将对象存储分层到归档存储、例如AWS Glacier/deep Glacier. Microsoft Azure Blob Archive和GCP Archive Storage。
 
-中介绍了内部SAP HANA备份和恢复解决方案的设置和配置 https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html#the-netapp-solution["TR-4614：《使用SnapCenter进行SAP HANA备份和恢复》(netapp.com)"]。
+中介绍了内部SAP HANA备份和恢复解决方案的设置和配置link:hana-br-scs-overview.html#the-netapp-solution["TR-4614：《使用SnapCenter进行SAP HANA备份和恢复》(netapp.com)"]。
 
 本技术报告仅介绍如何以AWS S3对象存储为例、通过适用于SAP HANA的BlueXP备份和恢复来增强基于SnapCenter的内部SAP HANA备份和恢复解决方案。使用Microsoft Azure和GCP对象存储而非AWS S3进行设置和配置的过程与此类似、但本文档不会对此进行介绍。
 
@@ -45,8 +45,7 @@ image:hana-hycl-back-image1.png["Ein Bild、dis text、Screenshot、Diagramm、K
 
 == 安装和配置步骤概述
 
-所需的安装和配置步骤可分为三个方面。+
-前提条件是已在NetApp Snap Center中配置SAP HANA备份配置。有关首先为SAP HANA设置Snap Center的信息、请参见 https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-snapcenter-configuration.html["SnapCenter配置(netapp.com)"]。
+所需的安装和配置步骤可分为三个方面。+前提条件是已在NetApp Snap Center中配置SAP HANA备份配置。有关首先为SAP HANA设置Snap Center的link:hana-br-scs-snapcenter-config.html["SnapCenter配置(netapp.com)"]信息，请参见。
 
 . 安装和配置NetApp BlueXP组件。
 +

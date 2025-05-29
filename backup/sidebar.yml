@@ -5,65 +5,65 @@ entries:
 - title: 基于Amazon FSX的SAP HANA for NetApp ONTAP —使用SnapCenter 进行备份和恢复
   entries:
   - title: 概述
-    url: "/backup/amazon-fsx-overview.html"
+    url: "/backup/fsxn-overview.html"
   - title: 使用适用于ONTAP 的Amazon FSX进行备份和恢复
-    url: "/backup/amazon-fsx-backup-and-recovery-using-amazon-fsx-for-ontap.html"
+    url: "/backup/fsxn-backup-recovery-using-fsxn.html"
   - title: SnapCenter 架构
-    url: "/backup/amazon-fsx-snapcenter-architecture.html"
+    url: "/backup/fsxn-snapcenter-architecture.html"
   - title: SnapCenter 配置
-    url: "/backup/amazon-fsx-snapcenter-configuration.html"
+    url: "/backup/fsxn-snapcenter-config.html"
   - title: SnapCenter 备份操作
-    url: "/backup/amazon-fsx-snapcenter-backup-operations.html"
+    url: "/backup/fsxn-snapcenter-backup-operations.html"
   - title: 备份非数据卷
-    url: "/backup/amazon-fsx-backup-of-non-data-volumes.html"
+    url: "/backup/fsxn-backup-of-non-data-volumes.html"
   - title: 使用SnapVault 进行备份复制
     entries:
     - title: 概述
-      url: "/backup/amazon-fsx-backup-replication-with-snapvault_overview.html"
+      url: "/backup/fsxn-backup-replication-with-snapvault-overview.html"
     - title: 在ONTAP 文件系统的FSX上配置复制关系
-      url: "/backup/amazon-fsx-configure-replication-relationships-on-fsx-for-ontap-file-systems.html"
+      url: "/backup/fsxn-configure-replication-relationships.html"
     - title: 将备份SVM添加到SnapCenter
-      url: "/backup/amazon-fsx-add-a-backup-svm-to-snapcenter.html"
+      url: "/backup/fsxn-add-backup-svm-snapcenter.html"
     - title: 为备份复制创建新的SnapCenter 策略
-      url: "/backup/amazon-fsx-create-a-new-snapcenter-policy-for-backup-replication.html"
+      url: "/backup/fsxn-create-snapcenter-policy-backup-replication.html"
     - title: 将策略添加到资源保护中
-      url: "/backup/amazon-fsx-add-a-policy-to-resource-protection.html"
+      url: "/backup/fsxn-add-policy-to-resource-protection.html"
     - title: 使用复制创建备份
-      url: "/backup/amazon-fsx-create-a-backup-with-replication.html"
+      url: "/backup/fsxn-create-backup-with-replication.html"
     - title: 从二级存储还原和恢复
-      url: "/backup/amazon-fsx-restore-and-recover-from-secondary-storage.html"
+      url: "/backup/fsxn-restore-recover-from-secondary-storage.html"
   - title: 从何处查找追加信息
-    url: "/backup/amazon-fsx-where-to-find-additional-information.html"
+    url: "/backup/fsxn-additional-info.html"
 - title: 使用 SnapCenter 进行 SAP HANA 备份和恢复
   entries:
   - title: 概述
-    url: "/backup/saphana-br-scs-overview.html"
+    url: "/backup/hana-br-scs-overview.html"
   - title: SnapCenter 架构
-    url: "/backup/saphana-br-scs-snapcenter-architecture.html"
+    url: "/backup/hana-br-scs-snapcenter-architecture.html"
   - title: SnapCenter SAP HANA 备份解决方案
-    url: "/backup/saphana-br-scs-snapcenter-sap-hana-backup-solution.html"
+    url: "/backup/hana-br-scs-snapcenter-backup.html"
   - title: SnapCenter 概念和最佳实践
-    url: "/backup/saphana-br-scs-snapcenter-concepts-and-best-practices.html"
+    url: "/backup/hana-br-scs-concepts-best-practices.html"
   - title: 用于此报告的实验室设置
-    url: "/backup/saphana-br-scs-lab-setup-used-for-this-report.html"
+    url: "/backup/hana-br-scs-lab-setup.html"
   - title: SnapCenter 配置
-    url: "/backup/saphana-br-scs-snapcenter-configuration.html"
+    url: "/backup/hana-br-scs-snapcenter-config.html"
   - title: SnapCenter 初始配置
-    url: "/backup/saphana-br-scs-snapcenter-initial-configuration.html"
+    url: "/backup/hana-br-scs-snapcenter-initial-config.html"
   - title: 用于 SAP HANA 数据库备份的 SnapCenter 资源专用配置
-    url: "/backup/saphana-br-scs-snapcenter-resource-specific-configuration-for-sap-hana-database-backups.html"
+    url: "/backup/hana-br-scs-resource-config-hana-database-backups.html"
   - title: 用于非数据卷备份的 SnapCenter 资源专用配置
-    url: "/backup/saphana-br-scs-snapcenter-resource-specific-configuration-for-non-data-volume-backups.html"
+    url: "/backup/hana-br-scs-resource-specific-config-non-data-volume-backups.html"
   - title: 数据库备份
-    url: "/backup/saphana-br-scs-database-backups.html"
+    url: "/backup/hana-br-scs-database-backups.html"
   - title: 块完整性检查
-    url: "/backup/saphana-br-scs-block-integrity-check.html"
+    url: "/backup/hana-br-scs-block-integrity-check.html"
   - title: 还原和恢复
-    url: "/backup/saphana-br-scs-restore-and-recovery.html"
+    url: "/backup/hana-br-scs-restore-recovery.html"
   - title: 高级配置和调整
-    url: "/backup/saphana-br-scs-advanced-configuration-and-tuning.html"
+    url: "/backup/hana-br-scs-advanced-config-tuning.html"
   - title: 从何处查找追加信息和版本历史记录
-    url: "/backup/saphana-br-scs-where-to-find-additional-information.html"
+    url: "/backup/hana-br-scs-additional-info.html"
 - title: 借助SnapCenter、SnapMirror Active Sync和VMware城域存储集群实现SAP HANA数据保护和高可用性
   entries:
   - title: 本文档的范围
@@ -103,72 +103,74 @@ entries:
 - title: 使用 SnapCenter 备份和恢复 SAP HANA 系统复制
   entries:
   - title: SAP HANA 系统复制概述
-    url: "/backup/saphana-sr-scs-sap-hana-system-replication-overview.html"
+    url: "/backup/hana-sr-scs-system-replication-overview.html"
   - title: Storage Snapshot 备份和 SAP 系统复制
-    url: "/backup/saphana-sr-scs-storage-snapshot-backups-and-sap-system-replication.html"
+    url: "/backup/hana-sr-scs-storage-snapshot-backups-sap-system-replication.html"
   - title: 适用于 SAP 系统复制的 SnapCenter 配置选项
-    url: "/backup/saphana-sr-scs-snapcenter-configuration-options-for-sap-system-replication.html"
+    url: "/backup/hana-sr-scs-config-options-sap-system-replication.html"
   - title: 使用资源组的 SnapCenter 4.6 配置
-    url: "/backup/saphana-sr-scs-snapcenter-4.6-configuration-using-a-resource-group.html"
+    url: "/backup/hana-sr-scs-4.6-config-using-resource-group.html"
   - title: 使用单个资源的 SnapCenter 配置
-    url: "/backup/saphana-sr-scs-snapcenter-configuration-with-a-single-resource.html"
+    url: "/backup/hana-sr-scs-config-single-resource.html"
   - title: 从在另一主机上创建的备份进行还原和恢复
-    url: "/backup/saphana-sr-scs-restore-and-recovery-from-a-backup-created-at-the-other-host.html"
+    url: "/backup/hana-sr-scs-restore-recovery-other-host-backup.html"
   - title: 从何处查找追加信息
-    url: "/backup/saphana-sr-scs-where-to-find-additional-information_overview.html"
+    url: "/backup/hana-sr-scs-additional-info.html"
   - title: 版本历史记录
-    url: "/backup/saphana-sr-scs-version-history.html"
+    url: "/backup/hana-sr-scs-version-history.html"
 - title: 使用 Azure NetApp Files 实现 SAP HANA 灾难恢复
   entries:
   - title: 数据保护概述
-    url: "/backup/saphana-dr-anf_data_protection_overview_overview.html"
+    url: "/backup/hana-dr-anf-data-protection-overview.html"
   - title: 灾难恢复解决方案比较
-    url: "/backup/saphana-dr-anf_disaster_recovery_solution_comparison.html"
+    url: "/backup/hana-dr-anf-dr-solution-comparison.html"
   - title: 利用 SAP HANA 实现跨区域复制
     entries:
-    - title: "《使用 SAP HANA 进行跨区域复制》概述"
-      url: "/backup/saphana-dr-anf_anf_cross-region_replication_with_sap_hana_overview.html"
+    - title: 使用SAP HANA进行跨区域复制概述
+      url: "/backup/hana-dr-anf-cross-region-replication-overview.html"
     - title: 使用 SAP HANA 进行跨区域复制的配置选项
-      url: "/backup/saphana-dr-anf_configuration_options_for_cross-region_replication_with_sap_hana.html"
+      url: "/backup/hana-dr-anf-config-cross-region-replication.html"
     - title: 要求和最佳实践
-      url: "/backup/saphana-dr-anf_requirements_and_best_practices.html"
+      url: "/backup/hana-dr-anf-requirements-best-practices.html"
     - title: 实验室设置
-      url: "/backup/saphana-dr-anf_lab_setup.html"
+      url: "/backup/hana-dr-anf-lab-setup.html"
     - title: ANF 跨区域复制的配置步骤
-      url: "/backup/saphana-dr-anf_configuration_steps_for_anf_cross-region_replication.html"
+      url: "/backup/hana-dr-anf-config-steps-cross-region-replication.html"
     - title: 监控 ANF 跨区域复制
-      url: "/backup/saphana-dr-anf_monitoring_anf_cross-region_replication.html"
+      url: "/backup/hana-dr-anf-monitor-cross-region-replication.html"
   - title: 灾难恢复测试
     entries:
     - title: 灾难恢复测试概述
-      url: "/backup/saphana-dr-anf_disaster_recovery_testing_overview.html"
+      url: "/backup/hana-dr-anf-testing-overview.html"
     - title: 准备目标主机
-      url: "/backup/saphana-dr-anf_prepare_the_target_host.html"
+      url: "/backup/hana-dr-anf-prepare-target-host.html"
     - title: 在灾难恢复站点基于 Snapshot 备份创建新卷
-      url: "/backup/saphana-dr-anf_create_new_volumes_based_on_snapshot_backups_at_the_disaster_recovery_site.html"
+      url: "/backup/hana-dr-anf-create-vols-at-dr-site.html"
     - title: 在目标主机上挂载新卷
-      url: "/backup/saphana-dr-anf_mount_the_new_volumes_at_the_target_host.html"
+      url: "/backup/hana-dr-anf-mount-new-vols-target-host.html"
     - title: HANA 数据库恢复
-      url: "/backup/saphana-dr-anf_hana_database_recovery.html"
+      url: "/backup/hana-dr-anf-database-recovery.html"
   - title: 灾难恢复故障转移
     entries:
     - title: 灾难恢复故障转移概述
-      url: "/backup/saphana-dr-anf_disaster_recovery_failover_overview.html"
+      url: "/backup/hana-dr-anf-failover-overview.html"
     - title: 准备目标主机
-      url: "/backup/saphana-dr-anf_prepare_the_target_host_01.html"
+      url: "/backup/hana-dr-anf-prepare-target-host_01.html"
     - title: 中断并删除复制对等关系
-      url: "/backup/saphana-dr-anf_break_and_delete_replication_peering.html"
+      url: "/backup/hana-dr-anf-break-delete-replication-peering.html"
     - title: 在目标主机上挂载卷
-      url: "/backup/saphana-dr-anf_mount_the_volumes_at_the_target_host.html"
+      url: "/backup/hana-dr-anf-mount-new-vols-target-host_01.html"
     - title: HANA 数据库恢复
-      url: "/backup/saphana-dr-anf_hana_database_recovery_01.html"
-    - title: 更新历史记录
-      url: "/backup/saphana-dr-anf_update_history.html"
+      url: "/backup/hana-dr-anf-database-recovery_01.html"
+  - title: 更新历史记录
+    url: "/backup/hana-dr-anf-update-history.html"
 - title: 使用存储复制实现 SAP HANA 灾难恢复
-  url: "/backup/saphana-dr-sr_pdf_link.html"
+  url: "/backup/hana-dr-sr-pdf-link.html"
 - title: 使用 NetApp 存储和 Commvault 软件进行 SAP HANA 备份和恢复
-  url: "/backup/saphana-commvault_pdf_link.html"
+  url: "/backup/hana-commvault-pdf-link.html"
 - title: 适用于SAP ASE数据库的SnapCenter集成
   url: "/backup/snapcenter-sap-ase.html"
 - title: IBM DB2数据库的SnapCenter集成
   url: "/backup/snapcenter-ibm-db2.html"
+- title: 适用于SAP MaxDB数据库的SnapCenter集成
+  url: "/backup/snapcenter-sap-maxdb.html"

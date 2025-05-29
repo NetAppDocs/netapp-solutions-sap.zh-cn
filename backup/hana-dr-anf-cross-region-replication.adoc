@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-dr-anf-cross-region-replication.html 
+keywords:  
+summary:  
+---
+= 利用 SAP HANA 实现跨区域复制
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+本文档介绍了使用SAP HANA进行ANF跨区域复制的内容。

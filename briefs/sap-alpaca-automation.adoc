@@ -121,7 +121,7 @@ SnapCenter在羊驼工作流中的实际集成包括使用shell脚本来访问Ne
 要了解有关本文档所含信息的更多信息、请查看以下文档和网站：
 
 * link:https://pcg.io/de/sap/alpaca/["羊驼"]
-* link:https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html["利用 SnapCenter 自动执行 SAP HANA 系统复制和克隆操作"]
+* link:../lifecycle/sc-copy-clone-introduction.html["利用 SnapCenter 自动执行 SAP HANA 系统复制和克隆操作"]
 * link:https://docs.netapp.com/us-en/snapcenter/sc-automation/reference_supported_rest_apis.html["SnapCenter服务器和插件支持REST API"]
 
 

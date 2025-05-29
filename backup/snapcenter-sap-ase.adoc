@@ -440,7 +440,7 @@ video::0aba8433-e0d0-4c40-be0a-b2b900c1fb54[panopto,width=360]
 ** 1585981 - Syb：确保SAP ASE的可恢复性： https://me.sap.com/notes/1585981/E[]
 ** 1588316 - Syb：配置自动数据库和日志备份： https://me.sap.com/notes/1588316/E[]
 ** NetApp产品文档： https://www.netapp.com/support-and-training/documentation/[]
-** NetApp SAP解决方案—有关用例、最佳实践和优势的信息： https://docs.netapp.com/us-en/netapp-solutions-sap[]
+** link:../index.html["NetApp SAP解决方案—有关使用情形、最佳实践和优势的信息"]
 
 
 

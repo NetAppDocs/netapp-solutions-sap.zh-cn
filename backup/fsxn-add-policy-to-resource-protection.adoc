@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: backup/fsxn-add-policy-to-resource-protection.html 
+keywords: policy, resource, protection, hana, daily schedule 
+summary: 本节介绍如何将策略添加到资源保护中。 
+---
+= 将策略添加到资源保护中
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须将新策略添加到HANA资源保护配置中、如下图所示。
+
+image:amazon-fsx-image86.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+我们在设置中定义了每日计划。
+
+image:amazon-fsx-image87.png["图中显示了输入/输出对话框或表示已写入内容"]

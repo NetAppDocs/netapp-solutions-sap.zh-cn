@@ -17,4 +17,4 @@ summary:
 
 克隆的卷不会属于HANA一致性组、也不会使用SnapMirror主动同步进行复制。
 
-有关系统刷新工作流的详细信息、请参见： https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html["TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作"]
+有关系统刷新工作流的详细信息、请参见：link:../lifecycle/sc-copy-clone-introduction.html["TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作"]
