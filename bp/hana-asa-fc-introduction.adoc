@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: bp/hana-asa-fc-introduction.html 
+keywords: introduction, raw device mapping, rdm, tailored data center integration, FCP datastore 
+summary: NetApp ASA 产品系列已通过认证，可在 TDI 项目中与 SAP HANA 结合使用。本指南提供了此平台上 SAP HANA 的最佳实践。 
+---
+= 基于采用光纤通道协议的 NetApp ASA 系统的 SAP HANA
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp ASA 产品系列已通过认证，可在 TDI 项目中与 SAP HANA 结合使用。本指南提供了此平台上 SAP HANA 的最佳实践。
+
+NetApp 公司 Marco Schoen
+
+
+
+== 简介
+
+NetApp ASA A系列和ASA C系列产品系列已通过认证、可在定制数据中心集成(TDI)项目中与SAP HANA结合使用。本指南介绍了以下认证模型的最佳实践：
+
+* ASA A20、ASA A30、ASA A50、ASA A70、ASA A90、ASA A1K
+* ASA C30
+
+
+有关适用于 SAP HANA 的 NetApp 认证存储解决方案的完整列表，请参见 https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:13["经过认证并受支持的 SAP HANA 硬件目录"^]。
+
+本文档介绍了使用光纤通道协议（ FCP ）的 ASA 配置。
+
+
+NOTE: 要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采用本文所述的配置。更改此处未列出的任何设置或使用的功能可能会导致发生原因性能下降或出现意外行为，只有在 NetApp 支持人员建议的情况下，才应执行此操作。
+
+在 SAP HANA 多主机环境中，标准 SAP HANA 存储连接器用于在发生 SAP HANA 主机故障转移时提供隔离。有关操作系统配置准则和 HANA 专用 Linux 内核依赖关系，请始终参考相关 SAP 注释。有关详细信息，请参见 https://launchpad.support.sap.com/["SAP 注释 2235581 — SAP HANA 支持的操作系统"^]。
+
+
+
+== SAP HANA 量身定制的数据中心集成
+
+NetApp ASA 存储系统已通过 SAP HANA TDI 计划认证，使用 FC（SAN）协议，可以部署在任何当前 SAP HANA 场景中，例如 HANA 上的 SAP Business Suite、S/4HANA、BW/4HANA 或 HANA 上的 SAP Business Warehouse，无论是单主机还是多主机配置。任何经认证可与 SAP HANA 结合使用的服务器均可与 NetApp 认证的存储解决方案结合使用。下图显示了一个架构概述。
+
+image:saphana_aff_fc_image1.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+有关高效SAP HANA系统的前提条件和建议的详细信息、请参见以下资源：
+
+* http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html["SAP HANA 定制数据中心集成常见问题解答"^]
+
+
+
+
+= 使用 VMware vSphere 的 SAP HANA
+
+可以通过多种方法将存储连接到虚拟机（ VM ）。支持原始设备映射 (RDM)、FCP 数据存储或带有 FCP 的 VVOL 数据存储。对于这两个数据存储库选项，数据存储库中只能存储一个 SAP HANA 数据或日志卷，以便在高效使用情形下使用。
+
+有关将 vSphere 与 SAP HANA 结合使用的详细信息，请参见以下链接：
+
+* https://help.sap.com/docs/SUPPORT_CONTENT/virtualization/3362185751.html["基于 VMware vSphere 的 SAP HANA —虚拟化—社区 Wiki"^]
+* https://www.vmware.com/docs/sap_hana_on_vmware_vsphere_best_practices_guide-white-paper["《基于VMware vSphere的SAP HANA最佳实践指南》"^]
+* https://launchpad.support.sap.com/["2161991 — VMware vSphere 配置准则— SAP One Support Launchpad （需要登录）"^]
+

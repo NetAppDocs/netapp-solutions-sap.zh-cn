@@ -34,7 +34,7 @@ image:saphana_fas_fc_image3.png["图中显示了输入/输出对话框或表示�
 
 无论部署的 FAS 系统存储模式如何， SAP HANA 环境也可以通过添加更多存储控制器进行扩展，如下图所示。
 
-image:saphana_fas_fc_image4.png["图中显示了输入/输出对话框或表示已写入内容"]
+image:saphana_fas_fc_image4a.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 
 
@@ -48,7 +48,7 @@ NetApp ONTAP 软件提供了用于备份 SAP HANA 数据库的内置机制。基
 
 可以使用 NFS 挂载将数据库日志直接备份到二级存储，如下图所示。
 
-image:saphana_fas_fc_image5.png["图中显示了输入/输出对话框或表示已写入内容"]
+image:saphana_asa_fc_image5a.png["SnapCenter 概述"]
 
 与基于文件的备份相比，基于存储的 Snapshot 备份具有显著优势。这些优势包括：
 

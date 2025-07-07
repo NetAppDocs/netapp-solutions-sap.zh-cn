@@ -2,14 +2,14 @@
 sidebar: sidebar 
 permalink: bp/hana-fas-fc-introduction.html 
 keywords: sap, hana, fas, systems, fibre, channel, protocol, configuration, data, vmware, vsphere 
-summary: NetApp FAS 产品系列已通过认证，可在 TDI 项目中与 SAP HANA 结合使用。经过认证的企业级存储平台采用 NetApp ONTAP 操作系统。 
+summary: NetApp FAS 产品系列已通过认证，可在 TDI 项目中与 SAP HANA 结合使用。本指南提供了此平台上 SAP HANA 的最佳实践。 
 ---
 = 《采用光纤通道协议的NetApp FAS系统上的SAP HANA配置指南》
 :allow-uri-read: 
 
 
 [role="lead"]
-NetApp FAS 产品系列已通过认证，可在 TDI 项目中与 SAP HANA 结合使用。经过认证的企业级存储平台采用 NetApp ONTAP 操作系统。
+NetApp FAS 产品系列已通过认证，可在 TDI 项目中与 SAP HANA 一起使用。本指南提供了适用于 FCP 的此平台上 SAP HANA 的最佳实践。
 
 NetApp 公司 Marco Schoen
 
@@ -27,7 +27,8 @@ NOTE: 要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采�
 
 有关使用 NFS 和 NetApp AFF 系统的 FAS 系统的配置指南，请访问以下链接：
 
-* link:hana-aff-fc-introduction.html["基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA"^]
+* link:hana-aff-fc-introduction.html["基于采用 FCP 的 NetApp AFF 系统的 SAP HANA"^]
+* link:hana-asa-fc-introduction.html["基于采用 FCP 的 NetApp ASA 系统的 SAP HANA"^]
 * link:hana-fas-nfs-introduction.html["基于采用 NFS 的 NetApp FAS 系统的 SAP HANA"^]
 * link:hana-aff-nfs-introduction.html["基于采用 NFS 的 NetApp AFF 系统的 SAP HANA"^]
 

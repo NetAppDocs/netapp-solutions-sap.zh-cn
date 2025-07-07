@@ -204,7 +204,6 @@
   <block id="912023f4eba0bf223e908e20d22ff92f" category="paragraph">以下各节提供了 SAP HANA 基础架构设置和配置准则，并介绍了设置 SAP HANA 系统所需的所有步骤。在这些部分中，使用了以下示例配置：</block>
   <block id="4bb047f8c530785002e490ef17fa725e" category="doc">从何处查找追加信息</block>
   <block id="345245c83d2b2c4c2a5eb9f2887da627" category="paragraph">要了解有关本文档中所述信息的更多信息，请参见以下文档和 / 或网站：</block>
-  <block id="77187c93e0b43c549228506243592b1f" category="inline-link"><block ref="77187c93e0b43c549228506243592b1f" category="inline-link-rx"></block></block>
   <block id="06ad3435fb38e020aa7a36d8924c9f5c" category="inline-link"><block ref="06ad3435fb38e020aa7a36d8924c9f5c" category="inline-link-rx"></block></block>
   <block id="6137d44b5191549a06e7bea8ffd942d3" category="inline-link"><block ref="6137d44b5191549a06e7bea8ffd942d3" category="inline-link-rx"></block></block>
   <block id="3a8abeead42ccd286a7d0cbd4af82313" category="cell">2014年4月</block>
@@ -740,7 +739,6 @@
   <block id="2313d7e75b1293ec19e67b10399a5b36" category="paragraph">要自动执行此操作，请在 `global.ini` 中的 ` [ 持久性 ]` 部分设置以下参数：</block>
   <block id="bcd4783f16a6a90aaaeb9703e35b2183" category="inline-link">SAP 注释 240005 问题 15</block>
   <block id="02fb0663b2b25ed3058835e1a2db5762" category="paragraph">这将在达到 8 ， 000 GB 限制后创建一个新的数据卷。<block ref="0d7b59f229b453865b91c5e952a7b217" category="inline-link-rx"></block> 提供了更多信息。</block>
-  <block id="0f41d05d80faf4e3a75a6b4e2292f1c0" category="summary">NetApp AFF 产品系列已通过认证，可在 TDI 项目中与 SAP HANA 结合使用。经过认证的企业级存储平台采用 NetApp ONTAP 软件。</block>
   <block id="0db6b81db5bd35e1eef1e83e154c3cb5" category="doc">TR-4436 ：《基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA 》</block>
   <block id="0b79795d3efc95b9976c7c5b933afce2" category="section-title">简介</block>
   <block id="e4509a748ae3ce7cb528662f2f9f7e10" category="paragraph">此认证适用于以下型号：</block>
@@ -771,11 +769,9 @@
   <block id="37a72a4ef96da2b1b4de8dfd6a6578e1" category="paragraph">与基于文件的传统备份相比，基于存储的 Snapshot 备份具有显著优势。这些优势包括但不限于：</block>
   <block id="a87b95aa164115fe66d032fbca70ca68" category="paragraph">SAP HANA 灾难恢复（ DR ）可以通过 SAP HANA 系统复制在数据库层上完成，也可以通过存储复制技术在存储层完成。下一节概述了基于存储复制的灾难恢复解决方案。</block>
   <block id="d8c167d8f4fbaa19b28b96b8f9830293" category="paragraph">正常运行期间，灾难恢复站点上的服务器可用作开发 / 测试系统。发生灾难时，需要关闭开发 / 测试系统并将其作为灾难恢复生产服务器启动。</block>
-  <block id="5a19cb1f3722bd59393efe7cbc853747" category="summary">NetApp AFF 系统产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用。经过认证的企业级存储系统采用 NetApp ONTAP 软件的特征。</block>
   <block id="8290e539e87b39f4743f2a941a37d00d" category="doc">TR-4435 ：《采用 NFS 的 NetApp AFF 系统上的 SAP HANA —配置指南》</block>
   <block id="af01ac16ca42b9b924b834a3199131e9" category="paragraph">此认证适用于以下型号：</block>
   <block id="793f62e70c31f71a93161db091bea2c0" category="paragraph">有关使用 FCP 的 NetApp AFF 系统以及使用 NFS 或 FCP 的 FAS 系统的配置指南，请访问以下链接：</block>
-  <block id="fd645c3ffaeed1c3efb140082b037a69" category="inline-link">基于采用光纤通道协议的 NetApp FAS 系统的 SAP HANA</block>
   <block id="d3eeeac9b8ca9512c68dfff9f3b301a2" category="inline-link">基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA</block>
   <block id="36fafbaf89be825de435f50a73ce793c" category="paragraph">下表显示了 NFS 版本， NFS 锁定和所需隔离实施的受支持组合，具体取决于 SAP HANA 数据库配置。</block>
   <block id="4a74ba49b2778c7cf6b73600b7dfe758" category="paragraph">对于不使用主机自动故障转移的 SAP HANA 单主机系统或多个主机，支持 NFSv3 和 NFSv4 。</block>
@@ -797,7 +793,6 @@
   <block id="5d75848b6169b06c4cd7d6a8c2ec2337" category="paragraph">NetApp AFF 存储控制器已通过 SAP HANA TDI 计划的认证，并同时使用 NFS （ NAS ）和 FC （ SAN ）协议。它们可以部署在任何当前 SAP HANA 方案中，例如采用单主机或多主机配置的基于 HANA 的 SAP Business Suite ， S/4HANA ， BB/4HANA 或基于 HANA 的 SAP Business Warehouse 。任何经认证可与 SAP HANA 结合使用的服务器均可与 NetApp 认证的存储解决方案结合使用。有关 SAP HANA TDI 的架构概述，请参见下图。</block>
   <block id="4769b140b92a70ffdab406be16d30122" category="paragraph">可通过多种方法将存储连接到虚拟机（ VM ）。首选选项是直接从子操作系统中连接具有 NFS 的存储卷。使用此选项时，物理主机和 VM 的主机和存储配置不会有所不同。</block>
   <block id="f7fbf8be79b2dbbf7cca7d63ea2aaa3e" category="paragraph">本文档介绍了从子操作系统直接挂载 NFS 的建议设置。</block>
-  <block id="4f0141ecc04bee7dc293f8992542b4bd" category="summary">NetApp FAS 产品系列已通过认证，可在 TDI 项目中与 SAP HANA 结合使用。经过认证的企业级存储平台采用 NetApp ONTAP 操作系统。</block>
   <block id="088c8c258db90c09658a39d2839f52b0" category="doc">TR-4384 ：《采用光纤通道协议的 NetApp FAS 系统上的 SAP HANA 配置指南》</block>
   <block id="42eb56ae1e83db3afce70f056a668205" category="inline-link">经过认证并受支持的 SAP HANA 硬件目录</block>
   <block id="b448d121930edfc4a956027d7533c403" category="paragraph">本文档介绍了使用光纤通道协议（ FCP ）的 FAS 配置。</block>
@@ -858,7 +853,6 @@
   <block id="beb45bc6e1a41c7a0a9e399cd74843b5" category="section-title">添加额外的数据卷分区</block>
   <block id="07a78873f27afab791279f5d19e3f88c" category="paragraph">要向租户数据库添加额外的数据卷分区，请完成以下步骤：</block>
   <block id="9b76b6c583544a2f5372da2ae89b54d5" category="list-text">对租户数据库执行以下 SQL 语句。每个附加 LUN 可以具有不同的路径。</block>
-  <block id="a1f3bfe21fa4a014b71cdb6f5c22ed48" category="summary">NetApp FAS 产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用。经过认证的企业级存储系统采用 NetApp ONTAP 软件的特征。</block>
   <block id="3ba2c0f2dd07fd36730e20b6bcba3d0a" category="paragraph">此认证目前仅适用于以下型号：</block>
   <block id="ae9c01e101eba86b0e6ff092df062fae" category="inline-link">经过认证并受支持的 SAP HANA 硬件目录</block>
   <block id="134a6ecca2c7d98e325ad00ee461d25a" category="admonition">要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采用本文所述的配置。更改任何设置或使用本文未列出的功能可能会导致发生原因性能下降或出现意外行为，只有在 NetApp 支持人员建议的情况下，才应执行此操作。</block>
@@ -3373,7 +3367,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="9c485d8d0a0f2d60633001b05d342eed" category="doc">《采用NFS的NetApp FAS系统上的SAP HANA配置指南》</block>
   <block id="b7bda169ccba06e8cbcf02ba0fab5928" category="doc">《采用光纤通道协议的NetApp FAS系统上的SAP HANA配置指南》</block>
   <block id="a56f5f8ccd94f38be4e8a0f1faf81823" category="doc">《采用NFS的NetApp AFF系统上的SAP HANA—配置指南》</block>
-  <block id="ef6ac0da06e1bd8eabd965442ae5668d" category="paragraph">Marco schön、NetApp</block>
   <block id="a004afbb2c9ff596c570f05cacd1d651" category="section-title">NetApp FlexGroup卷</block>
   <block id="cfb6b0dd52bfc75b4646448807e41154" category="paragraph">SAP HANA不支持使用NetApp FlexGroup卷。由于SAP HANA的架构、使用FlexGroup卷不会带来任何优势、可能会导致性能问题。</block>
   <block id="db5a8e62a598aa08b2923f3210fec1a3" category="summary">本文档重点介绍如何将NetApp®Snapshot™和FlexClone®技术集成到羊驼自动化工作流中。</block>
@@ -3767,7 +3760,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="0a961d2cbb588be1d5a93b4774cf6ef1" category="cell">新存储系统(AFF A系列)</block>
   <block id="f31f11743f1dfba18e9f008e2956d24e" category="cell">2024年9月</block>
   <block id="e4a9c264a13e2ec5faac7a73cf8d0e8c" category="cell">次要更新</block>
-  <block id="e40283d3953ee3d843b92518a02ffe78" category="paragraph"><block ref="e40283d3953ee3d843b92518a02ffe78" category="inline-link-rx"></block></block>
   <block id="44fee80ab2b2a3105ec17b94b206cc8f" category="inline-link"><block ref="44fee80ab2b2a3105ec17b94b206cc8f" category="inline-link-rx"></block></block>
   <block id="55162df4eaa40993b4b04219f5dd5e87" category="paragraph"><block ref="55162df4eaa40993b4b04219f5dd5e87" category="inline-link-rx"></block></block>
   <block id="292ed8e9851502aa4feb9eef4c6dbb13" category="paragraph">借助 SAP Landscape Management （ SAP LaMa ），客户可以管理内部数据中心以及在云中运行的系统中的复杂 SAP 系统环境。SAP LaMa 与 NetApp 存储服务连接器（ SSC ）可以使用 Snapshot 和 FlexClone 技术为 SAP 系统克隆，复制和刷新用例执行克隆和复制等存储操作。这样，您就可以根据存储克隆技术完全自动执行 SAP 系统副本，同时还可以执行所需的 SAP 后处理。有关NetApp针对SAP Laama的解决方案的详细信息，请参见<block ref="f5cd59812ce597d8b57d775862213a16" category="inline-link-rx"></block>。</block>
@@ -4163,9 +4155,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="35c46d1308ad1dcdfdb1cdc8aa5c6bb3" category="paragraph"><block ref="35c46d1308ad1dcdfdb1cdc8aa5c6bb3" category="inline-image-macro-rx" type="image"></block></block>
   <block id="3bcc285c555f1a917d23761e04d98e2c" category="paragraph"><block ref="3bcc285c555f1a917d23761e04d98e2c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="adf2d4c62bc39518d50fe4a1329307e4" category="paragraph">版本历史记录：</block>
-  <block id="28682dfe19b53338674ca2d24021bf06" category="paragraph"><block ref="28682dfe19b53338674ca2d24021bf06" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="61ad85d9e6c0ed3d8e1d56df415ecb87" category="paragraph"><block ref="61ad85d9e6c0ed3d8e1d56df415ecb87" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="88ddebca33313b9dadb1612d8450743c" category="paragraph"><block ref="88ddebca33313b9dadb1612d8450743c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="55d5dfa50d04891918fe3ea9ad00059b" category="paragraph"><block ref="55d5dfa50d04891918fe3ea9ad00059b" category="inline-image-macro-rx" type="image"></block></block>
   <block id="762fea8d2405197b39e9cd41b76d320c" category="paragraph"><block ref="762fea8d2405197b39e9cd41b76d320c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e6aabe615d4f04cff649751db99a960f" category="paragraph">本文档讨论NetApp FAS系统和NFS的基础架构设置和配置。</block>
@@ -4175,8 +4164,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="0937ed7cc435379f8de3fc08658990ba" category="paragraph"><block ref="0937ed7cc435379f8de3fc08658990ba" category="inline-image-macro-rx" type="image"></block></block>
   <block id="60b486631d0e94399c0d3352ca21fa00" category="paragraph"><block ref="60b486631d0e94399c0d3352ca21fa00" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0295da9e9d8f6cc887cd3e6b7b62db45" category="paragraph"><block ref="0295da9e9d8f6cc887cd3e6b7b62db45" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="ff1ff7796487085544033f19362a1d77" category="paragraph"><block ref="ff1ff7796487085544033f19362a1d77" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="d8e5cd74c27d4d7983b9d2c8bdeca1a1" category="paragraph"><block ref="d8e5cd74c27d4d7983b9d2c8bdeca1a1" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b7842d6a27abd5170ad4d41cb2353297" category="paragraph">本文档讨论NetApp AFF系统和光纤通道的基础架构设置和配置。</block>
   <block id="265ae4ad07ae6dd3140cd976e6e96a15" category="paragraph"><block ref="265ae4ad07ae6dd3140cd976e6e96a15" category="inline-image-macro-rx" type="image"></block></block>
   <block id="017e522349a0ff07067400d6b880e9df" category="paragraph">=:hard休息:::noofootter::ICONES: font :linkattrs::imagesdir:../media/</block>
@@ -4189,7 +4176,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="c55f68c7fa3064bc905d3ae3a6a0a59d" category="list-text">在聚合中创建卷、如"和"<block ref="886d8674ea6944dd32bd390cb48bc80e" category="inline-xref-macro-rx"></block>中所述<block ref="7f2f76d537cb5c15ae301f069af9489f" category="inline-xref-macro-rx"></block>。</block>
   <block id="b726daf8a2adf210c59b7ef834090339" category="paragraph"><block ref="b726daf8a2adf210c59b7ef834090339" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c8ad86db51ea3fec014b3b92b80c4f2e" category="paragraph"><block ref="c8ad86db51ea3fec014b3b92b80c4f2e" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="11d1bfe72e7d4b529d02954640fd4149" category="paragraph"><block ref="11d1bfe72e7d4b529d02954640fd4149" category="inline-image-macro-rx" type="image"></block></block>
   <block id="d64ce1ec53ddbb70221c0732f05697a6" category="paragraph"><block ref="d64ce1ec53ddbb70221c0732f05697a6" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c0561b288a8933b1a53451f7c71e958e" category="paragraph"><block ref="c0561b288a8933b1a53451f7c71e958e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="57f3c3545cf78dda99e9898c26f43005" category="paragraph"><block ref="57f3c3545cf78dda99e9898c26f43005" category="inline-image-macro-rx" type="image"></block></block>
@@ -4375,18 +4361,14 @@ SnapCenter 4.3.1支持NFSv4
   <block id="68a4c90b9b4251c2e6c62854e0f0e383" category="cell">新存储系统和次要更新</block>
   <block id="6cc5c9e930ea3d3b8bff4367c60ceea4" category="cell">2025年2月</block>
   <block id="15cd132980dad32e9c3c529955721df9" category="cell">新存储系统</block>
-  <block id="4433e4b3b7ec2b20f062036b1b011af7" category="list-text">ASA A250、ASA A20、ASA A30、ASA A400、ASA A50、ASA A70、ASA A800、ASA A900、ASA A90、ASA A1K</block>
   <block id="a10922577a9bcbf85b1a7a9d8e7de5aa" category="cell">2024年11月</block>
   <block id="53bab281b7eb6692b17a4b65d99e2188" category="list-text">FAS2750、FAS2820、FAS8300、FAS50、FAS8700、 FAS70、FAS9500、FAS90</block>
   <block id="eccbc87e4b5ce2fe28308fd9f2a7baf3" category="cell">3</block>
   <block id="c9f0f895fb98ab9159f51fd0297e236d" category="cell">8</block>
   <block id="34173cb38f07f89ddbebc2ac9128303f" category="cell">30</block>
   <block id="c2be09c4548a0a3d6590431051156ecc" category="inline-image-macro">八个连接到一个存储HA对的SAP HANA主机</block>
-  <block id="57b2c63155fecfb21c53a82e0a192a2b" category="paragraph"><block ref="57b2c63155fecfb21c53a82e0a192a2b" category="inline-image-macro-rx" type="image"></block></block>
   <block id="445dc01d838477256a3f7c6ec4051a70" category="inline-image-macro">连接到存储HA对的其他SAP HANA主机</block>
-  <block id="2aeef15c3419fd9cc9d6690eb125715e" category="paragraph"><block ref="2aeef15c3419fd9cc9d6690eb125715e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="6119ba4f9580ccfa3f0a3d3f871870ff" category="inline-image-macro">正在添加其他存储HA对</block>
-  <block id="0349c380e002d982103ec0fc460cd07f" category="paragraph"><block ref="0349c380e002d982103ec0fc460cd07f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c4d3f7817a7843faa1dc4bee9f2303ff" category="list-text">SID=SS3的HANA系统</block>
   <block id="d6b8648b9a763d4fa670f413b105dec7" category="list-text">使用Linux逻辑卷管理器(LVM)的SID=FC5的HANA系统</block>
   <block id="238ec08371f09e874d0f1002aee0caeb" category="inline-image-macro">连接到两个存储控制器的SAP HANA主机</block>
@@ -4405,17 +4387,11 @@ SnapCenter 4.3.1支持NFSv4
   <block id="bc0b4db5e6b23fdaed6f5246d05d6ef8" category="paragraph"><block ref="bc0b4db5e6b23fdaed6f5246d05d6ef8" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0c2fd995ece5cfe7704d5109986e3b0e" category="paragraph"><block ref="0c2fd995ece5cfe7704d5109986e3b0e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2376775a32e0fa313efe0917b1bd9cfc" category="paragraph"><block ref="2376775a32e0fa313efe0917b1bd9cfc" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="062ce9ed8e9b3c25669e46aba83faa4c" category="admonition">2024年8月之后发布的ASA系统不需要执行此步骤、因为它会在_LUN cre同时 自动完成</block>
-  <block id="962f559368bb8c770c0eb510490d6a70" category="admonition">请仅提供LUN名称作为2024年8月之后启动的ASA系统的路径。这也适用于下面的_LUN map_命令。此外、选项--space-re储备_和--space-分配_不可用。</block>
   <block id="871d39fd458463703004f24c503c7812" category="paragraph">一个NVMe SSD (数据)最多支持2/5个SAP HANA主机、具体取决于所使用的特定NVMe磁盘。SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。这同样适用于AFF和ASA系统的内部NVMe磁盘。</block>
   <block id="b80edeac5a9d51784b1a139f183acc83" category="inline-image-macro">SAP HANA大小评估流程</block>
-  <block id="4bb4fae3b6ea53d3f376bbd619714543" category="paragraph"><block ref="4bb4fae3b6ea53d3f376bbd619714543" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f2ed1b2a99c0f64ca0cfcd6111d7ec4c" category="inline-image-macro">八个连接到存储高可用性(HA)对的SAP HANA主机</block>
-  <block id="831843b9e12aadd42880c9ec56bd509a" category="paragraph"><block ref="831843b9e12aadd42880c9ec56bd509a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="d788d47338c59792d717e9540a6664ef" category="inline-image-macro">将其他SAP HANA主机连接到现有存储控制器HA对</block>
-  <block id="1630763019d92de5939da85faf4ad16c" category="paragraph"><block ref="1630763019d92de5939da85faf4ad16c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4f056ce2074ba16ee637d64fdef647a7" category="inline-image-macro">已添加其他HA对</block>
-  <block id="afd2c3367e4b9e93007759798ae8b0c0" category="paragraph"><block ref="afd2c3367e4b9e93007759798ae8b0c0" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4d9c2ddc20521fa24e033c096807f43d" category="paragraph">下图显示了一个示例，其中四个 SAP HANA 主机使用 10GbE 网络连接到一个存储控制器 HA 对。每个SAP HANA主机都与冗余网络结构建立了主动-主动连接。</block>
   <block id="e7c118cc09590a9a288c67a4b302b904" category="paragraph">在存储层，配置了四个活动连接，可为每个 SAP HANA 主机提供 10 Gb 吞吐量。在存储层，将配置 MTU 大小为 9000 的广播域，并将所有必需的物理接口添加到此广播域。此方法会自动将这些物理接口分配给同一故障转移组。分配给这些物理接口的所有逻辑接口（ LIF ）都会添加到此故障转移组中。</block>
   <block id="fa9e73ef22bb3dbfc0d7dfadf5b21281" category="inline-image-macro">网络概述</block>
@@ -4434,7 +4410,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="67723885e8b8dec5641fd9b65c05a445" category="paragraph"><block ref="67723885e8b8dec5641fd9b65c05a445" category="inline-image-macro-rx" type="image"></block></block>
   <block id="de3a0b5c28d9158410e205fdf4dd72f2" category="paragraph">一个NVMe SSD (数据)最多支持2/5个SAP HANA主机、具体取决于使用的NVMe磁盘。SSD 和 SAP HANA 主机必须在两个存储控制器之间平均分布。这同样适用于AFF系统的内部NVMe磁盘。</block>
   <block id="a1498fba486158dfd616e2bc1f205275" category="admonition">添加更多磁盘架不会增加存储控制器可支持的最大SAP HANA主机数量。</block>
-  <block id="57c187411855aa330625e6e0331a74b7" category="paragraph"><block ref="57c187411855aa330625e6e0331a74b7" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a2ef5d14ae5c3accf7291e39163d1ebd" category="paragraph">每个NS224 NVMe磁盘架都通过每个控制器两个100GbE端口进行连接、如下图所示。每个磁盘架中的磁盘必须平均分布到 HA 对的两个控制器。</block>
   <block id="ef8d203413a4aabe57527556e0ef5fcb" category="paragraph"><block ref="ef8d203413a4aabe57527556e0ef5fcb" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5c93db5d513dfbb32e85b013261b5aa8" category="list-text">检查磁盘架配置是否正确，如中所述<block ref="039cb3f1d3f19b24b2d3e1a57595e88d" category="inline-xref-macro-rx"></block>。</block>
@@ -5384,10 +5359,7 @@ SnapCenter 4.3.1支持NFSv4
   <block id="aec8b279f6bbfa44c38f060c1a4d9c75" category="cell">初始版本—备份/恢复MaxDB数据库</block>
   <block id="f43189b608fe679c2f5bfe1fa09a6987" category="paragraph"><block ref="f43189b608fe679c2f5bfe1fa09a6987" category="inline-image-macro-rx" type="image"></block></block>
   <block id="790ddab3b5de58e03046192392b137df" category="list-text"><block ref="790ddab3b5de58e03046192392b137df" category="inline-link-macro-rx"></block></block>
-  <block id="6a34496ece78c667f4f94bfaceceaaed" category="inline-link-macro">* TR-4646：《采用存储复制的SAP HANA灾难恢复》</block>
-  <block id="3ed403f91d1f089dc2d30b7e422fd100" category="list-text"><block ref="3ed403f91d1f089dc2d30b7e422fd100" category="inline-link-macro-rx"></block></block>
   <block id="41fc9942bec5239323b5dd801f5bee58" category="list-text"><block ref="41fc9942bec5239323b5dd801f5bee58" category="inline-link-macro-rx"></block></block>
-  <block id="68a464922f66805ae4f0d843ec7b5232" category="paragraph"><block ref="68a464922f66805ae4f0d843ec7b5232" category="inline-image-macro-rx" type="image"></block></block>
   <block id="d2904072197c733bd10bb3985e8b304d" category="paragraph">有关SAP HANA备份和恢复解决方案的详细信息，请参见<block ref="0a5fce897a9b356de9fbfc0e516c7392" category="inline-link-macro-rx"></block>。</block>
   <block id="b6e1c7dc173d5846c1c02517be7f17ef" category="paragraph">有关SAP HANA灾难恢复解决方案的详细信息，请参见<block ref="9e073a57f7a3e69defc613fe0d2d690f" category="inline-link-macro-rx"></block>。</block>
   <block id="da49521caaf686b5ddf9ad44b46ff253" category="list-text"><block ref="da49521caaf686b5ddf9ad44b46ff253" category="inline-link-macro-rx"></block></block>
@@ -5401,17 +5373,13 @@ SnapCenter 4.3.1支持NFSv4
   <block id="d810b6120408f928c8d432b920338406" category="paragraph"><block ref="d810b6120408f928c8d432b920338406" category="inline-image-macro-rx" type="image"></block></block>
   <block id="80f81c8586fa61a39860610f2eb7c763" category="list-text"><block ref="80f81c8586fa61a39860610f2eb7c763" category="inline-link-macro-rx"></block></block>
   <block id="7d226c2c46eb308073454b9c9f36adfa" category="list-text"><block ref="7d226c2c46eb308073454b9c9f36adfa" category="inline-link-macro-rx"></block></block>
-  <block id="202c3bcf08fd25995c9e62b1b82f0fd9" category="paragraph"><block ref="202c3bcf08fd25995c9e62b1b82f0fd9" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c5098abcd11f62e55614ae7323201c3d" category="admonition">有关SAP HANA备份和恢复解决方案的详细信息，请参见<block ref="0a5fce897a9b356de9fbfc0e516c7392" category="inline-link-macro-rx"></block>。</block>
   <block id="34bab9646046fb6a7d08a42312ff5c0a" category="paragraph">有关SAP HANA灾难恢复解决方案的详细信息，请参见<block ref="9e073a57f7a3e69defc613fe0d2d690f" category="inline-link-macro-rx"></block>。</block>
   <block id="1e72fb5aa3fd5c3621864de3f10cf8cf" category="admonition">如果将nconnect与NFSv4.x结合使用、则应根据以下规则调整NFSv4.x会话插槽的数量：会话插槽的数量等于&lt;nconnect value&gt; x 64。在主机上、此操作将经过重新启动后进行处理<block ref="1f544d9bef8ddb99793e0436d6362920" prefix=" " category="inline-code"></block>。此外、还必须调整服务器端值、并按照中所述设置会话插槽的数量<block ref="b7e4d6f25b44e37cc0e24fba4db18d4d" category="inline-link-macro-rx"></block></block>
-  <block id="4a5fd253ccfad406595dfe8e1a16edbf" category="list-text"><block ref="4a5fd253ccfad406595dfe8e1a16edbf" category="inline-link-macro-rx"></block></block>
-  <block id="8454eb1a8466a5c29fa43c7eead16db2" category="list-text"><block ref="8454eb1a8466a5c29fa43c7eead16db2" category="inline-link-macro-rx"></block></block>
   <block id="11cfc0b9a7c7ee9b54ba196748406dc0" category="admonition">根据 SAP HANA 主机的数量和使用的连接速度，需要不同数量的活动物理端口。有关详细信息，请参见一节<block ref="ca84783cbbdbff2bbccb3b70787d54c2" category="inline-link-macro-rx"></block>。</block>
   <block id="44724b96d03ee7072b74f4df6d742efa" category="admonition">请注意、禁用数字ID需要用户管理、如一节所述<block ref="171b753eb8efc5cb753cd0dd58fc8169" category="inline-link-macro-rx"></block></block>
   <block id="11eae0cf8eb7987977f94d2eaeba6b9d" category="admonition">在所有Linux服务器<block ref="f606fb2da2ae329157d791c6955a0337" prefix="(" category="inline-code"></block>)和SVM上、NFSv4域ID必须设置为相同的值、如一节所述<block ref="171b753eb8efc5cb753cd0dd58fc8169" category="inline-link-macro-rx"></block></block>
   <block id="81ed243e0aa50a10ea422c0e85319d46" category="paragraph"><block ref="81ed243e0aa50a10ea422c0e85319d46" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="2988d603e4f06d7df9d8162c33664354" category="paragraph"><block ref="2988d603e4f06d7df9d8162c33664354" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e6b7e7bf86715e60d66e0c4fd326c955" category="paragraph">有关使用SnapCenter的SAP HANA备份和恢复解决方案的详细信息，请参见<block ref="0a5fce897a9b356de9fbfc0e516c7392" category="inline-link-macro-rx"></block>。</block>
   <block id="5b30611fb0620adc53c494ca5e20e5d0" category="paragraph">有关使用SnapCenter的SAP HANA灾难恢复解决方案的详细信息，请参见<block ref="9e073a57f7a3e69defc613fe0d2d690f" category="inline-link-macro-rx"></block>。</block>
   <block id="e409da5f49cbcd0d5f6f423a57a43e78" category="paragraph">可通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。<block ref="d1b4413cecd0416bbd7ac40af6b252af" category="inline-link-macro-rx"></block>有关此选项的说明，请参见。</block>
@@ -5420,10 +5388,8 @@ SnapCenter 4.3.1支持NFSv4
   <block id="5f1ae89b567878eafdf31bc9d9aab95c" category="admonition">该<block ref="3a8e4afa851609127d534b04e7d29c08" prefix=" " category="inline-code"></block>工具是NetApp Host Utilities的一部分、必须安装在每个SAP HANA主机上。有关详细信息、请参见第节<block ref="1970c05dedf021dcfe0fe0afe84eb11e" category="inline-link-macro-rx"></block></block>
   <block id="21a371be04b3decb0d2708ebbabb53cb" category="paragraph"><block ref="21a371be04b3decb0d2708ebbabb53cb" category="inline-image-macro-rx" type="image"></block></block>
   <block id="03d4ca68b32ea9f2f635fcbcef451ff5" category="paragraph"><block ref="03d4ca68b32ea9f2f635fcbcef451ff5" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="25c5ee886b333331994e9856ea1fedc7" category="paragraph"><block ref="25c5ee886b333331994e9856ea1fedc7" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ddb07fca4392fed73f0b74e31f3d9094" category="paragraph">除了一节中所述的任务之外<block ref="adf8569c32b23d1a6f4cc05867010ec6" category="inline-link-macro-rx"></block>、您还必须为新的附加数据卷创建其他挂载点和fstab条目、并且必须挂载新卷。</block>
   <block id="94e6c9533c4e5938e1269e20fd8bbcdb" category="paragraph"><block ref="94e6c9533c4e5938e1269e20fd8bbcdb" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="c6f1fdff06acd3563d7502853649e730" category="paragraph"><block ref="c6f1fdff06acd3563d7502853649e730" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4b4a4c5cba74229745c4b5f00c36c078" category="admonition">如果将nconnect与NFSv4.x结合使用、则应根据以下规则调整NFSv4.x会话插槽的数量：会话插槽的数量等于&lt;nconnect value&gt; x 64。在主机上、此操作将经过重新启动后进行处理<block ref="1f544d9bef8ddb99793e0436d6362920" prefix=" " category="inline-code"></block>。此外、还必须调整服务器端值、并按照中所述设置会话插槽的数量<block ref="256a13ffa427d2ae7d891aa66668354c" category="inline-link-macro-rx"></block></block>
   <block id="2f163d27e5ecec2ddc7ba6221bd2e9b2" category="list-text">在 VMware 设置中，必须为每个正在运行的虚拟机分配专用 VMXNET3 网络适配器。请查看中提及的相关文件<block ref="87d361475810d68b856fb3a99638bb7f" category="inline-link-macro-rx"></block>、了解更多要求。</block>
   <block id="8708e36a9ce28a2b88418b7415eb627c" category="list-text">按照中所述检查正确的SAS堆栈配置<block ref="e050e2655f75db4cbc468bb16e460c38" category="inline-link-macro-rx"></block></block>
@@ -5439,7 +5405,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="2fb008a4aa6e9b1674589ab158357eec" category="paragraph"><block ref="2fb008a4aa6e9b1674589ab158357eec" category="inline-image-macro-rx" type="image"></block></block>
   <block id="cee08209b26c4cf3c1d81b672cca50ed" category="admonition">请注意、禁用编号ID需要进行用户管理、如中所述<block ref="4fd4e9f5908240975bfd330ff66bb878" category="inline-link-macro-rx"></block></block>
   <block id="5141282cb81f182de556fd743aa6b50f" category="admonition">在所有Linux服务器()和SVM上、NFSv4域ID必须设置为相同的值<block ref="194f502e09f2beaa6d2fed713cbc42c4" prefix="/" category="inline-code"></block>、如中所述<block ref="4fd4e9f5908240975bfd330ff66bb878" category="inline-link-macro-rx"></block></block>
-  <block id="f50e0f4fb356a01a02ff2276fb32e4d7" category="paragraph"><block ref="f50e0f4fb356a01a02ff2276fb32e4d7" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a4ed3843a038bd7642a8d1c9c92bea9d" category="paragraph">此主机上也安装了SAP主机代理。NetApp提供程序脚本和Ans得 游戏手册已在Ans得 控制节点上配置、如中所述<block ref="e0821c83e8bb2d4f1ec8142cc9cde64c" category="inline-link-macro-rx"></block></block>
   <block id="39629ebeee47783acfe0c41c48f33977" category="paragraph"><block ref="39629ebeee47783acfe0c41c48f33977" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f31f1b3cba0ad4811ab65341b9a3967f" category="paragraph"><block ref="f31f1b3cba0ad4811ab65341b9a3967f" category="inline-image-macro-rx" type="image"></block></block>
@@ -5493,5 +5458,129 @@ SnapCenter 4.3.1支持NFSv4
   <block id="3ff94088a12e40d70ab49680b4fa8d2d" category="sidebar">SnapCenter (独立于平台)</block>
   <block id="58b9bbf1f64eb397b83e8797b4eb9abc" category="sidebar">SAP HANA系统复制—使用SnapCenter进行备份和恢复</block>
   <block id="64b03de2a20ee77b8fcb65406457066c" category="sidebar">使用SAP HANA进行跨区域复制概述</block>
-  <block id="f8215a05c2f913eab74a6d7166384232" category="list-text">ASA C250、ASA C30、ASA C400、ASA C800</block>
+  <block id="30153729aca2324ae82bff47e711a46c" category="inline-link"><block ref="30153729aca2324ae82bff47e711a46c" category="inline-link-rx"></block></block>
+  <block id="f1397363d18b147fd01373f4149892ef" category="paragraph"><block ref="f1397363d18b147fd01373f4149892ef" category="inline-link-rx"></block></block>
+  <block id="7ba180b00c4e305e303aa3374823a50c" category="paragraph"><block ref="7ba180b00c4e305e303aa3374823a50c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e0f8fdaaa774f947afc3ff1a079fbeac" category="paragraph"><block ref="e0f8fdaaa774f947afc3ff1a079fbeac" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5e9c0eeb7ac3cf8553a451d06c88831c" category="paragraph"><block ref="5e9c0eeb7ac3cf8553a451d06c88831c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4ca95b5bca07e84d7755d3c0f50a04c9" category="inline-image-macro">SnapCenter 概述</block>
+  <block id="391458da3f8da76431f5d01ec21de6bb" category="paragraph"><block ref="391458da3f8da76431f5d01ec21de6bb" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a322193ac8801771c1db2548d778d786" category="inline-image-macro">SnapMirror 解决方案</block>
+  <block id="5a2dc218d33ade0b8b2fe2666e194bdf" category="paragraph"><block ref="5a2dc218d33ade0b8b2fe2666e194bdf" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="164fe74cfbca9ef543331e42b891cf2c" category="inline-image-macro">NetApp MetroCluster</block>
+  <block id="fe7d60267be959d6843d6976892f7248" category="paragraph"><block ref="fe7d60267be959d6843d6976892f7248" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e0688cb7d6291c05b4b81e03674d396f" category="summary">NetApp AFF 产品系列已通过认证，可在 TDI 项目中与 SAP HANA 结合使用。本指南提供了此平台上 SAP HANA 的最佳实践。</block>
+  <block id="43af0fa315980d56444cafe5aa7da0d8" category="paragraph">NetApp AFF 产品系列已通过认证，可在 TDI 项目中与 SAP HANA 结合使用。本指南为 FCP 提供了此平台上 SAP HANA 的最佳实践。</block>
+  <block id="f24901db79bd7adbcfdc97deb6526be7" category="list-text">ASA A250、ASA A400、ASA A800、ASA A900</block>
+  <block id="7165d8e624155bf7a4889b98927f605c" category="list-text">ASA C250、ASA C400、ASA C800</block>
+  <block id="22b98f7a97d9cee874821e4b572b6c5d" category="inline-link-macro">基于采用 FCP 的 NetApp ASA 系统的 SAP HANA</block>
+  <block id="8a3ac33050df8d373b59758f241b1e68" category="list-text"><block ref="8a3ac33050df8d373b59758f241b1e68" category="inline-link-macro-rx"></block></block>
+  <block id="7f07617f785b58f6b368eb03e7188fdd" category="paragraph"><block ref="7f07617f785b58f6b368eb03e7188fdd" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="928f12ce7e1197fe962e09f979b98d0d" category="cell">2025年7月</block>
+  <block id="c642e006d9310605e42ff97671a7e3d8" category="paragraph"><block ref="c642e006d9310605e42ff97671a7e3d8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="cd4edf52138d04dee0b63f481803c909" category="paragraph"><block ref="cd4edf52138d04dee0b63f481803c909" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e86ef10a731bbc034f957525a4267b82" category="paragraph"><block ref="e86ef10a731bbc034f957525a4267b82" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7ea917f7bcbac29ff77e06d916b6e4bf" category="summary">NetApp AFF 系统产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用。本指南提供了此平台上 SAP HANA 的最佳实践。</block>
+  <block id="33af92fae250bf5ae7bd6f087c68910d" category="paragraph">NetApp AFF A系列和AFF C系列产品系列已通过认证、可在定制数据中心集成(TDI)项目中与SAP HANA结合使用。本指南提供了此平台上适用于 NFS 的 SAP HANA 的最佳实践。</block>
+  <block id="8c1992cbbe373136f1e087b51b1fa92a" category="inline-link-macro">基于采用 FCP 的 NetApp AFF 系统的 SAP HANA</block>
+  <block id="26e279412c39b8d78be1eba7d6340c48" category="list-text"><block ref="26e279412c39b8d78be1eba7d6340c48" category="inline-link-macro-rx"></block></block>
+  <block id="c9baa6589eb03e3de8596468ec4d3113" category="inline-image-macro">SAP HANA 存储大小调整过程</block>
+  <block id="2ddfcb2a5a5412a4e0f5eadc85819f47" category="paragraph"><block ref="2ddfcb2a5a5412a4e0f5eadc85819f47" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="737e551e368764b43e2cb9216f426305" category="list-text"><block ref="737e551e368764b43e2cb9216f426305" category="inline-link-macro-rx"></block></block>
+  <block id="4a79fafd45b02abba903b98a8dac97a5" category="paragraph">ASA 系统产品系列的不同型号可以在存储层混用并匹配，以满足增长以及不同的性能和容量需求。可以连接到存储系统的最大 SAP HANA 主机数由 SAP HANA 性能要求和所用 NetApp 控制器型号定义。所需磁盘架的数量仅取决于 SAP HANA 系统的容量和性能要求。</block>
+  <block id="e6a912f7d0a756fde116c2fa2c2b4c8e" category="paragraph"><block ref="e6a912f7d0a756fde116c2fa2c2b4c8e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d46cb7917620bd108e7b28f11ed4d4a7" category="paragraph"><block ref="d46cb7917620bd108e7b28f11ed4d4a7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="135f11695d10f474f334466d82bf5d43" category="paragraph">与部署的 ASA 系统无关， SAP HANA 环境也可以通过添加任何经过认证的存储控制器来进行扩展，以满足所需的节点密度，如下图所示。</block>
+  <block id="2b77bb734236e16e11991d74dc875a7c" category="paragraph"><block ref="2b77bb734236e16e11991d74dc875a7c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0a91938cd63345b5071d9fea91497db2" category="inline-image-macro">SnapCenter SAP HANA 插件</block>
+  <block id="39f433ccfdf249727b50a1da8fd9c73e" category="paragraph"><block ref="39f433ccfdf249727b50a1da8fd9c73e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="017cd0a12b691bbe9bd875947ee832dc" category="paragraph">有关SAP HANA备份和恢复解决方案的详细信息，请参见<block ref="737e551e368764b43e2cb9216f426305" category="inline-link-macro-rx"></block>。</block>
+  <block id="2df2a2080231646afb90709c6f824b4c" category="admonition">在创建此文档时，SnapCenter for ASA 仅支持使用 VMDK 作为存储的基于 VMware 的虚拟机。</block>
+  <block id="b2946c1ef91247e37c269977800a38d9" category="paragraph">下图展示了一个三站点灾难恢复解决方案，该解决方案使用同步 SnapMirror 主动同步功能将数据复制到本地灾难恢复数据中心，并使用异步 SnapMirror 将数据复制到远程灾难恢复数据中心。SnapMirror主动同步功能即使在整个站点发生故障的情况下也能使业务服务继续运行，并支持应用程序使用辅助副本进行透明故障转移（RPO=0 和 RTO=0）。使用SnapMirror活动同步触发故障转移无需手动干预或自定义脚本。从ONTAP 9.151开始、SnapMirror主动同步支持对称主动/主动功能。对称主动/主动允许通过双向同步复制从受保护LUN的两个副本执行读写I/O操作、以便两个LUN副本都可以在本地处理I/O操作。</block>
+  <block id="60c1af797b29cffe2713bd3052647093" category="paragraph">更多详情请访问<block ref="90f942fd5a37ab4e29fced42177889a8" category="inline-link-rx"></block> ..</block>
+  <block id="d40d5c484a4f8be630dc46ecba0c44ab" category="paragraph">异步 SnapMirror 复制的 RTO 主要取决于在 DR 站点启动 HANA 数据库并将数据加载到内存中所需的时间。假设数据的读取吞吐量为 1000 Mbps ，则加载 1 TB 数据大约需要 18 分钟。</block>
+  <block id="526fa8261d07a1e37da2c833c1548c28" category="inline-image-macro">SnapMirror 存储复制概述</block>
+  <block id="1aff2799ff1fdbae77bb775ea838e989" category="paragraph"><block ref="1aff2799ff1fdbae77bb775ea838e989" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8058efe3a0acecb73d9d3300df4f28d0" category="list-text">运行<block ref="5927da9399de65ab7428ce807e88771e" prefix=" " category="inline-code"></block>命令并验证所有必需的 LUN 是否可见。以下示例显示了<block ref="5927da9399de65ab7428ce807e88771e" prefix=" " category="inline-code"></block>具有两个数据 LUN 和两个日志 LUN 的 2+1 多主机 HANA 系统的命令输出。输出显示 LUN 和相应的设备文件，例如 LUN <block ref="0732d94c1b058c8ff29a0e7586908d15" prefix=" " category="inline-code"></block>和设备文件<block ref="421d2aadb541bde4541aaac815d59491" prefix=" " category="inline-code"></block>每个 LUN 都有八条从主机到存储控制器的 FC 路径。</block>
+  <block id="365d17f0b22ee73b21776fe697a07175" category="list-text">运行<block ref="800be20e72a4397d094e0267a68f6475" prefix=" " category="inline-code"></block>和<block ref="3d80983fc82ff72fd51e5d1f7e90c56d" prefix=" " category="inline-code"></block>命令获取设备文件名的全球标识符 (WWID)。</block>
+  <block id="7d6504fee51f49b2d69acda4d2dba3de" category="admonition">在此示例中，有 8 个 LUN。</block>
+  <block id="3f8db3876bc7fd7f5f852d18c8db2713" category="doc">多主机设置</block>
+  <block id="eeadcc9db4a97a17457b81251b0f2e49" category="paragraph">本章以 2+1 SAP HANA 多主机系统的设置为例进行描述。</block>
+  <block id="5400b2f51d012ca320c36e8760f285d4" category="paragraph">在所有数据和日志逻辑卷上创建 XFS 文件系统。</block>
+  <block id="906e4fd80d678fe25b08b53057b94f32" category="paragraph">要创建所需的挂载点目录，请在所有工作主机和备用主机上设置权限并创建挂载点。</block>
+  <block id="34564326d40441555169c5b07a5a4c21" category="paragraph">要安装<block ref="b61595b5b7b716bd6b8bd21e4fa4a3bf" prefix=" " category="inline-code"></block>文件系统在系统启动时使用<block ref="816a3ef77b62ade41c3f936c958aa555" prefix=" " category="inline-code"></block>配置文件，添加<block ref="b61595b5b7b716bd6b8bd21e4fa4a3bf" prefix=" " category="inline-code"></block>文件系统<block ref="816a3ef77b62ade41c3f936c958aa555" prefix=" " category="inline-code"></block>每个主机的配置文件。</block>
+  <block id="2769a82040d53d42eadf3bec6f97136d" category="doc">单主机设置</block>
+  <block id="4d0dd5bf85707730b1a1b706c12b2e73" category="paragraph">本章介绍 SAP HANA 单主机的设置。</block>
+  <block id="94ebdd04c5726b33d92db91c2cfa34f4" category="paragraph">在所有数据和日志逻辑卷以及 hana 共享 LUN 上创建 XFS 文件系统。</block>
+  <block id="b68bdc5f6c4af520ce42995c3c60f1d0" category="paragraph">要挂载文件系统，请运行<block ref="86e32ba5e4c9ee3025482cd68628bc59" prefix=" " category="inline-code"></block>在主机上执行命令。</block>
+  <block id="69cf65aac7e60a91062a6b558c083ef3" category="list-text">SID=FC5的HANA系统</block>
+  <block id="20b674149670813ea625bde00479e3f4" category="summary">NetApp ASA 产品系列已通过认证，可在 TDI 项目中与 SAP HANA 结合使用。本指南提供了此平台上 SAP HANA 的最佳实践。</block>
+  <block id="21e0a2aad39a01380645381043e9d955" category="doc">基于采用光纤通道协议的 NetApp ASA 系统的 SAP HANA</block>
+  <block id="5db70de8e74c92af432128801b34bb88" category="paragraph">NetApp ASA A系列和ASA C系列产品系列已通过认证、可在定制数据中心集成(TDI)项目中与SAP HANA结合使用。本指南介绍了以下认证模型的最佳实践：</block>
+  <block id="0e6049e57c8d108ffe2b8d32dc32330b" category="list-text">ASA A20、ASA A30、ASA A50、ASA A70、ASA A90、ASA A1K</block>
+  <block id="14a1b02d9ac34f22a362671d392a3852" category="list-text">ASA C30</block>
+  <block id="fffc4ba9621956156c16359fee348f3a" category="paragraph">本文档介绍了使用光纤通道协议（ FCP ）的 ASA 配置。</block>
+  <block id="ad796b50ce85b866cef3e07e8a88e7af" category="paragraph">NetApp ASA 存储系统已通过 SAP HANA TDI 计划认证，使用 FC（SAN）协议，可以部署在任何当前 SAP HANA 场景中，例如 HANA 上的 SAP Business Suite、S/4HANA、BW/4HANA 或 HANA 上的 SAP Business Warehouse，无论是单主机还是多主机配置。任何经认证可与 SAP HANA 结合使用的服务器均可与 NetApp 认证的存储解决方案结合使用。下图显示了一个架构概述。</block>
+  <block id="4789e4de7518111f70932cfd55538c68" category="paragraph">可以通过多种方法将存储连接到虚拟机（ VM ）。支持原始设备映射 (RDM)、FCP 数据存储或带有 FCP 的 VVOL 数据存储。对于这两个数据存储库选项，数据存储库中只能存储一个 SAP HANA 数据或日志卷，以便在高效使用情形下使用。</block>
+  <block id="d5b3abe34f5928ceb3ac171ab782f00f" category="paragraph"><block ref="d5b3abe34f5928ceb3ac171ab782f00f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2a48b320782f505d499eb2656e4beeb6" category="paragraph">以下示例显示了一个 2+1 多主机设置，其中 SID 为 FC5 。</block>
+  <block id="608ffc0c69fcd322ae0112af21ce3c4d" category="paragraph">使用 SAP hdblcm 安装工具，在其中一个工作主机上运行以下命令开始安装。使用<block ref="9676c5ff8ed94e9d3ceba55f16dde62f" prefix=" " category="inline-code"></block>选项添加第二个工作空间(sapcc-hana TST-06)和备用主机(sapcc-hana TST-07)。</block>
+  <block id="26b17225b626fb9238849fd60eabdf60" category="paragraph">+</block>
+  <block id="fbb87f9a8e02229a1bda368258b0705e" category="paragraph">建议使用1000 MB/秒作为给定LUN的最大吞吐量。如果应用程序需要更多吞吐量、则应使用多个具有LUN条带化的LUN来提供所需的带宽。本指南第节提供了基于Linux LVM的SAP HANA示例<block ref="60502400ca116a44af7f5b80e6597e3d" category="inline-link-macro-rx"></block>。</block>
+  <block id="36edceb5680e706c0b74e162559db1bc" category="list-text">检查磁盘架配置是否正确，如中所述<block ref="063ad0b3701fa17c6bd6d1d2660fbbc9" category="inline-xref-macro-rx"></block>。</block>
+  <block id="6184bd9e1a3ce0ee5585d5645a62615e" category="list-text">使用 HANA 服务器的全球名称 (WWN) 创建启动器组 (igroup)，如链接：saphana-asa-fc-storage-controller-setup.html#initiator-groups 部分所述<block ref="a30a5bc4156d5efb64f9f758389889ed" category="inline-xref-macro-rx"></block> 。</block>
+  <block id="5b1acf5a0d4700aa212fae66acc8c9da" category="inline-link-macro">SAP HANA 单主机系统的 LUN 配置</block>
+  <block id="d8e1a4cd040958dd75d0dcc1425db696" category="inline-link-macro">SAP HANA 多主机系统的 LUN 配置</block>
+  <block id="e69ee3aa0eb8b1b2096b2771ea3fc087" category="list-text">创建 LUN 并将其映射到本节中描述的服务器<block ref="e3a600614f4b7487cf24a0603e392005" category="inline-link-macro-rx"></block>和<block ref="4616cfe5481a43cb57e5b708972ea0e6" category="inline-link-macro-rx"></block></block>
+  <block id="0ae91f411dd6c860f7014ffaf5042406" category="paragraph">每个NS224 NVMe磁盘架都通过每个控制器两个100GbE端口进行连接、如下图所示。磁盘会自动分配到 HA 对的两个控制器。</block>
+  <block id="1b33b8e2f9ffbbf84711ff33737c75b0" category="paragraph"><block ref="1b33b8e2f9ffbbf84711ff33737c75b0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2ecd8267df97e61a6026b9d97834abe5" category="admonition">该<block ref="3a8e4afa851609127d534b04e7d29c08" prefix=" " category="inline-code"></block>工具是NetApp Host Utilities的一部分、必须安装在每个SAP HANA主机上。有关详细信息、请参见第节<block ref="651d6af67f47799de3de7127400bd073" category="inline-link-macro-rx"></block></block>
+  <block id="8db99fa5fe9e83e6fc301d2677a74c9e" category="summary">本节介绍如何为多主机系统创建 LUN</block>
+  <block id="27c5bce99f61ca536a15f701623de97d" category="doc">存储控制器设置 - 多台主机</block>
+  <block id="d5395e37adfb8bd3cabb8db1bdb0abee" category="paragraph">本节介绍针对 SAP HANA 多主机系统的 NetApp 存储系统配置</block>
+  <block id="b28af8f8515ecce98f0a5be7515b2b61" category="section-title">SAP HANA 多主机系统的 LUN 配置</block>
+  <block id="ca896343d41b326aec5877cfd4d956dd" category="paragraph">Linux LVM 用于提高性能并解决 LUN 大小限制。</block>
+  <block id="5e6b40484940ec07f5b5ecf3e4918dfc" category="cell">逻辑卷 (LV)</block>
+  <block id="7cad490ec2fc5e1b8cbade09d487d514" category="cell">LV：FC5_data_mnt00001-vol</block>
+  <block id="5dac78388ae4efd75ca77c55d1e40f16" category="cell">/ha/data/FC5/mnt00001</block>
+  <block id="ca786d323f3125e9592380cb2710ae4f" category="cell">LV：FC5_log_mnt00001-vol</block>
+  <block id="2938b5a8a1427ee847a1ba04d213a8e7" category="cell">/ha/log/FC5/mnt00001</block>
+  <block id="8d22231776c0ac72d83e8cf974d77c65" category="cell">LV：FC5_data_mnt00002-vol</block>
+  <block id="31dad34440bb6733bc03eadd388195f9" category="cell">/ha/data/FC5/mnt00002</block>
+  <block id="7ee7f8e2c85175d00eefd856f485ae00" category="cell">LV：FC5_log_mnt00002-vol</block>
+  <block id="6d32edddb8a4b0a8c803f59c2cd3cdf1" category="cell">/ha/log/FC5/mnt00002</block>
+  <block id="44cc7dc291b1a462651371e51bb9fa0f" category="cell">外部 NFS 共享：FC5_shared</block>
+  <block id="cef7183e022592f117a580def3299e72" category="admonition">SAP HANA 多主机系统需要<block ref="b61595b5b7b716bd6b8bd21e4fa4a3bf" prefix=" " category="inline-code"></block>连接到系统所有主机的文件系统。通常，这是由 NFS 服务器提供的 NFS 共享。建议使用高可用性 NFS 服务器，例如 NetApp FAS 或 AFF 系统。另一种选择是使用 LINUX 主机的内置 NFS 服务器。</block>
+  <block id="5b10d0b1272d218e55f6473abcfbae9d" category="admonition">通过所述配置， <block ref="ea6f2eb226c57300be10268ea33e50e3" prefix=" " category="inline-code"></block>存储用户 FC5adm 默认主目录的目录位于每个 HANA 主机的本地磁盘上。在基于磁盘的复制灾难恢复设置中，NetApp 建议使用四个额外的 LUN 用于<block ref="ea6f2eb226c57300be10268ea33e50e3" prefix=" " category="inline-code"></block>文件系统，以便每个数据库主机在中央存储上都有其所有的文件系统。</block>
+  <block id="d4f54d18b3b1b7422185c0c71038ff15" category="section-title">创建 LUN 并将 LUN 映射到启动程序组</block>
+  <block id="b54a0f5023cc826b59cab28cc23f22cc" category="section-title">使用 CLI 创建 LUN 并将 LUN 映射到启动程序组</block>
+  <block id="2d39c77b49ea3785a21a4c7b0c611e44" category="paragraph">本节展示了使用 ONTAP 9 命令行为 2+1 SAP HANA 多主机系统配置示例，该系统采用 FC5 FC5，使用 LVM，每个 LVM 卷组有两个 LUN：</block>
+  <block id="92c63fc6d419a6e68a1eda236970ae6e" category="doc">存储控制器设置 - 单主机</block>
+  <block id="cf92b7cb5d4dd0e7883961b1bc9e7ab9" category="paragraph">本节介绍针对 SAP HANA 单主机系统的 NetApp 存储系统配置</block>
+  <block id="943a742a82131a53ada69df9430a1877" category="paragraph">Linux LVM 用于提高性能并解决 LUN 大小限制。在 SAP HANA 主机上，需要创建和挂载卷组和逻辑卷，如下表所示。</block>
+  <block id="f8f9e88eaa58d2028a8b1e060e5cf04d" category="cell">LV：FC5_data_mnt0000-vol</block>
+  <block id="9881d3533ceeed757c8d7282dda6f90b" category="cell">LUN：FC5_共享</block>
+  <block id="7a321dbd4f369e8af09025467271d695" category="cell">/has/shared/FC5</block>
+  <block id="8d6e9cd0b8b6b652aca6bfcc1f176030" category="admonition">通过所述配置， <block ref="ea6f2eb226c57300be10268ea33e50e3" prefix=" " category="inline-code"></block>存储用户 FC5adm 默认主目录的目录位于本地磁盘上。在基于磁盘的复制灾难恢复设置中，NetApp 建议为<block ref="ea6f2eb226c57300be10268ea33e50e3" prefix=" " category="inline-code"></block>目录，以便所有文件系统都位于中央存储上。</block>
+  <block id="82b8d9b122c7c89e4f44a1ccd0662a56" category="paragraph">本节展示了使用 ONTAP 9 命令行为 SAP HANA 单主机系统（SID FC5，使用 LVM 且每个 LVM 卷组有两个 LUN）配置的示例配置：</block>
+  <block id="e64f10d86a360e0a17a652e58d137379" category="paragraph">一个NVMe SSD (数据)最多支持2/5个SAP HANA主机、具体取决于所使用的特定NVMe磁盘。</block>
+  <block id="01e28818814a69c2a322eff972c6a765" category="paragraph"><block ref="01e28818814a69c2a322eff972c6a765" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c058e31339f9b75b8b08bca2f5112771" category="paragraph"><block ref="c058e31339f9b75b8b08bca2f5112771" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="9daa0c645681626b03516579cb284a60" category="summary">NetApp FAS 产品系列已通过认证，可在 TDI 项目中与 SAP HANA 结合使用。本指南提供了此平台上 SAP HANA 的最佳实践。</block>
+  <block id="ad544252784b5c91a46c4e9ab572f876" category="paragraph">NetApp FAS 产品系列已通过认证，可在 TDI 项目中与 SAP HANA 一起使用。本指南提供了适用于 FCP 的此平台上 SAP HANA 的最佳实践。</block>
+  <block id="31d002cdfe7209df35bb9d65445055a2" category="inline-image-macro">SAP HANA 规模调整流程</block>
+  <block id="941084cc96165a6251d2d0525380ba09" category="paragraph"><block ref="941084cc96165a6251d2d0525380ba09" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="baaf572c05259fefe566c996045c48ad" category="inline-image-macro">连接到存储高可用性 (HA) 对的八个 SAP HANA 主机</block>
+  <block id="3612456b2be01cea02c87ff2743acfd6" category="paragraph"><block ref="3612456b2be01cea02c87ff2743acfd6" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="75b367d30b8f115e897a8b5d6cb390cb" category="paragraph"><block ref="75b367d30b8f115e897a8b5d6cb390cb" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b3180bea7d5ead6f8b3034b9fbdc3d7e" category="paragraph"><block ref="b3180bea7d5ead6f8b3034b9fbdc3d7e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e9314f37e8fbf130df8ccdb73ea03122" category="summary">NetApp FAS 产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用。本指南提供了此平台上 SAP HANA 的最佳实践。</block>
+  <block id="ecc900dd19f5c7d49be2feaf09c11e58" category="paragraph">NetApp FAS 产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用。本指南提供了在此平台上使用 NFS 的 SAP HANA 的最佳实践。</block>
+  <block id="00f5bf4413a98fc8af35089eab0ae424" category="paragraph"><block ref="00f5bf4413a98fc8af35089eab0ae424" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="9c3e0c17f09b278cc6ad14ea10cda021" category="sidebar">《采用 FCP 的 NetApp ASA 系统上的 SAP HANA 配置指南》</block>
+  <block id="027add60276a1ee87099d7ae5bb5069e" category="sidebar">常规设置</block>
+  <block id="ddb55e4334b26446b18503774881a2e5" category="sidebar">单主机 LUN 配置</block>
+  <block id="526ffb7b57e2db6ab8a3f13077e8988c" category="sidebar">多主机 LUN 配置</block>
+  <block id="50759eefac4f0ffd82247ab6b82e8407" category="sidebar">配置多路径</block>
+  <block id="b12ba339120dcf2901d4eb899fd432f4" category="sidebar">多主机</block>
 </blocks>

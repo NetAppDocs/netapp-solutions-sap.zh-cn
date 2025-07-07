@@ -221,4 +221,4 @@ NetApp 进行了性能测试，以定义最佳值。下表列出了必须在 SAP
 
 下图总结了规模估算过程。
 
-image:saphana_fas_fc_image8.png["图中显示了输入/输出对话框或表示已写入内容"]
+image:saphana_fas_fc_image8a.png["SAP HANA 规模调整流程"]

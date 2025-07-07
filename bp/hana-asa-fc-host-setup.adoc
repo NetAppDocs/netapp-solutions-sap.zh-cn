@@ -1,0 +1,250 @@
+---
+sidebar: sidebar 
+permalink: bp/hana-asa-fc-host-setup.html 
+keywords: multipathing, fcp, hba, configure 
+summary: 在设置主机之前，必须从 NetApp 支持站点下载 NetApp SAN 主机实用程序，并将其安装在 HANA 服务器上。主机实用程序文档提供了有关根据所使用的 FCP HBA 而必须安装的其他软件的信息。 
+---
+= 主机设置
+:allow-uri-read: 
+
+
+
+
+== 主机设置
+
+[role="lead"]
+在设置主机之前，必须从下载 NetApp SAN 主机实用程序 http://mysupport.netapp.com/["NetApp 支持"^] 站点和安装在 HANA 服务器上。主机实用程序文档提供了有关根据所使用的 FCP HBA 而必须安装的其他软件的信息。
+
+文档还包含有关特定于所用 Linux 版本的多路径配置的信息。本文档介绍了 SLES 12 SP1 或更高版本以及 RHEL 7 所需的配置步骤。2 或更高版本，如中所述 https://library.netapp.com/ecm/ecm_download_file/ECMLP2547958["《 Linux Host Utilities 7.1 安装和设置指南》"^]。
+
+
+
+=== 配置多路径
+
+
+NOTE: 必须在 SAP HANA 多主机配置中的所有辅助主机和备用主机上执行步骤 1 到 6 。
+
+要配置多路径，请完成以下步骤：
+
+. 在每个服务器上运行 Linux `rescan-scsi-bus.sh -a` 命令以发现新的 LUN 。
+. 运行 `sanlun lun show`命令并验证所有必需的 LUN 是否可见。以下示例显示了 `sanlun lun show`具有两个数据 LUN 和两个日志 LUN 的 2+1 多主机 HANA 系统的命令输出。输出显示 LUN 和相应的设备文件，例如 LUN  `FC5_data_mnt00001`和设备文件 `/dev/sdag`每个 LUN 都有八条从主机到存储控制器的 FC 路径。
++
+....
+sapcc-hana-tst:~ # sanlun lun show
+controller(7mode/E-Series)/                                  device          host                  lun
+vserver(cDOT/FlashRay)        lun-pathname                   filename        adapter    protocol   size    product
+---------------------------------------------------------------------------------------------------------------
+svm1                          FC5_log2_mnt00002              /dev/sdbb       host21     FCP        500g    cDOT
+svm1                          FC5_log_mnt00002               /dev/sdba       host21     FCP        500g    cDOT
+svm1                          FC5_log2_mnt00001              /dev/sdaz       host21     FCP        500g    cDOT
+svm1                          FC5_log_mnt00001               /dev/sday       host21     FCP        500g    cDOT
+svm1                          FC5_data2_mnt00002             /dev/sdax       host21     FCP        1t      cDOT
+svm1                          FC5_data_mnt00002              /dev/sdaw       host21     FCP        1t      cDOT
+svm1                          FC5_data2_mnt00001             /dev/sdav       host21     FCP        1t      cDOT
+svm1                          FC5_data_mnt00001              /dev/sdau       host21     FCP        1t      cDOT
+svm1                          FC5_log2_mnt00002              /dev/sdat       host21     FCP        500g    cDOT
+svm1                          FC5_log_mnt00002               /dev/sdas       host21     FCP        500g    cDOT
+svm1                          FC5_log2_mnt00001              /dev/sdar       host21     FCP        500g    cDOT
+svm1                          FC5_log_mnt00001               /dev/sdaq       host21     FCP        500g    cDOT
+svm1                          FC5_data2_mnt00002             /dev/sdap       host21     FCP        1t      cDOT
+svm1                          FC5_data_mnt00002              /dev/sdao       host21     FCP        1t      cDOT
+svm1                          FC5_data2_mnt00001             /dev/sdan       host21     FCP        1t      cDOT
+svm1                          FC5_data_mnt00001              /dev/sdam       host21     FCP        1t      cDOT
+svm1                          FC5_log2_mnt00002              /dev/sdal       host20     FCP        500g    cDOT
+svm1                          FC5_log_mnt00002               /dev/sdak       host20     FCP        500g    cDOT
+svm1                          FC5_log2_mnt00001              /dev/sdaj       host20     FCP        500g    cDOT
+svm1                          FC5_log_mnt00001               /dev/sdai       host20     FCP        500g    cDOT
+svm1                          FC5_data2_mnt00002             /dev/sdah       host20     FCP        1t      cDOT
+svm1                          FC5_data_mnt00002              /dev/sdag       host20     FCP        1t      cDOT
+svm1                          FC5_data2_mnt00001             /dev/sdaf       host20     FCP        1t      cDOT
+svm1                          FC5_data_mnt00001              /dev/sdae       host20     FCP        1t      cDOT
+svm1                          FC5_log2_mnt00002              /dev/sdad       host20     FCP        500g    cDOT
+svm1                          FC5_log_mnt00002               /dev/sdac       host20     FCP        500g    cDOT
+svm1                          FC5_log2_mnt00001              /dev/sdab       host20     FCP        500g    cDOT
+svm1                          FC5_log_mnt00001               /dev/sdaa       host20     FCP        500g    cDOT
+svm1                          FC5_data2_mnt00002             /dev/sdz        host20     FCP        1t      cDOT
+svm1                          FC5_data_mnt00002              /dev/sdy        host20     FCP        1t      cDOT
+svm1                          FC5_data2_mnt00001             /dev/sdx        host20     FCP        1t      cDOT
+svm1                          FC5_data_mnt00001              /dev/sdw        host20     FCP        1t      cDOT
+
+....
+. 运行 `multipath -r`和 `multipath -ll`命令获取设备文件名的全球标识符 (WWID)。
++
+
+NOTE: 在此示例中，有 8 个 LUN。
+
++
+....
+sapcc-hana-tst:~ # multipath -r
+sapcc-hana-tst:~ # multipath -ll
+3600a098038314e63492b59326b4b786d dm-7 NETAPP,LUN C-Mode
+size=1.0T features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
+`-+- policy='service-time 0' prio=50 status=active
+  |- 20:0:4:2 sdaf 65:240 active ready running
+  |- 20:0:5:2 sdx  65:112 active ready running
+  |- 21:0:4:2 sdav 66:240 active ready running
+  `- 21:0:6:2 sdan 66:112 active ready running
+3600a098038314e63492b59326b4b786e dm-9 NETAPP,LUN C-Mode
+size=1.0T features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
+`-+- policy='service-time 0' prio=50 status=active
+  |- 20:0:4:4 sdah 66:16  active ready running
+  |- 20:0:5:4 sdz  65:144 active ready running
+  |- 21:0:4:4 sdax 67:16  active ready running
+  `- 21:0:6:4 sdap 66:144 active ready running
+3600a098038314e63492b59326b4b786f dm-11 NETAPP,LUN C-Mode
+size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
+`-+- policy='service-time 0' prio=50 status=active
+  |- 20:0:4:6 sdaj 66:48  active ready running
+  |- 20:0:5:6 sdab 65:176 active ready running
+  |- 21:0:4:6 sdaz 67:48  active ready running
+  `- 21:0:6:6 sdar 66:176 active ready running
+3600a098038314e63492b59326b4b7870 dm-13 NETAPP,LUN C-Mode
+size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
+`-+- policy='service-time 0' prio=50 status=active
+  |- 20:0:4:8 sdal 66:80  active ready running
+  |- 20:0:5:8 sdad 65:208 active ready running
+  |- 21:0:4:8 sdbb 67:80  active ready running
+  `- 21:0:6:8 sdat 66:208 active ready running
+3600a098038314e63532459326d495a64 dm-6 NETAPP,LUN C-Mode
+size=1.0T features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
+`-+- policy='service-time 0' prio=50 status=active
+  |- 20:0:4:1 sdae 65:224 active ready running
+  |- 20:0:5:1 sdw  65:96  active ready running
+  |- 21:0:4:1 sdau 66:224 active ready running
+  `- 21:0:6:1 sdam 66:96  active ready running
+3600a098038314e63532459326d495a65 dm-8 NETAPP,LUN C-Mode
+size=1.0T features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
+`-+- policy='service-time 0' prio=50 status=active
+  |- 20:0:4:3 sdag 66:0   active ready running
+  |- 20:0:5:3 sdy  65:128 active ready running
+  |- 21:0:4:3 sdaw 67:0   active ready running
+  `- 21:0:6:3 sdao 66:128 active ready running
+3600a098038314e63532459326d495a66 dm-10 NETAPP,LUN C-Mode
+size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
+`-+- policy='service-time 0' prio=50 status=active
+  |- 20:0:4:5 sdai 66:32  active ready running
+  |- 20:0:5:5 sdaa 65:160 active ready running
+  |- 21:0:4:5 sday 67:32  active ready running
+  `- 21:0:6:5 sdaq 66:160 active ready running
+3600a098038314e63532459326d495a67 dm-12 NETAPP,LUN C-Mode
+size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
+`-+- policy='service-time 0' prio=50 status=active
+  |- 20:0:4:7 sdak 66:64  active ready running
+  |- 20:0:5:7 sdac 65:192 active ready running
+  |- 21:0:4:7 sdba 67:64  active ready running
+  `- 21:0:6:7 sdas 66:192 active ready running
+
+....
+. 编辑 ` /etc/multipath.conf` 文件并添加 WWID 和别名。
++
+
+NOTE: 示例输出显示了 ` /etc/multipath.conf` 文件的内容，其中包括 2+1 多主机系统中四个 LUN 的别名。如果没有可用的 multipath.conf 文件，则可以运行以下命令创建一个： `multipath -T > /etc/multipath.conf` 。
+
++
+....
+sapcc-hana-tst:/ # cat /etc/multipath.conf
+multipaths {
+                multipath {
+                wwid    3600a098038314e63492b59326b4b786d
+                alias   svm1-FC5_data2_mnt00001
+        }
+        multipath {
+                wwid    3600a098038314e63492b59326b4b786e
+                alias   svm1-FC5_data2_mnt00002
+        }
+        multipath {
+                wwid    3600a098038314e63532459326d495a64
+                alias   svm1-FC5_data_mnt00001
+        }
+        multipath {
+                wwid    3600a098038314e63532459326d495a65
+                alias   svm1-FC5_data_mnt00002
+        }
+        multipath {
+                wwid    3600a098038314e63492b59326b4b786f
+                alias   svm1-FC5_log2_mnt00001
+        }
+        multipath {
+                wwid    3600a098038314e63492b59326b4b7870
+                alias   svm1-FC5_log2_mnt00002
+        }
+        multipath {
+                wwid    3600a098038314e63532459326d495a66
+                alias   svm1-FC5_log_mnt00001
+        }
+        multipath {
+                wwid    3600a098038314e63532459326d495a67
+                alias   svm1-FC5_log_mnt00002
+        }
+
+
+}
+....
+. 运行 `multipath -r` 命令重新加载设备映射。
+. 运行 `multipath -ll` 命令列出所有 LUN ，别名以及活动和备用路径，以验证配置。
++
+
+NOTE: 以下示例输出显示了具有两个数据和两个日志 LUN 的 2+1 多主机 HANA 系统的输出。
+
++
+....
+sapcc-hana-tst:~ # multipath -ll
+hsvm1-FC5_data2_mnt00001 (3600a098038314e63492b59326b4b786d) dm-7 NETAPP,LUN C-Mode
+size=1.0T features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
+`-+- policy='service-time 0' prio=50 status=active
+  |- 20:0:4:2 sdaf 65:240 active ready running
+  |- 20:0:5:2 sdx  65:112 active ready running
+  |- 21:0:4:2 sdav 66:240 active ready running
+  `- 21:0:6:2 sdan 66:112 active ready running
+svm1-FC5_data2_mnt00002 (3600a098038314e63492b59326b4b786e) dm-9 NETAPP,LUN C-Mode
+size=1.0T features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
+`-+- policy='service-time 0' prio=50 status=active
+  |- 20:0:4:4 sdah 66:16  active ready running
+  |- 20:0:5:4 sdz  65:144 active ready running
+  |- 21:0:4:4 sdax 67:16  active ready running
+  `- 21:0:6:4 sdap 66:144 active ready running
+svm1-FC5_data_mnt00001 (3600a098038314e63532459326d495a64) dm-6 NETAPP,LUN C-Mode
+size=1.0T features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
+`-+- policy='service-time 0' prio=50 status=active
+  |- 20:0:4:1 sdae 65:224 active ready running
+  |- 20:0:5:1 sdw  65:96  active ready running
+  |- 21:0:4:1 sdau 66:224 active ready running
+  `- 21:0:6:1 sdam 66:96  active ready running
+svm1-FC5_data_mnt00002 (3600a098038314e63532459326d495a65) dm-8 NETAPP,LUN C-Mode
+size=1.0T features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
+`-+- policy='service-time 0' prio=50 status=active
+  |- 20:0:4:3 sdag 66:0   active ready running
+  |- 20:0:5:3 sdy  65:128 active ready running
+  |- 21:0:4:3 sdaw 67:0   active ready running
+  `- 21:0:6:3 sdao 66:128 active ready running
+svm1-FC5_log2_mnt00001 (3600a098038314e63492b59326b4b786f) dm-11 NETAPP,LUN C-Mode
+size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
+`-+- policy='service-time 0' prio=50 status=active
+  |- 20:0:4:6 sdaj 66:48  active ready running
+  |- 20:0:5:6 sdab 65:176 active ready running
+  |- 21:0:4:6 sdaz 67:48  active ready running
+  `- 21:0:6:6 sdar 66:176 active ready running
+svm1-FC5_log2_mnt00002 (3600a098038314e63492b59326b4b7870) dm-13 NETAPP,LUN C-Mode
+size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
+`-+- policy='service-time 0' prio=50 status=active
+  |- 20:0:4:8 sdal 66:80  active ready running
+  |- 20:0:5:8 sdad 65:208 active ready running
+  |- 21:0:4:8 sdbb 67:80  active ready running
+  `- 21:0:6:8 sdat 66:208 active ready running
+svm1-FC5_log_mnt00001 (3600a098038314e63532459326d495a66) dm-10 NETAPP,LUN C-Mode
+size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
+`-+- policy='service-time 0' prio=50 status=active
+  |- 20:0:4:5 sdai 66:32  active ready running
+  |- 20:0:5:5 sdaa 65:160 active ready running
+  |- 21:0:4:5 sday 67:32  active ready running
+  `- 21:0:6:5 sdaq 66:160 active ready running
+svm1-FC5_log_mnt00002 (3600a098038314e63532459326d495a67) dm-12 NETAPP,LUN C-Mode
+size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
+`-+- policy='service-time 0' prio=50 status=active
+  |- 20:0:4:7 sdak 66:64  active ready running
+  |- 20:0:5:7 sdac 65:192 active ready running
+  |- 21:0:4:7 sdba 67:64  active ready running
+  `- 21:0:6:7 sdas 66:192 active ready running
+
+....
+

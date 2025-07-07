@@ -66,6 +66,48 @@ entries:
     url: "/bp/hana-aff-nfs-additional-info.html"
   - title: 更新历史记录
     url: "/bp/hana-aff-nfs-update-history.html"
+- title: "《采用 FCP 的 NetApp ASA 系统上的 SAP HANA 配置指南》"
+  entries:
+  - title: 简介
+    url: "/bp/hana-asa-fc-introduction.html"
+  - title: 架构
+    url: "/bp/hana-asa-fc-architecture.html"
+  - title: 存储规模估算
+    url: "/bp/hana-asa-fc-storage-sizing.html"
+  - title: 基础架构设置和配置
+    entries:
+    - title: 基础架构设置和配置概述
+      url: "/bp/hana-asa-fc-infra-setup-config-overview.html"
+    - title: SAN 网络结构设置
+      url: "/bp/hana-asa-fc-san-fabric-setup.html"
+    - title: 时间同步
+      url: "/bp/hana-asa-fc-time-synchronization.html"
+    - title: 存储控制器设置
+      entries:
+      - title: 常规设置
+        url: "/bp/hana-asa-fc-storage-controller-setup.html"
+      - title: 单主机 LUN 配置
+        url: "/bp/hana-asa-fc-storage-controller-setup_single_host.html"
+      - title: 多主机 LUN 配置
+        url: "/bp/hana-asa-fc-storage-controller-setup_multiple_hosts.html"
+    - title: SAP HANA 存储连接器 API
+      url: "/bp/hana-asa-fc-storage-connector-api.html"
+    - title: 主机设置
+      entries:
+      - title: 配置多路径
+        url: "/bp/hana-asa-fc-host-setup.html"
+      - title: 单个主机
+        url: "/bp/hana-asa-fc-host-setup_single.html"
+      - title: 多主机
+        url: "/bp/hana-asa-fc-host-setup_multi.html"
+    - title: 适用于 SAP HANA 的 I/O 堆栈配置
+      url: "/bp/hana-asa-fc-io-stack-configuration.html"
+    - title: SAP HANA 软件安装
+      url: "/bp/hana-asa-fc-software-install.html"
+  - title: 从何处查找追加信息
+    url: "/bp/hana-asa-fc-additional-info.html"
+  - title: 更新历史记录
+    url: "/bp/hana-asa-fc-update-history.html"
 - title: "《采用 NFS 的 NetApp FAS 系统上的 SAP HANA 配置指南》"
   entries:
   - title: 简介

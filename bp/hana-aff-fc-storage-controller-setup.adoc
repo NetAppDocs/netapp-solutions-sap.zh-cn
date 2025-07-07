@@ -423,10 +423,6 @@ vol create -volume FC5_log2_mnt00001  -aggregate aggr1_1 -size 280g -snapshot-po
 vol create -volume FC5_data2_mnt00002  -aggregate aggr2_1 -size 1200g -snapshot-policy none -foreground true -encrypt false -space-guarantee none
 vol create -volume FC5_shared -aggregate aggr1_1 -size 512g -state online -policy default -snapshot-policy none -junction-path /FC5_shared -encrypt false  -space-guarantee none
 ....
-+
-
-NOTE: 2024年8月之后发布的ASA系统不需要执行此步骤、因为它会在_LUN cre同时 自动完成
-
 . 创建所有 LUN 。
 +
 ....
@@ -439,10 +435,6 @@ lun create -path /vol/FC5_log2_mnt00001/FC5_log2_mnt00001 -size 260g -ostype lin
 lun create -path /vol/FC5_log_mnt00002/FC5_log_mnt00002 -size 260g -ostype linux -space-reserve disabled -space-allocation disabled -class regular
 lun create -path /vol/FC5_log2_mnt00002/FC5_log2_mnt00002 -size 260g -ostype linux -space-reserve disabled -space-allocation disabled -class regular
 ....
-+
-
-NOTE: 请仅提供LUN名称作为2024年8月之后启动的ASA系统的路径。这也适用于下面的_LUN map_命令。此外、选项--space-re储备_和--space-分配_不可用。
-
 . 为属于系统 FC5 的所有服务器创建启动程序组。
 +
 ....

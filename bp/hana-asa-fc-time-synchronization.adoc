@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: bp/hana-asa-fc-time-synchronization.html 
+keywords: time, storage, database host 
+summary: 您必须同步存储控制器与 SAP HANA 数据库主机之间的时间。为此，请为所有存储控制器和所有 SAP HANA 主机设置相同的时间服务器。 
+---
+= 时间同步
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须同步存储控制器与 SAP HANA 数据库主机之间的时间。为此，请为所有存储控制器和所有 SAP HANA 主机设置相同的时间服务器。

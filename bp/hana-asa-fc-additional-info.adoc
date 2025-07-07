@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
-permalink: bp/hana-fas-nfs-additional-info.html 
-keywords: additional, information, fas, nfs, sap, hana 
-summary: 要了解有关本文档中所述信息的更多信息，请参见以下文档和 / 或网站。 
+permalink: bp/hana-asa-fc-additional-info.html 
+keywords:  
+summary:  
 ---
 = 从何处查找追加信息
 :hardbreaks:
@@ -18,8 +18,9 @@ summary: 要了解有关本文档中所述信息的更多信息，请参见以�
 
 * link:../index.html["SAP HANA 软件解决方案"]
 * link:../backup/hana-dr-sr-pdf-link.html["TR-4646 ：《使用存储复制实现 SAP HANA 灾难恢复》"]
+* link:../backup/hana-sc-vmware-smas-scope.html["借助SnapCenter、SnapMirror Active Sync和VMware城域存储集群实现SAP HANA数据保护和高可用性"^]
 * link:../backup/hana-br-scs-overview.html["TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》"]
-* link:../lifecycle/sc-copy-clone-introduction.html["TR-4667：《使用SnapCenter SAP HANA插件自动执行SAP系统副本》"]
+* link:../lifecycle/sc-copy-clone-introduction.html["TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作"]
 * NetApp 文档中心
 +
 https://www.netapp.com/support-and-training/documentation/["https://www.netapp.com/support-and-training/documentation/"^]

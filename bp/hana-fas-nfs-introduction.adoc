@@ -2,16 +2,16 @@
 sidebar: sidebar 
 permalink: bp/hana-fas-nfs-introduction.html 
 keywords: sap, hana, fas, systems, nfs, configuration, guide 
-summary: NetApp FAS 产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用。经过认证的企业级存储系统采用 NetApp ONTAP 软件的特征。 
+summary: NetApp FAS 产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用。本指南提供了此平台上 SAP HANA 的最佳实践。 
 ---
 = 《采用NFS的NetApp FAS系统上的SAP HANA配置指南》
 :allow-uri-read: 
 
 
 [role="lead"]
-NetApp FAS 产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用。经过认证的企业级存储系统采用 NetApp ONTAP 软件的特征。
+NetApp FAS 产品系列已通过认证，可在定制数据中心集成（ TDI ）项目中与 SAP HANA 结合使用。本指南提供了在此平台上使用 NFS 的 SAP HANA 的最佳实践。
 
-Marco schön、NetApp
+NetApp 公司 Marco Schoen
 
 此认证目前仅适用于以下型号：
 
@@ -28,9 +28,10 @@ NOTE: 要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采�
 
 有关使用 FCP 的 NetApp FAS 系统以及使用 NFS 或 FC 的 AFF 系统的配置指南，请访问以下链接：
 
-* link:hana-fas-fc-introduction.html["基于采用光纤通道协议的 NetApp FAS 系统的 SAP HANA"^]
+* link:hana-fas-fc-introduction.html["基于采用 FCP 的 NetApp FAS 系统的 SAP HANA"^]
 * link:hana-aff-nfs-introduction.html["基于采用 NFS 的 NetApp AFF 系统的 SAP HANA"^]
-* link:hana-aff-fc-introduction.html["基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA"^]
+* link:hana-aff-fc-introduction.html["基于采用 FCP 的 NetApp AFF 系统的 SAP HANA"^]
+* link:hana-asa-fc-introduction.html["基于采用 FCP 的 NetApp ASA 系统的 SAP HANA"^]
 
 
 下表显示了 NFS 版本， NFS 锁定和所需隔离实施的受支持组合，具体取决于 SAP HANA 数据库配置。
