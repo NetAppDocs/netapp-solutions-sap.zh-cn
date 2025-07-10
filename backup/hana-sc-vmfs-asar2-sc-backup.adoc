@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-sc-vmfs-asar2-sc-backup.html 
+keywords: SAP HANA, VMware, SnapCenter, backup and recovery 
+summary:  
+---
+= 备份操作
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+对于具有 VMFS 的 VMware 来说没有什么特别之处。
+
+image:sc-hana-asrr2-vmfs-image18.png["图显示了所讨论的内容"]
+
+image:sc-hana-asrr2-vmfs-image19.png["图显示了所讨论的内容"]
+
+SnapCenter创建一个一致性组 (CG)，并将存储单元 hana++_++data++_++VFS 添加到 CG。快照在 CG 级别创建。
+
+image:sc-hana-asrr2-vmfs-image20.png["图显示了所讨论的内容"]
+
+image:sc-hana-asrr2-vmfs-image21.png["图显示了所讨论的内容"]
+
+image:sc-hana-asrr2-vmfs-image22.png["图显示了所讨论的内容"]

@@ -20,6 +20,8 @@ indexpage:
     links:
     - title: 借助SnapCenter、SnapMirror Active Sync和VMware城域存储集群实现SAP HANA数据保护和高可用性
       url: backup/hana-sc-vmware-smas-scope.html
+    - title: 使用 VMware VMFS 和NetApp ASA系统的SnapCenter进行 SAP HANA 数据保护
+      url: backup/hana-sc-vmfs-asar2-scope.html
     - title: 适用于SAP HANA的BlueXP备份和恢复—将Cloud Object存储用作备份目标
       url: backup/hana-hycl-backup-overview.html
     - title: 使用存储复制实现 SAP HANA 灾难恢复

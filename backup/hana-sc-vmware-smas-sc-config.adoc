@@ -40,7 +40,7 @@ SAP HANA多主机系统必须使用中央HANA插件进行配置、因此默认�
 
 
 
-=== 适用于VMware vSphere的SnapCenter插件
+=== SnapCenter for VMware vSphere 插件
 
 适用于VMware vSphere的SnapCenter插件必须部署在VMware环境中。
 

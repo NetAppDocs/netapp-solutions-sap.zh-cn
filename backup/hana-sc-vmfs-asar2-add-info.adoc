@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-sc-vmfs-asar2-add-info.html 
+keywords: SAP HANA, VMware, SnapCenter, backup and recovery 
+summary:  
+---
+= 其他信息和版本历史记录
+:allow-uri-read: 
+
+
+HANA 最佳实践：
+
+* https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-asa-fc-introduction.html["基于采用光纤通道协议的 NetApp ASA 系统的 SAP HANA"](英文)
+
+
+SnapCenter ：
+
+* https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-br-scs-overview.html["TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》"]
+* https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-sr-scs-system-replication-overview.html["TR-4719 ： SAP HANA 系统复制—使用 SnapCenter 进行备份和恢复"]
+* https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html["TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作"]
+* https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-sc-vmware-smas-scope.html["通过 SnapCenter™ SnapMirror主动同步和 VMware Metro Storage Cluster 实现 SAP HANA 数据保护和高可用性"]
+* https://docs.netapp.com/us-en/snapcenter/index.html["SnapCenter 软件文档"]
+
+
+版本历史记录：
+
+[cols="25%,25%,50%"]
+|===
+| version | Date | 注释 
+
+
+| 版本 1.0 | 2025年7月 | 初始版本 
+|===

@@ -90,6 +90,26 @@ entries:
     url: "/backup/hana-sc-vmware-smas-failover-scenarios.html"
   - title: 其他信息和版本历史记录
     url: "/backup/hana-sc-vmware-smas-additional-info.html"
+- title: 使用 VMware VMFS 和NetApp ASA系统的SnapCenter进行 SAP HANA 数据保护
+  entries:
+  - title: 本文档的范围
+    url: "/backup/hana-sc-vmfs-asar2-scope.html"
+  - title: 本文档使用的实验室设置
+    url: "/backup/hana-sc-vmfs-asar2-lab-setup.html"
+  - title: HANA系统配置和安装
+    url: "/backup/hana-sc-vmfs-asar2-hana-prov.html"
+  - title: HANA 配置
+    url: "/backup/hana-sc-vmfs-asar2-hana-config.html"
+  - title: SnapCenter 配置
+    url: "/backup/hana-sc-vmfs-asar2-sc-config.html"
+  - title: SnapCenter 备份操作
+    url: "/backup/hana-sc-vmfs-asar2-sc-backup.html"
+  - title: SnapCenter还原和恢复操作
+    url: "/backup/hana-sc-vmfs-asar2-sc-restore.html"
+  - title: SAP 系统更新
+    url: "/backup/hana-sc-vmfs-asar2sap-refresh.html"
+  - title: 附加信息和版本历史记录
+    url: "/backup/hana-sc-vmfs-asar2-add-info.html"
 - title: 适用于SAP HANA的BlueXP备份和恢复—将Cloud Object存储用作备份目标
   entries:
   - title: 适用于SAP HANA的BlueXP备份和恢复—概述
