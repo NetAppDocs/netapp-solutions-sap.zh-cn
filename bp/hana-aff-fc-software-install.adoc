@@ -37,33 +37,7 @@ SAP HANA 软件安装不需要为单主机系统做任何其他准备。
 
 . 添加数据分区和日志分区的 WWID 。WWID 必须与 ` /etc/multipath.conf` 文件中配置的别名匹配。
 +
-以下输出显示了 2+1 多主机设置示例，其中系统标识符（ SID ）为 SS3 。
-
-+
-....
-stlrx300s8-6:~ # cat /hana/shared/global.ini
-[communication]
-listeninterface = .global
-[persistence]
-basepath_datavolumes = /hana/data/SS3
-basepath_logvolumes = /hana/log/SS3
-[storage]
-ha_provider = hdb_ha.fcClient
-partition_*_*__prtype = 5
-partition_*_data__mountoptions = -o relatime,inode64
-partition_*_log__mountoptions = -o relatime,inode64,nobarrier
-partition_1_data__wwid = hana-SS3_data_mnt00001
-partition_1_log__wwid = hana-SS3_log_mnt00001
-partition_2_data__wwid = hana-SS3_data_mnt00002
-partition_2_log__wwid = hana-SS3_log_mnt00002
-[system_information]
-usage = custom
-[trace]
-ha_fcclient = info
-stlrx300s8-6:~ #
-....
-+
-如果使用的是 Linux LVM ，则所需的配置会有所不同。以下示例显示了一个 2+1 多主机设置，其中 SID 为 FC5 。
+以下输出显示了使用 SID=FC5 的 LVM 的 2+1 多主机设置的示例。
 
 +
 ....
@@ -83,8 +57,10 @@ partition_1_log__lvmname = FC5_log_mnt00001-vol
 partition_2_data__lvmname = FC5_data_mnt00002-vol
 partition_2_log__lvmname = FC5_log_mnt00002-vol
 sapcc-hana-tst-03:/hana/shared #
-Using the SAP hdblcm installation tool, start the installation by running the following command at one of the worker hosts. Use the `addhosts` option to add the second worker (sapcc-hana-tst-06) and the standby host (sapcc-hana-tst-07).
 ....
++
+使用 SAP hdblcm 安装工具，在其中一个工作主机上运行以下命令开始安装。使用 `addhosts`选项添加第二个工作空间(sapcc-hana TST-06)和备用主机(sapcc-hana TST-07)。
+
 +
 
 NOTE: 命令行界面选项中包含了用于存储准备文件的 `storage_cfg`目录 `global.ini`(`--storage_cfg=/hana/shared`)。

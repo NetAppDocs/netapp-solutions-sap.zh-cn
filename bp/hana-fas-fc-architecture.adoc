@@ -94,4 +94,4 @@ image:saphana_fas_fc_image6.png["图中显示了输入/输出对话框或表示�
 
 下图简要展示了解决方案。每个站点上的存储集群均可提供本地高可用性，并用于生产工作负载。每个站点上的数据会同步复制到另一位置，并可在发生灾难故障转移时使用。
 
-image:saphana_fas_fc_image7.png["图中显示了输入/输出对话框或表示已写入内容"]
+image:saphana_fas_image8.png["NetApp MetroCluster IP"]

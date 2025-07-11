@@ -19,10 +19,20 @@ entries:
     - title: 时间同步
       url: "/bp/hana-aff-fc-time-synchronization.html"
     - title: 存储控制器设置
+      entries:
+      - title: 单主机 LUN 配置
+        url: "/bp/hana-aff-fc-storage-controller-setup_single_host.html"
+      - title: 多主机 LUN 配置
+        url: "/bp/hana-aff-fc-storage-controller-setup_multiple_hosts.html"
       url: "/bp/hana-aff-fc-storage-controller-setup.html"
     - title: SAP HANA 存储连接器 API
       url: "/bp/hana-aff-fc-storage-connector-api.html"
     - title: 主机设置
+      entries:
+      - title: 单个主机
+        url: "/bp/hana-aff-fc-host-setup_single.html"
+      - title: 多台主机
+        url: "/bp/hana-aff-fc-host-setup_multi.html"
       url: "/bp/hana-aff-fc-host-setup.html"
     - title: 适用于 SAP HANA 的 I/O 堆栈配置
       url: "/bp/hana-aff-fc-io-stack-configuration.html"
@@ -84,22 +94,20 @@ entries:
       url: "/bp/hana-asa-fc-time-synchronization.html"
     - title: 存储控制器设置
       entries:
-      - title: 常规设置
-        url: "/bp/hana-asa-fc-storage-controller-setup.html"
       - title: 单主机 LUN 配置
         url: "/bp/hana-asa-fc-storage-controller-setup_single_host.html"
       - title: 多主机 LUN 配置
         url: "/bp/hana-asa-fc-storage-controller-setup_multiple_hosts.html"
+      url: "/bp/hana-asa-fc-storage-controller-setup.html"
     - title: SAP HANA 存储连接器 API
       url: "/bp/hana-asa-fc-storage-connector-api.html"
     - title: 主机设置
       entries:
-      - title: 配置多路径
-        url: "/bp/hana-asa-fc-host-setup.html"
       - title: 单个主机
         url: "/bp/hana-asa-fc-host-setup_single.html"
-      - title: 多主机
+      - title: 多台主机
         url: "/bp/hana-asa-fc-host-setup_multi.html"
+      url: "/bp/hana-asa-fc-host-setup.html"
     - title: 适用于 SAP HANA 的 I/O 堆栈配置
       url: "/bp/hana-asa-fc-io-stack-configuration.html"
     - title: SAP HANA 软件安装

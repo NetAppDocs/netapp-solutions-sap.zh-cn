@@ -87,7 +87,7 @@ SAP HANA 灾难恢复（ DR ）可以通过 SAP HANA 系统复制在数据库层
 
 这两种复制方法均允许您执行灾难恢复工作流测试，而不会影响 RPO 和 RTO 。FlexClone 卷在存储上创建并连接到灾难恢复测试服务器。
 
-image:saphana_aff_nfs_image7.png["图中显示了输入/输出对话框或表示已写入内容"]
+image:saphana_aff_nfs_image7b.png["NetApp SnapMirror"]
 
 同步复制提供 StrictSync 模式。如果由于任何原因未完成对二级存储的写入，则应用程序 I/O 将失败，从而确保主存储系统和二级存储系统完全相同。只有在 SnapMirror 关系恢复为 InSync 状态后，主系统的应用程序 I/O 才会恢复。如果主存储发生故障，则在故障转移后可以在二级存储上恢复应用程序 I/O ，而不会丢失数据。在 StrictSync 模式下， RPO 始终为零。
 
@@ -97,4 +97,4 @@ image:saphana_aff_nfs_image7.png["图中显示了输入/输出对话框或表示
 
 下图简要展示了解决方案。每个站点上的存储集群可提供本地高可用性，并用于生产工作负载。每个站点的数据会同步复制到另一位置，并可在发生灾难故障转移时使用。
 
-image:saphana_aff_nfs_image8.png["图中显示了输入/输出对话框或表示已写入内容"]
+image:saphana_aff_image7a.png["NetApp MetroCluster IP"]

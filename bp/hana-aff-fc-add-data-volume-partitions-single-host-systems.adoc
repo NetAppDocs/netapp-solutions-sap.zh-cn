@@ -76,11 +76,11 @@ persistence_datavolume_partition_multipath = true
 
 要配置主机，请完成以下步骤：
 
-. 为其他 LUN 配置多路径，如第 0 章所述。
+. 为附加 LUN 配置多路径，如章节所述link:hana-aff-fc-host-setup.html["主机设置"] 。
 . 在属于 HANA 系统的每个附加 LUN 上创建 XFS 文件系统：
 +
 ....
-stlrx300s8-6:/ # mkfs.xfs /dev/mapper/hana-SS3_data2_mnt00001
+stlrx300s8-6:/ # mkfs.xfs /dev/mapper/hana-FC5_data2_mnt00001
 ....
 . 将其他文件系统添加到 ` /etc/fstab` 配置文件中。
 +
@@ -90,16 +90,16 @@ NOTE: 必须使用 `relatime` 和 `inode64` 挂载选项挂载数据和日志 LU
 +
 ....
 stlrx300s8-6:/ # cat /etc/fstab
-/dev/mapper/hana-SS3_shared /hana/shared xfs defaults 0 0
-/dev/mapper/hana-SS3_log_mnt00001 /hana/log/SS3/mnt00001 xfs relatime,inode64 0 0
-/dev/mapper/hana-SS3_data_mnt00001 /hana/data/SS3/mnt00001 xfs relatime,inode64 0 0
-/dev/mapper/hana-SS3_data2_mnt00001 /hana/data2/SS3/mnt00001 xfs relatime,inode64 0 0
+/dev/mapper/hana-FC5_shared /hana/shared xfs defaults 0 0
+/dev/mapper/hana-FC5_log_mnt00001 /hana/log/FC5/mnt00001 xfs relatime,inode64 0 0
+/dev/mapper/hana-FC5_data_mnt00001 /hana/data/FC5/mnt00001 xfs relatime,inode64 0 0
+/dev/mapper/hana-FC5_data2_mnt00001 /hana/data2/FC5/mnt00001 xfs relatime,inode64 0 0
 ....
 . 在数据库主机上创建挂载点并设置权限。
 +
 ....
-stlrx300s8-6:/ # mkdir -p /hana/data2/SS3/mnt00001
-stlrx300s8-6:/ # chmod –R 777 /hana/data2/SS3
+stlrx300s8-6:/ # mkdir -p /hana/data2/FC5/mnt00001
+stlrx300s8-6:/ # chmod –R 777 /hana/data2/FC5
 ....
 . 挂载文件系统，运行 `mount – a` 命令。
 

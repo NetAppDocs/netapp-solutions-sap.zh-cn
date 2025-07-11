@@ -1,0 +1,108 @@
+---
+sidebar: sidebar 
+permalink: bp/hana-aff-fc-host-setup_multi.html 
+keywords: multipathing, fcp, hba, configure 
+summary: 在设置主机之前，必须从 NetApp 支持站点下载 NetApp SAN 主机实用程序，并将其安装在 HANA 服务器上。主机实用程序文档提供了有关根据所使用的 FCP HBA 而必须安装的其他软件的信息。 
+---
+= 多主机设置
+:allow-uri-read: 
+
+
+
+
+== 多主机设置
+
+[role="lead"]
+本章以 2+1 SAP HANA 多主机系统的设置为例进行描述。
+
+
+
+=== 创建 LVM 卷组和逻辑卷
+
+. 将所有 LUN 初始化为物理卷。
++
+....
+pvcreate /dev/mapper/hana-FC5_data_mnt00001
+pvcreate /dev/mapper/hana-FC5_data2_mnt00001
+pvcreate /dev/mapper/hana-FC5_data_mnt00002
+pvcreate /dev/mapper/hana-FC5_data2_mnt00002
+pvcreate /dev/mapper/hana-FC5_log_mnt00001
+pvcreate /dev/mapper/hana-FC5_log2_mnt00001
+pvcreate /dev/mapper/hana-FC5_log_mnt00002
+pvcreate /dev/mapper/hana-FC5_log2_mnt00002
+....
+. 为每个数据和日志分区创建卷组。
++
+....
+vgcreate FC5_data_mnt00001 /dev/mapper/hana-FC5_data_mnt00001 /dev/mapper/hana-FC5_data2_mnt00001
+vgcreate FC5_data_mnt00002 /dev/mapper/hana-FC5_data_mnt00002 /dev/mapper/hana-FC5_data2_mnt00002
+vgcreate FC5_log_mnt00001 /dev/mapper/hana-FC5_log_mnt00001 /dev/mapper/hana-FC5_log2_mnt00001
+vgcreate FC5_log_mnt00002 /dev/mapper/hana-FC5_log_mnt00002 /dev/mapper/hana-FC5_log2_mnt00002
+....
+. 为每个数据和日志分区创建一个逻辑卷。使用的条带大小等于每个卷组使用的 LUN 数量（在此示例中为 2 个），数据条带大小为 256k ，日志条带大小为 64k 。SAP 仅支持每个卷组一个逻辑卷。
++
+....
+lvcreate --extents 100%FREE -i 2 -I 256k --name vol FC5_data_mnt00001
+lvcreate --extents 100%FREE -i 2 -I 256k --name vol FC5_data_mnt00002
+lvcreate --extents 100%FREE -i 2 -I 64k --name vol FC5_log_mnt00002
+lvcreate --extents 100%FREE -i 2 -I 64k --name vol FC5_log_mnt00001
+....
+. 扫描所有其他主机上的物理卷，卷组和卷组。
+
+
+....
+modprobe dm_mod
+pvscan
+vgscan
+lvscan
+....
+
+NOTE: 如果这些命令未找到卷，则需要重新启动。
+
+要挂载逻辑卷，必须激活逻辑卷。要激活卷，请运行以下命令：
+
+....
+vgchange -a y
+....
+
+
+=== 创建文件系统
+
+在所有数据和日志逻辑卷上创建 XFS 文件系统。
+
+....
+mkfs.xfs FC5_data_mnt00001-vol
+mkfs.xfs FC5_data_mnt00002-vol
+mkfs.xfs FC5_log_mnt00001-vol
+mkfs.xfs FC5_log_mnt00002-vol
+....
+
+
+=== 创建挂载点
+
+要创建所需的挂载点目录，请在所有工作主机和备用主机上设置权限并创建挂载点。
+
+....
+sapcc-hana-tst:/ # mkdir -p /hana/data/FC5/mnt00001
+sapcc-hana-tst:/ # mkdir -p /hana/log/FC5/mnt00001
+sapcc-hana-tst:/ # mkdir -p /hana/data/FC5/mnt00002
+sapcc-hana-tst:/ # mkdir -p /hana/log/FC5/mnt00002
+sapcc-hana-tst:/ # mkdir -p /hana/shared
+sapcc-hana-tst:/ # chmod –R 777 /hana/log/FC5
+sapcc-hana-tst:/ # chmod –R 777 /hana/data/FC5
+sapcc-hana-tst:/ # chmod 777 /hana/shared
+....
+
+
+=== 挂载文件系统
+
+要安装 `/hana/shared`文件系统在系统启动时使用 `/etc/fstab`配置文件，添加 `/hana/shared`文件系统 `/etc/fstab`每个主机的配置文件。
+
+....
+sapcc-hana-tst:/ # cat /etc/fstab
+<storage-ip>:/hana_shared /hana/shared nfs rw,vers=3,hard,timeo=600, intr,noatime,nolock 0 0
+....
+
+NOTE: 所有数据和日志文件系统均通过 SAP HANA 存储连接器挂载。
+
+要挂载文件系统，请在每个主机上运行 `mount – a` 命令。

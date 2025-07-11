@@ -1,0 +1,131 @@
+---
+sidebar: sidebar 
+permalink: bp/hana-aff-fc-storage-controller-setup_single_host.html 
+keywords: storage efficiency, netapp volume encryption, quality of service, qos, fabricpool, Disk shelf, sas, fcp port sets, linux lvm, 
+summary: 本节介绍 NetApp 存储系统的配置。您必须根据相应的 Data ONTAP 设置和配置指南完成主安装和设置。 
+---
+= 存储控制器设置 - 单主机
+:allow-uri-read: 
+
+
+
+
+== 存储控制器设置 - 单主机
+
+[role="lead"]
+本节介绍针对 SAP HANA 单主机系统的 NetApp 存储系统配置
+
+
+
+== SAP HANA 单主机系统的卷和 LUN 配置
+
+下图显示了四个单主机 SAP HANA 系统的卷配置。每个 SAP HANA 系统的数据卷和日志卷会分布到不同的存储控制器。例如，在控制器 A 上配置了卷 `SID1_data_mnt00001` ，在控制器 B 上配置了卷 `SID1_log_mnt00001`在每个卷中，会配置一个 LUN 。
+
+
+NOTE: 如果 SAP HANA 系统仅使用 HA 对中的一个存储控制器，则数据卷和日志卷也可以存储在同一个存储控制器上。
+
+image:saphana_aff_fc_image16a.png["图中显示了输入/输出对话框或表示已写入内容"]
+
+对于每个 SAP HANA 主机，都会为 ` 或 HANA 或 Shared` 配置一个数据卷，一个日志卷和一个卷。下表显示了一个使用四个 SAP HANA 单主机系统的配置示例。
+
+|===
+| 目的 | 控制器 A 上的聚合 1 | 控制器 A 上的聚合 2 | 控制器 B 上的聚合 1 | 控制器 B 上的聚合 2 
+
+
+| 系统 SID1 的数据，日志和共享卷 | 数据卷： SID1_data_mnt00001 | 共享卷： sid1_shared | – | 日志卷： SID1_LOG_mnt00001 
+
+
+| 系统 SID2 的数据，日志和共享卷 | – | 日志卷： SID2_LOG_mnt00001 | 数据卷： SID2_data_mnt00001 | 共享卷： sid2_shared 
+
+
+| 系统 SID3 的数据，日志和共享卷 | 共享卷： sID3_shared | 数据卷： SID3_data_mnt00001 | 日志卷： SID3_LOG_mnt00001 | – 
+
+
+| 系统 SID4 的数据，日志和共享卷 | 日志卷： SID4_LOG_mnt00001 | – | 共享卷： SID4_shared | 数据卷： SID4_data_mnt00001 
+|===
+下表显示了单主机系统的挂载点配置示例。
+
+|===
+| LUN | SAP HANA 主机上的挂载点 | 注意 
+
+
+| SID1_data_mnt00001 | /ha/data/SID1/mnt00001 | 已使用 /etc/fstab 条目挂载 
+
+
+| SID1_LOG_mnt00001 | /ha/log/SID1/mnt00001 | 已使用 /etc/fstab 条目挂载 
+
+
+| SID1_shared | /has/shared/SID1 | 已使用 /etc/fstab 条目挂载 
+|===
+
+NOTE: 按照所述配置，存储用户 SID1adm 默认主目录的 ` /usr/sap/SID1` 目录位于本地磁盘上。在采用基于磁盘的复制的灾难恢复设置中， NetApp 建议在 `SID1_shared` 卷中为 ` /usr/sap/sid1` 目录创建一个额外的 LUN ，以便所有文件系统都位于中央存储上。
+
+
+
+== 使用 Linux LVM 为 SAP HANA 单主机系统配置卷和 LUN
+
+Linux LVM 可用于提高性能并解决 LUN 大小限制。LVM 卷组中的不同 LUN 应存储在不同的聚合和不同的控制器中。下表显示了每个卷组两个 LUN 的示例。
+
+
+NOTE: 无需将 LVM 与多个 LUN 结合使用即可实现 SAP HANA KPI 。单个 LUN 设置可满足所需的 KPI 要求。
+
+|===
+| 目的 | 控制器 A 上的聚合 1 | 控制器 A 上的聚合 2 | 控制器 B 上的聚合 1 | 控制器 B 上的聚合 2 
+
+
+| 基于 LVM 的系统的数据，日志和共享卷 | 数据卷： SID1_data_mnt00001 | 共享卷： SID1_shared log2 卷： SID1_log2_mnt00001 | Data2 卷： SID1_data2_mnt00001 | 日志卷： SID1_LOG_mnt00001 
+|===
+在 SAP HANA 主机上，需要创建和挂载卷组和逻辑卷，如下表所示。
+
+|===
+| 逻辑卷 /LUN | SAP HANA 主机上的挂载点 | 注意 
+
+
+| LV ： SID1_data_mnt0000-vol | /ha/data/SID1/mnt00001 | 已使用 /etc/fstab 条目挂载 
+
+
+| LV ： SID1_LOG_mnt00001-vol | /ha/log/SID1/mnt00001 | 已使用 /etc/fstab 条目挂载 
+
+
+| LUN ： SID1_shared | /has/shared/SID1 | 已使用 /etc/fstab 条目挂载 
+|===
+
+NOTE: 按照所述配置，存储用户 SID1adm 默认主目录的 ` /usr/sap/SID1` 目录位于本地磁盘上。在采用基于磁盘的复制的灾难恢复设置中， NetApp 建议在 `SID1_shared` 卷中为 ` /usr/sap/sid1` 目录创建一个额外的 LUN ，以便所有文件系统都位于中央存储上。
+
+
+
+=== 使用 CLI 创建 LUN 并将 LUN 映射到启动程序组
+
+本节展示了使用 ONTAP 9 命令行为 SAP HANA 单主机系统（SID FC5，使用 LVM 且每个 LVM 卷组有两个 LUN）配置的示例配置：
+
+. 创建所有必要的卷。
++
+....
+vol create -volume FC5_data_mnt00001 -aggregate aggr1_1 -size 1200g  -snapshot-policy none -foreground true -encrypt false  -space-guarantee none
+vol create -volume FC5_log_mnt00001  -aggregate aggr1_2 -size 280g -snapshot-policy none -foreground true -encrypt false -space-guarantee none
+vol create -volume FC5_data2_mnt00001 -aggregate aggr1_2 -size 1200g -snapshot-policy none -foreground true -encrypt false -space-guarantee none
+vol create -volume FC5_log2_mnt00001  -aggregate aggr1_1 -size 280g -snapshot-policy none -foreground true -encrypt false  -space-guarantee none
+vol create -volume FC5_shared -aggregate aggr1_1 -size 512g -state online -policy default -snapshot-policy none -junction-path /FC5_shared -encrypt false  -space-guarantee none
+....
+. 创建所有 LUN 。
++
+....
+lun create -path  /vol/FC5_data_mnt00001/FC5_data_mnt00001   -size 1t -ostype linux -space-reserve disabled -space-allocation disabled -class regular
+lun create -path /vol/FC5_data2_mnt00001/FC5_data2_mnt00001 -size 1t -ostype linux -space-reserve disabled -space-allocation disabled -class regular
+lun create -path /vol/FC5_log_mnt00001/FC5_log_mnt00001 -size 260g -ostype linux -space-reserve disabled -space-allocation disabled -class regular
+lun create -path /vol/FC5_log2_mnt00001/FC5_log2_mnt00001 -size 260g -ostype linux -space-reserve disabled -space-allocation disabled -class regular
+....
+. 为属于 FC5 的 sythe 主机的所有端口创建启动器组。
++
+....
+lun igroup create -igroup HANA-FC5 -protocol fcp -ostype linux -initiator 10000090fadcc5fa,10000090fadcc5fb -vserver hana
+....
+. 将所有 LUN 映射到已创建的启动程序组。
++
+....
+lun map -path /vol/FC5_data_mnt00001/FC5_data_mnt00001    -igroup HANA-FC5
+lun map -path /vol/FC5_data2_mnt00001/FC5_data2_mnt00001  -igroup HANA-FC5
+lun map -path /vol/FC5_log_mnt00001/FC5_log_mnt00001  -igroup HANA-FC5
+lun map -path /vol/FC5_log2_mnt00001/FC5_log2_mnt00001  -igroup HANA-FC5
+....
+
