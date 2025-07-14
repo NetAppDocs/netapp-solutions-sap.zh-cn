@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
-permalink: bp/hana-aff-fc-host-setup_single.html 
-keywords: multipathing, fcp, hba, configure 
-summary: 在设置主机之前，必须从 NetApp 支持站点下载 NetApp SAN 主机实用程序，并将其安装在 HANA 服务器上。主机实用程序文档提供了有关根据所使用的 FCP HBA 而必须安装的其他软件的信息。 
+permalink: bp/hana-fas-fc-host-setup_single_host.html 
+keywords: configure, multipathing, create, lvm, volume, groups, logical, mount, points, file, systems 
+summary: 文档还包含有关特定于所用 Linux 版本的多路径配置的信息。 
 ---
 = 单主机设置
 :allow-uri-read: 

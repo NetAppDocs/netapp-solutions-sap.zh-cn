@@ -4,13 +4,13 @@ permalink: bp/hana-asa-fc-storage-controller-setup_single_host.html
 keywords: storage efficiency, netapp volume encryption, quality of service, qos, fabricpool, Disk shelf, sas, fcp port sets, linux lvm, 
 summary: 本节介绍 NetApp 存储系统的配置。您必须根据相应的 Data ONTAP 设置和配置指南完成主安装和设置。 
 ---
-= 存储控制器设置 - 单主机
+= 单个主机
 :allow-uri-read: 
 
 
 
 
-== 存储控制器设置 - 单主机
+== 单个主机
 
 [role="lead"]
 本节介绍针对 SAP HANA 单主机系统的 NetApp 存储系统配置

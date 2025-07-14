@@ -12,8 +12,6 @@ entries:
     url: "/bp/hana-aff-fc-storage-sizing.html"
   - title: 基础架构设置和配置
     entries:
-    - title: 基础架构设置和配置概述
-      url: "/bp/hana-aff-fc-infra-setup-config-overview.html"
     - title: SAN 网络结构设置
       url: "/bp/hana-aff-fc-san-fabric-setup.html"
     - title: 时间同步
@@ -40,6 +38,7 @@ entries:
       url: "/bp/hana-aff-fc-software-install.html"
     - title: 为 SAP HANA 单主机系统添加其他数据卷分区
       url: "/bp/hana-aff-fc-add-data-volume-partitions-single-host-systems.html"
+    url: "/bp/hana-aff-fc-infra-setup-config-overview.html"
   - title: 从何处查找追加信息
     url: "/bp/hana-aff-fc-additional-info.html"
   - title: 更新历史记录
@@ -86,8 +85,6 @@ entries:
     url: "/bp/hana-asa-fc-storage-sizing.html"
   - title: 基础架构设置和配置
     entries:
-    - title: 基础架构设置和配置概述
-      url: "/bp/hana-asa-fc-infra-setup-config-overview.html"
     - title: SAN 网络结构设置
       url: "/bp/hana-asa-fc-san-fabric-setup.html"
     - title: 时间同步
@@ -112,6 +109,7 @@ entries:
       url: "/bp/hana-asa-fc-io-stack-configuration.html"
     - title: SAP HANA 软件安装
       url: "/bp/hana-asa-fc-software-install.html"
+    url: "/bp/hana-asa-fc-infra-setup-config-overview.html"
   - title: 从何处查找追加信息
     url: "/bp/hana-asa-fc-additional-info.html"
   - title: 更新历史记录
@@ -158,17 +156,25 @@ entries:
     url: "/bp/hana-fas-fc-storage-sizing.html"
   - title: 基础架构设置和配置
     entries:
-    - title: 基础架构设置和配置概述
-      url: "/bp/hana-fas-fc-infra-setup-config-overview.html"
     - title: SAN 网络结构设置
       url: "/bp/hana-fas-fc-san-fabric-setup.html"
     - title: 时间同步
       url: "/bp/hana-fas-fc-time-synchronization.html"
     - title: 存储控制器设置
+      entries:
+      - title: 单主机 LUN 配置
+        url: "/bp/hana-fas-fc-storage-controller-setup_single_host.html"
+      - title: 多主机 LUN 配置
+        url: "/bp/hana-fas-fc-storage-controller-setup_multiple_hosts.html"
       url: "/bp/hana-fas-fc-storage-controller-setup.html"
     - title: SAP HANA 存储连接器 API
       url: "/bp/hana-fas-fc-storage-connector-api.html"
     - title: 主机设置
+      entries:
+      - title: 单个主机
+        url: "/bp/hana-fas-fc-host-setup_single_host.html"
+      - title: 多台主机
+        url: "/bp/hana-fas-fc-host-setup_multiple_hosts.html"
       url: "/bp/hana-fas-fc-host-setup.html"
     - title: SAP HANA 的 I/O 堆栈配置
       url: "/bp/hana-fas-fc-io-stack-configuration.html"
@@ -176,6 +182,7 @@ entries:
       url: "/bp/hana-fas-fc-software-install.html"
     - title: 为 SAP HANA 单主机系统添加其他数据卷分区
       url: "/bp/hana-fas-fc-add-data-volume-partitions-single-host-systems.html"
+    url: "/bp/hana-fas-fc-infra-setup-config-overview.html"
   - title: 从何处查找追加信息
     url: "/bp/hana-fas-fc-additional-info.html"
   - title: 更新历史记录

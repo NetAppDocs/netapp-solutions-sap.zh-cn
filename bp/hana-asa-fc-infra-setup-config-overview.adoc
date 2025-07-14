@@ -5,12 +5,13 @@ keywords:
 summary:  
 ---
 = 基础架构设置和配置
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
-
-
-
-== 基础架构设置和配置
 
 [role="lead"]
 以下各节提供了 SAP HANA 基础架构设置和配置准则，并介绍了设置 SAP HANA 系统所需的所有步骤。在这些部分中，使用了以下示例配置：

@@ -64,7 +64,6 @@
   <block id="c6bdef625cb67c9d4ef94200ba60efb0" category="doc">基础架构设置和配置</block>
   <block id="d39f50075dc9ec7266b5156c1d0ce319" category="summary">以下各节提供了 SAP HANA 基础架构设置和配置准则。</block>
   <block id="3b878279a04dc47d60932cb294d96259" category="doc">概述</block>
-  <block id="98453eecb7a0821c9f84e894eeb80b6f" category="paragraph">以下各节提供了 SAP HANA 基础架构设置和配置准则。其中包括设置 SAP HANA 所需的所有步骤。此时将创建一个 SVM 来托管数据。在这些部分中，使用了以下示例配置：</block>
   <block id="e7f4f805e4b2edf4e5d40f8db1e51fd5" category="list-text">SAP HANA 单主机和多主机</block>
   <block id="0bad0fb3efdfa0349f059e6510652363" category="list-text">使用 SAP HANA 多个分区的 SAP HANA 单个主机</block>
   <block id="5ab9c3d59a0ecc9e30a1f938039d0ecf" category="summary">NFS 版本 4 及更高版本需要用户身份验证。可以使用轻型目录访问协议（ Lightweight Directory Access Protocol ， LDAP ）服务器等中央用户管理工具或使用本地用户帐户来完成此身份验证。</block>
@@ -157,14 +156,12 @@
   <block id="29c8d00954b1d81fd235004ad72cdc15" category="admonition">必须在 SAP HANA 多主机配置中的所有辅助主机和备用主机上执行步骤 1 到 6 。</block>
   <block id="face2730fdfb3061ad0f284515f9695d" category="paragraph">要配置多路径，请完成以下步骤：</block>
   <block id="d49e35527dee3aa4c0935558a3ccd40e" category="list-text">在每个服务器上运行 Linux `rescan-scsi-bus.sh -a` 命令以发现新的 LUN 。</block>
-  <block id="86551857b20d1627afd561e1111dd48c" category="admonition">在此示例中，有四个 LUN 。</block>
   <block id="b0a7dea9169ca74da0133eed343854ee" category="list-text">编辑 ` /etc/multipath.conf` 文件并添加 WWID 和别名。</block>
   <block id="649b8d1047ff4dbb68eac12144e5c1d5" category="admonition">示例输出显示了 ` /etc/multipath.conf` 文件的内容，其中包括 2+1 多主机系统中四个 LUN 的别名。如果没有可用的 multipath.conf 文件，则可以运行以下命令创建一个： `multipath -T &gt; /etc/multipath.conf` 。</block>
   <block id="9dc341408c35ffb21d021f873916b3be" category="list-text">运行 `multipath -r` 命令重新加载设备映射。</block>
   <block id="349df7a76ee939fd3552195d183e56a3" category="list-text">运行 `multipath -ll` 命令列出所有 LUN ，别名以及活动和备用路径，以验证配置。</block>
   <block id="3c440be39ee7b8ee32df76222e620417" category="admonition">以下示例输出显示了具有两个数据和两个日志 LUN 的 2+1 多主机 HANA 系统的输出。</block>
   <block id="f54213342718e90a288d6625eb733968" category="section-title">创建 LVM 卷组和逻辑卷</block>
-  <block id="72d8906ce88673b5ddc42cd605b2aaa9" category="admonition">对于基于 LVM 的设置，也必须完成上一节所述的多路径配置。在此示例中，必须为多路径配置八个 LUN 。</block>
   <block id="baf6ddaa837973f5c39837c3746535f5" category="list-text">将所有 LUN 初始化为物理卷。</block>
   <block id="e4eae96188ebd77284f0fc28c5c7413d" category="list-text">为每个数据和日志分区创建卷组。</block>
   <block id="fa0e9e0367bdf43a5c4d9ceba40a46db" category="list-text">为每个数据和日志分区创建一个逻辑卷。使用的条带大小等于每个卷组使用的 LUN 数量（在此示例中为 2 个），数据条带大小为 256k ，日志条带大小为 64k 。SAP 仅支持每个卷组一个逻辑卷。</block>
@@ -172,23 +169,12 @@
   <block id="58ccaa44e6f56ff65128a0b109099e56" category="admonition">如果这些命令未找到卷，则需要重新启动。</block>
   <block id="2fd29cd445709da647beada7d8568a19" category="paragraph">要挂载逻辑卷，必须激活逻辑卷。要激活卷，请运行以下命令：</block>
   <block id="e496d06cb94c67ede4a84c45f23a2df0" category="section-title">创建文件系统</block>
-  <block id="fe1d650ecab92ef6fac725422fa64a17" category="paragraph">要在属于 HANA 系统的每个 LUN 上创建 XFS 文件系统，请执行以下操作之一：</block>
-  <block id="21310a39c09dc5a86b6aa8b7ca24abda" category="list-text">对于单主机系统，请在数据，日志和 ` /ha/shared` LUN 上创建 XFS 文件系统。</block>
-  <block id="c4802401f24cf9235459d06e324b1822" category="list-text">对于多主机系统，请在所有数据和日志 LUN 上创建 XFS 文件系统。</block>
-  <block id="0c55b43772e02b7a7b21494f4ebb786e" category="list-text">如果使用 LVM ，请在所有数据卷和日志逻辑卷上创建 XFS 文件系统。</block>
   <block id="39cf4ec35983fa721c6b420b210c0675" category="admonition">多主机示例命令显示 2+1 多主机 HANA 系统。</block>
   <block id="da177ee5af51709ede3e62f55d81fee9" category="section-title">创建挂载点</block>
   <block id="fd9e946778d15df799e35ae9bfac94dc" category="paragraph">要创建所需的挂载点目录，请执行以下操作之一：</block>
-  <block id="85db8406a3844549afcdbb507b8b4a00" category="list-text">对于单主机系统，设置权限并在数据库主机上创建挂载点。</block>
-  <block id="88e0b55e191e70b52e4da6547b146c00" category="list-text">对于多主机系统，请在所有辅助主机和备用主机上设置权限并创建挂载点。</block>
   <block id="dc20c000dc7df08f0d52c68147bd32cc" category="admonition">示例命令显示 2+1 多主机 HANA 系统。</block>
-  <block id="abf08e214081b9beed93c8754e4c2830" category="admonition">对于使用 Linux LVM 的系统配置，必须执行相同的步骤。</block>
   <block id="89c617c4ed9cac275e572a67b1c52b29" category="section-title">挂载文件系统</block>
-  <block id="0cf8a62142dc06e1659f328c1b19b998" category="paragraph">要在系统启动期间使用 ` /etc/fstab` 配置文件挂载文件系统，请完成以下步骤：</block>
-  <block id="6ddcbef1e37179143e2e2d6df9bd36e3" category="list-text">对于单主机系统，请将所需的文件系统添加到 ` /etc/fstab` 配置文件中。</block>
   <block id="f698665f2a88873767fbe21e3908ef17" category="admonition">必须使用 `relatime` 和 `inode64` 挂载选项挂载数据和日志 LUN 的 XFS 文件系统。</block>
-  <block id="3a5164e3fb3ffa4aa2126eda14219ec2" category="paragraph">如果使用 LVM ，请对数据和日志使用逻辑卷名称。</block>
-  <block id="6103fab32715f34b55faefb16a1ee20b" category="list-text">对于多主机系统，请将 ` /ha/shared` 文件系统添加到每个主机的 ` /etc/fstab` 配置文件中。</block>
   <block id="54720e6c9a787dee1a825e4ea3505728" category="admonition">所有数据和日志文件系统均通过 SAP HANA 存储连接器挂载。</block>
   <block id="5a3bf297b3cbbda0eaa792a3fc9aa696" category="paragraph">要挂载文件系统，请在每个主机上运行 `mount – a` 命令。</block>
   <block id="3a8315c9f707101d2111acb24fbc9655" category="summary">下面是 SAP HANA 软件安装的要求。</block>
@@ -561,12 +547,6 @@
   <block id="e077bd74583341fa1e17ee8fc0b5c0b4" category="paragraph">文档还包含有关特定于所用 Linux 版本的多路径配置的信息。本文档介绍了 SLES 15 和 Red Hat Enterprise Linux 7.6 或更高版本所需的配置步骤，如中所述<block ref="c4b23c8c60f3faad406f8d46d87ba646" category="inline-link-rx"></block>。</block>
   <block id="4d8b576322bf7d5677701855a54e6977" category="admonition">必须对 SAP HANA 多主机配置中的所有辅助主机和备用主机执行步骤 1 到 6 。</block>
   <block id="f0e0bdbc42c37dae577b18eb8dbd1386" category="list-text">运行 `sanlun lun show` 命令并验证所有必需的 LUN 是否可见。以下示例显示了对于具有两个数据 LUN 和两个日志 LUN 的 2+1 多主机 HANA 系统的 `sanlun lun show` 命令输出。输出将显示 LUN 和相应的设备文件，例如 LUN `SS3_data_mnt00001` 和设备文件 ` /dev/sdag` 。每个 LUN 都有八条从主机到存储控制器的 FC 路径。</block>
-  <block id="26414ff85e6b93c3631085373a3c9e8c" category="list-text">运行 `multipath -r` 命令以获取设备文件名的全球通用标识符（ WWID ）：</block>
-  <block id="22ab51ff386eeec071034ae781990962" category="admonition">示例输出显示了 ` /etc/multipath.conf` 文件的内容，其中包括 2+1 多主机系统中四个 LUN 的别名。如果没有可用的 `multipath.conf` 文件，则可以运行以下命令创建一个： `multipath -T &gt; /etc/multipath.conf` 。</block>
-  <block id="1b95bd550160c56e99e04b6458dfcf6a" category="paragraph">只有在使用 LVM 时才需要执行此步骤。以下示例适用于使用 SID FC5 的 2+1 主机设置。</block>
-  <block id="ad08495729cc8eaf90d420ef1e6f12b4" category="list-text">为每个数据和日志分区创建一个逻辑卷。使用的条带大小等于每个卷组使用的 LUN 数量（示例 2 ），数据条带大小为 256k ，日志条带大小为 64k 。SAP 仅支持每个卷组一个逻辑卷。</block>
-  <block id="5c5bd50a3cfa405915bc6892659042ce" category="admonition">如果上述命令未找到卷，则需要重新启动。</block>
-  <block id="4d65ef8cf84d37cbb99560183afc8431" category="list-text">执行以下操作之一：</block>
   <block id="c9b9bdcff428106a20521627c72baa32" category="admonition">必须使用 `relatime` 和 `inode64` 挂载选项挂载数据和日志 LUN 的 XFS 文件系统。</block>
   <block id="ff3f1e894014f4c26eac8cab49b8a0f4" category="doc">使用 VMware vSphere 的 SAP HANA</block>
   <block id="e6bbcb3e4d889de6d1cf73dee0f9eac9" category="inline-link-macro">基于采用 NFS 的 NetApp AFF 系统的 SAP HANA</block>
@@ -870,7 +850,6 @@
   <block id="d25223f4065ca21361aff2e7cdc61203" category="section-title">配置存储</block>
   <block id="c2cd71459709a9b877c06b5e5f772f9d" category="paragraph">以下概述总结了所需的存储配置步骤。后续章节将更详细地介绍每个步骤。在本节中，我们假定已设置存储硬件，并且已安装 ONTAP 软件。此外，必须已将存储 FCP 端口连接到 SAN 网络结构。</block>
   <block id="2630ee9d2d6404a0be197b5cefef0514" category="section-title">SAS-based 磁盘架</block>
-  <block id="dd253c07b5e479b9a57c4dff19990513" category="section-title">基于 NVMe （ 100GbE ）的磁盘架</block>
   <block id="9edbcb82e27829dd83ad8ddf87b121c5" category="paragraph">如果在创建新 SVM 时自动创建和分配了 QoS 配置文件，请从 SVM 中删除此自动创建的配置文件，以确保 SAP HANA 具有所需的性能：</block>
   <block id="3dc0bb550ffeb410b2cbe908abda2020" category="section-title">SAP HANA 单主机系统的卷和 LUN 配置</block>
   <block id="2cd30dd459c96f8423572cfd0315dd72" category="paragraph">下图显示了四个单主机 SAP HANA 系统的卷配置。每个 SAP HANA 系统的数据卷和日志卷会分布到不同的存储控制器。例如，在控制器 A 上配置了卷 `SID1_data_mnt00001` ，在控制器 B 上配置了卷 `SID1_log_mnt00001`在每个卷中，会配置一个 LUN 。</block>
@@ -1277,7 +1256,6 @@
   <block id="fcf140abed196b8eba71c45f21312bce" category="sidebar">NetApp 解决方案</block>
   <block id="cd47dd01745339787e4c7300389401f2" category="sidebar">最佳实践</block>
   <block id="88aa48beec8729be73be99084cd76b79" category="sidebar">《采用 FCP 的 NetApp AFF 系统上的 SAP HANA 配置指南》</block>
-  <block id="87aea504b228b108e5161db60e63e422" category="sidebar">基础架构设置和配置概述</block>
   <block id="a1893b920bc48a028abc56e282719481" category="sidebar">《采用 NFS 的 NetApp AFF 系统上的 SAP HANA 配置指南》</block>
   <block id="566e71293623024943bf4c66fa54d2c8" category="sidebar">《采用 NFS 的 NetApp FAS 系统上的 SAP HANA 配置指南》</block>
   <block id="c8ff9dc5c718603eec8564e06ee7b058" category="sidebar">《采用 FCP 的 FAS 系统上的 SAP HANA 配置指南》</block>
@@ -4158,7 +4136,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="0937ed7cc435379f8de3fc08658990ba" category="paragraph"><block ref="0937ed7cc435379f8de3fc08658990ba" category="inline-image-macro-rx" type="image"></block></block>
   <block id="60b486631d0e94399c0d3352ca21fa00" category="paragraph"><block ref="60b486631d0e94399c0d3352ca21fa00" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0295da9e9d8f6cc887cd3e6b7b62db45" category="paragraph"><block ref="0295da9e9d8f6cc887cd3e6b7b62db45" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="b7842d6a27abd5170ad4d41cb2353297" category="paragraph">本文档讨论NetApp AFF系统和光纤通道的基础架构设置和配置。</block>
   <block id="265ae4ad07ae6dd3140cd976e6e96a15" category="paragraph"><block ref="265ae4ad07ae6dd3140cd976e6e96a15" category="inline-image-macro-rx" type="image"></block></block>
   <block id="017e522349a0ff07067400d6b880e9df" category="paragraph">=:hard休息:::noofootter::ICONES: font :linkattrs::imagesdir:../media/</block>
   <block id="2267b0943e951c31d5f31c288b6bfbe6" category="paragraph">基于采用NFS协议的NetApp AFF的SAP HANA。</block>
@@ -4360,8 +4337,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="c2be09c4548a0a3d6590431051156ecc" category="inline-image-macro">八个连接到一个存储HA对的SAP HANA主机</block>
   <block id="445dc01d838477256a3f7c6ec4051a70" category="inline-image-macro">连接到存储HA对的其他SAP HANA主机</block>
   <block id="6119ba4f9580ccfa3f0a3d3f871870ff" category="inline-image-macro">正在添加其他存储HA对</block>
-  <block id="c4d3f7817a7843faa1dc4bee9f2303ff" category="list-text">SID=SS3的HANA系统</block>
-  <block id="d6b8648b9a763d4fa670f413b105dec7" category="list-text">使用Linux逻辑卷管理器(LVM)的SID=FC5的HANA系统</block>
   <block id="238ec08371f09e874d0f1002aee0caeb" category="inline-image-macro">连接到两个存储控制器的SAP HANA主机</block>
   <block id="74f3ad2825ea13022492793fb7f63a79" category="paragraph"><block ref="74f3ad2825ea13022492793fb7f63a79" category="inline-image-macro-rx" type="image"></block></block>
   <block id="15e40c72ba936fd4cbb64210e15725a1" category="paragraph">最多可以将一个磁盘架连接到一个 SAS 堆栈，以提供 SAP HANA 主机所需的性能，如下图所示。每个磁盘架中的磁盘必须在 HA 对的两个控制器之间平均分布。ADPv2 可用于 ONTAP 9 和 DS224C 磁盘架。</block>
@@ -4407,9 +4382,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="cf0ea9a7f661e4a10ff9e179d0893564" category="list-text">创建和配置所需的聚合，如中所述<block ref="19f0aba2b822910f53ba3966ee7c8d59" category="inline-xref-macro-rx"></block>。</block>
   <block id="07701c9e659f97922638b5c031983241" category="list-text">创建Storage Virtual Machine (SVM)，如中所述<block ref="7c58f6887f41bcea1635c2c18a7a4529" category="inline-xref-macro-rx"></block>。</block>
   <block id="9a7dedbc9b05dfef2c16b4468bbc6d42" category="list-text">创建逻辑接口(Lif)，如中所述<block ref="fc903155b67a1626f9032f79a26da71f" category="inline-xref-macro-rx"></block>。</block>
-  <block id="19ba1063c16e7c812dbc730c7b311fe3" category="list-text">在聚合中创建卷和LUN、如和一节所述<block ref="bfb3c32baceb2da1ad938639f9cbbec7" category="inline-xref-macro-rx"></block><block ref="f548228b37a81cf44c9b87a39dde5526" category="inline-xref-macro-rx"></block></block>
-  <block id="60854433c32fa17fb43290a0ff0f9bbc" category="inline-xref">创建 LUN ，卷并将 LUN 映射到启动程序组</block>
-  <block id="6b956c5cf886997a7f843e2e2d8232c0" category="list-text">在聚合中创建启动程序组、卷和LUN，如中所述<block ref="68c2cc914170ccda4959086c516bc67e" category="inline-xref-macro-rx"></block>。</block>
   <block id="629b1434b46fe9fd8b49baa3b0226daf" category="paragraph">在存储集群配置中，必须创建一个网络接口（ LIF ）并将其分配给一个专用 FCP 端口。例如，如果出于性能原因需要四个 FCP 端口，则必须创建四个 LIF 。下图显示了在SVM上配置的八个SVM的屏幕截图。</block>
   <block id="f2a5a64a9782e57f69edcf500c263407" category="inline-image-macro">逻辑接口概述</block>
   <block id="23f2cbd88aede07dbc46cb6cec53ff8d" category="paragraph"><block ref="23f2cbd88aede07dbc46cb6cec53ff8d" category="inline-image-macro-rx" type="image"></block></block>
@@ -5347,20 +5319,16 @@ SnapCenter 4.3.1支持NFSv4
   <block id="5ff448003ebaf80171d13e6e73920334" category="cell">2025年5月</block>
   <block id="aec8b279f6bbfa44c38f060c1a4d9c75" category="cell">初始版本—备份/恢复MaxDB数据库</block>
   <block id="f43189b608fe679c2f5bfe1fa09a6987" category="paragraph"><block ref="f43189b608fe679c2f5bfe1fa09a6987" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="790ddab3b5de58e03046192392b137df" category="list-text"><block ref="790ddab3b5de58e03046192392b137df" category="inline-link-macro-rx"></block></block>
   <block id="41fc9942bec5239323b5dd801f5bee58" category="list-text"><block ref="41fc9942bec5239323b5dd801f5bee58" category="inline-link-macro-rx"></block></block>
   <block id="d2904072197c733bd10bb3985e8b304d" category="paragraph">有关SAP HANA备份和恢复解决方案的详细信息，请参见<block ref="0a5fce897a9b356de9fbfc0e516c7392" category="inline-link-macro-rx"></block>。</block>
   <block id="b6e1c7dc173d5846c1c02517be7f17ef" category="paragraph">有关SAP HANA灾难恢复解决方案的详细信息，请参见<block ref="9e073a57f7a3e69defc613fe0d2d690f" category="inline-link-macro-rx"></block>。</block>
   <block id="da49521caaf686b5ddf9ad44b46ff253" category="list-text"><block ref="da49521caaf686b5ddf9ad44b46ff253" category="inline-link-macro-rx"></block></block>
   <block id="4d1bc709bfba771f4ff18cae8cad5821" category="list-text"><block ref="4d1bc709bfba771f4ff18cae8cad5821" category="inline-link-macro-rx"></block></block>
   <block id="d1b4413cecd0416bbd7ac40af6b252af" category="list-text"><block ref="d1b4413cecd0416bbd7ac40af6b252af" category="inline-link-macro-rx"></block></block>
-  <block id="caa68a1014a6d7327367831c0e373a1a" category="paragraph">可以通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。<block ref="3ebc92cb08a767ffa51923363e8b791d" category="inline-link-macro-rx"></block>有关此选项的说明，请参见。</block>
   <block id="2d7472524212d38654f8712f8528de00" category="list-text">使用HANA服务器的全球通用名称(Worldwide Name、WWN)创建启动程序组(igroup)、如链接：hana -fas -fc-storage-controller-setup.html#user-groups部分所述<block ref="a30a5bc4156d5efb64f9f758389889ed" category="inline-xref-macro-rx"></block>。</block>
   <block id="ca4e28b2d73ad674c0052aaa001a3fbe" category="admonition">该<block ref="3a8e4afa851609127d534b04e7d29c08" prefix=" " category="inline-code"></block>工具是NetApp Host Utilities的一部分、必须安装在每个SAP HANA主机上。有关详细信息、请参见第节<block ref="f75b5be3cddbf151c8e809ce5b0c771a" category="inline-link-macro-rx"></block></block>
   <block id="60c724065bc332dd941c269b2a5bf0f6" category="paragraph">除了一节中所述的任务<block ref="c2cc83b43967a333625e03c0c4e4e13e" category="inline-link-macro-rx"></block>之外、还必须为新的附加数据卷创建其他挂载点和<block ref="520a0201c5bdee02e1c617ad8c8e2596" prefix=" " category="inline-code"></block>条目、并且必须挂载新卷。</block>
   <block id="d810b6120408f928c8d432b920338406" category="paragraph"><block ref="d810b6120408f928c8d432b920338406" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="80f81c8586fa61a39860610f2eb7c763" category="list-text"><block ref="80f81c8586fa61a39860610f2eb7c763" category="inline-link-macro-rx"></block></block>
-  <block id="7d226c2c46eb308073454b9c9f36adfa" category="list-text"><block ref="7d226c2c46eb308073454b9c9f36adfa" category="inline-link-macro-rx"></block></block>
   <block id="c5098abcd11f62e55614ae7323201c3d" category="admonition">有关SAP HANA备份和恢复解决方案的详细信息，请参见<block ref="0a5fce897a9b356de9fbfc0e516c7392" category="inline-link-macro-rx"></block>。</block>
   <block id="34bab9646046fb6a7d08a42312ff5c0a" category="paragraph">有关SAP HANA灾难恢复解决方案的详细信息，请参见<block ref="9e073a57f7a3e69defc613fe0d2d690f" category="inline-link-macro-rx"></block>。</block>
   <block id="1e72fb5aa3fd5c3621864de3f10cf8cf" category="admonition">如果将nconnect与NFSv4.x结合使用、则应根据以下规则调整NFSv4.x会话插槽的数量：会话插槽的数量等于&lt;nconnect value&gt; x 64。在主机上、此操作将经过重新启动后进行处理<block ref="1f544d9bef8ddb99793e0436d6362920" prefix=" " category="inline-code"></block>。此外、还必须调整服务器端值、并按照中所述设置会话插槽的数量<block ref="b7e4d6f25b44e37cc0e24fba4db18d4d" category="inline-link-macro-rx"></block></block>
@@ -5493,7 +5461,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="3f8db3876bc7fd7f5f852d18c8db2713" category="doc">多主机设置</block>
   <block id="eeadcc9db4a97a17457b81251b0f2e49" category="paragraph">本章以 2+1 SAP HANA 多主机系统的设置为例进行描述。</block>
   <block id="5400b2f51d012ca320c36e8760f285d4" category="paragraph">在所有数据和日志逻辑卷上创建 XFS 文件系统。</block>
-  <block id="906e4fd80d678fe25b08b53057b94f32" category="paragraph">要创建所需的挂载点目录，请在所有工作主机和备用主机上设置权限并创建挂载点。</block>
   <block id="34564326d40441555169c5b07a5a4c21" category="paragraph">要安装<block ref="b61595b5b7b716bd6b8bd21e4fa4a3bf" prefix=" " category="inline-code"></block>文件系统在系统启动时使用<block ref="816a3ef77b62ade41c3f936c958aa555" prefix=" " category="inline-code"></block>配置文件，添加<block ref="b61595b5b7b716bd6b8bd21e4fa4a3bf" prefix=" " category="inline-code"></block>文件系统<block ref="816a3ef77b62ade41c3f936c958aa555" prefix=" " category="inline-code"></block>每个主机的配置文件。</block>
   <block id="2769a82040d53d42eadf3bec6f97136d" category="doc">单主机设置</block>
   <block id="4d0dd5bf85707730b1a1b706c12b2e73" category="paragraph">本章介绍 SAP HANA 单主机的设置。</block>
@@ -5513,7 +5480,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="608ffc0c69fcd322ae0112af21ce3c4d" category="paragraph">使用 SAP hdblcm 安装工具，在其中一个工作主机上运行以下命令开始安装。使用<block ref="9676c5ff8ed94e9d3ceba55f16dde62f" prefix=" " category="inline-code"></block>选项添加第二个工作空间(sapcc-hana TST-06)和备用主机(sapcc-hana TST-07)。</block>
   <block id="26b17225b626fb9238849fd60eabdf60" category="paragraph">+</block>
   <block id="fbb87f9a8e02229a1bda368258b0705e" category="paragraph">建议使用1000 MB/秒作为给定LUN的最大吞吐量。如果应用程序需要更多吞吐量、则应使用多个具有LUN条带化的LUN来提供所需的带宽。本指南第节提供了基于Linux LVM的SAP HANA示例<block ref="60502400ca116a44af7f5b80e6597e3d" category="inline-link-macro-rx"></block>。</block>
-  <block id="36edceb5680e706c0b74e162559db1bc" category="list-text">检查磁盘架配置是否正确，如中所述<block ref="063ad0b3701fa17c6bd6d1d2660fbbc9" category="inline-xref-macro-rx"></block>。</block>
   <block id="6184bd9e1a3ce0ee5585d5645a62615e" category="list-text">使用 HANA 服务器的全球名称 (WWN) 创建启动器组 (igroup)，如链接：saphana-asa-fc-storage-controller-setup.html#initiator-groups 部分所述<block ref="a30a5bc4156d5efb64f9f758389889ed" category="inline-xref-macro-rx"></block> 。</block>
   <block id="5b1acf5a0d4700aa212fae66acc8c9da" category="inline-link-macro">SAP HANA 单主机系统的 LUN 配置</block>
   <block id="d8e1a4cd040958dd75d0dcc1425db696" category="inline-link-macro">SAP HANA 多主机系统的 LUN 配置</block>
@@ -5522,7 +5488,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="1b33b8e2f9ffbbf84711ff33737c75b0" category="paragraph"><block ref="1b33b8e2f9ffbbf84711ff33737c75b0" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2ecd8267df97e61a6026b9d97834abe5" category="admonition">该<block ref="3a8e4afa851609127d534b04e7d29c08" prefix=" " category="inline-code"></block>工具是NetApp Host Utilities的一部分、必须安装在每个SAP HANA主机上。有关详细信息、请参见第节<block ref="651d6af67f47799de3de7127400bd073" category="inline-link-macro-rx"></block></block>
   <block id="8db99fa5fe9e83e6fc301d2677a74c9e" category="summary">本节介绍如何为多主机系统创建 LUN</block>
-  <block id="27c5bce99f61ca536a15f701623de97d" category="doc">存储控制器设置 - 多台主机</block>
   <block id="d5395e37adfb8bd3cabb8db1bdb0abee" category="paragraph">本节介绍针对 SAP HANA 多主机系统的 NetApp 存储系统配置</block>
   <block id="b28af8f8515ecce98f0a5be7515b2b61" category="section-title">SAP HANA 多主机系统的 LUN 配置</block>
   <block id="ca896343d41b326aec5877cfd4d956dd" category="paragraph">Linux LVM 用于提高性能并解决 LUN 大小限制。</block>
@@ -5541,7 +5506,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="d4f54d18b3b1b7422185c0c71038ff15" category="section-title">创建 LUN 并将 LUN 映射到启动程序组</block>
   <block id="b54a0f5023cc826b59cab28cc23f22cc" category="section-title">使用 CLI 创建 LUN 并将 LUN 映射到启动程序组</block>
   <block id="2d39c77b49ea3785a21a4c7b0c611e44" category="paragraph">本节展示了使用 ONTAP 9 命令行为 2+1 SAP HANA 多主机系统配置示例，该系统采用 FC5 FC5，使用 LVM，每个 LVM 卷组有两个 LUN：</block>
-  <block id="92c63fc6d419a6e68a1eda236970ae6e" category="doc">存储控制器设置 - 单主机</block>
   <block id="cf92b7cb5d4dd0e7883961b1bc9e7ab9" category="paragraph">本节介绍针对 SAP HANA 单主机系统的 NetApp 存储系统配置</block>
   <block id="943a742a82131a53ada69df9430a1877" category="paragraph">Linux LVM 用于提高性能并解决 LUN 大小限制。在 SAP HANA 主机上，需要创建和挂载卷组和逻辑卷，如下表所示。</block>
   <block id="f8f9e88eaa58d2028a8b1e060e5cf04d" category="cell">LV：FC5_data_mnt0000-vol</block>
@@ -5735,7 +5699,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="1b5ffe4ee0faee4001d5027bc6594589" category="list-text">按照本节所述，使用 HANA 服务器的全球名称 (WWN) 创建启动器组 (igroup) <block ref="a30a5bc4156d5efb64f9f758389889ed" category="inline-xref-macro-rx"></block> 。</block>
   <block id="a955b97b5c01140f8cd767c62ee1a00b" category="inline-link-macro">单主机设置</block>
   <block id="e9c76a6a9dcbd2703cd41df706ca9bad" category="inline-link-macro">多主机设置</block>
-  <block id="ea8677c5cbdecd6a4693230ea4b208f7" category="list-text">按照本节中的说明在聚合中创建和配置卷和 LUN <block ref="02c588e18cfdd0a8f042f6bb77be7fc8" category="inline-link-macro-rx"></block>适用于单个主机或分段<block ref="bd9b341014e1ef6599e94d8ab2e59792" category="inline-link-macro-rx"></block></block>
   <block id="ea651f4ee236b38f946242f8bfc0ac46" category="list-text">为属于 FC5 的 sythe 主机的所有端口创建启动器组。</block>
   <block id="9c1e9d82d3220658621f72dca978adb0" category="inline-image-macro">NetApp SnapMirror</block>
   <block id="71079bf31f8a65ae836b1f5bc217fd74" category="paragraph"><block ref="71079bf31f8a65ae836b1f5bc217fd74" category="inline-image-macro-rx" type="image"></block></block>
@@ -5745,4 +5708,21 @@ SnapCenter 4.3.1支持NFSv4
   <block id="a46e5bc27436967555509cdbd754e5e7" category="paragraph"><block ref="a46e5bc27436967555509cdbd754e5e7" category="inline-image-macro-rx" type="image"></block></block>
   <block id="469f70c8bf9e7345451574deea79f80b" category="paragraph"><block ref="469f70c8bf9e7345451574deea79f80b" category="inline-image-macro-rx" type="image"></block></block>
   <block id="cac1665e63972e4a12b392296c7ff08b" category="sidebar">多台主机</block>
+  <block id="712c708011e4893134a7a63c8e632e86" category="list-text"><block ref="712c708011e4893134a7a63c8e632e86" category="inline-link-macro-rx"></block></block>
+  <block id="9e073a57f7a3e69defc613fe0d2d690f" category="list-text"><block ref="9e073a57f7a3e69defc613fe0d2d690f" category="inline-link-macro-rx"></block></block>
+  <block id="0a5fce897a9b356de9fbfc0e516c7392" category="list-text"><block ref="0a5fce897a9b356de9fbfc0e516c7392" category="inline-link-macro-rx"></block></block>
+  <block id="a87cc9a0cddc926dc2ba557a1f1d1c5a" category="list-text"><block ref="a87cc9a0cddc926dc2ba557a1f1d1c5a" category="inline-link-macro-rx"></block></block>
+  <block id="029173fd9d282281adb302f9da539864" category="paragraph">有关详细信息，请参见<block ref="b2c2dfcc705383497470185015318f31" category="inline-link-rx"></block>。</block>
+  <block id="186ddcef8e98235019fb2aee09ca9f46" category="paragraph">创建所需的挂载点目录，并在所有工作主机和备用主机上设置权限：</block>
+  <block id="c146329034b2ebdec62a408ff3f60d2f" category="paragraph">创建所需的挂载点目录，并在数据库主机上设置权限：</block>
+  <block id="fe478a61398a90825d87acd2cd34cdd6" category="paragraph">使用以下方式在系统启动期间挂载文件系统<block ref="816a3ef77b62ade41c3f936c958aa555" prefix=" " category="inline-code"></block>配置文件，将所需的文件系统添加到<block ref="816a3ef77b62ade41c3f936c958aa555" prefix=" " category="inline-code"></block>配置文件：</block>
+  <block id="3ad4a334d4711034cac902d4b196cc7e" category="paragraph">可以通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。<block ref="d1b4413cecd0416bbd7ac40af6b252af" category="inline-link-macro-rx"></block>有关此选项的说明，请参见。</block>
+  <block id="060146aab7c07d9cdf422a833f98f9bf" category="list-text">按照本节中的说明在聚合中创建和配置卷和 LUN <block ref="4b84b52ba19c39eb63ab51ebf1aaa7c3" category="inline-link-macro-rx"></block>适用于单个主机或分段<block ref="85d7f2291f94945c987292fb88d1271c" category="inline-link-macro-rx"></block></block>
+  <block id="67ef18ec0407e7911a4fd5ea0f9c8292" category="section-title">磁盘架连接</block>
+  <block id="7f35619142e0b236607c3f699395261d" category="section-title">基于 NVMe 的磁盘架</block>
+  <block id="da937f71706b325fe054a66a403e7e70" category="paragraph">必须在用于 SAP HANA 的所有卷上验证并设置下表中列出的卷选项。</block>
+  <block id="3895d8c4d4623881a3a460da07e7b347" category="list-text"><block ref="3895d8c4d4623881a3a460da07e7b347" category="inline-link-macro-rx"></block></block>
+  <block id="b46c19227accdcf131acd89ec837d719" category="list-text">检查磁盘架配置是否正确，如中所述<block ref="03b6386ad6a1dc10d9baa30820f92e6f" category="inline-xref-macro-rx"></block>。</block>
+  <block id="5fd1fe4406610035d26bddd7285e2208" category="list-text">按照本节中的说明在聚合中创建和配置卷和 LUN <block ref="5cdae6b5e4c2b7c1786a252c1b2db361" category="inline-link-macro-rx"></block>适用于单个主机或分段<block ref="576df1336ee1cb2a072bb64be834429d" category="inline-link-macro-rx"></block>对于多个主机</block>
+  <block id="fe19c797763ffd518a9713847adadc9f" category="section-title">NVMe 磁盘架</block>
 </blocks>

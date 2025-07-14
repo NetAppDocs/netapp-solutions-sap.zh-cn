@@ -96,7 +96,7 @@ FabricPool 是将日志备份移动到另一存储层的理想选择。移动备
 . 创建Storage Virtual Machine (SVM)，如中所述<<Storage Virtual Machine 配置>>。
 . 创建逻辑接口(Lif)，如中所述<<逻辑接口配置>>。
 . 按照本节所述，使用 HANA 服务器的全球名称 (WWN) 创建启动器组 (igroup) <<启动程序组>> 。
-. 按照本节中的说明在聚合中创建和配置卷和 LUN link:hana-aff-fc-host-setup_single_host.html["单主机设置"]适用于单个主机或分段link:hana-aff-fc-host-setup_multiple_hosts.html["多主机设置"]
+. 按照本节中的说明在聚合中创建和配置卷和 LUN link:hana-aff-fc-storage-controller-setup_single_host.html["单主机设置"]适用于单个主机或分段link:hana-aff-fc-storage-controller-setup_multiple_hosts.html["多主机设置"]
 
 
 
@@ -116,7 +116,7 @@ image:saphana_aff_fc_image10.png["DS224C磁盘架连接"]
 
 
 
-=== 基于 NVMe （ 100GbE ）的磁盘架
+=== 基于 NVMe 的磁盘架
 
 每个NS224 NVMe磁盘架都通过每个控制器两个100GbE端口进行连接、如下图所示。每个磁盘架中的磁盘必须平均分布到 HA 对的两个控制器。NS224 磁盘架也使用 ADPv2 。
 

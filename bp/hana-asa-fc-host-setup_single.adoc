@@ -74,10 +74,7 @@ NOTE: 多主机示例命令显示 2+1 多主机 HANA 系统。
 
 === 创建挂载点
 
-要创建所需的挂载点目录，请执行以下操作之一：
-
-* 对于单主机系统，设置权限并在数据库主机上创建挂载点。
-
+创建所需的挂载点目录，并在数据库主机上设置权限：
 
 ....
 sapcc-hana-tst:/ # mkdir -p /hana/data/FC5/mnt00001
@@ -91,21 +88,15 @@ sapcc-hana-tst:/ # chmod 777 /hana/shared
 
 === 挂载文件系统
 
-要在系统启动期间使用 ` /etc/fstab` 配置文件挂载文件系统，请完成以下步骤：
+使用以下方式在系统启动期间挂载文件系统 `/etc/fstab`配置文件，将所需的文件系统添加到 `/etc/fstab`配置文件：
 
-* 对于单主机系统，请将所需的文件系统添加到 ` /etc/fstab` 配置文件中。
-+
 ....
 # cat /etc/fstab
 /dev/mapper/hana-FC5_shared /hana/shared xfs defaults 0 0
 /dev/mapper/FC5_log_mnt00001-vol /hana/log/FC5/mnt00001 xfs relatime,inode64 0 0
 /dev/mapper/FC5_data_mnt00001-vol /hana/data/FC5/mnt00001 xfs relatime,inode64 0 0
 ....
-+
 
 NOTE: 必须使用 `relatime` 和 `inode64` 挂载选项挂载数据和日志 LUN 的 XFS 文件系统。
 
-+
 要挂载文件系统，请运行 `mount –a`在主机上执行命令。
-
-

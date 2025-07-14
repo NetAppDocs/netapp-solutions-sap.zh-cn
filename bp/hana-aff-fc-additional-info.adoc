@@ -16,10 +16,10 @@ summary:
 [role="lead"]
 要了解有关本文档中所述信息的更多信息，请参见以下文档和 / 或网站：
 
-* link:../index.html["SAP HANA 软件解决方案"]
-* link:../backup/hana-dr-sr-pdf-link.html["TR-4646 ：《使用存储复制实现 SAP HANA 灾难恢复》"]
-* link:../backup/hana-br-scs-overview.html["TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》"]
-* link:../lifecycle/sc-copy-clone-introduction.html["TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作"]
+* link:../index.html["SAP HANA 软件解决方案"^]
+* link:../backup/hana-dr-sr-pdf-link.html["TR-4646 ：《使用存储复制实现 SAP HANA 灾难恢复》"^]
+* link:../backup/hana-br-scs-overview.html["TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》"^]
+* link:../lifecycle/sc-copy-clone-introduction.html["TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作"^]
 * NetApp 文档中心
 +
 https://www.netapp.com/support-and-training/documentation/["https://www.netapp.com/support-and-training/documentation/"^]

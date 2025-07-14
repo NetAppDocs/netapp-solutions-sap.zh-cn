@@ -66,14 +66,14 @@ NOTE: 此限制也适用于读取。因此、请使用足够的LUN来满足SAP H
 
 以下概述总结了所需的存储配置步骤。后续章节将更详细地介绍每个步骤。在本节中，我们假定已设置存储硬件，并且已安装 ONTAP 软件。此外，必须已将存储 FCP 端口连接到 SAN 网络结构。
 
-. 检查磁盘架配置是否正确，如中所述<<基于 NVMe （ 100GbE ）的磁盘架>>。
+. 检查磁盘架配置是否正确，如中所述<<基于 NVMe 的磁盘架>>。
 . 使用 HANA 服务器的全球名称 (WWN) 创建启动器组 (igroup)，如链接：saphana-asa-fc-storage-controller-setup.html#initiator-groups 部分所述<<启动程序组>> 。
 . 创建 LUN 并将其映射到本节中描述的服务器link:hana-asa-fc-storage-controller-setup_single_host.html["SAP HANA 单主机系统的 LUN 配置"]和link:hana-asa-fc-storage-controller-setup_multiple_hosts.html["SAP HANA 多主机系统的 LUN 配置"]
 
 
 
 
-=== 基于 NVMe （ 100GbE ）的磁盘架
+=== 基于 NVMe 的磁盘架
 
 每个NS224 NVMe磁盘架都通过每个控制器两个100GbE端口进行连接、如下图所示。磁盘会自动分配到 HA 对的两个控制器。
 

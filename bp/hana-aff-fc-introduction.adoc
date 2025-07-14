@@ -70,7 +70,7 @@ image:saphana_aff_fc_image1.png["图中显示了输入/输出对话框或表示�
 
 = 使用 VMware vSphere 的 SAP HANA
 
-可以通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。link:hana-aff-nfs-introduction.html["基于采用 NFS 的 NetApp AFF 系统的 SAP HANA"]有关此选项的说明，请参见。
+可以通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。link:hana-aff-nfs-introduction.html["基于采用 NFS 的 NetApp AFF 系统的 SAP HANA"^]有关此选项的说明，请参见。
 
 此外，还支持原始设备映射（ RDM ）， FCP 数据存储库或具有 FCP 的 VVol 数据存储库。对于这两个数据存储库选项，数据存储库中只能存储一个 SAP HANA 数据或日志卷，以便在高效使用情形下使用。
 

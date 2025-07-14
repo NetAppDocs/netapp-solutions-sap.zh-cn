@@ -74,7 +74,7 @@ SAP HANA 灾难恢复既可以在数据库层使用 SAP HANA 系统复制，也�
 
 下图展示了一个三站点灾难恢复解决方案，该解决方案使用同步 SnapMirror 主动同步功能将数据复制到本地灾难恢复数据中心，并使用异步 SnapMirror 将数据复制到远程灾难恢复数据中心。SnapMirror主动同步功能即使在整个站点发生故障的情况下也能使业务服务继续运行，并支持应用程序使用辅助副本进行透明故障转移（RPO=0 和 RTO=0）。使用SnapMirror活动同步触发故障转移无需手动干预或自定义脚本。从ONTAP 9.151开始、SnapMirror主动同步支持对称主动/主动功能。对称主动/主动允许通过双向同步复制从受保护LUN的两个副本执行读写I/O操作、以便两个LUN副本都可以在本地处理I/O操作。
 
-更多详情请访问 https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html["ONTAP中的SnapMirror主动同步概述"] ..
+有关详细信息，请参见 https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html["ONTAP中的SnapMirror主动同步概述"^]。
 
 异步 SnapMirror 复制的 RTO 主要取决于在 DR 站点启动 HANA 数据库并将数据加载到内存中所需的时间。假设数据的读取吞吐量为 1000 Mbps ，则加载 1 TB 数据大约需要 18 分钟。
 

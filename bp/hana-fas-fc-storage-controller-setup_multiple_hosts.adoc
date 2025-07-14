@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
-permalink: bp/hana-aff-fc-storage-controller-setup_multiple_hosts.html 
-keywords: storage efficiency, netapp volume encryption, quality of service, qos, fabricpool, Disk shelf, sas, fcp port sets, linux lvm, 
-summary: 本节介绍如何为多主机系统创建 LUN 
+permalink: bp/hana-fas-fc-storage-controller-setup_multiple_hosts.html 
+keywords: storage, controller, setup, storage, efficiency volume, encryption, quality, configure, disk, connection, aggregate 
+summary: 本节介绍 NetApp 存储系统的配置。您必须根据相应的 ONTAP 设置和配置指南完成主安装和设置。 
 ---
 = 多台主机
 :allow-uri-read: 
@@ -26,12 +26,9 @@ summary: 本节介绍如何为多主机系统创建 LUN
 
 NOTE: 如果 SAP HANA 系统仅使用 HA 对中的一个存储控制器，则数据和日志卷也可以存储在同一个存储控制器上。
 
+image:saphana_fas_fc_image19.png["图中显示了输入/输出对话框或表示已写入内容"]
 
-NOTE: NetApp ASA AFF 系统不支持 NFS 协议。NetApp 建议为 ` /ha/shared` 文件系统使用额外的 AFF 或 FAS 系统。
-
-image:saphana_aff_fc_image17a.png["图中显示了输入/输出对话框或表示已写入内容"]
-
-对于每个 SAP HANA 主机，系统会创建一个数据卷和一个日志卷。` HANA 系统的所有主机都使用` /hana / 共享 卷。下表显示了 4+1 多主机 SAP HANA 系统的配置示例。
+对于每个 SAP HANA 主机，系统会创建一个数据卷和一个日志卷。` HANA 系统的所有主机都使用` /hana / 共享 卷。下图显示了 4+1 多主机 SAP HANA 系统的配置示例。
 
 |===
 | 目的 | 控制器 A 上的聚合 1 | 控制器 A 上的聚合 2 | 控制器 B 上的聚合 1 | 控制器 B 上的聚合 2 
@@ -81,21 +78,19 @@ image:saphana_aff_fc_image17a.png["图中显示了输入/输出对话框或表�
 | LUN ： sid_log_mnt00004 | /ha/log/sid/mnt00004 | 使用存储连接器挂载 
 
 
-| 卷： sid_shared | /has/ 共享 | 使用 NFS 和 /etc/fstab 条目挂载在所有主机上 
+| 卷： sid_shared | /ha/shared/SID | 使用 NFS 和 /etc/fstab 条目挂载在所有主机上 
 |===
 
-NOTE: 在所述配置中，存储用户 SIDadm 默认主目录的 ` /usr/sap/SID` 目录位于每个 HANA 主机的本地磁盘上。在采用基于磁盘的复制的灾难恢复设置中， NetApp 建议在 `SID_shared` 卷中为 ` /usr/sap/SID` 文件系统另外创建四个子目录，以便每个数据库主机的所有文件系统都位于中央存储上。
+NOTE: 根据所述配置、 `/usr/sap/SID`存储用户SIDadm默认主目录的目录位于每个HANA主机的本地磁盘上。在采用基于磁盘的复制的灾难恢复设置中、NetApp建议在卷中为 `/usr/sap/SID`文件系统另外创建四个子目录 `SID_shared`、以便每个数据库主机的所有文件系统都位于中央存储上。
 
 
 
 == 使用 Linux LVM 为 SAP HANA 多主机系统配置卷和 LUN
 
-Linux LVM 可用于提高性能并解决 LUN 大小限制。LVM 卷组中的不同 LUN 应存储在不同的聚合和不同的控制器中。
+Linux LVM 可用于提高性能并解决 LUN 大小限制。LVM 卷组中的不同 LUN 应存储在不同的聚合和不同的控制器中。下表显示了 2+1 SAP HANA 多主机系统中每个卷组两个 LUN 的示例。
 
 
 NOTE: 无需使用 LVM 组合多个 LUN 即可实现 SAP HANA KPI 。单个 LUN 设置可满足所需的 KPI 要求。
-
-下表显示了 2+1 SAP HANA 多主机系统中每个卷组两个 LUN 的示例。
 
 |===
 | 目的 | 控制器 A 上的聚合 1 | 控制器 A 上的聚合 2 | 控制器 B 上的聚合 1 | 控制器 B 上的聚合 2 
@@ -109,7 +104,7 @@ NOTE: 无需使用 LVM 组合多个 LUN 即可实现 SAP HANA KPI 。单个 LUN 
 
 | 所有主机的共享卷 | 共享卷： sid_shared | – | – | – 
 |===
-在 SAP HANA 主机上，需要创建和挂载卷组和逻辑卷，如下表所示。
+在 SAP HANA 主机上，需要创建和挂载卷组和逻辑卷：
 
 |===
 | 逻辑卷（ LV ）或卷 | SAP HANA 主机上的挂载点 | 注意 
@@ -134,12 +129,12 @@ NOTE: 在所述配置中，存储用户 SIDadm 默认主目录的 ` /usr/sap/SID
 
 
 
-=== 卷选项
+== 卷选项
 
-下表中列出的卷选项必须在所有 SVM 上进行验证和设置。
+必须在用于 SAP HANA 的所有卷上验证并设置下表中列出的卷选项。
 
 |===
-| Action |  
+| Action | ONTAP 9. 
 
 
 | 禁用自动 Snapshot 副本 | vol modify – vserver <vserver-name> -volume <volname> -snapshot-policy none 
@@ -155,9 +150,9 @@ NOTE: 在所述配置中，存储用户 SIDadm 默认主目录的 ` /usr/sap/SID
 
 
 
-=== 使用 CLI 创建 LUN ，卷并将 LUN 映射到启动程序组
+=== 使用 CLI 创建 LUN ，卷并将 LUN 映射到 igroup
 
-本节显示了一个使用命令行和 ONTAP 9 的示例配置，该配置适用于 2+1 SAP HANA 多主机系统，其中 SID 为 FC5 ，使用 LVM ，每个 LVM 卷组具有两个 LUN ：
+本节显示了一个使用命令行和 ONTAP 9 的示例配置，该配置适用于 2+1 SAP HANA 多主机系统，其中 SID 为 FC5 ，使用 LVM ，每个 LVM 卷组具有两个 LUN 。
 
 . 创建所有必要的卷。
 +
@@ -184,15 +179,15 @@ lun create -path /vol/FC5_log2_mnt00001/FC5_log2_mnt00001 -size 260g -ostype lin
 lun create -path /vol/FC5_log_mnt00002/FC5_log_mnt00002 -size 260g -ostype linux -space-reserve disabled -space-allocation disabled -class regular
 lun create -path /vol/FC5_log2_mnt00002/FC5_log2_mnt00002 -size 260g -ostype linux -space-reserve disabled -space-allocation disabled -class regular
 ....
-. 为属于系统 FC5 的所有服务器创建启动程序组。
+. 为属于系统 FC5 的所有服务器创建 igroup 。
 +
 ....
-lun igroup create -igroup HANA-FC5 -protocol fcp -ostype linux -initiator 10000090fadcc5fa,10000090fadcc5fb,10000090fadcc5c1,10000090fadcc5c2,10000090fadcc5c3,10000090fadcc5c4 -vserver hana
+lun igroup create -igroup HANA-FC5 -protocol fcp -ostype linux -initiator 10000090fadcc5fa,10000090fadcc5fb, 10000090fadcc5c1,10000090fadcc5c2,  10000090fadcc5c3,10000090fadcc5c4 -vserver hana
 ....
-. 将所有 LUN 映射到已创建的启动程序组。
+. 将所有 LUN 映射到创建的 igroup 。
 +
 ....
-lun map -path /vol/FC5_data_mnt00001/FC5_data_mnt00001    -igroup HANA-FC5
+lun map -path  /vol/FC5_data_mnt00001/FC5_data_mnt00001    -igroup HANA-FC5
 lun map -path /vol/FC5_data2_mnt00001/FC5_data2_mnt00001  -igroup HANA-FC5
 lun map -path /vol/FC5_data_mnt00002/FC5_data_mnt00002  -igroup HANA-FC5
 lun map -path /vol/FC5_data2_mnt00002/FC5_data2_mnt00002  -igroup HANA-FC5

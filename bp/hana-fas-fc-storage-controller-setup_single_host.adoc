@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
-permalink: bp/hana-aff-fc-storage-controller-setup_single_host.html 
-keywords: storage efficiency, netapp volume encryption, quality of service, qos, fabricpool, Disk shelf, sas, fcp port sets, linux lvm, 
-summary: 本节介绍 NetApp 存储系统的配置。您必须根据相应的 Data ONTAP 设置和配置指南完成主安装和设置。 
+permalink: bp/hana-fas-fc-storage-controller-setup_single_host.html 
+keywords: storage, controller, setup, storage, efficiency volume, encryption, quality, configure, disk, connection, aggregate 
+summary: 本节介绍 NetApp 存储系统的配置。您必须根据相应的 ONTAP 设置和配置指南完成主安装和设置。 
 ---
 = 单个主机
 :allow-uri-read: 
@@ -19,12 +19,12 @@ summary: 本节介绍 NetApp 存储系统的配置。您必须根据相应的 Da
 
 == SAP HANA 单主机系统的卷和 LUN 配置
 
-下图显示了四个单主机 SAP HANA 系统的卷配置。每个 SAP HANA 系统的数据卷和日志卷会分布到不同的存储控制器。例如，在控制器 A 上配置了卷 `SID1_data_mnt00001` ，在控制器 B 上配置了卷 `SID1_log_mnt00001`在每个卷中，会配置一个 LUN 。
+下图显示了四个单主机 SAP HANA 系统的卷配置。每个 SAP HANA 系统的数据卷和日志卷会分布到不同的存储控制器。例如、卷 `SID1_data_mnt00001`在控制器A上配置、卷 `SID1_log_mnt00001`在控制器B上配置。在每个卷中、配置一个LUN。
 
 
-NOTE: 如果 SAP HANA 系统仅使用 HA 对中的一个存储控制器，则数据卷和日志卷也可以存储在同一个存储控制器上。
+NOTE: 如果 SAP HANA 系统仅使用高可用性（ HA ）对中的一个存储控制器，则数据卷和日志卷也可以存储在同一个存储控制器上。
 
-image:saphana_aff_fc_image16a.png["图中显示了输入/输出对话框或表示已写入内容"]
+image:saphana_fas_fc_image18.png["图中显示了输入/输出对话框或表示已写入内容"]
 
 对于每个 SAP HANA 主机，都会为 ` 或 HANA 或 Shared` 配置一个数据卷，一个日志卷和一个卷。下表显示了一个使用四个 SAP HANA 单主机系统的配置示例。
 
@@ -46,7 +46,7 @@ image:saphana_aff_fc_image16a.png["图中显示了输入/输出对话框或表�
 下表显示了单主机系统的挂载点配置示例。
 
 |===
-| LUN | SAP HANA 主机上的挂载点 | 注意 
+| LUN | HANA 主机上的挂载点 | 注意 
 
 
 | SID1_data_mnt00001 | /ha/data/SID1/mnt00001 | 已使用 /etc/fstab 条目挂载 
@@ -75,7 +75,7 @@ NOTE: 无需将 LVM 与多个 LUN 结合使用即可实现 SAP HANA KPI 。单�
 
 | 基于 LVM 的系统的数据，日志和共享卷 | 数据卷： SID1_data_mnt00001 | 共享卷： SID1_shared log2 卷： SID1_log2_mnt00001 | Data2 卷： SID1_data2_mnt00001 | 日志卷： SID1_LOG_mnt00001 
 |===
-在 SAP HANA 主机上，需要创建和挂载卷组和逻辑卷，如下表所示。
+必须在 SAP HANA 主机上创建和挂载卷组和逻辑卷。下表列出了使用 LVM 的单主机系统的挂载点。
 
 |===
 | 逻辑卷 /LUN | SAP HANA 主机上的挂载点 | 注意 
@@ -109,7 +109,13 @@ NOTE: 按照所述配置，存储用户 SID1adm 默认主目录的 ` /usr/sap/SI
 |===
 
 
-=== 使用 CLI 创建 LUN 并将 LUN 映射到启动程序组
+=== 创建 LUN ，卷并将 LUN 映射到启动程序组
+
+您可以使用NetApp ONTAP系统管理器创建存储卷和LUN、并将其映射到服务器的igrou和ONTAP命令行界面。本指南介绍命令行界面的用法。
+
+
+
+=== 使用 CLI 创建 LUN ，卷并将 LUN 映射到 igroup
 
 本节展示了使用 ONTAP 9 命令行为 SAP HANA 单主机系统（SID FC5，使用 LVM 且每个 LVM 卷组有两个 LUN）配置的示例配置：
 

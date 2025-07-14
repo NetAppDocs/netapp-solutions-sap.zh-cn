@@ -5,12 +5,13 @@ keywords: multipathing, fcp, hba, configure
 summary: 在设置主机之前，必须从 NetApp 支持站点下载 NetApp SAN 主机实用程序，并将其安装在 HANA 服务器上。主机实用程序文档提供了有关根据所使用的 FCP HBA 而必须安装的其他软件的信息。 
 ---
 = 主机设置
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
-
-
-
-== 主机设置
 
 [role="lead"]
 在设置主机之前，必须从下载 NetApp SAN 主机实用程序 http://mysupport.netapp.com/["NetApp 支持"^] 站点和安装在 HANA 服务器上。主机实用程序文档提供了有关根据所使用的 FCP HBA 而必须安装的其他软件的信息。
