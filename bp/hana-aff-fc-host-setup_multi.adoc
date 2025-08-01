@@ -17,6 +17,33 @@ summary: 在设置主机之前，必须从 NetApp 支持站点下载 NetApp SAN 
 
 
 
+== SAP HANA 多主机系统的 LUN 配置
+
+在 SAP HANA 主机上，需要创建和挂载卷组和逻辑卷，如下表所示。
+
+|===
+| 逻辑卷（ LV ）或卷 | SAP HANA 主机上的挂载点 | 注意 
+
+
+| LV：FC5_data_mnt00001-vol | /ha/data/FC5/mnt00001 | 使用存储连接器挂载 
+
+
+| LV：FC5_log_mnt00001-vol | /ha/log/FC5/mnt00001 | 使用存储连接器挂载 
+
+
+| LV：FC5_data_mnt00002-vol | /ha/data/FC5/mnt00002 | 使用存储连接器挂载 
+
+
+| LV：FC5_log_mnt00002-vol | /ha/log/FC5/mnt00002 | 使用存储连接器挂载 
+
+
+| 卷：FC5_shared | /has/ 共享 | 使用 NFS 和 /etc/fstab 条目挂载在所有主机上 
+|===
+
+NOTE: 通过所述配置， `/usr/sap/FC5`存储用户 FC5adm 的默认主目录的目录位于每个 HANA 主机的本地磁盘上。在基于磁盘的复制灾难恢复设置中， NetApp建议在 `FC5_shared`音量为 `/usr/sap/FC5`文件系统，以便每个数据库主机在中央存储上都有其所有的文件系统。
+
+
+
 === 创建 LVM 卷组和逻辑卷
 
 . 将所有 LUN 初始化为物理卷。

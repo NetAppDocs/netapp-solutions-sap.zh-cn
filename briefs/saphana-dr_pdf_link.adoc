@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: briefs/saphana-dr_pdf_link.html 
+keywords: sb-3968, sap, SAP HANA, Disaster Recovery 
+summary: 本文档重点介绍 SAP HANA 的灾难恢复。 
+---
+= SB-3968：SAP HANA 的灾难恢复
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+
+
+== 挑战
+
+业务连续性对于 IT 组织来说至关重要。他们必须能够为客户运营业务所需的关键任务应用程序提供高可用性服务。否则，他们的客户将面临生产力下降，电子商务组织的收入也可能直接受到影响。
+
+
+
+== 解决方案
+
+NetApp开发了全套技术和工具，帮助 IT 组织构建或调整其灾难恢复计划，以满足所有业务需求：
+
+link:https://www.netapp.com/pdf.html?item=/media/6998-sb-3968pdf.pdf["https://www.netapp.com/pdf.html?item=/media/6998-sb-3968pdf.pdf"]

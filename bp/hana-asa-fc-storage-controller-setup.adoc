@@ -97,9 +97,3 @@ host1 ...... WWPN:2100000e1e163701
 ....
 
 NOTE: 该 `sanlun`工具是NetApp Host Utilities的一部分、必须安装在每个SAP HANA主机上。有关详细信息、请参见第节link:hana-asa-fc-host-setup.html["主机设置。"]
-
-可以使用ONTAP集群的命令行界面创建启动程序组。
-
-....
-lun igroup create -igroup <igroup name> -protocol fcp -ostype linux -initiator <list of initiators> -vserver <SVM name>
-....

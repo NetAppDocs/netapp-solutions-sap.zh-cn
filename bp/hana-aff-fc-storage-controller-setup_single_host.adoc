@@ -67,7 +67,7 @@ NOTE: 按照所述配置，存储用户 SID1adm 默认主目录的 ` /usr/sap/SI
 Linux LVM 可用于提高性能并解决 LUN 大小限制。LVM 卷组中的不同 LUN 应存储在不同的聚合和不同的控制器中。下表显示了每个卷组两个 LUN 的示例。
 
 
-NOTE: 无需将 LVM 与多个 LUN 结合使用即可实现 SAP HANA KPI 。单个 LUN 设置可满足所需的 KPI 要求。
+NOTE: 没有必要使用具有多个 LUN 的 LVM 来满足 SAP HANA KPI，但建议这样做。
 
 |===
 | 目的 | 控制器 A 上的聚合 1 | 控制器 A 上的聚合 2 | 控制器 B 上的聚合 1 | 控制器 B 上的聚合 2 
@@ -75,23 +75,6 @@ NOTE: 无需将 LVM 与多个 LUN 结合使用即可实现 SAP HANA KPI 。单�
 
 | 基于 LVM 的系统的数据，日志和共享卷 | 数据卷： SID1_data_mnt00001 | 共享卷： SID1_shared log2 卷： SID1_log2_mnt00001 | Data2 卷： SID1_data2_mnt00001 | 日志卷： SID1_LOG_mnt00001 
 |===
-在 SAP HANA 主机上，需要创建和挂载卷组和逻辑卷，如下表所示。
-
-|===
-| 逻辑卷 /LUN | SAP HANA 主机上的挂载点 | 注意 
-
-
-| LV ： SID1_data_mnt0000-vol | /ha/data/SID1/mnt00001 | 已使用 /etc/fstab 条目挂载 
-
-
-| LV ： SID1_LOG_mnt00001-vol | /ha/log/SID1/mnt00001 | 已使用 /etc/fstab 条目挂载 
-
-
-| LUN ： SID1_shared | /has/shared/SID1 | 已使用 /etc/fstab 条目挂载 
-|===
-
-NOTE: 按照所述配置，存储用户 SID1adm 默认主目录的 ` /usr/sap/SID1` 目录位于本地磁盘上。在采用基于磁盘的复制的灾难恢复设置中， NetApp 建议在 `SID1_shared` 卷中为 ` /usr/sap/sid1` 目录创建一个额外的 LUN ，以便所有文件系统都位于中央存储上。
-
 
 
 == 卷选项

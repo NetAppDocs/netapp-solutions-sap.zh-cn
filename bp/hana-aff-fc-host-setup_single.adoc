@@ -13,7 +13,28 @@ summary: 在设置主机之前，必须从 NetApp 支持站点下载 NetApp SAN 
 == 单主机设置
 
 [role="lead"]
-本章介绍 SAP HANA 单主机的设置。
+本章介绍使用 LINUX LVM 设置 SAP HANA 单主机。
+
+
+
+== SAP HANA 单主机系统的 LUN 配置
+
+在 SAP HANA 主机上，需要创建和挂载卷组和逻辑卷，如下表所示。
+
+|===
+| 逻辑卷 /LUN | SAP HANA 主机上的挂载点 | 注意 
+
+
+| LV：FC5_data_mnt0000-vol | /hana/数据/FC51/mnt00001 | 已使用 /etc/fstab 条目挂载 
+
+
+| LV：FC5_log_mnt00001-vol | /ha/log/FC5/mnt00001 | 已使用 /etc/fstab 条目挂载 
+
+
+| LUN：FC5_共享 | /has/shared/FC5 | 已使用 /etc/fstab 条目挂载 
+|===
+
+NOTE: 通过所述配置， `/usr/sap/FC5`存储用户 FC5adm 的默认主目录的目录位于本地磁盘上。在基于磁盘的复制灾难恢复设置中， NetApp建议在 `FC5_shared`音量为 `/usr/sap/FC5`目录，以便所有文件系统都位于中央存储上。
 
 
 

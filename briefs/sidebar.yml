@@ -5,9 +5,9 @@ entries:
 - title: SAP HANA 生命周期管理
   url: "/briefs/saphana-lm-sb_pdf_link.html"
 - title: SAP HANA 备份和恢复
-  url: https://www.netapp.com/pdf.html?item=/media/6997-sb-3965pdf.pdf
+  url: "/briefs/saphana-backup_pdf_link.html"
 - title: SAP HANA 灾难恢复
-  url: https://www.netapp.com/pdf.html?item=/media/6998-sb-3968pdf.pdf
+  url: "/briefs/saphana-dr_pdf_link.html"
 - title: 借助Ans还是NetApp SnapCenter实现SAP自动化
   url: "/briefs/sap-lama-ansible.html"
 - title: 采用羊驼和NetApp SnapCenter的SAP自动化
