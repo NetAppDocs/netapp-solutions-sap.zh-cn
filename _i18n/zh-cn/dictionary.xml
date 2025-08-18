@@ -939,7 +939,6 @@
   <block id="23c80196123eb12634dbeb70874872fe" category="list-text">在数据库主机上创建挂载点并设置权限。</block>
   <block id="ab876b2fc77b49d4799c8317c49e7fdc" category="list-text">挂载文件系统，运行 `mount – a` 命令。</block>
   <block id="cccc40b2b949eb5631f1a7625e3bbb28" category="paragraph">要向租户数据库添加额外的数据卷分区，请对租户数据库执行以下 SQL 语句。每个附加 LUN 可以具有不同的路径：</block>
-  <block id="269e48a148be46c6e5fb065e74629d57" category="doc">SAP 业务应用程序和 SAP HANA 数据库解决方案</block>
   <block id="f01120deea316d303519ad5ab689a57f" category="list-text">解决方案简介</block>
   <block id="2f5f480c2cb54884152c412765dd0565" category="summary">要实施有效的灾难恢复策略，您必须测试所需的工作流。测试可证明该策略是否有效以及内部文档是否充足，同时还允许管理员对所需的程序进行培训。</block>
   <block id="1135ff8da5df72747612faee39237919" category="doc">灾难恢复测试</block>
@@ -1237,8 +1236,6 @@
   <block id="cfb95d4ab5955fc882056df6c5353ec9" category="paragraph">每次从源卷到目标卷的复制更新都会将上次更新到当前更新之间发生的所有块更改复制到目标卷。这还包括在源卷上创建的快照。以下屏幕截图显示了目标卷上可用的快照。如前文所述， AzAcSnap 工具创建的每个快照都是 HANA 数据库中应用程序一致的映像，可用于执行保存点或正向恢复。</block>
   <block id="e8f1ac642d75f5f86a7154d6dd39a32e" category="admonition">在源卷和目标卷中，还会创建 SnapMirror Snapshot 副本，用于重新同步和复制更新操作。从 HANA 数据库角度来看，这些 Snapshot 副本的应用程序不一致；只有通过 AzaCSnap 创建的应用程序一致的快照才能用于 HANA 恢复操作。</block>
   <block id="39827364402eb7a6398af8c1194aa72d" category="doc">数据保护概述</block>
-  <block id="677f2e7e550075f7bbbdac91e0918f2f" category="sidebar">SAP 解决方案</block>
-  <block id="fcf140abed196b8eba71c45f21312bce" category="sidebar">NetApp 解决方案</block>
   <block id="cd47dd01745339787e4c7300389401f2" category="sidebar">最佳实践</block>
   <block id="88aa48beec8729be73be99084cd76b79" category="sidebar">《采用 FCP 的 NetApp AFF 系统上的 SAP HANA 配置指南》</block>
   <block id="a1893b920bc48a028abc56e282719481" category="sidebar">《采用 NFS 的 NetApp AFF 系统上的 SAP HANA 配置指南》</block>
@@ -5790,4 +5787,27 @@ SnapCenter 4.3.1支持NFSv4
   <block id="d9bb80ae32f686bbae368979a76f86d7" category="paragraph">NetApp开发了全套技术和工具，帮助 IT 组织构建或调整其灾难恢复计划，以满足所有业务需求：</block>
   <block id="6a9c098947d8b811552347f2ed990ebd" category="inline-link-macro"><block ref="6a9c098947d8b811552347f2ed990ebd" category="inline-link-rx"></block></block>
   <block id="702c9bfa6d3b8d8b923fbeba4db3625f" category="paragraph"><block ref="702c9bfa6d3b8d8b923fbeba4db3625f" category="inline-link-macro-rx"></block></block>
+  <block id="225b42e7cb6036e97607adda6dcca1c3" category="summary">NetApp针对 SAP 解决方案的最新变更日志。</block>
+  <block id="4a2fff3ce5a292ada8e788cd34005db8" category="doc">NetApp虚拟化解决方案的新功能</block>
+  <block id="2ca0fa0a322d6c31c3d0906a34c85e6c" category="paragraph">了解 SAP 解决方案的新功能。</block>
+  <block id="bab52961b58c502c7991d35556c25367" category="section-title">2025年8月18日</block>
+  <block id="47e26e0d5bbeef43c544dd9ae72e66b0" category="inline-link-macro">NetApp解决方案系列</block>
+  <block id="840125a006aee7dc0e8efd313e7b614e" category="paragraph">NetApp解决方案网站现在是<block ref="f083b096ae581e72c5ab727ef8bd5732" category="inline-link-macro-rx"></block>，其中包括以下网站：</block>
+  <block id="e87298059f60b0844dc971f315184cf5" category="inline-link-macro">NetApp人工智能解决方案</block>
+  <block id="ac42ca0e1f789a8367b40d9824726778" category="list-text"><block ref="ac42ca0e1f789a8367b40d9824726778" category="inline-link-macro-rx"></block></block>
+  <block id="9cae574c1dc1ca50a949c1e889637ba7" category="inline-link-macro">NetApp容器解决方案</block>
+  <block id="31d1ae0120af1d791e4320e17eb10687" category="list-text"><block ref="31d1ae0120af1d791e4320e17eb10687" category="inline-link-macro-rx"></block></block>
+  <block id="3947417923606d3599bcba7a82f71f1b" category="inline-link-macro">NetApp数据管理解决方案</block>
+  <block id="56c054d4bb919790ebe189f7a7d11c3c" category="list-text"><block ref="56c054d4bb919790ebe189f7a7d11c3c" category="inline-link-macro-rx"></block></block>
+  <block id="9bb3e58246c5654a6d8e08a7bddd60ec" category="inline-link-macro">NetApp数据库解决方案</block>
+  <block id="3e2420ab1ec1d6e02b32b017d3ba969a" category="list-text"><block ref="3e2420ab1ec1d6e02b32b017d3ba969a" category="inline-link-macro-rx"></block></block>
+  <block id="a37049a2a78422ac5627c7987db5c337" category="inline-link-macro">NetApp公共云和混合云解决方案</block>
+  <block id="144417321224efbf0afc2ae665a84a46" category="list-text"><block ref="144417321224efbf0afc2ae665a84a46" category="inline-link-macro-rx"></block></block>
+  <block id="2729aba3baa90aaaed37b282e515f6e4" category="list-text">适用于 SAP 的NetApp解决方案</block>
+  <block id="4ead908c2ca3b4c7156e0e703642415d" category="inline-link-macro">NetApp虚拟化解决方案</block>
+  <block id="3100186c9f62cec85ac05309c5d10217" category="list-text"><block ref="3100186c9f62cec85ac05309c5d10217" category="inline-link-macro-rx"></block></block>
+  <block id="a96e55f331afdc0c9a301d1a5ad2c3db" category="sidebar">SAP 业务应用程序和 SAP HANA 数据库解决方案</block>
+  <block id="7caa0b3fa0fd74ced773a86b62850a8b" category="sidebar">FlexPod上的 SAP 简介</block>
+  <block id="36211f481e2e2626220b1d9e8a3325bb" category="sidebar">SAP 解决方案</block>
+  <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">什么是新的</block>
 </blocks>
