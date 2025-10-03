@@ -3247,73 +3247,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="36098c0d1c3de71d8727b1543bace633" category="cell">2022年4月</block>
   <block id="95798f037b7bacec7599a19423a6bb64" category="cell">2018 年 2 月</block>
   <block id="8e070ffcf4d959eabcd3559b9bb17ec6" category="sidebar">从何处查找追加信息 和版本历史记录</block>
-  <block id="2c7a6a1ad3b3855b3dd5766cc2c1b15c" category="summary">本节介绍如何使用BlueXP还原SAP HANA备份。</block>
-  <block id="8513aa8ec75c0057744a444420581eac" category="doc">正在还原SAP HANA BlueXP备份</block>
-  <block id="630146410475bf00902dbc3588f48b64" category="paragraph">只能从备份还原到云中基于NetApp ONTAP的内部存储系统或NetApp CVO。可以通过执行以下步骤来执行还原：</block>
-  <block id="ae9c703fb18f8c682d52518823ea9112" category="list-text">在BlueXP用户界面中，单击  *保护*&gt; *备份和恢复  *&gt;*应用程序*，然后选择混合。</block>
-  <block id="16365f9a8d0b7866f7271510a28d1db2" category="list-text">在 *Filter by * 字段中，选择过滤器 *Type* ，然后从下拉列表中选择 *HARA*。</block>
-  <block id="47abe672471325a3aa63fcd85f6e3367" category="list-text">对于NAS环境、指定要将从对象存储还原的卷导出到的主机的FQDN或IP地址。</block>
-  <block id="831b20d8b0ff4f1e50aecadcdcdc885d" category="list-text">对于SAN环境、指定从对象存储还原的卷的LUN要映射到的主机启动程序。</block>
-  <block id="eee7cd91c87d431eb526192fb8d8f8fa" category="list-text">如果快照位于归档存储中、请选择从归档存储还原数据的优先级。</block>
-  <block id="c309fef296cf37f3a835cb24529d8905" category="list-text">如果源存储上没有足够的空间或源存储已关闭，请选择 *更改存储位置*。</block>
-  <block id="7d7bd9e2f6791a41e19d3f4c2cfbd112" category="list-text">如果选择 *更改存储位置*，则可以在目标卷上附加后缀。如果未选中此复选框、则默认情况下  会将*_restore *附加到目标卷。单击 *Next*。</block>
-  <block id="09fbcde15932165bde251a10dbf240e4" category="list-text">如果选择了更改存储位置，请在存储映射页面中指定从对象存储还原的数据将存储在的备用存储位置详细信息，然后单击*Next*。</block>
-  <block id="e5c7ac753b7a6121d9687b3fc4c66f25" category="summary">本节介绍如何设置工作环境、如何配置SnapCenter以及如何在BlueXP中配置和激活SAP HANA备份。</block>
-  <block id="bba044fc5fd2c6b6b93f83b61a607e30" category="doc">为SAP HANA配置BlueXP备份和恢复</block>
-  <block id="84e76e0953f8a5f72d754729d1eaf1ae" category="section-title">为BlueXP创建工作环境</block>
-  <block id="210e8952dc88c73e56d56a168cfe0616" category="list-text">在左侧菜单中选择*存储*-&gt;*帆布*-&gt;*我的工作*环境。</block>
-  <block id="6689e50f5e4a08328fa676a7ebb07f17" category="section-title">在内部存储系统和对象存储分段之间创建关系</block>
-  <block id="eab79ca7fb49f80130fae7b1656f7ebc" category="inline-link">Amazon S3的网关端点- Amazon虚拟私有云</block>
-  <block id="4513d4d932152177142c02ca2a383afc" category="paragraph">要创建第一个卷备份、请执行以下步骤：</block>
-  <block id="690e7cac4bb20bc16d03d9e8c2976d36" category="section-title">在SnapCenter中配置SAP HANA系统资源</block>
-  <block id="522c073cfbc968ed21bb5b8292358b24" category="section-title">将SnapCenter添加到BlueXP工作环境</block>
-  <block id="63cebe46588c644def8c8d7ad33d7579" category="list-text">在左侧菜单中选择*保护*-&gt;*备份和恢复*-&gt;*应用程序*。</block>
-  <block id="5a367c49e14aa13d1f3d9dbbc659e2ae" category="section-title">为应用程序备份创建备份策略</block>
-  <block id="01f80398f488785a735c649b98cb461b" category="section-title">使用Cloud Backup for Applications保护SAP HANA数据库</block>
-  <block id="a0e8aadf9440319ad134e14b8cd7944e" category="paragraph">在某些环境中、可能需要删除SnapMirror源的任何现有计划设置。为此，请在源ONTAP系统上执行以下命令：_SnapMirror修改-target-path &lt;hana-cloud-svm&gt;：napp_copy &lt;SID_data_mnt00001&gt;-Schedule ""_。</block>
-  <block id="3b6e263c9f3e6b5ae82e2961e7499aa8" category="summary">本技术报告介绍了使用适用于应用程序的NetApp BlueXP备份和恢复来保护SAP HANA数据的最佳实践。本文档介绍了一些概念、配置建议和操作工作流、包括配置、备份操作、 和还原操作。</block>
-  <block id="b9a6a76ee21e4b2e63f002e8171e92cb" category="doc">适用于SAP HANA的BlueXP备份和恢复—将Cloud Object存储用作备份目标</block>
-  <block id="b5810ff76e2c858c26eb34fd554d4cd5" category="paragraph">本文档介绍如何使用NetApp BlueXP设置和配置SAP HANA、以实现从内部到基于云的对象存储的数据保护。其中包括解决方案的BlueXP备份和恢复部分。此解决方案是使用NetApp Snap Center对内部SAP HANA备份解决方案的增强功能、可提供一种经济高效的方式将SAP HANA备份长期归档到基于云的对象存储、并可选择将对象存储分层到归档存储、例如AWS Glacier/deep Glacier. Microsoft Azure Blob Archive和GCP Archive Storage。</block>
-  <block id="efabc7b5ad8cc75eaf149a7744db8028" category="inline-link">TR-4614：《使用SnapCenter进行SAP HANA备份和恢复》(netapp.com)</block>
-  <block id="c81a8bcb625915f9445bc27152702a6c" category="section-title">BlueXP备份和恢复架构</block>
-  <block id="b2bf2bbf7e6b4629b50b4af1483af0ba" category="section-title">安装和配置步骤概述</block>
-  <block id="f3cf1278a15cf0b578a48d8ef6a60523" category="inline-link">SnapCenter配置(netapp.com)</block>
-  <block id="a63540c81089e8aba203a4ec3fca1e34" category="list-text">安装和配置NetApp BlueXP组件。</block>
-  <block id="60cb8be07c4c55cabf60de71b7a9b4b2" category="paragraph">需要在初始设置数据保护解决方案期间执行一次。</block>
-  <block id="d695b2f7d2eff56585ac33b59ae50cde" category="list-text">NetApp SnapCenter的准备步骤。</block>
-  <block id="6d95f48ab62edee63c2cc9fda6615760" category="paragraph">需要对每个SAP HANA数据库执行此操作、这些数据库应受到保护。</block>
-  <block id="c24f27d2fb45abb4ddc4c6dac6b3f9b9" category="list-text">BlueXP备份和恢复中的配置步骤。</block>
-  <block id="0e7839906008338e5f608eca614e1cc7" category="section-title">安装和配置NetApp BlueXP混合应用程序备份</block>
-  <block id="9293673edeb2321146de2dbe903787cc" category="inline-link">保护内部应用程序数据| NetApp文档</block>
-  <block id="1b21781469d6b56757c78d09d90f83be" category="paragraph">中介绍了NetApp BlueXP组件的安装和配置<block ref="36b413e5ecd6dd30fe4575aa917373d9" category="inline-link-rx"></block>。</block>
-  <block id="c3c6e6b1d05fc3c3c73b5ab9af3ea3ee" category="list-text">注册BlueXP并在设置NetApp帐户<block ref="7dd2072632295c5a9abd61523c46bd40" category="inline-link-rx"></block>。</block>
-  <block id="44de63d2b4a3805e8a143a8425e912c6" category="inline-link">了解连接器| NetApp文档</block>
-  <block id="bc9a4ad171b5071191568c8006c63dc6" category="list-text">在您的环境中部署BlueXP Connector。问题描述位于<block ref="a6131392110983029d1dff188cde678b" category="inline-link-rx"></block>。</block>
-  <block id="6691a23f272bb7c1d702c8963a326dc0" category="list-text">在BlueXP中添加/购买Cloud Backup许可证：<block ref="57c4a53c7a746551566c6506aa924ffc" category="inline-link-rx"></block>。</block>
-  <block id="d497834786aa54c08eaf2f867588d576" category="list-text">在SnapCenter中配置SAP HANA系统资源。</block>
-  <block id="465f4a123cd3df663bb4b5d781e3755f" category="list-text">将Snap Center添加到您的工作环境中。</block>
-  <block id="87a323c396d1f0b11c5c63017a081d0a" category="list-text">为您的环境创建策略。</block>
-  <block id="a33d9e49823debc4eac9a3f6fed5ed4f" category="list-text">保护您的SAP HANA系统。</block>
-  <block id="b1708148488f2ff73841c4df62f35be1" category="doc">追加信息和版本历史记录</block>
-  <block id="5d2dace1bbb099eb2c0c668ec3e8c3b6" category="list-text">NetApp BlueXP备份和恢复产品文档+
-<block ref="2337d886e4f2f876275339e16f80eafd" category="inline-link-rx"></block></block>
-  <block id="d7a15f16d93378f9428254d47703abd2" category="cell">2024年3月</block>
-  <block id="c9dd6bad4c7d561872f2e2d498a990bf" category="inline-link">互操作性表工具（ IMT ）</block>
-  <block id="c5358f17fd6fd13a64169fc38a03495f" category="paragraph">请参见<block ref="2a186a9053db553d8a98e2d5f86d7002" category="inline-link-rx"></block> 在 NetApp 支持站点上，验证您的特定环境是否支持本文档中所述的确切产品和功能版本。NetApp IMT 定义了可用于构建 NetApp 支持的配置的产品组件和版本。具体结果取决于每个客户是否按照已发布的规格进行安装。</block>
-  <block id="ca996b238b1f32bd7d6b941eb3464b17" category="sidebar">适用于SAP HANA的BlueXP备份和恢复—概述</block>
-  <block id="deac54b4ceeb072a80124bd022d78294" category="sidebar">还原SAP HANA BlueXP备份</block>
-  <block id="1605c9a8e838f67f2b16a4053e1e045d" category="paragraph">本技术报告仅介绍如何以AWS S3对象存储为例、通过适用于SAP HANA的BlueXP备份和恢复来增强基于SnapCenter的内部SAP HANA备份和恢复解决方案。使用Microsoft Azure和GCP对象存储而非AWS S3进行设置和配置的过程与此类似、但本文档不会对此进行介绍。</block>
-  <block id="dce65a9e030d5dbde345a046d948f2bf" category="paragraph">BlueXP备份和恢复是一种SaaS解决方案、可为在NetApp内部存储上运行的应用程序提供数据保护功能、并将其迁移到云。它使用NetApp存储为SAP HANA提供基于策略的应用程序一致的高效保护。此外、BlueXP备份和恢复可提供集中控制和监管、同时委派用户管理应用程序特定的备份和还原操作的能力。</block>
-  <block id="ef7bad3edebf99f3bb50f4d8bbaa37d6" category="paragraph">BlueXP备份和恢复在NetApp BlueXP中作为SaaS运行、并利用框架和UI。BlueXP工作环境框架用于配置和管理基于内部存储的NetApp ONTAP和NetApp SnapCenter服务器的凭据。</block>
-  <block id="284528a6422c1ab87246e51dcb6b3ae5" category="paragraph">需要在客户虚拟网络中部署BlueXP连接器。内部环境和云环境之间需要连接、例如站点到站点VPN连接。NetApp SaaS组件与客户环境之间的通信只能通过连接器完成。此连接器正在使用ONTAP和SnapCenter管理API执行存储操作。</block>
-  <block id="3df2c2f8f80654c02cea27e8354aee2a" category="paragraph">内部存储和云存储分段之间的数据传输通过AES 256位空闲加密、传输中的TLS/HTTPS加密和客户管理密钥(CMK)支持进行端到端保护。+
-备份的数据可以存储在不可变和不可变的WORM状态。要从对象存储访问数据、唯一的方法是将其还原到基于NetApp ONTAP的存储(包括NetApp CVO)。</block>
-  <block id="6cb139093b769a68f6abbb55400df4d8" category="list-text">通过添加内部存储、在BlueXP中为NetApp内部环境和云目标创建工作环境。</block>
-  <block id="49d37c51268190a8f072cf6f400be18f" category="list-text">为内部存储创建一个新的对象存储关系、并将其加入AWS S3存储分段。</block>
-  <block id="6cf9c506a56175d20b049edfdc810cec" category="paragraph">将内部存储系统添加到您的工作环境中。</block>
-  <block id="35fb81d7bc669beabd5887c5308a5374" category="paragraph">内部存储与S3存储分段之间的关系是通过为卷创建备份或激活应用程序备份来实现的。如果要使用现有的站点到站点VPN将数据从内部传输到S3、则需要使用卷备份在内部存储和S3存储分段之间创建关系、因为需要使用VPC端点。+
-在创建本文档时、应用程序备份工作流不支持选择VPC端点来访问S3存储分段。+
-请参见<block ref="7f3b31b88f0e42104578f538777bc3e6" category="inline-link-rx"></block> 如何在VPC中为S3设置VPC端点。</block>
   <block id="9c485d8d0a0f2d60633001b05d342eed" category="doc">《采用NFS的NetApp FAS系统上的SAP HANA配置指南》</block>
   <block id="b7bda169ccba06e8cbcf02ba0fab5928" category="doc">《采用光纤通道协议的NetApp FAS系统上的SAP HANA配置指南》</block>
   <block id="a56f5f8ccd94f38be4e8a0f1faf81823" category="doc">《采用NFS的NetApp AFF系统上的SAP HANA—配置指南》</block>
@@ -3816,45 +3749,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="5bf509e6d43ff3eb5c07c44c1546ab09" category="paragraph"><block ref="5bf509e6d43ff3eb5c07c44c1546ab09" category="inline-image-macro-rx" type="image"></block></block>
   <block id="55aab77fa5d7f50b7fbedbf0df160938" category="paragraph"><block ref="55aab77fa5d7f50b7fbedbf0df160938" category="inline-link-rx"></block></block>
   <block id="5455f48dc7894a1b2782bb01cf938a86" category="paragraph"><block ref="5455f48dc7894a1b2782bb01cf938a86" category="inline-link-rx"></block></block>
-  <block id="6e0b32969c38b1fb3a586b9c8bca6d29" category="inline-image-macro">hana hycl-back-image2、宽度=624、高度=316</block>
-  <block id="04c6fea5cff3e4aa7643ec678d204fdc" category="inline-image-macro">Ein Bild，ds text enthält。自动生成Beschreirug、宽度=624、高度=316</block>
-  <block id="e67b31693fccd64a3bacc0e55452cae2" category="inline-image-macro">hana hycl-back-image5、宽度=624、高度=316</block>
-  <block id="bea671570e246847e20efc713c53c69e" category="inline-image-macro">Ein Bild, ds Diagramm enthält自动生成Beschreirug、宽度=624、高度=316</block>
-  <block id="dd78ee4baa00b09244d3a2f25c867ae5" category="inline-image-macro">hana hycl-back-image7、宽度=624、高度=308</block>
-  <block id="271dec539afcefba0b81c99e084b109c" category="inline-image-macro">hana hycl-back-image8、宽度=624、高度=309</block>
-  <block id="b0ea90440a1c4c0ce85aa8e6a6798323" category="inline-image-macro">hana hycl-back-image9、宽度=624、高度=304</block>
-  <block id="16c981d74d1a7a65432b0b676f94b05d" category="inline-image-macro">hana hycl-back-image10、宽度=624、高度=307</block>
-  <block id="3fe7bd8162333cf5226079e598f88f63" category="inline-image-macro">hana hycl-back-image12、宽度=624、高度=305</block>
-  <block id="8de11028ada12771254470b000810e23" category="inline-image-macro">hana hycl-back-image11、宽度=624、高度=304</block>
-  <block id="eb54efc82bc89a6f6a8a311be7a01d24" category="inline-image-macro">Ein Bild、ds Text、Software、ComputerSymbol、Webseite enthält。自动生成Beschreirug、宽度=624、高度=306</block>
-  <block id="75e71600dc8b519173f07bb53132cfea" category="inline-image-macro">hana hycl-back-image14、宽度=624、高度=306</block>
-  <block id="844815fed3e149f6fc8998b67459b8a9" category="inline-image-macro">hana hycl-back-image15、宽度=624、高度=304</block>
-  <block id="a8520b5a7e60b78ae1f8faf41e825735" category="inline-image-macro">hana hycl-back-image16、宽度=624、高度=304</block>
-  <block id="46694ff89d2e1049db53b085f808204b" category="inline-image-macro">hana hycl-back-image17、宽度=624、高度=304</block>
-  <block id="6b1682473b222d2b053e1f829a4dfa26" category="inline-image-macro">图形用户界面，自动生成应用程序问题描述，宽度=604，高度=156</block>
-  <block id="ec949205c32b4dcbf3d33ae3d2653d23" category="list-text">检查是否已通过集群添加存储SAP HANA系统的SVM (在此示例中为HANA)。如果仅添加了SVM、请添加此集群。+<block ref="a21a8efefc66cab38c485ab2857055c4" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="fa2838d19a717f2eaaa40e2f1f725b14" category="inline-image-macro">图形用户界面，自动生成应用程序问题描述，宽度=604，高度=140</block>
-  <block id="015b0ff295262d8372bb8eaf0e7007fa" category="inline-image-macro">hana hycl-back-image20、宽度= 167、高度= 167</block>
-  <block id="fc770d11db32177599ce06cc7a281439" category="inline-image-macro">图形用户界面，自动生成应用程序问题描述，宽度=604，高度=215</block>
-  <block id="84c8d37516c033f0c33377c3d5233ad4" category="list-text">将新策略添加到SAP HANA系统并分配每日计划。+<block ref="7adbf922feb3d32be59867cb2db85d53" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="f306bf0a63220090651328d0787ebdef" category="inline-image-macro">自动生成图形用户界面、应用程序、团队问题描述、宽度=604、高度=193</block>
-  <block id="8b7d9c683eee25ba85d1f605aa5bfc73" category="list-text">配置此策略后、在根据定义的计划执行此策略后、可以使用此策略进行新备份。<block ref="4cdd66955f0a12d8fd4b6c1593da46ce" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="9a74817b35b4d995ea09e91b80d35939" category="inline-image-macro">hana hycl-back-image23、宽度=624、高度=316</block>
-  <block id="f1fa07b4f7836783fffe714d5a32befc" category="inline-image-macro">hana hycl-back-image26、宽度=624、高度=315</block>
-  <block id="4d57087fb6eb4ef48dd81d74b0599e61" category="inline-image-macro">hana hycl-back-image27、宽度=624、高度=316</block>
-  <block id="649a9b7aadbc8a5543b6a50f4b67635f" category="inline-image-macro">hana hycl-back-image29、宽度=624、高度=316</block>
-  <block id="349ab45b449e8c58be43aa51b5414b97" category="inline-image-macro">hana hycl-back-image30、宽度=624、高度=316</block>
-  <block id="62a3ac1a1f8d319fbc334f7bb626e92f" category="inline-image-macro">hana hycl-back-image31、宽度=624、高度=315</block>
-  <block id="56a584207272fdc3949d5cfbeddc6890" category="inline-image-macro">hana hycl-back-image32、宽度=624、高度=315</block>
-  <block id="76e2dedbbcb80bd757e7f109e362eddf" category="inline-image-macro">宽度=624、高度=316</block>
-  <block id="659017308b6b80ebac0dc21912936c14" category="inline-image-macro">宽度=624、高度=337</block>
-  <block id="a852f184953f796252263a558df2db56" category="inline-image-macro">hana hycl-back-image37、宽度=624、高度=316</block>
-  <block id="c7fbbf7c043fddfe22030f95f982786c" category="summary">此部分列出了可从何处查找其他信息并显示版本历史记录。</block>
-  <block id="41bb765509308cdc44c413e512e52e34" category="inline-image-macro">Ein Bild、dis text、Screenshot、Diagramm、Kreis enthält。自动生成Beschreirug、宽度=624、高度=450</block>
-  <block id="796b2f89ad255115d9dff26e3177a467" category="paragraph"><block ref="796b2f89ad255115d9dff26e3177a467" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="7bff1872092b4daae129c007c84cd996" category="inline-image-macro">hana hycl-back-image38、宽度=624、高度=305</block>
-  <block id="a50aa712257968ee6554358d180aeec3" category="inline-image-macro">宽度=624、高度=308</block>
-  <block id="c2dc9045e50399390c48484b265865e6" category="inline-image-macro">hana hycl-back-image41、宽度=624、高度=309</block>
   <block id="607e9caaefc803f1d39242ad4334a766" category="paragraph"><block ref="607e9caaefc803f1d39242ad4334a766" category="inline-image-macro-rx" type="image"></block></block>
   <block id="46f88568036f8d70f81f56eb754440ba" category="paragraph"><block ref="46f88568036f8d70f81f56eb754440ba" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0e84b80d2a5f8afd1eeb5f706b957809" category="paragraph"><block ref="0e84b80d2a5f8afd1eeb5f706b957809" category="inline-image-macro-rx" type="image"></block></block>
@@ -4352,7 +4246,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="a1498fba486158dfd616e2bc1f205275" category="admonition">添加更多磁盘架不会增加存储控制器可支持的最大SAP HANA主机数量。</block>
   <block id="a2ef5d14ae5c3accf7291e39163d1ebd" category="paragraph">每个NS224 NVMe磁盘架都通过每个控制器两个100GbE端口进行连接、如下图所示。每个磁盘架中的磁盘必须平均分布到 HA 对的两个控制器。</block>
   <block id="ef8d203413a4aabe57527556e0ef5fcb" category="paragraph"><block ref="ef8d203413a4aabe57527556e0ef5fcb" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="5c93db5d513dfbb32e85b013261b5aa8" category="list-text">检查磁盘架配置是否正确，如中所述<block ref="039cb3f1d3f19b24b2d3e1a57595e88d" category="inline-xref-macro-rx"></block>。</block>
   <block id="cf0ea9a7f661e4a10ff9e179d0893564" category="list-text">创建和配置所需的聚合，如中所述<block ref="19f0aba2b822910f53ba3966ee7c8d59" category="inline-xref-macro-rx"></block>。</block>
   <block id="07701c9e659f97922638b5c031983241" category="list-text">创建Storage Virtual Machine (SVM)，如中所述<block ref="7c58f6887f41bcea1635c2c18a7a4529" category="inline-xref-macro-rx"></block>。</block>
   <block id="9a7dedbc9b05dfef2c16b4468bbc6d42" category="list-text">创建逻辑接口(Lif)，如中所述<block ref="fc903155b67a1626f9032f79a26da71f" category="inline-xref-macro-rx"></block>。</block>
@@ -5070,45 +4963,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="e34ce3b231903e44c3708a8295d4abc8" category="admonition">二级策略标签必须与存储层上数据保护配置中的 SnapMirror 标签相同。请参见一节<block ref="9709887b2e10facf416fc3560603f9b8" category="inline-link-macro-rx"></block></block>
   <block id="f87531f2bfe441193671ca21c1af5569" category="paragraph">在发生灾难故障转移时，必须中断复制关系，将卷挂载到灾难恢复生产服务器，并且必须将 HANA 数据库恢复到最后一个 HANA 保存点，或者使用复制的日志备份进行正向恢复。一章<block ref="e662c9f6046b2d69b33032921c282f16" category="inline-link-macro-rx"></block>介绍了所需的步骤。</block>
   <block id="fd8ff870af3225045cae849a29ee9c7c" category="paragraph">有关不同配置选项的详细信息，请参见第章<block ref="52361ff2780d39b847dad2f6438b837e" category="inline-link-macro-rx"></block>。</block>
-  <block id="e2a4d74d9da0f37cf75c01a592cccda1" category="list-text">按*+添加工作环境*。+<block ref="244734d9a715669af19beac37418cc69" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="487444cd9d2276bc7a0457c80118ecc8" category="list-text">选择*内部*。+<block ref="e2dbe10136eb44d00f6ea57dbc61dbf3" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="5f0bcbad0f64ed212671e0e94fe377d3" category="list-text">选择*发现内部部署ONTAP *。+<block ref="c373c9a6bc5f211b8506ef9fbccc4011" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="31b63ccfc00a87f4a0934a0009a846df" category="list-text">添加ONTAP集群的IP地址和密码，然后按*Discover。+<block ref="377b624e95c0a3e30f2686a4faa1ebed" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="e6906c1f38dbed8e1e05842ff6286585" category="list-text">ONTAP集群现已可用。+<block ref="f027fc2d9f697bc8a53fef90fc34acd6" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="fd13c146e0766b30e17141fd79e917bb" category="list-text">通过*保护*导航到*备份和恢复*并选择*卷*。+<block ref="37456cd827740a922e3efb17ffba4398" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="e8d6313bf00288819643ab8e400670ef" category="list-text">按*激活备份*按钮。+<block ref="c372536652e895dd7d75f8a09398380b" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="d9a0e0cda5e1db18333387626bd238f4" category="list-text">选择所需的内部存储系统，然后单击*激活备份*。+<block ref="dec3e4e769c8ac62648df6cd1390fd33" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="5fad0330d15b001ea9ddb8076af3574f" category="list-text">选择*Backup*。+<block ref="207e65c3d4a711c8387574765084cefe" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="63ba88b030ae789f4aed3eb5dd3f7963" category="list-text">选择与SAP HANA数据文件存储在同一SVM中的卷、然后按*下一步*。在此示例中、选择了/HAA/Shared的卷。+<block ref="4d3350cffa19f3cd959b7120cc46c077" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="f807dc984612de42e2803ec8811279a4" category="list-text">*继续*(如果存在现有策略)。+<block ref="0512ce0c50e2b38b84d08a2aeb441a14" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="2e6492f95475ccdc8c8633e4e3a777fa" category="list-text">选中*备份选项*并选择所需的备份提供程序。在本示例中、AWS。+保持选中已有策略的选项。+取消选中不想使用的选项。+<block ref="076b2db5fd2dd85efd4b4ce9c10783e2" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="08c2b3c3f4b0a4da3e410a3d2c7a80b1" category="list-text">创建新存储分段或选择现有存储分段。请提供您的AWS帐户设置、配置、访问密钥和机密密钥。按*Next*。+<block ref="fcd2110b19ec8e0a5c1f57035990560a" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="bb7816e48b641793b34661b87a385315" category="list-text">为内部存储系统选择正确的IP空间，选择*Privat Endpoint Configuration*，然后选择S3的VPC端点。按*Next*。+<block ref="33e10a566213a6a475d417a3000cbf46" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="72811a0b1e049021699cde08c8d273a0" category="list-text">查看您的配置并按*激 活备份*。+<block ref="3d06d54330c9e8aa49ee9d5c2427605c" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="6ef4e48db7837bb4b18a4999b9b87f08" category="list-text">备份已成功启动。+<block ref="942d980a9dd4c5c16db513a30ca11cb8" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="0fdd2ecdd94b659b9a48810552358736" category="list-text">定义计划类型为每日、每周或每月的计划策略。+<block ref="4053c2b580ac63fbd3aca168d4d20e18" category="inline-image-macro-rx" type="image"></block> <block ref="e4037ddbb5c26d524521d26f37ae8f52" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="0df67991d6f19d68be5a1f806ea33ba8" category="list-text">从下拉菜单中选择*Hybrid。+<block ref="50b62de2b206c907297feb41ea8c584e" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="e168337ad80dacfb777dfb5b9d16d1b6" category="list-text">在“设置”菜单中选择SnapCenter Server*。+<block ref="b8a08223f5755a38417573c44c7115d2" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="2d03f1780fa4abc5c29edf1a7376f442" category="list-text">注册SnapCenter服务器。+<block ref="dca8f8475b9f80caacbae88f15d95adf" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="a9288106bf9ce2dc4c764fab82260680" category="list-text">添加SnapCenter服务器凭据。+<block ref="1f1add5901b34cb27bd11009a4bdf830" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="ddc6a127dfd0f26869593648a25756a7" category="list-text">已添加SnapCenter服务器、将发现数据。+<block ref="5b4b1c8299226aa8a2b083d1352dba59" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="c875706a996c5fcf3565a727ad698f17" category="list-text">发现作业完成后、SAP HANA系统将可用。+<block ref="be655bf65dd56c79dc95dbfa07634cfc" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="74e83dca0aa27b732266bd94e5b121c7" category="list-text">在设置菜单中选择*Policies*。+<block ref="e795cb19dc5cd5daf529720180130b91" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="6044544f3420c01cf19975ce598455f0" category="list-text">如果需要，单击*Create Policy*创建新策略。+<block ref="d480fe1c409cf4f84bdc7ee238e839c8" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="c5342b2db061cb16c3806776ac15c963" category="list-text">提供策略名称和所需的SnapMirror标签、选择所需选项、然后按*创建*。+<block ref="bac41397b788aa7d17de3980c0ed6ddd" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="e645d4f0db4c9dbeb4ca23b11261a3f3" category="list-text">新策略可用。+<block ref="449c23022bfb13eda82ce7584605e31e" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1ad5f9eb966551a1c729bc1bb9ae4549" category="list-text">为SAP HANA系统选择*激活备份*。+<block ref="5589cd08880f60d2123164b618a2d3e6" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="accd433ef37c2537a94a3c084d2f1907" category="list-text">选择先前创建的策略，然后单击*Next*。+<block ref="91384b55a136ca1c585e2c2884eb4bca" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="c9ad830bea03b11fd05ba79eaf0ec5f6" category="list-text">存储系统和连接器已预先配置、备份将被激活。+<block ref="55f436d2fa7549d6372fa3c35565c4a4" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="cb0d8c7c771bfde22fa72cdc285079e2" category="list-text">作业完成后、系统将会列出。+<block ref="88e6e4ade5b4c937312486c5dd3e1978" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="a2eb1ff416cbd26d08b23a37d3c82da7" category="list-text">一段时间后、备份将在SAP HANA系统的详细信息视图中列出。+第二天将列出每日备份。+<block ref="ac6a034c4eb3ed5655ae8237fc420fb0" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="ddf969692f0e57fae57aaff1456799a0" category="list-text"><block ref="ddf969692f0e57fae57aaff1456799a0" category="inline-link-macro-rx"></block></block>
-  <block id="3c7416820648f591bb3fa1d31f7bcf03" category="paragraph">中介绍了内部SAP HANA备份和恢复解决方案的设置和配置<block ref="159877d61f413e893b32f610f850cc28" category="inline-link-macro-rx"></block>。</block>
-  <block id="552f6a9485fc60bb7f55b449a97dc4e2" category="paragraph">所需的安装和配置步骤可分为三个方面。+前提条件是已在NetApp Snap Center中配置SAP HANA备份配置。有关首先为SAP HANA设置Snap Center的<block ref="df47df2d53579a5ed631e4604d5acca1" category="inline-link-macro-rx"></block>信息，请参见。</block>
-  <block id="c7ac945124ce2a979ffd642d40432d85" category="list-text">单击  与要还原的数据库对应的*查看详细信息*。+<block ref="acd713c1b2b085fc56261aa0cfad9c89" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="e60ebdb0aaaf0d4fb13bfd7d896cf8bf" category="list-text">选择所需的备份、然后选择存储导出。+<block ref="b77d2ab3123688d838c2ad8eb51692dc" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="f9435ac70c6aa2a726c5283ca2bb9bc7" category="list-text">提供所需选项：+<block ref="49dd4ae51b31524f137f2bd709126245" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="08862f459410ef47bf21a7834acd3afd" category="list-text">查看详细信息，然后单击 *Restore*。+++<block ref="552dceb28f1276cb45b6d2afff2ae744" category="inline-image-macro-rx" type="image"></block>此操作仅会为给定主机导出已还原备份的存储。您必须在主机上手动挂载文件系统并启动数据库。使用此卷后、存储管理员可以从ONTAP 集群中删除此卷。</block>
   <block id="cbfd61eacaaf6c950b89d6113ccfe679" category="paragraph"><block ref="cbfd61eacaaf6c950b89d6113ccfe679" category="inline-link-macro-rx"></block></block>
   <block id="3149d7f53627e7a4811812a5342ef935" category="paragraph"><block ref="3149d7f53627e7a4811812a5342ef935" category="inline-link-macro-rx"></block></block>
   <block id="aa00b093336debfc20dbc4fc69cb70d8" category="paragraph"><block ref="aa00b093336debfc20dbc4fc69cb70d8" category="inline-link-macro-rx"></block></block>
@@ -5313,7 +5167,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="e6b7e7bf86715e60d66e0c4fd326c955" category="paragraph">有关使用SnapCenter的SAP HANA备份和恢复解决方案的详细信息，请参见<block ref="0a5fce897a9b356de9fbfc0e516c7392" category="inline-link-macro-rx"></block>。</block>
   <block id="5b30611fb0620adc53c494ca5e20e5d0" category="paragraph">有关使用SnapCenter的SAP HANA灾难恢复解决方案的详细信息，请参见<block ref="9e073a57f7a3e69defc613fe0d2d690f" category="inline-link-macro-rx"></block>。</block>
   <block id="e409da5f49cbcd0d5f6f423a57a43e78" category="paragraph">可通过多种方法将存储连接到虚拟机（ VM ）。首选方法是，将具有 NFS 的存储卷直接从子操作系统中连接起来。<block ref="d1b4413cecd0416bbd7ac40af6b252af" category="inline-link-macro-rx"></block>有关此选项的说明，请参见。</block>
-  <block id="a49d9f984a7158fad1ccd4db2fb62927" category="paragraph">建议使用1000 MB/秒作为给定LUN的最大吞吐量。如果应用程序需要更多吞吐量、则应使用多个具有LUN条带化的LUN来提供所需的带宽。本指南第节提供了基于Linux LVM的SAP HANA示例<block ref="b31e32426f0cc5eb025339912edb2d91" category="inline-link-macro-rx"></block>。</block>
   <block id="60e3819e2b8858d6ed1ed9bf9b7ea912" category="paragraph"><block ref="60e3819e2b8858d6ed1ed9bf9b7ea912" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5f1ae89b567878eafdf31bc9d9aab95c" category="admonition">该<block ref="3a8e4afa851609127d534b04e7d29c08" prefix=" " category="inline-code"></block>工具是NetApp Host Utilities的一部分、必须安装在每个SAP HANA主机上。有关详细信息、请参见第节<block ref="1970c05dedf021dcfe0fe0afe84eb11e" category="inline-link-macro-rx"></block></block>
   <block id="21a371be04b3decb0d2708ebbabb53cb" category="paragraph"><block ref="21a371be04b3decb0d2708ebbabb53cb" category="inline-image-macro-rx" type="image"></block></block>
@@ -5450,7 +5303,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="2a48b320782f505d499eb2656e4beeb6" category="paragraph">以下示例显示了一个 2+1 多主机设置，其中 SID 为 FC5 。</block>
   <block id="608ffc0c69fcd322ae0112af21ce3c4d" category="paragraph">使用 SAP hdblcm 安装工具，在其中一个工作主机上运行以下命令开始安装。使用<block ref="9676c5ff8ed94e9d3ceba55f16dde62f" prefix=" " category="inline-code"></block>选项添加第二个工作空间(sapcc-hana TST-06)和备用主机(sapcc-hana TST-07)。</block>
   <block id="26b17225b626fb9238849fd60eabdf60" category="paragraph">+</block>
-  <block id="fbb87f9a8e02229a1bda368258b0705e" category="paragraph">建议使用1000 MB/秒作为给定LUN的最大吞吐量。如果应用程序需要更多吞吐量、则应使用多个具有LUN条带化的LUN来提供所需的带宽。本指南第节提供了基于Linux LVM的SAP HANA示例<block ref="60502400ca116a44af7f5b80e6597e3d" category="inline-link-macro-rx"></block>。</block>
   <block id="6184bd9e1a3ce0ee5585d5645a62615e" category="list-text">使用 HANA 服务器的全球名称 (WWN) 创建启动器组 (igroup)，如链接：saphana-asa-fc-storage-controller-setup.html#initiator-groups 部分所述<block ref="a30a5bc4156d5efb64f9f758389889ed" category="inline-xref-macro-rx"></block> 。</block>
   <block id="5b1acf5a0d4700aa212fae66acc8c9da" category="inline-link-macro">SAP HANA 单主机系统的 LUN 配置</block>
   <block id="d8e1a4cd040958dd75d0dcc1425db696" category="inline-link-macro">SAP HANA 多主机系统的 LUN 配置</block>
@@ -5804,4 +5656,11 @@ SnapCenter 4.3.1支持NFSv4
   <block id="11c46485b4b3a1ac8c78c2b4fab3494c" category="paragraph">NetApp AFF/ ASA A 系列产品系列已通过认证，可在定制数据中心集成 (TDI) 项目中与 SAP HANA 一起使用。</block>
   <block id="570cc63e0195f0a2bf35f6333e8c271b" category="list-text">AFF A20、 AFF A30、 AFF A50、 AFF A70、 AFF A90、 AFF A1K</block>
   <block id="650bbb24893f36d6991bb48ee757fff0" category="paragraph">NetApp AFF A 系列产品系列已通过认证，可在定制数据中心集成 (TDI) 项目中与 SAP HANA 一起使用。本指南提供了此平台上适用于 NFS 的 SAP HANA 的最佳实践。</block>
+  <block id="1fefbbe1f6719cf83eabfdf1a5ee8d0a" category="list-text">检查正确的磁盘架配置，如<block ref="4faed6de755c26533eccd0e0858cad65" category="inline-xref-macro-rx"></block>。</block>
+  <block id="bd4e4c5c3d8d52054de3892b6f5dc693" category="paragraph">建议使用 1000MB/s 作为给定 LUN 的最大吞吐量。如果应用程序需要更大的吞吐量，则应使用具有 LUN 条带化的多个 LUN 来提供所需的带宽。本指南提供了基于 Linux LVM 的 SAP HANA 示例，请参阅第<block ref="e432b9ef93debe720a3ece302cbcca1c" category="inline-link-macro-rx"></block>。</block>
+  <block id="b9ee3cd7dd759d764d0324a8cdadec91" category="paragraph">建议使用 1000MB/s 作为给定 LUN 的最大吞吐量。如果应用程序需要更大的吞吐量，则应使用具有 LUN 条带化的多个 LUN 来提供所需的带宽。本指南提供了基于 Linux LVM 的 SAP HANA 示例，请参阅第<block ref="ede92b3cf72760c585979de2c2a3139a" category="inline-link-macro-rx"></block>。</block>
+  <block id="e95b75f557af9310f3d9c6299286a533" category="sidebar">解决方案请求和反馈</block>
+  <block id="22d04ecae9fae88d0b8d4548a46a545b" category="sidebar">请求自动化</block>
+  <block id="776ab15fef436c9315c14738509d299e" category="sidebar">提出新的解决方案</block>
+  <block id="cfdaac8ef24ac5b2612570c34da00954" category="sidebar">提供解决方案反馈</block>
 </blocks>

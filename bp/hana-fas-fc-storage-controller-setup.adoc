@@ -69,7 +69,7 @@ lun modify -vserver <vserver name>  -path * -qos-policy-group  <policy-name>
 ....
 lun create -vserver <vserver_name> -path  /vol/<volume_name>/<lun_name>   -size <size> -ostype <e.g. linux>  -qos-policy-group <policy-name>
 ....
-建议使用1000 MB/秒作为给定LUN的最大吞吐量。如果应用程序需要更多吞吐量、则应使用多个具有LUN条带化的LUN来提供所需的带宽。本指南第节提供了基于Linux LVM的SAP HANA示例link:hana-fas-fc-host-setup.html#create-lvm-volume-groups-and-logical-volumes["主机设置"]。
+建议使用 1000MB/s 作为给定 LUN 的最大吞吐量。如果应用程序需要更大的吞吐量，则应使用具有 LUN 条带化的多个 LUN 来提供所需的带宽。本指南提供了基于 Linux LVM 的 SAP HANA 示例，请参阅第link:hana-fas-fc-host-setup.html["主机设置"]。
 
 
 NOTE: 此限制也适用于读取。因此、请使用足够的LUN来满足SAP HANA数据库启动时间和备份所需的SLA。
@@ -93,13 +93,17 @@ FabricPool 是将日志备份移动到另一存储层的理想选择。移动备
 
 以下概述总结了所需的存储配置步骤。后续章节将更详细地介绍每个步骤。在启动这些步骤之前，请完成存储硬件设置， ONTAP 软件安装以及存储 FCP 端口与 SAN 网络结构的连接。
 
-. 检查磁盘架配置是否正确，如中所述<<磁盘架连接>>。
+. 检查正确的磁盘架配置，如<<磁盘架连接>>。
 . 创建和配置所需的聚合，如中所述<<聚合配置>>。
 . 创建Storage Virtual Machine (SVM)，如中所述<<Storage Virtual Machine 配置>>。
 . 创建逻辑接口(Lif)，如中所述<<逻辑接口配置>>。
 . 使用HANA服务器的全球通用名称(Worldwide Name、WWN)创建启动程序组(igroup)、如链接：hana -fas -fc-storage-controller-setup.html#user-groups部分所述<<启动程序组>>。
 . 按照本节中的说明在聚合中创建和配置卷和 LUN link:hana-fas-fc-storage-controller-setup_single_host.html["单主机设置"]适用于单个主机或分段link:hana-fas-fc-storage-controller-setup_multiple_hosts.html["多主机设置"]对于多个主机
 
+
+
+
+== 磁盘架连接
 
 对于 HDD ，最多可以将两个 DS2246 磁盘架或四个 DS224C 磁盘架连接到一个 SAS 堆栈，以提供 SAP HANA 主机所需的性能，如下图所示。每个磁盘架中的磁盘必须平均分布到 HA 对的两个控制器。
 
