@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: bp/kvm-hana-update-history.html 
+keywords:  
+summary:  
+---
+= 更新历史记录
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+自此解决方案最初发布以来，已对其进行了以下技术更改。
+
+[cols="25,50"]
+|===
+| Date | 更新摘要 
+
+
+| 2025年10月 | 初始版本 
+|===

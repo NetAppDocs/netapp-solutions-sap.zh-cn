@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: bp/kvm-hana-fcn.html 
+keywords: fibre channel,KVM, SAP HANA, tailored data center integration, FCP 
+summary: 本指南提供有关如何使用NetApp存储配置 SAP HANA 的 SUSE KVM 的信息。 
+---
+= 配置光纤通道网络
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+本节提供有关如何在 SUSE KVM 中使用NetApp存储为 SAP HANA 配置 FCP 的信息。
+
+
+
+== 将 FCP 端口分配给虚拟机
+
+由于 FCP 没有类似 SR-IOV 的功能，因此需要将物理 HBA 端口分配给 VM。需要使用连接到不同织物的两个物理端口。
+
+
+NOTE: 一个物理端口只能分配给一台虚拟机。
+
+为此，请完成以下步骤：
+
+. 启动 _virt-manager._ +image:kvm-hana-image2.png["宽度=601，高度=385"]
+. 打开所需的虚拟机。+ image:kvm-hana-image3.png["宽度=601，高度=385"]
+. 按下“添加硬件”。+ image:kvm-hana-image4.png["Virtmanager 添加硬件，宽度=601，高度=443"]
+. 从 PCI 主机设备列表中选择所需的 HBA 端口，然后按完成。 + 在这个例子中 0000.A2:00:0。+ image:kvm-hana-image9.png["宽度=601，高度=441"]
+. 从属于第二个交换矩阵的 PCI 主机设备列表中选择所需的 HBA 端口，然后按下完成键。在这个例子中，0000.A2:00:1。+ image:kvm-hana-image10.png["宽度=601，高度=441"]
+. 之后，将物理 HBA 端口分配给虚拟机，即可启动虚拟机。+ image:kvm-hana-image11.png["宽度=601，高度=441"]
+
+
+由于物理端口已传递到虚拟机，因此无需进行其他准备工作。
