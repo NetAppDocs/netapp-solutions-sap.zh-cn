@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: bp/kvm-hana-introduction.html 
-keywords: introduction,KVM, SAP HANA, tailored data center integration, FCP, NFS 
-summary: 本指南提供有关如何使用NetApp存储配置 SAP HANA 的 SUSE KVM 的信息。 
+keywords: introduction,KVM, SAP HANA, tailored data center integration, FCP, NFS, workflow, deployment 
+summary: 使用带有 SR-IOV 网络接口和 NFS 或 FCP 存储访问的NetApp存储，在 SUSE KVM 上部署 SAP HANA 单主机。按照此工作流程配置虚拟接口，将其分配给虚拟机，并设置存储连接以获得最佳性能。 
 ---
-= SAP HANA 与 SUSE KVM 和NetApp存储
+= 使用 SR-IOV 和 NFS 在 SUSE KVM 上部署 SAP HANA，并使用NetApp存储。
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,27 +14,26 @@ summary: 本指南提供有关如何使用NetApp存储配置 SAP HANA 的 SUSE K
 
 
 [role="lead"]
-本指南提供有关如何使用NetApp存储配置 SAP HANA 的 SUSE KVM 的信息。
+使用带有 SR-IOV 网络接口和 NFS 或 FCP 存储访问的NetApp存储，在 SUSE KVM 上部署 SAP HANA 单主机。按照此工作流程配置虚拟接口，将其分配给虚拟机，并设置存储连接以获得最佳性能。
 
-NetApp 公司 Marco Schoen
+有关 SAP HANA on KVM 虚拟化的概述，请参阅 SUSE 文档： https://documentation.suse.com/sbp/sap-15/pdf/SBP-SLES4SAP-HANAonKVM-SLES15SP5_en.pdf["SUSE 在 KVM 上部署 SAP HANA 的最佳实践"] 。
 
+image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]link:kvm-hana-requirements.html["查看配置要求"]
 
+[role="quick-margin-para"]
+审查在 SUSE KVM 上使用NetApp存储、SR-IOV 和存储协议部署 SAP HANA 的关键要求。
 
-== 简介
+image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]link:kvm-hana-network.html["配置SR-IOV网络接口"]
 
-本文档介绍了在 SUSE KVM 上使用NetApp存储部署 SAP HANA 单主机所需的其他步骤。它基于 https://documentation.suse.com/sbp/sap-15/pdf/SBP-SLES4SAP-HANAonKVM-SLES15SP5_en.pdf["SUSE 在 KVM 上部署 SAP HANA 的最佳实践"]。
+[role="quick-margin-para"]
+在 KVM 主机上设置 SR-IOV（单根 I/O 虚拟化），并为 VM 分配虚拟接口以进行网络通信和存储访问。
 
-它主要展示了如何在 KVM 主机上配置 SR-IOV（单根 I/O 虚拟化）的网络接口，将这些虚拟接口 (VF) 分配给 VM，以及如何在 VM 内配置接口以使用 NFS 访问 SAP HANA 存储。此外，它还介绍了如何在虚拟机中设置 FCP 以用于 SAP HANA。
+image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"]link:kvm-hana-fcn.html["配置光纤通道网络"]
 
+[role="quick-margin-para"]
+将物理 FCP HBA 端口分配给 VM 作为 PCI 设备，以便在 SAP HANA 中使用 FCP LUN。
 
-NOTE: SR-IOV 必须用于 SAP HANA 网络通信和使用 NFS 进行存储访问。要使用 FCP LUN，必须将物理 FCP HBA 端口分配给 VM 作为 PCI 设备。不支持 SAP HANA 多主机系统。
+image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"]link:kvm-hana-storage.html["配置用于 SAP HANA 的NetApp存储"]
 
-
-
-== 前提条件
-
-本指南适用于作为 KVM 主机的 Linux Enterprise Server for SAP Applications 15 SP5/SP6。 + 必须使用经过认证的 SAP HANA 服务器和NetApp存储。请查看 SAP HANA 硬件目录以了解可用选项 https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN[]
-
-KVM主机和虚拟机的设置和配置必须按照以下方式进行： https://documentation.suse.com/sbp/sap-15/pdf/SBP-SLES4SAP-HANAonKVM-SLES15SP5_en.pdf["SUSE 在 KVM 上部署 SAP HANA 的最佳实践"] 。
-
-有关最新信息（包括支持的 CPU 架构和限制），请查看 SAP Note +https://me.sap.com/notes/3538596["3538596 - SAP HANA on SUSE KVM Virtualization with SLES 15 SP5 - SAP for Me"]
+[role="quick-margin-para"]
+在虚拟机和NetApp存储系统之间建立 NFS 或 FCP 存储连接，用于 SAP HANA 数据库文件。

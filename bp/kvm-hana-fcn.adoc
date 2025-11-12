@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: bp/kvm-hana-fcn.html 
-keywords: fibre channel,KVM, SAP HANA, tailored data center integration, FCP 
-summary: 本指南提供有关如何使用NetApp存储配置 SAP HANA 的 SUSE KVM 的信息。 
+keywords: fibre channel,KVM, SAP HANA, FCP, HBA, PCI passthrough, storage 
+summary: 通过将物理 HBA 端口分配给虚拟机作为 PCI 设备，为 SUSE KVM 上的 SAP HANA 配置光纤通道网络。使用连接到不同交换矩阵交换机的两个物理端口建立冗余的FCP连接。 
 ---
-= 配置光纤通道网络
+= 在 SUSE KVM 上为 SAP HANA 配置光纤通道网络
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,25 +14,49 @@ summary: 本指南提供有关如何使用NetApp存储配置 SAP HANA 的 SUSE K
 
 
 [role="lead"]
-本节提供有关如何在 SUSE KVM 中使用NetApp存储为 SAP HANA 配置 FCP 的信息。
+通过将物理 HBA 端口分配给虚拟机作为 PCI 设备，为 SUSE KVM 上的 SAP HANA 配置光纤通道网络。使用连接到不同交换矩阵交换机的两个物理端口建立冗余的FCP连接。
 
 
+NOTE: 仅当使用 FCP 作为存储协议时才需要以下步骤。如果使用 NFS，则无需执行这些步骤。
 
-== 将 FCP 端口分配给虚拟机
-
-由于 FCP 没有类似 SR-IOV 的功能，因此需要将物理 HBA 端口分配给 VM。需要使用连接到不同织物的两个物理端口。
+.关于此任务
+由于 FCP 没有 SR-IOV 等效功能，请将物理 HBA 端口直接分配给 VM。使用连接到不同网络结构的两个物理端口来实现冗余。
 
 
 NOTE: 一个物理端口只能分配给一台虚拟机。
 
-为此，请完成以下步骤：
+.步骤
+. 启动 virt-manager：
++
+image:kvm-hana-image2.png["宽度=601，高度=385"]
 
-. 启动 _virt-manager._ +image:kvm-hana-image2.png["宽度=601，高度=385"]
-. 打开所需的虚拟机。+ image:kvm-hana-image3.png["宽度=601，高度=385"]
-. 按下“添加硬件”。+ image:kvm-hana-image4.png["Virtmanager 添加硬件，宽度=601，高度=443"]
-. 从 PCI 主机设备列表中选择所需的 HBA 端口，然后按完成。 + 在这个例子中 0000.A2:00:0。+ image:kvm-hana-image9.png["宽度=601，高度=441"]
-. 从属于第二个交换矩阵的 PCI 主机设备列表中选择所需的 HBA 端口，然后按下完成键。在这个例子中，0000.A2:00:1。+ image:kvm-hana-image10.png["宽度=601，高度=441"]
-. 之后，将物理 HBA 端口分配给虚拟机，即可启动虚拟机。+ image:kvm-hana-image11.png["宽度=601，高度=441"]
+. 打开所需的虚拟机。image:kvm-hana-image3.png["宽度=601，高度=385"]
+. 选择“添加硬件”。
++
+image:kvm-hana-image4.png["Virtmanager 添加硬件，宽度=601，高度=443"]
+
+. 从 PCI 主机设备列表中选择所需的 HBA 端口，然后按完成。
++
+在这个例子中，0000.A2:00:0。
+
++
+image:kvm-hana-image9.png["宽度=601，高度=441"]
+
+. 从属于第二个交换矩阵的 PCI 主机设备列表中选择所需的 HBA 端口，然后按下完成键。在这个例子中，0000.A2:00:1。
++
+image:kvm-hana-image10.png["宽度=601，高度=441"]
+
+. 之后，将物理 HBA 端口分配给虚拟机，即可启动虚拟机。
++
+image:kvm-hana-image11.png["宽度=601，高度=441"]
+
++
+物理端口直接传递到虚拟机，因此虚拟机内部无需进行额外的准备工作。
 
 
-由于物理端口已传递到虚拟机，因此无需进行其他准备工作。
+
+
+
+== 下一步是什么？
+
+配置好光纤通道网络后，link:kvm-hana-storage.html["配置用于 SAP HANA 的NetApp存储"] 。

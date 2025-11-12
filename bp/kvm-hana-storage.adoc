@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: bp/kvm-hana-storage.html 
-keywords: NetApp storage, KVM, SAP HANA, tailored data center integration, NFS, FCP 
-summary: 本指南提供有关如何使用NetApp存储配置 SAP HANA 的 SUSE KVM 的信息。 
+keywords: NetApp storage, KVM, SAP HANA, NFS, FCP, ONTAP, storage configuration 
+summary: 使用 NFS 或 FCP 协议在 SUSE KVM 上为 SAP HANA 配置NetApp存储。在虚拟机和NetApp ONTAP系统之间建立存储连接，以获得最佳数据库性能。 
 ---
-= 将存储连接到 SAP HANA 的 KVM 虚拟机
+= 在 SUSE KVM 上为 SAP HANA 配置NetApp存储
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,4 +14,41 @@ summary: 本指南提供有关如何使用NetApp存储配置 SAP HANA 的 SUSE K
 
 
 [role="lead"]
-虚拟机配置成功后，即可从虚拟机内部连接存储设备。  + 对于 NFS，请遵循 https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-nfs-introduction.html["《采用NFS的NetApp AFF系统上的SAP HANA—配置指南》"]对于FCP，请遵循以下任一方法 https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-fc-introduction.html["基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA"]指南或 https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-asa-fc-introduction.html["基于采用光纤通道协议的 NetApp ASA 系统的 SAP HANA"]根据所使用的存储产品而定。
+使用 NFS 或 FCP 协议在 SUSE KVM 上为 SAP HANA 配置NetApp存储。在虚拟机和NetApp ONTAP系统之间建立存储连接，以获得最佳数据库性能。
+
+在配置了带有 SR-IOV 网络接口或 FCP HBA 端口的 VM 之后，从 VM 内部配置存储访问。根据您选择的存储协议，使用相应的NetApp SAP HANA 配置指南。
+
+
+
+== 配置 SAP HANA 的 NFS 存储
+
+如果要使用 NFS 协议进行 SAP HANA 存储，请使用先前创建的 SR-IOV 网络接口。
+
+请按照完整的配置步骤进行操作。 https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-nfs-introduction.html["《采用NFS的NetApp AFF系统上的SAP HANA—配置指南》"] 。
+
+KVM环境的关键配置注意事项：
+
+* 使用先前配置的 SR-IOV 虚拟功能 (VF) 来处理网络流量
+* 在虚拟机内配置网络绑定以实现冗余
+* 确保虚拟机和NetApp存储SVM之间网络切换正常。
+* 根据 SAP HANA 配置指南配置存储控制器和虚拟机。
+
+
+
+
+== 配置 SAP HANA 的 FCP 存储
+
+如果 SAP HANA 存储要使用 FCP 协议，则应将分配给 VM 的物理 HBA 端口用作 PCI 设备。
+
+根据您的NetApp存储系统选择合适的配置指南：
+
+* 适用于NetApp AFF系统： https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-fc-introduction.html["基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA"]
+* 适用于NetApp ASA系统： https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-asa-fc-introduction.html["基于采用光纤通道协议的 NetApp ASA 系统的 SAP HANA"]
+
+
+KVM环境的关键配置注意事项：
+
+* 使用通过 PCI 直通分配给虚拟机的物理 HBA 端口。
+* 在虚拟机内配置多路径，以实现跨交换矩阵交换机的冗余。
+* 根据 SAP HANA 配置指南配置存储控制器和虚拟机
+

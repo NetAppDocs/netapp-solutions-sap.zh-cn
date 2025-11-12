@@ -15,6 +15,14 @@ summary: NetApp针对 SAP 解决方案的最新变更日志。
 
 
 
+== 2025年11月12日
+
+新方案link:https://docs.netapp.com/us-en/netapp-solutions-sap/bp/kvm-hana-introduction.html["SAP HANA 与 SUSE KVM 和NetApp存储"^]：
+
+使用带有 SR-IOV 网络接口和 NFS 或 FCP 存储访问的NetApp存储，在 SUSE KVM 上部署 SAP HANA 单主机。
+
+
+
 == 2025年8月18日
 
 NetApp解决方案网站现在是link:https://docs.netapp.com/us-en/netapp-solutions-family/index.html["NetApp解决方案系列"^]，其中包括以下网站：
