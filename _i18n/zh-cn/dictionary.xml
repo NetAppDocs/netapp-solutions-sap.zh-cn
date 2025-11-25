@@ -176,7 +176,6 @@
   <block id="89c617c4ed9cac275e572a67b1c52b29" category="section-title">挂载文件系统</block>
   <block id="f698665f2a88873767fbe21e3908ef17" category="admonition">必须使用 `relatime` 和 `inode64` 挂载选项挂载数据和日志 LUN 的 XFS 文件系统。</block>
   <block id="54720e6c9a787dee1a825e4ea3505728" category="admonition">所有数据和日志文件系统均通过 SAP HANA 存储连接器挂载。</block>
-  <block id="5a3bf297b3cbbda0eaa792a3fc9aa696" category="paragraph">要挂载文件系统，请在每个主机上运行 `mount – a` 命令。</block>
   <block id="3a8315c9f707101d2111acb24fbc9655" category="summary">下面是 SAP HANA 软件安装的要求。</block>
   <block id="0c68d8a40313113ebbe5ac4a1f3d0dba" category="section-title">在单主机系统上安装</block>
   <block id="00cf3f3ec718b396e5e81b9c3fb6cf84" category="section-title">在多主机系统上安装</block>
@@ -5289,7 +5288,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="2769a82040d53d42eadf3bec6f97136d" category="doc">单主机设置</block>
   <block id="4d0dd5bf85707730b1a1b706c12b2e73" category="paragraph">本章介绍 SAP HANA 单主机的设置。</block>
   <block id="94ebdd04c5726b33d92db91c2cfa34f4" category="paragraph">在所有数据和日志逻辑卷以及 hana 共享 LUN 上创建 XFS 文件系统。</block>
-  <block id="b68bdc5f6c4af520ce42995c3c60f1d0" category="paragraph">要挂载文件系统，请运行<block ref="86e32ba5e4c9ee3025482cd68628bc59" prefix=" " category="inline-code"></block>在主机上执行命令。</block>
   <block id="69cf65aac7e60a91062a6b558c083ef3" category="list-text">SID=FC5的HANA系统</block>
   <block id="20b674149670813ea625bde00479e3f4" category="summary">NetApp ASA 产品系列已通过认证，可在 TDI 项目中与 SAP HANA 结合使用。本指南提供了此平台上 SAP HANA 的最佳实践。</block>
   <block id="21e0a2aad39a01380645381043e9d955" category="doc">基于采用光纤通道协议的 NetApp ASA 系统的 SAP HANA</block>
@@ -5631,7 +5629,6 @@ SnapCenter 4.3.1支持NFSv4
   <block id="6a9c098947d8b811552347f2ed990ebd" category="inline-link-macro"><block ref="6a9c098947d8b811552347f2ed990ebd" category="inline-link-rx"></block></block>
   <block id="702c9bfa6d3b8d8b923fbeba4db3625f" category="paragraph"><block ref="702c9bfa6d3b8d8b923fbeba4db3625f" category="inline-link-macro-rx"></block></block>
   <block id="225b42e7cb6036e97607adda6dcca1c3" category="summary">NetApp针对 SAP 解决方案的最新变更日志。</block>
-  <block id="4a2fff3ce5a292ada8e788cd34005db8" category="doc">NetApp虚拟化解决方案的新功能</block>
   <block id="2ca0fa0a322d6c31c3d0906a34c85e6c" category="paragraph">了解 SAP 解决方案的新功能。</block>
   <block id="bab52961b58c502c7991d35556c25367" category="section-title">2025年8月18日</block>
   <block id="47e26e0d5bbeef43c544dd9ae72e66b0" category="inline-link-macro">NetApp解决方案系列</block>
@@ -5826,4 +5823,7 @@ SnapCenter 4.3.1支持NFSv4
   <block id="be9795993b0f7ea6e032752c428deb13" category="sidebar">配置以太网</block>
   <block id="6ea13559c46e38e3cf3559ec91659a75" category="sidebar">配置光纤通道网络</block>
   <block id="b3cb0a0b8107b0dbcf00b7ef366e3fa1" category="sidebar">配置存储</block>
+  <block id="1d34e524e547228bbc972b1e3e9959dd" category="paragraph">要挂载文件系统，请运行以下命令：<block ref="9f7a2b0acd2325ca01c92df6a9e32ef7" prefix=" " category="inline-code"></block> 在每台主机上执行命令。</block>
+  <block id="e38bdf2f2c158270debf7ee7f12f1356" category="paragraph">要挂载文件系统，请运行以下命令：<block ref="9f7a2b0acd2325ca01c92df6a9e32ef7" prefix=" " category="inline-code"></block> 在主机上执行命令。</block>
+  <block id="4fef2ff68dffba6c16f0aed5de1fb55c" category="doc">NetApp SAP 解决方案有哪些新特性</block>
 </blocks>
