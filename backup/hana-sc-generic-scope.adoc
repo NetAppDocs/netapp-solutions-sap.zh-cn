@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-sc-generic-scope.html 
+keywords: SAP HANA, SnapCenter, backup and recovery, Azure NetApp Files, FSx for NetApp ONTAP 
+summary:  
+---
+= 使用SnapCenter跨ONTAP、 Azure NetApp Files和 FSx for ONTAP保护 SAP HANA 系统
+:allow-uri-read: 
+
+
+[role="lead"]
+使用基于快照的备份和数据复制，通过NetApp SnapCenter保护 SAP HANA 系统。该解决方案涵盖了适用于ONTAP AFF和ASA系统、 Azure NetApp Files和Amazon FSx for ONTAP的 SAP HANA 系统的SnapCenter配置和操作最佳实践，包括备份策略、一致性检查和恢复工作流。
+
+作者：Nils Bauer、NetApp
+
+有关 SAP 系统刷新操作和 SAP HANA 系统复制的更多具体用例详情，请参阅：
+
+* https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html["利用 SnapCenter 自动执行 SAP HANA 系统复制和克隆操作"]
+* https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-sr-scs-system-replication-overview.html["SAP HANA系统复制—使用SnapCenter进行备份和恢复"]
+
+
+SnapCenter数据保护和NetApp SnapMirror活动同步相结合的最佳实践已在文中进行了描述。
+
+* https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-sc-vmware-smas-scope.html["通过 SnapCenter™ SnapMirror主动同步和 VMware Metro Storage Cluster 实现 SAP HANA 数据保护和高可用性"]
+
+
+更多平台特定的最佳实践文档可在以下网址获取：
+
+* https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-sc-vmfs-asar2-scope.html["使用 VMware VMFS 和NetApp ASA系统的SnapCenter进行 SAP HANA 数据保护"]
+* https://docs.netapp.com/us-en/netapp-solutions-sap/backup/fsxn-overview.html["基于Amazon FSX的SAP HANA for NetApp ONTAP —使用SnapCenter 进行备份和恢复"]
+* https://techcommunity.microsoft.com/blog/sapapplications/sap-hana-data-protection-on-azure-netapp-files-with-snapcenter/3510031["借助SnapCenter在Azure NetApp Files上实现SAP HANA数据保护(博客和视频)"]
+* https://techcommunity.microsoft.com/blog/sapapplications/sap-system-refresh-and-cloning-operations-on-azure-netapp-files-with-snapcenter/4356389["使用SnapCenter在Azure NetApp Files上执行SAP系统更新和克隆操作(博客和视频)"]
+

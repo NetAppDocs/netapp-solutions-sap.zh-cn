@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-sc-generic-sc-config-non-data-vols.html 
+keywords: SAP HANA, SnapCenter, backup and recovery, Azure NetApp Files, FSx for NetApp ONTAP 
+summary:  
+---
+= 配置SnapCenter以备份非数据卷
+:allow-uri-read: 
+
+
+[role="lead"]
+配置SnapCenter以备份非数据卷，例如可执行文件、配置文件、跟踪文件和应用程序服务器数据。
+
+保护数据库数据卷足以将SAP HANA数据库还原和恢复到给定时间点、前提是数据库安装资源和所需日志仍然可用。
+
+为了从必须恢复其他非数据文件的情况中恢复， NetApp建议为非数据卷制定额外的备份策略，以增强 SAP HANA 数据库备份。根据您的具体要求，非数据卷的备份在计划频率和保留设置方面可能会有所不同，您应该考虑非数据文件更改的频率。例如，HANA 卷 /hana/shared 包含可执行文件、配置文件以及 SAP HANA 跟踪文件。虽然只有 SAP HANA 数据库升级时才会更改可执行文件，但 SAP HANA 配置和跟踪文件可能需要更高的备份频率。此外，可以使用SnapCenter通过非数据卷备份来保护 SAP 应用服务器卷。
+
+SnapCenter非数据卷备份能够在几秒钟内创建所有相关卷的快照副本，其空间效率与 SAP HANA 数据库备份相同。区别在于无需与 SAP HANA 数据库进行交互。
+
+从资源选项卡中，选择非数据卷，然后单击添加 SAP HANA 数据库。
+
+image:hana-sc-generic-image-055.png["宽度=601，高度=173"]
+
+image:hana-sc-generic-image-056.png["宽度=601，高度=112"]
+
+在添加 SAP HANA 数据库对话框的第 1 步中的资源类型列表中，选择非数据卷。指定资源的名称以及要用于该资源的关联 SID 和 SAP HANA 插件主机，然后单击下一步。
+
+image:hana-sc-generic-image-057.png["宽度=332，高度=310"]
+
+对于ONTAP系统和 FSx for ONTAP ，选择存储类型ONTAP ，并将 SVM 和存储卷添加为存储占用空间，然后单击“下一步”。
+
+image:hana-sc-generic-image-058.png["宽度=332，高度=312"]
+
+对于 ANF，选择存储类型Azure NetApp Files，选择NetApp帐户和容量池，并将 ANF 卷添加为存储占用空间，然后单击“下一步”。
+
+image:hana-sc-generic-image-059.png["宽度=350，高度=337"]
+
+在摘要步骤中，单击完成以保存设置。
+
+对所有需要的非数据卷重复这些步骤。继续对新资源进行保护配置。
+
+
+NOTE: 非数据卷资源的数据保护配置与 SAP HANA 数据库资源的工作流程相同，并且可以在单个资源级别进行定义。

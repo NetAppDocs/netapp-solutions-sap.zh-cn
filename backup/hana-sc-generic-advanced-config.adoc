@@ -1,0 +1,104 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-sc-generic-advanced-config.html 
+keywords: SAP HANA, SnapCenter, backup and recovery, Azure NetApp Files, FSx for NetApp ONTAP 
+summary:  
+---
+= 为 SAP HANA 配置高级SnapCenter选项
+:allow-uri-read: 
+
+
+[role="lead"]
+为 SAP HANA 环境配置高级SnapCenter设置，包括抑制虚拟机内 NFS 挂载的 VMware 警告消息、禁用自动日志备份清理以及为 HANA 数据库连接启用 SSL 加密。
+
+
+
+== 虚拟化环境和客户机内挂载的警告信息
+
+例如，当使用 VMware 和 NFS 客户机内挂载时， SnapCenter会发出警告消息，提示应该使用SnapCenter VMware 插件。由于虚拟机内挂载不需要 VMware 插件，因此可以忽略并关闭该警告消息。要配置SnapCenter以抑制此警告，必须应用以下配置：
+
+. 从设置选项卡中，选择全局设置。
+. 对于虚拟机管理程序设置，请为所有主机选择虚拟机具有 iSCSI 直连磁盘或 NFS 并更新设置。
+
+
+image:hana-sc-generic-image-134.png["宽度=601，高度=176"]
+
+
+
+== 停用自动日志备份管理
+
+日志备份管理功能默认启用，可以在 HANA 插件主机级别禁用。使用 PowerShell 命令：
+
+命令 Set-SmConfigSettings -Plugin -HostName <pluginhostname> -PluginCode hana -configSettings @{"LOG_CLEANUP_DISABLE" = "Y"} 禁用此 SAP HANA 主机的日志备份清理。
+
+
+
+== 启用与 HANA 数据库的安全通信
+
+如果 HANA 数据库配置了安全通信，则SnapCenter执行的 hdbsql 命令必须使用额外的命令行选项。
+
+SSL通信有多种配置选项。默认情况下， SnapCenter使用 -e ssltrustcert hdbsql 命令行选项。此选项可实现无需服务器证书验证的 SSL 通信，并且此选项也适用于未启用 SSL 的 HANA 系统。
+
+如果需要在服务器端和/或客户端进行证书验证，则需要不同的 hdbsql 命令行选项，并且必须按照 SAP HANA 安全指南中的说明相应地配置 PSE 环境。
+
+这可以通过使用包装脚本来实现，该脚本使用所需的选项调用 hdbsql。无需在 hana.properties 文件中配置 hdbsql 可执行文件，而是添加了包装脚本。
+
+....
+
+HANA_HDBSQL_CMD = /usr/sap/SM1/HDB12/exe/hdbsqls
+....
+包装脚本 hdbsqls 使用所需的命令行选项调用 hdbsql。
+
+....
+#/bin/bash
+/usr/sap/SM1/HDB12/exe/hdbsql <command line options> $*
+....
+
+
+== 在 HANA 插件主机上禁用自动发现
+
+要禁用 HANA 插件主机上的自动发现功能，请完成以下步骤：
+
+. 在SnapCenter服务器上，打开 PowerShell。通过运行 Open-SmConnection 命令连接到SnapCenter服务器，并在打开的登录窗口中指定用户名和密码。
+. 要禁用自动发现，请运行 Set-SmConfigSettings 命令。
+
+
+对于 HANA 主机 hana-2，命令如下：
+
+....
+
+PS C:\Users\administrator.SAPCC> Set-SmConfigSettings -Agent -Hostname hana-2 -configSettings @{"DISABLE_AUTO_DISCOVERY"="true"}
+
+Name Value
+
+---- -----
+
+DISABLE_AUTO_DISCOVERY true
+
+PS C:\Users\administrator.SAPCC>
+
+Verify the configuration by running the Get- SmConfigSettings command.
+
+PS C:\Users\administrator.SAPCC> Get-SmConfigSettings -Agent -Hostname hana-2 -key all
+
+Key: CUSTOMPLUGINS_OPERATION_TIMEOUT_IN_MSEC Value: 3600000 Details: Plug-in API operation Timeout
+
+Key: CUSTOMPLUGINS_HOSTAGENT_TO_SERVER_TIMEOUT_IN_SEC Value: 1800 Details: Web Service API Timeout
+
+Key: CUSTOMPLUGINS_ALLOWED_CMDS Value: *; Details: Allowed Host OS Commands
+
+Key: DISABLE_AUTO_DISCOVERY Value: true Details:
+
+Key: PORT Value: 8145 Details: Port for server communication
+
+PS C:\Users\administrator.SAPCC>
+
+....
+此配置将写入主机上的代理配置文件，在使用 SnapCenter 进行插件升级后，此配置仍可用。
+
+....
+
+hana-2:/opt/NetApp/snapcenter/scc/etc # cat /opt/NetApp/snapcenter/scc/etc/agent.properties | grep DISCOVERY
+DISABLE_AUTO_DISCOVERY = true
+hana-2:/opt/NetApp/snapcenter/scc/etc #
+....

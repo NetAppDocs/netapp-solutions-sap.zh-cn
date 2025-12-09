@@ -1,0 +1,551 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-sc-generic-block-check.html 
+keywords: SAP HANA, SnapCenter, backup and recovery, Azure NetApp Files, FSx for NetApp ONTAP 
+summary:  
+---
+= 使用SnapCenter执行 SAP HANA 块一致性检查
+:allow-uri-read: 
+
+
+[role="lead"]
+使用 SAP hdbpersdiag 工具或执行基于文件的备份来执行 SAP HANA 块一致性检查。了解配置选项，包括本地快照目录访问、带有FlexClone卷的中央验证主机以及用于调度和自动化的SnapCenter集成。
+
+下表总结了有助于确定哪种块一致性检查方法最适合您的环境的关键参数。
+
+[cols="25%,25%,25%,25%"]
+|===
+|  | 使用本地快照目录的 HANA hdbpersdiag 工具 | 使用中央验证主机的 HANA hdbpersdiag 工具 | 基于文件的备份 
+
+
+| 支持的配置  a| 
+仅限 NFS
+
+裸机、ANF、FSx ONTAP、VMware 或 KVM 客户机内挂载
+| 所有协议和平台 | 所有协议和平台 
+
+
+| HANA主机的CPU负载 | 中 | 无 | 高 
+
+
+| HANA主机上的网络利用率 | 高 | 无 | 高 
+
+
+| 运行时 | 利用存储卷的全读取吞吐量 | 利用存储卷的全读取吞吐量 | 通常受限于目标系统的写入吞吐量 
+
+
+| 容量需求 | 无 | 无 | 每个 HANA 系统至少需要 1 倍备份大小。 
+
+
+| SnapCenter集成 | 备份脚本 | 克隆创建和克隆后脚本，克隆删除 | 内置功能 
+
+
+| 计划 | SnapCenter调度器 | 用于执行克隆、创建和删除工作流的 PowerShell 脚本，外部定时任务 | SnapCenter调度器 
+|===
+以下章节将介绍块一致性检查操作的不同选项的配置和执行。
+
+
+
+== 使用本地快照目录通过 hdbpersdiag 进行一致性检查
+
+在SnapCenter中，为 hdbpersdiag 操作创建了一个专用策略，该策略具有每日计划和保留 2 的记录。我们不使用每周计划，因为那样我们至少会有 2 个快照备份（最小保留期=2），其中一个备份可能已经存放了两周。
+
+在 HANA 系统的SnapCenter资源保护配置中，添加了一个备份后脚本，该脚本会执行 hdbpersdiag 工具。由于备份后脚本还会使用为该资源配置的任何其他策略进行调用，因此我们需要在脚本中检查当前处于活动状态的策略是什么。脚本中还会检查当前星期几，并且每周只在星期日运行一次 hdbpersdiag 操作。然后对当前快照备份目录的相应 hdb* 目录中的每个数据卷调用 HANA hdbpersdiag。如果使用 hdbpersdiag 进行一致性检查时报告任何错误，则SnapCenter作业将被标记为失败。
+
+
+NOTE: 示例脚本 call-hdbpersdiag.sh 按原样提供，不在NetApp支持范围内。您可以通过电子邮件向 ng-sapcc@netapp.com 索取脚本。
+
+下图展示了一致性检查实现的高级概念。
+
+image:hana-sc-generic-image-082.png["宽度=601，高度=248"]
+
+首先，您需要允许访问快照目录，以便“".snapshot”目录在 HANA 数据库主机上可见。
+
+* ONTAP系统和 FSX for ONTAP：您需要配置快照目录访问卷参数。
+* ANF：您需要配置“隐藏快照路径卷”参数。
+
+
+下一步，您必须配置一个与备份后脚本中使用的名称相匹配的策略。对于我们的脚本示例，名称必须为 SnapAndCallHdbpersdiag。如前所述，使用每日计划是为了避免保留使用每周计划时的旧快照。
+
+image:hana-sc-generic-image-083.png["宽度=414，高度=103"]
+
+image:hana-sc-generic-image-084.png["宽度=424，高度=108"]
+
+image:hana-sc-generic-image-085.png["宽度=433，高度=336"]
+
+在资源保护配置中，添加了备份后脚本，并将策略分配给了资源。image:hana-sc-generic-image-086.png["宽度=601，高度=294"]
+
+image:hana-sc-generic-image-087.png["宽度=601，高度=281"]
+
+最后，必须在 HANA 主机的 allowed_commands.config 文件中配置该脚本。
+
+....
+
+hana-1:/ # cat /opt/NetApp/snapcenter/scc/etc/allowed_commands.config
+command: mount
+command: umount
+command: /mnt/sapcc-share/hdbpersdiag/call-hdbpersdiag.sh
+....
+现在，快照备份操作将每天执行一次，脚本会处理 hdbpersdiag 检查，使其每周只在周日执行一次。
+
+
+NOTE: 该脚本使用“-e”命令行选项调用 hdbpersdiag，这是数据卷加密所必需的。如果未使用 HANA 数据卷加密，则必须删除该参数。
+
+下面显示的是脚本的日志文件：
+
+....
+
+20251024055824###hana-1###call-hdbpersdiag.sh: Current policy is SnapAndCallHdbpersdiag
+20251024055824###hana-1###call-hdbpersdiag.sh: Executing hdbpersdiag in: /hana/data/SS1/mnt00001/.snapshot/SnapCenter_hana-1_SnapAndCallHdbpersdiag_Daily_10-24-2025_05.57.37.0274/hdb00001
+20251024055827###hana-1###call-hdbpersdiag.sh: Loaded library 'libhdbunifiedtable'
+Loaded library 'libhdblivecache'
+Trace is written to: /usr/sap/SS1/HDB00/hana-1/trace
+Mounted DataVolume(s)
+#0 /hana/data/SS1/mnt00001/.snapshot/SnapCenter_hana-1_SnapAndCallHdbpersdiag_Daily_10-24-2025_05.57.37.0274/hdb00001/ (4.8 GB, 5100273664 bytes)
+WARNING: The data volume being accessed is in use by another process, this is most likely because a running HANA instance is operating on this data volume
+Tips:
+Type 'help' for help on the available commands
+Use 'TAB' for command auto-completion
+Use '|' to redirect the output to a specific command.
+INFO: KeyPage loaded and decrypted with success
+Default Anchor Page OK
+Restart Page OK
+Default Converter Pages OK
+RowStore Converter Pages OK
+Logical Pages (94276 pages) OK
+Logical Pages Linkage OK
+Checking entries from restart page...
+ContainerDirectory OK
+ContainerNameDirectory OK
+FileIDMappingContainer OK
+UndoContainerDirectory OK
+LobDirectory OK
+MidSizeLobDirectory OK
+LobFileIDMap OK
+20251024055827###hana-1###call-hdbpersdiag.sh: Consistency check operation successeful for volume /hana/data/SS1/mnt00001/.snapshot/SnapCenter_hana-1_SnapAndCallHdbpersdiag_Daily_10-24-2025_05.57.37.0274/hdb00001.
+20251024055827###hana-1###call-hdbpersdiag.sh: Executing hdbpersdiag in: /hana/data/SS1/mnt00001/.snapshot/SnapCenter_hana-1_SnapAndCallHdbpersdiag_Daily_10-24-2025_05.57.37.0274/hdb00002.00003
+20251024055828###hana-1###call-hdbpersdiag.sh: Loaded library 'libhdbunifiedtable'
+Loaded library 'libhdblivecache'
+Trace is written to: /usr/sap/SS1/HDB00/hana-1/trace
+Mounted DataVolume(s)
+#0 /hana/data/SS1/mnt00001/.snapshot/SnapCenter_hana-1_SnapAndCallHdbpersdiag_Daily_10-24-2025_05.57.37.0274/hdb00002.00003/ (320.0 MB, 335544320 bytes)
+WARNING: The data volume being accessed is in use by another process, this is most likely because a running HANA instance is operating on this data volume
+Tips:
+Type 'help' for help on the available commands
+Use 'TAB' for command auto-completion
+Use '|' to redirect the output to a specific command.
+INFO: KeyPage loaded and decrypted with success
+Default Anchor Page OK
+Restart Page OK
+Default Converter Pages OK
+RowStore Converter Pages OK
+Logical Pages (4099 pages) OK
+Logical Pages Linkage OK
+Checking entries from restart page...
+UndoContainerDirectory OK
+DRLoadedTable OK
+20251024055828###hana-1###call-hdbpersdiag.sh: Consistency check operation successeful for volume /hana/data/SS1/mnt00001/.snapshot/SnapCenter_hana-1_SnapAndCallHdbpersdiag_Daily_10-24-2025_05.57.37.0274/hdb00002.00003.
+20251024055828###hana-1###call-hdbpersdiag.sh: Executing hdbpersdiag in: /hana/data/SS1/mnt00001/.snapshot/SnapCenter_hana-1_SnapAndCallHdbpersdiag_Daily_10-24-2025_05.57.37.0274/hdb00003.00003
+20251024055833###hana-1###call-hdbpersdiag.sh: Loaded library 'libhdbunifiedtable'
+Loaded library 'libhdblivecache'
+Trace is written to: /usr/sap/SS1/HDB00/hana-1/trace
+Mounted DataVolume(s)
+#0 /hana/data/SS1/mnt00001/.snapshot/SnapCenter_hana-1_SnapAndCallHdbpersdiag_Daily_10-24-2025_05.57.37.0274/hdb00003.00003/ (4.6 GB, 4898947072 bytes)
+WARNING: The data volume being accessed is in use by another process, this is most likely because a running HANA instance is operating on this data volume
+Tips:
+Type 'help' for help on the available commands
+Use 'TAB' for command auto-completion
+Use '|' to redirect the output to a specific command.
+INFO: KeyPage loaded and decrypted with success
+Default Anchor Page OK
+Restart Page OK
+Default Converter Pages OK
+Static Converter Pages OK
+RowStore Converter Pages OK
+Logical Pages (100817 pages) OK
+Logical Pages Linkage OK
+Checking entries from restart page...
+ContainerDirectory OK
+ContainerNameDirectory OK
+FileIDMappingContainer OK
+UndoContainerDirectory OK
+LobDirectory OK
+DRLoadedTable OK
+MidSizeLobDirectory OK
+LobFileIDMap OK
+20251024055833###hana-1###call-hdbpersdiag.sh: Consistency check operation successeful for volume /hana/data/SS1/mnt00001/.snapshot/SnapCenter_hana-1_SnapAndCallHdbpersdiag_Daily_10-24-2025_05.57.37.0274/hdb00003.00003.
+20251024060048###hana-1###call-hdbpersdiag.sh: Current policy is LocalSnapAndSnapVault, consistency check is only done with Policy SnapAndCallHdbpersdiag
+20251024080048###hana-1###call-hdbpersdiag.sh: Current policy is LocalSnap, consistency check is only done with Policy SnapAndHdbpersdiag
+....
+
+
+== 使用中央验证主机通过 hdbpersdiag 进行一致性检查
+
+下图显示了解决方案架构和工作流程的高级视图。借助中央验证主机，可以使用验证主机来检查多个不同的 HANA 系统的一致性。该解决方案利用SnapCenter克隆创建和删除工作流，将 HANA 系统中的克隆卷附加到验证主机，以便进行检查。克隆后脚本用于运行 HANA hdbpersdiag 工具。第二步，使用SnapCenter克隆删除工作流程来卸载和删除克隆的卷。
+
+
+NOTE: 如果 HANA 系统配置了数据卷加密，则在执行 hdbpersdiag 之前，必须将源 HANA 系统的加密根密钥导入到验证主机。参见 https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/7def3297f93842a6b04f4d3f77ae07f6.html["数据库恢复前导入备份的根密钥 | SAP 帮助门户"]
+
+image:hana-sc-generic-image-088.png["宽度=601，高度=257"]
+
+HANA 工具 hdbpersdiag 包含在每个 HANA 安装包中，但不能作为独立工具使用。因此，必须通过安装标准的 HANA 系统来准备中央验证主机。
+
+初始一次性准备步骤：
+
+* 安装 SAP HANA 系统，用作中央验证主机
+* 在SnapCenter中配置 SAP HANA 系统
++
+** 在验证主机上部署SnapCenter SAP HANA 插件。SnapCenter会自动发现 SAP HANA 系统。
+
+
+* 首次安装后执行 hdbpersdiag 操作的步骤如下：
++
+** 关闭目标SAP HANA系统
+** 卸载SAP HANA数据卷。
+
+
+
+
+您必须将应在目标系统上执行的脚本添加到SnapCenter允许的命令配置文件中。
+
+....
+
+hana-7:/mnt/sapcc-share/hdbpersdiag # cat /opt/NetApp/snapcenter/scc/etc/allowed_commands.config
+command: mount
+command: umount
+command: /mnt/sapcc-share/hdbpersdiag/call-hdbpersdiag-flexclone.sh
+....
+
+NOTE: 示例脚本 call-hdbpersdiag-flexclone.sh 按原样提供，不在NetApp支持范围内。您可以通过电子邮件向 ng-sapcc@netapp.com 索取脚本。
+
+
+
+=== 手动工作流程执行
+
+在大多数情况下，一致性检查操作将作为计划操作运行，如下一章所述。但是，了解手动工作流程有助于理解自动化流程中使用的参数。
+
+克隆创建工作流程是通过从系统中选择一个待检查的备份，然后单击“从备份克隆”来启动的。
+
+image:hana-sc-generic-image-089.png["宽度=601，高度=247"]
+
+在下一个屏幕中，必须提供验证主机的主机名、SID 和存储网络接口。
+
+
+NOTE: 务必始终使用安装在验证主机上的 HANA 系统的 SID，否则工作流将失败。
+
+image:hana-sc-generic-image-090.png["宽度=431，高度=115"]
+
+在下一个屏幕中，您需要添加 call-hdbpersdiag-fleclone.sh 脚本作为克隆后命令。
+
+image:hana-sc-generic-image-091.png["宽度=442，高度=169"]
+
+工作流启动时， SnapCenter将基于选定的快照备份创建克隆卷，并将其挂载到验证主机。
+
+注意：以下示例输出基于使用 NFS 作为存储协议的 HANA 系统。对于使用 FC 或 VMware VMDK 的 HANA 系统，该设备将以相同的方式挂载到 /hana/data/SID/mnt00001。
+
+....
+
+hana-7:/mnt/sapcc-share/hdbpersdiag # df -h
+Filesystem Size Used Avail Use% Mounted on
+devtmpfs 16G 8.0K 16G 1% /dev
+tmpfs 25G 0 25G 0% /dev/shm
+tmpfs 16G 474M 16G 3% /run
+tmpfs 16G 0 16G 0% /sys/fs/cgroup
+/dev/mapper/system-root 60G 9.0G 48G 16% /
+/dev/mapper/system-root 60G 9.0G 48G 16% /home
+/dev/mapper/system-root 60G 9.0G 48G 16% /.snapshots
+/dev/mapper/system-root 60G 9.0G 48G 16% /root
+/dev/mapper/system-root 60G 9.0G 48G 16% /opt
+/dev/mapper/system-root 60G 9.0G 48G 16% /boot/grub2/i386-pc
+/dev/mapper/system-root 60G 9.0G 48G 16% /srv
+/dev/mapper/system-root 60G 9.0G 48G 16% /usr/local
+/dev/mapper/system-root 60G 9.0G 48G 16% /boot/grub2/x86_64-efi
+/dev/mapper/system-root 60G 9.0G 48G 16% /var
+/dev/mapper/system-root 60G 9.0G 48G 16% /tmp
+/dev/sda1 500M 5.1M 495M 2% /boot/efi
+192.168.175.117:/QS1_shared/usr-sap 251G 15G 236G 6% /usr/sap/QS1
+192.168.175.86:/sapcc_share 1.4T 858G 568G 61% /mnt/sapcc-share
+192.168.175.117:/QS1_log_mnt00001 251G 335M 250G 1% /hana/log/QS1/mnt00001
+192.168.175.117:/QS1_shared/shared 251G 15G 236G 6% /hana/shared
+tmpfs 3.2G 20K 3.2G 1% /run/user/467
+tmpfs 3.2G 0 3.2G 0% /run/user/0
+192.168.175.117:/SS2_data_mnt00001_Clone_10292511250337819 250G 6.4G 244G 3% /hana/data/QS1/mnt00001
+
+....
+下面的输出显示了克隆后命令 call-hdbpersdiag-flexclone.sh 的日志文件。
+
+....
+20251029112557###hana-7###call-hdbpersdiag-flexclone.sh: Executing hdbpersdiag for source system SS2.
+20251029112557###hana-7###call-hdbpersdiag-flexclone.sh: Clone mounted at /hana/data/QS1/mnt00001.
+20251029112557###hana-7###call-hdbpersdiag-flexclone.sh: Executing hdbpersdiag in: /hana/data/QS1/mnt00001/hdb00001
+20251029112600###hana-7###call-hdbpersdiag-flexclone.sh: Loaded library 'libhdbunifiedtable'
+Loaded library 'libhdblivecache'
+Trace is written to: /usr/sap/QS1/HDB11/hana-7/trace
+Mounted DataVolume(s)
+#0 /hana/data/QS1/mnt00001/hdb00001/ (3.1 GB, 3361128448 bytes)
+Tips:
+Type 'help' for help on the available commands
+Use 'TAB' for command auto-completion
+Use '|' to redirect the output to a specific command.
+INFO: KeyPage loaded and decrypted with success
+Default Anchor Page OK
+Restart Page OK
+Default Converter Pages OK
+RowStore Converter Pages OK
+Logical Pages (65388 pages) OK
+Logical Pages Linkage OK
+Checking entries from restart page...
+ContainerDirectory OK
+ContainerNameDirectory OK
+FileIDMappingContainer OK
+UndoContainerDirectory OK
+LobDirectory OK
+MidSizeLobDirectory OK
+LobFileIDMap OK
+20251029112600###hana-7###call-hdbpersdiag-flexclone.sh: Consistency check operation successful for volume /hana/data/QS1/mnt00001/hdb00001.
+20251029112601###hana-7###call-hdbpersdiag-flexclone.sh: Executing hdbpersdiag in: /hana/data/QS1/mnt00001/hdb00002.00003
+20251029112602###hana-7###call-hdbpersdiag-flexclone.sh: Loaded library 'libhdbunifiedtable'
+Loaded library 'libhdblivecache'
+Trace is written to: /usr/sap/QS1/HDB11/hana-7/trace
+Mounted DataVolume(s)
+#0 /hana/data/QS1/mnt00001/hdb00002.00003/ (288.0 MB, 301989888 bytes)
+Tips:
+Type 'help' for help on the available commands
+Use 'TAB' for command auto-completion
+Use '|' to redirect the output to a specific command.
+INFO: KeyPage loaded and decrypted with success
+Default Anchor Page OK
+Restart Page OK
+Default Converter Pages OK
+RowStore Converter Pages OK
+Logical Pages (4099 pages) OK
+Logical Pages Linkage OK
+Checking entries from restart page...
+UndoContainerDirectory OK
+DRLoadedTable OK
+20251029112602###hana-7###call-hdbpersdiag-flexclone.sh: Consistency check operation successful for volume /hana/data/QS1/mnt00001/hdb00002.00003.
+20251029112602###hana-7###call-hdbpersdiag-flexclone.sh: Executing hdbpersdiag in: /hana/data/QS1/mnt00001/hdb00003.00003
+20251029112606###hana-7###call-hdbpersdiag-flexclone.sh: Loaded library 'libhdbunifiedtable'
+Loaded library 'libhdblivecache'
+Trace is written to: /usr/sap/QS1/HDB11/hana-7/trace
+Mounted DataVolume(s)
+#0 /hana/data/QS1/mnt00001/hdb00003.00003/ (3.7 GB, 3942645760 bytes)
+Tips:
+Type 'help' for help on the available commands
+Use 'TAB' for command auto-completion
+Use '|' to redirect the output to a specific command.
+INFO: KeyPage loaded and decrypted with success
+Default Anchor Page OK
+Restart Page OK
+Default Converter Pages OK
+Static Converter Pages OK
+RowStore Converter Pages OK
+Logical Pages (79333 pages) OK
+Logical Pages Linkage OK
+Checking entries from restart page...
+ContainerDirectory OK
+ContainerNameDirectory OK
+FileIDMappingContainer OK
+UndoContainerDirectory OK
+LobDirectory OK
+DRLoadedTable OK
+MidSizeLobDirectory OK
+LobFileIDMap OK
+20251029112606###hana-7###call-hdbpersdiag-flexclone.sh: Consistency check operation successful for volume /hana/data/QS1/mnt00001/hdb00003.00003.
+
+....
+
+NOTE: 该脚本使用“-e”命令行选项调用 hdbpersdiag，这是数据卷加密所必需的。如果未使用 HANA 数据卷加密，则必须删除该参数。克隆后脚本执行完毕后， SnapCenter作业也随之完成。
+
+image:hana-sc-generic-image-092.png["宽度=279，高度=344"]
+
+下一步，我们将运行SnapCenter克隆删除工作流来清理验证主机并删除FlexClone卷。
+
+在源系统的拓扑视图中，我们选择克隆并单击删除按钮。
+
+image:hana-sc-generic-image-093.png["宽度=601，高度=165"]
+
+SnapCenter现在将从验证主机卸载克隆卷，并将在存储系统中删除克隆卷。
+
+
+
+=== 使用 PowerShell 脚本实现SnapCenter工作流自动化
+
+在上一节中，克隆创建和克隆删除工作流是使用SnapCenter UI 执行的。所有工作流程均可通过 PowerShell 脚本或 REST API 调用来执行，从而实现进一步的自动化。以下部分描述了一个基本的 PowerShell 脚本示例，用于执行SnapCenter克隆创建和克隆删除工作流。
+
+
+NOTE: 示例脚本 call-hdbpersdiag-flexclone.sh 和 clone-hdbpersdiag.ps1 均按原样提供，不在NetApp支持范围内。您可以通过电子邮件向 ng-sapcc@netapp.com 索取脚本。
+
+PowerShell 示例脚本执行以下工作流程。
+
+* 根据命令行参数 SID 和源主机查找最新的快照备份
+* 使用上一步中定义的快照备份执行SnapCenter克隆创建工作流。目标主机信息和hdbpersdiag信息在脚本中定义。call-hdbpersdiag-flexclone.sh 脚本被定义为克隆后脚本，并在目标主机上执行。
++
+** $result = New-SmClone -AppPluginCode hana -BackupName $backupName -Resources @{"Host"="$sourceHost";"UID"="$uid"} -CloneToInstance "$verificationHost" -NFSExportIPs $exportIpTarget -CloneUid $targetUid -PostCloneCreateCommands $postCloneScript
+
+
+* 执行SnapCenter克隆删除工作流。以下文本显示了在SnapCenter服务器上执行的示例脚本的输出。
+
+
+下面这段文字显示了在SnapCenter服务器上执行的示例脚本的输出结果。
+
+....
+C:\Users\scadmin>pwsh -command "c:\netapp\clone-hdbpersdiag.ps1 -sid SS2 -sourceHost hana-3.sapcc.stl.netapp.com"
+Starting verification
+Connecting to SnapCenter
+Validating clone/verification request - check for already existing clones
+Get latest back for [SS2] on host [hana-3.sapcc.stl.netapp.com]
+Found backup name [SnapCenter_hana-3_LocalSnapKeep2_Hourly_11-21-2025_07.56.27.5547]
+Creating clone from backup [hana-3.sapcc.stl.netapp.com/SS2/SnapCenter_hana-3_LocalSnapKeep2_Hourly_11-21-2025_07.56.27.5547]: [hana-7.sapcc.stl.netapp.com/QS1]
+waiting for job [169851] - [Running]
+waiting for job [169851] - [Running]
+waiting for job [169851] - [Running]
+waiting for job [169851] - [Running]
+waiting for job [169851] - [Running]
+waiting for job [169851] - [Running]
+waiting for job [169851] - [Running]
+waiting for job [169851] - [Running]
+waiting for job [169851] - [Running]
+waiting for job [169851] - [Running]
+waiting for job [169851] - [Running]
+waiting for job [169851] - [Completed]
+Removing clone [SS2 - HANA System Replication__clone__169851_MDC_SS2_07-09-2025_07.44.09]
+waiting for job [169854] - [Running]
+waiting for job [169854] - [Running]
+waiting for job [169854] - [Running]
+waiting for job [169854] - [Running]
+waiting for job [169854] - [Running]
+waiting for job [169854] - [Completed]
+Verification completed
+
+C:\Users\scadmin>
+....
+
+NOTE: 该脚本使用“-e”命令行选项调用 hdbpersdiag，这是数据卷加密所必需的。如果未使用 HANA 数据卷加密，则必须删除该参数。
+
+下面的输出显示了 call-hdbpersdiag-flexclone.sh 脚本的日志文件。
+
+....
+
+20251121085720###hana-7###call-hdbpersdiag-flexclone.sh: Executing hdbpersdiag for source system SS2.
+20251121085720###hana-7###call-hdbpersdiag-flexclone.sh: Clone mounted at /hana/data/QS1/mnt00001.
+20251121085720###hana-7###call-hdbpersdiag-flexclone.sh: Executing hdbpersdiag in: /hana/data/QS1/mnt00001/hdb00001
+20251121085723###hana-7###call-hdbpersdiag-flexclone.sh: Loaded library 'libhdbunifiedtable'
+Loaded library 'libhdblivecache'
+Trace is written to: /usr/sap/QS1/HDB11/hana-7/trace
+Mounted DataVolume(s)
+  #0 /hana/data/QS1/mnt00001/hdb00001/ (3.1 GB, 3361128448 bytes)
+Tips:
+  Type 'help' for help on the available commands
+  Use 'TAB' for command auto-completion
+  Use '|' to redirect the output to a specific command.
+INFO: KeyPage loaded and decrypted with success
+                     Default Anchor Page OK
+                            Restart Page OK
+                 Default Converter Pages OK
+                RowStore Converter Pages OK
+             Logical Pages (65415 pages) OK
+                   Logical Pages Linkage OK
+Checking entries from restart page...
+                      ContainerDirectory OK
+                  ContainerNameDirectory OK
+                  FileIDMappingContainer OK
+                  UndoContainerDirectory OK
+                            LobDirectory OK
+                     MidSizeLobDirectory OK
+                            LobFileIDMap OK
+20251121085723###hana-7###call-hdbpersdiag-flexclone.sh: Consistency check operation successful for volume /hana/data/QS1/mnt00001/hdb00001.
+20251121085723###hana-7###call-hdbpersdiag-flexclone.sh: Executing hdbpersdiag in: /hana/data/QS1/mnt00001/hdb00002.00003
+20251121085724###hana-7###call-hdbpersdiag-flexclone.sh: Loaded library 'libhdbunifiedtable'
+Loaded library 'libhdblivecache'
+Trace is written to: /usr/sap/QS1/HDB11/hana-7/trace
+Mounted DataVolume(s)
+  #0 /hana/data/QS1/mnt00001/hdb00002.00003/ (288.0 MB, 301989888 bytes)
+Tips:
+  Type 'help' for help on the available commands
+  Use 'TAB' for command auto-completion
+  Use '|' to redirect the output to a specific command.
+INFO: KeyPage loaded and decrypted with success
+                     Default Anchor Page OK
+                            Restart Page OK
+                 Default Converter Pages OK
+                RowStore Converter Pages OK
+              Logical Pages (4099 pages) OK
+                   Logical Pages Linkage OK
+Checking entries from restart page...
+                  UndoContainerDirectory OK
+                           DRLoadedTable OK
+20251121085724###hana-7###call-hdbpersdiag-flexclone.sh: Consistency check operation successful for volume /hana/data/QS1/mnt00001/hdb00002.00003.
+20251121085724###hana-7###call-hdbpersdiag-flexclone.sh: Executing hdbpersdiag in: /hana/data/QS1/mnt00001/hdb00003.00003
+20251121085729###hana-7###call-hdbpersdiag-flexclone.sh: Loaded library 'libhdbunifiedtable'
+Loaded library 'libhdblivecache'
+Trace is written to: /usr/sap/QS1/HDB11/hana-7/trace
+Mounted DataVolume(s)
+  #0 /hana/data/QS1/mnt00001/hdb00003.00003/ (3.7 GB, 3942645760 bytes)
+Tips:
+  Type 'help' for help on the available commands
+  Use 'TAB' for command auto-completion
+  Use '|' to redirect the output to a specific command.
+INFO: KeyPage loaded and decrypted with success
+                     Default Anchor Page OK
+                            Restart Page OK
+                 Default Converter Pages OK
+                  Static Converter Pages OK
+                RowStore Converter Pages OK
+             Logical Pages (79243 pages) OK
+                   Logical Pages Linkage OK
+Checking entries from restart page...
+                      ContainerDirectory OK
+                  ContainerNameDirectory OK
+                  FileIDMappingContainer OK
+                  UndoContainerDirectory OK
+                            LobDirectory OK
+                           DRLoadedTable OK
+                     MidSizeLobDirectory OK
+                            LobFileIDMap OK
+20251121085729###hana-7###call-hdbpersdiag-flexclone.sh: Consistency check operation successful for volume /hana/data/QS1/mnt00001/hdb00003.00003.
+hana-7:/mnt/sapcc-share/hdbpersdiag #
+
+
+....
+
+
+== 基于文件的备份
+
+SnapCenter支持使用一种策略来执行块完整性检查，在该策略中，基于文件的备份被选为备份类型。
+
+使用此策略安排备份时， SnapCenter会为系统和所有租户数据库创建标准的 SAP HANA 文件备份。
+
+SnapCenter 显示块完整性检查的方式与基于 Snapshot 副本的备份不同。而是在摘要卡中显示基于文件的备份数以及上一个备份的状态。
+
+image:hana-sc-generic-image-095.png["宽度=601，高度=293"]
+
+SAP HANA 备份目录会显示系统数据库和租户数据库的条目。下图显示了系统数据库备份目录中的 SnapCenter 块完整性检查。
+
+image:hana-sc-generic-image-096.png["宽度=601，高度=293"]
+
+成功的块完整性检查会创建标准的 SAP HANA 数据备份文件。
+
+image:hana-sc-generic-image-097.png["宽度=351，高度=433"]
+
+SnapCenter使用在 HANA 数据库中配置的备份路径进行基于文件的数据备份操作。
+
+....
+
+hana-1:/hana/shared/SS1/HDB00/backup/data # ls -al *
+DB_SS1:
+total 3717564
+drwxr-xr-- 2 ss1adm sapsys 4096 Aug 22 11:03 .
+drwxr-xr-- 4 ss1adm sapsys 4096 Jul 27 2022 ..
+-rw-r----- 1 ss1adm sapsys 159744 Aug 17 05:32 SnapCenter_SnapCenter_hana-1_BlockIntegrityCheck_Weekly_08-17-2025_05.32.00.4493_databackup_0_1
+-rw-r----- 1 ss1adm sapsys 83898368 Aug 17 05:32 SnapCenter_SnapCenter_hana-1_BlockIntegrityCheck_Weekly_08-17-2025_05.32.00.4493_databackup_2_1
+-rw-r----- 1 ss1adm sapsys 3707777024 Aug 17 05:32 SnapCenter_SnapCenter_hana-1_BlockIntegrityCheck_Weekly_08-17-2025_05.32.00.4493_databackup_3_1
+SYSTEMDB:
+total 3339236
+drwxr-xr-- 2 ss1adm sapsys 4096 Aug 22 11:03 .
+drwxr-xr-- 4 ss1adm sapsys 4096 Jul 27 2022 ..
+-rw-r----- 1 ss1adm sapsys 163840 Aug 17 05:32 SnapCenter_SnapCenter_hana-1_BlockIntegrityCheck_Weekly_08-17-2025_05.32.00.4493_databackup_0_1
+
+-rw-r----- 1 ss1adm sapsys 3405787136 Aug 17 05:32 SnapCenter_SnapCenter_hana-1_BlockIntegrityCheck_Weekly_08-17-2025_05.32.00.4493_databackup_1_1
+
+....

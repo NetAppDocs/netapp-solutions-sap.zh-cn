@@ -15,6 +15,14 @@ summary: NetApp针对 SAP 解决方案的最新变更日志。
 
 
 
+== 2025年12月2日
+
+新方案：link:https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-sc-generic-scope.html["使用 SnapCenter 进行 SAP HANA 备份和恢复"^]
+
+该解决方案提供了使用NetApp SnapCenter进行 SAP HANA 数据保护的最佳实践，涵盖了SnapCenter配置和操作指南，用于保护ONTAP AFF和ASA系统、 Azure NetApp Files和Amazon FSx for ONTAP上的 SAP HANA 系统。
+
+
+
 == 2025年11月12日
 
 新方案link:https://docs.netapp.com/us-en/netapp-solutions-sap/bp/kvm-hana-introduction.html["SAP HANA 与 SUSE KVM 和NetApp存储"^]：
