@@ -24,7 +24,7 @@ SAP AnyDB的默认SnapCenter 代理和数据库插件安装是SnapCenter 代理�
 * *使用中央通信主机的SnapCenter 安装。*中央通信主机随SnapCenter 代理、SAP HANA插件和HANA数据库客户端一起安装、负责处理为环境中的多个SAP HANA系统备份和还原SAP HANA数据库所需的所有数据库相关操作。因此、中央通信主机无需安装完整的SAP HANA数据库系统。
 
 
-有关这些不同SnapCenter代理和SAP HANA数据库插件安装选项的详细信息，请参见技术报告link:../backup/hana-br-scs-overview.html["TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》"^]。
+有关这些不同的SnapCenter代理和 SAP HANA 数据库插件安装选项的更多详细信息，请参阅技术报告。 link:../backup/hana-sc-generic-scope.html["使用 SnapCenter 进行 SAP HANA 备份和恢复"^]。
 
 以下各节重点介绍了使用标准安装或中央通信主机将LSC与SnapCenter 集成的区别。值得注意的是、无论使用何种安装选项和数据库、未突出显示的所有配置步骤都是相同的。
 
@@ -89,9 +89,8 @@ LSC主服务器和LSC员工必须安装在SAP环境中。在此部署中、我�
 
 * https://docs.netapp.com/us-en/snapcenter/["SnapCenter 文档中心"^]
 * https://www.netapp.com/pdf.html?item=/media/12403-tr4700.pdf["TR-4700 ：适用于 Oracle 数据库的 SnapCenter 插件"^]
-* https://www.netapp.com/pdf.html?item=/media/12405-tr4614pdf.pdf["TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》"^]
+* link:../backup/hana-sc-generic-scope.html["使用 SnapCenter 实现 SAP HANA 备份和恢复"^]
 * link:sc-copy-clone-introduction.html["TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作"^]
-* https://fieldportal.netapp.com/content/883721["TR-4769—SnapCenter 最佳实践和规模估算准则"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2880726["《SnapCenter 4.6 cmdlet参考指南》"^]
 
 

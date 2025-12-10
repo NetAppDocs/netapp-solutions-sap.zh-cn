@@ -63,7 +63,7 @@ image:sc-copy-clone-image9.png["图中显示了输入/输出对话框或表示�
 * ONTAP 9.7P7
 
 
-所有SAP HANA系统都必须根据配置指南进行配置link:../bp/hana-aff-nfs-introduction.html["采用NFS的NetApp AFF 系统上的SAP HANA"]。SnapCenter和SAP HANA资源是根据最佳实践指南进行配置的link:../backup/hana-br-scs-overview.html["使用 SnapCenter 实现 SAP HANA 备份和恢复"]。
+所有 SAP HANA 系统都必须按照配置指南进行配置。 link:../bp/hana-aff-nfs-introduction.html["采用NFS的NetApp AFF 系统上的SAP HANA"]。SnapCenter和 SAP HANA 资源均按照最佳实践指南进行配置。 link:../backup/hana-sc-generic-scope.html["使用 SnapCenter 实现 SAP HANA 备份和恢复"]。
 
 image:sc-copy-clone-image41.png["图中显示了输入/输出对话框或表示已写入内容"]
 

@@ -17,7 +17,7 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA
 要了解有关本文档中所述信息的更多信息，请参见以下文档和 / 或网站：
 
 * link:../index.html["SAP业务应用程序和SAP HANA数据库解决方案(netapp.com)"]
-* link:../backup/hana-br-scs-overview.html["TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》"]
+* link:../backup/hana-sc-generic-scope.html["使用 SnapCenter 实现 SAP HANA 备份和恢复"]
 * link:../bp/hana-aff-fc-introduction.html["TR-4436：《基于采用光纤通道协议的NetApp全闪存FAS 系统的SAP HANA》"]
 * link:../bp/hana-aff-nfs-introduction.html["TR-4435：《基于采用NFS的NetApp全闪存FAS 系统的SAP HANA》"]
 * link:../backup/fsxn-overview.html["TR-4926：《基于Amazon FSX的SAP HANA for NetApp ONTAP —使用SnapCenter 进行备份和恢复》"]

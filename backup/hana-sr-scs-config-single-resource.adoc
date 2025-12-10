@@ -54,7 +54,7 @@ image:saphana-sr-scs-image30.png["图中显示了输入/输出对话框或表示
 ....
 hdbuserstore.exe -u SYSTEM set SSRKEY ssr-vip:31013 SNAPCENTER <password>
 ....
-有关SAP HANA插件部署选项和用户存储配置的详细信息，请参见技术报告TR-4614：link:hana-br-scs-overview.html["使用 SnapCenter 实现 SAP HANA 备份和恢复"^]。
+您可以在技术报告 TR-4614 中找到有关 SAP HANA 插件部署选项和用户存储配置的更多信息： link:hana-sc-generic-scope.html["使用 SnapCenter 实现 SAP HANA 备份和恢复"^]。
 
 在 SnapCenter 中，使用之前配置的用户存储密钥和 SnapCenter 服务器作为 `hdbsql` 通信主机来配置资源，如下图所示。
 

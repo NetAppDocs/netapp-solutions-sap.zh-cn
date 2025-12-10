@@ -25,7 +25,7 @@ summary:
 . 必须为新添加的 HANA 资源配置 HANA 资源保护。
 
 
-如前一主题所述， SnapCenter 的初始配置 link:hana-sc-generic-initial.html["SnapCenter 初始配置"] 必须首先完成此操作，因为在 HANA 数据库资源配置期间需要凭据、存储系统和策略。下图总结了各个步骤及其相互依赖关系。
+如前一主题所述， SnapCenter 的初始配置 link:hana-sc-generic-sc-initial-config.html["SnapCenter 初始配置"] 必须首先完成此操作，因为在 HANA 数据库资源配置期间需要凭据、存储系统和策略。下图总结了各个步骤及其相互依赖关系。
 
 下图可视化了不同的配置组件和依赖关系。
 

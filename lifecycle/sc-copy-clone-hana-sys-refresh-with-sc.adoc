@@ -104,7 +104,7 @@ MDC多租户
 * ONTAP 9.14P1
 
 
-所有SAP HANA系统都必须根据配置指南进行配置link:../bp/hana-aff-nfs-introduction.html["采用NFS的NetApp AFF 系统上的SAP HANA"]。SnapCenter和SAP HANA资源是根据最佳实践指南进行配置的link:../backup/hana-br-scs-overview.html["使用 SnapCenter 实现 SAP HANA 备份和恢复"]。
+所有 SAP HANA 系统都必须按照配置指南进行配置。 link:../bp/hana-aff-nfs-introduction.html["采用NFS的NetApp AFF 系统上的SAP HANA"]。SnapCenter和 SAP HANA 资源均按照最佳实践指南进行配置。 link:../backup/hana-sc-generic-scope.html["使用 SnapCenter 实现 SAP HANA 备份和恢复"]。
 
 image:sc-copy-clone-image16.png["图中显示了输入/输出对话框或表示已写入内容"]
 
@@ -115,7 +115,7 @@ image:sc-copy-clone-image16.png["图中显示了输入/输出对话框或表示�
 作为初始步骤、必须在SnapCenter中配置目标SAP HANA系统。
 
 . 安装SAP HANA目标系统
-. 在SnapCenter中配置SAP HANA系统、如中所述link:../backup/hana-br-scs-overview.html["TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》"]
+. 按照SnapCenter中的描述配置 SAP HANA 系统 link:../backup/hana-sc-generic-scope.html["使用 SnapCenter 实现 SAP HANA 备份和恢复"]
 +
 .. 用于SnapCenter备份操作的SAP HANA数据库用户配置此用户在源系统和目标系统上必须相同。
 .. 为具有上述备份用户的<sid>配置hdbuserstore密钥。如果使用自动化脚本进行恢复、则密钥名称必须为<SID> Y

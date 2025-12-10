@@ -16,7 +16,7 @@ summary:
 [role="lead"]
 要了解有关本文档中所述信息的更多信息，请参见以下文档：
 
-* link:hana-br-scs-overview.html["使用 SnapCenter 实现 SAP HANA 备份和恢复"]
+* link:hana-sc-generic-scope.html["使用 SnapCenter 实现 SAP HANA 备份和恢复"]
 * link:../lifecycle/sc-copy-clone-introduction.html["利用 SnapCenter 自动执行 SAP HANA 系统复制和克隆操作"]
 * 使用存储复制实现 SAP HANA 灾难恢复
 +

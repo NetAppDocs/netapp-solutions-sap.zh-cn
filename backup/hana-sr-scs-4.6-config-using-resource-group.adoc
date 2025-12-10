@@ -22,7 +22,7 @@ SnapCenter 4.6 支持对配置有 HANA 系统复制的 HANA 系统进行自动�
 
 下图显示了本章使用的实验室设置。两个 HANA 主机 HANA 3 和 HANA 4 配置了 HANA 系统复制。
 
-为HANA系统数据库创建了一个数据库用户“SnapCenter”，该用户具有执行备份和恢复操作所需的Privileges (请参见link:hana-br-scs-overview.html["使用 SnapCenter 实现 SAP HANA 备份和恢复"^])。必须使用上述数据库用户在两台主机上配置 HANA 用户存储密钥。
+已为 HANA 系统数据库创建了一个名为“SnapCenter”的数据库用户，并赋予其执行备份和恢复操作所需的权限（参见）。 link:hana-sc-generic-scope.html["使用 SnapCenter 实现 SAP HANA 备份和恢复"^]）。必须在两台主机上使用上述数据库用户配置 HANA 用户存储密钥。
 
 ....
 ss2adm@hana- 3: / > hdbuserstore set SS2KEY hana- 3:33313 SNAPCENTER <password>
@@ -157,6 +157,6 @@ SnapCenter 4.6 可管理两个 HANA 主机中 Snapshot 备份，块完整性检�
 
 image:saphana-sr-scs-image26.png["图中显示了输入/输出对话框或表示已写入内容"]
 
-SnapCenter 4.6 资源组配置的还原和恢复操作与自动发现的非系统复制设置相同。所有还原和自动恢复选项均可用。有关详细信息，请参见技术报告link:hana-br-scs-overview.html["TR-4614 ：《使用 SnapCenter 实现 SAP HANA 备份和恢复》"^]。
+SnapCenter 4.6 资源组配置的恢复操作与自动发现的非系统复制设置相同。所有恢复和自动恢复选项均可用。更多详情请参阅技术报告。 link:hana-sc-generic-scope.html["使用 SnapCenter 实现 SAP HANA 备份和恢复"^]。
 
 一节介绍了从在另一台主机上创建的备份执行还原操作link:hana-sr-scs-restore-recovery-other-host-backup.html["从在另一主机上创建的备份还原和恢复"]。

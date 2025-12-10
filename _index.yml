@@ -49,7 +49,7 @@ indexpage:
   - title: SnapCenter (独立于平台)
     links:
     - title: 使用 SnapCenter 进行 SAP HANA 备份和恢复
-      url: backup/hana-br-scs-overview.html
+      url: backup/hana-sc-generic-scope.html
     - title: SAP HANA系统复制—使用SnapCenter进行备份和恢复
       url: backup/hana-sr-scs-system-replication-overview.html
     - title: 利用 SnapCenter 自动执行 SAP HANA 系统复制和克隆操作
