@@ -35,7 +35,10 @@ SnapCenter支持以下恢复操作。
 NOTE: 只有当 HANA 插件部署在 HANA 数据库主机上，并且 HANA 系统被SnapCenter自动发现时，才支持自动恢复。使用中央插件主机配置时，在SnapCenter执行恢复操作后需要手动进行恢复。
 
 
-NOTE: 支持从主 ANF 卷恢复。目前尚不支持从 ANF 备份恢复。必须使用 Azure 门户或 CLI 手动执行就地还原或从 ANF 备份还原到新卷的操作。
+NOTE: 使用 Azure NetApp Files，主 ANF 卷或 ANF 备份支持还原操作。对于主 ANF 卷，将执行卷还原；对于 ANF 备份，将执行具有单个文件还原的就地还原。在这两种情况下，都将保持应用程序卷组配置。
+
+
+NOTE: 如果启用了卷加密并使用了 SAP 本地安全存储 (LSS)，则只要自备份以来 LSS 中的根密钥备份密码未更改，即支持使用 SnapCenter 进行恢复。如果更改了密码，并且使用具有不同密码的旧 Snapshot 完成了还原和恢复，则需要手动完成恢复，并且需要在恢复语句中提供旧密码："RECOVER DATA USING SNAPSHOT CLEAR LOG ENCRYPTION ROOT KEYS BACKUP PASSWORD 'old-password'"
 
 
 

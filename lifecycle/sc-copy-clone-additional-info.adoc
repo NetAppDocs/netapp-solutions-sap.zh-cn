@@ -18,11 +18,11 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA
 
 * link:../index.html["SAP业务应用程序和SAP HANA数据库解决方案(netapp.com)"]
 * link:../backup/hana-sc-generic-scope.html["使用 SnapCenter 实现 SAP HANA 备份和恢复"]
-* link:../bp/hana-aff-fc-introduction.html["TR-4436：《基于采用光纤通道协议的NetApp全闪存FAS 系统的SAP HANA》"]
-* link:../bp/hana-aff-nfs-introduction.html["TR-4435：《基于采用NFS的NetApp全闪存FAS 系统的SAP HANA》"]
-* link:../backup/fsxn-overview.html["TR-4926：《基于Amazon FSX的SAP HANA for NetApp ONTAP —使用SnapCenter 进行备份和恢复》"]
-* link:lama-ansible-introduction.html["TR-4953：《使用Ansible实现NetApp SAP Landscape Management集成》"]
-* link:libelle-sc-overview.html["TR-4929：《使用L运营 效率系统复制自动化SAP系统复制操作》(netapp.com)"]
+* link:../bp/hana-aff-fc-introduction.html["采用光纤通道协议的 NetApp 全闪存 FAS 系统上的 SAP HANA"]
+* link:../bp/hana-aff-nfs-introduction.html["基于 NFS 的 NetApp 全闪存 FAS 系统上的 SAP HANA"]
+* link:../backup/fsxn-overview.html["基于Amazon FSX的SAP HANA for NetApp ONTAP —使用SnapCenter 进行备份和恢复"]
+* link:lama-ansible-introduction.html["使用Ansible实现NetApp SAP Landscape Management集成"]
+* link:libelle-sc-overview.html["通过 Libelle SystemCopy (netapp.com/cn) 自动化 SAP 系统复制操作"]
 * link:../briefs/sap-alpaca-automation.html["利用羊驼和NetApp SnapCenter自动执行SAP系统复制、刷新和克隆工作流"]
 * link:../briefs/sap-avantra-automation.html["借助Avantra和NetApp SnapCenter自动化SAP系统复制、刷新和克隆工作流"]
 
@@ -46,4 +46,7 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA
 | 版本 4.0 | 2024年7月  a| 
 文档涵盖内部部署的NetApp系统、 FSx for ONTAP和Azure NetApp Files +新的SnapCenter 5.0操作在克隆创建和删除工作流期间挂载和卸载+为光纤通道SAN添加了特定步骤+为Azure NetApp Files添加了特定步骤+经过调整和简化的 `sc-system-refresh` 脚本+为已启用的SAP HANA提供了所需步骤 卷加密
 
+
+
+| 4.1 版 | 2026 年 2 月 | 添加了 HANA 加密和 SAP 本地安全存储 LSS 的必要步骤 
 |===

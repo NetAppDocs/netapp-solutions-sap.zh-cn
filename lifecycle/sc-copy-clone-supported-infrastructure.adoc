@@ -23,20 +23,21 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA
 |  | *内部NetApp系统* | *AWS FSx for NetApp ONTAP * | * Azure NetApp Files * 
 
 
-| 存储协议 | NFS、光纤通道 | NFS | NFS 
+| 存储协议和文件系统 | 裸机：NFS、FC 与 XFS VMware：NFS 来宾内挂载、FC 与 VMDK 和 XFS | NFS | NFS 
 
 
-| 精简克隆(FlexClone) | 是的。 | 是的。 | 不会、使用当前ANF版本时、克隆的卷始终会拆分 
+| 精简克隆(FlexClone) | 是的。 | 是的。 | 是、但未集成到SnapCenter中 
 
 
-| 克隆拆分操作 | 是的。 | 是的。 | 不适用 
+| 克隆拆分操作 | 是的。 | 是的。 | 是、但未集成到SnapCenter中 
 
 
 | 从主系统克隆 | 是的。 | 是的。 | 是的。 
 
 
-| 从异地备份克隆 | 是的。 | 是的。 | 否 
+| 从异地备份克隆 | 是的。 | 是的。 | 是，从 ANF 备份还原到新卷 
 
 
 | 在灾难恢复站点克隆 | 是的。 | 是的。 | 是、但未集成到SnapCenter中 
 |===
+有关使用 VMware VMFS 和 NetApp ASAr2 系统的 HANA SAP 系统刷新操作的其他信息，请参见  https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-sc-vmfs-asar2sap-refresh.html["SAP 系统更新"]。

@@ -4,7 +4,7 @@ permalink: backup/fsxn-overview.html
 keywords: tr4926, 4926, introduction, overview 
 summary: 本技术报告介绍了在适用于NetApp ONTAP 和NetApp SnapCenter 的Amazon FSX上保护SAP HANA数据的最佳实践。本文档介绍 SnapCenter 概念，配置建议和操作工作流，包括配置，备份操作， 以及还原和恢复操作。 
 ---
-= TR-4926：《基于Amazon FSX的SAP HANA for NetApp ONTAP —使用SnapCenter 进行备份和恢复》
+= 基于Amazon FSX的SAP HANA for NetApp ONTAP —使用SnapCenter 进行备份和恢复
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

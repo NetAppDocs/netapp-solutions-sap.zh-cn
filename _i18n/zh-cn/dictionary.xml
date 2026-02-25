@@ -707,7 +707,6 @@
   <block id="2313d7e75b1293ec19e67b10399a5b36" category="paragraph">要自动执行此操作，请在 `global.ini` 中的 ` [ 持久性 ]` 部分设置以下参数：</block>
   <block id="bcd4783f16a6a90aaaeb9703e35b2183" category="inline-link">SAP 注释 240005 问题 15</block>
   <block id="02fb0663b2b25ed3058835e1a2db5762" category="paragraph">这将在达到 8 ， 000 GB 限制后创建一个新的数据卷。<block ref="0d7b59f229b453865b91c5e952a7b217" category="inline-link-rx"></block> 提供了更多信息。</block>
-  <block id="0db6b81db5bd35e1eef1e83e154c3cb5" category="doc">TR-4436 ：《基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA 》</block>
   <block id="0b79795d3efc95b9976c7c5b933afce2" category="section-title">简介</block>
   <block id="e4509a748ae3ce7cb528662f2f9f7e10" category="paragraph">此认证适用于以下型号：</block>
   <block id="130c9ce9d2909449cb229a98c66f9d29" category="inline-link">经过认证并受支持的 SAP HANA 硬件目录</block>
@@ -737,7 +736,6 @@
   <block id="37a72a4ef96da2b1b4de8dfd6a6578e1" category="paragraph">与基于文件的传统备份相比，基于存储的 Snapshot 备份具有显著优势。这些优势包括但不限于：</block>
   <block id="a87b95aa164115fe66d032fbca70ca68" category="paragraph">SAP HANA 灾难恢复（ DR ）可以通过 SAP HANA 系统复制在数据库层上完成，也可以通过存储复制技术在存储层完成。下一节概述了基于存储复制的灾难恢复解决方案。</block>
   <block id="d8c167d8f4fbaa19b28b96b8f9830293" category="paragraph">正常运行期间，灾难恢复站点上的服务器可用作开发 / 测试系统。发生灾难时，需要关闭开发 / 测试系统并将其作为灾难恢复生产服务器启动。</block>
-  <block id="8290e539e87b39f4743f2a941a37d00d" category="doc">TR-4435 ：《采用 NFS 的 NetApp AFF 系统上的 SAP HANA —配置指南》</block>
   <block id="af01ac16ca42b9b924b834a3199131e9" category="paragraph">此认证适用于以下型号：</block>
   <block id="793f62e70c31f71a93161db091bea2c0" category="paragraph">有关使用 FCP 的 NetApp AFF 系统以及使用 NFS 或 FCP 的 FAS 系统的配置指南，请访问以下链接：</block>
   <block id="d3eeeac9b8ca9512c68dfff9f3b301a2" category="inline-link">基于采用光纤通道协议的 NetApp AFF 系统的 SAP HANA</block>
@@ -761,7 +759,6 @@
   <block id="5d75848b6169b06c4cd7d6a8c2ec2337" category="paragraph">NetApp AFF 存储控制器已通过 SAP HANA TDI 计划的认证，并同时使用 NFS （ NAS ）和 FC （ SAN ）协议。它们可以部署在任何当前 SAP HANA 方案中，例如采用单主机或多主机配置的基于 HANA 的 SAP Business Suite ， S/4HANA ， BB/4HANA 或基于 HANA 的 SAP Business Warehouse 。任何经认证可与 SAP HANA 结合使用的服务器均可与 NetApp 认证的存储解决方案结合使用。有关 SAP HANA TDI 的架构概述，请参见下图。</block>
   <block id="4769b140b92a70ffdab406be16d30122" category="paragraph">可通过多种方法将存储连接到虚拟机（ VM ）。首选选项是直接从子操作系统中连接具有 NFS 的存储卷。使用此选项时，物理主机和 VM 的主机和存储配置不会有所不同。</block>
   <block id="f7fbf8be79b2dbbf7cca7d63ea2aaa3e" category="paragraph">本文档介绍了从子操作系统直接挂载 NFS 的建议设置。</block>
-  <block id="088c8c258db90c09658a39d2839f52b0" category="doc">TR-4384 ：《采用光纤通道协议的 NetApp FAS 系统上的 SAP HANA 配置指南》</block>
   <block id="42eb56ae1e83db3afce70f056a668205" category="inline-link">经过认证并受支持的 SAP HANA 硬件目录</block>
   <block id="b448d121930edfc4a956027d7533c403" category="paragraph">本文档介绍了使用光纤通道协议（ FCP ）的 FAS 配置。</block>
   <block id="bd06b22fab5b6b92f9bf2b53d26f4805" category="admonition">要为 SAP HANA 实现所需的 SAP HANA KPI 和最佳性能，必须采用本文所述的配置。更改此处未列出的任何设置或使用的功能可能会导致性能下降或出现意外行为，只有在 NetApp 支持人员建议的情况下，才应执行此操作。</block>
@@ -1110,7 +1107,6 @@
   <block id="31dbf042d36f2d2466e8c84d4eb1d5f2" category="cell">灾难恢复数据可用于刷新开发 / 测试系统</block>
   <block id="978cc4a302a1b7555072ef943e882f05" category="cell">在不影响 RTO 和 RPO 的情况下执行灾难恢复测试</block>
   <block id="4715bf8add38a289ec23829f68ca6ab1" category="summary">研究表明，业务应用程序停机对企业业务产生了重大负面影响。</block>
-  <block id="48d5e63e9107995e8ea0ce708339c7bd" category="doc">TR-4891 ：《使用 Azure NetApp Files 实现 SAP HANA 灾难恢复》</block>
   <block id="ffca3d9db8dc584e54dd8dc3551eabb9" category="paragraph">通过在 Azure NetApp Files 上运行 SAP HANA （ ANF ），客户可以访问其他功能，这些功能可以扩展和改进 SAP HANA 的内置数据保护和灾难恢复功能。本概述部分介绍了这些选项，以帮助客户选择支持其业务需求的选项。</block>
   <block id="8a675f2a23ea4c44524efb908ae11cc8" category="paragraph">要制定全面的灾难恢复策略，客户必须了解数据保护和灾难恢复所需的业务应用程序要求和技术功能。下图概述了数据保护。</block>
   <block id="0bfad55781cf801dfc13ccd9a530fc19" category="section-title">业务应用程序要求</block>
@@ -1250,7 +1246,6 @@
   <block id="2302484597c5b4089c4a24a850b7f489" category="inline-link-macro"><block ref="2302484597c5b4089c4a24a850b7f489" category="inline-link-rx"></block></block>
   <block id="33876e03541db5898b573e9322b655e7" category="paragraph"><block ref="33876e03541db5898b573e9322b655e7" category="inline-link-macro-rx"></block></block>
   <block id="7b84e8d1abd1ca9b58ab3e77d620c832" category="summary">TR-4711 介绍了适用于 SAP HANA 的 NetApp 和 Commvault 解决方案的设计，其中包括 Commvault IntelliSnap 快照管理技术和 NetApp Snapshot 技术。解决方案基于 NetApp 存储和 Commvault 数据保护套件。</block>
-  <block id="8fb21969b8486293a6e9aad64bfdce52" category="doc">TR-4711 ：《使用 NetApp 存储系统和 Commvault 软件的 SAP HANA 备份和恢复》</block>
   <block id="6b6da8403e50e999c81fff1b93ddd075" category="inline-link-macro"><block ref="6b6da8403e50e999c81fff1b93ddd075" category="inline-link-rx"></block></block>
   <block id="974fc1d6f48a5236cf23f9d95df8992c" category="paragraph"><block ref="974fc1d6f48a5236cf23f9d95df8992c" category="inline-link-macro-rx"></block></block>
   <block id="8132c1d54d27cf7a67ac0e563e82c329" category="summary">TR-4646 概述了 SAP HANA 灾难恢复保护的选项。其中包括基于同步和异步 NetApp SnapMirror 存储复制的三站点灾难恢复解决方案的详细设置信息和用例问题描述。所述的解决方案将 NetApp SnapCenter 与 SAP HANA 插件结合使用来管理数据库一致性。</block>
@@ -1315,16 +1310,6 @@
   <block id="fc49bdb5ad0943d1647fac2e1b0c5944" category="list-text">指定恢复类型，然后单击下一步。</block>
   <block id="cc9536c3856cee6b3ae895ffe692fc31" category="list-text">确认备份目录位置，然后单击下一步。</block>
   <block id="b3eba0eb79b198a3876779400c4884c7" category="list-text">请等待恢复完成并启动租户数据库。</block>
-  <block id="2da06d509fa82d9f4e048f53fdd59f2f" category="summary">本技术报告介绍了使用 NetApp SnapCenter 服务和 Azure NetApp Files 保护 SAP HANA 数据的最佳实践。其中包括 SnapCenter 服务概念，配置建议和操作工作流，包括备份，还原和恢复操作。</block>
-  <block id="84f6a50de79d49013e595a0b9fd524e0" category="doc">TR-4905 ：《使用 SnapCenter 服务在 Azure NetApp Files 上备份和恢复 SAP HANA 》</block>
-  <block id="2090e19c47d41004ac9d83b4c834c1d8" category="paragraph">如今，企业需要为其 SAP 应用程序提供持续，无中断的可用性。面对不断增加的数据量以及系统备份等日常维护任务的需求，他们希望性能水平保持一致。执行 SAP 数据库备份是一项关键任务，可能会对生产 SAP 系统产生显著的性能影响。</block>
-  <block id="26c67fe7078b8352435776ec2a49de01" category="paragraph">备份窗口在缩减，而要备份的数据量在增加。因此，很难找到对业务流程影响最小的备份时间。恢复和恢复 SAP 系统所需的时间值得关注，因为 SAP 生产系统和非生产系统的停机时间必须尽可能地减少，以减少数据丢失和业务成本。</block>
-  <block id="ce081e1ccd185ea759e068ff2571ccb5" category="paragraph">以下几点总结了 SAP 备份和恢复面临的挑战：</block>
-  <block id="e11f2988b7e8f11f425c365fe8cf0392" category="list-text">* 性能对生产 SAP 系统的影响。 * 通常，由于数据库服务器，存储系统和存储网络上的负载过重，基于副本的传统备份会显著降低生产 SAP 系统的性能。</block>
-  <block id="cab54e2b3d87df10220254fdc951d470" category="list-text">* 正在缩减备份时间。 * 只有在 SAP 系统上正在进行的对话或批处理活动很少时，才能进行常规备份。当 SAP 系统 24 小时运行时，备份计划变得更加困难。</block>
-  <block id="f0e5827e00cf900f71151c63c4f3a68b" category="list-text">* 数据快速增长。 * 数据快速增长和备份时间不断缩短需要对备份基础架构进行持续投资。换言之，您必须购买额外的备份磁盘空间和更快的备份网络。您还必须支付这些备份资产的持续存储和管理费用。增量备份或差异备份可以解决这些问题，但这种安排会导致还原过程非常缓慢，繁琐且复杂，难以验证。此类系统通常会以业务无法接受的方式增加恢复时间目标（ RTO ）和恢复点目标（ RPO ）时间。</block>
-  <block id="a8f8133e051f5ce157248709bac6d380" category="list-text">* 停机成本不断增加。 * SAP 系统的计划外停机通常会影响业务财务。在任何计划外停机中，很大一部分是由于需要还原和恢复 SAP 系统而造成的。因此，所需的 RTO 决定了备份和恢复架构的设计。</block>
-  <block id="2a6ae4b4f6c920b26c01df5da7c2e422" category="list-text">* SAP 升级项目的备份和恢复时间。 * SAP 升级项目计划至少包括 SAP 数据库的三个备份。这些备份可显著缩短升级过程所需的时间。决定是否继续通常取决于从先前创建的备份还原和恢复数据库所需的时间。快速还原可以提供更多时间来解决升级期间可能发生的问题，而不仅仅是将系统还原到先前的状态。</block>
   <block id="3dff72048413a2d2a95ad3e613d65664" category="list-text">保留管理</block>
   <block id="868fc3042a779c3102d74797f55dbcb8" category="list-text">维护 SAP HANA 备份目录</block>
   <block id="08982f6d9b754b9de2af69edceefff75" category="list-text">还原操作</block>
@@ -1335,9 +1320,6 @@
   <block id="253e2318e8893b42b0160e70f2371673" category="summary">讨论 SAP 备份，还原和灾难恢复的系列博客</block>
   <block id="3c076a182be1751030f4612f09c54ab2" category="doc">SAP 备份，还原和灾难恢复博客</block>
   <block id="dcfb0772c9f2c9e98d41f5f0e799a89a" category="paragraph">重点介绍 SAP 备份，还原和灾难恢复的博客概述。</block>
-  <block id="23083712546bfb74d3153dd83b152769" category="summary">SAP 解决方案产品组合的最新新增功能</block>
-  <block id="ff0018dfdf641d75e04d581743c81f22" category="paragraph">最新 SAP 解决方案和解决方案宣传材料概述。</block>
-  <block id="91e3a26ea4105ecd20561989c3c58a32" category="inline-link-macro">TR-4290 ：《采用 NFS 配置的 NetApp FAS 系统上的 SAP HANA 》指南</block>
   <block id="6408743c7b0a502fe49fed25ac968c17" category="summary">讨论 SAP 生命周期管理的一系列视频和演示</block>
   <block id="18c100c6d8f14819ac80ee276eb251a6" category="doc">SAP 生命周期管理视频和演示</block>
   <block id="1e36c812f9450a024b52c0b4085d0776" category="paragraph">重点介绍 SAP 生命周期管理的视频和演示概述。</block>
@@ -1374,7 +1356,6 @@
   <block id="dd8cf04faf0e63219895ef355bac05f9" category="summary">讨论 SAP 生命周期管理的系列博客</block>
   <block id="ab6524564d590a2cf59d10dcc63ff99e" category="paragraph">重点介绍 SAP 生命周期管理的博客概述。</block>
   <block id="b45ecd3afcfa865514a59b475de3e93e" category="sidebar">FlexPod SAP 解决方案</block>
-  <block id="cd0aa799857a204938b1d6cabb99618f" category="doc">SAP 的新增功能</block>
   <block id="243e854b0d7da6e16a4a87f0f9ea87ba" category="paragraph">要了解有关本文档中所述信息的更多信息，请参见以下文档：</block>
   <block id="b1cd4632a9cd8998e7a0017f528fcc5b" category="list-text">利用 SnapCenter 自动执行 SAP HANA 系统复制和克隆操作</block>
   <block id="36352fdf713e8c1508666c9640668e0a" category="summary">SnapCenter 4.6 支持对配置有 HANA 系统复制的 HANA 系统进行自动发现。SnapCenter 4.6 包含一个逻辑，用于在备份操作期间识别主和二级 HANA 主机，并处理两个 HANA 主机之间的保留管理。</block>
@@ -1726,7 +1707,6 @@
   <block id="1da64551d06b94d7b482063dbb2e35e1" category="paragraph">您必须将新策略添加到HANA资源保护配置中、如下图所示。</block>
   <block id="8d6efb0dba912228a4f9680328b7569b" category="paragraph">我们在设置中定义了每日计划。</block>
   <block id="8d672d6879c8db3a9c37e06acd4d7571" category="summary">本技术报告介绍了在适用于NetApp ONTAP 和NetApp SnapCenter 的Amazon FSX上保护SAP HANA数据的最佳实践。本文档介绍 SnapCenter 概念，配置建议和操作工作流，包括配置，备份操作， 以及还原和恢复操作。</block>
-  <block id="042f7a2c227ce333d4132cb3d2f72c1a" category="doc">TR-4926：《基于Amazon FSX的SAP HANA for NetApp ONTAP —使用SnapCenter 进行备份和恢复》</block>
   <block id="945a22530e2c0bc909fe7bd733744001" category="paragraph">如今，企业需要为其 SAP 应用程序提供持续，无中断的可用性。面对不断增加的数据量和对系统备份等日常维护任务的需求、他们希望获得一致的性能。执行SAP数据库备份是一项关键任务、可能会对生产SAP系统的性能产生重大影响。</block>
   <block id="22eb5cd58a9c358396971f25290eeb1e" category="paragraph">备份窗口在缩减、而要备份的数据量在增加。因此、很难找到对业务流程影响最小的备份时间。恢复和恢复SAP系统所需的时间值得关注、因为SAP生产系统和非生产系统的停机时间必须尽可能地减少、以降低业务成本。</block>
   <block id="a93f4cc43678f9ab3b805d2bb40079f2" category="summary">您必须对基本SnapCenter 配置和HANA资源保护执行本节中的步骤。</block>
@@ -1923,7 +1903,6 @@
   <block id="3306e00cec668497714eaadcd7aa6ac8" category="list-text">SnapCenter 资源页面</block>
   <block id="7608e75619cff3eeb4e8bce40481b456" category="list-text">SnapCenter 软件文档</block>
   <block id="7a3492bffc26e95ce3669b39a1f14422" category="list-text">TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作</block>
-  <block id="3c191542e46a4ce9d7eb2f662380cb07" category="list-text">TR-4719：SAP HANA系统复制—使用SnapCenter 进行备份和恢复</block>
   <block id="baaebabde318c3efac57f4b4eaf80541" category="summary">您可以使用NetApp Snapshot技术在几分钟内创建数据库备份。创建 Snapshot 副本所需的时间与数据库大小无关，因为 Snapshot 副本不会移动存储平台上的任何物理数据块。</block>
   <block id="a72020b2f4b19541a1ec28f5c06dd28d" category="doc">使用适用于ONTAP 的Amazon FSX进行备份和恢复</block>
   <block id="2025d4d57c2a7727e45b8c27669d1766" category="paragraph">Snapshot 副本还为还原和恢复操作提供了主要优势。通过NetApp SnapRestore 技术、可以根据当前可用的Snapshot副本将整个数据库或数据库的一部分还原到任意时间点。无论数据库大小如何，此类还原过程都只需几秒钟即可完成。由于在一天中可以创建多个联机Snapshot备份、因此与传统的每天一次备份方法相比、恢复过程所需的时间显著减少。由于您可以使用最长只有几小时(而不是长达24小时)的Snapshot副本执行还原、因此在正向恢复期间必须应用的事务日志更少。因此、RTO会减少到几分钟、而不是传统流式备份所需的几小时。</block>
@@ -2020,8 +1999,6 @@
   <block id="de1921a90d14a58282dcb74904bfbc87" category="paragraph">文档资源：</block>
   <block id="c804e38e267ab7e08a61f3e791e5a99a" category="inline-link">SnapCenter 文档中心</block>
   <block id="5f238be6282547752bdf3926f1af44c2" category="list-text"><block ref="5f238be6282547752bdf3926f1af44c2" category="inline-link-rx"></block></block>
-  <block id="550ff411af842971b5bef45c5d9d1a59" category="inline-link">TR-4700 ：适用于 Oracle 数据库的 SnapCenter 插件</block>
-  <block id="2c7b4a7cfd7910e959b3899cdd539867" category="list-text"><block ref="2c7b4a7cfd7910e959b3899cdd539867" category="inline-link-rx"></block></block>
   <block id="6be1ed7d0e35cab2dd490a58f13d3761" category="inline-link">《SnapCenter 4.6 cmdlet参考指南》</block>
   <block id="76f3b0f8b6a51710bcff71e212056376" category="list-text"><block ref="76f3b0f8b6a51710bcff71e212056376" category="inline-link-rx"></block></block>
   <block id="6273877c694f4875c4ab83bf5ef28e30" category="paragraph">本节介绍在演示数据中心中设置的示例架构。此设置分为标准安装和使用中央通信主机的安装。</block>
@@ -2066,8 +2043,6 @@
   <block id="fd4570f5dbab54ff8215f97356cef84a" category="paragraph">既然已经在LSC和NetApp SnapCenter 之间执行了所有必要的集成任务、那么启动完全自动化的SAP系统刷新就只需单击一下即可。</block>
   <block id="cc5747bb54ae81e815234f4894e61642" category="paragraph">下图显示了标准安装中的任务`NTAP`系统`_`克隆`S`。如您所见、创建Snapshot副本和克隆、在目标数据库服务器上挂载克隆卷以及还原和恢复目标数据库大约需要14分钟。值得注意的是、借助Snapshot和NetApp FlexClone技术、此任务的持续时间几乎保持不变、与源数据库的大小无关。</block>
   <block id="7ae2a6447550be2b8594e4607e4a7453" category="paragraph">下图显示了使用中央通信主机时的两个任务`NTAP_SYSTEM_clone_cp`和`NTAP_MNT_recovery_cp`。如您所见、创建Snapshot副本、克隆、在目标数据库服务器上挂载克隆卷以及还原和恢复目标数据库大约需要12分钟。使用标准安装时、执行这些步骤所需的时间大致相同。同样、无论源数据库的大小如何、Snapshot和NetApp FlexClone技术都能确保这些任务的一致、快速完成。</block>
-  <block id="3f50f7ed267e090adcfbab165f2e5c47" category="list-text">TR-4436：《基于采用光纤通道协议的NetApp全闪存FAS 系统的SAP HANA》</block>
-  <block id="abb522bb2ca57b2c5746580a64109029" category="list-text">TR-4435：《基于采用NFS的NetApp全闪存FAS 系统的SAP HANA》</block>
   <block id="856228be68913d2211ee02f22a38e8e9" category="paragraph">在当今瞬息万变的业务环境中、企业必须不断创新、并对不断变化的市场做出快速响应。在这种竞争环境下、在工作流程中实施更大灵活性的公司可以更有效地适应市场需求。</block>
   <block id="3f764a0345ec7999f352204a5b3fdddd" category="paragraph">配置这些系统的传统SAP生命周期管理方法主要基于手动流程。这些手动流程往往容易出错且耗时、会延迟创新和业务需求响应。</block>
   <block id="a401037b1fd939681f3b1d35a4cf1871" category="section-title">异地备份和/或灾难恢复数据复制</block>
@@ -2095,7 +2070,6 @@
   <block id="f849fc808040266d8c8e8176608047f5" category="paragraph">如果不应使用自动化脚本、而应手动执行这些步骤、则需要了解FlexClone卷的存储系统接合路径。接合路径在SnapCenter 中不可见、因此您需要直接在存储系统上查找接合路径、或者可以使用一个简单的脚本在目标主机上提供SnapCenter 环境变量。需要在SnapCenter 克隆创建操作中将此脚本作为挂载操作脚本添加。</block>
   <block id="19cc491dd4ab0c0c23981caff6da1749" category="paragraph">在`env-from-sc.txt`文件中、查找变量`clone-volumes_mount_path`以获取FlexClone卷的存储系统IP地址和接合路径。</block>
   <block id="d1d283ed469f9cbb4c4f40ee4c2c78d0" category="summary">用于优化SAP生命周期管理的NetApp解决方案已集成到SAP AnyDB和SAP HANA数据库中。此外、NetApp还集成到SAP生命周期管理工具中、将高效的应用程序集成数据保护与灵活的SAP测试系统配置相结合。</block>
-  <block id="8133b664c0921de8f7cfeb9e67c3402e" category="doc">TR-4929：使用Libelle SystemCopy自动执行SAP系统复制操作</block>
   <block id="6581ea45f3bd063045396c433f8b8673" category="paragraph">Holger Zecha、Tobias BRANDL、NetApp Franz Dieggruber、Libelle</block>
   <block id="dd2d3355ce822b7021e69bb9d84e81f9" category="paragraph">不断变化的市场需求还会影响公司的SAP环境、因此需要定期集成、更改和更新。IT部门必须以更少的资源和更短的时间实施这些变更。要在部署这些变更时最大程度地降低风险、需要进行全面的测试和培训、这就需要使用生产中的实际数据创建更多的SAP系统。</block>
   <block id="512e1d819a2e72bd976007357739c04d" category="paragraph">用于优化SAP生命周期管理的NetApp解决方案已集成到SAP AnyDB和SAP HANA数据库中。此外、NetApp还集成到SAP生命周期管理工具中、将高效的应用程序集成数据保护与灵活的SAP测试系统配置相结合。</block>
@@ -2131,7 +2105,6 @@
   <block id="8632014b0a82d2a229bc13ad57a2ac7e" category="doc">系统更新和克隆的用例</block>
   <block id="00b4ead5541ced0624c52fdc64a84c14" category="inline-link-macro">《使用SnapCenter 更新SAP HANA系统》。</block>
   <block id="c93a3b395dcad6d7d4701c7ae95fc9d7" category="section-title">解决逻辑损坏问题</block>
-  <block id="af5083b35bb63e06e5abf6eb41bc6a64" category="paragraph">逻辑损坏可能是由软件错误，人为错误或破坏引起的。遗憾的是，使用标准高可用性和灾难恢复解决方案往往无法解决逻辑损坏问题。因此、根据发生逻辑损坏的层、应用程序、文件系统或存储、有时可能无法满足最短停机时间和最大数据丢失要求。</block>
   <block id="a57853f44c435f203fab190cb2f37b09" category="paragraph">最糟糕的情况是SAP应用程序中的逻辑损坏。SAP 应用程序通常在不同应用程序相互通信并交换数据的环境中运行。因此，不建议使用还原和恢复发生逻辑损坏的 SAP 系统。将系统还原到损坏发生前的某个时间点会导致数据丢失。此外， SAP 环境将不再同步，需要额外的后处理。</block>
   <block id="40d7615d00f208b51b1e36048899ef14" category="paragraph">更好的方法是尝试通过在单独的修复系统中分析问题来修复系统中的逻辑错误、而不是还原SAP系统。根发生原因分析需要业务流程和应用程序所有者的参与。在这种情况下，您可以根据发生逻辑损坏之前存储的数据创建修复系统（生产系统的克隆）。在修复系统中，可以将所需数据导出并导入到生产系统中。通过这种方法、生产系统无需停止、在最佳情况下、不会丢失任何数据、也不会丢失一小部分数据。</block>
   <block id="3d7345edeeb5411d19faf37f4b0c3c2b" category="inline-link-macro">"使用SnapCenter 克隆SAP系统。"</block>
@@ -2397,7 +2370,6 @@
   <block id="43767cf21d4b8f31f9dcdee8e59adb69" category="paragraph">下图说明了在执行系统克隆、系统副本或系统刷新操作期间必须执行的主要步骤。紫色框表示可集成NetApp存储功能的步骤。所有这三项操作均可通过SAP Lama实现完全自动化。</block>
   <block id="596b75e644e7872d4337d48a315dd53d" category="inline-image-macro">此图分别描绘了系统克隆、系统副本和系统刷新的三个流程时间表。</block>
   <block id="10f22ce6f0d2560d2593dccd1c7a2cac" category="summary">SAP Landscape Management (Lama)支持SAP系统管理员自动执行SAP系统操作、包括端到端SAP系统克隆、复制和刷新操作。</block>
-  <block id="f0e2318cd32c61c7c602d5745e21791b" category="doc">TR-4953：《使用Ansible实现NetApp SAP Landscape Management集成》</block>
   <block id="f130ce1e1c7d90310044ef7daf088f2e" category="paragraph">NetApp提供了一组丰富的Ansible模块、SAP Lama可以通过SAP Lama Automation Studio访问NetApp Snapshot和FlexClone等技术。这些技术有助于简化和加速SAP系统克隆、复制和刷新操作。</block>
   <block id="d2c4fa04492deec7383fc3a48fb61fcc" category="paragraph">在内部运行NetApp存储解决方案的客户或在Amazon Web Services、Microsoft Azure或Google Cloud Platform等公共云提供商中使用NetApp存储服务的客户均可使用此集成。</block>
   <block id="e95a257ceffab9c7ca49cb69ae38d9d7" category="paragraph">本文档介绍了如何为SAP Lama配置NetApp存储功能、以便使用Ansible自动化执行SAP系统复制、克隆和刷新操作。</block>
@@ -2723,7 +2695,6 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="81eb74990998ec7670788a4b5d26b6d5" category="paragraph">此规则的一个例外是具有单个租户的SAP HANA系统、其中租户名称与系统SID相同。此配置是首次安装SAP HANA后的默认配置。SAP HANA数据库会标记此特定配置。在这种情况下、可以使用目标系统的租户名称在目标系统上执行租户恢复、该名称也必须与目标系统的系统SID相同。此工作流显示在选项3中。</block>
   <block id="62b2eae75a95f0f95105ee2a3dd86456" category="admonition">一旦在源系统上执行任何租户创建、重命名或删除操作、SAP HANA数据库就会删除此配置标志。因此、即使已将配置恢复为租户= SID、此标志也不再可用、并且无法再使用工作流3进行租户恢复。在这种情况下、所需的工作流为选项2。</block>
   <block id="590a83044f8275cb44757e91bd9c3b98" category="section-title">启用了SAP HANA加密的系统刷新工作流</block>
-  <block id="ed0497f02ad9f417117b309a43ded20a" category="paragraph">启用SAP HANA持久性加密后、需要执行其他步骤、才能在目标系统上恢复SAP HANA数据库。</block>
   <block id="6b8ec54bea4ea8f350ee72bf85d3197e" category="paragraph">在源系统上、您需要为系统数据库以及所有租户数据库创建加密根密钥备份。在执行恢复操作之前、必须将备份文件复制到目标系统、并且必须从备份中导入根密钥。</block>
   <block id="04237ca9906c07207034914aa0a28d82" category="paragraph">另请参见<block ref="359a6667f10cfbec6ec52789f37c6e2a" category="inline-link-rx"></block>。</block>
   <block id="886ad05cbab7f831b411778c068cf8fe" category="section-title">备份根密钥</block>
@@ -2749,7 +2720,6 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="1400c6c3a81a83b42b2e1bfa00b4f08d" category="admonition">内部NetApp系统和Amazon FSx for NetApp ONTAP均支持从异地备份或灾难恢复存储克隆。使用Azure NetApp Files时、只能在源卷上创建克隆。</block>
   <block id="7e22a4a705cb1e44da3a7fa13d9330fb" category="section-title">*集成自动化*</block>
   <block id="86aedb2a5d0e4cc1e18959a121d927a4" category="paragraph">可以使用第三方工具和集成的NetApp功能来执行完全自动化的SAP测试系统端到端配置。有关更多详细信息、请访问：</block>
-  <block id="bcaeb718111fd28a80ff0468446a8cca" category="inline-link">TR-4929：《使用L运营 效率系统复制自动化SAP系统复制操作》(netapp.com)</block>
   <block id="b86922f81f8fbdc269eb147c0132320d" category="inline-link">利用羊驼和NetApp SnapCenter自动执行SAP系统复制和放大器；44；刷新和放大器；44；以及克隆工作流</block>
   <block id="ef9c1ed1eec5b69c3ed64cd0c51e91f5" category="inline-link">借助Avantra和NetApp SnapCenter自动执行SAP系统复制和放大器；#44；刷新和放大器；#44；以及克隆工作流</block>
   <block id="5e159ddb5310fc1d30282d2680fcae12" category="paragraph">如上一节所述、SnapCenter 可以从任何现有Snapshot备份管理数据集的克隆、并可将这些数据集快速配置到任何目标系统。灵活灵活地将生产数据配置到修复系统以解决逻辑损坏至关重要、因为通常需要重置修复系统并选择不同的生产数据集。FlexClone技术可实现快速配置过程、并可显著节省容量、因为修复系统通常只能在短时间内使用。</block>
@@ -2779,7 +2749,6 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="fc7b39f931e97a5620b60594593a3ded" category="list-text">SnapCenter将删除FlexClone卷</block>
   <block id="01cd3fe546b8551fcb17aab105bfd54d" category="list-text">步骤2将重新启动刷新。</block>
   <block id="29455d0165f5fd37f1ddd0e1acde2d19" category="paragraph">在大多数情况下、目标测试/QA系统的使用时间至少为几周。由于FlexClone卷会阻止源系统卷的Snapshot、因此根据源系统卷上的块更改率、此Snapshot将需要额外的容量。如果生产源系统的平均变更率为每天20%、则被阻止的Snapshot将在5天后达到100%。因此、如果克隆基于生产源系统、NetApp建议立即或几天后拆分FlexClone卷。克隆拆分操作不会阻止使用克隆的卷、因此、可以在使用HANA数据库时随时执行。</block>
-  <block id="fec549457b5ca8b6fab2e0ae6d6e75a6" category="admonition">对于SnapCenter和Azure NetApp Files、克隆拆分操作不可用、因为Azure NetApp Files始终会在创建后拆分克隆。</block>
   <block id="6f1539c5dce675aa44b87f7f9f369176" category="paragraph">包括克隆拆分在内的刷新操作包括以下步骤。</block>
   <block id="4fe3df0af2aa4e5f9eacca7e203e19cb" category="list-text">FlexClone卷使用SnapCenter克隆拆分工作流进行拆分。</block>
   <block id="f53badcf937e2258faf81fb846c9c3d4" category="list-text">请求新系统刷新时、可通过以下手动步骤完成清理</block>
@@ -2794,14 +2763,12 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="4538fddc8b1e4453fc76236736640432" category="cell">标准配置</block>
   <block id="0ab4f55de764dc8394643b349b083994" category="cell">SnapCenter克隆操作和可选的恢复脚本执行。</block>
   <block id="0a65e6a9e8d4b8b7c8582184102df1c5" category="cell">SAP HANA持久性加密</block>
-  <block id="014c18a7ee780910ba664b6a0b978c06" category="cell">最初、或者如果源系统更改了根密钥、则必须先在目标系统导入根密钥备份、然后才能执行恢复。</block>
   <block id="89d86b9ec09c7f3b392bb43ea2eb6dd6" category="cell">SAP HANA系统复制源</block>
   <block id="99626cfc8b134a9568590f75a1fa39e9" category="cell">无需执行其他步骤。如果目标系统未配置HSR、则它将保留为独立系统。</block>
   <block id="55e4c24dca21aa659ae4ad4a62764c3a" category="cell">SAP HANA多个分区</block>
   <block id="9045ec7ce843df8f562cdac52976a8ef" category="cell">无需执行其他步骤、但目标系统上必须具有相同命名约定的SAP HANA卷分区挂载点(只有SID不同)。</block>
   <block id="747e7c5207b7c8c7b7c0d19a45e85b9a" category="paragraph">或具有SID &lt;&gt;租户名称的单租户+的移动模组</block>
   <block id="b202c7fafecac4cc268100693b999ff4" category="cell">SnapCenter克隆操作和可选的恢复脚本执行。脚本将恢复所有租户。如果目标系统名称中不存在租户或租户名称、则在SAP HANA恢复操作期间会自动创建所需目录。租户名称将与源名称相同、如果需要、需要在恢复后重命名。</block>
-  <block id="fd8ed9109131dae1c0a52003f1f433ad" category="cell">如果目标系统之前不存在源系统的DBID、则必须先恢复系统数据库、然后才能导入此租户的根密钥备份。</block>
   <block id="eda5c3cd479d8bf56791258422f9d2e9" category="cell">HANA系统复制源</block>
   <block id="fee1d7f7b5a29f13c080fff62b1a3b65" category="cell">HANA多个分区</block>
   <block id="c8c7f73988a5c0973f17af8df0cb4dd9" category="list-text">从租户名称等于SID的主存储克隆</block>
@@ -2847,7 +2814,6 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="eb4b39872c9b3c2192257f6c1418c394" category="list-text">从源系统SS1中选择Snapshot备份、然后单击克隆。</block>
   <block id="45cb930cdf8bda3887a5e6b8bcf538b8" category="admonition">输入的目标SID用于控制SnapCenter管理克隆资源的方式。如果已在SnapCenter中配置了具有目标SID的资源、并且该资源与插件主机匹配、则SnapCenter只会将克隆分配给该资源。如果未在目标主机上配置SID、SnapCenter 将创建一个新资源。</block>
   <block id="bd49bd38980d1a48b9ac573cdf9cc7fe" category="admonition">在启动克隆工作流之前、请务必在SnapCenter中配置目标系统资源和主机。否则、SnapCenter创建的新资源将不支持自动发现、并且所述工作流将不起作用。</block>
-  <block id="6b70c14bef490b5b4a9c096761e1d9ce" category="paragraph">在光纤通道SAN设置中、不需要导出IP地址、但您需要在下一屏幕中提供使用的协议。</block>
   <block id="2b23cdd09cd3ee449ae9f62aa220bc15" category="admonition">屏幕截图显示了使用光纤通道连接的不同实验室设置。</block>
   <block id="0893fd1866670782e0403c79e13cedce" category="paragraph">如果使用Azure NetApp Files和手动QoS容量池、则需要为新卷提供最大吞吐量。请确保容量池具有足够的性能余量、否则克隆工作流将失败。</block>
   <block id="984e3ff8040e7c400c8af9ccde982a58" category="admonition">屏幕截图显示了在Microsoft Azure中使用Azure NetApp Files运行的另一个实验室设置。</block>
@@ -2921,11 +2887,8 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="9dc9e3437e4c7ab520eea0bc890ec77d" category="cell">*内部NetApp系统*</block>
   <block id="dc590521b479337b3c16fdc9b86fa862" category="cell">*AWS FSx for NetApp ONTAP *</block>
   <block id="502138babd0f5b6a19480328fd806740" category="cell">* Azure NetApp Files *</block>
-  <block id="9b8bdf7379e889d83ab24e782c87d2ac" category="cell">存储协议</block>
-  <block id="0f59ffbf177067a2b43529c379b9a941" category="cell">NFS、光纤通道</block>
   <block id="1d1a594959ec615f56516f5d0f5e8ddb" category="cell">NFS</block>
   <block id="cd390e0f91519da01691549afef00620" category="cell">精简克隆(FlexClone)</block>
-  <block id="0255a9cd10f452086da62b59f792a1f2" category="cell">不会、使用当前ANF版本时、克隆的卷始终会拆分</block>
   <block id="382b0f5185773fa0f67a8ed8056c7759" category="cell">不适用</block>
   <block id="9f1d8d71503bb95d72fe41f56c48761a" category="cell">从主系统克隆</block>
   <block id="3f78baa2e72d94c1e4ae14fd035d05aa" category="cell">从异地备份克隆</block>
@@ -2934,7 +2897,6 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="16fc6bd74d4496ed31fe8ee50e1887ee" category="section-title">对QA、测试、沙盒或培训系统进行数据刷新</block>
   <block id="862c3e3761bf683136ee838de2c0c203" category="paragraph">在设置修复系统时、灵活性和敏捷性至关重要。使用基于NetApp存储的Snapshot备份时、可以使用多个一致的数据库映像来使用NetApp FlexClone技术创建生产系统的克隆。如果使用基于文件的备份的重定向还原来设置修复系统、则只需几秒钟即可创建FlexClone卷、而不是多小时。</block>
   <block id="2792124a69a48ece7030f9b29701007b" category="paragraph">有效的灾难恢复策略需要测试所需的工作流。测试可证明该策略是否有效、以及内部文档是否足以满足要求。它还允许管理员培训所需的过程。</block>
-  <block id="0ca7de0d8a3d9d654f0a2d183f1c4aef" category="inline-link">TR-4646：《采用存储复制的SAP HANA灾难恢复》(netapp.com)</block>
   <block id="4b3309d5f0ac80977c53b53f174cf02b" category="inline-link">SAP业务应用程序和SAP HANA数据库解决方案(netapp.com)</block>
   <block id="73018ba6d8f50b92b992ab316f15a0a6" category="paragraph">涵盖SnapCenter 4.3和改进的自动化脚本的完整重写。+用于系统刷新和系统克隆操作的新工作流说明。</block>
   <block id="30dac510a408bf8be8dd4336d96b482f" category="cell">适应SnapCenter 4.6 P1中变更的工作流</block>
@@ -2956,7 +2918,6 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="44fee80ab2b2a3105ec17b94b206cc8f" category="inline-link"><block ref="44fee80ab2b2a3105ec17b94b206cc8f" category="inline-link-rx"></block></block>
   <block id="55162df4eaa40993b4b04219f5dd5e87" category="paragraph"><block ref="55162df4eaa40993b4b04219f5dd5e87" category="inline-link-rx"></block></block>
   <block id="e5e2a6bf28307550240d9ed91bbb0fa0" category="paragraph"><block ref="e5e2a6bf28307550240d9ed91bbb0fa0" category="inline-link-rx"></block></block>
-  <block id="bc83c6be4c9eaece698b7eb18b8517a0" category="paragraph"><block ref="bc83c6be4c9eaece698b7eb18b8517a0" category="inline-link-rx"></block></block>
   <block id="a36cfc2690f8671748f584abb16bdd04" category="cell">新存储系统</block>
   <block id="0fba9f2a3fbb4cfbaed44806cd9933a2" category="cell">新存储系统(ASA A系列)</block>
   <block id="5e8f0f670e38fbdf628b0883f946934f" category="inline-image-macro">图中显示了输入/输出对话框或表示已写入内容</block>
@@ -3286,10 +3247,7 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="fa50f5934ab4a86ba7d21d9282a4ae83" category="paragraph"><block ref="fa50f5934ab4a86ba7d21d9282a4ae83" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c7015b3891214599aa77ef61934d48e7" category="paragraph"><block ref="c7015b3891214599aa77ef61934d48e7" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1481209059a8c176a74f364ded8717f3" category="paragraph"><block ref="1481209059a8c176a74f364ded8717f3" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="431660b7246559c07729890a342868c6" category="paragraph"><block ref="431660b7246559c07729890a342868c6" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="eac376c625b17cbfe1ce4dc53801ef84" category="paragraph"><block ref="eac376c625b17cbfe1ce4dc53801ef84" category="inline-image-macro-rx" type="image"></block></block>
   <block id="479c484cab176977b9085c7442252d55" category="paragraph"><block ref="479c484cab176977b9085c7442252d55" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="354953ecdb34e2ea0a14730090c02b5d" category="paragraph"><block ref="354953ecdb34e2ea0a14730090c02b5d" category="inline-image-macro-rx" type="image"></block></block>
   <block id="174ef09bcd66f149e8f3d48b9c27d084" category="paragraph"><block ref="174ef09bcd66f149e8f3d48b9c27d084" category="inline-image-macro-rx" type="image"></block></block>
   <block id="33d725d287734490bd3cf2cbc2610e77" category="paragraph"><block ref="33d725d287734490bd3cf2cbc2610e77" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a52149656c8f2abac5c009c9b7bd0e3a" category="paragraph"><block ref="a52149656c8f2abac5c009c9b7bd0e3a" category="inline-image-macro-rx" type="image"></block></block>
@@ -4094,10 +4052,7 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="3bbbb9b799728fb6c79de967a65e92f1" category="paragraph">备份完成后，拓扑视图中将显示一个新条目。备份名称遵循与一节中定义的Snapshot名称相同的命名约定<block ref="d4f6e24221d73a5247f7989bd3e6279a" category="inline-link-macro-rx"></block></block>
   <block id="f87531f2bfe441193671ca21c1af5569" category="paragraph">在发生灾难故障转移时，必须中断复制关系，将卷挂载到灾难恢复生产服务器，并且必须将 HANA 数据库恢复到最后一个 HANA 保存点，或者使用复制的日志备份进行正向恢复。一章<block ref="e662c9f6046b2d69b33032921c282f16" category="inline-link-macro-rx"></block>介绍了所需的步骤。</block>
   <block id="fd8ff870af3225045cae849a29ee9c7c" category="paragraph">有关不同配置选项的详细信息，请参见第章<block ref="52361ff2780d39b847dad2f6438b837e" category="inline-link-macro-rx"></block>。</block>
-  <block id="3149d7f53627e7a4811812a5342ef935" category="paragraph"><block ref="3149d7f53627e7a4811812a5342ef935" category="inline-link-macro-rx"></block></block>
-  <block id="aa00b093336debfc20dbc4fc69cb70d8" category="paragraph"><block ref="aa00b093336debfc20dbc4fc69cb70d8" category="inline-link-macro-rx"></block></block>
   <block id="882fe2ce394c7d9c0385b7a97a8950d8" category="paragraph">本章介绍如何使用VMFS安装和配置特定于VMware设置的SAP HANA系统。有关其他通用最佳实践，请参见<block ref="06906b11f7ae357da484fb08941ebda3" category="inline-link-macro-rx"></block>。</block>
-  <block id="e710d3810f7e451ec6523f0e9e885294" category="paragraph">有关系统刷新工作流的详细信息、请参见：<block ref="aa00b093336debfc20dbc4fc69cb70d8" category="inline-link-macro-rx"></block></block>
   <block id="a3051f2748b88ccf17cf01b6ad73fabe" category="paragraph">一节介绍了从在另一台主机上创建的备份执行还原操作<block ref="acf62b44d5a90b4d958a3c0c6b8a0edb" category="inline-link-macro-rx"></block>。</block>
   <block id="17b4daea6f84861e54f9cacd1bbd3604" category="paragraph">如一节中所述<block ref="4a1e790749396e92e0acae21d9b3b1c2" category="inline-link-macro-rx"></block>、使用基于存储的Snapshot备份执行还原操作有所不同、具体取决于必须还原的备份。请务必确定在哪个主机上创建备份，以确定是否可以在本地存储卷上执行还原，或者是否必须在另一主机的存储卷上执行还原。</block>
   <block id="e1de529a8060a08809a319261affb84a" category="paragraph">使用SAP HANA Studio执行的还原和恢复操作与一节中所述的步骤相同<block ref="b4ea72f2d8ae046f29d30c5810a2bb91" category="inline-link-macro-rx"></block>。</block>
@@ -4319,15 +4274,7 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="cfbcab52e9219a88b453d8640a695b5c" category="paragraph"><block ref="cfbcab52e9219a88b453d8640a695b5c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="8182e6c407ae4266fab449c510893871" category="paragraph"><block ref="8182e6c407ae4266fab449c510893871" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a7ff5809b72a550475c833f91f3adb78" category="paragraph"><block ref="a7ff5809b72a550475c833f91f3adb78" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="d5a7518453c3639808aa5fee5b36fce5" category="paragraph">要从源数据库执行基于Snapshot副本的自动备份并为新目标数据库创建克隆，所述的LSC与SnapCenter之间的集成将使用中所述的配置选项和脚本<block ref="49d1af2cf82cf0b45d74f29b4b37bfb7" category="inline-link-macro-rx"></block>。</block>
-  <block id="49d1af2cf82cf0b45d74f29b4b37bfb7" category="list-text"><block ref="49d1af2cf82cf0b45d74f29b4b37bfb7" category="inline-link-macro-rx"></block></block>
-  <block id="df896ef034b20676d525fde3b569e0fd" category="paragraph">虽然修复系统和灾难恢复测试系统通常使用SAP系统克隆(不需要执行大量后处理操作)来更新测试和培训系统、但要与源系统共存、必须应用这些后处理步骤。因此、本文档重点介绍SAP系统更新场景。有关不同使用情形的更多详细信息，请参见技术报告<block ref="49d1af2cf82cf0b45d74f29b4b37bfb7" category="inline-link-macro-rx"></block>。</block>
   <block id="5b6ca0b8aa20d1b2d1c1f4f776d98453" category="list-text"><block ref="5b6ca0b8aa20d1b2d1c1f4f776d98453" category="inline-link-macro-rx"></block></block>
-  <block id="038cc9135f774f6ca4e5b8854e85fd29" category="list-text"><block ref="038cc9135f774f6ca4e5b8854e85fd29" category="inline-link-macro-rx"></block></block>
-  <block id="edb8903c02314004d9b3e78f5bc04091" category="list-text"><block ref="edb8903c02314004d9b3e78f5bc04091" category="inline-link-macro-rx"></block></block>
-  <block id="209b9cb89860e1a4ba10f4f1718904c8" category="list-text"><block ref="209b9cb89860e1a4ba10f4f1718904c8" category="inline-link-macro-rx"></block></block>
-  <block id="114f14acf5d8d013dd95789d87df42bd" category="list-text"><block ref="114f14acf5d8d013dd95789d87df42bd" category="inline-link-macro-rx"></block></block>
-  <block id="ad6e031a57fcf75ea91c508ef641336b" category="list-text"><block ref="ad6e031a57fcf75ea91c508ef641336b" category="inline-link-macro-rx"></block></block>
   <block id="9ad4a24b5d6ff5539ca63f2e962bc5ca" category="inline-link-macro">利用羊驼和NetApp SnapCenter自动执行SAP系统复制、刷新和克隆工作流</block>
   <block id="cdf522f142e0cdba9292a69965f7987c" category="list-text"><block ref="cdf522f142e0cdba9292a69965f7987c" category="inline-link-macro-rx"></block></block>
   <block id="64098a348b693b068c8a5f7cc6b6c53f" category="inline-link-macro">借助Avantra和NetApp SnapCenter自动化SAP系统复制、刷新和克隆工作流</block>
@@ -4340,13 +4287,6 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="4d6f4667d5cf9fb3474d683dfdc4c06b" category="admonition">SAP HANA系统会使用一个卷作为<block ref="b61595b5b7b716bd6b8bd21e4fa4a3bf" prefix=" " category="inline-code"></block>和作为<block ref="332a4b8a50d2a34eacd47a3800f13b64" prefix=" " category="inline-code"></block>，并按照配置指南中的建议在子目录中分隔<block ref="f7f1322fc01ab9c31c98cc0e27ac7c60" category="inline-link-macro-rx"></block>。该脚本<block ref="7475fe06dd4f4cf4edc0c5536fb55aa4" prefix=" " category="inline-code"></block> 使用一个特殊的命令行选项对挂载路径支持此配置。如果挂载路径命令行选项等于usr－sap-and-shared，则该脚本会相应地将共享的子目录和usr－sap挂载到卷中。</block>
   <block id="03d4157529053c5e8a8154f9ca134c01" category="paragraph">一节介绍了系统刷新操作的工作流<block ref="b9d5f197c08fde17abc21bbf3508faa4" category="inline-link-macro-rx"></block></block>
   <block id="b7f794af977f79f2c8b61dc7d918bef3" category="paragraph">一节介绍了创建修复系统的工作流<block ref="2a46f69c983531d333057d14da39a63c" category="inline-link-macro-rx"></block></block>
-  <block id="4abd2b96de5193e2efafa375e8b00e84" category="paragraph"><block ref="4abd2b96de5193e2efafa375e8b00e84" category="inline-link-macro-rx"></block></block>
-  <block id="15b10323702696b4b2eff0a8a7fd029b" category="list-text"><block ref="15b10323702696b4b2eff0a8a7fd029b" category="inline-link-macro-rx"></block></block>
-  <block id="371e3bfeb464f53b17c98c9552076c9a" category="list-text"><block ref="371e3bfeb464f53b17c98c9552076c9a" category="inline-link-macro-rx"></block></block>
-  <block id="e44ed137bef8215f3915cddce03f7e35" category="list-text"><block ref="e44ed137bef8215f3915cddce03f7e35" category="inline-link-macro-rx"></block></block>
-  <block id="0904547c2cb2fa7f2a97979d7b1ab56d" category="list-text"><block ref="0904547c2cb2fa7f2a97979d7b1ab56d" category="inline-link-macro-rx"></block></block>
-  <block id="26727b801c8904e39d395cf46aaf0852" category="list-text"><block ref="26727b801c8904e39d395cf46aaf0852" category="inline-link-macro-rx"></block></block>
-  <block id="a356d6e3581ce64a0bc5d29164987a23" category="list-text"><block ref="a356d6e3581ce64a0bc5d29164987a23" category="inline-link-macro-rx"></block></block>
   <block id="0548fcaa028e6830c5407fbc21aa4e59" category="sidebar">内部SAP HANA (协议支持)</block>
   <block id="1644ee410155d595393f2cde06c51f8a" category="sidebar">内部部署SAP HANA</block>
   <block id="2af771bd56410c67c29f7e5140a65ab8" category="sidebar">基于Azure NetApp Files的SAP HANA</block>
@@ -4470,8 +4410,6 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="526ffb7b57e2db6ab8a3f13077e8988c" category="sidebar">多主机 LUN 配置</block>
   <block id="b5c56e3ba8d38f1f3f0a7a5413fdeef2" category="paragraph">HANA 最佳实践：</block>
   <block id="c7666fa654de87dc33703084f80aa4be" category="list-text"><block ref="7912a6ea019693a170bbf40a62a72e9f" category="inline-link-rx"></block>(英文)</block>
-  <block id="686acd2e11e136510ec14f9d97c7ff2b" category="list-text"><block ref="686acd2e11e136510ec14f9d97c7ff2b" category="inline-link-rx"></block></block>
-  <block id="766ba9dc44e7046f7c6af47344e24026" category="list-text"><block ref="766ba9dc44e7046f7c6af47344e24026" category="inline-link-rx"></block></block>
   <block id="31d7058304689e06db912e9954e30a03" category="inline-link">通过 SnapCenter™ SnapMirror主动同步和 VMware Metro Storage Cluster 实现 SAP HANA 数据保护和高可用性</block>
   <block id="2d9241a18d70b18a2ee9eb0e84478a18" category="list-text"><block ref="0f7eff3318699c5566509659cc1b2254" category="inline-link-rx"></block></block>
   <block id="fc762ac7f083d9e202e822b1fa322b8c" category="cell">2025年7月</block>
@@ -4573,11 +4511,9 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="36dce14f0655f4eebcfdc431a87cb912" category="inline-link-macro">“附加信息”</block>
   <block id="3bd68d50e54a537e6e9f2a5e47665875" category="paragraph">有关更多信息和详细配置说明，请参阅<block ref="cd186e727cc44e449e0e68e423bc0f88" category="inline-link-macro-rx"></block>章。</block>
   <block id="2df734a60e2afa20a9e729d517b3c655" category="doc">SAP 系统更新</block>
-  <block id="96bc1b4e98932d87170662ccf1b2488a" category="paragraph">有关使用SnapCenter进行 SAP 系统刷新操作的详细信息，请参阅<block ref="6c08dc4f79105734ee7967f4cc273b9b" category="inline-link-rx"></block> 。</block>
   <block id="2079fbb897b42174a19c35aef528f6a2" category="inline-link-macro">“HANA 系统配置和安装”</block>
   <block id="f0cbbbdbda730c3942ce42c411b9c606" category="paragraph">第二个 HANA 系统 QFS 已按照第章中描述的方式进行配置<block ref="778e00c6cff5f91c98f1fb38e6557c6f" category="inline-link-macro-rx"></block> 。</block>
   <block id="ee68e5b99222bbc29a480fcb0d1d6ee2" category="section-title">前提条件</block>
-  <block id="4757b083ccca46cc946355a7644afb0e" category="paragraph">SnapCenter的当前版本（6.1P1）存在一些限制，计划在下一版本中修复。</block>
   <block id="f08745f6e1ee1df199798c87bc950e1b" category="list-text">每次“克隆创建”和“克隆删除”工作流之后，都需要在目标 HANA 主机上使用命令“systemctl restart spl”重新启动 spl 进程。</block>
   <block id="70b8a6e3e79b34ca80c0ab9072954c11" category="list-text">用作 SAP 系统刷新操作的源和目标的 HANA VM 必须在同一 ESX 主机上运行。</block>
   <block id="a630a4cb0c45889f878567c92eac06e1" category="section-title">工作流程摘要</block>
@@ -4622,7 +4558,6 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="4ff8629d4d389f9c33ecd582c52c5105" category="paragraph">在我们的示例中，我们使用预脚本来关闭目标 HANA 数据库。</block>
   <block id="f5fe6022b269aca8c0fb1781b5876f47" category="paragraph"><block ref="f5fe6022b269aca8c0fb1781b5876f47" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1b32269b7ab0ed1ae55e5e5641fcd17b" category="paragraph"><block ref="1b32269b7ab0ed1ae55e5e5641fcd17b" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="f5335ae75980fe9bd5d8ba6f48cb7f7f" category="paragraph">如“先决条件”部分所述，必须使用命令“systemctl restart spl”重新启动 HANA 主机上的SnapCenter spl 服务才能启动正确的清理。</block>
   <block id="087870f30d860ffeb01eac4f727d6656" category="section-title">SnapCenter for VMware vSphere 插件</block>
   <block id="5e9bba71efcdfbbed1dcf18802f8a227" category="sidebar">SnapCenter还原和恢复操作</block>
   <block id="743ac471396f82caf85eeeeac51160f8" category="sidebar">SAP 系统更新</block>
@@ -5336,7 +5271,6 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="3ec4e4e333cf78a655d892612282e0a6" category="list-text">SAP HANA MDC 系统支持多租户</block>
   <block id="cf0333c0209de2d88d1b9e3f78b3dc1a" category="list-text">端到端自动化恢复，恢复过程需要手动完成。</block>
   <block id="545cf709d2f4e008c886b5306ad11250" category="admonition">只有当 HANA 插件部署在 HANA 数据库主机上，并且 HANA 系统被SnapCenter自动发现时，才支持自动恢复。使用中央插件主机配置时，在SnapCenter执行恢复操作后需要手动进行恢复。</block>
-  <block id="9fc1793a080a0f6cf3d1e6050874c4fb" category="admonition">支持从主 ANF 卷恢复。目前尚不支持从 ANF 备份恢复。必须使用 Azure 门户或 CLI 手动执行就地还原或从 ANF 备份还原到新卷的操作。</block>
   <block id="d29fcbb71ff3e1185c2f8ece26095986" category="section-title">针对单租户 SAP HANA MDC 系统，实现自动化恢复和还原</block>
   <block id="fdcf19a98a3771160a4ac31a149beac6" category="paragraph">要启动恢复操作，请在资源拓扑视图中选择快照备份，然后单击“恢复”。</block>
   <block id="46ebcf3bdeff69964f0e906a77b10ae7" category="paragraph"><block ref="46ebcf3bdeff69964f0e906a77b10ae7" category="inline-image-macro-rx" type="image"></block></block>
@@ -5839,7 +5773,6 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="2e5fcbb55a6e3f09e588aafc166c2d61" category="paragraph">已为 HANA 系统数据库创建了一个名为“SnapCenter”的数据库用户，并赋予其执行备份和恢复操作所需的权限（参见）。 <block ref="076b09adb56f6e06a8f550235e80e909" category="inline-link-macro-rx"></block>）。必须在两台主机上使用上述数据库用户配置 HANA 用户存储密钥。</block>
   <block id="70784a8f4cae4852b24a54bcb7be993a" category="paragraph">SnapCenter 4.6 资源组配置的恢复操作与自动发现的非系统复制设置相同。所有恢复和自动恢复选项均可用。更多详情请参阅技术报告。 <block ref="076b09adb56f6e06a8f550235e80e909" category="inline-link-macro-rx"></block>。</block>
   <block id="ea5193c5d6286e2aeeacd1195fb20be3" category="list-text"><block ref="ea5193c5d6286e2aeeacd1195fb20be3" category="inline-link-macro-rx"></block></block>
-  <block id="a040d2762f0d661cdfbe6215c9aaaba1" category="paragraph">您可以在技术报告 TR-4614 中找到有关 SAP HANA 插件部署选项和用户存储配置的更多信息： <block ref="076b09adb56f6e06a8f550235e80e909" category="inline-link-macro-rx"></block>。</block>
   <block id="ecf73301d284c20db0a178fbd9a5da7e" category="list-text"><block ref="ecf73301d284c20db0a178fbd9a5da7e" category="inline-link-macro-rx"></block></block>
   <block id="e19cc48971e50b2f1d6f6b5f83c0be2a" category="list-text"><block ref="e19cc48971e50b2f1d6f6b5f83c0be2a" category="inline-link-macro-rx"></block></block>
   <block id="02282267b64788809e152e7b8117d68a" category="list-text"><block ref="02282267b64788809e152e7b8117d68a" category="inline-link-macro-rx"></block></block>
@@ -5852,4 +5785,62 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="9ef0e6db74ead6e253e590aa60f2fde2" category="list-text"><block ref="9ef0e6db74ead6e253e590aa60f2fde2" category="inline-link-macro-rx"></block></block>
   <block id="bf66bdc508e82500386f614a6b05787f" category="paragraph">所有 SAP HANA 系统都必须按照配置指南进行配置。 <block ref="f7f1322fc01ab9c31c98cc0e27ac7c60" category="inline-link-macro-rx"></block>。SnapCenter和 SAP HANA 资源均按照最佳实践指南进行配置。 <block ref="9ef0e6db74ead6e253e590aa60f2fde2" category="inline-link-macro-rx"></block>。</block>
   <block id="8c03d45a7e32b97c861b0c9bcb5f2058" category="list-text">按照SnapCenter中的描述配置 SAP HANA 系统 <block ref="9ef0e6db74ead6e253e590aa60f2fde2" category="inline-link-macro-rx"></block></block>
+  <block id="2725fca828384281e848a7b343e36392" category="list-text">SAP HANA 系统复制—使用 SnapCenter 进行备份和恢复</block>
+  <block id="3ba4e5ca663770a9aab1902844e3db18" category="doc">使用 NetApp 存储系统和 Commvault 软件的 SAP HANA 备份和恢复</block>
+  <block id="f2f2941ff753e0400c5a1a701eee1610" category="paragraph">本文档描述了针对 SAP HANA 的 NetApp 和 Commvault 解决方案的设计，其中包括 Commvault IntelliSnap 快照管理技术和 NetApp Snapshot 技术。该解决方案基于 NetApp 存储和 Commvault 数据保护套件。</block>
+  <block id="345ba2436142358b0bba5de086847d2f" category="paragraph">本文档概述了 SAP HANA 的灾难恢复保护选项。它包括基于同步和异步 NetApp SnapMirror 存储复制的三站点灾难恢复解决方案的详细设置信息和用例描述。所描述的解决方案使用 NetApp SnapCenter 和 SAP HANA 插件来管理数据库一致性。</block>
+  <block id="7ef0b7a0453d04233bdac92cee47b169" category="admonition">使用 Azure NetApp Files，主 ANF 卷或 ANF 备份支持还原操作。对于主 ANF 卷，将执行卷还原；对于 ANF 备份，将执行具有单个文件还原的就地还原。在这两种情况下，都将保持应用程序卷组配置。</block>
+  <block id="c367487ccfa5f05f90900db7856fc997" category="admonition">如果启用了卷加密并使用了 SAP 本地安全存储 (LSS)，则只要自备份以来 LSS 中的根密钥备份密码未更改，即支持使用 SnapCenter 进行恢复。如果更改了密码，并且使用具有不同密码的旧 Snapshot 完成了还原和恢复，则需要手动完成恢复，并且需要在恢复语句中提供旧密码："RECOVER DATA USING SNAPSHOT CLEAR LOG ENCRYPTION ROOT KEYS BACKUP PASSWORD 'old-password'"</block>
+  <block id="39f6ede0ff0afbb17180481d2626b9ce" category="paragraph">有关使用 SnapCenter 的 SAP 系统刷新操作的详细信息，请参见<block ref="c3708ebf567e377ab7439ca8121b298b" category="inline-link-rx"></block>。</block>
+  <block id="d7bb3981dfbaa65fa19b79acd47e4945" category="paragraph">对于 SnapCenter 版本 &lt; 6.2，需要考虑一些限制。</block>
+  <block id="a4c7a581a01fdf960a029b6eb33c9035" category="paragraph">如"先决条件"部分所述，对于 SnapCenter 版本 &lt; 6.2，必须使用命令"systemctl restart spl"重新启动 HANA 主机上的 SnapCenter spl 服务，以启动正确的清理。</block>
+  <block id="c191cfcac3f00f0b2754943379693602" category="paragraph"><block ref="c191cfcac3f00f0b2754943379693602" category="inline-link-macro-rx"></block></block>
+  <block id="e376f57c175a5daa24915031ff62a5fa" category="paragraph">有关系统刷新工作流程的详细信息，请访问：<block ref="475f69cf41ea6662f4b22c6f70e6908a" category="inline-link-macro-rx"></block></block>
+  <block id="15eceb368e44b3e9638dac9227e056ae" category="paragraph">有关 SAP HANA 插件部署选项和用户存储配置的详细信息，请参见 <block ref="076b09adb56f6e06a8f550235e80e909" category="inline-link-macro-rx"></block>。</block>
+  <block id="2e18f6341d79ba72f83086b486aed374" category="paragraph">要从源数据库执行基于快照副本的自动备份并为新目标数据库创建克隆，所描述的 LSC 与 SnapCenter 之间的集成使用 <block ref="cc9436f8d1404f50af7bc669eccc3ef8" category="inline-link-macro-rx"></block> 中所述的配置选项和脚本。</block>
+  <block id="50e8961953b8c53c358bbba070469f2f" category="inline-link">适用于 Oracle 数据库的 SnapCenter 插件</block>
+  <block id="172f8db4d74ff09b00606901071a09db" category="list-text"><block ref="172f8db4d74ff09b00606901071a09db" category="inline-link-rx"></block></block>
+  <block id="cc9436f8d1404f50af7bc669eccc3ef8" category="list-text"><block ref="cc9436f8d1404f50af7bc669eccc3ef8" category="inline-link-macro-rx"></block></block>
+  <block id="0ed446cc8e0d26c1986e45f6d8368ee1" category="paragraph">虽然维修系统和灾难恢复测试系统通常使用 SAP 系统克隆（不需要大量的后期处理操作）来更新测试和培训系统，但必须应用这些后期处理步骤来实现与源系统的共存。因此，本文档侧重于 SAP 系统更新场景。有关不同用例的更多详细信息，请参见技术报告 <block ref="cc9436f8d1404f50af7bc669eccc3ef8" category="inline-link-macro-rx"></block>。</block>
+  <block id="30313b6742c88cc750e3ad850240d6ec" category="inline-link-macro">采用光纤通道协议的 NetApp 全闪存 FAS 系统上的 SAP HANA</block>
+  <block id="f343c84c506c7220e94dccd47117b1d5" category="list-text"><block ref="f343c84c506c7220e94dccd47117b1d5" category="inline-link-macro-rx"></block></block>
+  <block id="6b8b4f8accb07fa6414b1af54ff8c72d" category="inline-link-macro">基于 NFS 的 NetApp 全闪存 FAS 系统上的 SAP HANA</block>
+  <block id="929e7ac8ea9bad94f0a6723624a58ff4" category="list-text"><block ref="929e7ac8ea9bad94f0a6723624a58ff4" category="inline-link-macro-rx"></block></block>
+  <block id="fdc93854de24a33a3aee9d8773f3f487" category="list-text"><block ref="fdc93854de24a33a3aee9d8773f3f487" category="inline-link-macro-rx"></block></block>
+  <block id="76368039b0c2ee03eb62057698ac3355" category="list-text"><block ref="76368039b0c2ee03eb62057698ac3355" category="inline-link-macro-rx"></block></block>
+  <block id="3b5de3a27f48eea5d8533e96806166c3" category="inline-link-macro">通过 Libelle SystemCopy (netapp.com/cn) 自动化 SAP 系统复制操作</block>
+  <block id="e64bfce1f37df5b05873a0b6f5d4a7ec" category="list-text"><block ref="e64bfce1f37df5b05873a0b6f5d4a7ec" category="inline-link-macro-rx"></block></block>
+  <block id="f61a9f4c3fce94c521ff33cc50c285ab" category="cell">4.1 版</block>
+  <block id="be90349da04be71a620e68314d810f7f" category="cell">2026 年 2 月</block>
+  <block id="084d70518d709bd20f2ebb8790530605" category="cell">添加了 HANA 加密和 SAP 本地安全存储 LSS 的必要步骤</block>
+  <block id="07979a1a0c88949eafaa419c90996148" category="cell">SFSS：最初，或者如果在源系统上更改了根密钥，则必须在目标系统上导入根密钥备份，然后才能执行恢复。LSS：最初，或者如果根密钥备份密码已更改，则必须在 LSS 配置中设置密码。</block>
+  <block id="fc0cd7de70997153fb5239df52ee190e" category="cell">SFSS：如果目标系统之前不存在源系统的 DBID，则必须先恢复系统数据库，然后才能导入此租户的根密钥备份。LSS：在租户数据库恢复期间，LSS 拓扑将自动与 HANA 拓扑同步。</block>
+  <block id="9d54798822b04751d6874ef447a725d8" category="paragraph">在光纤通道 SAN 设置中，需要在下一个屏幕中提供使用的协议。</block>
+  <block id="c219669e79c52a9d577500d7ecee53e3" category="admonition">使用 SnapCenter 和 Azure NetApp Files 时，克隆拆分操作不可用，克隆在创建后始终被拆分。</block>
+  <block id="d07815fec4454132f9671f74ff0aada9" category="cell">存储协议和文件系统</block>
+  <block id="0ff64b4dd755531f04fa6edabedd5f2f" category="cell">裸机：NFS、FC 与 XFS VMware：NFS 来宾内挂载、FC 与 VMDK 和 XFS</block>
+  <block id="b7b73676c5d41077a4b0c2a888f5c3b1" category="cell">是，从 ANF 备份还原到新卷</block>
+  <block id="83a3dfc83b33570f5989ac3de59c981f" category="paragraph">有关使用 VMware VMFS 和 NetApp ASAr2 系统的 HANA SAP 系统刷新操作的其他信息，请参见 <block ref="89a44978bde543408674fe301dfc728c" category="inline-link-rx"></block>。</block>
+  <block id="fc8a2037660474dfcaa41875bf140c81" category="paragraph"><block ref="fc8a2037660474dfcaa41875bf140c81" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="dd129b5a97fe3d5d9855709d3f6921f2" category="paragraph"><block ref="dd129b5a97fe3d5d9855709d3f6921f2" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="368170abed1bfce569b1d0672633f45a" category="paragraph">启用 SAP HANA 持久性加密后，根据加密根密钥所使用的安全存储、实例 SFSS 或本地安全存储 LSS，在目标系统上恢复 SAP HANA 数据库之前，需要执行其他步骤。</block>
+  <block id="209e5deb4238888be8e726d9ee9b2541" category="paragraph">使用 SFSS 时，根密钥存储在文件系统中，必须在 HANA 数据库之外单独备份。然后必须在目标系统上导入根密钥备份，以启用 HANA 数据库的恢复。如果未更改根密钥，则只需执行一次此操作。</block>
+  <block id="c751dc897f7129b08f9e2a3161c5f3e8" category="paragraph">使用 LSS，只需一次操作即可将根密钥与 HANA 数据库一起备份和恢复。为了能够恢复 HANA 数据库，需要具有用于备份根密钥的密码。</block>
+  <block id="8faf97c3b09c6603f7ee1b5b05d1c27f" category="paragraph">所需的操作将在以下章节中进行更详细的描述。</block>
+  <block id="a30138c66445b59f57d559fa36999527" category="section-title">安全存储 SFSS</block>
+  <block id="d326a7e6ea9ffc87ef27b73f108a0d96" category="paragraph"><block ref="d326a7e6ea9ffc87ef27b73f108a0d96" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="980227fbd0953a206b4ed5a85f3d9057" category="section-title">安全存储 LSS</block>
+  <block id="71595f74207912e856e2f45af36409d6" category="admonition">您需要至少使用 HANA 版本 2.00.088，否则描述的程序将不起作用，另请参阅 SAP note 3613110。</block>
+  <block id="cfb4d02feecd6c82301e9f79545cf01a" category="paragraph">为了恢复使用加密和 LSS 的 HANA 系统，您需要用于备份根密钥的密码。</block>
+  <block id="65db7de43def7bf15f70291bbb9422b7" category="paragraph">SQL 语句</block>
+  <block id="69877b4fa176948e0abf47bfd297bae7" category="paragraph">可用于在目标系统的 LSS 配置中设置源系统的密码。系统和租户数据库必须使用相同的语句。</block>
+  <block id="ad793c981b25e434775e3e049cfead1e" category="paragraph">如果尚未预先设置密码，则可以在恢复操作期间提供密码。</block>
+  <block id="0efcefbaac1272d75fa3f95b9712d630" category="paragraph">系统数据库：</block>
+  <block id="8c87d36e58a14d731d3cb35d037718d8" category="paragraph">租户数据库：</block>
+  <block id="02fd0d0d93ba9f1705c5a633970698b9" category="paragraph">逻辑损坏可能是由软件错误、人为错误或破坏造成的。不幸的是，逻辑损坏通常无法通过标准的高可用性和灾难恢复解决方案来解决。因此，根据发生逻辑损坏的层、应用程序、文件系统或存储，有时无法满足最大停机时间和数据丢失要求。</block>
+  <block id="411b1ca4cfe8073933ca1284bac60213" category="paragraph"><block ref="411b1ca4cfe8073933ca1284bac60213" category="inline-link-rx"></block></block>
+  <block id="ea7fdceccfe7d9332d70547a6be7cf72" category="paragraph"><block ref="ea7fdceccfe7d9332d70547a6be7cf72" category="inline-link-macro-rx"></block></block>
+  <block id="56a5c925d77740ea69d50272863f3f75" category="section-title">2026 年 2 月 26 日</block>
+  <block id="7dad4c0ee446a92530a257db0791c76e" category="paragraph">更新了<block ref="c3708ebf567e377ab7439ca8121b298b" category="inline-link-rx"></block>解决方案，以涵盖使用本地安全存储 (LSS) 的 SAP HANA 卷加密。</block>
+  <block id="b0b371f39676ba260f78c6fc42cd0308" category="paragraph">更新<block ref="047d8918c69d98d218dfb2d8e936ae4c" category="inline-link-rx"></block>解决方案，涵盖使用本地安全存储 (LSS) 的 SAP HANA 卷加密以及新支持的配置。</block>
 </blocks>

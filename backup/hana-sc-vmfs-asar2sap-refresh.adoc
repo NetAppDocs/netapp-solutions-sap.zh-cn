@@ -8,7 +8,7 @@ summary:
 :allow-uri-read: 
 
 
-有关使用SnapCenter进行 SAP 系统刷新操作的详细信息，请参阅 https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html["TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作"] 。
+有关使用 SnapCenter 的 SAP 系统刷新操作的详细信息，请参见 https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html["利用 SnapCenter 自动执行 SAP HANA 系统复制和克隆操作"]。
 
 第二个 HANA 系统 QFS 已按照第章中描述的方式进行配置link:hana-sc-vmfs-asar2-hana-prov.html["“HANA 系统配置和安装”"] 。
 
@@ -16,7 +16,7 @@ summary:
 
 === 前提条件
 
-SnapCenter的当前版本（6.1P1）存在一些限制，计划在下一版本中修复。
+对于 SnapCenter 版本 < 6.2，需要考虑一些限制。
 
 . 每次“克隆创建”和“克隆删除”工作流之后，都需要在目标 HANA 主机上使用命令“systemctl restart spl”重新启动 spl 进程。
 . 用作 SAP 系统刷新操作的源和目标的 HANA VM 必须在同一 ESX 主机上运行。
@@ -174,4 +174,4 @@ image:sc-hana-asrr2-vmfs-image38.png["图显示了所讨论的内容"]
 
 image:sc-hana-asrr2-vmfs-image39.png["图显示了所讨论的内容"]
 
-如“先决条件”部分所述，必须使用命令“systemctl restart spl”重新启动 HANA 主机上的SnapCenter spl 服务才能启动正确的清理。
+如"先决条件"部分所述，对于 SnapCenter 版本 < 6.2，必须使用命令"systemctl restart spl"重新启动 HANA 主机上的 SnapCenter spl 服务，以启动正确的清理。
