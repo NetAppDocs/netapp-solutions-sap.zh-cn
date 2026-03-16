@@ -17,6 +17,30 @@ summary: 本节介绍 NetApp 存储系统的配置。您必须根据相应的 Da
 
 
 
+== LUN 概述
+
+下表显示了单主机 SAP HANA 系统的 LUN 配置。
+
+|===
+| 目的 | LUN | LVM 逻辑卷 
+
+
+| 数据 | FC5_data_mnt00001_1 FC5_data_mnt00001_2 | FC5_data_mnt00001-vol 
+
+
+| 日志 | FC5_log_mnt00001_1 FC5_log_mnt00001_2 | FC5_log_mnt00001-vol 
+
+
+| 已共享 | FC5_shared | 不适用 
+|===
+
+NOTE: 使用所述配置，存储用户 SID1adm 的默认主目录的 `/usr/sap/SID1`目录位于本地磁盘上。在使用基于磁盘的复制的灾难恢复设置中，NetApp 建议为 `/usr/sap/SID1`目录创建一个额外的 LUN，以便所有文件系统都在中央存储上。
+
+
+NOTE: 如果使用 SAP 本地安全存储服务 (LSS)，则 `/lss/shared/SID`目录（LSS 的默认安装目录）位于本地磁盘上。在使用基于磁盘的复制的灾难恢复设置中，NetApp 建议为 `/lss/shared/SID`目录创建一个额外的 LUN，以便所有文件系统都在中央存储上。
+
+
+
 == 创建 LUN 并将 LUN 映射到启动程序组
 
 您可以使用NetApp ONTAP System Manager 创建存储卷和 LUN，并将它们映射到服务器的 igroup 和ONTAP CLI。
@@ -35,8 +59,11 @@ lun create -path FC5_data_mnt00001_2 -size 1t -ostype linux  -class regular
 lun create -path FC5_log_mnt00001_1 -size 260g -ostype linux  -class regular
 lun create -path FC5_log_mnt00001_2 -size 260g -ostype linux  -class regular
 lun create -path FC5_shared -size 260g -ostype linux  -class regular
-
 ....
++
+
+NOTE: 使用 GUI 禁用这些 LUN 的自主勒索软件保护
+
 . 为属于系统 FC5 的所有服务器创建启动程序组。
 +
 ....
@@ -125,3 +152,11 @@ image:saphana_asa_fc_image18.png["ONTAP系统管理器 - 创建共享 LUN"]
 SAP HANA 单机系统所需的所有 LUN 均已创建。
 
 image:saphana_asa_fc_image19.png["ONTAP系统管理器 - LUN 概述"]
+
+
+
+=== 禁用所有数据和日志 LUN 的自治勒索软件保护
+
+打开每个数据和日志 LUN 的上下文菜单并禁用勒索软件保护
+
+image:saphana_asa_fc_image19_5.png["ONTAP系统管理器 - LUN 概述"]

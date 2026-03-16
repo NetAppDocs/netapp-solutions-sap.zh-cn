@@ -36,6 +36,14 @@ SAP HANA支持使用NetApp卷加密(NVE)和NetApp聚合加密(NAE)。
 
 
 
+== ONTAP 自主勒索软件防护
+
+由 ONTAP Autonomous Ransomware Protection 创建的快照不能用于 SAP HANA 数据库的前向恢复。因此，不建议将其用于 SAP HANA 数据和日志卷，应为这些卷禁用此功能。请使用基于 SnapCenter 的数据保护和防篡改快照来进行勒索软件防护。link:../backup/hana-sc-generic-scope.html["使用 SnapCenter 进行 SAP HANA 备份和恢复"] ONTAP Autonomous Ransomware Protection 可能对其他卷（如 /hana/shared）有益。
+
+可以在 ONTAP 集群的卷创建期间禁用此功能的自动激活，但建议保留默认设置，并在不需要此功能的卷上禁用它。
+
+
+
 == Quality of service
 
 QoS可用于限制共享控制器上特定SAP HANA系统或非SAP应用程序的存储吞吐量。

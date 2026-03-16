@@ -61,6 +61,9 @@ image:saphana_aff_fc_image16a.png["图中显示了输入/输出对话框或表�
 NOTE: 按照所述配置，存储用户 SID1adm 默认主目录的 ` /usr/sap/SID1` 目录位于本地磁盘上。在采用基于磁盘的复制的灾难恢复设置中， NetApp 建议在 `SID1_shared` 卷中为 ` /usr/sap/sid1` 目录创建一个额外的 LUN ，以便所有文件系统都位于中央存储上。
 
 
+NOTE: 如果使用 SAP Local Secure Store service (LSS)，则 `/lss/shared/SID`目录（LSS 的默认安装目录）位于本地磁盘上。在使用基于磁盘的复制的灾难恢复设置中，NetApp 建议在 `SID1_shared`卷中为 `/lss/shared/SID`目录创建一个额外的 LUN，以便所有文件系统都在中央存储上。
+
+
 
 == 使用 Linux LVM 为 SAP HANA 单主机系统配置卷和 LUN
 
@@ -85,11 +88,17 @@ NOTE: 没有必要使用具有多个 LUN 的 LVM 来满足 SAP HANA KPI，但建
 | Action | ONTAP 9. 
 
 
-| 禁用自动 Snapshot 副本 | vol modify – vserver <vserver-name> -volume <volname> -snapshot-policy none 
+| 禁用自动 Snapshot 副本 | vol modify -vserver <vserver-name> -volume <volname> -snapshot-policy none 
 
 
 | 禁用 Snapshot 目录可见性 | vol modify -vserver <vserver-name> -volume <volname> -snapdir-access false 
+
+
+| 禁用勒索软件保护，SID_shared 卷除外 | vol modify -vserver <vserver-name> -volume <volname> -anti-ransomware-state disabled 
 |===
+
+NOTE: 下面的示例在创建卷期间设置这些选项
+
 
 
 === 使用 CLI 创建 LUN 并将 LUN 映射到启动程序组
@@ -99,11 +108,11 @@ NOTE: 没有必要使用具有多个 LUN 的 LVM 来满足 SAP HANA KPI，但建
 . 创建所有必要的卷。
 +
 ....
-vol create -volume FC5_data_mnt00001 -aggregate aggr1_1 -size 1200g  -snapshot-policy none -foreground true -encrypt false  -space-guarantee none
-vol create -volume FC5_log_mnt00001  -aggregate aggr1_2 -size 280g -snapshot-policy none -foreground true -encrypt false -space-guarantee none
-vol create -volume FC5_data2_mnt00001 -aggregate aggr1_2 -size 1200g -snapshot-policy none -foreground true -encrypt false -space-guarantee none
-vol create -volume FC5_log2_mnt00001  -aggregate aggr1_1 -size 280g -snapshot-policy none -foreground true -encrypt false  -space-guarantee none
-vol create -volume FC5_shared -aggregate aggr1_1 -size 512g -state online -policy default -snapshot-policy none -junction-path /FC5_shared -encrypt false  -space-guarantee none
+vol create -volume FC5_data_mnt00001 -aggregate aggr1_1 -size 1200g  -snapshot-policy none -foreground true -encrypt false  -snapdir-access false -space-guarantee none -anti-ransomware-state disabled
+vol create -volume FC5_log_mnt00001  -aggregate aggr1_2 -size 280g -snapshot-policy none -foreground true -encrypt false -snapdir-access false -space-guarantee none -anti-ransomware-state disabled
+vol create -volume FC5_data2_mnt00001 -aggregate aggr1_2 -size 1200g -snapshot-policy none -foreground true -encrypt false -snapdir-access false -space-guarantee none -anti-ransomware-state disabled
+vol create -volume FC5_log2_mnt00001  -aggregate aggr1_1 -size 280g -snapshot-policy none -foreground true -encrypt false  -snapdir-access false -space-guarantee none -anti-ransomware-state disabled
+vol create -volume FC5_shared -aggregate aggr1_1 -size 512g -state online -policy default -snapshot-policy none -junction-path /FC5_shared -encrypt false -snapdir-access false -space-guarantee none
 ....
 . 创建所有 LUN 。
 +
@@ -112,6 +121,7 @@ lun create -path  /vol/FC5_data_mnt00001/FC5_data_mnt00001   -size 1t -ostype li
 lun create -path /vol/FC5_data2_mnt00001/FC5_data2_mnt00001 -size 1t -ostype linux -space-reserve disabled -space-allocation disabled -class regular
 lun create -path /vol/FC5_log_mnt00001/FC5_log_mnt00001 -size 260g -ostype linux -space-reserve disabled -space-allocation disabled -class regular
 lun create -path /vol/FC5_log2_mnt00001/FC5_log2_mnt00001 -size 260g -ostype linux -space-reserve disabled -space-allocation disabled -class regular
+lun create -path /vol/FC5_shared/FC5_shared -size 260g -ostype linux -space-reserve disabled -space-allocation disabled -class regular
 ....
 . 为属于 FC5 的 sythe 主机的所有端口创建启动器组。
 +
@@ -125,5 +135,6 @@ lun map -path /vol/FC5_data_mnt00001/FC5_data_mnt00001    -igroup HANA-FC5
 lun map -path /vol/FC5_data2_mnt00001/FC5_data2_mnt00001  -igroup HANA-FC5
 lun map -path /vol/FC5_log_mnt00001/FC5_log_mnt00001  -igroup HANA-FC5
 lun map -path /vol/FC5_log2_mnt00001/FC5_log2_mnt00001  -igroup HANA-FC5
+lun map -path /vol/FC5_shared/FC5_shared -igroup HANA-FC5
 ....
 
