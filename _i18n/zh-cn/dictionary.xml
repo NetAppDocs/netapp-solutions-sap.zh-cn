@@ -713,8 +713,6 @@
   <block id="10fba2fd8d2b0860517a92eefbfce26b" category="paragraph">在 SAP HANA 多主机环境中，标准 SAP HANA 存储连接器用于在发生 SAP HANA 主机故障转移时提供隔离。有关操作系统配置准则和 HANA 专用 Linux 内核依赖关系，请始终参考相关 SAP 注释。有关详细信息，请参见<block ref="362348e4aadbc3b1dc4fa3ddcce8fb65" category="inline-link-rx"></block>。</block>
   <block id="c28f239d8c4b11cfe19d1dcf078100b9" category="section-title">SAP HANA 量身定制的数据中心集成</block>
   <block id="e13ebe7bf91deecb41098f3561e752bf" category="paragraph">NetApp AFF 存储系统已通过 SAP HANA TDI 计划的认证，该计划同时使用 NFS （ NAS ）和 FC （ SAN ）协议。它们可以部署在任何当前 SAP HANA 方案中，例如采用单主机或多主机配置的基于 HANA 的 SAP Business Suite ， S/4HANA ， BB/4HANA 或基于 HANA 的 SAP Business Warehouse 。任何经认证可与 SAP HANA 结合使用的服务器均可与 NetApp 认证的存储解决方案结合使用。下图显示了一个架构概述。</block>
-  <block id="14a31d6554fa48b10cc86d1aaf656a07" category="inline-link">SAP HANA 定制数据中心集成常见问题解答</block>
-  <block id="9282f2106e2ecc166cf241e78c58163e" category="list-text"><block ref="9282f2106e2ecc166cf241e78c58163e" category="inline-link-rx"></block></block>
   <block id="0efd230d120bc177f0918dac852f2cf2" category="list-text">适用于 SAP HANA 的 SAP 认证企业存储硬件</block>
   <block id="3710f13cc62644ea40b0af38f0b1198e" category="paragraph"><block ref="3710f13cc62644ea40b0af38f0b1198e" category="inline-link-rx"></block></block>
   <block id="c54847a2046020d06d345fd8b61fc169" category="list-text">NetApp 文档中心</block>
@@ -2905,8 +2903,6 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="0a961d2cbb588be1d5a93b4774cf6ef1" category="cell">新存储系统(AFF A系列)</block>
   <block id="f31f11743f1dfba18e9f008e2956d24e" category="cell">2024年9月</block>
   <block id="e4a9c264a13e2ec5faac7a73cf8d0e8c" category="cell">次要更新</block>
-  <block id="44fee80ab2b2a3105ec17b94b206cc8f" category="inline-link"><block ref="44fee80ab2b2a3105ec17b94b206cc8f" category="inline-link-rx"></block></block>
-  <block id="55162df4eaa40993b4b04219f5dd5e87" category="paragraph"><block ref="55162df4eaa40993b4b04219f5dd5e87" category="inline-link-rx"></block></block>
   <block id="e5e2a6bf28307550240d9ed91bbb0fa0" category="paragraph"><block ref="e5e2a6bf28307550240d9ed91bbb0fa0" category="inline-link-rx"></block></block>
   <block id="a36cfc2690f8671748f584abb16bdd04" category="cell">新存储系统</block>
   <block id="0fba9f2a3fbb4cfbaed44806cd9933a2" category="cell">新存储系统(ASA A系列)</block>
@@ -5895,4 +5891,8 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="3d4f8b4b1b1faa02f0aa9e9f49fe9088" category="paragraph">由 ONTAP Autonomous Ransomware Protection 创建的快照不能用于 SAP HANA 数据库的前向恢复。因此，不建议将其用于 SAP HANA 数据和日志卷，应为这些卷禁用此功能。使用基于 SnapCenter 的数据保护和防篡改快照来进行勒索软件防护：<block ref="f7a9a89a273a9d57fcd022d94d56f53f" category="inline-link-macro-rx"></block>。ONTAP Autonomous Ransomware Protection 可能对其他卷（如 /hana/shared）有益。</block>
   <block id="5c9e36a122daafc35d852512bd535596" category="admonition">如果使用 SAP Local Secure Store 服务 (LSS)，则<block ref="1d7604fd1dd9d655c19ff0843bcd1cab" prefix=" " category="inline-code"></block>目录（LSS 的默认安装目录）位于本地磁盘上。在使用基于磁盘的复制的灾难恢复设置中，NetApp 建议在<block ref="07fe7fc9aa3cd33458708758a4a5854e" prefix=" " category="inline-code"></block>卷内为<block ref="1d7604fd1dd9d655c19ff0843bcd1cab" prefix=" " category="inline-code"></block>目录创建一个目录，以便所有文件系统都在中央存储上。</block>
   <block id="3ee7f42a5f57f42357faa6066ecfb5d8" category="cell">/lss/shared/</block>
+  <block id="e72900b6484d9e136f9baaf67301d38d" category="paragraph"><block ref="8878a31e958f2f4fbc2f0cb5299a88fc" category="inline-link-rx"></block>]</block>
+  <block id="b0b3e68761dd70d0fa49b725910dc993" category="list-text">SAP HANA 量身定制的数据中心集成</block>
+  <block id="37716fa00dd641976ad10af0418c9f93" category="inline-link">SAP HANA 量身定制的数据中心集成</block>
+  <block id="74e5a15645e2d65a375593199e01c962" category="list-text"><block ref="74e5a15645e2d65a375593199e01c962" category="inline-link-rx"></block></block>
 </blocks>

@@ -80,7 +80,7 @@ image:saphana_aff_nfs_image1.png["图中显示了输入/输出对话框或表示
 
 有关producti SAP HANA系统的前提条件和建议的详细信息、请参见以下资源：
 
-* http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html["SAP HANA 定制数据中心集成常见问题解答"^]
+* https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/0b15a92d554c4941a452c9ca127f8c70.html["SAP HANA 量身定制的数据中心集成"^]
 
 
 
