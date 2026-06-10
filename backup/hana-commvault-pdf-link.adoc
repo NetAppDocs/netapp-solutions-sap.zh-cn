@@ -18,4 +18,4 @@ summary: TR-4711 介绍了适用于 SAP HANA 的 NetApp 和 Commvault 解决方�
 
 作者：NetApp公司Marco主持；CommvaultSystems公司的Tristan Daude博士
 
-link:https://www.netapp.com/pdf.html?item=/media/17050-tr4711pdf.pdf["https://www.netapp.com/pdf.html?item=/media/17050-tr4711pdf.pdf"]
+link:https://www.netapp.com/pdf.html?item=/media/17050-tr4711.pdf["https://www.netapp.com/pdf.html?item=/media/17050-tr4711.pdf"^]
