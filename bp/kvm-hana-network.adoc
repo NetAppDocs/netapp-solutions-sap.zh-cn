@@ -14,7 +14,7 @@ summary: 使用 Mellanox ConnectX 网卡在 SUSE KVM 上为 SAP HANA 配置 SR-I
 
 
 [role="lead"]
-在 SUSE KVM 上为 SAP HANA 配置 SR-IOV 网络接口。设置虚拟功能 (VF)，将其分配给虚拟机，并配置冗余网络连接，以实现最佳性能和存储访问。
+在 SAP HANA 的 SUSE KVM 上配置 SR-IOV 网络接口。设置虚拟功能 (VF)，将其分配给虚拟机，并配置冗余网络连接，以实现最佳性能和存储访问。此外，也支持桥接网络。
 
 
 
