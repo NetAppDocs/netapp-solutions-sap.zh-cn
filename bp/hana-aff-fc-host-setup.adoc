@@ -20,6 +20,7 @@ summary: 在设置主机之前，必须从 NetApp 支持站点下载 NetApp SAN 
 
 
 
+[[configure-multipathing]]
 === 配置多路径
 
 

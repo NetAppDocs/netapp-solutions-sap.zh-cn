@@ -41,6 +41,7 @@ image:saphana-sr-scs-image29.png["图中显示了输入/输出对话框或表示
 
 
 
+[[snapcenter-configuration]]
 == SnapCenter 配置
 
 下图显示了实验室设置以及所需 SnapCenter 配置的概述。
@@ -73,6 +74,7 @@ image:saphana-sr-scs-image33.png["图中显示了输入/输出对话框或表示
 
 
 
+[[snapcenter-backup-operation]]
 == SnapCenter 备份操作
 
 现在，备份操作将照常执行。数据和日志备份的管理独立于主或二级 SAP HANA 主机。
@@ -96,6 +98,7 @@ image:saphana-sr-scs-image36.png["图中显示了输入/输出对话框或表示
 
 
 
+[[restore-and-recovery]]
 == 还原和恢复
 
 如前所述，您必须能够确定所选备份的创建位置，以定义所需的还原操作。如果 SAP HANA 数据库仍处于联机状态，您可以使用 SAP HANA Studio 确定创建备份的主机。如果数据库处于脱机状态，则只有 SnapCenter 备份作业日志中才会提供此信息。
@@ -124,6 +127,7 @@ image:saphana-sr-scs-image38.png["图中显示了输入/输出对话框或表示
 
 
 
+[[snapcenter-restore-of-the-valid-backup-only]]
 === 仅对有效备份执行 SnapCenter 还原
 
 下图显示了本节所述的还原和恢复方案概览。
@@ -167,6 +171,7 @@ image:saphana-sr-scs-image44.png["图中显示了输入/输出对话框或表示
 
 
 
+[[snapcenter-restore-of-valid-backup-and-crash-image]]
 === 对有效备份和崩溃映像进行 SnapCenter 还原
 
 下图显示了本节所述的还原和恢复方案概览。

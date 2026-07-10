@@ -22,6 +22,7 @@ summary:
 
 
 
+[[sap-hana-system-replication-hsr]]
 == SAP HANA系统复制(HSR)
 
 SAP HANA系统复制提供了一种操作模式、在此模式下、数据会同步复制、预加载到内存中并在二级主机上持续更新。此模式可启用极低的RTO值(大约1分钟或更短)、但它还需要一个专用服务器、该服务器仅用于从源系统接收复制数据。由于故障转移时间较短、因此SAP HANA系统复制通常也用于几乎零停机时间的维护操作、例如HANA软件升级。Linux PacMaker集群解决方案通常用于自动执行故障转移操作。
@@ -34,6 +35,7 @@ image:sc-saphana-vmware-smas-image2.png["图显示了所讨论的内容"]
 
 
 
+[[netapp-snapmirror-active-sync]]
 == NetApp SnapMirror活动同步
 
 通过SnapMirror主动同步、即使在整个站点发生故障时、业务服务也可以继续运行、从而支持应用程序使用二级副本透明地进行故障转移。使用SnapMirror活动同步触发故障转移无需手动干预或自定义脚本。AFF集群、全闪存SAN阵列(ASA)集群和C系列(AFF或ASA)均支持SnapMirror主动同步。SnapMirror主动同步可通过iSCSI或FCP LUN保护应用程序。
@@ -44,6 +46,7 @@ image:sc-saphana-vmware-smas-image2.png["图显示了所讨论的内容"]
 
 
 
+[[hana-bare-metal]]
 === HANA裸机
 
 在裸机服务器上运行SAP HANA时、您可以使用SnapMirror主动同步提供高可用性存储解决方案。数据会同步复制、因此RPO为0。
@@ -56,6 +59,7 @@ image:sc-saphana-vmware-smas-image3.png["图显示了所讨论的内容"]
 
 
 
+[[vsphere-metro-storage-cluster-vmsc]]
 === vSphere Metro Storage Cluster (VMSC)
 
 在使用FCP连接的数据存储库在VMware环境中运行SAP HANA时、您可以使用SnapMirror主动同步构建VMware Metro存储集群。在这种设置中、HANA系统使用的数据存储库会同步复制到二级站点。
@@ -68,6 +72,7 @@ image:sc-saphana-vmware-smas-image4.png["图显示了所讨论的内容"]
 
 
 
+[[solution-comparison]]
 == 解决方案比较
 
 下表总结了上述解决方案的主要特征。

@@ -18,6 +18,7 @@ summary: 用于优化SAP生命周期管理的NetApp解决方案集成到SAP HANA
 
 
 
+[[tenant-names-at-target-system]]
 == 目标系统上的租户名称
 
 执行SAP HANA系统刷新所需的步骤取决于源系统租户配置以及目标系统上所需的租户名称、如下图所示。
@@ -35,6 +36,7 @@ image:sc-copy-clone-image11.png[""]
 
 
 
+[[system-refresh-workflow-with-enabled-sap-hana-encryption]]
 == 启用了SAP HANA加密的系统刷新工作流
 
 启用 SAP HANA 持久性加密后，根据加密根密钥所使用的安全存储、实例 SFSS 或本地安全存储 LSS，在目标系统上恢复 SAP HANA 数据库之前，需要执行其他步骤。
@@ -47,6 +49,7 @@ image:sc-copy-clone-image11.png[""]
 
 
 
+[[secure-store-sfss]]
 === 安全存储 SFSS
 
 在源系统上、您需要为系统数据库以及所有租户数据库创建加密根密钥备份。在执行恢复操作之前、必须将备份文件复制到目标系统、并且必须从备份中导入根密钥。
@@ -145,6 +148,7 @@ image:sc-copy-clone-image13.png[""]
 
 
 
+[[secure-store-lss]]
 === 安全存储 LSS
 
 

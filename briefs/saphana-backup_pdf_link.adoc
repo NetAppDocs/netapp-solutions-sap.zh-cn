@@ -15,12 +15,14 @@ summary: 本文档重点介绍 SAP HANA 的备份和恢复。
 
 
 
+[[the-challenge]]
 == 挑战
 
 使用 SAP HANA 备份和恢复操作时，您的组织面临以下挑战：• 长时间备份操作会导致生产 SAP 系统性能下降 • 由于长时间恢复和恢复操作导致系统停机时间不可接受 • 由于应用程序的重要性而缩小备份窗口 • 需要灵活的解决方案来缓解逻辑损坏
 
 
 
+[[the-solution]]
 == 解决方案
 
 借助运行NetApp ONTAP ® 数据管理软件的NetApp ® 存储解决方案，结合NetApp SnapCenter ® 数据保护软件，您可以应对所有这些挑战。借助ONTAP软件中包含的NetApp Snapshot™ 技术，您可以在几秒钟内创建备份或执行任何大小数据集的恢复操作。  SAP HANA 支持使用基于存储的 Snapshot 副本作为有效的备份操作。

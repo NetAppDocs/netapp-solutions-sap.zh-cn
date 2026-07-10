@@ -45,10 +45,12 @@ image:hana-sc-generic-image-017.png["宽度=601，高度=158"]
 
 
 
+[[credentials-configuration]]
 == 凭据配置
 
 
 
+[[credentials-for-hana-plug-in-deployment]]
 === HANA插件部署凭证
 
 凭据在“设置”部分中配置，方法是选择“凭据”选项卡。点击“+”图标即可添加凭据。
@@ -61,6 +63,7 @@ image:hana-sc-generic-image-019.png["宽度=287，高度=247"]
 
 
 
+[[credentials-for-azure-netapp-files]]
 === Azure NetApp Files凭据
 
 必须准备一个 Azure 服务主体，以便SnapCenter能够对 ANF 卷执行所需的操作。下面的示例显示了必须包含的最低必要权限。
@@ -155,10 +158,12 @@ image:hana-sc-generic-image-021.png["宽度=252，高度=246"]
 
 
 
+[[storage-system-configuration]]
 == 存储系统配置：
 
 
 
+[[ontap-systems-and-fsx-for-ontap]]
 === ONTAP系统和 FSx for ONTAP
 
 可以通过提供集群凭据或每个所需 SVM 的凭据，将ONTAP系统或 FSx for ONTAP添加到SnapCenter 。当提供集群凭据时，集群中的所有 SVM 都会添加到SnapCenter。
@@ -188,6 +193,7 @@ image:hana-sc-generic-image-024.png["宽度=331，高度=199"]
 
 
 
+[[azure-netapp-files]]
 === Azure NetApp Files
 
 配置 ANF 凭证后，即可将 ANF NetApp帐户添加到SnapCenter。NetApp帐户在“存储系统”部分中配置，方法是选择Azure NetApp Files选项卡。点击“+”图标即可添加新的NetApp帐户。
@@ -200,12 +206,14 @@ image:hana-sc-generic-image-026.png["宽度=401，高度=176"]
 
 
 
+[[storage-configuration-when-using-snapmirror-active-sync]]
 === 使用SnapMirror主动同步时的存储配置
 
 具体存储配置步骤详见下文。 https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-sc-vmware-smas-sc-config.html#add-storage-systems["使用SnapMirror主动同步的存储配置"]。
 
 
 
+[[policies-configuration]]
 == 策略配置
 
 如本节所述，数据保护策略策略通常独立于资源进行配置，并且可以用于多个 SAP HANA 系统。
@@ -232,6 +240,7 @@ image:hana-sc-generic-image-028.png["宽度=601，高度=138"]
 
 
 
+[[snapshot-backups-with-ontap-systems-and-fsx-for-ontap]]
 === 使用ONTAP系统和 FSx for ONTAP进行快照备份
 
 ONTAP系统或 FSx for ONTAP的快照备份策略可以将本地快照与复制或快照锁定（防篡改快照）操作结合起来。此示例展示了使用SnapVault将数据复制到辅助存储的策略。
@@ -263,6 +272,7 @@ image:hana-sc-generic-image-032.png["宽度=385，高度=119"]
 
 
 
+[[snapshot-backups-with-azure-netapp-files]]
 === 使用Azure NetApp Files进行快照备份
 
 Azure NetApp Files快照备份策略可以将本地快照与 ANF 备份相结合，从而将快照数据复制到 Azure Blob。此示例展示了使用 ANF 备份进行复制的策略。
@@ -292,6 +302,7 @@ image:hana-sc-generic-image-036.png["宽度=376，高度=138"]
 
 
 
+[[block-integrity-check-operations-for-all-platforms]]
 === 所有平台的块完整性检查操作
 
 
@@ -328,6 +339,7 @@ image:hana-sc-generic-image-040.png["宽度=366，高度=101"]
 
 
 
+[[policy-configuration-when-using-snapmirror-active-sync]]
 === 使用SnapMirror主动同步时的策略配置
 
 文档中描述了具体的策略配置步骤。 https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-sc-vmware-smas-sc-config.html#policy-configuration["策略配置SnapMirror活动同步"]。

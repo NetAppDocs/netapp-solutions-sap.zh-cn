@@ -15,6 +15,7 @@ summary:
 
 
 
+[[configure-snapcenter-database-user]]
 == 配置SnapCenter数据库用户
 
 必须为系统数据库用户创建用户存储、SnapCenter应使用该存储。
@@ -23,6 +24,7 @@ image:sc-hana-asrr2-vmfs-image8.png["图显示了所讨论的内容"]
 
 
 
+[[configure-hdb-userstore-key]]
 == 配置 hdb 用户存储密钥
 
 必须为用户 vfsadm 创建用户存储密钥。必须相应地设置 HANA 实例编号以便与端口通信。在我们的设置实例中、使用的是数字"45"。

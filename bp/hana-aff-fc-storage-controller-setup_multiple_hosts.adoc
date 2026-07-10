@@ -10,6 +10,7 @@ summary: 本节介绍如何为多主机系统创建 LUN
 
 
 
+[[multiple-hosts]]
 == 多台主机
 
 [role="lead"]
@@ -17,6 +18,7 @@ summary: 本节介绍如何为多主机系统创建 LUN
 
 
 
+[[volume-and-lun-configuration-for-sap-hana-multiple-host-systems]]
 == SAP HANA 多主机系统的卷和 LUN 配置
 
 下图显示了 4+1 多主机 SAP HANA 系统的卷配置。每个 SAP HANA 主机的数据卷和日志卷会分布到不同的存储控制器。例如，在控制器 A 上配置了卷 `SID_data_mnt00001` ，在控制器 B 上配置了卷 `SID_log_mnt00001`每个卷都配置了一个 LUN 。
@@ -91,6 +93,7 @@ NOTE: 如果使用 SAP 本地安全存储服务 (LSS)，则所有主机都必须
 
 
 
+[[volume-and-lun-configuration-for-sap-hana-multiple-host-systems-using-linux-lvm]]
 == 使用 Linux LVM 为 SAP HANA 多主机系统配置卷和 LUN
 
 Linux LVM 可用于提高性能并解决 LUN 大小限制。LVM 卷组中的不同 LUN 应存储在不同的聚合和不同的控制器中。
@@ -113,6 +116,7 @@ NOTE: 没有必要使用 LVM 来组合多个 LUN 来实现 SAP HANA KPI，但建
 |===
 
 
+[[volume-options]]
 === 卷选项
 
 下表中列出的卷选项必须在所有 SVM 上进行验证和设置。
@@ -134,12 +138,15 @@ NOTE: 下面的示例在创建卷期间设置这些选项
 
 
 
+[[creating-luns-volumes-and-mapping-luns-to-initiator-groups]]
+[[lun_create]]
 == 创建 LUN ，卷并将 LUN 映射到启动程序组
 
 您可以使用NetApp ONTAP系统管理器创建存储卷和LUN、并将其映射到服务器的igrou和ONTAP命令行界面。本指南介绍命令行界面的用法。
 
 
 
+[[creating-luns-volumes-and-mapping-luns-to-initiator-groups-using-the-cli]]
 === 使用 CLI 创建 LUN ，卷并将 LUN 映射到启动程序组
 
 本节显示了一个使用命令行和 ONTAP 9 的示例配置，该配置适用于 2+1 SAP HANA 多主机系统，其中 SID 为 FC5 ，使用 LVM ，每个 LVM 卷组具有两个 LUN ：

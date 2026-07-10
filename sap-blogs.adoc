@@ -18,18 +18,22 @@ keywords: netapp, solutions, SAP, blogs
 
 
 
+[[sap-solution-blogs]]
 == SAP 解决方案博客
 
 
 
+[[sap-configuration-best-practices-blogs]]
 == SAP 配置最佳实践博客
 
 
 
+[[sap-backup-restore-and-disaster-recovery-blogs]]
 === SAP 备份，还原和灾难恢复博客
 
 
 
+[[sap-lifecycle-management-blogs]]
 == SAP 生命周期管理博客
 
 * link:https://blogs.sap.com/2021/10/27/whitepaper-sap-landscape-management-with-netapp/["NetApp 的 SAP Landscape Management"]

@@ -20,6 +20,7 @@ image:sc-saphana-vmware-smas-image31.png["图显示了所讨论的内容"]
 
 
 
+[[topology-view]]
 == 拓扑视图
 
 在拓扑视图中、SnapCenter会显示源存储集群和目标存储集群的备份。
@@ -34,6 +35,7 @@ image:sc-saphana-vmware-smas-image34.png["图显示了所讨论的内容"]
 
 
 
+[[snapshots-at-storage-systems]]
 == 存储系统上的快照
 
 SnapCenter创建的Snapshot备份可在两个存储系统的两个HANA数据卷上使用。ONTAP会在一致性组级别创建其他快照、所有其他HANA卷也可使用这些快照。

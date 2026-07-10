@@ -18,6 +18,7 @@ summary: 本节介绍如何创建按需Snapshot备份和按需块完整性检查
 
 
 
+[[create-an-on-demand-snapshot-backup]]
 == 创建按需Snapshot备份
 
 按照以下步骤创建按需Snapshot备份。
@@ -78,6 +79,7 @@ sapcc-hana-svm::>
 ....
 
 
+[[create-an-on-demand-block-integrity-check-operation]]
 == 创建按需块完整性检查操作
 
 通过选择策略BlockIntegrityCheck、可以按与Snapshot备份作业相同的方式执行按需块完整性检查操作。使用此策略计划备份时， SnapCenter 会为系统和租户数据库创建标准 SAP HANA 文件备份。

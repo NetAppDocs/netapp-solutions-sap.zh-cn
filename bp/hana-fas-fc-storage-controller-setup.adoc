@@ -18,6 +18,7 @@ summary: 本节介绍 NetApp 存储系统的配置。您必须根据相应的 ON
 
 
 
+[[storage-efficiency]]
 == 存储效率
 
 在 SSD 配置中， SAP HANA 支持实时重复数据删除，跨卷实时重复数据删除，实时数据压缩和实时数据缩减。
@@ -26,18 +27,21 @@ summary: 本节介绍 NetApp 存储系统的配置。您必须根据相应的 ON
 
 
 
+[[netapp-flexgroup-volumes]]
 == NetApp FlexGroup卷
 
 SAP HANA不支持使用NetApp FlexGroup卷。由于SAP HANA的架构、使用FlexGroup卷不会带来任何优势、可能会导致性能问题。
 
 
 
+[[netapp-volume-and-aggregate-encryption]]
 == NetApp卷和聚合加密
 
 SAP HANA支持使用NetApp卷加密(NVE)和NetApp聚合加密(NAE)。
 
 
 
+[[ontap-autonomous-ransomware-protection]]
 == ONTAP 自主勒索软件防护
 
 由 ONTAP Autonomous Ransomware Protection 创建的快照不能用于 SAP HANA 数据库的前向恢复。因此，不建议将其用于 SAP HANA 数据和日志卷，应为这些卷禁用此功能。使用基于 SnapCenter 的数据保护和防篡改快照来进行勒索软件防护：link:../backup/hana-sc-generic-scope.html["使用 SnapCenter 进行 SAP HANA 备份和恢复"]。ONTAP Autonomous Ransomware Protection 可能对其他卷（如 /hana/shared）有益。
@@ -46,18 +50,21 @@ SAP HANA支持使用NetApp卷加密(NVE)和NetApp聚合加密(NAE)。
 
 
 
+[[quality-of-service]]
 == Quality of service
 
 QoS可用于限制共享控制器上特定SAP HANA系统或非SAP应用程序的存储吞吐量。
 
 
 
+[[production-and-devtest]]
 === 生产和开发/测试
 
 其中一个使用情形是，限制开发和测试系统的吞吐量，使其不会影响混合环境中的生产系统。在规模估算过程中，您应确定非生产系统的性能要求。开发和测试系统的规模可以采用较低的性能值进行调整，通常在 SAP 定义的生产系统 KPI 的 20% 到 50% 范围内。大型写入 I/O 对存储系统的性能影响最大。因此，应将 QoS 吞吐量限制设置为数据卷和日志卷中相应写入 SAP HANA 存储性能 KPI 值的百分比。
 
 
 
+[[shared-environments]]
 === 共享环境
 
 另一个使用情形是限制写入负载繁重的吞吐量、尤其是避免这些工作负载对其他延迟敏感型写入工作负载产生影响。在这种环境下、最佳做法是对每个Storage Virtual Machine (SVM)中的每个LUN应用非共享吞吐量上限QoS组策略、以将每个存储对象的最大吞吐量限制为给定值。这样可以减少单个工作负载对其他工作负载产生负面影响的可能性。
@@ -84,6 +91,7 @@ NOTE: 此限制也适用于读取。因此、请使用足够的LUN来满足SAP H
 
 
 
+[[netapp-fabricpool]]
 == NetApp FabricPool
 
 SAP HANA 系统中的活动主文件系统不能使用 NetApp FabricPool 技术。这包括数据和日志区域的文件系统以及 ` /hana 或共享` 文件系统。这样做会导致性能不可预测，尤其是在启动 SAP HANA 系统期间。
@@ -97,6 +105,7 @@ FabricPool 是将日志备份移动到另一存储层的理想选择。移动备
 
 
 
+[[configure-storage]]
 == 配置存储
 
 以下概述总结了所需的存储配置步骤。后续章节将更详细地介绍每个步骤。在启动这些步骤之前，请完成存储硬件设置， ONTAP 软件安装以及存储 FCP 端口与 SAN 网络结构的连接。
@@ -111,6 +120,7 @@ FabricPool 是将日志备份移动到另一存储层的理想选择。移动备
 
 
 
+[[disk-shelf-connections]]
 == 磁盘架连接
 
 对于 HDD ，最多可以将两个 DS2246 磁盘架或四个 DS224C 磁盘架连接到一个 SAS 堆栈，以提供 SAP HANA 主机所需的性能，如下图所示。每个磁盘架中的磁盘必须平均分布到 HA 对的两个控制器。
@@ -123,6 +133,7 @@ image:saphana_fas_fc_image11.png["图中显示了输入/输出对话框或表示
 
 
 
+[[nvme-disk-shelves]]
 === NVMe 磁盘架
 
 每个NS224 NVMe磁盘架都通过每个控制器两个100GbE端口进行连接、如下图所示。每个磁盘架中的磁盘必须平均分布到 HA 对的两个控制器。
@@ -131,12 +142,14 @@ image:saphana_fas_ns224.png["MVMe磁盘架连接"]
 
 
 
+[[aggregate-configuration]]
 == 聚合配置
 
 通常，您必须为每个控制器配置两个聚合，而与使用的磁盘架或磁盘技术（ SSD 或 HDD ）无关。要使用所有可用的控制器资源，必须执行此步骤。对于 FAS 2000 系列系统，一个数据聚合就足够了。
 
 
 
+[[aggregate-configuration-with-hdds]]
 === 使用 HDD 的聚合配置
 
 下图显示了八个 SAP HANA 主机的配置。每个存储控制器连接四个 SAP HANA 主机。配置了两个单独的聚合，每个存储控制器一个。每个聚合都配置有 4 × 10 = 40 个数据磁盘（ HDD ）。
@@ -145,6 +158,7 @@ image:saphana_fas_fc_image12.png["图中显示了输入/输出对话框或表示
 
 
 
+[[aggregate-configuration-with-sdd-only-systems]]
 === 使用纯 SDD 系统进行聚合配置
 
 通常，每个控制器必须配置两个聚合，而与使用的磁盘架或磁盘技术（ SSD 或 HDD ）无关。
@@ -155,12 +169,14 @@ image:saphana_fas_fc_image13.png["图中显示了输入/输出对话框或表示
 
 
 
+[[storage-virtual-machine-configuration]]
 == Storage Virtual Machine 配置
 
 采用 SAP HANA 数据库的多主机 SAP 环境可以使用一个 SVM 。如果需要，还可以为每个 SAP 环境分配一个 SVM ，以使其由公司内的不同团队进行管理。本文档中的屏幕截图和命令输出使用名为 `HANA` 的 SVM 。
 
 
 
+[[logical-interface-configuration]]
 == 逻辑接口配置
 
 在存储集群配置中，必须创建一个网络接口（ LIF ）并将其分配给一个专用 FCP 端口。例如，如果出于性能原因需要四个 FCP 端口，则必须创建四个 LIF 。下图显示了在SVM上配置的八个SVM的屏幕截图。
@@ -175,6 +191,7 @@ image:saphana_fas_fc_image15a.png["创建 SVM"]
 
 
 
+[[initiator-groups]]
 == 启动程序组
 
 可以为每个服务器或需要访问 LUN 的一组服务器配置 igroup 。igroup 配置需要服务器的全球通用端口名称（ Worldwide Port Name ， WWPN ）。

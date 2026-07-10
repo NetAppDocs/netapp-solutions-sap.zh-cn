@@ -10,6 +10,7 @@ summary: 本节介绍 NetApp 存储系统的配置。您必须根据相应的 Da
 
 
 
+[[single-host]]
 == 单个主机
 
 [role="lead"]
@@ -17,6 +18,7 @@ summary: 本节介绍 NetApp 存储系统的配置。您必须根据相应的 Da
 
 
 
+[[lun-overview]]
 == LUN 概述
 
 下表显示了单主机 SAP HANA 系统的 LUN 配置。
@@ -41,12 +43,15 @@ NOTE: 如果使用 SAP 本地安全存储服务 (LSS)，则 `/lss/shared/SID`目
 
 
 
+[[creating-luns-and-mapping-luns-to-initiator-groups]]
+[[lun_create]]
 == 创建 LUN 并将 LUN 映射到启动程序组
 
 您可以使用NetApp ONTAP System Manager 创建存储卷和 LUN，并将它们映射到服务器的 igroup 和ONTAP CLI。
 
 
 
+[[creating-luns-and-mapping-luns-to-initiator-groups-using-the-cli]]
 === 使用 CLI 创建 LUN 并将 LUN 映射到启动程序组
 
 本节展示了使用 ONTAP 9 命令行为 SAP HANA 单主机系统（SID FC5，使用 LVM 且每个 LVM 卷组有两个 LUN）配置的示例配置：
@@ -82,6 +87,7 @@ lun map -path FC5_shared -igroup HANA-FC5
 
 
 
+[[creating-luns-and-mapping-luns-to-initiator-groups-using-the-gui]]
 === 使用 GUI 创建 LUN 并将 LUN 映射到启动程序组
 
 本节展示了使用以下配置的示例 `ONTAP System Manager`对于使用 LVM 且每个 LVM 卷组有两个 LUN 的 SID FC5 的 SAP HANA 单主机系统：
@@ -155,6 +161,7 @@ image:saphana_asa_fc_image19.png["ONTAP系统管理器 - LUN 概述"]
 
 
 
+[[disable-autonomous-ransomware-protection-for-all-data-und-log-luns]]
 === 禁用所有数据和日志 LUN 的自治勒索软件保护
 
 打开每个数据和日志 LUN 的上下文菜单并禁用勒索软件保护

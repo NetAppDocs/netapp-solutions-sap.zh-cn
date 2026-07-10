@@ -18,12 +18,14 @@ summary: 以下是 SAP HANA 软件安装的要求。
 
 
 
+[[install-on-single-host-system]]
 == 在单主机系统上安装
 
 安装 SAP HANA 软件不需要为单主机系统做任何其他准备。
 
 
 
+[[install-on-multiple-host-system]]
 == 在多主机系统上安装
 
 要在多主机系统上安装 SAP HANA ，请完成以下步骤：
