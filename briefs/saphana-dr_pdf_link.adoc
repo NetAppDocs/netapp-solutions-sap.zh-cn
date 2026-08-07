@@ -27,4 +27,4 @@ summary: 本文档重点介绍 SAP HANA 的灾难恢复。
 
 NetApp开发了全套技术和工具，帮助 IT 组织构建或调整其灾难恢复计划，以满足所有业务需求：
 
-link:https://www.netapp.com/pdf.html?item=/media/6998-sb-3968pdf.pdf["https://www.netapp.com/pdf.html?item=/media/6998-sb-3968pdf.pdf"]
+link:https://www.netapp.com/pdf.html?item=/media/6998-sb-3968.pdf["https://www.netapp.com/pdf.html?item=/media/6998-sb-3968.pdf"]

@@ -27,4 +27,4 @@ summary: 本文档重点介绍 SAP HANA 的备份和恢复。
 
 借助运行NetApp ONTAP ® 数据管理软件的NetApp ® 存储解决方案，结合NetApp SnapCenter ® 数据保护软件，您可以应对所有这些挑战。借助ONTAP软件中包含的NetApp Snapshot™ 技术，您可以在几秒钟内创建备份或执行任何大小数据集的恢复操作。  SAP HANA 支持使用基于存储的 Snapshot 副本作为有效的备份操作。
 
-link:https://www.netapp.com/pdf.html?item=/media/6997-sb-3965pdf.pdf["https://www.netapp.com/pdf.html?item=/media/6997-sb-3965pdf.pdf"]
+link:https://www.netapp.com/pdf.html?item=/media/6997-sb-3965.pdf["https://www.netapp.com/pdf.html?item=/media/6997-sb-3965.pdf"]

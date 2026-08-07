@@ -18,4 +18,4 @@ summary: TR-4646 概述了 SAP HANA 灾难恢复保护的选项。其中包括�
 
 作者：Nils Bauer、NetApp
 
-link:https://www.netapp.com/pdf.html?item=/media/8584-tr4646pdf.pdf["https://www.netapp.com/pdf.html?item=/media/8584-tr4646pdf.pdf"]
+link:https://www.netapp.com/pdf.html?item=/media/8584-tr4646.pdf["https://www.netapp.com/pdf.html?item=/media/8584-tr4646.pdf"]

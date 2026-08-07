@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-sc-bare-metal-asar2-scope.html 
+keywords: SAP HANA, SnapCenter, backup and recovery 
+summary:  
+---
+= 使用运行在裸金属服务器和 NetApp ASA 系统上的 SnapCenter 进行 SAP HANA 数据保护
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+本文档概述了使用 SnapCenter 对在 X64 裸机服务器上运行且数据存储在 NetApp ASA 系统上的 HANA 系统进行数据保护的最佳实践。
+
+作者：Nils Bauer、NetApp
+
+
+
+[[scope-of-this-document]]
+== 本文档的范围
+
+本文档不作为配置整个环境的分步指南，而是侧重于与连接到 NetApp ASA 存储系统的裸机服务器相关的 SnapCenter 和 HANA 的具体细节。
+
+* 设置 SAP HANA 系统
+* 特定 SnapCenter 配置
+* SnapCenter 备份、还原和恢复操作的具体信息
+* SnapCenter SAP 系统刷新操作的具体细节
+
+
+有关详细信息和详细配置说明，请参见link:hana-sc-bare-metal-asar2-additional-info.html["追加信息"]一章中列出的文档。
