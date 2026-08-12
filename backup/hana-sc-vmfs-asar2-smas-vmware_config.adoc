@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-sc-vmfs-asar2-smas-vmware_config.html 
+keywords: SAP HANA, VMware, SnapCenter, backup and recovery, SnapMirror active sync, symmetric active-active, NetApp ASA R2 
+summary:  
+---
+= VMware 配置数据存储和 VM 创建
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+
+
+[[vmware-configuration-datastore-and-vm-creation]]
+== VMware 配置数据存储和 VM 创建
+
+[role="lead"]
+使用先前为用于 SAP HANA 的虚拟机创建的 LUN 创建数据存储库，然后使用这些数据存储库创建虚拟机。
+
+每个 LUN 将用于一个数据存储区，因此将创建用于数据、日志、共享和操作系统的数据存储区。
+
+
+
+[[datastore-creation]]
+=== 数据存储库创建
+
+. 登录到 VSphere 客户端并导航到"数据存储区"选项卡。从数据中心的上下文菜单中选择"存储" -++>++ "新建数据存储区……" + image:hana-sc-vmfs-asar2-smas-image-024.png["图像"]
+. 选中"VMFS"作为数据存储类型。+ image:hana-sc-vmfs-asar2-smas-image-025.png["图像"]
+. 请指定包含 SAP HANA 数据文件的数据存储的名称，并选择之前创建的存储单元 (LUN)。+ image:hana-sc-vmfs-asar2-smas-image-026.png["图像"]
+. 请选择最新的 VMFS 版本。+ image:hana-sc-vmfs-asar2-smas-image-027.png["图像"]
+. 使用分区的完整可用空间。保留默认设置。+ image:hana-sc-vmfs-asar2-smas-image-028.png["图像"]
+. 查看摘要并按"完成"。+ image:hana-sc-vmfs-asar2-smas-image-029.png["图像"]
+. 对日志、共享和操作系统的数据存储重复上述步骤。+ image:hana-sc-vmfs-asar2-smas-image-030.png["图像"]
+
+
+
+
+[[vm-creation]]
+=== 创建 VM
+
+. 创建所有数据存储区后，导航到"VMs and templates"选项卡。从数据中心的上下文菜单中选择"New Virtual Machine……"。+ image:hana-sc-vmfs-asar2-smas-image-031.png["图像"]
+. 选择创建虚拟机的方式。此示例使用"创建新虚拟机"工作流。+ image:hana-sc-vmfs-asar2-smas-image-032.png["图像"]
+. 提供虚拟机名称并选择您的数据中心。+ image:hana-sc-vmfs-asar2-smas-image-033.png["图像"]
+. 选择您的计算硬件 + image:hana-sc-vmfs-asar2-smas-image-034.png["图像"]
+. 选择之前创建的 OS 数据存储。+ image:hana-sc-vmfs-asar2-smas-image-035.png["图像"]
+. 选择所需的虚拟机。+ image:hana-sc-vmfs-asar2-smas-image-036.png["图像"]
+. 选择正在用于 SAP HANA 系统的操作系统版本。此示例使用 SUSE Linux Enterprise (SLES) 15。+ image:hana-sc-vmfs-asar2-smas-image-037.png["图像"]
+. 使用所需的 CPU 和内存配置虚拟机。在操作系统硬盘旁边，使用之前创建的数据存储区为数据、日志和共享添加额外的磁盘。+ image:hana-sc-vmfs-asar2-smas-image-038.png["图像"]
+. 将操作系统安装的 ISO 文件作为 DVD 驱动器附加，并选中"Connect At Power On"。+ image:hana-sc-vmfs-asar2-smas-image-039.png["图像"]
+. 在"高级参数"选项卡中，添加值为"True"的属性"disk.EnableUUID"。这使 SnapCenter 能够在以后发现磁盘详细信息。+ image:hana-sc-vmfs-asar2-smas-image-040.png["图像"]
+. 检查您的设置，然后按"完成"以创建新的虚拟机。+ image:hana-sc-vmfs-asar2-smas-image-041.png["图像"]
+. 打开新虚拟机的电源。+ image:hana-sc-vmfs-asar2-smas-image-042.png["图像"]
+. 连接到控制台并根据 SAP 的指南安装操作系统。+ image:hana-sc-vmfs-asar2-smas-image-043.png["图像"]
+. 安装操作系统后，安装您的 SAP HANA 系统。使用 /hana/data、/hana/log 和 /hana/shared 目录的专用磁盘。
+

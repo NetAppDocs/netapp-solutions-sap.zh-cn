@@ -1,0 +1,72 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-sc-vmfs-asar2-smas-config_asar2.html 
+keywords: SAP HANA, VMware, SnapCenter, backup and recovery, SnapMirror active sync, symmetric active-active, NetApp ASA R2 
+summary:  
+---
+= 配置 ONTAP ASA R2 系统
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+
+
+[[configuring-ontap-asa-r2-systems]]
+== 配置 ONTAP ASA R2 系统
+
+[role="lead"]
+本章介绍如何为 SAP HANA 系统创建必要的 LUN，如何在活动/活动模式下使用 SMas 设置复制，以及如何安装和配置 ONTAP Mediator。
+
+
+
+[[creating-luns]]
+=== 创建 LUN
+
+本章介绍如何使用 NetApp ASA R2 存储系统的 ONTAP System Manager 为 SAP HANA 创建 LUN。
+
+. 登录到 ASA R2 Storage Cluster 的 ONTAP System Manager + image:hana-sc-vmfs-asar2-smas-image-004.jpeg["图像"]
+. 此时将显示控制面板+ image:hana-sc-vmfs-asar2-smas-image-005.png["图像"]
+. 在左侧菜单中选择"Hosts"，然后单击"&#43; Add" + image:hana-sc-vmfs-asar2-smas-image-006.png["图像"]
+. 为您的 VMware ESXi 提供名称，选中"新建主机"选项，并可选择"配置主机邻近度"。选择或提供属于群集的 ESXi 主机的 HBA 的全球端口名称 (WWPN)，并根据需要配置邻近度。+ 单击"添加"。+ image:hana-sc-vmfs-asar2-smas-image-007.png["图像"]
+. 已成功定义主机。+ image:hana-sc-vmfs-asar2-smas-image-008.png["图像"]
+. 从左侧菜单中选择"Storage"，然后单击"+Add" + image:hana-sc-vmfs-asar2-smas-image-009.png["图像"]
+. 为 SAP HANA 数据卷创建数据存储库 LUN + image:hana-sc-vmfs-asar2-smas-image-010.png["图像"]
+. 为 SAP HANA 日志卷创建数据存储库 LUN + image:hana-sc-vmfs-asar2-smas-image-011.png["图像"]
+. 为 SAP HANA 共享卷创建数据存储库 LUN + image:hana-sc-vmfs-asar2-smas-image-012.png["图像"]
+. 为 SAP HANA OS + image:hana-sc-vmfs-asar2-smas-image-013.png["图像"] 创建数据存储 LUN
+. 已创建不同数据存储区所需的所有 LUN + image:hana-sc-vmfs-asar2-smas-image-014.png["图像"]
+
+
+
+
+[[setting-up-the-replication]]
+=== 设置复制
+
+创建 LUN 后，将配置使用处于对称主动/主动模式的 SMas 和异步 SnapVault/SnapMirror 复制作为备份目标的复制。异步复制是可选的，但允许在第三存储系统上存储更长时间的额外备份。
+
+. 从 ONTAP System Manager 的左侧菜单中选择"保护"中的"一致性组"，然后"&#43; 添加"一个新的一致性组"使用现有存储单元" + image:hana-sc-vmfs-asar2-smas-image-015.png["图像"]
+. 提供用于 SAP HANA 存储单元的一致性组的名称，选择"SAP HANA"作为复制类型，并选择数据、日志和共享的存储单元。+ 选中"复制到远程集群"，选择所需的远程集群和 SVM。选择"AutomatedFailOverDuplex"以配置 SMAS 主动/主动模式。选中复制主机。可选择定义邻近设置。+ image:hana-sc-vmfs-asar2-smas-image-016.png["图像"]
+. 对用于虚拟机文件数据存储库的存储单元重复上一步。+ image:hana-sc-vmfs-asar2-smas-image-017.png["图像"]
+. 已成功创建具有 SMAS 保护的一致性组+ image:hana-sc-vmfs-asar2-smas-image-018.png["图像"]
+. 除了用于备份之外，还需创建异步复制。在 SAP HANA 数据库的一致性组的上下文菜单中选择"保护"。在 SAP HANA 数据库的一致性组的上下文菜单中选择"保护"。+ image:hana-sc-vmfs-asar2-smas-image-019.png["图像"]
+. 选中"复制到另一个群集"复选框，选择所需的远程群集和 SVM，然后选择复制策略"MirrorAndVault"。+ image:hana-sc-vmfs-asar2-smas-image-020.png["图像"]
+. 已为 SAP HANA 数据库配置异步复制。如果需要，请为 VM 的 OS 数据存储 LUN 重复上述步骤。+ image:hana-sc-vmfs-asar2-smas-image-018.png["图像"]
+
+
+
+
+[[ontap-mediator]]
+=== ONTAP 调解器
+
+根据 https://docs.netapp.com/us-en/ontap/mediator/#installation-and-upgrade-considerations["安装或升级 ONTAP Mediator"]指南安装 ONTAP Mediator。+ 仅 HTTPs 选项对于 SMas 已足够。+ 安装完成后，复制证书文件 _/opt/netapp/lib/ontap++_++mediator/ontap++_++mediator/server++_++config/intermediate.crt_ 的内容
+
+在 ONTAP 集群上配置 Mediator：
+
+. 登录到 ONTAP System Manager，导航到"Protection" --> "Overview"，然后选择"Add a mediator" image:hana-sc-vmfs-asar2-smas-image-021.png["图像"]
+. 提供先前安装的 Mediator 的信息。将证书文件的内容粘贴到证书部分。按添加。 image:hana-sc-vmfs-asar2-smas-image-022.png["图像"]
+. 已成功添加 ONTAP Mediator。 image:hana-sc-vmfs-asar2-smas-image-023.png["图像"]
+

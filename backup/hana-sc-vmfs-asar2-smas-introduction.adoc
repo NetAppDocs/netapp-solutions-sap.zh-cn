@@ -1,0 +1,141 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-sc-vmfs-asar2-smas-introduction.html 
+keywords: SAP HANA, VMware, SnapCenter, backup and recovery, SnapMirror active sync, symmetric active-active, NetApp ASA R2 
+summary:  
+---
+= 使用 SnapCenter 通过 VMware VMFS 和 SnapMirror 主动同步在 NetApp ASA R2 上实现 SAP HANA 数据保护
+:allow-uri-read: 
+
+
+[role="lead"]
+本文档概述了使用 SnapCenter 对在 VMware 上运行的 HANA 系统进行数据保护的最佳实践，这些系统的数据存储使用 VMFS，LUN 存储在 NetApp ASAr2 系统上，并在对称主动/主动配置中使用 SnapMirror 活动同步。本文档概述了解决方案架构、所需的软件版本和预期受众。它还介绍了 SnapCenter 与 SAP HANA 和 ONTAP 的集成，以实现应用程序一致的备份和恢复操作。
+
+
+
+[[introduction]]
+== 简介
+
+SAP HANA 是一个业务关键型平台，需要高可用性、弹性和应用程序一致性的数据保护。对于生产性 SAP HANA 环境，必须设计存储可用性和还原/恢复功能，以最大限度地减少停机时间、防止故障，并支持从逻辑或操作问题中快速恢复。
+
+本文档介绍了在 VMware vSphere 环境中使用 **NetApp SnapCenter**、**NetApp SnapMirror active sync** 和 **NetApp ASA 存储系统**实施 SAP HANA 数据保护的方法。该解决方案基于**对称双活架构**，其中 SAP HANA 存储使用 SnapMirror active sync 在两个 ONTAP 存储集群之间进行同步复制。此配置允许主机从两个站点持续访问复制的存储，并支持高可用性场景下的自动故障转移。
+
+本文档重点介绍作为 LUN 提供给 VMware ESXi 主机的 SAP HANA 存储卷的配置、为 SAP HANA 系统创建 VMFS 数据存储区，以及将 SAP HANA 数据库集成到 SnapCenter 中以实现应用程序一致性备份和恢复操作。
+
+
+
+[[intended-audience]]
+=== 目标受众
+
+本文档面向负责在 NetApp 存储上设计、部署和保护 SAP HANA 环境的存储管理员、VMware 管理员、SAP Basis 管理员和基础设施架构师。
+
+读者应基本了解：
+
+* SAP HANA 管理。
+* VMware vSphere 和 VMFS 数据存储区管理。
+* ONTAP System Manager。
+* SAN 概念，例如 LUN、启动器、WWPN 和主机映射。
+* NetApp SnapMirror、SnapVault 和一致性组。
+* NetApp SnapCenter 备份和恢复概念。
+
+
+
+
+[[solution-overview]]
+=== 解决方案概述
+
+该解决方案结合了以下 NetApp 和 VMware 技术：
+
+* **NetApp ASA 存储系统**用于基于 SAN 的块存储访问。
+* **ONTAP 一致性组**将 SAP HANA 相关存储单元作为单个受保护实体进行管理。
+* **SnapMirror active sync** 在 **AutomatedFailOverDuplex** 模式下提供对称的主动/主动同步复制。
+* 设置和配置 ONTAP Mediator
+* **VMware vSphere 和 VMFS 数据存储区**用于托管 SAP HANA 虚拟机及其数据、日志、共享和操作系统磁盘。
+* **NetApp SnapCenter Server、SnapCenter Agent 和适用于 SAP HANA 和 VMware vSphere 的插件**，以创建应用程序一致的快照备份。
+* **SnapMirror 和 SnapVault 复制**，用于向辅助系统进行额外的异步备份复制。
+
+
+在此架构中，为 SAP HANA 数据、日志、共享和操作系统卷创建专用 LUN。这些 LUN 映射到 VMware ESXi 主机，并用于创建 VMFS 数据存储区。SAP HANA 虚拟机随后使用位于相应数据存储区上的独立虚拟磁盘。
+
+image:hana-sc-vmfs-asar2-smas-image-001.png["图像"]
+
+SAP HANA 数据、日志和共享存储单元被分组到 ONTAP 一致性组中，并通过 SnapMirror 活动同步进行保护。这可确保 SAP HANA 存储布局在参与的 ONTAP 集群中一致地复制。可选地，操作系统数据存储也可以使用相同的方法进行保护。
+
+
+
+[[snapmirror-active-sync-for-sap-hana]]
+=== 适用于 SAP HANA 的 SnapMirror Active Sync
+
+SnapMirror 主动同步（SMas）通过在两个 ONTAP 集群之间同步复制数据来实现业务连续性。在对称主动/主动配置中，两个存储站点均可提供对复制 LUN 的主动访问。这样，即使一个存储系统或站点不可用，VMware 和 SAP HANA 环境也可以继续运行。
+
+对于 SAP HANA 工作负载，这具有以下优势：
+
+* SAP HANA 存储的同步复制。
+* 使用 ONTAP 一致性组实现应用程序一致性保护。
+* 使用 SnapMirror 主动同步的自动故障转移。
+* SAN 连接的 VMware ESXi 主机的主动/主动访问路径。
+* 在发生存储或站点故障时缩短恢复时间。
+* 使用 ONTAP System Manager 和 SnapCenter 简化管理。
+
+
+本文档中的配置使用 **AutomatedFailOverDuplex** 策略启用 SnapMirror 活动同步主动/主动行为。
+
+image:hana-sc-vmfs-asar2-smas-image-002.png["图像"]
+
+
+
+[[snapcenter-integration]]
+=== SnapCenter 集成
+
+SnapCenter 用于管理 SAP HANA 应用程序一致性备份。部署 SAP HANA 系统后，适用于 SAP HANA 的 SnapCenter 插件将安装在 SAP HANA 主机上。已创建专用的 SAP HANA 数据库用户和安全用户存储密钥，以允许 SnapCenter 与 SAP HANA 数据库进行通信。
+
+SnapCenter 备份策略随后针对不同的保护要求进行配置。例如，每小时策略可用于频繁的本地快照副本和 SnapMirror 活动同步感知，而每日策略可用于更新异步 SnapVault 或 MirrorAndVault 目标以实现长期备份保留。
+
+通过将 SnapCenter 与 SAP HANA 和 ONTAP 集成，该解决方案可提供：
+
+* 应用程序一致的 SAP HANA Snapshot 备份。
+* 基于策略的备份计划。
+* 快照和日志备份保留管理。
+* SnapMirror 和 SnapVault 更新编排。
+* 集中的备份监控和管理。
+* 简化的还原和恢复工作流。
+
+
+image:hana-sc-vmfs-asar2-smas-image-003.png["图像"]
+
+
+
+[[document-scope]]
+=== 文件范围
+
+本文档为以下任务提供了分步配置示例：
+
+. 在 NetApp ASA 存储上创建 LUN。
+. 为 VMware ESXi 主机配置主机访问权限。
+. 正在创建 ONTAP 一致性组。
+. 在主动/主动模式下启用 SnapMirror 主动同步。
+. 安装和配置 ONTAP Mediator
+. 为备份目的配置其他异步复制。
+. 正在创建 VMware VMFS 数据存储库。
+. 部署 SAP HANA 虚拟机。
+. 安装操作系统和 SAP HANA。
+. 将 ONTAP 存储系统添加到 SnapCenter。
+. 创建 SnapCenter 备份策略。
+. 正在为 SnapCenter 创建 SAP HANA 数据库用户。
+. 配置 SAP HANA 安全用户存储密钥。
+. 在 SnapCenter 中注册 SAP HANA 系统。
+. 安排和运行 SAP HANA 备份。
+
+
+这些程序旨在作为实施指南，应根据特定的客户环境、命名标准、网络设计、存储布局和 SAP 规模要求进行调整。
+
+
+
+[[architecture-summary]]
+=== 架构总结
+
+在高层次上，该解决方案由两个使用 ASA 存储的 NetApp ONTAP 集群组成，通过 SAN 连接到 VMware ESXi 主机。SAP HANA 在 VMware 虚拟机内运行。单独的数据存储用于 SAP HANA 操作系统、数据卷、日志卷和共享卷。
+
+SAP HANA 相关存储单元通过 ONTAP 一致性组受 SnapMirror 主动同步保护。这可确保数据、日志和共享卷一起复制，并保持写入顺序一致。SnapCenter 随后用于创建 SAP HANA 感知备份，并触发所需的 ONTAP 快照和复制操作。
+
+这种组合为运行在带有 NetApp ASA 存储的 VMware 上的 SAP HANA 工作负载提供了高可用性且运营高效的数据保护解决方案。

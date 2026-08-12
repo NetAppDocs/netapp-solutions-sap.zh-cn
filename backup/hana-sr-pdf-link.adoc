@@ -18,4 +18,4 @@ TR-4719 介绍了如何在 SAP HANA 系统复制环境中使用 NetApp SnapCente
 
 NetApp 公司 Nil Bauser
 
-link:https://www.netapp.com/pdf.html?item=/media/17030-tr4719pdf.pdf["https://www.netapp.com/pdf.html?item=/media/17030-tr4719pdf.pdf"]
+link:https://www.netapp.com/pdf.html?item=/media/17030-tr4719.pdf["https://www.netapp.com/pdf.html?item=/media/17030-tr4719.pdf"]

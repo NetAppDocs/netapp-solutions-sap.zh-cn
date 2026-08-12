@@ -1,0 +1,74 @@
+---
+sidebar: sidebar 
+permalink: backup/hana-sc-vmfs-asar2-smas-add_info.html 
+keywords: SAP HANA, VMware, SnapCenter, backup and recovery, SnapMirror active sync, symmetric active-active, NetApp ASA R2 
+summary:  
+---
+= 追加信息
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+
+
+[[additional-information]]
+== *其他信息*
+
+[role="lead"]
+本文提供了指向与此解决方案相关的其他资源的链接。
+
+*SAP HANA 最佳实践*
+
+* https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-asa-fc-introduction.html["基于采用光纤通道协议的 NetApp ASA 系统的 SAP HANA"](英文)
+
+
+*SnapCenter*
+
+* https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-sc-generic-scope.html["使用 SnapCenter 进行 SAP HANA 备份和恢复"]
+* https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-sr-scs-system-replication-overview.html["SAP HANA系统复制—使用SnapCenter进行备份和恢复"]
+* https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html["利用 SnapCenter 自动执行 SAP HANA 系统复制和克隆操作"]
+* https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-sc-vmware-smas-scope.html["通过 SnapCenter™ SnapMirror主动同步和 VMware Metro Storage Cluster 实现 SAP HANA 数据保护和高可用性"]
+* https://docs.netapp.com/us-en/snapcenter/index.html["SnapCenter 软件文档"]
+* https://docs.netapp.com/us-en/snapcenter/protect-hana/concept_snapcenter_plug_in_for_sap_hana_database_overview.html["SnapCenter Plug-in for SAP HANA 概述"]
+* https://docs.netapp.com/us-en/snapcenter/protect-hana/task_add_hosts_and_install_plug_in_packages_on_remote_hosts_sap_hana.html["添加主机并安装 SnapCenter 插件包"]
+
+
+*NetApp ASA 存储系统*用于基于 SAN 的块存储访问
+
+* https://docs.netapp.com/us-en/ontap-systems/asa-r2/index.html["NetApp ASA R2 系统文档"]
+* https://docs.netapp.com/us-en/ontap/san-admin/index.html["ONTAP SAN 管理"]
+
+
+*ONTAP 一致性组*将 SAP HANA 相关存储单元作为单个受保护实体进行管理
+
+* https://docs.netapp.com/us-en/ontap/consistency-groups/index.html["ONTAP 一致性组概述"]
+
+
+*SnapMirror active sync* 处于 *AutomatedFailOverDuplex* 模式，用于对称主动/主动同步复制
+
+* https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html["SnapMirror 活动同步概述"]
+* https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/architecture-concept.html["SnapMirror 主动同步架构"]
+
+
+设置和配置 *ONTAP Mediator*
+
+* https://docs.netapp.com/us-en/ontap/mediator/index.html["ONTAP Mediator 文档"]
+* https://docs.netapp.com/us-en/ontap/mediator/workflow-summary.html["安装或升级 ONTAP Mediator"]
+
+
+*SnapMirror 和 SnapVault 复制*用于向辅助系统进行异步备份复制
+
+* https://docs.netapp.com/us-en/ontap/data-protection/index.html["ONTAP 数据保护文档"]
+* https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-replication-concept.html["SnapMirror 复制概述"]
+* https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-disaster-recovery-concept.html["SnapVault 存档/保管库保护概念"] ++|++
+
+
+*VMware vSphere 和 VMFS 数据存储区*，用于托管 SAP HANA VM 磁盘
+
+* https://docs.netapp.com/us-en/ontap-apps-dbs/vmware/vmware-vsphere-overview.html["VMware vSphere 与 ONTAP 文档"]
+* https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere/["适用于 VMware vSphere 的 ONTAP tools 文档"]
+

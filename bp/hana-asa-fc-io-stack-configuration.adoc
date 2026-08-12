@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: bp/hana-asa-fc-io-stack-configuration.html 
-keywords: io, i/o, stack, configuration, database 
-summary: 从 SAP HANA 1.0 SPS10 开始， SAP 引入了一些参数来调整 I/O 行为并针对所用文件和存储系统优化数据库。 
+keywords: io, io-stack, configuration, database 
+summary: 从 SAP HANA 1.0 SPS10 开始，SAP 引入了参数来调整 IO 行为，并针对所使用的文件和存储系统优化数据库。 
 ---
 = 适用于 SAP HANA 的 I/O 堆栈配置
 :allow-uri-read: 
@@ -13,6 +13,7 @@ summary: 从 SAP HANA 1.0 SPS10 开始， SAP 引入了一些参数来调整 I/O
 [[io-stack-configuration-for-sap-hana]]
 == 适用于 SAP HANA 的 I/O 堆栈配置
 
+[role="lead"]
 从 SAP HANA 1.0 SPS10 开始， SAP 引入了一些参数来调整 I/O 行为并针对所用文件和存储系统优化数据库。
 
 NetApp 进行了性能测试以定义理想值。下表列出了从性能测试中推断的最佳值。
