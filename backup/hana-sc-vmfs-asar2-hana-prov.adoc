@@ -13,6 +13,7 @@ summary:
 :imagesdir: ../media/
 
 
+[role="lead"]
 本章介绍如何使用VMFS安装和配置特定于VMware设置的SAP HANA系统。有关其他通用最佳实践，请参见 https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-asa-fc-introduction.html["基于采用光纤通道协议的 NetApp ASA 系统的 SAP HANA"]。
 
 

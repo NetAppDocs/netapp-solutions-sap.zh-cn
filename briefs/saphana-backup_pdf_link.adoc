@@ -13,6 +13,9 @@ summary: 本文档重点介绍 SAP HANA 的备份和恢复。
 :imagesdir: ../media/
 
 
+[role="lead"]
+使用 NetApp ONTAP 存储、快照技术和 SnapCenter software，在不影响生产性能的情况下，在几秒钟内备份和恢复任何规模的 SAP HANA 数据库。
+
 
 
 [[the-challenge]]

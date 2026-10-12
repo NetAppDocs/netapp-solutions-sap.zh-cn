@@ -6233,4 +6233,9 @@ nf修改-vserver hana -v4.x-sSession-num-sports &lt;value&gt;
   <block id="a4c2f2f16b272c4054a8e3cd554f5fa0" category="paragraph">通过使用 SVM 复制，将卷、逻辑接口、导出策略、NFS 设置和访问配置等关键 NAS 组件镜像到辅助站点。这降低了操作复杂性，并使辅助环境能够在主站点或存储系统不可用时快速接管。</block>
   <block id="334c73889c7cb1cdbc6f31b27820c9a9" category="paragraph">ONTAP Mediator 监控参与的 ONTAP 系统，并在故障场景中支持仲裁决策。它有助于防止脑裂情况，并实现受控的故障转移行为。NAS 的 SnapMirror 主动同步与 ONTAP Mediator 共同为需要高可用性、同步复制和强大恢复目标的 SAP HANA 环境提供了弹性存储基础。</block>
   <block id="201a54a995825f338ef39a67ad865244" category="paragraph"><block ref="201a54a995825f338ef39a67ad865244" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4b516344ad0bee38d9cb77420d3090f1" category="paragraph">查找相关 SAP HANA、SnapCenter 和 NetApp 文档的链接，并查看此解决方案的版本历史记录。</block>
+  <block id="d86efceb79b2224e96602b9a52811721" category="paragraph">配置 SAP HANA 数据库用户和 SnapCenter 用于与 HANA 系统通信的 hdb userstore 密钥。</block>
+  <block id="2d56321b4b08c798784701897164d4a4" category="paragraph">查看先决条件并配置 SnapCenter 以保护使用 VMware VMFS 数据存储的 SAP HANA 系统。</block>
+  <block id="07112221fd2661fd0e95645b350bce7c" category="paragraph">使用 NetApp ONTAP 存储、快照技术和 SnapCenter software，在不影响生产性能的情况下，在几秒钟内备份和恢复任何规模的 SAP HANA 数据库。</block>
+  <block id="9418552ef4445215e623a2257da09813" category="paragraph">使用 NetApp 技术和工具组合来构建或调整灾难恢复计划，以保持关键任务 SAP HANA 应用程序的可用性。</block>
 </blocks>

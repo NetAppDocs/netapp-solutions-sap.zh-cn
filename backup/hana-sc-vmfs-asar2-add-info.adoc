@@ -8,6 +8,9 @@ summary:
 :allow-uri-read: 
 
 
+[role="lead"]
+查找相关 SAP HANA、SnapCenter 和 NetApp 文档的链接，并查看此解决方案的版本历史记录。
+
 HANA 最佳实践：
 
 * https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-asa-fc-introduction.html["基于采用光纤通道协议的 NetApp ASA 系统的 SAP HANA"](英文)

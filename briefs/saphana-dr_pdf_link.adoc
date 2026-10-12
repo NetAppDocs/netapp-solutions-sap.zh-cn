@@ -13,6 +13,9 @@ summary: 本文档重点介绍 SAP HANA 的灾难恢复。
 :imagesdir: ../media/
 
 
+[role="lead"]
+使用 NetApp 技术和工具组合来构建或调整灾难恢复计划，以保持关键任务 SAP HANA 应用程序的可用性。
+
 
 
 [[the-challenge]]

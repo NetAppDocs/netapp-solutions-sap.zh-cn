@@ -8,6 +8,7 @@ summary:
 :allow-uri-read: 
 
 
+[role="lead"]
 有关使用 SnapCenter 的 SAP 系统刷新操作的详细信息，请参见 https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html["利用 SnapCenter 自动执行 SAP HANA 系统复制和克隆操作"]。
 
 第二个 HANA 系统 QFS 已按照第章中描述的方式进行配置link:hana-sc-vmfs-asar2-hana-prov.html["“HANA 系统配置和安装”"] 。
